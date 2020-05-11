@@ -1,6 +1,5 @@
 import React, { Component } from 'react';
-import { Navbar, NavbarBrand, Nav, NavbarToggler, Collapse, NavItem, Jumbotron, Button, 
-    Modal, ModalHeader, ModalBody, Form, FormGroup, Label, Input } from 'reactstrap';
+import { Navbar, NavbarBrand, Nav, NavbarToggler, Collapse, NavItem, Jumbotron, Button} from 'reactstrap';
 import { NavLink } from 'react-router-dom';
 
 class Header extends Component {
@@ -14,26 +13,12 @@ class Header extends Component {
           };
 
           this.toggleNav = this.toggleNav.bind(this);
-          this.toggleModal = this.toggleModal.bind(this);
-          this.handleLogin = this.handleLogin.bind(this);
         }
 
     toggleNav() {
         this.setState({
             isNavOpen: !this.state.isNavOpen
         });
-    }
-
-    toggleModal() {
-        this.setState({
-            isModalOpen: !this.state.isModalOpen
-        });
-    }
-
-    handleLogin(event) {
-        this.toggleModal();
-        alert("Username: " + this.username.value + " Password: " + this.password.value);
-        event.preventDefault();
     }
 
     render() {
@@ -69,40 +54,19 @@ class Header extends Component {
                     </div>
                 </Navbar>
                 <Jumbotron>
-                    <div className="container">
-                        <div className="row row-header">
-                            <div className="col-12 col-sm-6">
-                                <h1>Ristorante con Fusion</h1>
-                                <p>We take inspiration from the World's best cuisines, and create a unique fusion experience. Our lip-smacking creations will tickle your culinary senses!</p>
+                    <div class="container d-flex h-100">
+                        <div class="row justify-content-center align-self-center w-100">
+                            <div className="col-12 text-center noselect">
+                                <p className="jumbotron-subtitle jumbotron-title-font">Full Stack Developer</p>
+                                <h1 className="display-4">
+                                    <span className="border rounded border-3 px-3 jumbotron-title-font super-bold">Lawrence McDaniel</span>
+                                </h1>
+                                <p className="jumbotron-subtitle jumbotron-title-font">Open edX Enthusiast</p>
                             </div>
                         </div>
-                    </div>
+                    </div>                    
                 </Jumbotron>
-                <Modal isOpen={this.state.isModalOpen} toggle={this.toggleModal}>
-                    <ModalHeader>Login</ModalHeader>
-                    <ModalBody>
-                        <Form onSubmit={this.handleLogin}>
-                            <FormGroup>
-                                <Label htmlFor="username">Username</Label>
-                                <Input type="test" id="username" name="username" 
-                                    innerRef={(input) => this.username = input} />
-                            </FormGroup>
-                            <FormGroup>
-                                <Label htmlFor="password">Password</Label>
-                                <Input type="password" id="password" name="password" 
-                                    innerRef={(input) => this.password = input} />
-                            </FormGroup>
-                            <FormGroup check>
-                                <Label check>
-                                    <Input type="checkbox" name="remember" 
-                                        innerRef={(input) => this.remember = input} />
-                                    Remember me
-                                </Label>
-                            </FormGroup>
-                            <Button type="submit" value="submit" color="primary">Login</Button>
-                        </Form>
-                    </ModalBody>
-                </Modal>
+
             </React.Fragment>
         );
     }

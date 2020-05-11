@@ -1,3 +1,7 @@
+
+.home-banner {
+}
+
 .row-header{
     margin:0px auto;
     padding:0px auto;
@@ -16,10 +20,40 @@
     padding: 20px 0px 20px 0px;
 }
 .jumbotron {
-    padding:70px 30px 70px 30px;
     margin:0px auto;
-    background: #9575CD ;
     color:floralwhite;
+    background-image: url('https://cdn.lawrencemcdaniel.com/wp-content/uploads/2016/09/22195717/banner-o2.jpg');
+    height: 100vh;
+
+}
+.noselect {
+    -webkit-touch-callout: none; /* iOS Safari */
+      -webkit-user-select: none; /* Safari */
+       -khtml-user-select: none; /* Konqueror HTML */
+         -moz-user-select: none; /* Old versions of Firefox */
+          -ms-user-select: none; /* Internet Explorer/Edge */
+              user-select: none; /* Non-prefixed version, currently
+                                    supported by Chrome, Edge, Opera and Firefox */
+  }
+
+.super-bold {
+    font-weight: 900;
+    font-size: 72px;
+    font-stretch: ultra-condensed !important;
+}
+.jumbotron-title-font {
+    font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+}
+.jumbotron-subtitle {
+    font-size: 32px;
+    font-weight: 500;
+}
+
+.width-50 {
+    width: 50% !important;
+}
+.border-3 {
+    border-width:3px !important;
 }
 
 address{
