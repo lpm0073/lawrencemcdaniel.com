@@ -1,4 +1,15 @@
 
+
+.navbar-dark {
+    background-color: rgba(0,0,0,.4);
+}
+
+.navbar-dark .navbar-nav .nav-link {
+    color: white;
+    font-family: 'Courier New', Courier, monospace;
+    font-size: x-large;
+}
+
 .row-header{
     margin:0px auto;
     padding:0px auto;
@@ -11,11 +22,7 @@
     min-height:400px;
 }
 
-.footer{
-    background-color: #eee;
-    margin:0px auto;
-    padding: 20px 0px 20px 0px;
-}
+
 .jumbotron {
     margin:0px auto;
     color:floralwhite;
@@ -60,10 +67,23 @@ address{
     color:#0f0f0f;
 }
 
-.navbar-dark {
-    background-color: rgba(0,0,0,0);
+
+.woz-u {
+    width: 20%;
+    min-width: 200px;
+    text-align: center;
+    margin: auto auto 25px auto;
+    border-bottom: 1px solid #f1f1f1;
+   }
+
+ .footer{
+    background-color: #333;
+    color: white;
+    margin:0px auto;
+    padding: 20px 0 0 0;
+    font-family: 'Courier New', Courier, monospace;
 }
 
-.navbar-dark .navbar-nav .nav-link {
+.footer a {
     color: white;
 }
