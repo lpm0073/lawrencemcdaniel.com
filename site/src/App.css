@@ -57,8 +57,10 @@
 .width-50 {
     width: 50% !important;
 }
+
 .border-3 {
-    border-width:3px !important;
+    border: 3px solid white;
+    border-radius: 3px;
 }
 
 address{
@@ -68,13 +70,6 @@ address{
 }
 
 
-.woz-u {
-    width: 20%;
-    min-width: 200px;
-    text-align: center;
-    margin: auto auto 25px auto;
-    border-bottom: 1px solid #f1f1f1;
-   }
 
  .footer{
     background-color: #333;
@@ -88,3 +83,47 @@ address{
 .footer a {
     color: white;
 }
+
+/*-------------- Responsive Styling -----------------------*/
+
+/********** Large devices only **********/
+@media (min-width: 1200px) {
+
+}
+
+/********** Medium devices only **********/
+@media (min-width: 992px) and (max-width: 1199px) {
+
+}
+
+/********** Small devices only **********/
+@media (min-width: 768px) and (max-width: 991px) {
+
+}
+
+/********** Extra small devices only **********/
+@media (max-width: 767px) {
+
+/* here! */
+.border-3 {
+    border: none !important;
+}
+.super-bold {
+    font-size: 24px !important;
+    letter-spacing: initial !important;
+    font-weight: initial !important;
+}
+
+.jumbotron-subtitle {
+    visibility: hidden;
+}
+
+.footer-extra-links {
+    visibility: hidden;
+}
+}
+/********** Super extra small devices Only :-) (e.g., iPhone 4) **********/
+@media (max-width: 479px) {
+
+}
+

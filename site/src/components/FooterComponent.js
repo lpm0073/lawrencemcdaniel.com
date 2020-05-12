@@ -9,12 +9,12 @@ function Footer(props) {
                 <div className="row justify-content-center">
                     <div className="col-auto">
                         <div className="text-center">                        
-                            <a className="mx-1" href="http://cdn.lawrencemcdaniel.com/doc/lawrence-mcdaniel-resume-201911.pdf" target="_blank">Resume</a><span> | </span>
-                            <a className="mx-1" href="https://www.linkedin.com/in/lawrencemcdaniel/" target="_blank">LinkedIn</a><span> | </span>
-                            <a className="mx-1" href="https://www.facebook.com/lawrence.p.mcdaniel" target="_blank">Facebook</a><span> | </span>
-                            <a className="mx-1" href="https://github.com/lpm0073" target="_blank">Github</a><span> | </span>
-                            <a className="mx-1" href="https://angel.co/lpm0073-gmail-com" target="_blank">Angel Network</a><span> | </span>
-                            <a className="mx-1" href="https://www.codementor.io/lawrencemcdaniel" target="_blank">Codementor.io</a><span> | </span>
+                            <a className="mx-1" href="http://cdn.lawrencemcdaniel.com/doc/lawrence-mcdaniel-resume-201911.pdf" target="_blank" rel="noopener noreferrer">Resume</a><span> | </span>
+                            <a className="mx-1" href="https://www.linkedin.com/in/lawrencemcdaniel/" target="_blank" rel="noopener noreferrer">LinkedIn</a><span> | </span>
+                            <a className="mx-1" href="https://www.facebook.com/lawrence.p.mcdaniel" target="_blank" rel="noopener noreferrer">Facebook</a><span className="footer-extra-links"> | </span>
+                            <a className="mx-1 footer-extra-links" href="https://github.com/lpm0073" target="_blank" rel="noopener noreferrer">Github</a><span className="footer-extra-links"> | </span>
+                            <a className="mx-1 footer-extra-links" href="https://angel.co/lpm0073-gmail-com" target="_blank" rel="noopener noreferrer">Angel Network</a><span className="footer-extra-links"> | </span>
+                            <a className="mx-1 footer-extra-links" href="https://www.codementor.io/lawrencemcdaniel" target="_blank" rel="noopener noreferrer">Codementor.io</a><span className="footer-extra-links"> | </span>
                         </div>
                     </div>
                 </div>
