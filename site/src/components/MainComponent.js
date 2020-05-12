@@ -88,12 +88,12 @@ class Main extends Component {
             <Route path="/home" component={HomePage} />
             <Route exact path="/menu" component={() => <Menu dishes={this.props.dishes} />} />
             <Route path="/menu/:dishId" component={DishWithId} />
-            <Route exact path="/contactus" component={() => <Contact 
+            <Route exact path="/contact" component={() => <Contact 
                                                               resetFeedbackForm={this.props.resetFeedbackForm} 
                                                               postFeedback={this.props.postFeedback}
                                                               />
                                                       } />
-            <Route exact path="/aboutus" component={AboutPage} />
+            <Route exact path="/about" component={AboutPage} />
             <Redirect to="/home" />
           </Switch>
         <Footer />

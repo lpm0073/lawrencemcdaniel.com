@@ -33,21 +33,34 @@ class Header extends Component {
                                 <NavLink className="nav-link"  to='/home'>Home</NavLink>
                             </NavItem>
                             <NavItem>
-                                <NavLink className="nav-link" to='/aboutus'>About</NavLink>
+                                <NavLink className="nav-link" to='/about'>About</NavLink>
                             </NavItem>
                             <NavItem>
-                                <NavLink className="nav-link"  to='/menu'>Menu</NavLink>
+                                <NavLink className="nav-link"  to='/specialities'>Specialities</NavLink>
                             </NavItem>
                             <NavItem>
-                                <NavLink className="nav-link" to='/contactus'>Contact</NavLink>
+                                <NavLink className="nav-link"  to='/portfolio'>Portfolio</NavLink>
                             </NavItem>
-                            </Nav>
-                            <Nav className="ml-auto" navbar>
-                                <NavItem>
-                                    <Button outline onClick={this.toggleModal}>
-                                        <span className="fa fa-sign-in fa-lg">Login</span>
-                                    </Button>
-                                </NavItem>
+                            <NavItem>
+                                <NavLink className="nav-link"  to='/skills'>Skills</NavLink>
+                            </NavItem>
+                            <NavItem>
+                                <NavLink className="nav-link"  to='/education'>Education</NavLink>
+                            </NavItem>
+                            <NavItem>
+                                <NavLink className="nav-link"  to='/testimonials'>Testimonials</NavLink>
+                            </NavItem>
+
+                            <NavItem>
+                                <NavLink className="nav-link" to='/contact'>Contact</NavLink>
+                            </NavItem>
+                            <NavItem>
+                                <NavLink className="nav-link"  to='/code'>Code</NavLink>
+                            </NavItem>
+                            <NavItem>
+                                <NavLink className="nav-link"  to='/blog'>Blog</NavLink>
+                            </NavItem>
+
                             </Nav>
                         </Collapse>
                     </div>
