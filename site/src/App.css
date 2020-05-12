@@ -10,6 +10,55 @@
     font-size: large;
 }
 
+.site-page {
+    margin-top: 59px;
+}
+
+.page-title .display-4 {
+    font-weight: 900;
+}
+
+.page-title span {
+    margin-top: 27px;
+    margin-bottom: 27px;
+}
+.fa {
+    padding-top: 22px;
+    display: inline-block;
+}
+
+.page-tile-icon {
+    margin: 0 auto 0 auto;
+    background-color: #ccc;
+    width: 80px;
+    height: 80px;
+    border-radius: 100%;
+    color: white;
+}
+
+.page-title-boxed {
+    color: white;
+    background-color: rgba(59,63,80,0.6);
+    border-radius: 6px;
+    padding: 0 10px;
+}
+*:after, *::before {
+    -webkit-box-sizing: border-box;
+    -moz-box-sizing: border-box;
+    box-sizing: border-box;
+}
+
+.page-title h1:after {
+    
+}
+.page-title h1:before, 
+.page-title h1:after {
+    background: none repeat scroll 0 0 #666666;
+    content: "";
+    height: 2px;
+    width: 30px;
+}
+
 .row-header{
     margin:0px auto;
     padding:0px auto;

@@ -1,7 +1,8 @@
 qThis project was bootstrapped with [Create React App](https://github.com/facebook/create-react-app).
 
 ## Node dev server:
-json-server --watch ./json-server/db.json -p 3001 -d 2000
+cd /Users/mcdaniel/github/lpm0073/lawrencemcdaniel.com/json-server/
+json-server --watch db.json -p 3001 -d 2000
 
 https://www.coursera.org/learn/front-end-react/peer/ptyN7/react-router-and-single-page-applications
 

@@ -1,6 +1,5 @@
 import React from 'react';
 import { Breadcrumb, BreadcrumbItem, Card, CardBody, CardHeader, Media } from 'reactstrap';
-import { Link } from 'react-router-dom';
 import { baseUrl } from '../shared/baseUrl';
 import { Fade, Stagger } from 'react-animation-components';
 
@@ -28,20 +27,28 @@ function RenderLeader({leader}) {
     );
 }
 
+function RenderPageTitle({icon, title, boxed_title}) {
+    const thisClassName = "fa " + icon + " fa-2x page-tile-icon";
+
+    return(
+
+        <div className="row">
+            <div className="col-12 text-center page-title">
+                <span className={thisClassName}></span>
+                <h1 className="display-4">{title} <span className="page-title-boxed">{boxed_title}</span></h1>
+            </div>                
+        </div>
+
+    );
+
+};
+
+
 function About(props) {
 
     return(
-        <div className="container">
-            <div className="row">
-                <Breadcrumb>
-                    <BreadcrumbItem><Link to="/home">Home</Link></BreadcrumbItem>
-                    <BreadcrumbItem active>About Us</BreadcrumbItem>
-                </Breadcrumb>
-                <div className="col-12">
-                    <h3>About Us</h3>
-                    <hr />
-                </div>                
-            </div>
+        <div className="container site-page">
+            <RenderPageTitle icon="fa-user" title="ABOUT" boxed_title="ME" />
             <div className="row row-content">
                 <div className="col-12 col-md-6">
                     <h2>Our History</h2>
