@@ -20,7 +20,7 @@ const Bio = (props) => {
                         <div className="col-4 d-flex p-0">
                             <div className="center-linkedin-profile ml-auto text-center">
                                 <div className="LI-profile-badge" data-version="v1" data-size="large" data-locale="en_US" data-type="vertical" data-theme="dark" data-vanity="lawrencemcdaniel"><a class="LI-simple-link" href="https://mx.linkedin.com/in/lawrencemcdaniel?trk=profile-badge">Lawrence McDaniel</a></div>
-                                <a target="_blank" href={resumeUrl}>
+                                <a target="_blank" href={resumeUrl} rel="noopener noreferrer">
                                     <div className="bio-resume-button mt-3 btn btn-primary btn-lg ">
                                         <i class="fa fa-download"></i> Download Resume
                                     </div>
