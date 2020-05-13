@@ -60,36 +60,35 @@ class Header extends Component {
                                 <DropdownToggle nav caret>Code</DropdownToggle>
                                 <DropdownMenu >
                                     <DropdownItem >
-                                        <a className="mx-1" href='https://www.sustainableimpactfund.com/' target="_blank" rel="noopener noreferrer">Wordpress Site</a>
+                                        <a className="" href='https://www.sustainableimpactfund.com/' target="_blank" rel="noopener noreferrer">Wordpress Site</a>
                                     </DropdownItem>
                                     <DropdownItem>
-                                        <a className="mx-1" href='https://clients.lawrencemcdaniel.com/' target="_blank" rel="noopener noreferrer">Ecommerce Site</a>
+                                        <a className="" href='https://clients.lawrencemcdaniel.com/' target="_blank" rel="noopener noreferrer">Ecommerce Site</a>
                                     </DropdownItem>
                                     <DropdownItem>
-                                        <a className="mx-1" href='https://my.roverbyopenstax.org/' target="_blank" rel="noopener noreferrer">Open edX Site</a>
+                                        <a className="" href='https://my.roverbyopenstax.org/' target="_blank" rel="noopener noreferrer">Open edX Site</a>
                                     </DropdownItem>
                                     <DropdownItem>
-                                        <a className="mx-1" href='https://horrors.lawrencemcdaniel.com/' target="_blank" rel="noopener noreferrer">AngularJS Site</a>
+                                        <a className="" href='https://horrors.lawrencemcdaniel.com/' target="_blank" rel="noopener noreferrer">AngularJS Site</a>
                                     </DropdownItem>
                                     <DropdownItem>
-                                        <a className="mx-1" href='/' rel="noopener noreferrer">ReactJS (This Site)</a>
+                                        <a className="" href='/' rel="noopener noreferrer">ReactJS (This Site)</a>
                                     </DropdownItem>
                                     <DropdownItem>
-                                        <a className="mx-1" href='https://edx.lawrencemcdaniel.com/' target="_blank" rel="noopener noreferrer">Pure HTML</a>
+                                        <a className="" href='https://edx.lawrencemcdaniel.com/' target="_blank" rel="noopener noreferrer">Pure HTML</a>
                                     </DropdownItem>
                                     <DropdownItem>
-                                        <a className="mx-1" href='https://webdev-class.lawrencemcdaniel.com/' target="_blank" rel="noopener noreferrer">Bootstrap</a>
+                                        <a className="" href='https://webdev-class.lawrencemcdaniel.com/' target="_blank" rel="noopener noreferrer">Bootstrap</a>
                                     </DropdownItem>
                                     <DropdownItem divider />
                                     <DropdownItem>
-                                        <a className="mx-1" href='https://github.com/lpm0073' target="_blank" rel="noopener noreferrer">Me on Github</a>
+                                        <a className="" href='https://github.com/lpm0073' target="_blank" rel="noopener noreferrer">Me on Github</a>
+                                    </DropdownItem>
+                                    <DropdownItem>
+                                        <a className="" href='https://blog.lawrencemcdaniel.com/' target="_blank" rel="noopener noreferrer">My Blog</a>
                                     </DropdownItem>
                                 </DropdownMenu>
                             </UncontrolledDropdown>
-
-                            <NavItem>
-                                <NavLink className="nav-link" to='https://blog.lawrencemcdaniel.com/'>Blog</NavLink>
-                            </NavItem>
                         </Nav>
                     </Collapse>
                 </Navbar>

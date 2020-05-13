@@ -13,7 +13,7 @@ const responsive = {
   },
   tablet: {
     breakpoint: { max: 1024, min: 464 },
-    items: 4
+    items: 3
   },
   mobile: {
     breakpoint: { max: 464, min: 0 },
@@ -240,7 +240,7 @@ class SpecialtiesCarousel extends Component {
                   return (
                     <div className="col-8 text-left mt-5" key={indx}>
                       <img
-                        style={{ "width": "100%" }}
+                        style={{ "width": "100%"}}
                         src={post.image}
                         alt="Alt text"
                       />
