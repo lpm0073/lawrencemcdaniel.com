@@ -191,6 +191,10 @@ address{
     margin-top: 18px;    
 }
 
+.react-multiple-carousel__arrow {
+    visibility: hidden;
+}
+
 .footer{
 background-color: #333;
 color: white;
