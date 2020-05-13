@@ -30,46 +30,58 @@ class SpecialtiesCarousel extends Component {
 
   componentDidMount() {
     this.setState({ loading: true });
-    console.log("app mounted");
+
     fetch(
       "https://newsapi.org/v2/top-headlines?country=us&category=business&apiKey=8ee8c21b20d24b37856fc3ab1e22a1e5"
     )
       .then(data => data.json())
       .then(data =>
         this.setState({ data: data.articles, loading: false }, () =>
-          console.log(data.articles)
+          console.log("data loaded")
         )
       );
   }
 
   render() {
     return (
-      <div className="about container">
-        <div className="about container">
+        <div className="container">
           {this.state.loading ? (
             "loading..."
           ) : (
             <div>
-              <Carousel responsive={responsive}>
+              <Carousel responsive={responsive}
+                additionalTransfrom={0}
+                arrows
+                autoPlay
+                autoPlaySpeed={1}
+                centerMode={false}
+                className=""
+                containerClass="container-with-dots"
+                customTransition="all 1.5s linear"
+                dotListClass=""
+                draggable
+                focusOnSelect={false}
+                infinite
+                itemClass=""
+                keyBoardControl
+                minimumTouchDrag={80}
+                renderButtonGroupOutside={false}
+                renderDotsOutside={false}
+                showDots={false}
+                sliderClass=""
+                slidesToSlide={1}
+                swipeable
+                transitionDuration={3000}
+              
+                >
                 {this.state.data.map((post, indx) => {
                   return (
-                    <div className="card text-left mt-5" key={indx}>
+                    <div className="col-8 text-left mt-5" key={indx}>
                       <img
-                        style={{ height: "100px" }}
+                        style={{ "width": "100%" }}
                         src={post.urlToImage}
                         alt="Alt text"
                       />
-                      <div className="card-body">
-                        <h5 className="card-title">{post.title}</h5>
-                        <p className="card-text">{post.description}</p>
-                        <a
-                          href={post.url}
-                          target="_blank"
-                          rel="noopener noreferrer"
-                        >
-                          Read More
-                        </a>
-                      </div>
                     </div>
                   );
                 })}
@@ -77,7 +89,6 @@ class SpecialtiesCarousel extends Component {
             </div>
           )}
         </div>
-      </div>
     );
   }
 }
