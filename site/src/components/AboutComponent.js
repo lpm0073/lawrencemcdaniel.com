@@ -1,38 +1,57 @@
-import React from 'react';
+import React, { Component} from 'react';
+
+import { Media } from 'reactstrap';
 import RenderPageTitle from '../widgets/pageTitleComponent';
 import RenderAboutTile from '../widgets/aboutTileComponent';
+import ScriptTag from 'react-script-tag';
+
+const LinkedIn = props => (
+    <ScriptTag type="text/javascript" src="https://platform.linkedin.com/badges/js/profile.js" async defer />
+);
+
+class About extends Component {
 
 
+    render() {
+        return(
 
-function About(props) {
-
-    return(
-        
-        <div className="container site-page">
-            <RenderPageTitle icon="fa-user" title="ABOUT" boxed_title="ME" />
-            <div className="row row-content">
-                <div className="col-xs-6 col-sm">
-                    <h2>LinkedIn</h2>
-                </div>
-                <div className="col-xs-6 col-sm">
-                    <h4>Great things are done by a series of small things brought together.</h4>
-                    <p>I’m an American full stack developer with significant experience with classic backend stacks and front-end frameworks including AWS, Django, Angular, React, and WordPress. I am a veteran of multiple startups and early-stage ventures with dozens of successful product launches in multiple industries and markets around the world. I advocate for open source, try to keep things DRY and well-documented and when possible I adhere to the principals of 12-factor development. I’m a passionate learner and frequent blogger, currently interested in machine learning, AI and quantum computing.</p>
-                    <p>I lived abroad for 25 of the last 30 years, in Mexico, Western Europe and SE Asia. Prior to that I earned a B.S. from University of North Texas with majors in Computer Science and Mathematics and minors in Physics and English. You can read my full bio here.</p>
-                    <p>https://cdn.lawrencemcdaniel.com/wp-content/uploads/2014/09/lawrence-signature.png</p>
-                </div>
-                <div className="col-xs-6 col-sm">
-                    <h2>boxes</h2>
+            <React.Fragment>
+                <LinkedIn />
+                <div className="container site-page">
+                    <RenderPageTitle icon="fa-user" title="ABOUT" boxed_title="ME" />
                     <div className="row row-content">
-                        <RenderAboutTile icon="fa-globe" value="13" text="Countries worked in" />
-                        <RenderAboutTile icon="fa-cloud" value="27" text="Years Experience" />
-                        <RenderAboutTile icon="fa-linux" value="10" text="Years Open Source" />
-                        <RenderAboutTile icon="fa-taxi" value="22" text="Years bicycle commuting" />
+                        <div className="col-12 col-xs-6 col-sm">
+                            <h2>LinkedIn</h2>
+                            <div class="center-linkedin-profile">
+                                <div class="LI-profile-badge" data-version="v1" data-size="large" data-locale="en_US" data-type="vertical" data-theme="dark" data-vanity="lawrencemcdaniel"><a class="LI-simple-link" href="https://mx.linkedin.com/in/lawrencemcdaniel?trk=profile-badge">Lawrence McDaniel</a></div>
+                            </div>                    
+                        </div>
+                        <div className="col-12 col-xs-6 col-sm">
+                            <h4>Great things are done by a series of small things brought together.</h4>
+                            <p>I’m an American full stack developer with significant experience with classic backend stacks and front-end frameworks including <a href="https://aws.amazon.com/"><span>AWS</span></a>, <a href="https://www.djangoproject.com/"><span>Django</span></a>, <a href="https://angular.io/"><span>Angular</span></a>, <a href="https://reactjs.org/"><span>React</span></a>, and <a href="https://wordpress.com/"><span>WordPress</span></a>. I am a veteran of multiple startups and early-stage ventures with dozens of successful product launches in multiple industries and markets around the world. I advocate for <a href="https://en.wikipedia.org/wiki/Open_source"><span>open source</span></a>, try to keep things <a href="https://en.wikipedia.org/wiki/Don%27t_repeat_yourself"><span>DRY</span></a> and well-documented and when possible I adhere to the principals of <a href="https://12factor.net/"><span>12-factor</span></a> development. I’m a passionate learner and <a href="https://blog.lawrencemcdaniel.com"><span>frequent blogger</span></a>, currently interested in <a href="/machine-learning/"><span>machine learning</span></a>, AI and quantum computing.</p>                    
+                            <p>I lived abroad for 25 of the last 30 years, in Mexico, Western Europe and SE Asia. Prior to that I earned a B.S. from University of North Texas with majors in Computer Science and Mathematics and minors in Physics and English. You can read my <a href="/full-bio/"><span>full bio here</span></a>.</p>
+                            <Media left middle >
+                                <Media object src="https://cdn.lawrencemcdaniel.com/wp-content/uploads/2014/09/lawrence-signature.png" alt="lawrence-signature" className="about-signature" />
+                            </Media>                    
+    
+                        </div>
+                        <div className="col-12 col-xs-6 col-sm">
+                            <h2>boxes</h2>
+                            <div className="row row-content">
+                                <RenderAboutTile icon="fa-globe" value="13" text="Countries worked in" />
+                                <RenderAboutTile icon="fa-cloud" value="27" text="Years Experience" />
+                                <RenderAboutTile icon="fa-linux" value="10" text="Years Open Source" />
+                                <RenderAboutTile icon="fa-taxi" value="22" text="Years bicycle commuting" />
+                            </div>
+                        </div>
+    
                     </div>
                 </div>
+            </React.Fragment>
+    
+        );
+    }
 
-            </div>
-        </div>
-    );
 }
 
 export default About;    
