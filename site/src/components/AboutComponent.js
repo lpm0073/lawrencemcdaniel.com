@@ -1,109 +1,35 @@
 import React from 'react';
-import { Breadcrumb, BreadcrumbItem, Card, CardBody, CardHeader, Media } from 'reactstrap';
-import { baseUrl } from '../shared/baseUrl';
-import { Fade, Stagger } from 'react-animation-components';
+import RenderPageTitle from '../widgets/pageTitleComponent';
+import RenderAboutTile from '../widgets/aboutTileComponent';
 
-function RenderLeader({leader}) {
-
-    return(
-    <div key={leader.id} className="col-12 mt-5">
-        <Media tag="li">
-            <div className="col-2">
-                <Media left middle>
-                    <Media object src={baseUrl + leader.image} alt={leader.name} />
-                </Media>
-            </div>
-            <div className="col-10">
-                <Media heading>{leader.name}</Media>
-                <Media body>
-                    <p>{leader.designation}</p>
-                </Media>
-                <Media body >
-                    <p>{leader.description}</p>
-                </Media>
-            </div>
-        </Media>
-    </div>
-    );
-}
-
-function RenderPageTitle({icon, title, boxed_title}) {
-    const thisClassName = "fa " + icon + " fa-2x page-tile-icon";
-
-    return(
-
-        <div className="row">
-            <div className="col-12 text-center page-title">
-                <span className={thisClassName}></span>
-                <h1 className="display-4">{title} <span className="page-title-boxed">{boxed_title}</span></h1>
-            </div>                
-        </div>
-
-    );
-
-};
 
 
 function About(props) {
 
     return(
+        
         <div className="container site-page">
             <RenderPageTitle icon="fa-user" title="ABOUT" boxed_title="ME" />
             <div className="row row-content">
-                <div className="col-12 col-md-6">
-                    <h2>Our History</h2>
-                    <p>Started in 2010, Ristorante con Fusion quickly established itself as a culinary icon par excellence in Hong Kong. With its unique brand of world fusion cuisine that can be found nowhere else, it enjoys patronage from the A-list clientele in Hong Kong.  Featuring four of the best three-star Michelin chefs in the world, you never know what will arrive on your plate the next time you visit us.</p>
-                    <p>The restaurant traces its humble beginnings to <em>The Frying Pan</em>, a successful chain started by our CEO, Mr. Peter Pan, that featured for the first time the world's best cuisines in a pan.</p>
+                <div className="col-xs-6 col-sm">
+                    <h2>LinkedIn</h2>
                 </div>
-                <div className="col-12 col-md-5">
-                    <Card>
-                        <CardHeader className="bg-primary text-white">Facts At a Glance</CardHeader>
-                        <CardBody>
-                            <dl className="row p-1">
-                                <dt className="col-6">Started</dt>
-                                <dd className="col-6">3 Feb. 2013</dd>
-                                <dt className="col-6">Major Stake Holder</dt>
-                                <dd className="col-6">HK Fine Foods Inc.</dd>
-                                <dt className="col-6">Last Year's Turnover</dt>
-                                <dd className="col-6">$1,250,375</dd>
-                                <dt className="col-6">Employees</dt>
-                                <dd className="col-6">40</dd>
-                            </dl>
-                        </CardBody>
-                    </Card>
+                <div className="col-xs-6 col-sm">
+                    <h4>Great things are done by a series of small things brought together.</h4>
+                    <p>I’m an American full stack developer with significant experience with classic backend stacks and front-end frameworks including AWS, Django, Angular, React, and WordPress. I am a veteran of multiple startups and early-stage ventures with dozens of successful product launches in multiple industries and markets around the world. I advocate for open source, try to keep things DRY and well-documented and when possible I adhere to the principals of 12-factor development. I’m a passionate learner and frequent blogger, currently interested in machine learning, AI and quantum computing.</p>
+                    <p>I lived abroad for 25 of the last 30 years, in Mexico, Western Europe and SE Asia. Prior to that I earned a B.S. from University of North Texas with majors in Computer Science and Mathematics and minors in Physics and English. You can read my full bio here.</p>
+                    <p>https://cdn.lawrencemcdaniel.com/wp-content/uploads/2014/09/lawrence-signature.png</p>
                 </div>
-                <div className="col-12">
-                    <Card>
-                        <CardBody className="bg-faded">
-                            <blockquote className="blockquote">
-                                <p className="mb-0">You better cut the pizza in four pieces because
-                                    I'm not hungry enough to eat six.</p>
-                                <footer className="blockquote-footer">Yogi Berra,
-                                <cite title="Source Title">The Wit and Wisdom of Yogi Berra,
-                                    P. Pepe, Diversion Books, 2014</cite>
-                                </footer>
-                            </blockquote>
-                        </CardBody>
-                    </Card>
+                <div className="col-xs-6 col-sm">
+                    <h2>boxes</h2>
+                    <div className="row row-content">
+                        <RenderAboutTile icon="fa-globe" value="13" text="Countries worked in" />
+                        <RenderAboutTile icon="fa-cloud" value="27" text="Years Experience" />
+                        <RenderAboutTile icon="fa-linux" value="10" text="Years Open Source" />
+                        <RenderAboutTile icon="fa-taxi" value="22" text="Years bicycle commuting" />
+                    </div>
                 </div>
-            </div>
-            <div className="row row-content">
-                <div className="col-12">
-                    <h2>Corporate Leadership</h2>
-                </div>
-                <div className="col-12">
-                    <Media list>                                            
-                        <Stagger in>
-                            {props.leaders.leaders.map((leader) => {
-                            return (
-                                <Fade in>
-                                    <RenderLeader leader={leader} />
-                                </Fade>                                
-                            );
-                            })}
-                        </Stagger>
-                    </Media>
-                </div>
+
             </div>
         </div>
     );
