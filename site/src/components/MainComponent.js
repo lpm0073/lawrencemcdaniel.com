@@ -4,7 +4,8 @@ import Footer from './FooterComponent';
 import Home from './HomeComponent';
 import Menu from './MenuComponent';
 import Contact from './ContactComponent';
-import About from './AboutComponent';
+import About from './AboutPage';
+import Bio from './BioPage';
 import DishDetail from './DishdetailComponent';
 import { Switch, Route, Redirect, withRouter } from 'react-router-dom';
 import { connect } from 'react-redux';
@@ -58,16 +59,6 @@ class Main extends Component {
       );
     }
     
-    const AboutPage = () => {
-      return(
-        <About 
-          dish={this.props.dishes.dishes.filter((dish) => dish.featured)[0]} 
-          promotion={this.props.promotions.promotions.filter((promo) => promo.featured)[0]}
-          leaders={this.props.leaders}
-          postFeedback={this.props.postFeedback}
-          />
-      );
-    }
 
     const DishWithId = ({match}) => {
       return(
@@ -93,7 +84,8 @@ class Main extends Component {
                                                               postFeedback={this.props.postFeedback}
                                                               />
                                                       } />
-            <Route exact path="/about" component={AboutPage} />
+            <Route exact path="/about" component={About} />
+            <Route exact path="/bio" component={Bio} />
             <Redirect to="/home" />
           </Switch>
         <Footer />

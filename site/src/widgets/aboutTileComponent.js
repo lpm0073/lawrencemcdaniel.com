@@ -6,7 +6,7 @@ const RenderAboutTile = (props) => {
 
     return(
 
-        <div className="col-sm-6 text-center about-tile ">
+        <div className="col-md-6 text-center about-tile ">
             <div className={thisClassName}></div>
             <div className="about-tile-value">{props.value}</div>
             <div>{props.text}</div>
