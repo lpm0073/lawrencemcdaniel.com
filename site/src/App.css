@@ -4,11 +4,12 @@ i {
 }
 
 .navbar-dark {
+    /*
     background-color: rgba(0,0,0,.4);
+    */
 }
 
 .navbar-dark .navbar-nav .nav-link {
-    color: white;
     font-family: 'Courier New', Courier, monospace;
     font-size: large;
 }
