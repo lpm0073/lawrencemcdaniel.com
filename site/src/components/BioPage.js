@@ -1,7 +1,7 @@
 import React from 'react';
 
-import { Media } from 'reactstrap';
 import RenderPageTitle from '../widgets/pageTitleComponent';
+import { resumeUrl } from '../shared/urls';
 import ScriptTag from 'react-script-tag';
 
 const LinkedIn = props => (
@@ -20,9 +20,11 @@ const Bio = (props) => {
                         <div className="col-4 d-flex p-0">
                             <div className="center-linkedin-profile ml-auto text-center">
                                 <div className="LI-profile-badge" data-version="v1" data-size="large" data-locale="en_US" data-type="vertical" data-theme="dark" data-vanity="lawrencemcdaniel"><a class="LI-simple-link" href="https://mx.linkedin.com/in/lawrencemcdaniel?trk=profile-badge">Lawrence McDaniel</a></div>
-                                <div className="bio-resume-button mt-3 btn btn-primary btn-lg ">
-                                    <a target="_blank" href="http://cdn.lawrencemcdaniel.com/doc/lawrence-mcdaniel-resume-201911.pdf"><i class="fa fa-download"></i> Download Resume</a>                                
-                                </div>
+                                <a target="_blank" href={resumeUrl}>
+                                    <div className="bio-resume-button mt-3 btn btn-primary btn-lg ">
+                                        <i class="fa fa-download"></i> Download Resume
+                                    </div>
+                                </a>
                             </div>
                         </div>
                         <div className="col-8">
