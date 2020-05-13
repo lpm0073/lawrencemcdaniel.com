@@ -17,7 +17,7 @@ const Bio = (props) => {
                 <div className="container site-page">
                     <RenderPageTitle icon="fa-align-left" title="FULL" boxed_title="BIO" />
                     <div className="row row-content">
-                        <div className="col-4 d-flex p-0">
+                        <div className="col-3">
                             <div className="center-linkedin-profile ml-auto text-center">
                                 <div className="LI-profile-badge" data-version="v1" data-size="large" data-locale="en_US" data-type="vertical" data-theme="dark" data-vanity="lawrencemcdaniel"><a class="LI-simple-link" href="https://mx.linkedin.com/in/lawrencemcdaniel?trk=profile-badge">Lawrence McDaniel</a></div>
                                 <a className="mt-5 btn btn-danger" role="button" target="_blank" href={resumeUrl} rel="noopener noreferrer">
@@ -25,7 +25,7 @@ const Bio = (props) => {
                                 </a>
                             </div>
                         </div>
-                        <div className="col-8">
+                        <div className="col-8 ml-5">
                             <div className="text-justify">
                                 <p>Lawrence McDaniel is a freelance full-stack web developer and business analyst. He has a BS in computer science and mathematics with minors in physics and English from University of North Texas. He was an early employee at three startups that were later acquired by Goldman Sachs, IBM and Deutsche Bank respectively, and has participated in a successful NASDAQ IPO. He has worked as a freelance technology consultant since 1999 and has advised dozens of startups as well as banks, hedge funds and real estate investment funds from around the world including Morgan Stanley, Fortress Investment Group, IBM Seterus, and others.</p>
                                 <p>He has expertise in financial modeling and forecasting systems, analytics, machine learning, big data, web, mobile, database technology, and Amazon Web Services (AWS) cloud infrastructure. He has 20+ years experience designing high performance, always-up transactional database systems using MySQL, MSSQL Server, Aurora and MongoDB. He also has years of expertise designing high availability, horizontally scalable cloud-based infrastructure environments. In fact, Lawrence is an ambassador for the AWS Activate Program in Mexico, helping startups and early-stage ventures get digital products and services to market using AWS. He advises companies on migration plans to AWS as well as works with early-stage ventures creating new highly scalable back-end environments and implementing continuous integration strategies.</p>

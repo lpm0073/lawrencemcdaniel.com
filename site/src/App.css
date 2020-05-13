@@ -1,4 +1,7 @@
-
+i {
+    font-size:30px; 
+    vertical-align: middle;
+}
 
 .navbar-dark {
     background-color: rgba(0,0,0,.4);
