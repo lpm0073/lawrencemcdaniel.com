@@ -179,6 +179,15 @@ address{
     width: 33%;
 }
 
+.specialties-code-samples {
+    background-color: rgba(255, 255, 255, .8);
+    border-radius: 5px;
+    color: black;
+}
+.specialties-code-samples a {
+    margin-top: 18px;    
+}
+
 .footer{
 background-color: #333;
 color: white;
