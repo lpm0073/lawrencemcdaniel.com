@@ -30,7 +30,7 @@ class PortfolioGrid extends Component {
             "loading..."
           ) : (
             <div id="portfolio-grid">
-              <div className="row m-5 text-center">
+              <div className="row my-5 mx-0 py-5 px-0 text-center">
                 {this.state.data.map((portfolio_item, indx) => {
                   const item_url = portfolio_item._embedded['wp:featuredmedia'][0].source_url;
                   const background_url = "url('" + item_url + "')";
@@ -38,10 +38,9 @@ class PortfolioGrid extends Component {
                     "background-image": background_url
                   }
                   return (
-                    <div className="col-md-3 portfolio-item p-1" key={indx}>
-                        <div 
-                            className="portfolio-item-internal m-0" 
-                            style={item_style}>
+                    <div className="col-lg-3 col-md-4 col-sm-6 m-0 px-0 py-1" key={indx}>
+                        <div className="portfolio-item mx-1 " 
+                             style={item_style}>
                         </div>
                     </div>
                   );

@@ -203,11 +203,7 @@ address{
 }
 
 .portfolio-item {
-    
-}
-
-.portfolio-item-internal {
-    border: 1px solid green;
+    border: 1px solid #555;
     height: 190px;
     background-position: center;
     background-size: cover;
@@ -216,12 +212,12 @@ address{
 
 
 .footer{
-background-color: #333;
-color: white;
-margin:0px auto;
-padding: 20px 0 0 0;
-font-family: 'Courier New', Courier, monospace;
-font-size: small;
+    background-color: #333;
+    color: white;
+    margin:0px auto;
+    padding: 20px 0 0 0;
+    font-family: 'Courier New', Courier, monospace;
+    font-size: small;
 }
 
 .footer a {
