@@ -158,6 +158,7 @@ address{
     background-attachment: fixed;
 }
 
+
 .specialties-banner {
     background-color: rgba(255, 255, 255, .8);
 }
@@ -195,6 +196,23 @@ address{
 .react-multiple-carousel__arrow {
     visibility: hidden;
 }
+
+.portfolio-page {
+    color:floralwhite;
+    background-color: #474D5D;
+}
+
+.portfolio-item {
+    border: 1px solid red;
+}
+
+.portfolio-item-internal {
+    border: 1px solid green;
+    height: 190px;
+    background-position: center;
+    background-repeat: no-repeat;
+}
+
 
 .footer{
 background-color: #333;
