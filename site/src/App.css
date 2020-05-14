@@ -203,13 +203,14 @@ address{
 }
 
 .portfolio-item {
-    border: 1px solid red;
+    
 }
 
 .portfolio-item-internal {
     border: 1px solid green;
     height: 190px;
     background-position: center;
+    background-size: cover;
     background-repeat: no-repeat;
 }
 
