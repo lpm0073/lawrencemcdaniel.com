@@ -9,7 +9,7 @@ const Education = (props) => {
             <div className="portfolio-page">
                 <div className="container site-page ">
                     <RenderPageTitle icon="fa-graduation-cap" title="ADVANCED" boxed_title="TRAINING" />
-                    <EducationGrid />
+                    <EducationGrid education={props} />
                 </div>
             </div>              
 
