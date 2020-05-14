@@ -1,7 +1,6 @@
 import React, { Component } from "react";
 import Carousel from "react-multi-carousel";
 import "react-multi-carousel/lib/styles.css";
-import { backendUrl } from '../shared/urls';
 import Script from 'react-load-script';
 import { LinkedIn_apikey } from '../passwords';
 
@@ -49,7 +48,8 @@ class RecommendationsCarousel extends Component {
   componentDidMount() {
     this.setState({ loading: true });
 
-    fetch(backendUrl + "posts?categories=43&_embed")
+      /*
+    fetch("/linkedin_api_proxy/v2/me")
       .then(specialties => specialties.json())
       .then(specialties =>
 
@@ -57,12 +57,19 @@ class RecommendationsCarousel extends Component {
           console.log("data loaded")
         )
 
-      );
+      )
+      .catch(error => console.log('LinkedIn api error:' + error));
+      */
   }
-  /* more: https://www.npmjs.com/package/react-load-script */
-
-  /*
-
+  /* more: 
+  
+    Script: https://www.npmjs.com/package/react-load-script 
+    LinkedIn app: 
+      https://www.linkedin.com/developers/apps/22820243/auth
+    
+    LinkedIn API documentation: https://docs.microsoft.com/en-us/linkedin/shared/integrations/people/profile-api#retrieve-current-members-profile
+    
+  
   <script type="text/javascript" src="//platform.linkedin.com/in.js">
     api_key:   77u781qdeoltry
     onLoad:    [ONLOAD]
@@ -85,49 +92,18 @@ class RecommendationsCarousel extends Component {
 
             <div id="specialties-carousel">
 
-                <Script
-                  url="//platform.linkedin.com/in.js"
-                  attributes={linkedinAttributes}
-                  onCreate={this.handleScriptCreate.bind(this)}
-                  onError={this.handleScriptError.bind(this)}
-                  onLoad={this.handleScriptLoad.bind(this)}
-                />
+              <Script
+                url="//platform.linkedin.com/in.js"
+                attributes={linkedinAttributes}
+                onCreate={this.handleScriptCreate.bind(this)}
+                onError={this.handleScriptError.bind(this)}
+                onLoad={this.handleScriptLoad.bind(this)}
+              />
 
-              <Carousel responsive={responsive}
-                additionalTransfrom={0}
-                autoPlay
-                autoPlaySpeed={1}
-                centerMode={false}
-                className=""
-                containerClass="container-with-dots"
-                customTransition="all 0.5s linear"
-                dotListClass=""
-                draggable
-                focusOnSelect={false}
-                infinite
-                itemClass=""
-                keyBoardControl
-                minimumTouchDrag={80}
-                renderButtonGroupOutside={false}
-                renderDotsOutside={false}
-                showDots={false}
-                sliderClass=""
-                slidesToSlide={1}
-                swipeable
-                transitionDuration={7500}
-                >
-                {this.state.data.map((specialty, indx) => {
-                  return (
-                    <div className="col-8 text-left mt-5" key={indx}>
-                      <img
-                        style={{ "width": "100%"}}
-                        src={specialty._embedded["wp:featuredmedia"][0].source_url}
-                        alt={specialty.slug}
-                      />
-                    </div>
-                  );
-                })}
-              </Carousel>
+              <div>
+                {this.state.data}
+              </div>
+
             </div>
           )}
         </div>

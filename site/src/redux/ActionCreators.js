@@ -1,43 +1,7 @@
 import * as ActionTypes from './ActionTypes';
-import { baseUrl } from '../shared/urls';
+import { baseUrl, backendUrl } from '../shared/urls';
 
-export const fetchDishes = () => (dispatch) => {
-    dispatch(dishesLoading(true));
 
-    return fetch(baseUrl + 'dishes')
-        .then(
-            response => {
-                if (response.ok) {
-                    return response;
-                } else {
-                    var error = new Error('Error ' + response.status + ': ' + response.statusText);
-                    error.response = response;
-                    throw error;
-                }
-            },
-            error => {
-                var errmess = new Error(error.message);
-                throw errmess;
-            })
-        .then(response => response.json())
-        .then(dishes => dispatch(addDishes(dishes)))
-        .catch(error => dispatch(dishesFailed(error.message)));
-
-}
-
-export const dishesLoading = () => ({
-    type: ActionTypes.DISHES_LOADING
-});
-
-export const dishesFailed = (errmess) => ({
-    type: ActionTypes.DISHES_FAILED,
-    payload: errmess
-});
-
-export const addDishes = (dishes) => ({
-    type: ActionTypes.ADD_DISHES,
-    payload: dishes
-});
 
 /* ----------------------------------- */
 export const fetchComments = () => (dispatch) => {
@@ -123,10 +87,10 @@ export const postComment = (dishId, rating, author, comment) => (dispatch) => {
 }
 /* ----------------------------------- */
 
-export const fetchPromos = () => (dispatch) => {
-    dispatch(promosLoading(true));
+export const fetchSpecialties = () => (dispatch) => {
+    dispatch(specialtiesLoading(true));
 
-    return fetch(baseUrl + 'promotions')
+    return fetch(backendUrl + "posts?categories=43&_embed")
     .then(
         response => {
             if (response.ok) {
@@ -142,32 +106,30 @@ export const fetchPromos = () => (dispatch) => {
             throw errmess;
         })
     .then(response => response.json())
-    .then(promotions => dispatch(addPromos(promotions)))
-    .catch(error => dispatch(promosFailed(error.message)));
-
+    .then(specialties => dispatch(addSpecialties(specialties)))
+    .catch(error => dispatch(specialtiesFailed(error.message)));
 
 }
 
-export const promosLoading = () => ({
-    type: ActionTypes.PROMOS_LOADING
+export const specialtiesLoading = () => ({
+    type: ActionTypes.SPECIALTIES_LOADING
 });
 
-export const promosFailed = (errmess) => ({
-    type: ActionTypes.PROMOS_FAILED,
+export const specialtiesFailed = (errmess) => ({
+    type: ActionTypes.SPECIALTIES_FAILED,
     payload: errmess
 });
 
-export const addPromos = (promos) => ({
-    type: ActionTypes.ADD_PROMOS,
-    payload: promos
+export const addSpecialties = (specialties) => ({
+    type: ActionTypes.ADD_SPECIALTIES,
+    payload: specialties
 });
 
 /* ----------------------------------- */
+export const fetchPortfolio = () => (dispatch) => {
+    dispatch(portfolioLoading(true));
 
-export const fetchLeaders = () => (dispatch) => {
-    dispatch(leadersLoading(true));
-
-    return fetch(baseUrl + 'leaders')
+    return fetch(backendUrl + "portfolio?_embed")
     .then(
         response => {
             if (response.ok) {
@@ -183,25 +145,26 @@ export const fetchLeaders = () => (dispatch) => {
             throw errmess;
         })
     .then(response => response.json())
-    .then(leaders => dispatch(addLeaders(leaders)))
-    .catch(error => dispatch(leadersFailed(error.message)));
-
+    .then(portfolio => dispatch(addPortfolio(portfolio)))
+    .catch(error => dispatch(portfolioFailed(error.message)));
 
 }
 
-export const leadersLoading = () => ({
-    type: ActionTypes.LEADERS_LOADING
+export const portfolioLoading = () => ({
+    type: ActionTypes.PORTFOLIO_LOADING
 });
 
-export const leadersFailed = (errmess) => ({
-    type: ActionTypes.LEADERS_FAILED,
+export const portfolioFailed = (errmess) => ({
+    type: ActionTypes.PORTFOLIO_FAILED,
     payload: errmess
 });
 
-export const addLeaders = (leaders) => ({
-    type: ActionTypes.ADD_LEADERS,
-    payload: leaders
+export const addPortfolio = (portfolio) => ({
+    type: ActionTypes.ADD_PORTFOLIO,
+    payload: portfolio
 });
+
+
 
 
 /* ----------------------------------- */

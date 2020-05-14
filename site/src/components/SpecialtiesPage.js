@@ -11,7 +11,7 @@ const Specialties = (props) => {
                 <div className="container site-page ">
                     <RenderPageTitle icon="fa-pencil-square-o" title="MY" boxed_title="SPECIALTIES" />
                     <SpecialtiesBanner />
-                    <SpecialtiesCarousel />
+                    <SpecialtiesCarousel specialties={props.specialties} />
 
                     <div className="row specialties-code-samples mt-5 p-3">
                         <div className="col">

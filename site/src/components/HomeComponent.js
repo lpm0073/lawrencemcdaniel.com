@@ -7,7 +7,7 @@ function Home(props) {
     return(
         <Jumbotron>
             <div class="container d-flex h-100">
-                <div class="row justify-content-center align-self-center w-100">
+                <div className="row justify-content-center align-self-center w-100">
                     <Fade in>
                         <div className="col-12 text-center noselect">
                             <p className="jumbotron-subtitle jumbotron-title-font">Full Stack Developer</p>
