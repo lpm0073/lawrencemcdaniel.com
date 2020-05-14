@@ -23,30 +23,11 @@ const responsive = {
 };
 
 class SpecialtiesCarousel extends Component {
-  state = {
-    loading: false,
-    data: [],
-    headline: []
-  };
- 
-  componentDidMount() {
-    this.setState({ loading: true });
-
-    fetch(backendUrl + "posts?categories=43&_embed")
-      .then(specialties => specialties.json())
-      .then(specialties =>
-
-        this.setState({ data: specialties, loading: false }, () =>
-          console.log("data loaded")
-        )
-
-      );
-  }
 
   render() {
     return (
         <div className="container">
-          {this.state.loading ? (
+          {this.props.isLoading ? (
             "loading..."
           ) : (
             <div id="specialties-carousel">
@@ -73,7 +54,7 @@ class SpecialtiesCarousel extends Component {
                 swipeable
                 transitionDuration={3000}
                 >
-                {this.state.data.map((specialty, indx) => {
+                {this.props.specialties.specialties.map((specialty, indx) => {
                   return (
                     <div className="col-8 text-left mt-5" key={indx}>
                       <img
