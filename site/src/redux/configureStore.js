@@ -1,17 +1,21 @@
 import { createStore, combineReducers, applyMiddleware } from 'redux';
 import { createForms } from 'react-redux-form';
-import { Comments } from './comments';
 import { Specialties } from './specialties';
+import { Portfolio } from './portfolio';
+import { Education } from './education';
 import thunk from 'redux-thunk';
 import logger from 'redux-thunk';
 import { InitialFeedback } from './forms';
 
 
 export const ConfigureStore = () => {
+
     const store = createStore(
+        
         combineReducers({
             specialties: Specialties,
-            comments: Comments,
+            portfolio: Portfolio,
+            education: Education,
             ...createForms({
                 feedback: InitialFeedback
             })
