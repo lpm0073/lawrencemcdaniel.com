@@ -188,6 +188,10 @@ address{
     margin-top: 18px;    
 }
 
+#specialties-carousel {
+    visibility: hidden;
+}
+
 .react-multiple-carousel__arrow {
     visibility: hidden;
 }
@@ -210,10 +214,18 @@ font-size: small;
 /********** Large devices only **********/
 @media (min-width: 1200px) {
 
+     #specialties-carousel {
+         visibility: visible !important;
+     }
 }
 
 /********** Medium devices only **********/
 @media (min-width: 992px) and (max-width: 1199px) {
+
+    #specialties-carousel {
+        visibility: visible !important;
+    }
+
 
 }
 

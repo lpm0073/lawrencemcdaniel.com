@@ -20,8 +20,11 @@ https://lawrencemcdaniel.com/wp-json/wp/v2
 ./wp-content/plugins/ProfTeamExtensions/ProfTeamExtensions.php:347:register_post_type( 'process', $args );
 ./wp-content/plugins/ProfTeamExtensions/ProfTeamExtensions.php:398:register_post_type( 'team', $args );
 
+## Specialties images
+https://lawrencemcdaniel.com/wp-json/wp/v2/posts?categories=43&_embed
+https://lawrencemcdaniel.com/wp-json/wp/v2/posts?categories=43&_embed&id=2664
+
 https://lawrencemcdaniel.com/wp-json/wp/v2/media
-https://lawrencemcdaniel.com/wp-json/wp/v2/
 https://lawrencemcdaniel.com/wp-json/wp/v2/
 https://lawrencemcdaniel.com/wp-json/wp/v2/
 https://lawrencemcdaniel.com/wp-json/wp/v2/

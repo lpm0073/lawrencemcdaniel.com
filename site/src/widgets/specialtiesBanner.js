@@ -6,7 +6,7 @@ const SpecialtiesBanner = (props) => {
     return(
         <React.Fragment>
           <div className="row specialties-banner pt-5 pb-3 mb-5">
-              <div className="col-4">
+              <div className="col-lg">
                   <h4>FULL STACK DEVELOPMENT</h4>
                   <div className="row m-0">
                       <div className="col-2 m-1 p-0 specialties-banner-icon">
@@ -17,7 +17,7 @@ const SpecialtiesBanner = (props) => {
                       </div>
                   </div>
               </div>
-              <div className="col-4 ">
+              <div className="col-lg">
                   <h4>BUSINESS ANALYSIS</h4>
                   <div className="row">
                       <div className="col-2 m-1 p-0 specialties-banner-icon">
@@ -29,7 +29,7 @@ const SpecialtiesBanner = (props) => {
                   </div>
 
               </div>
-              <div className="col-4">
+              <div className="col-lg">
                   <h4>OPEN EDX</h4>
                   <div className="row">
                       <div className="col-2 m-1 p-0 specialties-banner-icon">
