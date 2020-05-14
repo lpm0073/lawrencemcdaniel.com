@@ -3,35 +3,16 @@ import { backendUrl } from '../shared/urls';
 
 
 class PortfolioGrid extends Component {
-  state = {
-    loading: false,
-    data: [],
-    headline: []
-  };
- 
-  componentDidMount() {
-    this.setState({ loading: true });
-
-    fetch(backendUrl + "portfolio?_embed")
-      .then(specialties => specialties.json())
-      .then(specialties =>
-
-        this.setState({ data: specialties, loading: false }, () =>
-          console.log("data loaded")
-        )
-
-      );
-  }
 
   render() {
     return (
         <div className="container">
-          {this.state.loading ? (
+          {this.props.isLoading ? (
             "loading..."
           ) : (
             <div id="portfolio-grid">
               <div className="row my-5 mx-0 py-5 px-0 text-center">
-                {this.state.data.map((portfolio_item, indx) => {
+              {this.props.portfolio.portfolio.portfolio.map((portfolio_item, indx) => {
                   const item_url = portfolio_item._embedded['wp:featuredmedia'][0].source_url;
                   const background_url = "url('" + item_url + "')";
                   const item_style = {

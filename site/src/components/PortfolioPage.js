@@ -9,7 +9,7 @@ const Portfolio = (props) => {
             <div className="portfolio-page">
                 <div className="container site-page ">
                     <RenderPageTitle icon="fa-briefcase" title="PROJECT" boxed_title="PORTFOLIO" />
-                    <PortfolioGrid />
+                    <PortfolioGrid portfolio={props} />
                 </div>
             </div>              
 
