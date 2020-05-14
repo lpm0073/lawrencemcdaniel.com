@@ -24,12 +24,10 @@ https://lawrencemcdaniel.com/wp-json/wp/v2
 https://lawrencemcdaniel.com/wp-json/wp/v2/posts?categories=43&_embed
 https://lawrencemcdaniel.com/wp-json/wp/v2/posts?categories=43&_embed&id=2664
 
+https://lawrencemcdaniel.com/wp-json/wp/v2/portfolio
 https://lawrencemcdaniel.com/wp-json/wp/v2/media
-https://lawrencemcdaniel.com/wp-json/wp/v2/
-https://lawrencemcdaniel.com/wp-json/wp/v2/
-https://lawrencemcdaniel.com/wp-json/wp/v2/
-https://lawrencemcdaniel.com/wp-json/wp/v2/
-https://lawrencemcdaniel.com/wp-json/wp/v2/
+https://lawrencemcdaniel.com/wp-json/wp/v2/categories
+
 
 ## Deploy to AWS S3
 https://medium.com/serverlessguru/deploy-reactjs-app-with-s3-static-hosting-f640cb49d7e6
