@@ -12,7 +12,7 @@ class PortfolioGrid extends Component {
           ) : (
             <div id="portfolio-grid">
               <div className="row my-5 mx-0 py-5 px-0 text-center">
-              {this.props.portfolio.portfolio.portfolio.map((portfolio_item, indx) => {
+              {this.props.portfolio.projects.map((portfolio_item, indx) => {
                   const item_url = portfolio_item._embedded['wp:featuredmedia'][0].source_url;
                   const background_url = "url('" + item_url + "')";
                   const item_style = {

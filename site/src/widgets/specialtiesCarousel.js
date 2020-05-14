@@ -54,7 +54,7 @@ class SpecialtiesCarousel extends Component {
                 swipeable
                 transitionDuration={3000}
                 >
-                {this.props.specialties.specialties.map((specialty, indx) => {
+                {this.props.specialties.items.map((specialty, indx) => {
                   return (
                     <div className="col-8 text-left mt-5" key={indx}>
                       <img
