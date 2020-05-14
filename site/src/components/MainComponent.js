@@ -8,6 +8,7 @@ import About from './AboutPage';
 import Bio from './BioPage';
 import Specialties from './SpecialtiesPage';
 import Portfolio from './PortfolioPage';
+import Education from './EducationPage';
 import DishDetail from './DishdetailComponent';
 import { Switch, Route, Redirect, withRouter } from 'react-router-dom';
 import { connect } from 'react-redux';
@@ -90,6 +91,7 @@ class Main extends Component {
             <Route exact path="/bio" component={Bio} />
             <Route exact path="/specialties" component={Specialties} />
             <Route exact path="/portfolio" component={Portfolio} />
+            <Route exact path="/education" component={Education} />
             <Redirect to="/home" />
           </Switch>
         <Footer />
