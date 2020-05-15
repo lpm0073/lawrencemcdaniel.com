@@ -4,12 +4,8 @@ import { Media } from 'reactstrap';
 import RenderPageTitle from '../../components/pagetitle/pageTitleComponent';
 import { LinkedinBadge } from '../../components/linkedinBadge/Component';
 import AboutTile from './tileComponent';
-import ScriptTag from 'react-script-tag';
 import './styles.css';
 
-const LinkedIn = props => (
-    <ScriptTag type="text/javascript" src="https://platform.linkedin.com/badges/js/profile.js" async defer />
-);
 
 const About = (props) => {
 

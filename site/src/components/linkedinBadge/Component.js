@@ -8,7 +8,9 @@ export const LinkedinBadge = () => {
             <div className="LI-profile-badge-header LI-name-container">
                 <div className="LI-col">
                     <div className="LI-profile-pic-container pt-4">
-                        <img className="LI-profile-pic" src="https://cdn.lawrencemcdaniel.com/wp-content/uploads/2020/05/15213432/linkedin-profile-pic.jpeg" alt="Lawrence McDaniel" />
+                        <div className="LI-img-wrapper">
+                            <img className="LI-profile-pic" src="https://cdn.lawrencemcdaniel.com/wp-content/uploads/2020/05/15213432/linkedin-profile-pic.jpeg" alt="Lawrence McDaniel" />
+                        </div>
                     </div>
                 </div>
                 <div className="LI-col LI-header mt-5">
