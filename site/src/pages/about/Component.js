@@ -2,6 +2,7 @@ import React from 'react';
 
 import { Media } from 'reactstrap';
 import RenderPageTitle from '../../components/pagetitle/pageTitleComponent';
+import { LinkedinBadge } from '../../components/linkedinBadge/Component';
 import AboutTile from './tileComponent';
 import ScriptTag from 'react-script-tag';
 import './styles.css';
@@ -15,14 +16,12 @@ const About = (props) => {
         return(
 
             <React.Fragment>
-                <LinkedIn />
+                
                 <div className="container site-page">
                     <RenderPageTitle icon="fa-user" title="ABOUT" boxed_title="ME" />
                     <div className="row mt-5">
                         <div className="col-lg-3 col-md-6 col-sm-12">
-                            <div className="mr-1">
-                                <div className="LI-profile-badge" data-version="v1" data-size="large" data-locale="en_US" data-type="vertical" data-theme="dark" data-vanity="lawrencemcdaniel"><a class="LI-simple-link" href="https://mx.linkedin.com/in/lawrencemcdaniel?trk=profile-badge">Lawrence McDaniel</a></div>
-                            </div>
+                            <LinkedinBadge />
                         </div>
                         <div className="col-lg-5 col-md-6 col-sm-12">
                             <div className="ml-4 mr-2">

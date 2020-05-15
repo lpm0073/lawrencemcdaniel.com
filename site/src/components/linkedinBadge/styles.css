@@ -1,0 +1,33 @@
+
+.LI-badge-container,
+.LI-badge-container a {
+    color: white;
+}
+
+.LI-badge-container ul {
+    list-style-type: none;
+   }
+
+.LI-badge-container {
+    background-color: #313336;
+    color: white;
+}
+
+.LI-profile-pic-container {
+    background-image: url(https://cdn.lawrencemcdaniel.com/wp-content/uploads/2020/05/15213429/linkedin-background.png);
+}
+
+.LI-profile-pic-container img {
+    border: 3px solid #313336;
+    border-radius: 50%;
+    width: 40%;
+}
+
+
+.LI-name {
+    font-size: x-large;
+}
+
+.btn-primary, .btn-primary:hover, .btn-primary:active, .btn-primary:visited {
+    background-color: #008AD0 !important;
+}

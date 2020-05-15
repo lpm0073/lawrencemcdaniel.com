@@ -1,28 +1,24 @@
 import React from 'react';
 
 import RenderPageTitle from '../../components/pagetitle/pageTitleComponent';
+import { LinkedinBadge } from '../../components/linkedinBadge/Component';
+
 import { resumeUrl } from '../../shared/urls';
-import ScriptTag from 'react-script-tag';
 import './styles.css';
 
-
-const LinkedIn = props => (
-    <ScriptTag type="text/javascript" src="https://platform.linkedin.com/badges/js/profile.js" async defer />
-);
 
 const Bio = (props) => {
 
         return(
 
             <React.Fragment>
-                <LinkedIn />
                 <div className="container site-page">
                     <RenderPageTitle icon="fa-align-left" title="FULL" boxed_title="BIO" />
-                    <div className="row">
+                    <div className="row mt-5">
                         <div className="col-3">
-                            <div className="center-linkedin-profile ml-auto text-center">
-                                <div className="LI-profile-badge" data-version="v1" data-size="large" data-locale="en_US" data-type="vertical" data-theme="dark" data-vanity="lawrencemcdaniel"><a class="LI-simple-link" href="https://mx.linkedin.com/in/lawrencemcdaniel?trk=profile-badge">Lawrence McDaniel</a></div>
-                                <a className="mt-5 btn btn-danger" role="button" target="_blank" href={resumeUrl} rel="noopener noreferrer">
+                            <div className="ml-auto text-center">
+                                <LinkedinBadge />
+                                <a className="mt-4 btn btn-danger" role="button" target="_blank" href={resumeUrl} rel="noopener noreferrer">
                                         <i className="fa fa-download"></i> Download Resume
                                 </a>
                             </div>

@@ -7,7 +7,7 @@ const SkillColumn = (props) => {
 
     return(
         <React.Fragment>
-            <div className="col-lg-2 col-md-4 col-sm-6 px-1">
+            <div className="col-lg-2 col-md-4 col-sm-6 px-1 mb-5">
                 <div className="skill-column text-center">
                     <div className="skill-pct">{props.pct}%</div>
                     <h4 className="skill-title mt-4">{props.title}</h4>

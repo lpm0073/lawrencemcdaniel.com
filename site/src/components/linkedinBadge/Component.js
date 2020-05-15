@@ -1,0 +1,38 @@
+import React from 'react';
+import './styles.css';
+
+export const LinkedinBadge = () => {
+
+    return(
+        <div className="LI-badge-container-vertical-dark LI-badge-container text-center">
+            <div className="LI-profile-badge-header LI-name-container">
+                <div className="LI-col">
+                    <div className="LI-profile-pic-container pt-4">
+                        <img className="LI-profile-pic" src="https://cdn.lawrencemcdaniel.com/wp-content/uploads/2020/05/15213432/linkedin-profile-pic.jpeg" alt="Lawrence McDaniel" />
+                    </div>
+                </div>
+                <div className="LI-col LI-header mt-5">
+                    <div className="LI-name mb-1">
+                        <a href="https://www.linkedin.com/in/lawrencemcdaniel?trk=profile-badge-name">Lawrence McDaniel</a>
+                    </div>
+                    <div className="LI-title">📡Full Stack Developer</div>
+                </div>
+            </div>
+            <div className="more-info mx-4">
+                <div className="LI-field">lawrencemcdaniel.com</div>
+                <div className="LI-field mb-2">
+                    <a href="https://www.linkedin.com/edu/university-of-north-texas-19538?trk=profile-badge-school">University of North Texas</a>
+                </div>
+            </div>
+            <div className="LI-profile-badge-footer">
+                <a className="LI-view-profile btn btn-primary" role="button" href="https://www.linkedin.com/in/lawrencemcdaniel?trk=profile-badge-cta">View profile</a>
+                <div className="LI-logo pb-3 mt-3">
+                    <img src="https://cdn.lawrencemcdaniel.com/wp-content/uploads/2020/05/15213433/logo_linkedin_flat_white_93x21.png" alt="LinkedIn" className="LI-icon"/>
+                </div>
+            </div>
+        </div>
+
+
+    );
+}
+
