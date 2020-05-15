@@ -1,6 +1,16 @@
 import React, { Component } from 'react';
+import { Switch, Route, Redirect, withRouter } from 'react-router-dom';
+
+// Redux
+import { connect } from 'react-redux';
+import { postFeedback, fetchSpecialties, fetchPortfolio, fetchEducation } from '../redux/ActionCreators';
+import { actions } from 'react-redux-form';
+
+// Shared
 import Header from './header/Component';
 import Footer from './footer/Component';
+
+// Pages
 import Home from '../pages/home/Component';
 import Contact from '../pages/contact/Component';
 import About from '../pages/about/Component';
@@ -8,11 +18,8 @@ import Bio from '../pages/bio/Component';
 import Specialties from '../pages/specialities/Component';
 import Portfolio from '../pages/portfolio/Component';
 import Education from '../pages/education/Component';
+import Skills from '../pages/skills/Component';
 import Recommendations from '../pages/recommendations/Component';
-import { Switch, Route, Redirect, withRouter } from 'react-router-dom';
-import { connect } from 'react-redux';
-import { postFeedback, fetchSpecialties, fetchPortfolio, fetchEducation } from '../redux/ActionCreators';
-import { actions } from 'react-redux-form';
 
 const mapStateToProps = state => {
   return {
@@ -55,6 +62,7 @@ class Main extends Component {
             <Route exact path="/specialties" component={() => <Specialties specialties={this.props.specialties} />} />
             <Route exact path="/portfolio" component={() => <Portfolio portfolio={this.props.portfolio} />} />
             <Route exact path="/education" component={() => <Education education={this.props.education} />} />
+            <Route exact path="/skills" component={Skills} />
             <Route exact path="/recommendations" component={Recommendations} />
             <Redirect to="/home" />
           </Switch>
