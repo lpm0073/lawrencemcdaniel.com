@@ -1,7 +1,3 @@
-i {
-    font-size:30px; 
-    vertical-align: middle;
-}
 
 
 .navbar-dark .navbar-nav .nav-link {
@@ -12,12 +8,6 @@ i {
 .site-page {
     margin-top: 59px;
     min-height: 89vh;
-}
-
-
-.fa {
-    padding-top: 22px;
-    display: inline-block;
 }
 
 

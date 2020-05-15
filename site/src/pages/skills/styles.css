@@ -1,7 +1,6 @@
 
 
 .skill-column {
-    border: 1px solid #666;
     color: #666;
 }
 
@@ -13,25 +12,21 @@
 }
 
 .skill-column .skill-title {
-    background-color: darkorange;
     font-size: 1.25em;
     height: 50px;
 }
 
 .skill-column .skill-description {
-    background-color: darkseagreen;
     font-weight: 300;
     font-size: .9em;
-    height: 175px;
+    height: 150px;
 }
 
 .skill-column .skill-icon {
-    background-color: deeppink;
     width: 50%;
     margin-left: auto;
     margin-right: auto;
-    padding-bottom: 15px;
-    border: 2px solid darkgray;
+    border: 2px solid#666;
 }
 
 .skill-bar {
