@@ -1,0 +1,47 @@
+
+
+.skill-column {
+    border: 1px solid #666;
+    color: #666;
+}
+
+.skill-column .skill-pct {
+    padding-top: 15%;
+    font-size: 2em;
+    background-color: darkkhaki;
+    height: 100px;
+}
+
+.skill-column .skill-title {
+    background-color: darkorange;
+    font-size: 1.25em;
+    height: 50px;
+}
+
+.skill-column .skill-description {
+    background-color: darkseagreen;
+    font-weight: 300;
+    font-size: .9em;
+    height: 175px;
+}
+
+.skill-column .skill-icon {
+    background-color: deeppink;
+    width: 50%;
+    margin-left: auto;
+    margin-right: auto;
+    padding-bottom: 15px;
+    border: 2px solid darkgray;
+}
+
+.skill-bar {
+    color: white;
+    font-weight: bold;
+    height: 35px;
+    background-color: #474D5D;
+}
+
+.right-rounded {
+    border-top-right-radius: 5px;
+    border-bottom-right-radius: 5px;
+}
