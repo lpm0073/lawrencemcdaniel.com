@@ -21,7 +21,7 @@ const responsive = {
   }
 };
 
-class SpecialtiesCarousel extends Component {
+class TechnologyCarousel extends Component {
 
   render() {
     return (
@@ -73,4 +73,4 @@ class SpecialtiesCarousel extends Component {
 }
 
 
-export default SpecialtiesCarousel;
+export default TechnologyCarousel;

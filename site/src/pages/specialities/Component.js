@@ -1,7 +1,7 @@
 import React from 'react';
-import RenderPageTitle from '../../widgets/pageTitleComponent';
-import SpecialtiesBanner from '../../widgets/specialtiesBanner';
-import SpecialtiesCarousel from '../../widgets/specialtiesCarousel';
+import RenderPageTitle from '../../components/pageTitleComponent';
+import SpecialtiesBanner from './specialtiesBanner';
+import TechnologyCarousel from './technologyCarousel';
 
 const Specialties = (props) => {
 
@@ -11,7 +11,7 @@ const Specialties = (props) => {
                 <div className="container site-page ">
                     <RenderPageTitle icon="fa-pencil-square-o" title="MY" boxed_title="SPECIALTIES" />
                     <SpecialtiesBanner />
-                    <SpecialtiesCarousel specialties={props.specialties} />
+                    <TechnologyCarousel specialties={props.specialties} />
 
                     <div className="row specialties-code-samples mt-5 p-3">
                         <div className="col">

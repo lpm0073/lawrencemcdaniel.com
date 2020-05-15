@@ -1,7 +1,7 @@
 import React, { Component } from "react";
 
 
-class EducationGrid extends Component {
+class CoursesGrid extends Component {
 
   render() {
     return (
@@ -35,4 +35,4 @@ class EducationGrid extends Component {
   }
 }
 
-export default EducationGrid;
+export default CoursesGrid;

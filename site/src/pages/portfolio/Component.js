@@ -1,6 +1,6 @@
 import React from 'react';
-import RenderPageTitle from '../../widgets/pageTitleComponent';
-import PortfolioGrid from '../../widgets/portfolioGrid';
+import RenderPageTitle from '../../components/pageTitleComponent';
+import ProjectsGrid from './projectsGrid';
 
 const Portfolio = (props) => {
 
@@ -9,7 +9,7 @@ const Portfolio = (props) => {
             <div className="portfolio-page">
                 <div className="container site-page ">
                     <RenderPageTitle icon="fa-briefcase" title="PROJECT" boxed_title="PORTFOLIO" />
-                    <PortfolioGrid portfolio={props.portfolio} />
+                    <ProjectsGrid portfolio={props.portfolio} />
                 </div>
             </div>              
 

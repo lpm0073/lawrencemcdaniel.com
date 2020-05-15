@@ -1,6 +1,6 @@
 import React from 'react';
-import RenderPageTitle from '../../widgets/pageTitleComponent';
-import EducationGrid from '../../widgets/educationGrid';
+import RenderPageTitle from '../../components/pageTitleComponent';
+import CoursesGrid from './coursesGrid';
 
 const Education = (props) => {
 
@@ -9,7 +9,7 @@ const Education = (props) => {
             <div className="portfolio-page">
                 <div className="container site-page ">
                     <RenderPageTitle icon="fa-graduation-cap" title="ADVANCED" boxed_title="TRAINING" />
-                    <EducationGrid education={props.education} />
+                    <CoursesGrid education={props.education} />
                 </div>
             </div>              
 

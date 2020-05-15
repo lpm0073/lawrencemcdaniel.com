@@ -1,6 +1,6 @@
 import React from 'react';
 
-const RenderAboutTile = (props) => {
+const AboutTile = (props) => {
     
     const thisClassName = "fa " + props.icon + " fa-2x about-tile-icon";
 
@@ -18,4 +18,4 @@ const RenderAboutTile = (props) => {
 
 }
 
-export default RenderAboutTile;
+export default AboutTile;

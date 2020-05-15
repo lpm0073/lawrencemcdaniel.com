@@ -2,7 +2,7 @@ import React, { Component } from "react";
 import Carousel from "react-multi-carousel";
 import "react-multi-carousel/lib/styles.css";
 import Script from 'react-load-script';
-import { LinkedIn_apikey } from '../passwords';
+import { LinkedIn_apikey } from '../../passwords';
 
 const responsive = {
   superLargeDesktop: {

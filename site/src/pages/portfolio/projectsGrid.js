@@ -1,6 +1,6 @@
 import React, { Component } from "react";
 
-class PortfolioGrid extends Component {
+class ProjectsGrid extends Component {
 
   render() {
     return (
@@ -32,4 +32,4 @@ class PortfolioGrid extends Component {
   }
 }
 
-export default PortfolioGrid;
+export default ProjectsGrid;

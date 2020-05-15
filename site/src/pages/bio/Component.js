@@ -1,6 +1,6 @@
 import React from 'react';
 
-import RenderPageTitle from '../../widgets/pageTitleComponent';
+import RenderPageTitle from '../../components/pageTitleComponent';
 import { resumeUrl } from '../../shared/urls';
 import ScriptTag from 'react-script-tag';
 
