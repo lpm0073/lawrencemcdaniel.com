@@ -1,6 +1,7 @@
 import React from 'react';
 import { a } from 'react-router-dom';
-import { resumeUrl } from '../shared/urls';
+import { resumeUrl } from '../../shared/urls';
+import './styles.css';
 
 function Footer(props) {
 

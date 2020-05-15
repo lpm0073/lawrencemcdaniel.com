@@ -1,6 +1,6 @@
 import React from 'react';
 
-import RenderPageTitle from '../../components/pageTitleComponent';
+import RenderPageTitle from '../../components/pagetitle/pageTitleComponent';
 import { resumeUrl } from '../../shared/urls';
 import ScriptTag from 'react-script-tag';
 import './styles.css';
@@ -18,7 +18,7 @@ const Bio = (props) => {
                 <LinkedIn />
                 <div className="container site-page">
                     <RenderPageTitle icon="fa-align-left" title="FULL" boxed_title="BIO" />
-                    <div className="row row-content">
+                    <div className="row">
                         <div className="col-3">
                             <div className="center-linkedin-profile ml-auto text-center">
                                 <div className="LI-profile-badge" data-version="v1" data-size="large" data-locale="en_US" data-type="vertical" data-theme="dark" data-vanity="lawrencemcdaniel"><a class="LI-simple-link" href="https://mx.linkedin.com/in/lawrencemcdaniel?trk=profile-badge">Lawrence McDaniel</a></div>

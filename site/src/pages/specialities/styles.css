@@ -1,0 +1,86 @@
+.specialties-page {
+    color:floralwhite;
+    background-image:url(https://cdn.lawrencemcdaniel.com/wp-content/uploads/2014/09/22195643/Lawrence21.jpg);
+    background-repeat:repeat; 
+    padding-top:40px; 
+    padding-bottom:25px; 
+    background-size:cover; 
+    background-position:top center;
+    background-attachment: fixed;
+}
+
+.specialties-banner {
+    background-color: rgba(255, 255, 255, .8);
+}
+.specialties-banner h4 {
+    color: black;
+    font-size: initial;
+}
+.specialties-banner i {
+    color:#838590;
+}
+
+.specialties-banner-icon {
+    color: #666666;
+    height: 80px;
+    text-align: center;
+    border: 1px solid #666666;
+}
+.specialties-banner-text {
+    font-size: smaller;
+}
+
+.specialties-code-samples {
+    background-color: rgba(255, 255, 255, .8);
+    border-radius: 5px;
+    color: black;
+}
+.specialties-code-samples a {
+    margin-top: 18px;    
+}
+
+#specialties-carousel {
+    visibility: hidden;
+}
+
+
+.react-multiple-carousel__arrow {
+    visibility: hidden;
+}
+
+
+/*-------------- Responsive Styling -----------------------*/
+
+/********** Large devices only **********/
+@media (min-width: 1200px) {
+
+    #specialties-carousel {
+        visibility: visible !important;
+    }
+}
+
+/********** Medium devices only **********/
+@media (min-width: 992px) and (max-width: 1199px) {
+
+   #specialties-carousel {
+       visibility: visible !important;
+   }
+
+
+}
+
+/********** Small devices only **********/
+@media (min-width: 768px) and (max-width: 991px) {
+
+}
+
+/********** Extra small devices only **********/
+@media (max-width: 767px) {
+
+}
+
+/********** Super extra small devices Only :-) (e.g., iPhone 4) **********/
+@media (max-width: 479px) {
+
+}
+

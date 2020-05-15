@@ -1,0 +1,12 @@
+.education-page {
+    color:floralwhite;
+    background-color: #474D5D;
+}
+
+.education-item {
+    border: 1px solid #555;
+    height: 190px;
+    background-position: center;
+    background-size: cover;
+    background-repeat: no-repeat;
+}

@@ -2,6 +2,7 @@ import React, { Component } from 'react';
 import { Navbar, Nav, NavbarToggler, Collapse, NavItem,
     UncontrolledDropdown, DropdownMenu, DropdownToggle, DropdownItem} from 'reactstrap';
 import { NavLink } from 'react-router-dom';
+import './styles.css';
 
 class Header extends Component {
 

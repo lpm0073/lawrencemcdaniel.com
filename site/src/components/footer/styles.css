@@ -1,26 +1,16 @@
-i {
-    font-size:30px; 
-    vertical-align: middle;
-}
 
-
-.navbar-dark .navbar-nav .nav-link {
+.footer{
+    background-color: #333;
+    color: white;
+    margin:0px auto;
+    padding: 20px 0 0 0;
     font-family: 'Courier New', Courier, monospace;
-    font-size: large;
+    font-size: small;
 }
 
-.site-page {
-    margin-top: 59px;
-    min-height: 89vh;
+.footer a {
+    color: white;
 }
-
-
-.fa {
-    padding-top: 22px;
-    display: inline-block;
-}
-
-
 
 /*-------------- Responsive Styling -----------------------*/
 
@@ -32,6 +22,8 @@ i {
 /********** Medium devices only **********/
 @media (min-width: 992px) and (max-width: 1199px) {
 
+
+
 }
 
 /********** Small devices only **********/
@@ -42,6 +34,10 @@ i {
 /********** Extra small devices only **********/
 @media (max-width: 767px) {
 
+
+.footer-extra-links {
+    visibility: hidden;
+}
 }
 /********** Super extra small devices Only :-) (e.g., iPhone 4) **********/
 @media (max-width: 479px) {

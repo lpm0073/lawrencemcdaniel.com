@@ -1,7 +1,7 @@
 import React from 'react';
 
 import { Media } from 'reactstrap';
-import RenderPageTitle from '../../components/pageTitleComponent';
+import RenderPageTitle from '../../components/pagetitle/pageTitleComponent';
 import AboutTile from './tileComponent';
 import ScriptTag from 'react-script-tag';
 import './styles.css';
@@ -36,7 +36,7 @@ const About = (props) => {
                             </div>
                         </div>
                         <div className="col-lg-4 col-md-6 col-sm-12 ">
-                            <div className="row row-content">
+                            <div className="row">
                                 <AboutTile icon="fa-globe" value="13" text="Countries worked in" />
                                 <AboutTile icon="fa-cloud" value="27" text="Years Experience" />
                                 <AboutTile icon="fa-linux" value="10" text="Years Open Source" />

@@ -1,8 +1,8 @@
 import React, { Component } from 'react';
-import Header from './HeaderComponent';
-import Footer from './FooterComponent';
+import Header from './header/Component';
+import Footer from './footer/Component';
 import Home from '../pages/home/Component';
-import Contact from './ContactComponent';
+import Contact from '../pages/contact/Component';
 import About from '../pages/about/Component';
 import Bio from '../pages/bio/Component';
 import Specialties from '../pages/specialities/Component';

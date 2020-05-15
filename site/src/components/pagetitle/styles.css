@@ -1,0 +1,12 @@
+.page-title {
+    color: white;
+    background-color: salmon;
+}
+.page-title .display-4 {
+    font-weight: 900;
+}
+
+.page-title span {
+    margin-top: 27px;
+    margin-bottom: 27px;
+}

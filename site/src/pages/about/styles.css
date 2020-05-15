@@ -1,1 +1,42 @@
 
+.page-tile-icon {
+    margin: 0 auto 0 auto;
+    background-color: rgba(239,239,239,0.6);
+    width: 80px;
+    height: 80px;
+    border-radius: 100%;
+    color: white;
+}
+
+.page-title-boxed {
+    color: white;
+    background-color: rgba(239,239,239,0.6);
+    border-radius: 6px;
+    padding: 0 10px;
+}
+*:after, *::before {
+    -webkit-box-sizing: border-box;
+    -moz-box-sizing: border-box;
+    box-sizing: border-box;
+}
+
+
+.about-tile {
+    border: 1px solid #999999;
+    word-wrap: break-word;
+}
+.about-tile-icon {
+    color: #666;
+}
+
+.about-signature {
+    width: 136px;
+    height: 43px;
+}
+
+.about-tile-value {
+    font-size: 2.5em;
+    font-family: 'Trebuchet MS', 'Lucida Sans Unicode', 'Lucida Grande', 'Lucida Sans', Arial, sans-serif;
+    color: #666;
+    font-weight: 900;
+}

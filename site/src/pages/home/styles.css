@@ -1,0 +1,83 @@
+
+.jumbotron {
+    margin:0px auto;
+    color:floralwhite;
+    background-image: url('https://cdn.lawrencemcdaniel.com/wp-content/uploads/2016/09/22195717/banner-o2.jpg');
+    height: 100vh;
+    border-radius: 0 !important;
+
+}
+.noselect {
+    -webkit-touch-callout: none; /* iOS Safari */
+      -webkit-user-select: none; /* Safari */
+       -khtml-user-select: none; /* Konqueror HTML */
+         -moz-user-select: none; /* Old versions of Firefox */
+          -ms-user-select: none; /* Internet Explorer/Edge */
+              user-select: none; /* Non-prefixed version, currently
+                                    supported by Chrome, Edge, Opera and Firefox */
+  }
+
+.super-bold {
+    font-size: 67px;
+    letter-spacing: -2px;
+    font-weight: 900;
+}
+.jumbotron-title-font {
+    font-family: Arial, Helvetica, sans-serif;
+}
+.jumbotron-subtitle {
+    font-size: 32px;
+    font-weight: 500;
+}
+
+.width-50 {
+    width: 50% !important;
+}
+
+.border-3 {
+    border: 3px solid white;
+    border-radius: 3px;
+}
+
+/*-------------- Responsive Styling -----------------------*/
+
+/********** Large devices only **********/
+@media (min-width: 1200px) {
+
+}
+
+/********** Medium devices only **********/
+@media (min-width: 992px) and (max-width: 1199px) {
+
+
+
+}
+
+/********** Small devices only **********/
+@media (min-width: 768px) and (max-width: 991px) {
+
+}
+
+/********** Extra small devices only **********/
+@media (max-width: 767px) {
+
+/* here! */
+.border-3 {
+    border: none !important;
+}
+.super-bold {
+    font-size: 24px !important;
+    letter-spacing: initial !important;
+    font-weight: initial !important;
+}
+
+.jumbotron-subtitle {
+    visibility: hidden;
+}
+
+}
+/********** Super extra small devices Only :-) (e.g., iPhone 4) **********/
+@media (max-width: 479px) {
+
+}
+

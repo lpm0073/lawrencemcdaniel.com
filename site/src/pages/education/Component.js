@@ -1,5 +1,5 @@
 import React from 'react';
-import RenderPageTitle from '../../components/pageTitleComponent';
+import RenderPageTitle from '../../components/pagetitle/pageTitleComponent';
 import CoursesGrid from './coursesGrid';
 import './styles.css';
 
