@@ -1,6 +1,8 @@
 import React from 'react';
 import RenderPageTitle from '../../components/pageTitleComponent';
 import CoursesGrid from './coursesGrid';
+import './styles.css';
+
 
 const Education = (props) => {
 

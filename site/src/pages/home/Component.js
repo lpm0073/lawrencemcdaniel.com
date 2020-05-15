@@ -1,6 +1,7 @@
 import React from 'react';
 import { Jumbotron} from 'reactstrap';
 import { Fade } from 'react-animation-components';
+import './styles.css';
 
 
 function Home(props) {

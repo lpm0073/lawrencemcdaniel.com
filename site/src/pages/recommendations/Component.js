@@ -1,6 +1,7 @@
 import React from 'react';
 import RenderPageTitle from '../../components/pageTitleComponent';
 import RecommendationsCarousel from './recommendationsCarousel';
+import './styles.css';
 
 const Recommendations = (props) => {
 

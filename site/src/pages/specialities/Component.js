@@ -2,6 +2,8 @@ import React from 'react';
 import RenderPageTitle from '../../components/pageTitleComponent';
 import SpecialtiesBanner from './specialtiesBanner';
 import TechnologyCarousel from './technologyCarousel';
+import './styles.css';
+
 
 const Specialties = (props) => {
 
