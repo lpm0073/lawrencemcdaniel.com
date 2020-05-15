@@ -1,6 +1,6 @@
 import React from 'react';
-import RenderPageTitle from '../widgets/pageTitleComponent';
-import EducationGrid from '../widgets/educationGrid';
+import RenderPageTitle from '../../widgets/pageTitleComponent';
+import EducationGrid from '../../widgets/educationGrid';
 
 const Education = (props) => {
 

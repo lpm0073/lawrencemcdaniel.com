@@ -1,7 +1,7 @@
 import React from 'react';
 
-import RenderPageTitle from '../widgets/pageTitleComponent';
-import { resumeUrl } from '../shared/urls';
+import RenderPageTitle from '../../widgets/pageTitleComponent';
+import { resumeUrl } from '../../shared/urls';
 import ScriptTag from 'react-script-tag';
 
 const LinkedIn = props => (

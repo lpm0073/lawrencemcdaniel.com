@@ -1,8 +1,8 @@
 import React from 'react';
 
 import { Media } from 'reactstrap';
-import RenderPageTitle from '../widgets/pageTitleComponent';
-import RenderAboutTile from '../widgets/aboutTileComponent';
+import RenderPageTitle from '../../widgets/pageTitleComponent';
+import RenderAboutTile from '../../widgets/aboutTileComponent';
 import ScriptTag from 'react-script-tag';
 
 const LinkedIn = props => (

@@ -1,6 +1,6 @@
 import React from 'react';
-import RenderPageTitle from '../widgets/pageTitleComponent';
-import RecommendationsCarousel from '../widgets/recommendationsCarousel';
+import RenderPageTitle from '../../widgets/pageTitleComponent';
+import RecommendationsCarousel from '../../widgets/recommendationsCarousel';
 
 const Recommendations = (props) => {
 

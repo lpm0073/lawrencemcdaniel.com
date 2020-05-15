@@ -1,6 +1,6 @@
 import React from 'react';
-import RenderPageTitle from '../widgets/pageTitleComponent';
-import PortfolioGrid from '../widgets/portfolioGrid';
+import RenderPageTitle from '../../widgets/pageTitleComponent';
+import PortfolioGrid from '../../widgets/portfolioGrid';
 
 const Portfolio = (props) => {
 

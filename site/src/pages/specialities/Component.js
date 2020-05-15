@@ -1,7 +1,7 @@
 import React from 'react';
-import RenderPageTitle from '../widgets/pageTitleComponent';
-import SpecialtiesBanner from '../widgets/specialtiesBanner';
-import SpecialtiesCarousel from '../widgets/specialtiesCarousel';
+import RenderPageTitle from '../../widgets/pageTitleComponent';
+import SpecialtiesBanner from '../../widgets/specialtiesBanner';
+import SpecialtiesCarousel from '../../widgets/specialtiesCarousel';
 
 const Specialties = (props) => {
 
