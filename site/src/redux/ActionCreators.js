@@ -122,6 +122,45 @@ export const addEducation = (education) => ({
     payload: education
 });
 
+/* ----------------------------------- */
+
+export const fetchRecommendations = () => (dispatch) => {
+    dispatch(recommendationsLoading(true));
+
+    return fetch(backendUrl + "posts?categories=45&_embed")
+    .then(
+        response => {
+            if (response.ok) {
+                return response;
+            } else {
+                var error = new Error('Error ' + response.status + ': ' + response.statusText);
+                error.response = response;
+                throw error;
+            }
+        },
+        error => {
+            var errmess = new Error(error.message);
+            throw errmess;
+        })
+    .then(response => response.json())
+    .then(recommendations => dispatch(addRecommendations(recommendations)))
+    .catch(error => dispatch(recommendationsFailed(error.message)));
+
+}
+
+export const recommendationsLoading = () => ({
+    type: ActionTypes.RECOMMENDATIONS_LOADING
+});
+
+export const recommendationsFailed = (errmess) => ({
+    type: ActionTypes.RECOMMENDATIONS_FAILED,
+    payload: errmess
+});
+
+export const addRecommendations = (recommendations) => ({
+    type: ActionTypes.ADD_RECOMMENDATIONS,
+    payload: recommendations
+});
 
 /* ----------------------------------- */
 

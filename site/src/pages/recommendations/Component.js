@@ -10,8 +10,7 @@ const Recommendations = (props) => {
             <div className="recommendations-page">
                 <div className="container site-page ">
                     <RenderPageTitle theme="dark" icon="fa-users" title="CLIENT" boxed_title="RECOMMENDATIONS" />
-                    <RecommendationsCarousel />
-
+                    <RecommendationsCarousel recommendations={props.recommendations} />
                 </div>
             </div>              
 

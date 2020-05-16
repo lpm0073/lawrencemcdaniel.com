@@ -3,7 +3,7 @@ import { Switch, Route, Redirect, withRouter } from 'react-router-dom';
 
 // Redux
 import { connect } from 'react-redux';
-import { postFeedback, fetchSpecialties, fetchPortfolio, fetchEducation } from '../redux/ActionCreators';
+import { postFeedback, fetchSpecialties, fetchPortfolio, fetchEducation, fetchRecommendations } from '../redux/ActionCreators';
 import { actions } from 'react-redux-form';
 
 // Shared
@@ -25,7 +25,8 @@ const mapStateToProps = state => {
   return {
     specialties: state.specialties,
     portfolio: state.portfolio,
-    education: state.education
+    education: state.education,
+    recommendations: state.recommendations
   }
 }
 
@@ -34,7 +35,8 @@ const mapDispatchToProps = (dispatch) => ({
   postFeedback: (firstname, lastname, telnum, email, agree, message) => dispatch(postFeedback(firstname, lastname, telnum, email, agree, message)),
   fetchSpecialties: () => {dispatch(fetchSpecialties())},
   fetchPortfolio: () => {dispatch(fetchPortfolio())},
-  fetchEducation: () => {dispatch(fetchEducation())}
+  fetchEducation: () => {dispatch(fetchEducation())},
+  fetchRecommendations: () => {dispatch(fetchRecommendations())}
 });
 
 class Main extends Component {
@@ -43,6 +45,7 @@ class Main extends Component {
     this.props.fetchSpecialties();
     this.props.fetchPortfolio();
     this.props.fetchEducation();
+    this.props.fetchRecommendations();
   }
 
   render() {
@@ -63,7 +66,7 @@ class Main extends Component {
             <Route exact path="/portfolio" component={() => <Portfolio portfolio={this.props.portfolio} />} />
             <Route exact path="/education" component={() => <Education education={this.props.education} />} />
             <Route exact path="/skills" component={Skills} />
-            <Route exact path="/recommendations" component={Recommendations} />
+            <Route exact path="/recommendations" component={() => <Recommendations recommendations={this.props.recommendations} />} />
             <Redirect to="/home" />
           </Switch>
         <Footer />
