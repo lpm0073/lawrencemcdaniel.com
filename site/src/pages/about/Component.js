@@ -25,7 +25,7 @@ const About = (props) => {
                             <LinkedinBadge />
                         </div>
                         <div className="col-lg-5 col-md-6 col-sm-12">
-                            <div className="ml-4 mr-2">
+                            <div>
                                 <h4 className="mb-3">Great things are done by a series of small things brought together</h4>
                                 <div className="text-justify">
                                     <p>I’m an American full stack developer with significant experience with classic backend stacks and front-end frameworks including <a href="https://aws.amazon.com/"><span>AWS</span></a>, <a href="https://www.djangoproject.com/"><span>Django</span></a>, <a href="https://angular.io/"><span>Angular</span></a>, <a href="https://reactjs.org/"><span>React</span></a>, and <a href="https://wordpress.com/"><span>WordPress</span></a>. I am a veteran of multiple startups and early-stage ventures with dozens of successful product launches in multiple industries and markets around the world. I advocate for <a href="https://en.wikipedia.org/wiki/Open_source"><span>open source</span></a>, try to keep things <a href="https://en.wikipedia.org/wiki/Don%27t_repeat_yourself"><span>DRY</span></a> and well-documented and when possible I adhere to the principals of <a href="https://12factor.net/"><span>12-factor</span></a> development. I’m a passionate learner and <a href="https://blog.lawrencemcdaniel.com"><span>frequent blogger</span></a>, currently interested in <a href="/machine-learning/"><span>machine learning</span></a>, AI and quantum computing.</p>                    
