@@ -8,7 +8,7 @@ const Recommendations = (props) => {
     return(
         <React.Fragment>
             <div className="recommendations-page">
-                <div className="container site-page ">
+                <div className="site-page ">
                     <RenderPageTitle theme="dark" icon="fa-users" title="CLIENT" boxed_title="RECOMMENDATIONS" />
                     <RecommendationsCarousel recommendations={props.recommendations} />
                 </div>

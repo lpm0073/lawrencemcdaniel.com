@@ -24,7 +24,19 @@ const responsive = {
 
 class RecommendationsCarousel extends Component {
 
+  shuffleArray(array) {
+    let i = array.length - 1;
+    for (; i > 0; i--) {
+      const j = Math.floor(Math.random() * (i + 1));
+      const temp = array[i];
+      array[i] = array[j];
+      array[j] = temp;
+    }
+    return array;
+  }
+  
   render() {
+    const recommendationsList = this.shuffleArray(this.props.recommendations.items);
     return (
         <div className="container">
           {this.props.isLoading ? (
@@ -35,7 +47,7 @@ class RecommendationsCarousel extends Component {
                 additionalTransfrom={0}
                 arrows
                 autoPlay
-                autoPlaySpeed={10000}
+                autoPlaySpeed={15000}
                 centerMode={false}
                 className=""
                 containerClass="container-with-dots"
@@ -55,7 +67,7 @@ class RecommendationsCarousel extends Component {
                 swipeable
                 transitionDuration={2000}
                 >
-                {this.props.recommendations.items.map((recommendation, indx) => {
+                {recommendationsList.map((recommendation, indx) => {
                   const rawContent = recommendation.content.rendered;
                   
                   var parser = new DOMParser();
@@ -70,6 +82,17 @@ class RecommendationsCarousel extends Component {
                     return {__html: str};
                   }
 
+                  function featuredMedia(arr) {
+                    var i = 0;
+
+                    if (typeof arr !== 'undefined' && arr.length > 0) {
+                      for (i=0; i < arr.length; i++) {
+                        return arr[i].source_url;
+                      }
+                    }
+                    return null;
+                  }
+
                   return (
                     <React.Fragment>
                       <div className="row m-0 p-0" key={indx}>
@@ -77,7 +100,7 @@ class RecommendationsCarousel extends Component {
                           <div className="row p-0">
                             <div className="col-lg-3 ">
                               <img className="recommendation-pic mt-1" 
-                                  src={recommendation._embedded["wp:featuredmedia"][0].source_url}
+                                  src={featuredMedia(recommendation._embedded["wp:featuredmedia"])}
                                   alt={recommendation.slug}
                               />
                             </div>
