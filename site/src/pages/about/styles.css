@@ -5,6 +5,8 @@
     word-wrap: break-word;
 }
 .about-tile-icon {
+    margin-top: 10px;
+    margin-bottom: 15px;
     color: #666;
 }
 
@@ -18,4 +20,9 @@
     font-family: 'Trebuchet MS', 'Lucida Sans Unicode', 'Lucida Grande', 'Lucida Sans', Arial, sans-serif;
     color: #666;
     font-weight: 900;
+}
+
+.about-tile-text {
+    font-size: .9em;
+    padding: 5px;
 }

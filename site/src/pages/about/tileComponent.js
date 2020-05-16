@@ -10,7 +10,7 @@ const AboutTile = (props) => {
             <div className="m-1 about-tile">
                 <div className={thisClassName}></div>
                 <div className="about-tile-value">{props.value}</div>
-                <div>{props.text}</div>
+                <div className="about-tile-text">{props.text}</div>
             </div>
         </div>                
 

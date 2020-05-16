@@ -37,6 +37,8 @@
 
 .footer-extra-links {
     visibility: hidden;
+    width: 0 !important;
+
 }
 }
 /********** Super extra small devices Only :-) (e.g., iPhone 4) **********/

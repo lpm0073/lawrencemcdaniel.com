@@ -9,6 +9,11 @@ import './styles.css';
 
 const About = (props) => {
 
+        var d = new Date();
+        const years_experience = d.getFullYear() - 1992;
+        const years_opensource = d.getFullYear() - 2010;
+        const years_biking = d.getFullYear() - 1999;
+
         return(
 
             <React.Fragment>
@@ -33,9 +38,9 @@ const About = (props) => {
                         <div className="col-lg-4 col-md-6 col-sm-12 ">
                             <div className="row">
                                 <AboutTile icon="fa-globe" value="13" text="Countries worked in" />
-                                <AboutTile icon="fa-cloud" value="27" text="Years Experience" />
-                                <AboutTile icon="fa-linux" value="10" text="Years Open Source" />
-                                <AboutTile icon="fa-taxi" value="22" text="Years bicycle commuting" />
+                                <AboutTile icon="fa-cloud" value={years_experience} text="Years Experience" />
+                                <AboutTile icon="fa-linux" value={years_opensource} text="Years Open Source" />
+                                <AboutTile icon="fa-taxi" value={years_biking} text="Years bicycle commuting" />
                             </div>
                             <div className="row mt-1 pt-1">
                                 <p className="text-justify">I lived abroad for 25 of the last 30 years, in Mexico, Western Europe and SE Asia. Prior to that I earned a B.S. from University of North Texas with majors in Computer Science and Mathematics and minors in Physics and English.</p>

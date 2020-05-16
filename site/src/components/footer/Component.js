@@ -5,6 +5,9 @@ import './styles.css';
 
 function Footer(props) {
 
+    var d = new Date();
+    const curr_year = d.getFullYear();
+
     return(
         <div className="footer">
             <div className="container">
@@ -23,7 +26,7 @@ function Footer(props) {
 
                 <div className="row justify-content-center">             
                     <div className="col-auto">
-                        <p>© Copyright 2015 - 2020. All Rights Reserved.</p>
+                        <p>© Copyright 2015 - {curr_year}. All Rights Reserved.</p>
                     </div>
                 </div>
             </div>
