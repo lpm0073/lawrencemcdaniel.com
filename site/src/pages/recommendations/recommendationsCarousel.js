@@ -95,7 +95,7 @@ class RecommendationsCarousel extends Component {
 
                   return (
                     <React.Fragment>
-                      <div className="row" key={indx}>
+                      <div className="row m-sm-3" key={indx}>
                         <div className="col-md-5">
                           <div className="row">
                             <div className="col-md-3 ">
