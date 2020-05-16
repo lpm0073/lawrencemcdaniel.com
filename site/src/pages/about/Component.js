@@ -14,7 +14,7 @@ const About = (props) => {
             <React.Fragment>
                 
                 <div className="container site-page">
-                    <RenderPageTitle icon="fa-user" title="ABOUT" boxed_title="ME" />
+                    <RenderPageTitle theme="light" icon="fa-user" title="ABOUT" boxed_title="ME" />
                     <div className="row mt-5">
                         <div className="col-lg-3 col-md-6 col-sm-12">
                             <LinkedinBadge />

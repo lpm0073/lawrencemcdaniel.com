@@ -9,7 +9,7 @@ const Recommendations = (props) => {
         <React.Fragment>
             <div className="recommendations-page">
                 <div className="container site-page ">
-                    <RenderPageTitle icon="fa-users" title="CLIENT" boxed_title="RECOMMENDATIONS" />
+                    <RenderPageTitle theme="dark" icon="fa-users" title="CLIENT" boxed_title="RECOMMENDATIONS" />
                     <RecommendationsCarousel />
 
                 </div>

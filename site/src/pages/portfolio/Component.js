@@ -10,7 +10,7 @@ const Portfolio = (props) => {
         <React.Fragment>
             <div className="portfolio-page">
                 <div className="container site-page ">
-                    <RenderPageTitle icon="fa-briefcase" title="PROJECT" boxed_title="PORTFOLIO" />
+                    <RenderPageTitle theme="dark" icon="fa-briefcase" title="PROJECT" boxed_title="PORTFOLIO" />
                     <ProjectsGrid portfolio={props.portfolio} />
                 </div>
             </div>              

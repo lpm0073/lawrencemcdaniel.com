@@ -12,7 +12,7 @@ const Skills = (props) => {
 
             <div className="skills-page">
                 <div className="container site-page">
-                    <RenderPageTitle icon="fa-book" title="HARD" boxed_title="SKILLS" />
+                    <RenderPageTitle theme="light" icon="fa-book" title="HARD" boxed_title="SKILLS" />
 
                     <div className="row mt-5 mb-5">
                         <SkillColumn pct="100" title="Web" icon="fa-code" description="Complete professional web sites and web apps using WordPress, Django, Angular, and Ionic" />

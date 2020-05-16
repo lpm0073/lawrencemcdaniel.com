@@ -10,7 +10,7 @@ const Education = (props) => {
         <React.Fragment>
             <div className="portfolio-page">
                 <div className="container site-page ">
-                    <RenderPageTitle icon="fa-graduation-cap" title="ADVANCED" boxed_title="TRAINING" />
+                    <RenderPageTitle theme="dark" icon="fa-graduation-cap" title="ADVANCED" boxed_title="TRAINING" />
                     <CoursesGrid education={props.education} />
                 </div>
             </div>              

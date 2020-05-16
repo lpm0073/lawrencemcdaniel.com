@@ -1,12 +1,47 @@
-.page-title {
+div.col-12.page-title.light {
+    color: black;
+}
+div.col-12.page-title.dark {
     color: white;
-    background-color: salmon;
+}
+
+div.col-12.page-title.light i.page-title-boxed  {
+    background-color: rgba(59,63,80,0.6);
+}
+
+div.col-12.page-title.dark i.page-title-boxed  {
+    background-color: rgba(239,239,239,0.6);
+}
+
+
+.page-title {
+    padding-bottom: 25px;
+    padding-top: 30px;
 }
 .page-title .display-4 {
     font-weight: 900;
 }
 
-.page-title span {
+.page-tile-icon {
+    padding-top: 20px;
+    margin: 0 auto 0 auto;
+    margin-bottom: 15px;
+    background-color: #cccccc;
+    width: 80px;
+    height: 80px;
+    border-radius: 100%;
+    color: white;
+}
+
+
+
+.page-title-boxed {
+    color: white;
+    border-radius: 6px;
+    padding: 0 10px;
+}
+
+.page-title i {
     margin-top: 27px;
     margin-bottom: 27px;
 }

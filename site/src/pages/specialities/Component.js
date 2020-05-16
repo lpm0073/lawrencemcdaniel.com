@@ -11,7 +11,7 @@ const Specialties = (props) => {
         <React.Fragment>
             <div className="specialties-page">
                 <div className="container site-page ">
-                    <RenderPageTitle icon="fa-pencil-square-o" title="MY" boxed_title="SPECIALTIES" />
+                    <RenderPageTitle theme="dark" icon="fa-pencil-square-o" title="MY" boxed_title="SPECIALTIES" />
                     <SpecialtiesBanner />
                     <TechnologyCarousel specialties={props.specialties} />
 
