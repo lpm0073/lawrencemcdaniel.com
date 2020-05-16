@@ -14,7 +14,7 @@ const responsive = {
   },
   tablet: {
     breakpoint: { max: 1024, min: 464 },
-    items: 3
+    items: 1
   },
   mobile: {
     breakpoint: { max: 464, min: 0 },
@@ -38,11 +38,11 @@ class RecommendationsCarousel extends Component {
   render() {
     const recommendationsList = this.shuffleArray(this.props.recommendations.items);
     return (
-        <div className="container">
+        <div className="">
           {this.props.isLoading ? (
             "loading..."
           ) : (
-            <div id="recommendation-carousel" className="p-5 m-5">
+            <div id="recommendation-carousel" className="p-sm-5 m-sm-5 p-xs-1 m-xs-1">
               <Carousel responsive={responsive}
                 additionalTransfrom={0}
                 arrows
@@ -95,26 +95,26 @@ class RecommendationsCarousel extends Component {
 
                   return (
                     <React.Fragment>
-                      <div className="row m-0 p-0" key={indx}>
-                        <div className="col-lg-5 m-0 p-0">
-                          <div className="row p-0">
-                            <div className="col-lg-3 ">
+                      <div className="row" key={indx}>
+                        <div className="col-md-5">
+                          <div className="row">
+                            <div className="col-md-3 ">
                               <img className="recommendation-pic mt-1" 
                                   src={featuredMedia(recommendation._embedded["wp:featuredmedia"])}
                                   alt={recommendation.slug}
                               />
                             </div>
-                            <div className="col-lg-9">
+                            <div className="col-md-9">
                               <div className="recommendation-name" >{recommendation.title.rendered}</div>
                               <div className="recommendation-title" dangerouslySetInnerHTML={unescapedString(title)} />
-                              <div className="m-0 p-0">
+                              <div className="">
                                 <span className="recommendation-date" >{Moment(recommendation.date).format('MMM-YYYY')}, </span>
                                 <span className="recommendation-relationship" dangerouslySetInnerHTML={unescapedString(relationship)} />
                               </div>
                             </div>                            
                           </div>
                         </div>
-                        <div className="col-lg-7 text-justify m-0 ">
+                        <div className="col-md-7 mt-5 text-justify">
                           <div className="recommendation-description" dangerouslySetInnerHTML={unescapedString('&quot;' + description + '&quot;')} />
                         </div>
                       </div>

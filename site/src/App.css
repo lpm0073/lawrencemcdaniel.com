@@ -1,4 +1,9 @@
-
+body {
+    margin-right: auto;
+    margin-left: auto;
+    max-width: 1200px;
+    background-color: rgba(0,0,0,0);
+}
 
 .navbar-dark .navbar-nav .nav-link {
     font-family: 'Courier New', Courier, monospace;
