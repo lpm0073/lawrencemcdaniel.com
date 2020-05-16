@@ -38,7 +38,7 @@ class RecommendationsCarousel extends Component {
   render() {
     const recommendationsList = this.shuffleArray(this.props.recommendations.items);
     return (
-        <div className="">
+        <div className="pb-3">
           {this.props.isLoading ? (
             "loading..."
           ) : (
@@ -114,7 +114,7 @@ class RecommendationsCarousel extends Component {
                             </div>                            
                           </div>
                         </div>
-                        <div className="col-md-7 mt-5 text-justify">
+                        <div className="col-md-7 mt-5 text-justify border-white">
                           <div className="recommendation-description" dangerouslySetInnerHTML={unescapedString('&quot;' + description + '&quot;')} />
                         </div>
                       </div>
