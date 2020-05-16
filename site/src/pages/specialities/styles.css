@@ -1,13 +1,12 @@
 .specialties-page {
-    color:floralwhite;
     background-image:url(https://cdn.lawrencemcdaniel.com/wp-content/uploads/2014/09/22195643/Lawrence21.jpg);
     background-repeat:repeat; 
-    padding-top:40px; 
-    padding-bottom:25px; 
     background-size:cover; 
     background-position:top center;
     background-attachment: fixed;
 }
+
+/* ----------  Banner  ---------- */
 
 .specialties-banner {
     background-color: rgba(255, 255, 255, .8);
@@ -17,6 +16,8 @@
     font-size: initial;
 }
 .specialties-banner i {
+    margin-top: 5px;
+    padding:10px;
     color:#838590;
 }
 
@@ -30,14 +31,7 @@
     font-size: smaller;
 }
 
-.specialties-code-samples {
-    background-color: rgba(255, 255, 255, .8);
-    border-radius: 5px;
-    color: black;
-}
-.specialties-code-samples a {
-    margin-top: 18px;    
-}
+/* ----------  Carousel  ---------- */
 
 #specialties-carousel {
     visibility: hidden;
@@ -46,6 +40,16 @@
 
 .react-multiple-carousel__arrow {
     visibility: hidden;
+}
+
+/* ----------  Code Samples CTA  ---------- */
+.specialties-code-samples {
+    background-color: rgba(255, 255, 255, .8);
+    border-radius: 5px;
+    color: black;
+}
+.specialties-code-samples a {
+    margin-top: 18px;    
 }
 
 
