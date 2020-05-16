@@ -115,7 +115,7 @@ class RecommendationsCarousel extends Component {
                           </div>
                         </div>
                         <div className="col-lg-7 text-justify m-0 ">
-                          <div className="recommendation-description" dangerouslySetInnerHTML={unescapedString(description)} />
+                          <div className="recommendation-description" dangerouslySetInnerHTML={unescapedString('&quot;' + description + '&quot;')} />
                         </div>
                       </div>
                     </React.Fragment>

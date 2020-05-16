@@ -9,7 +9,7 @@ import { baseUrl, backendUrl } from '../shared/urls';
 export const fetchSpecialties = () => (dispatch) => {
     dispatch(specialtiesLoading(true));
 
-    return fetch(backendUrl + "posts?categories=43&_embed")
+    return fetch(backendUrl + "posts?categories=43&_embed&per_page=100")
     .then(
         response => {
             if (response.ok) {
@@ -48,7 +48,7 @@ export const addSpecialties = (specialties) => ({
 export const fetchPortfolio = () => (dispatch) => {
     dispatch(portfolioLoading(true));
 
-    return fetch(backendUrl + "portfolio?_embed")
+    return fetch(backendUrl + "portfolio?_embed&per_page=100")
     .then(
         response => {
             if (response.ok) {
@@ -87,7 +87,7 @@ export const addPortfolio = (portfolio) => ({
 export const fetchEducation = () => (dispatch) => {
     dispatch(educationLoading(true));
 
-    return fetch(backendUrl + "posts?categories=44&_embed")
+    return fetch(backendUrl + "posts?categories=44&_embed&per_page=100")
     .then(
         response => {
             if (response.ok) {
@@ -127,7 +127,7 @@ export const addEducation = (education) => ({
 export const fetchRecommendations = () => (dispatch) => {
     dispatch(recommendationsLoading(true));
 
-    return fetch(backendUrl + "posts?categories=45&_embed")
+    return fetch(backendUrl + "posts?categories=45&_embed&per_page=100")
     .then(
         response => {
             if (response.ok) {
