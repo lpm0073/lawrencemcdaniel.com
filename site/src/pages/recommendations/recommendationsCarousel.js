@@ -33,8 +33,9 @@ class RecommendationsCarousel extends Component {
             <div id="recommendation-carousel" className="p-5 m-5">
               <Carousel responsive={responsive}
                 additionalTransfrom={0}
+                arrows
                 autoPlay
-                autoPlaySpeed={1}
+                autoPlaySpeed={10000}
                 centerMode={false}
                 className=""
                 containerClass="container-with-dots"
@@ -48,11 +49,11 @@ class RecommendationsCarousel extends Component {
                 minimumTouchDrag={80}
                 renderButtonGroupOutside={false}
                 renderDotsOutside={false}
-                showDots={true}
+                showDots={false}
                 sliderClass=""
                 slidesToSlide={1}
                 swipeable
-                transitionDuration={15000}
+                transitionDuration={2000}
                 >
                 {this.props.recommendations.items.map((recommendation, indx) => {
                   const rawContent = recommendation.content.rendered;
