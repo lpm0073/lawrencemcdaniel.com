@@ -3,21 +3,6 @@
     background-color: #f1f1f1;
 }
 
-.row-header{
-    margin:0px auto;
-    padding:0px auto;
-}
+.contact-data .contact-social-buttons {
 
-.row-content {
-    margin:0px auto;
-    padding: 50px 0px 50px 0px;
-    border-bottom: 1px ridge;
-    min-height:400px;
-}
-
-
-address{
-    font-size:80%;
-    margin:0px;
-    color:#0f0f0f;
 }
