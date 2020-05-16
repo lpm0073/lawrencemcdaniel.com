@@ -54,14 +54,30 @@ class RecommendationsCarousel extends Component {
                 transitionDuration={3000}
                 >
                 {this.props.recommendations.items.map((recommendation, indx) => {
+                  const rawContent = recommendation.content.rendered;
+                  
+                  var parser = new DOMParser();
+                  var doc = parser.parseFromString(rawContent, "text/html");
+                  var title = doc.querySelector(".title").innerHTML;
+                  var relationship = doc.querySelector(".relationship").innerHTML;
+
+                  function unescapedString(str) {
+                    return {__html: str};
+                  }
+
                   return (
-                    <div className="col-8 text-left mt-5" key={indx}>
-                      <img
-                        style={{ "width": "100%"}}
-                        src={recommendation._embedded["wp:featuredmedia"][0].source_url}
-                        alt={recommendation.slug}
-                      />
-                    </div>
+                    <React.Fragment>
+                      <div className="col-8 text-left mt-5" key={indx}>
+                        <img
+                          style={{ "width": "100%"}}
+                          src={recommendation._embedded["wp:featuredmedia"][0].source_url}
+                          alt={recommendation.slug}
+                        />
+                      </div>
+                      <div>{recommendation.date}</div>
+                      <div dangerouslySetInnerHTML={unescapedString(title)} />
+                      <div dangerouslySetInnerHTML={unescapedString(relationship)} />
+                    </React.Fragment>
                   );
                 })}
               </Carousel>
