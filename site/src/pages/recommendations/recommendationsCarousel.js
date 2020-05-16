@@ -1,15 +1,16 @@
 import React, { Component } from "react";
 import Carousel from "react-multi-carousel";
 import "react-multi-carousel/lib/styles.css";
+import Moment from 'moment';
 
 const responsive = {
   superLargeDesktop: {
     breakpoint: { max: 4000, min: 3000 },
-    items: 4
+    items: 1
   },
   desktop: {
     breakpoint: { max: 3000, min: 1024 },
-    items: 4
+    items: 1
   },
   tablet: {
     breakpoint: { max: 1024, min: 464 },
@@ -29,7 +30,7 @@ class RecommendationsCarousel extends Component {
           {this.props.isLoading ? (
             "loading..."
           ) : (
-            <div id="specialties-carousel">
+            <div id="recommendation-carousel" className="p-5 m-5">
               <Carousel responsive={responsive}
                 additionalTransfrom={0}
                 autoPlay
@@ -37,7 +38,7 @@ class RecommendationsCarousel extends Component {
                 centerMode={false}
                 className=""
                 containerClass="container-with-dots"
-                customTransition="all 1.5s linear"
+                customTransition="all 1s linear"
                 dotListClass=""
                 draggable
                 focusOnSelect={false}
@@ -47,11 +48,11 @@ class RecommendationsCarousel extends Component {
                 minimumTouchDrag={80}
                 renderButtonGroupOutside={false}
                 renderDotsOutside={false}
-                showDots={false}
+                showDots={true}
                 sliderClass=""
                 slidesToSlide={1}
                 swipeable
-                transitionDuration={3000}
+                transitionDuration={15000}
                 >
                 {this.props.recommendations.items.map((recommendation, indx) => {
                   const rawContent = recommendation.content.rendered;
@@ -60,23 +61,39 @@ class RecommendationsCarousel extends Component {
                   var doc = parser.parseFromString(rawContent, "text/html");
                   var title = doc.querySelector(".title").innerHTML;
                   var relationship = doc.querySelector(".relationship").innerHTML;
+                  var description = doc.querySelector(".description").innerHTML;
 
+                  Moment.locale('en');
+                  
                   function unescapedString(str) {
                     return {__html: str};
                   }
 
                   return (
                     <React.Fragment>
-                      <div className="col-8 text-left mt-5" key={indx}>
-                        <img
-                          style={{ "width": "100%"}}
-                          src={recommendation._embedded["wp:featuredmedia"][0].source_url}
-                          alt={recommendation.slug}
-                        />
+                      <div className="row m-0 p-0" key={indx}>
+                        <div className="col-lg-5 m-0 p-0">
+                          <div className="row p-0">
+                            <div className="col-lg-3 ">
+                              <img className="recommendation-pic mt-1" 
+                                  src={recommendation._embedded["wp:featuredmedia"][0].source_url}
+                                  alt={recommendation.slug}
+                              />
+                            </div>
+                            <div className="col-lg-9">
+                              <div className="recommendation-name" >{recommendation.title.rendered}</div>
+                              <div className="recommendation-title" dangerouslySetInnerHTML={unescapedString(title)} />
+                              <div className="m-0 p-0">
+                                <span className="recommendation-date" >{Moment(recommendation.date).format('MMM-YYYY')}, </span>
+                                <span className="recommendation-relationship" dangerouslySetInnerHTML={unescapedString(relationship)} />
+                              </div>
+                            </div>                            
+                          </div>
+                        </div>
+                        <div className="col-lg-7 text-justify m-0 ">
+                          <div className="recommendation-description" dangerouslySetInnerHTML={unescapedString(description)} />
+                        </div>
                       </div>
-                      <div>{recommendation.date}</div>
-                      <div dangerouslySetInnerHTML={unescapedString(title)} />
-                      <div dangerouslySetInnerHTML={unescapedString(relationship)} />
                     </React.Fragment>
                   );
                 })}
