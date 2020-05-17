@@ -41,10 +41,10 @@ const SkillColumn = (props) => {
         canvas.style.height = `${height}px`;
 
         context.lineWidth = 10;
-        context.strokeStyle = '#ad2323';
+        context.strokeStyle = '#555';
         context.shadowOffsetX = 0;
         context.shadowOffsetY = 0;
-        context.shadowBlur = 10;
+        context.shadowBlur = 0;
         context.shadowColor = '#656565';
      
 
@@ -59,6 +59,7 @@ const SkillColumn = (props) => {
         let requestId, i = 0;
 
         const render = (current) => {
+
             context.clearRect(0, 0, canvas.width, canvas.height);
             context.beginPath();
             context.arc(x, y, radius, -(quart), (circ * current) - quart, false);
@@ -77,7 +78,8 @@ const SkillColumn = (props) => {
      
         };
 
-        render();
+        setTimeout(function(){ render(); }, Math.random() * 300);
+        
 
         return () => {
             cancelAnimationFrame(requestId);
