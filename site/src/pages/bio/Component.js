@@ -12,7 +12,7 @@ const Bio = (props) => {
         return(
 
             <React.Fragment>
-                <div className="container site-page">
+                <div className="site-page">
                     <RenderPageTitle theme="light" icon="fa-align-left" title="FULL" boxed_title="BIO" />
                     <div className="row mt-5">
                         <div className="col-lg-3 hide-medium">

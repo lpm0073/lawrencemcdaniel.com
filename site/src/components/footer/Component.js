@@ -10,7 +10,7 @@ function Footer(props) {
 
     return(
         <div className="footer">
-            <div className="container">
+            <div className="">
                 <div className="row justify-content-center">
                     <div className="col-auto">
                         <div className="text-center">                        

@@ -4,7 +4,7 @@ class ProjectsGrid extends Component {
 
   render() {
     return (
-        <div className="container">
+        <div className="">
           {this.props.isLoading ? (
             "loading..."
           ) : (

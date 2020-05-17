@@ -11,7 +11,7 @@ const Skills = (props) => {
         <React.Fragment>
 
             <div className="skills-page">
-                <div className="container site-page">
+                <div className="site-page">
                     <RenderPageTitle theme="light" icon="fa-book" title="HARD" boxed_title="SKILLS" />
 
                     <div className="row mt-5 mb-5">
