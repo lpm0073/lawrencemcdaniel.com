@@ -1,4 +1,6 @@
 import React from 'react';
+import Loading from '../../components/LoadingComponent';
+
 
 const SpecialtyColumn = (props) => {
 
@@ -31,7 +33,10 @@ const SpecialtiesBanner = (props) => {
     
     return(
         <React.Fragment>
-          <div className="row specialties-banner mx-3 my-5 p-3">
+          {props.isLoading ? (
+            <Loading />
+          ) : (
+            <div className="row specialties-banner mx-3 my-5 p-3">
             <SpecialtyColumn 
             title="FULL STACK DEVELOPMENT" 
             icon="fa-html5" 
@@ -51,7 +56,10 @@ const SpecialtiesBanner = (props) => {
                 />
 
           </div>
+
+        )}
         </React.Fragment>
+
 
     );
 }

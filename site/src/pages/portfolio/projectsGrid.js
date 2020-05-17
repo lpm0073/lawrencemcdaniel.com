@@ -1,12 +1,13 @@
 import React, { Component } from "react";
+import Loading from '../../components/LoadingComponent';
 
 class ProjectsGrid extends Component {
 
   render() {
     return (
-        <div className="">
+        <React.Fragment>
           {this.props.isLoading ? (
-            "loading..."
+            <Loading />
           ) : (
             <div id="portfolio-grid">
               <div className="row my-5 mx-0 py-5 px-0 text-center">
@@ -26,8 +27,9 @@ class ProjectsGrid extends Component {
                     })}
               </div>
             </div>
-          )}
-        </div>
+            )
+          }
+        </React.Fragment>
     );
   }
 }

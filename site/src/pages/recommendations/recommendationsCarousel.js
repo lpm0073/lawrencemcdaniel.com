@@ -1,4 +1,5 @@
 import React, { Component } from "react";
+import Loading from '../../components/LoadingComponent';
 import Carousel from "react-multi-carousel";
 import "react-multi-carousel/lib/styles.css";
 import Moment from 'moment';
@@ -40,7 +41,7 @@ class RecommendationsCarousel extends Component {
     return (
         <div className="pb-3">
           {this.props.isLoading ? (
-            "loading..."
+            <Loading />
           ) : (
             <div id="recommendation-carousel" className="p-sm-5 m-sm-5 p-xs-1 m-xs-1">
               <Carousel responsive={responsive}
