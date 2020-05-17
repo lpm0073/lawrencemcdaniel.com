@@ -39,29 +39,42 @@ const SkillColumn = (props) => {
         canvas.height = height * ratio;
         canvas.style.width = `${width}px`;
         canvas.style.height = `${height}px`;
+
+        context.lineWidth = 10;
+        context.strokeStyle = '#ad2323';
+        context.shadowOffsetX = 0;
+        context.shadowOffsetY = 0;
+        context.shadowBlur = 10;
+        context.shadowColor = '#656565';
+     
+
+        var x = canvas.width / 2;
+        var y = canvas.height / 2;
+
+        var radius = x - context.lineWidth;
+        var endPercent = 100;
+        var circ = Math.PI * 2;
+        var quart = Math.PI / 2;
+
         let requestId, i = 0;
 
-        const render = () => {
-            var x = canvas.width / 2;
-            var y = canvas.height / 2;
-            var radius = x;
-            var endPercent = 85;
-            var curPerc = 0;
-         
+        const render = (current) => {
             context.clearRect(0, 0, canvas.width, canvas.height);
             context.beginPath();
-
-            /* context.arc(x, y, radius, -(quart), ((circ) * current) - quart, false); */
-            context.arc(x,
-                        y,
-                        (canvas.width / 2) * Math.abs(Math.cos(i)),
-                        0,
-                        2 * Math.PI
-                        );
+            context.arc(x, y, radius, -(quart), (circ * current) - quart, false);
+            /*
+            context.arc(x, y, x * Math.abs(Math.cos(i)), 0, 2 * Math.PI);
             context.fill();
-            i += 0.05;
+            */
+            context.stroke();
+            i +=2;
      
-            requestId = requestAnimationFrame(render);
+            if (i <= endPercent) {
+                requestId = requestAnimationFrame(function () {
+                    render(i / 100)
+                });
+            }
+     
         };
 
         render();
