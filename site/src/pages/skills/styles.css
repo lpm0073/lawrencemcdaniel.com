@@ -5,10 +5,10 @@
 }
 
 .skill-column .skill-pct {
-    padding-top: 15%;
     font-size: 2em;
     background-color: darkkhaki;
-    height: 100px;
+    width: 100px;
+    height: 100px;    
 }
 
 .skill-column .skill-title {
