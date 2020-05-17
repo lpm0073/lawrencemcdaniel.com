@@ -1,5 +1,5 @@
 import * as ActionTypes from './ActionTypes';
-import { baseUrl, backendUrl } from '../shared/urls';
+import { backendUrl } from '../shared/urls';
 
 
 
