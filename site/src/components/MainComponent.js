@@ -3,8 +3,7 @@ import { Switch, Route, Redirect, withRouter } from 'react-router-dom';
 
 // Redux
 import { connect } from 'react-redux';
-import { postFeedback, fetchSpecialties, fetchPortfolio, fetchEducation, fetchRecommendations } from '../redux/ActionCreators';
-import { actions } from 'react-redux-form';
+import { fetchSpecialties, fetchPortfolio, fetchEducation, fetchRecommendations } from '../redux/ActionCreators';
 
 // Shared
 import Header from './header/Component';
@@ -31,8 +30,6 @@ const mapStateToProps = state => {
 }
 
 const mapDispatchToProps = (dispatch) => ({
-  resetFeedbackForm: () => {dispatch(actions.reset('feedback'))},
-  postFeedback: (firstname, lastname, telnum, email, agree, message) => dispatch(postFeedback(firstname, lastname, telnum, email, agree, message)),
   fetchSpecialties: () => {dispatch(fetchSpecialties())},
   fetchPortfolio: () => {dispatch(fetchPortfolio())},
   fetchEducation: () => {dispatch(fetchEducation())},
@@ -55,11 +52,7 @@ class Main extends Component {
         <Header />
           <Switch>
             <Route path="/home" component={Home} />
-            <Route exact path="/contact" component={() => <Contact 
-                                                              resetFeedbackForm={this.props.resetFeedbackForm} 
-                                                              postFeedback={this.props.postFeedback}
-                                                              />
-                                                      } />
+            <Route exact path="/contact" component={Contact} />
             <Route exact path="/about" component={About} />
             <Route exact path="/bio" component={Bio} />
             <Route exact path="/specialties" component={() => <Specialties specialties={this.props.specialties} />} />
