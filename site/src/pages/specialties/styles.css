@@ -32,11 +32,14 @@
 }
 
 /* ----------  Carousel  ---------- */
-
 #specialties-carousel {
     visibility: hidden;
 }
 
+#specialties-carousel .item img {
+    max-height: 100px;
+    max-width: 250px;
+}
 
 .react-multiple-carousel__arrow {
     visibility: hidden;
