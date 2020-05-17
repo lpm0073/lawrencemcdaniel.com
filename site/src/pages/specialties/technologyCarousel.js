@@ -23,7 +23,19 @@ const responsive = {
 
 class TechnologyCarousel extends Component {
 
+  shuffleArray(array) {
+    let i = array.length - 1;
+    for (; i > 0; i--) {
+      const j = Math.floor(Math.random() * (i + 1));
+      const temp = array[i];
+      array[i] = array[j];
+      array[j] = temp;
+    }
+    return array;
+  }
+
   render() {
+    const itemList = this.shuffleArray(this.props.specialties.items);
     return (
         <div className="">
           {this.props.isLoading ? (
@@ -53,11 +65,10 @@ class TechnologyCarousel extends Component {
                 swipeable
                 transitionDuration={3000}
                 >
-                {this.props.specialties.items.map((specialty, indx) => {
+                {itemList.map((specialty, indx) => {
                   return (
-                    <div className="col-8 text-left mt-5" key={indx}>
+                    <div className="item col-8 text-left mt-5" key={indx}>
                       <img
-                        style={{ "width": "100%"}}
                         src={specialty._embedded["wp:featuredmedia"][0].source_url}
                         alt={specialty.slug}
                       />
