@@ -1,5 +1,5 @@
 import React, { Component } from "react";
-import Loading from '../../components/LoadingComponent';
+import Loading from '../../components/Loading';
 
 class ProjectsGrid extends Component {
 

@@ -1,5 +1,5 @@
 import React from 'react';
-import Loading from '../../components/LoadingComponent';
+import Loading from '../../components/Loading';
 
 
 const SpecialtyColumn = (props) => {

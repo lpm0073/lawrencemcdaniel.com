@@ -1,5 +1,5 @@
 import React, { Component } from "react";
-import Loading from '../../components/LoadingComponent';
+import Loading from '../../components/Loading';
 import Carousel from "react-multi-carousel";
 import "react-multi-carousel/lib/styles.css";
 import Moment from 'moment';
