@@ -1,4 +1,4 @@
-import {getPixelRatio} from './getPixelRatio';
+import { getPixelRatio } from './getPixelRatio';
 
 const drawCircle = (ref) => {
     let canvas = ref.current;
@@ -13,7 +13,7 @@ const drawCircle = (ref) => {
     canvas.style.width = `${width}px`;
     canvas.style.height = `${height}px`;
 
-    context.lineWidth = 10;
+    context.lineWidth = canvas.height * 2;
     context.strokeStyle = '#555';
     context.shadowOffsetX = 0;
     context.shadowOffsetY = 0;
@@ -21,20 +21,20 @@ const drawCircle = (ref) => {
     context.shadowColor = '#656565';
     
 
-    var x = canvas.width / 2;
-    var y = canvas.height / 2;
-    var radius = x - context.lineWidth;
+    var x = canvas.width;
+    var y = canvas.height;
     var endPercent = 100;
-    var circ = Math.PI * 2;
-    var quart = Math.PI / 2;
     var i = 0;
     let requestId;
 
-    const render = (current) => {
+    const render = (pct) => {
 
         context.clearRect(0, 0, canvas.width, canvas.height);
         context.beginPath();
-        context.arc(x, y, radius, -(quart), (circ * current) - quart, false);
+
+        context.moveTo(0, y);
+        context.lineTo(x * pct, 0);
+    
         context.stroke();
         i +=2;
     
