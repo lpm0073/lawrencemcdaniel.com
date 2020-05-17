@@ -7,7 +7,7 @@ export const LinkedinBadge = () => {
         <div className="LI-badge-container-vertical-dark LI-badge-container text-center">
             <div className="LI-profile-badge-header LI-name-container">
                 <div className="LI-col">
-                    <div className="LI-profile-pic- pt-4">
+                    <div className="LI-profile-pic-container pt-4">
                         <div className="LI-img-wrapper">
                             <img className="LI-profile-pic" src="https://cdn.lawrencemcdaniel.com/wp-content/uploads/2020/05/15213432/linkedin-profile-pic.jpeg" alt="Lawrence McDaniel" />
                         </div>
