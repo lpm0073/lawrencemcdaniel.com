@@ -5,7 +5,18 @@
 }
 
 .skill-column .skill-pct {
-    font-size: 2em;
+}
+
+.skill-column .skill-pct-text {
+    font-size: 1.75em;
+    position: absolute;
+    top: 30px;
+    left: 0;
+    width: 100%;
+    margin-left: auto;
+    margin-right: auto;
+}
+.skill-column .skill-pct canvas {
     width: 100px;
     height: 100px;    
 }
