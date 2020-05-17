@@ -73,6 +73,7 @@ class RecommendationsCarousel extends Component {
                   
                   var parser = new DOMParser();
                   var doc = parser.parseFromString(rawContent, "text/html");
+                  
                   var title = doc.querySelector(".title").innerHTML;
                   var relationship = doc.querySelector(".relationship").innerHTML;
                   var description = doc.querySelector(".description").innerHTML;
@@ -106,7 +107,7 @@ class RecommendationsCarousel extends Component {
                               />
                             </div>
                             <div className="col-md-9">
-                              <div className="recommendation-name" >{recommendation.title.rendered}</div>
+                              <div className="recommendation-name" dangerouslySetInnerHTML={unescapedString(recommendation.title.rendered)} /> 
                               <div className="recommendation-title" dangerouslySetInnerHTML={unescapedString(title)} />
                               <div className="">
                                 <span className="recommendation-date" >{Moment(recommendation.date).format('MMM-YYYY')}, </span>
