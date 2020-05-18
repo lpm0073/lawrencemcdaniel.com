@@ -4,7 +4,7 @@ import { withRouter } from 'react-router-dom';
 
 // Redux
 import { connect } from 'react-redux';
-import { fetchSpecialties, fetchPortfolio, fetchEducation, fetchRecommendations } from '../redux/ActionCreators';
+import { fetchSpecialties, fetchPortfolio, fetchEducation, fetchRecommendations, fetchProjectImages } from '../redux/ActionCreators';
 
 // Pages
 import Home from '../pages/home/Component';
@@ -24,7 +24,8 @@ const mapStateToProps = state => {
     specialties: state.specialties,
     portfolio: state.portfolio,
     education: state.education,
-    recommendations: state.recommendations
+    recommendations: state.recommendations,
+    project: state.project
   }
 }
 
@@ -32,7 +33,8 @@ const mapDispatchToProps = (dispatch) => ({
   fetchSpecialties: () => {dispatch(fetchSpecialties())},
   fetchPortfolio: () => {dispatch(fetchPortfolio())},
   fetchEducation: () => {dispatch(fetchEducation())},
-  fetchRecommendations: () => {dispatch(fetchRecommendations())}
+  fetchRecommendations: () => {dispatch(fetchRecommendations())},
+  fetchProjectImages: () => {dispatch(fetchProjectImages())}
 });
 
 
@@ -48,6 +50,9 @@ class Routes extends Component {
   render() {
 
     const PortfolioWithSlug = ({match}) => {
+
+      this.props.fetchProjectImages();
+
       return(
         <PortfolioDetail project={this.props.portfolio.projects.filter((item) => item.slug === match.params.portfolioId)[0]} 
             isLoading={this.props.portfolio.isLoading}

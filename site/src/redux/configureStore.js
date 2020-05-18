@@ -2,6 +2,7 @@ import { createStore, combineReducers, applyMiddleware } from 'redux';
 import { Specialties } from './specialties';
 import { Portfolio } from './portfolio';
 import { Education } from './education';
+import { Project } from './project';
 import { Recommendations } from './recommendations';
 import thunk from 'redux-thunk';
 import logger from 'redux-thunk';
@@ -15,7 +16,8 @@ export const ConfigureStore = () => {
             specialties: Specialties,
             portfolio: Portfolio,
             education: Education,
-            recommendations: Recommendations
+            recommendations: Recommendations,
+            project: Project
         }),
         applyMiddleware(thunk, logger)
     );

@@ -163,3 +163,43 @@ export const addRecommendations = (recommendations) => ({
 });
 
 /* ----------------------------------- */
+
+export const fetchProjectImages = () => (dispatch) => {
+    dispatch(projectImagesLoading(true));
+
+    return fetch(backendUrl + "media?include=2324,2320,2319,2300,2295,2296,2297,2298,2299,2301,2302,2303")
+    .then(
+        response => {
+            if (response.ok) {
+                return response;
+            } else {
+                var error = new Error('Error ' + response.status + ': ' + response.statusText);
+                error.response = response;
+                throw error;
+            }
+        },
+        error => {
+            var errmess = new Error(error.message);
+            throw errmess;
+        })
+    .then(response => response.json())
+    .then(images => dispatch(addProjectImages(images)))
+    .catch(error => dispatch(projectImagesFailed(error.message)));
+
+}
+
+export const projectImagesLoading = () => ({
+    type: ActionTypes.PROJECT_IMAGES_LOADING
+});
+
+export const projectImagesFailed = (errmess) => ({
+    type: ActionTypes.PROJECT_IMAGES_FAILED,
+    payload: errmess
+});
+
+export const addProjectImages = (recommendations) => ({
+    type: ActionTypes.ADD_PROJECT_IMAGES,
+    payload: recommendations
+});
+
+/* ----------------------------------- */
