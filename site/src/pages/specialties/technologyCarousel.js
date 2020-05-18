@@ -1,6 +1,7 @@
 import React, { Component } from "react";
 import Carousel from "react-multi-carousel";
 import "react-multi-carousel/lib/styles.css";
+import Loading from '../../components/Loading';
 
 const responsive = {
   superLargeDesktop: {
@@ -39,7 +40,7 @@ class TechnologyCarousel extends Component {
     return (
         <div className="">
           {this.props.isLoading ? (
-            "loading..."
+            <Loading />
           ) : (
             <div id="specialties-carousel">
               <Carousel responsive={responsive}
