@@ -4,6 +4,9 @@ import { Media } from 'reactstrap';
 import RenderPageTitle from '../../components/pagetitle/pageTitleComponent';
 import { LinkedinBadge } from '../../components/linkedinBadge/Component';
 import AboutTile from './tileComponent';
+import { Fade } from 'react-animation-components';
+import { TransitionGroup, CSSTransition } from 'react-transition-group';
+
 import './styles.css';
 
 
@@ -37,19 +40,20 @@ const About = (props) => {
                                 </div>
                             </div>
                         </div>
-                        <div className="col-lg-4 col-md-6 col-sm-12 ">
-                            <div className="row hide-small hide-medium">
-                                <AboutTile icon="fa-globe" value="13" text="Countries worked in" />
-                                <AboutTile icon="fa-cloud" value={years_experience} text="Years Experience" />
-                                <AboutTile icon="fa-linux" value={years_opensource} text="Years Open Source" />
-                                <AboutTile icon="fa-taxi" value={years_biking} text="Years bicycle commuting" />
+                            <div className="col-lg-4 col-md-6 col-sm-12 ">
+                                <Fade in delay={0} duration={400}>
+                                    <div className="row hide-small hide-medium">
+                                        <AboutTile icon="fa-globe" value="13" text="Countries worked in" />
+                                        <AboutTile icon="fa-cloud" value={years_experience} text="Years Experience" />
+                                        <AboutTile icon="fa-linux" value={years_opensource} text="Years Open Source" />
+                                        <AboutTile icon="fa-taxi" value={years_biking} text="Years bicycle commuting" />
+                                    </div>
+                                    <div className=" text-justify mt-1 pt-1">
+                                        <p>I lived abroad for 25 of the last 30 years, in Mexico, Western Europe and SE Asia. Prior to that I earned a B.S. from University of North Texas with majors in Computer Science and Mathematics and minors in Physics and English.</p>
+                                        <p><strong>Read my <a href="/bio/"><span>full bio here</span></a>.</strong></p>
+                                    </div>
+                                </Fade>
                             </div>
-                            <div className=" text-justify mt-1 pt-1">
-                                <p>I lived abroad for 25 of the last 30 years, in Mexico, Western Europe and SE Asia. Prior to that I earned a B.S. from University of North Texas with majors in Computer Science and Mathematics and minors in Physics and English.</p>
-                                <p><strong>Read my <a href="/bio/"><span>full bio here</span></a>.</strong></p>
-                            </div>
-                        </div>
-
                     </div>
                 </div>
             </React.Fragment>
