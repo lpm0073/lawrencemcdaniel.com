@@ -1,4 +1,4 @@
-import { getPixelRatio } from './getPixelRatio';
+import { getPixelRatio } from '../../shared/getPixelRatio';
 
 const drawCircle = (ref) => {
     let canvas = ref.current;
