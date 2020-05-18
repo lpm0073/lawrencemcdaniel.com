@@ -3,7 +3,7 @@ import RenderPageTitle from '../../components/pagetitle/pageTitleComponent';
 import RecommendationsCarousel from './recommendationsCarousel';
 import './styles.css';
 
-const Recommendations = (props) => {
+const Clients = (props) => {
 
     return(
         <React.Fragment>
@@ -19,4 +19,4 @@ const Recommendations = (props) => {
 
 }
 
-export default Recommendations;
+export default Clients;

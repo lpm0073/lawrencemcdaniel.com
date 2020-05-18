@@ -16,7 +16,7 @@ import Portfolio from '../pages/portfolio/Component';
 import PortfolioDetail from '../pages/portfolioDetail/Component';
 import Education from '../pages/education/Component';
 import Skills from '../pages/skills/Component';
-import Recommendations from '../pages/recommendations/Component';
+import Clients from '../pages/clients/Component';
 import MachineLearning from '../pages/machineLearning/Component';
 
 
@@ -77,7 +77,7 @@ class Routes extends Component {
             <Route path="/portfolio/:portfolioId" component={PortfolioWithSlug} />
             <Route exact path="/education" component={() => <Education education={this.props.education} />} />
             <Route exact path="/skills" component={Skills} />
-            <Route exact path="/recommendations" component={() => <Recommendations recommendations={this.props.recommendations} />} />
+            <Route exact path="/clients" component={() => <Clients recommendations={this.props.recommendations} />} />
             <Redirect to="/home" />
           </Switch>
         </React.Fragment>
