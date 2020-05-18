@@ -20,7 +20,7 @@ class CoursesGrid extends Component {
                   }
                   return (
                     <div className="col-lg-3 col-md-4 col-sm-6 m-0 px-0 py-1" key={indx}>
-                      <Fade in>
+                      <Fade in delay={0} duration={400}>
                         <div className="education-item mx-1 infinite" 
                           style={item_style}>
                         </div>
