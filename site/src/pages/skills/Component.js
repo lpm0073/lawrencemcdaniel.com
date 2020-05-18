@@ -31,7 +31,7 @@ const Skills = (props) => {
                             <SkillBar pct="90" description="AWS, Linux, Bash, Ansible, Jenkins, Chef, Puppet" />
                         </div>
                         <div className="col-lg-6 col-md-12">
-                            <SkillBar pct="100" description="English (Native Speaker) / Spanish (professional proficiency)" />
+                            <SkillBar pct="100" description="English (Native) / Spanish (professional proficiency)" />
                             <SkillBar pct="100" description="Octave, MatLab, MS Excel, MS Excel VBA" />
                             <SkillBar pct="100" description="Javascript, Python, PHP, VBA, VB .Net, ANSI C, C++" />
                             <SkillBar pct="100" description="Ionic, Objective-C, Swift" />

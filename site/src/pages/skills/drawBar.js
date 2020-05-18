@@ -14,7 +14,7 @@ const drawCircle = (ref) => {
     canvas.style.height = `${height}px`;
 
     context.lineWidth = canvas.height * 2;
-    context.strokeStyle = '#555';
+    context.strokeStyle = '#666';
     context.shadowOffsetX = 0;
     context.shadowOffsetY = 0;
     context.shadowBlur = 0;

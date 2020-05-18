@@ -44,7 +44,6 @@
     font-weight: bold;
     height: 35px;
     background-color: #ddd;
-    border: 1px solid red;
 }
 
 .skill-bar canvas {
@@ -52,9 +51,15 @@
     height: 100%;
 }
 .skill-bar-text {
+    position: absolute;
+    top: 70;
+    left: 0;
+    font-size: smaller;
+    z-index: 1px;
 }
 
 .right-rounded {
     border-top-right-radius: 5px;
     border-bottom-right-radius: 5px;
+    overflow: hidden;
 }
