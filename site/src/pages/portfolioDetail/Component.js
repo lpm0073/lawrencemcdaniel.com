@@ -8,7 +8,7 @@ import './styles.css';
 
 const PortfolioDetail = (props) => {
 
-    if (props.isLoading) {
+    if (props.postLoading) {
         return(
             <div className="">
                 <div className="row">
@@ -17,7 +17,7 @@ const PortfolioDetail = (props) => {
             </div>
         );
     }
-    else if (props.errMess) {
+    else if (props.postErrMess) {
         return(
             <div className="">
                 <div className="row">
@@ -26,7 +26,7 @@ const PortfolioDetail = (props) => {
             </div>
         );
     }
-    else if (props.project != null) {
+    else if (props.post != null) {
 
         function innerHTML(selector) {
 
@@ -36,25 +36,8 @@ const PortfolioDetail = (props) => {
             return null;
         }
 
-        function getURL(posts) {
 
-            fetch('https://lawrencemcdaniel.com/wp-json/wp/v2/media?include=' + posts)
-            .then(async response => {
-                const data = await response.json();
-    
-                if (!response.ok) {
-                    const error = (data && data.message) || response.statusText;
-                    return Promise.reject(error);
-                }
-                console.log(data);
-                return data;
-            })
-            .catch(error => {
-                console.error('error:', error);
-            });            
-        }
-
-        const rawContent = props.project.content.rendered;
+        const rawContent = props.post.content.rendered;
                   
         var parser = new DOMParser();
         var doc = parser.parseFromString(rawContent, "text/html");
@@ -72,21 +55,7 @@ const PortfolioDetail = (props) => {
                         <div className="row">
                             <div className="col">
                                 {description}
-                                <br />
-                                images:
-                                <ul>
-                                {images}
-                                </ul>
-                                <br />
-                                links:
-                                <ul> 
-                                {links}
-                                </ul>
-                                <br />
-                                <div>help me lord.</div>
-                                {getURL(gallery)}
-                                <div><br /><br /></div>
-                            <div className="recommendation-name" dangerouslySetInnerHTML={unescapedString(props.project.content.rendered)} /> 
+                            <div className="recommendation-name" dangerouslySetInnerHTML={unescapedString(props.post.content.rendered)} /> 
                         </div>
                     </div>
                     </div>

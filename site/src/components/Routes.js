@@ -45,18 +45,23 @@ class Routes extends Component {
     this.props.fetchPortfolio();
     this.props.fetchEducation();
     this.props.fetchRecommendations();
+    this.props.fetchProjectImages();
   }
 
   render() {
 
     const PortfolioWithSlug = ({match}) => {
 
-      this.props.fetchProjectImages();
-
+      if (!this.props.project) {
+        console.log('PortfolioWithSlug() project not set');
+      }
       return(
-        <PortfolioDetail project={this.props.portfolio.projects.filter((item) => item.slug === match.params.portfolioId)[0]} 
-            isLoading={this.props.portfolio.isLoading}
-            errMess={this.props.portfolio.errMess}
+        <PortfolioDetail post={this.props.portfolio.projects.filter((item) => item.slug === match.params.portfolioId)[0]} 
+            postLoading={this.props.portfolio.isLoading}
+            postErrMess={this.props.portfolio.errMess}
+            images={this.props.project}
+            imagesLoading={this.props.project.isLoading}
+            imagesError={this.props.project.errMess}
         />
       );
     }
