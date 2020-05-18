@@ -47,9 +47,9 @@ class Routes extends Component {
 
   render() {
 
-    const PortfolioWithId = ({match}) => {
+    const PortfolioWithSlug = ({match}) => {
       return(
-        <PortfolioDetail project={this.props.portfolio.projects.filter((item) => item.id === parseInt(match.params.id, 10))[0]} 
+        <PortfolioDetail project={this.props.portfolio.projects.filter((item) => item.slug === match.params.portfolioId)[0]} 
             isLoading={this.props.portfolio.isLoading}
             errMess={this.props.portfolio.errMess}
         />
@@ -65,7 +65,7 @@ class Routes extends Component {
             <Route exact path="/bio" component={Bio} />
             <Route exact path="/specialties" component={() => <Specialties specialties={this.props.specialties} />} />
             <Route exact path="/portfolio" component={() => <Portfolio portfolio={this.props.portfolio} />} />
-            <Route path="/portfolio/:dishId" component={PortfolioWithId} />
+            <Route path="/portfolio/:portfolioId" component={PortfolioWithSlug} />
             <Route exact path="/education" component={() => <Education education={this.props.education} />} />
             <Route exact path="/skills" component={Skills} />
             <Route exact path="/recommendations" component={() => <Recommendations recommendations={this.props.recommendations} />} />

@@ -13,7 +13,7 @@ class ProjectsGrid extends Component {
         "backgroundImage": background_url
       }
       return (
-        <Link to={`/portfolio/${project.id}`} >
+        <Link to={`/portfolio/${project.slug}`} >
               <div className="portfolio-item">
                 <div className="portfolio-item-image"
                     style={item_style}>
