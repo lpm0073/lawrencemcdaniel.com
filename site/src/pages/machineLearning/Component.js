@@ -1,6 +1,4 @@
 import React from 'react';
-
-import { Media } from 'reactstrap';
 import RenderPageTitle from '../../components/pagetitle/pageTitleComponent';
 import SpecialtiesBanner from './machinelearningBanner';
 import './styles.css';
@@ -17,7 +15,7 @@ const MachineLearning = (props) => {
                     <RenderPageTitle theme="light" icon="fa-user" title="MACHINE" boxed_title="LEARNING" />
                     <div className="row mt-5">
                         <div className="column-left col-lg-4 col-md-6 col-sm-12 hide-medium">
-                            <img src="https://cdn.lawrencemcdaniel.com/wp-content/uploads/2016/12/22195700/lawrence-mcdaniel-portrait.jpg" />
+                            <img src="https://cdn.lawrencemcdaniel.com/wp-content/uploads/2016/12/22195700/lawrence-mcdaniel-portrait.jpg" alt="Lawrence McDaniel" />
                             <div className="name-block mt-1 text-center">
                                 <h4 className="my-0">Lawrence McDaniel</h4>
                                 <h5 className="my-0">Full Stack Developer</h5>
@@ -34,13 +32,15 @@ const MachineLearning = (props) => {
                                     </div>
                                 </div>
                                 <div className="column-right col-lg-6 col-md-12">
-                                    <img src="https://cdn.lawrencemcdaniel.com/wp-content/uploads/2016/12/22195700/machine-learning-certificate.png" />
-                                    <img className="mt-3" src="https://cdn.lawrencemcdaniel.com/wp-content/uploads/2016/12/22195700/machine-learning-grade.png" />
+                                    <img src="https://cdn.lawrencemcdaniel.com/wp-content/uploads/2016/12/22195700/machine-learning-certificate.png" alt="Machine Learning Certification" />
+                                    <a href="https://www.coursera.org/account/accomplishments/records/TWNW4CPEA9AF" >
+                                        <img className="mt-3" src="https://cdn.lawrencemcdaniel.com/wp-content/uploads/2016/12/22195700/machine-learning-grade.png" alt="Machine Learning Grade Received" />
+                                    </a>
                                 </div>
                             </div>
                             <div className="row">
                                 <div className="col-12 mt-3">
-                                    <p className="text-justify">Fortunately some of the greatest minds on earth, like <a href="http://www.andrewng.org" target="_blank">Dr. Andrew Ng</a> at Stanford University for example, have paved the way for engineers like me to implement incredible machine learning and artificial intelligence systems that leverage big data sets to attack problem spaces like computer vision, pattern recognition in highly dynamic environments (like&nbsp;debt, equities and commodities secondary markets for example), big data classification and insight problems, and robotics.</p>                                
+                                    <p className="text-justify">Fortunately some of the greatest minds on earth, like <a href="http://www.andrewng.org" target="_blank" rel="noopener noreferrer">Dr. Andrew Ng</a> at Stanford University for example, have paved the way for engineers like me to implement incredible machine learning and artificial intelligence systems that leverage big data sets to attack problem spaces like computer vision, pattern recognition in highly dynamic environments (like&nbsp;debt, equities and commodities secondary markets for example), big data classification and insight problems, and robotics.</p>                                
                                 </div>
                             </div>
                         </div>
