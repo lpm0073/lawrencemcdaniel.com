@@ -13,6 +13,7 @@ import About from '../pages/about/Component';
 import Bio from '../pages/bio/Component';
 import Specialties from '../pages/specialties/Component';
 import Portfolio from '../pages/portfolio/Component';
+import PortfolioDetail from '../pages/portfolioDetail/Component';
 import Education from '../pages/education/Component';
 import Skills from '../pages/skills/Component';
 import Recommendations from '../pages/recommendations/Component';
@@ -45,6 +46,16 @@ class Routes extends Component {
   }
 
   render() {
+
+    const PortfolioWithId = ({match}) => {
+      return(
+        <PortfolioDetail project={this.props.portfolio.projects.filter((item) => item.id === parseInt(match.params.id, 10))[0]} 
+            isLoading={this.props.portfolio.isLoading}
+            errMess={this.props.portfolio.errMess}
+        />
+      );
+    }
+
     return(
         <React.Fragment>
           <Switch>
@@ -54,6 +65,7 @@ class Routes extends Component {
             <Route exact path="/bio" component={Bio} />
             <Route exact path="/specialties" component={() => <Specialties specialties={this.props.specialties} />} />
             <Route exact path="/portfolio" component={() => <Portfolio portfolio={this.props.portfolio} />} />
+            <Route path="/portfolio/:dishId" component={PortfolioWithId} />
             <Route exact path="/education" component={() => <Education education={this.props.education} />} />
             <Route exact path="/skills" component={Skills} />
             <Route exact path="/recommendations" component={() => <Recommendations recommendations={this.props.recommendations} />} />
