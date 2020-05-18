@@ -1,6 +1,9 @@
 import React, { Component } from "react";
 import Loading from '../../components/Loading';
 
+/*
+https://www.w3schools.com/howto/tryit.asp?filename=tryhow_css_image_overlay_slideleft
+*/
 class ProjectsGrid extends Component {
 
   render() {
@@ -18,9 +21,14 @@ class ProjectsGrid extends Component {
                         "background-image": background_url
                       }
                       return (
-                        <div className="col-lg-3 col-md-4 col-sm-6 m-0 px-0 py-1" key={indx}>
-                            <div className="portfolio-item mx-1 " 
-                                style={item_style}>
+                        <div className="col-lg-3 col-md-4 col-sm-6 m-0 p-0" key={indx}>
+                            <div className="portfolio-item">
+                              <div className="portfolio-item-image"
+                                  style={item_style}>
+                              </div>
+                              <div className="portfolio-item-overlay" >
+                                {portfolio_item.title.rendered}
+                              </div>
                             </div>
                         </div>
                       );
