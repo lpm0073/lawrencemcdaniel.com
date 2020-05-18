@@ -21,7 +21,7 @@ class ProjectsGrid extends Component {
                         "background-image": background_url
                       }
                       return (
-                        <div className="col-lg-3 col-md-4 col-sm-6 m-0 p-0" key={indx}>
+                        <div className="col-lg-3 col-md-4 col-sm-6 m-0 p-0 noselect" key={indx}>
                             <div className="portfolio-item">
                               <div className="portfolio-item-image"
                                   style={item_style}>
