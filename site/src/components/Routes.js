@@ -52,9 +52,6 @@ class Routes extends Component {
 
     const PortfolioWithSlug = ({match}) => {
 
-      if (!this.props.project) {
-        console.log('PortfolioWithSlug() project not set');
-      }
       return(
         <PortfolioDetail post={this.props.portfolio.projects.filter((item) => item.slug === match.params.portfolioId)[0]} 
             postLoading={this.props.portfolio.isLoading}

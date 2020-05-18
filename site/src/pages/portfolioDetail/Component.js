@@ -36,6 +36,39 @@ const PortfolioDetail = (props) => {
             return null;
         }
 
+        function ImageList() {
+
+            if (props.imagesLoading) {
+                return(
+                    <React.Fragment>
+                        <Loading />
+                    </React.Fragment>
+                );
+    
+            } else if (props.imagesError) {
+                return(
+                    <React.Fragment>
+                        <div>Images error</div>
+                    </React.Fragment>
+                );
+
+            } else if (props.images != null) {
+                return(
+                    <React.Fragment>
+                        <div>
+                        {props.images.images.map((post) => {
+                                return(
+                                    <div key={post.id} className="">
+                                        <img src={post.source_url} alt={post.slug} />                                        
+                                    </div>
+                                );
+                            })}
+                        </div>
+                    </React.Fragment>
+                );
+            }
+            
+        }
 
         const rawContent = props.post.content.rendered;
                   
@@ -55,7 +88,7 @@ const PortfolioDetail = (props) => {
                         <div className="row">
                             <div className="col">
                                 {description}
-                            <div className="recommendation-name" dangerouslySetInnerHTML={unescapedString(props.post.content.rendered)} /> 
+                                <ImageList />
                         </div>
                     </div>
                     </div>
