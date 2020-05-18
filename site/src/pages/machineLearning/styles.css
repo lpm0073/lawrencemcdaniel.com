@@ -1,0 +1,30 @@
+
+.machine-learning-page {
+
+}
+
+.column-left img {
+    width: 100%;
+}
+
+
+.column-right img {
+    width: 100%;
+}
+
+.code-sample {
+    width: 100%;
+}
+
+.column-left .name-block {
+    color: #121212;
+    background-color: rgba(59,63,80,0.8);
+}
+
+.name-block h4 {
+    font-size: 36px !important;
+}
+
+.name-block h5 {
+
+}

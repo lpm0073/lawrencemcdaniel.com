@@ -60,6 +60,21 @@ class Header extends Component {
                             <UncontrolledDropdown nav inNavbar>
                                 <DropdownToggle nav caret>Code</DropdownToggle>
                                 <DropdownMenu >
+                                    <DropdownItem>
+                                        <a className="" href='/' rel="noopener noreferrer">ReactJS (This Site)</a>
+                                    </DropdownItem>
+                                    <DropdownItem>
+                                        <a className="" href='https://horrors.lawrencemcdaniel.com/' target="_blank" rel="noopener noreferrer">AngularJS Site</a>
+                                    </DropdownItem>
+                                    <DropdownItem>
+                                        <a className="" href='https://my.roverbyopenstax.org/' target="_blank" rel="noopener noreferrer">Open edX Site</a>
+                                    </DropdownItem>
+                                    <DropdownItem>
+                                        <a className="" href='/machine-learning' rel="noopener noreferrer">Machine Learning</a>
+                                    </DropdownItem>
+
+                                    <DropdownItem divider />
+
                                     <DropdownItem >
                                         <a className="" href='https://www.sustainableimpactfund.com/' target="_blank" rel="noopener noreferrer">Wordpress Site</a>
                                     </DropdownItem>
@@ -67,21 +82,14 @@ class Header extends Component {
                                         <a className="" href='https://clients.lawrencemcdaniel.com/' target="_blank" rel="noopener noreferrer">Ecommerce Site</a>
                                     </DropdownItem>
                                     <DropdownItem>
-                                        <a className="" href='https://my.roverbyopenstax.org/' target="_blank" rel="noopener noreferrer">Open edX Site</a>
-                                    </DropdownItem>
-                                    <DropdownItem>
-                                        <a className="" href='https://horrors.lawrencemcdaniel.com/' target="_blank" rel="noopener noreferrer">AngularJS Site</a>
-                                    </DropdownItem>
-                                    <DropdownItem>
-                                        <a className="" href='/' rel="noopener noreferrer">ReactJS (This Site)</a>
-                                    </DropdownItem>
-                                    <DropdownItem>
                                         <a className="" href='https://edx.lawrencemcdaniel.com/' target="_blank" rel="noopener noreferrer">Pure HTML</a>
                                     </DropdownItem>
                                     <DropdownItem>
                                         <a className="" href='https://webdev-class.lawrencemcdaniel.com/' target="_blank" rel="noopener noreferrer">Bootstrap</a>
                                     </DropdownItem>
+
                                     <DropdownItem divider />
+
                                     <DropdownItem>
                                         <a className="" href='https://github.com/lpm0073' target="_blank" rel="noopener noreferrer">Me on Github</a>
                                     </DropdownItem>

@@ -17,6 +17,7 @@ import PortfolioDetail from '../pages/portfolioDetail/Component';
 import Education from '../pages/education/Component';
 import Skills from '../pages/skills/Component';
 import Recommendations from '../pages/recommendations/Component';
+import MachineLearning from '../pages/machineLearning/Component';
 
 
 const mapStateToProps = state => {
@@ -69,6 +70,7 @@ class Routes extends Component {
             <Route path="/home" component={Home} />
             <Route exact path="/contact" component={Contact} />
             <Route exact path="/about" component={About} />
+            <Route exact path="/machine-learning" component={MachineLearning} />
             <Route exact path="/bio" component={Bio} />
             <Route exact path="/specialties" component={() => <Specialties specialties={this.props.specialties} />} />
             <Route exact path="/portfolio" component={() => <Portfolio portfolio={this.props.portfolio} />} />
