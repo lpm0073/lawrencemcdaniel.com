@@ -1,5 +1,6 @@
 import React, { Component } from "react";
 import Loading from '../../components/Loading';
+import { Stagger, Fade } from 'react-animation-components';
 
 class CoursesGrid extends Component {
 
@@ -11,7 +12,6 @@ class CoursesGrid extends Component {
           ) : (
             <div id="education-grid">
               <div className="row my-5 mx-0 py-5 px-0 text-center">
-
               {this.props.education.courses.map((education_item, indx) => {
                   const item_url = education_item._embedded['wp:featuredmedia'][0].source_url;
                   const background_url = "url('" + item_url + "')";
@@ -20,13 +20,14 @@ class CoursesGrid extends Component {
                   }
                   return (
                     <div className="col-lg-3 col-md-4 col-sm-6 m-0 px-0 py-1" key={indx}>
+                      <Fade in>
                         <div className="education-item mx-1 infinite" 
-                             style={item_style}>
+                          style={item_style}>
                         </div>
+                      </Fade>
                     </div>
                   );
                 })}
-
               </div>
             </div>
           )}
