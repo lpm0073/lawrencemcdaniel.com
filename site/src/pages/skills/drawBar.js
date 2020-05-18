@@ -1,6 +1,6 @@
 import { getPixelRatio } from '../../shared/getPixelRatio';
 
-const drawCircle = (ref) => {
+const drawBar = (ref) => {
     let canvas = ref.current;
     let context = canvas.getContext('2d');
     
@@ -57,4 +57,4 @@ const drawCircle = (ref) => {
 
 };
 
-export default drawCircle;
+export default drawBar;
