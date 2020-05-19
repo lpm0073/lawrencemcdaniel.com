@@ -32,8 +32,8 @@ const MachineLearning = (props) => {
                                     </div>
                                 </div>
                                 <div className="column-right col-lg-6 col-md-12">
-                                    <img src="https://cdn.lawrencemcdaniel.com/wp-content/uploads/2016/12/22195700/machine-learning-certificate.png" alt="Machine Learning Certification" />
-                                    <a href="https://www.coursera.org/account/accomplishments/records/TWNW4CPEA9AF" >
+                                    <a href="https://www.coursera.org/account/accomplishments/verify/2MVW9YRMFYC9?utm_source=link&utm_campaign=copybutton_certificate&utm_product=course" >
+                                        <img src="https://cdn.lawrencemcdaniel.com/wp-content/uploads/2016/12/22195700/machine-learning-certificate.png" alt="Machine Learning Certification" />
                                         <img className="mt-3" src="https://cdn.lawrencemcdaniel.com/wp-content/uploads/2016/12/22195700/machine-learning-grade.png" alt="Machine Learning Grade Received" />
                                     </a>
                                 </div>
