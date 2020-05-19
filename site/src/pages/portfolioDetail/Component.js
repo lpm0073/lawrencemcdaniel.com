@@ -1,6 +1,7 @@
 import React from 'react';
 import RenderPageTitle from '../../components/pagetitle/pageTitleComponent';
 import Loading from '../../components/Loading';
+import ProjectCarousel from './projectCarousel';
 
 import './styles.css';
 
@@ -70,14 +71,8 @@ const PortfolioDetail = (props) => {
                         <div className="row">
                             <div className="col">
                                 {description}
-
                                 <hr />
-
-                                {urls.map((url, indx) => {
-                                    return (
-                                        <img key={indx} src={url} />
-                                    );
-                                })}
+                                <ProjectCarousel images={urls} />
                         </div>
                     </div>
                     </div>
