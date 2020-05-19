@@ -6,15 +6,15 @@ import Loading from '../../components/Loading';
 const responsive = {
   superLargeDesktop: {
     breakpoint: { max: 4000, min: 3000 },
-    items: 4
+    items: 3
   },
   desktop: {
     breakpoint: { max: 3000, min: 1024 },
-    items: 4
+    items: 3
   },
   tablet: {
     breakpoint: { max: 1024, min: 464 },
-    items: 3
+    items: 2
   },
   mobile: {
     breakpoint: { max: 464, min: 0 },
@@ -50,7 +50,7 @@ class ClientCarousel extends Component {
                 centerMode={false}
                 className=""
                 containerClass="container-with-dots"
-                customTransition="all 1.5s linear"
+                customTransition="all 1s ease"
                 dotListClass=""
                 draggable
                 focusOnSelect={false}
@@ -62,7 +62,7 @@ class ClientCarousel extends Component {
                 renderDotsOutside={false}
                 showDots={false}
                 sliderClass=""
-                slidesToSlide={1}
+                slidesToSlide={3}
                 swipeable
                 transitionDuration={3000}
                 >
