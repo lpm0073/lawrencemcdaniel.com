@@ -12,7 +12,9 @@ const Clients = (props) => {
                 <div className="site-page ">
                     <RenderPageTitle theme="dark" icon="fa-users" title="CLIENT" boxed_title="RECOMMENDATIONS" />
                     <RecommendationsCarousel recommendations={props.recommendations} />
-                    <ClientCarousel clients={props.clients} />
+                    <div className="mx-5">
+                        <ClientCarousel clients={props.clients} />
+                    </div>
                 </div>
             </div>              
 

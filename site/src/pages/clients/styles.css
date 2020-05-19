@@ -51,9 +51,11 @@
 
 
 
-/* ----------  Carousel  ---------- */
+/* ----------  Client Carousel  ---------- */
 #clients-carousel {
+    background-color: white;
     visibility: hidden;
+    border-radius: 5px;
 }
 
 #clients-carousel .item img {

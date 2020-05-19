@@ -6,15 +6,15 @@ import Loading from '../../components/Loading';
 const responsive = {
   superLargeDesktop: {
     breakpoint: { max: 4000, min: 3000 },
-    items: 3
+    items: 4
   },
   desktop: {
     breakpoint: { max: 3000, min: 1024 },
-    items: 3
+    items: 4
   },
   tablet: {
     breakpoint: { max: 1024, min: 464 },
-    items: 2
+    items: 3
   },
   mobile: {
     breakpoint: { max: 464, min: 0 },
@@ -38,7 +38,7 @@ class ClientCarousel extends Component {
   render() {
     const itemList = this.shuffleArray(this.props.clients.logos);
     return (
-        <div className="">
+        <div >
           {this.props.isLoading ? (
             <Loading />
           ) : (
@@ -62,13 +62,13 @@ class ClientCarousel extends Component {
                 renderDotsOutside={false}
                 showDots={false}
                 sliderClass=""
-                slidesToSlide={3}
+                slidesToSlide={4}
                 swipeable
-                transitionDuration={3000}
+                transitionDuration={5000}
                 >
                 {itemList.map((specialty, indx) => {
                   return (
-                    <div className="item col-8 text-left mt-5" key={indx}>
+                    <div className="item col-8 text-left mt-5 px-5" key={indx}>
                       <img
                         src={specialty._embedded["wp:featuredmedia"][0].source_url}
                         alt={specialty.slug}
