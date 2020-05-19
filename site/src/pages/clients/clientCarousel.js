@@ -42,7 +42,7 @@ class ClientCarousel extends Component {
           {this.props.isLoading ? (
             <Loading />
           ) : (
-            <div id="clients-carousel">
+            <div id="clients-carousel" className="mt-5 mb-5">
               <Carousel responsive={responsive}
                 additionalTransfrom={0}
                 autoPlay
