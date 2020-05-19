@@ -203,3 +203,44 @@ export const addProjectImages = (recommendations) => ({
 });
 
 /* ----------------------------------- */
+
+
+export const fetchClients = () => (dispatch) => {
+    dispatch(clientsLoading(true));
+
+    return fetch(backendUrl + "posts?categories=46&_embed&per_page=100")
+    .then(
+        response => {
+            if (response.ok) {
+                return response;
+            } else {
+                var error = new Error('Error ' + response.status + ': ' + response.statusText);
+                error.response = response;
+                throw error;
+            }
+        },
+        error => {
+            var errmess = new Error(error.message);
+            throw errmess;
+        })
+    .then(response => response.json())
+    .then(images => dispatch(addClients(images)))
+    .catch(error => dispatch(clientsFailed(error.message)));
+
+}
+
+export const clientsLoading = () => ({
+    type: ActionTypes.CLIENTS_LOADING
+});
+
+export const clientsFailed = (errmess) => ({
+    type: ActionTypes.CLIENTS_FAILED,
+    payload: errmess
+});
+
+export const addClients = (recommendations) => ({
+    type: ActionTypes.ADD_CLIENTS,
+    payload: recommendations
+});
+
+/* ----------------------------------- */

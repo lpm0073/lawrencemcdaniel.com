@@ -48,3 +48,57 @@
     line-height: 1.5;
     max-height: 450px;
 }
+
+
+
+/* ----------  Carousel  ---------- */
+#clients-carousel {
+    visibility: hidden;
+}
+
+#clients-carousel .item img {
+    max-height: 100px;
+    max-width: 250px;
+}
+
+.react-multiple-carousel__arrow {
+    visibility: hidden;
+}
+
+
+
+/*-------------- Responsive Styling -----------------------*/
+
+/********** Large devices only **********/
+@media (min-width: 1200px) {
+
+    #clients-carousel {
+        visibility: visible !important;
+    }
+}
+
+/********** Medium devices only **********/
+@media (min-width: 992px) and (max-width: 1199px) {
+
+   #clients-carousel {
+       visibility: visible !important;
+   }
+
+
+}
+
+/********** Small devices only **********/
+@media (min-width: 768px) and (max-width: 991px) {
+
+}
+
+/********** Extra small devices only **********/
+@media (max-width: 767px) {
+
+}
+
+/********** Super extra small devices Only :-) (e.g., iPhone 4) **********/
+@media (max-width: 479px) {
+
+}
+

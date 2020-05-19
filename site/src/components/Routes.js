@@ -4,7 +4,9 @@ import { withRouter } from 'react-router-dom';
 
 // Redux
 import { connect } from 'react-redux';
-import { fetchSpecialties, fetchPortfolio, fetchEducation, fetchRecommendations, fetchProjectImages } from '../redux/ActionCreators';
+import { fetchSpecialties, fetchPortfolio, fetchEducation, 
+          fetchRecommendations, fetchProjectImages,
+          fetchClients } from '../redux/ActionCreators';
 
 // Pages
 import Home from '../pages/home/Component';
@@ -26,7 +28,8 @@ const mapStateToProps = state => {
     portfolio: state.portfolio,
     education: state.education,
     recommendations: state.recommendations,
-    project: state.project
+    project: state.project,
+    clients: state.clients
   }
 }
 
@@ -35,7 +38,8 @@ const mapDispatchToProps = (dispatch) => ({
   fetchPortfolio: () => {dispatch(fetchPortfolio())},
   fetchEducation: () => {dispatch(fetchEducation())},
   fetchRecommendations: () => {dispatch(fetchRecommendations())},
-  fetchProjectImages: () => {dispatch(fetchProjectImages())}
+  fetchProjectImages: () => {dispatch(fetchProjectImages())},
+  fetchClients: () => {dispatch(fetchClients())}
 });
 
 
@@ -47,6 +51,7 @@ class Routes extends Component {
     this.props.fetchEducation();
     this.props.fetchRecommendations();
     this.props.fetchProjectImages();
+    this.props.fetchClients();
   }
 
   render() {
@@ -77,7 +82,10 @@ class Routes extends Component {
             <Route path="/portfolio/:portfolioId" component={PortfolioWithSlug} />
             <Route exact path="/education" component={() => <Education education={this.props.education} />} />
             <Route exact path="/skills" component={Skills} />
-            <Route exact path="/clients" component={() => <Clients recommendations={this.props.recommendations} />} />
+            <Route exact path="/clients" component={() => <Clients 
+                                                              recommendations={this.props.recommendations}
+                                                              clients={this.props.clients}
+                                                             />} />
             <Redirect to="/home" />
           </Switch>
         </React.Fragment>

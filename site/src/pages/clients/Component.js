@@ -1,6 +1,7 @@
 import React from 'react';
 import RenderPageTitle from '../../components/pagetitle/pageTitleComponent';
 import RecommendationsCarousel from './recommendationsCarousel';
+import ClientCarousel from './clientCarousel';
 import './styles.css';
 
 const Clients = (props) => {
@@ -11,6 +12,7 @@ const Clients = (props) => {
                 <div className="site-page ">
                     <RenderPageTitle theme="dark" icon="fa-users" title="CLIENT" boxed_title="RECOMMENDATIONS" />
                     <RecommendationsCarousel recommendations={props.recommendations} />
+                    <ClientCarousel clients={props.clients} />
                 </div>
             </div>              
 

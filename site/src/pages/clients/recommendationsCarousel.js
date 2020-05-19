@@ -96,7 +96,6 @@ class RecommendationsCarousel extends Component {
                   }
 
                   return (
-                    <React.Fragment>
                       <div className="row m-sm-3" key={indx}>
                         <div className="col-md-5">
                           <div className="row">
@@ -120,7 +119,6 @@ class RecommendationsCarousel extends Component {
                           <div className="recommendation-description" dangerouslySetInnerHTML={unescapedString('&quot;' + description + '&quot;')} />
                         </div>
                       </div>
-                    </React.Fragment>
                   );
                 })}
               </Carousel>
