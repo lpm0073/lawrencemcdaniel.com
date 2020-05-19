@@ -48,7 +48,7 @@ export const addSpecialties = (specialties) => ({
 export const fetchPortfolio = () => (dispatch) => {
     dispatch(portfolioLoading(true));
 
-    return fetch(backendUrl + "portfolio?_embed&per_page=8")
+    return fetch(backendUrl + "posts?categories=47&_embed&per_page=8")
     .then(
         response => {
             if (response.ok) {

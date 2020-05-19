@@ -1,0 +1,4 @@
+{ "description": "Modified Open edX's Course Management Studio platform to support seamless oAuth 2.0 authentication to openstax.org identity provider. This required extensive modifications to the Open edX code base and underlying Django framework to retrofit the platform's existing authentication codebase with oAuth 2.0.",
+    "images": ["https://cdn.lawrencemcdaniel.com/wp-content/uploads/2017/09/22195636/ionic2-mobile-app.png",
+    "https://cdn.lawrencemcdaniel.com/wp-content/uploads/2017/09/22195637/agility360-app-9.png"
+]}
