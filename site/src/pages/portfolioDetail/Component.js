@@ -36,49 +36,22 @@ const PortfolioDetail = (props) => {
             return null;
         }
 
-        function ImageList() {
-
-            if (props.imagesLoading) {
-                return(
-                    <React.Fragment>
-                        <Loading />
-                    </React.Fragment>
-                );
-    
-            } else if (props.imagesError) {
-                return(
-                    <React.Fragment>
-                        <div>Images error</div>
-                    </React.Fragment>
-                );
-
-            } else if (props.images != null) {
-                return(
-                    <React.Fragment>
-                        <div>
-                        {props.images.images.map((post) => {
-                                return(
-                                    <div key={post.id} className="">
-                                        <img src={post.source_url} alt={post.slug} />                                        
-                                    </div>
-                                );
-                            })}
-                        </div>
-                    </React.Fragment>
-                );
-            }
-            
-        }
-
         const rawContent = props.post.content.rendered;
                   
         var parser = new DOMParser();
         var doc = parser.parseFromString(rawContent, "text/html");
-        
-        var description = innerHTML(doc.querySelector(".description"));
-        var images = innerHTML(doc.querySelector(".images"));
-        var links = innerHTML(doc.querySelector(".links"));
-        var gallery = innerHTML(doc.querySelector(".gallery"));
+        var raw = innerHTML(doc.querySelector("p"));
+
+        // remove curly quotes
+        raw = raw.replace(/[\u2018\u2019]/g, "'").replace(/[\u201C\u201D]/g, '"');
+
+        // replace <br> with actual carriage return
+        raw = raw.replace(/<br\s*[\/]?>/gi, "\n");
+
+        var my_json = JSON.parse(raw);
+
+        var description = my_json.description;
+        var urls = my_json.images;
 
         return(
             <React.Fragment>
@@ -88,7 +61,14 @@ const PortfolioDetail = (props) => {
                         <div className="row">
                             <div className="col">
                                 {description}
-                                <ImageList />
+
+                                <hr />
+
+                                {urls.map((url, indx) => {
+                                    return (
+                                        <img key={indx} src={url} />
+                                    );
+                                    })}
                         </div>
                     </div>
                     </div>
