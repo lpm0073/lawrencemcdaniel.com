@@ -3,6 +3,15 @@
     background-color: #f1f1f1;
 }
 
+.contact-page a:not(.btn-danger),
+h4 a {
+    color: #333;
+}
+
+h4 a {
+    text-decoration: underline;
+}
+
 .contact-data .contact-social-buttons {
 
 }

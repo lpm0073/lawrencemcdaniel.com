@@ -16,6 +16,15 @@ body {
 }
 
 
+p a:not(.btn-danger) {
+    color: #333;
+    text-decoration: underline;
+    font-style: italic;
+}
+
+.dropdown-item a {
+    color: #555;
+}
 
 /*-------------- Responsive Styling -----------------------*/
 
