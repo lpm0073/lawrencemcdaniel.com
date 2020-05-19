@@ -61,7 +61,7 @@ class Header extends Component {
                                 <DropdownToggle nav caret>Code</DropdownToggle>
                                 <DropdownMenu >
                                     <DropdownItem>
-                                        <a className="" href='/' rel="noopener noreferrer">ReactJS (This Site)</a>
+                                        <a className="" href='/reactjs' rel="noopener noreferrer">ReactJS</a>
                                     </DropdownItem>
                                     <DropdownItem>
                                         <a className="" href='https://horrors.lawrencemcdaniel.com/' target="_blank" rel="noopener noreferrer">AngularJS Site</a>

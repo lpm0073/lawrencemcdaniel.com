@@ -20,6 +20,7 @@ import Education from '../pages/education/Component';
 import Skills from '../pages/skills/Component';
 import Clients from '../pages/clients/Component';
 import MachineLearning from '../pages/machineLearning/Component';
+import ReactPage from '../pages/react/Component';
 
 
 const mapStateToProps = state => {
@@ -82,6 +83,7 @@ class Routes extends Component {
             <Route path="/portfolio/:portfolioId" component={PortfolioWithSlug} />
             <Route exact path="/education" component={() => <Education education={this.props.education} />} />
             <Route exact path="/skills" component={Skills} />
+            <Route exact path="/reactjs" component={ReactPage} />
             <Route exact path="/clients" component={() => <Clients 
                                                               recommendations={this.props.recommendations}
                                                               clients={this.props.clients}
