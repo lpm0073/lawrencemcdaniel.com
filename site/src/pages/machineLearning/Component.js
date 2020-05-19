@@ -12,7 +12,7 @@ const MachineLearning = (props) => {
             <React.Fragment>
                 
                 <div className="site-page machine-learning-page">
-                    <RenderPageTitle theme="light" icon="fa-user" title="MACHINE" boxed_title="LEARNING" />
+                    <RenderPageTitle theme="light" icon="fa-magic" title="MACHINE" boxed_title="LEARNING" />
                     <div className="row mt-5">
                         <div className="column-left col-lg-4 col-md-6 col-sm-12 hide-medium">
                             <img src="https://cdn.lawrencemcdaniel.com/wp-content/uploads/2016/12/22195700/lawrence-mcdaniel-portrait.jpg" alt="Lawrence McDaniel" />

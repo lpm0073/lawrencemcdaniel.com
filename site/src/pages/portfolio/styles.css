@@ -17,12 +17,13 @@
     bottom: 0;
     left: 0;
     right: 0;
-    background-color: #FF6A5E;
     overflow: hidden;
     width: 0;
     height: 100%;
     transition: .5s ease;
 
+    color: white;
+    background-color: #FF6A5E;
     font-size: 1.5em;
     padding-top: 20%;
 }
