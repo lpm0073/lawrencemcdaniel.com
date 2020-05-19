@@ -43,7 +43,7 @@ class RecommendationsCarousel extends Component {
           {this.props.isLoading ? (
             <Loading />
           ) : (
-            <div id="recommendation-carousel" className="p-sm-5 m-sm-5 p-xs-1 m-xs-1">
+            <div id="recommendation-carousel" className="m-xs-1 m-sm-5 ">
               <Carousel responsive={responsive}
                 additionalTransfrom={0}
                 arrows
@@ -115,7 +115,7 @@ class RecommendationsCarousel extends Component {
                             </div>                            
                           </div>
                         </div>
-                        <div className="col-md-7 mt-5 text-justify border-white">
+                        <div className="col-md-7 text-justify border-white">
                           <div className="recommendation-description" dangerouslySetInnerHTML={unescapedString('&quot;' + description + '&quot;')} />
                         </div>
                       </div>

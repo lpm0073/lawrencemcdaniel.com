@@ -50,7 +50,7 @@ class ClientCarousel extends Component {
                 centerMode={false}
                 className=""
                 containerClass="container-with-dots"
-                customTransition="all 1s ease"
+                customTransition="all .5s ease"
                 dotListClass=""
                 draggable
                 focusOnSelect={false}
