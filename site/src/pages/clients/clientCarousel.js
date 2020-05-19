@@ -69,7 +69,7 @@ class ClientCarousel extends Component {
                 {itemList.map((specialty, indx) => {
                   return (
                     <div className="item col-8 text-left mt-5 px-5" key={indx}>
-                      <img
+                      <img className="mb-5 p-2"
                         src={specialty._embedded["wp:featuredmedia"][0].source_url}
                         alt={specialty.slug}
                       />
