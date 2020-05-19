@@ -10,7 +10,7 @@ const Clients = (props) => {
         <React.Fragment>
             <div className="recommendations-page">
                 <div className="site-page ">
-                    <RenderPageTitle theme="dark" icon="fa-users" title="CLIENT" boxed_title="RECOMMENDATIONS" />
+                    <RenderPageTitle theme="dark" icon="fa-users" title="MY" boxed_title="CLIENTS" />
                     <RecommendationsCarousel recommendations={props.recommendations} />
                     <div className="mx-5">
                         <ClientCarousel clients={props.clients} />
