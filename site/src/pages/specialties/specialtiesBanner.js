@@ -40,7 +40,7 @@ const SpecialtiesBanner = (props) => {
             <SpecialtyColumn 
             title="FULL STACK DEVELOPMENT" 
             icon="fa-html5" 
-            description="Hybrid mobile apps with Ionic + Cordova, and responsive web apps developed with Angular, WordPress, Ruby on Rails, and pure HTML5; all following agile methodologies and backed by AWS' infinitely-scalable suite of web services."
+            description="Responsive web apps developed with Django, ReactJS, Redux, Angular, and WordPress, and Hybrid mobile apps with Ionic + Cordova; all following agile methodologies and backed by AWS' infinitely-scalable suite of web services."
                 />
 
             <SpecialtyColumn 
