@@ -26,10 +26,10 @@ const ReactPage = (props) => {
                         <div className="col-lg-8 col-md-12">
                             <div className="text-justify">
                                 <p className="">This site uses a <a href="https://github.com/lpm0073/lawrencemcdaniel.com" target="_blank" rel="noopener noreferrer">ReactJS front end</a> 
-                                and a backend powered by a <a href="api.lawrencemcdaniel.com" target="_blank">Wordpress REST api</a>. I originally built this site in 2016 with Wordpress when 
+                                 and a backend powered by a <a href="https://api.lawrencemcdaniel.com/" target="_blank">Wordpress REST api</a>. I originally built this site in 2016 with Wordpress when 
                                 I was first getting started with web development. I liked the appearance of the original site, so the new React version is nearly identical. I developed 
                                 the current ReactJS version in mid-2020 immediately after taking an online 
-                                <a href="https://www.coursera.org/learn/front-end-react/home/welcome" target="_blank" rel="noopener noreferrer">ReactJS course</a>. This site was my first 
+                                 <a href="https://www.coursera.org/learn/front-end-react/home/welcome" target="_blank" rel="noopener noreferrer">ReactJS course</a>. This site was my first 
                                 foray into creating a fully-blown ReactJS web application.</p>
                                 <div className="">
                                     <hr />
@@ -39,7 +39,7 @@ const ReactPage = (props) => {
                                 </div>
                                 <p><span className="react-page-leader">Front End</span>: The front end stack is <a href="https://reactjs.org/" target="_blank" rel="noopener noreferrer">ReactJS</a>, 
                                 <a href="https://getbootstrap.com/" target="_blank" rel="noopener noreferrer">Bootstrap</a> and minimal custom JS and CSS. The graphics all come from the free version of 
-                                <a href="https://fontawesome.com/" target="_blank" rel="noopener noreferrer">Font Awesome</a>. This was intentional. The original Wordpress version used a 
+                                 <a href="https://fontawesome.com/" target="_blank" rel="noopener noreferrer">Font Awesome</a>. This was intentional. The original Wordpress version used a 
                                 professionally-designed third-party theme, and I wanted to see if I could duplicate it using open source tools.</p>
                                 
                                 <p>Source code: <a href="https://github.com/lpm0073/lawrencemcdaniel.com" target="_blank">https://github.com/lpm0073/lawrencemcdaniel.com</a></p>
