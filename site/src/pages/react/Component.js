@@ -12,9 +12,9 @@ const ReactPage = (props) => {
         return(
 
             <React.Fragment>
-                <div className="site-page">
+                <div className="site-page react-page">
                     <RenderPageTitle theme="light" icon="fa-react" title="BUILT WITH" boxed_title="REACTJS" />
-                    <div className="row mt-lg-5">
+                    <div className="row mt-lg-5 pl-2">
                         <div className="col-lg-3 hide-medium">
                             <div className="text-center">
                                 <LinkedinBadge />
@@ -41,7 +41,8 @@ const ReactPage = (props) => {
                             </div>
                         </div>
                     </div>
-                    <div className="aws-diagram hide-medium row mt-lg-5">
+                    
+                    <div className="aws-diagram hide-medium row mt-lg-5 pl-2 ml-0 mr-0">
                         <img src="https://cdn.lawrencemcdaniel.com/wp-content/uploads/2020/05/19131001/aws-react-hosting.png" alt="AWS React Hosting Architecture" />
                     </div>
                 </div>

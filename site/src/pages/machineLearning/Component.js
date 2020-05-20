@@ -13,7 +13,7 @@ const MachineLearning = (props) => {
                 
                 <div className="site-page machine-learning-page">
                     <RenderPageTitle theme="light" icon="fa-magic" title="MACHINE" boxed_title="LEARNING" />
-                    <div className="row mt-5">
+                    <div className="row mt-5 pl-2">
                         <div className="column-left col-lg-4 col-md-6 col-sm-12 hide-medium">
                             <img src="https://cdn.lawrencemcdaniel.com/wp-content/uploads/2016/12/22195700/lawrence-mcdaniel-portrait.jpg" alt="Lawrence McDaniel" />
                             <div className="name-block mt-1 text-center">
@@ -22,7 +22,7 @@ const MachineLearning = (props) => {
                             </div>
                         </div>
                         <div className="col-lg-8 col-md-12 m-0 p-0">
-                            <div className="row">
+                            <div className="row ml-0 mr-0 pr-2">
                                 <div className="col-lg-6 col-md-12">
                                     <div>
                                         <h4 className="mb-3">You’ll be amazed by what’s become possible in the last three years.</h4>
@@ -38,7 +38,7 @@ const MachineLearning = (props) => {
                                     </a>
                                 </div>
                             </div>
-                            <div className="row">
+                            <div className="row ml-0 mr-0 pr-2">
                                 <div className="col-12 mt-3">
                                     <p className="text-justify">Fortunately some of the greatest minds on earth, like <a href="http://www.andrewng.org" target="_blank" rel="noopener noreferrer">Dr. Andrew Ng</a> at Stanford University for example, have paved the way for engineers like me to implement incredible machine learning and artificial intelligence systems that leverage big data sets to attack problem spaces like computer vision, pattern recognition in highly dynamic environments (like&nbsp;debt, equities and commodities secondary markets for example), big data classification and insight problems, and robotics.</p>                                
                                 </div>
