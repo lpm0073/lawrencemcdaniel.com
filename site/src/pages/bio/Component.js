@@ -15,7 +15,7 @@ const Bio = (props) => {
                 <RenderPageTitle theme="light" icon="fa-align-left" title="FULL" boxed_title="BIO" />
                 <div className="row mt-5">
                     <div className="col-lg-3 hide-medium">
-                        <div className="ml-auto text-center">
+                        <div className="ml-auto text-center pl-2">
                             <LinkedinBadge />
                             <a className="mt-4 btn btn-danger" role="button" target="_blank" href={resumeUrl} rel="noopener noreferrer">
                                     <i className="fa fa-download"></i> Download Resume
