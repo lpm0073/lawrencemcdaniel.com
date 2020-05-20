@@ -64,20 +64,16 @@ const PortfolioDetail = (props) => {
 
 
         return(
-            <React.Fragment>
-                <div className="project-page">
-                    <div className="site-page ">
-                        <RenderPageTitle theme="light" icon="fa-briefcase" title="PROJECT" boxed_title="Detail" />
-                        <div className="row">
-                            <div className="col">
-                                {description}
-                                <hr />
-                                <ProjectCarousel images={urls} />
-                        </div>
+            <div className="site-page project-page">
+                <RenderPageTitle theme="light" icon="fa-briefcase" title="PROJECT" boxed_title="Detail" />
+                <div className="row">
+                    <div className="col">
+                        {description}
+                        <hr />
+                        <ProjectCarousel images={urls} />
                     </div>
-                    </div>
-                </div>              
-            </React.Fragment>
+                </div>
+            </div>
         );
     } 
 }

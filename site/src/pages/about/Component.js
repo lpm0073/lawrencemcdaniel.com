@@ -21,9 +21,9 @@ const About = (props) => {
 
             <React.Fragment>
                 
-                <div className="site-page">
+                <div className="site-page about-page">
                     <RenderPageTitle theme="light" icon="fa-user" title="ABOUT" boxed_title="ME" />
-                    <div className="row mt-5">
+                    <div className="row mt-5 ml-0 mr-0">
                         <div className="col-lg-3 col-md-6 col-sm-12 hide-medium">
                             <LinkedinBadge />
                         </div>
@@ -40,15 +40,15 @@ const About = (props) => {
                                 </div>
                             </div>
                         </div>
-                            <div className="col-lg-4 col-md-6 col-sm-12 ">
+                            <div className="column-3 col-lg-4 col-md-6 col-sm-12 p-3">
                                 <Fade in delay={0} duration={400}>
-                                    <div className="row hide-small hide-medium">
+                                    <div className="row hide-small hide-medium about-tiles m-0">
                                         <AboutTile icon="fa-globe" value="13" text="Countries worked in" />
                                         <AboutTile icon="fa-cloud" value={years_experience} text="Years Experience" />
                                         <AboutTile icon="fa-linux" value={years_opensource} text="Years Open Source" />
                                         <AboutTile icon="fa-taxi" value={years_biking} text="Years bicycle commuting" />
                                     </div>
-                                    <div className=" text-justify mt-1 pt-1">
+                                    <div className="column-3-text text-justify mt-1 pt-1">
                                         <p>I lived abroad for 25 of the last 30 years, in Mexico, Western Europe and SE Asia. Prior to that I earned a B.S. from University of North Texas with majors in Computer Science and Mathematics and minors in Physics and English.</p>
                                         <p><strong>Read my <a href="/bio/"><span>full bio here</span></a>.</strong></p>
                                     </div>

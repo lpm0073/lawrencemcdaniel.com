@@ -1,3 +1,6 @@
+.about-page {
+    background-color: white;
+}
 
 
 .about-tile {
@@ -24,6 +27,7 @@
 .about-tile-text {
     font-size: .9em;
     padding: 5px;
+    height: 50px;
 }
 
 
@@ -47,4 +51,12 @@
     opacity: 0.01;
     transform: translateX(100%);
     transition: all 300ms ease-in-out;
+}
+
+.column-3 {
+}
+.about-tiles {
+}
+.column-3-text {
+
 }
