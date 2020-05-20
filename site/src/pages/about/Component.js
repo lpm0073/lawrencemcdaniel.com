@@ -13,7 +13,7 @@ import './styles.css';
 const About = (props) => {
 
         var d = new Date();
-        const years_experience = d.getFullYear() - 1992;
+        const years_experience = d.getFullYear() - 1992 - 11 - 1 - 2;
         const years_opensource = d.getFullYear() - 2010;
         const years_biking = d.getFullYear() - 1999;
 
