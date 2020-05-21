@@ -2,6 +2,7 @@
 .recommendations-page {
     color:floralwhite;
     background-image:url(https://cdn.lawrencemcdaniel.com/wp-content/uploads/2014/09/22195643/Lawrence7.jpg);
+    background-color: #333;
     background-repeat:repeat; 
     background-size:cover; 
     background-position:top center;
@@ -18,6 +19,7 @@
 .recommendation-pic {
     width: 75px;
     border-radius: 50%;
+    background-color: #555;
 }
 
 .recommendation-name,
@@ -59,10 +61,14 @@
     border-radius: 5px;
 }
 
-#clients-carousel .item img {
-    max-height: 100px;
-    max-width: 250px;
+#clients-carousel .client-item {
+    height: 100px;
+    width: 250px;
+    background-repeat: no-repeat;
+    background-position: center;
+    background-size: contain;
 }
+
 
 .react-multiple-carousel__arrow {
     visibility: hidden;

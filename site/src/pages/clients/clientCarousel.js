@@ -43,7 +43,7 @@ class ClientCarousel extends Component {
           {this.props.isLoading ? (
             <Loading />
           ) : (
-            <div id="clients-carousel" className="mt-5 mb-5">
+            <div id="clients-carousel" className="mt-5 mb-5 p-5">
               <Carousel responsive={responsive}
                 additionalTransfrom={0}
                 autoPlay
@@ -67,14 +67,15 @@ class ClientCarousel extends Component {
                 swipeable
                 transitionDuration={5000}
                 >
-                {itemList.map((specialty, indx) => {
+                {itemList.map((client, indx) => {
+                  var item_url = wpGetFeaturedImage(client, null);
+                  const background_url = "url('" + item_url + "')";
+                  const item_style = {
+                    "background-image": background_url
+                  }
+
                   return (
-                    <div className="item col-8 text-left mt-5 px-5" key={indx}>
-                      <img className="mb-5 p-2"
-                        src={wpGetFeaturedImage(specialty, 'identity-team')}
-                        alt={specialty.slug}
-                      />
-                    </div>
+                      <div className="client-item" key={indx} style={item_style} />
                   );
                 })}
               </Carousel>
