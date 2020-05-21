@@ -1,4 +1,7 @@
-
+.red-border {
+    border: 1px solid red;
+    
+}
 .recommendations-page {
     color:floralwhite;
     background-image:url(https://cdn.lawrencemcdaniel.com/wp-content/uploads/2014/09/22195643/Lawrence7.jpg);
@@ -70,6 +73,8 @@
     background-repeat: no-repeat;
     background-position: center;
     background-size: contain;
+    margin-left: auto;
+    margin-right: auto;
 }
 
 

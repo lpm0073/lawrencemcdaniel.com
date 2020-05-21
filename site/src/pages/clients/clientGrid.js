@@ -15,8 +15,8 @@ class ClientGrid extends Component {
           {this.props.isLoading ? (
             <Loading />
           ) : (
-            <div id="clients-carousel" className="m-2">
-                <div className="row my-5 mx-0 py-5 px-0 text-center">
+            <div id="clients-carousel" className="ml-2 mr-2">
+                <div className="row my-2 mx-0 px-0 text-center">
                   {itemList.map((client, indx) => {
                     var item_url = wpGetFeaturedImage(client, null);
                     const background_url = "url('" + item_url + "')";
