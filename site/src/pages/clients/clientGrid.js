@@ -26,8 +26,8 @@ class ClientGrid extends Component {
 
                     return (
                         <div className="col-lg-4 col-md-6 col-sm-12" key={indx}>
-                          <div className="my-3 px-0 py-1">
-                            <div className="client-item" style={item_style} />
+                          <div className="client-item my-2 px-0 py-1">
+                            <div className="client-image" style={item_style} />
                           </div>
                         </div>
                     );

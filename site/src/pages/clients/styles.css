@@ -56,12 +56,15 @@
 
 /* ----------  Client Carousel  ---------- */
 #clients-carousel {
-    background-color: white;
     visibility: hidden;
     border-radius: 5px;
 }
 
 #clients-carousel .client-item {
+    background-color: white;
+    border-radius: 3px;
+}
+#clients-carousel .client-image {
     height: 100px;
     width: 250px;
     background-repeat: no-repeat;
