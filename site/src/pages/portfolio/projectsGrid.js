@@ -8,7 +8,7 @@ class ProjectsGrid extends Component {
   render() {
 
     function RenderProjectItem({ project }) {
-      const item_url = wpGetFeaturedImage(project, 'identity-team'); 
+      const item_url = wpGetFeaturedImage(project, null); 
       const background_url = "url('" + item_url + "')";
       const item_style = {
         "backgroundImage": background_url
