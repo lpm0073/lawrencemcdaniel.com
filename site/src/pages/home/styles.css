@@ -2,7 +2,9 @@
 .jumbotron {
     margin:0px auto;
     color:floralwhite;
+    /*
     background-image: url('https://cdn.lawrencemcdaniel.com/wp-content/uploads/2016/09/22195717/banner-o2.jpg');
+    */
     height: 87vh;
     border-radius: 0 !important;
 

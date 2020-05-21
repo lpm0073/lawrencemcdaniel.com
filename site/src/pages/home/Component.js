@@ -2,11 +2,11 @@ import React from 'react';
 import { Jumbotron} from 'reactstrap';
 import { Fade } from 'react-animation-components';
 import './styles.css';
-
+import './cool-backgrounds.css'
 
 function Home(props) {
     return(
-        <Jumbotron>
+        <Jumbotron className="floating-cogs">
             <div className="d-flex h-100">
                 <div className="row justify-content-center align-self-center w-100">
                     <Fade in>
