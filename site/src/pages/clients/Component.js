@@ -1,7 +1,7 @@
 import React from 'react';
 import RenderPageTitle from '../../components/pagetitle/pageTitleComponent';
 import RecommendationsCarousel from './recommendationsCarousel';
-import ClientCarousel from './clientCarousel';
+import ClientGrid from './clientGrid';
 import './styles.css';
 
 const Clients = (props) => {
@@ -12,9 +12,9 @@ const Clients = (props) => {
                 <div className="site-page ">
                     <RenderPageTitle theme="dark" icon="fa-users" title="MY" boxed_title="CLIENTS" />
                     <div className="mx-5">
-                        <ClientCarousel clients={props.clients} />
+                        <RecommendationsCarousel recommendations={props.recommendations} />
                     </div>
-                    <RecommendationsCarousel recommendations={props.recommendations} />
+                    <ClientGrid clients={props.clients} />
                 </div>
             </div>              
 

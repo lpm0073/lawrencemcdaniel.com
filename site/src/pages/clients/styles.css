@@ -89,25 +89,37 @@
 /********** Medium devices only **********/
 @media (min-width: 992px) and (max-width: 1199px) {
 
-   #clients-carousel {
-       visibility: visible !important;
-   }
-
+    #clients-carousel {
+        visibility: visible !important;
+    }
 
 }
 
 /********** Small devices only **********/
 @media (min-width: 768px) and (max-width: 991px) {
 
+    #clients-carousel {
+        visibility: visible !important;
+    }
+
+ 
 }
 
 /********** Extra small devices only **********/
 @media (max-width: 767px) {
 
+    #clients-carousel {
+        height: 0 !important;
+    }
+
 }
 
 /********** Super extra small devices Only :-) (e.g., iPhone 4) **********/
 @media (max-width: 479px) {
+
+    #clients-carousel {
+        height: 0 !important;
+    }
 
 }
 
