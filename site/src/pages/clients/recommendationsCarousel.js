@@ -39,12 +39,13 @@ class RecommendationsCarousel extends Component {
   
   render() {
     const recommendationsList = this.shuffleArray(this.props.recommendations.items);
+    
     return (
-        <div className="pb-3">
+        <div>
           {this.props.isLoading ? (
             <Loading />
           ) : (
-            <div id="recommendation-carousel" className="m-xs-1 m-sm-5 ">
+            <div id="recommendation-carousel" className="m-2">
               <Carousel responsive={responsive}
                 additionalTransfrom={0}
                 arrows
