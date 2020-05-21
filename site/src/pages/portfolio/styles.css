@@ -4,11 +4,11 @@
 }
 
 .portfolio-item-image {
-    border: 1px solid #555;
     height: 190px;
     background-position: center;
     background-size: cover;
     background-repeat: no-repeat;
+    background-color: #555;
 }
 
 
@@ -30,7 +30,6 @@
 
 .portfolio-item:hover .portfolio-item-overlay {
     width: 100%;
-    border: 1px solid #888;
     /*
     box-shadow: 0 1px 4px 1px #aaa;
     */

@@ -4,9 +4,9 @@
 }
 
 .education-item {
-    border: 1px solid #555;
     height: 190px;
     background-position: center;
     background-size: cover;
     background-repeat: no-repeat;
+    background-color: #555;
 }
