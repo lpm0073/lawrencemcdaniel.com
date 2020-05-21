@@ -11,7 +11,7 @@ const responsive = {
   },
   desktop: {
     breakpoint: { max: 3000, min: 1024 },
-    items: 4
+    items: 3
   },
   tablet: {
     breakpoint: { max: 1024, min: 464 },
@@ -54,13 +54,13 @@ class TechnologyCarousel extends Component {
                 autoPlaySpeed={1}
                 centerMode={false}
                 className=""
-                containerClass="container-with-dots"
+                containerClass=""
                 customTransition="all 1.5s linear"
                 dotListClass=""
                 draggable
                 focusOnSelect={false}
                 infinite
-                itemClass=""
+                itemClass="carousel-class"
                 keyBoardControl
                 minimumTouchDrag={80}
                 renderButtonGroupOutside={false}
@@ -72,13 +72,14 @@ class TechnologyCarousel extends Component {
                 transitionDuration={3000}
                 >
                 {itemList.map((specialty, indx) => {
+                  var item_url = wpGetFeaturedImage(specialty, null);
+                  const background_url = "url('" + item_url + "')";
+                  const item_style = {
+                    "background-image": background_url
+                  }
 
                   return (
-                    <div className="item col-8 text-left mt-5" key={indx}>
-                      <img
-                        src={wpGetFeaturedImage(specialty, 'identity-team')}
-                        alt={specialty.slug}
-                      />
+                    <div className="specialty-item" key={indx} style={item_style}>
                     </div>
                   );
                 })}
