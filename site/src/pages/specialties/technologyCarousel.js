@@ -2,6 +2,7 @@ import React, { Component } from "react";
 import Carousel from "react-multi-carousel";
 import "react-multi-carousel/lib/styles.css";
 import Loading from '../../components/Loading';
+import {wpGetFeaturedImage} from '../../shared/wpGetFeaturedImage';
 
 const responsive = {
   superLargeDesktop: {
@@ -36,6 +37,10 @@ class TechnologyCarousel extends Component {
   }
 
   render() {
+    setTimeout(function(){
+      //do what you need here
+  }, 1000);
+
     const itemList = this.shuffleArray(this.props.specialties.items);
     return (
         <div className="">
@@ -67,10 +72,11 @@ class TechnologyCarousel extends Component {
                 transitionDuration={3000}
                 >
                 {itemList.map((specialty, indx) => {
+
                   return (
                     <div className="item col-8 text-left mt-5" key={indx}>
                       <img
-                        src={specialty._embedded["wp:featuredmedia"][0].source_url}
+                        src={wpGetFeaturedImage(specialty, 'identity-team')}
                         alt={specialty.slug}
                       />
                     </div>

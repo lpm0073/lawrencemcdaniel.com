@@ -2,6 +2,7 @@ import React, { Component } from "react";
 import Carousel from "react-multi-carousel";
 import "react-multi-carousel/lib/styles.css";
 import Loading from '../../components/Loading';
+import {wpGetFeaturedImage} from '../../shared/wpGetFeaturedImage';
 
 const responsive = {
   superLargeDesktop: {
@@ -70,7 +71,7 @@ class ClientCarousel extends Component {
                   return (
                     <div className="item col-8 text-left mt-5 px-5" key={indx}>
                       <img className="mb-5 p-2"
-                        src={specialty._embedded["wp:featuredmedia"][0].source_url}
+                        src={wpGetFeaturedImage(specialty, 'identity-team')}
                         alt={specialty.slug}
                       />
                     </div>

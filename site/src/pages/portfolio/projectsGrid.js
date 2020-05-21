@@ -1,13 +1,14 @@
 import React, { Component } from "react";
 import { Link } from 'react-router-dom';
 import Loading from '../../components/Loading';
+import {wpGetFeaturedImage} from '../../shared/wpGetFeaturedImage';
 
 class ProjectsGrid extends Component {
 
   render() {
 
     function RenderProjectItem({ project }) {
-      const item_url = project._embedded['wp:featuredmedia'][0].source_url;
+      const item_url = wpGetFeaturedImage(project, 'identity-team'); 
       const background_url = "url('" + item_url + "')";
       const item_style = {
         "backgroundImage": background_url

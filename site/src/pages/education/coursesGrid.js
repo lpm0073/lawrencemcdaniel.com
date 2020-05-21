@@ -1,6 +1,7 @@
 import React, { Component } from "react";
 import Loading from '../../components/Loading';
 import { Stagger, Fade } from 'react-animation-components';
+import {wpGetFeaturedImage} from '../../shared/wpGetFeaturedImage';
 
 class CoursesGrid extends Component {
 
@@ -13,7 +14,8 @@ class CoursesGrid extends Component {
             <div id="education-grid">
               <div className="row my-5 mx-0 py-5 px-0 text-center">
               {this.props.education.courses.map((education_item, indx) => {
-                  const item_url = education_item._embedded['wp:featuredmedia'][0].source_url;
+                  //const item_url = education_item._embedded['wp:featuredmedia'][0].source_url;
+                  const item_url = wpGetFeaturedImage(education_item, 'identity-team'); 
                   const background_url = "url('" + item_url + "')";
                   const item_style = {
                     "background-image": background_url

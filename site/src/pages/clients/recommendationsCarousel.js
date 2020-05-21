@@ -3,6 +3,7 @@ import Loading from '../../components/Loading';
 import Carousel from "react-multi-carousel";
 import "react-multi-carousel/lib/styles.css";
 import Moment from 'moment';
+import {wpGetFeaturedImage} from '../../shared/wpGetFeaturedImage';
 
 const responsive = {
   superLargeDesktop: {
@@ -77,22 +78,11 @@ class RecommendationsCarousel extends Component {
                   var title = doc.querySelector(".title").innerHTML;
                   var relationship = doc.querySelector(".relationship").innerHTML;
                   var description = doc.querySelector(".description").innerHTML;
-
+                  
                   Moment.locale('en');
                   
                   function unescapedString(str) {
                     return {__html: str};
-                  }
-
-                  function featuredMedia(arr) {
-                    var i = 0;
-
-                    if (typeof arr !== 'undefined' && arr.length > 0) {
-                      for (i=0; i < arr.length; i++) {
-                        return arr[i].source_url;
-                      }
-                    }
-                    return null;
                   }
 
                   return (
@@ -101,7 +91,7 @@ class RecommendationsCarousel extends Component {
                           <div className="row">
                             <div className="col-md-3 ">
                               <img className="recommendation-pic mt-1" 
-                                  src={featuredMedia(recommendation._embedded["wp:featuredmedia"])}
+                                  src={wpGetFeaturedImage(recommendation, 'thumbnail')}
                                   alt={recommendation.slug}
                               />
                             </div>
