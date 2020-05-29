@@ -12,6 +12,10 @@ class LogoCube extends Component {
 
     componentDidMount() {
         // D3 Code to create the chart
+        const logos = this.shuffleArray(this.props.logos.items);
+        /*
+        var item_url = wpGetFeaturedImage(specialty, null);
+         */
 
     }
 
@@ -20,10 +24,6 @@ class LogoCube extends Component {
     }
 
     render() {
-        /*
-        const logos = this.shuffleArray(this.props.specialties.items);
-        var item_url = wpGetFeaturedImage(specialty, null);
-         */
 
         return(
 
@@ -60,6 +60,11 @@ class LogoCube extends Component {
         );
         }
 
+    random_logo() {
+        const logos = this.shuffleArray(this.props.logos.items);
+        return logos[Math.floor(Math.random() * logos.length)];
+        }
+          
     shuffleArray(array) {
         let i = array.length - 1;
         for (; i > 0; i--) {

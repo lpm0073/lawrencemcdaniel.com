@@ -20,7 +20,7 @@ function Home(props) {
                     </Fade>
                 </div>
                 <div className="row justify-content-center align-self-center w-100">
-                    <LogoCube />
+                    <LogoCube logos={props.logos}/>
                 </div>
             </div>
     );
