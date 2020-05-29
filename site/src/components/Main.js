@@ -10,7 +10,7 @@ class Main extends Component {
 
   render() {
     return ( 
-      <div className="container">
+      <div className="container-fluid p-0">
         <Header />
         <Routes />
         <Footer />
