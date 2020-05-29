@@ -37,9 +37,6 @@ class TechnologyCarousel extends Component {
   }
 
   render() {
-    setTimeout(function(){
-      //do what you need here
-  }, 1000);
 
     const itemList = this.shuffleArray(this.props.specialties.items);
     return (
