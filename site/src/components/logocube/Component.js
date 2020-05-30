@@ -9,6 +9,84 @@ import './styles.css';
 
 class LogoCube extends Component {
 
+    constructor(props) {
+        super(props);
+
+        var d = new Date();
+        d.setHours(d.getSeconds() - 2);
+
+        
+        this.state = {
+            cubeTop: d,
+            cubeBottom: d,
+            cubeLeft: d,
+            cubeRight: d,
+            cubeFront: d,
+            cubeBack: d
+          };
+
+          this.timestampSide = this.timestampSide.bind(this);
+          this.timeElapsedSide = this.timeElapsedSide.bind(this);
+          this.logos = this.logos.bind(this);
+          this.shuffleArray = this.shuffleArray.bind(this);
+          this.repaint = this.repaint.bind(this);
+        }
+
+    timestampSide(side) {
+        var d = new Date();
+
+        switch(side) {
+            case "cube-top":
+                this.setState({
+                    cubeTop: d
+                });
+                break;
+            case "cube-bottom":
+                this.setState({
+                    cubeBottom: d
+                });
+                break;
+            case "cube-left":
+                this.setState({
+                    cubeLeft: d
+                });
+                break;
+            case "cube-right":
+                this.setState({
+                    cubeRight: d
+                });
+                break;
+            case "cube-front":
+                this.setState({
+                    cubeFront: d
+                });
+                break;
+            case "cube-back":
+                this.setState({
+                    cubeBack: d
+                });
+                break;
+        }        
+    }
+
+    timeElapsedSide(side) {
+        var d = new Date();
+
+        switch(side) {
+            case "cube-top":
+                return d - this.state.cubeTop;
+            case "cube-bottom":
+                return d - this.state.cubeBottom;
+            case "cube-left":
+                return d - this.state.cubeLeft;
+            case "cube-right":
+                return d - this.state.cubeRight;
+            case "cube-front":
+                return d - this.state.cubeFront;
+            case "cube-back":
+                return d - this.state.cubeBack;
+                                                                      }        
+    }
 
     componentDidMount() {
         
@@ -21,39 +99,35 @@ class LogoCube extends Component {
 
     }
 
-    componentDidUpdate() {
-
-    }
-
     render() {
 
         return(
 
             <div id="logoprop" className="d3-container">
                 <div className="d3-cube">
-                    <div className="d3-side top"><div>
+                    <div id="cube-top" className="d3-side top"><div>
                         <div className="logo"></div>
                     </div></div>
 
-                    <div className="d3-side front"><div>
+                    <div id="cube-front" className="d3-side front"><div>
                         <div className="logo"></div>
                     </div></div>
 
-                    <div className="d3-side back"><div>
+                    <div id="cube-back" className="d3-side back"><div>
                         <div className="logo"></div>
                     </div></div>
 
-                    <div className="d3-side right">
+                    <div id="cube-right" className="d3-side right">
                         <div>
                         <div className="logo"></div>
                         </div>
                     </div>
-                    <div className="d3-side left">
+                    <div id="cube-left" className="d3-side left">
                         <div>
                         <div className="logo"></div>
                         </div>
                     </div>
-                    <div className="d3-side bottom"><div>
+                    <div id="cube-bottom" className="d3-side bottom"><div>
                         <div className="logo"></div>
                     </div></div>
                 </div>
