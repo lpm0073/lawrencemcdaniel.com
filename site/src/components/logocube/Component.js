@@ -6,7 +6,7 @@ import { wpGetFeaturedImage } from '../../shared/wpGetFeaturedImage';
 import './styles.css';
 import Loading from '../Loading';
 
-const LogoDiv = (props) => {
+const CubeSide = (props) => {
 
     const clsId = "d3-side " + props.side;
     const divId = "cube-" + props.side + "-logo";
@@ -14,7 +14,6 @@ const LogoDiv = (props) => {
         backgroundImage: "url('" + props.url + "')"
       }
 
-    console.log(divStyle);
     return(
         <React.Fragment >
             <div className={clsId}><div>
@@ -37,8 +36,8 @@ class LogoCube extends Component {
             which leads to jerky-looking behavior.
 
             To prevent this we keep track of how long each logo has been on a given cube side.
-            the repaint() method will only repaint a side if that side has in-state for at least 
-            X milliseconds.
+            the repaint() method will only repaint a side if that side has been in the same state 
+            for at least X milliseconds.
          */
         var d = new Date();
         d.setSeconds(d.getSeconds() - 2);
@@ -57,12 +56,12 @@ class LogoCube extends Component {
             cubeFront: d,
             cubeBack: d,
 
-            cubeTopBackgroundUrl: '',
-            cubeBottomBackgroundUrl: '',
-            cubeLeftBackgroundUrl: '',
-            cubeRightBackgroundUrl: '',
-            cubeFrontBackgroundUrl: '',
-            cubeBackBackgroundUrl: ''
+            cubeTopBackgroundUrl: null,
+            cubeBottomBackgroundUrl: null,
+            cubeLeftBackgroundUrl: null,
+            cubeRightBackgroundUrl: null,
+            cubeFrontBackgroundUrl: null,
+            cubeBackBackgroundUrl: null
           };
 
         this.resetElapsedTime = this.resetElapsedTime.bind(this);
@@ -82,11 +81,23 @@ class LogoCube extends Component {
             Note: componentDidMount() gets called a half dozen times bc the Home component
             which instantiates this component itself mounts and unmounts multiple times.
 
-            we therefore have to keep track of any repaint() threads that we invoke so that 
-            we can kill them if necessary.
+            we therefore delay the first repaint for a while. however
+            we also have to keep track of the repaint() threads that we invoke so that 
+            we can kill them in cases where the component mounts and then quickly unmounts.
          */
         var self = this;
         if (!this.props.logos.isLoading) {
+
+            this.setBackgroundUrl("top", this.getRandomLogo());                
+            this.setBackgroundUrl("bottom", this.getRandomLogo());                
+            this.setBackgroundUrl("left", this.getRandomLogo());                
+            this.setBackgroundUrl("right", this.getRandomLogo());                
+            this.setBackgroundUrl("front", this.getRandomLogo());                
+            this.setBackgroundUrl("back", this.getRandomLogo());                
+
+            /*
+                kick off an infinite loop of repaint()
+             */
             var myTimeout = setTimeout(function() {
                 self.repaint();
             }, 1000);    
@@ -96,6 +107,9 @@ class LogoCube extends Component {
     }
 
     componentWillUnmount() {
+        /*
+            kill any pending repaint() invocation from componentDidMount().
+         */
         clearTimeout(this.state.timeout);        
     }
     
@@ -107,12 +121,12 @@ class LogoCube extends Component {
                 <Loading />
               ) : (
                 <div className="d3-cube">
-                    <LogoDiv side={"top"} url={this.getBackgroundUrl("top")} />
-                    <LogoDiv side={"bottom"} url={this.getBackgroundUrl("bottom")} />
-                    <LogoDiv side={"front"} url={this.getBackgroundUrl("front")} />
-                    <LogoDiv side={"back"} url={this.getBackgroundUrl("back")} />
-                    <LogoDiv side={"right"} url={this.getBackgroundUrl("right")} />
-                    <LogoDiv side={"left"} url={this.getBackgroundUrl("left")} />
+                    <CubeSide side={"top"} url={this.getBackgroundUrl("top")} />
+                    <CubeSide side={"bottom"} url={this.getBackgroundUrl("bottom")} />
+                    <CubeSide side={"front"} url={this.getBackgroundUrl("front")} />
+                    <CubeSide side={"back"} url={this.getBackgroundUrl("back")} />
+                    <CubeSide side={"right"} url={this.getBackgroundUrl("right")} />
+                    <CubeSide side={"left"} url={this.getBackgroundUrl("left")} />
                 </div>
               )}
             </div>
@@ -193,19 +207,22 @@ class LogoCube extends Component {
     }
       
     getRandomLogo() {
+
+        /*
+            choose a random logo
+        */
         const logo = this.state.logos[Math.floor(Math.random() * this.state.logos.length)];
 
         /* 
-          we don't want to see the same logo twice.
-          if we have a duplicate logo then we'll use this as an opportunity to 
-          create the occasional blank side (no logo).
+          we don't want to see the same logo twice, so if we got a duplicate then
+          reshuffle.
          */
-        if (logo === this.state.cubeTopBackgroundUrl) {return null}
-        if (logo === this.state.cubeBottomBackgroundUrl) {return null}
-        if (logo === this.state.cubeBackBackgroundUrl) {return null}
-        if (logo === this.state.cubeFrontBackgroundUrl) {return null}
-        if (logo === this.state.cubeLeftBackgroundUrl) {return null}
-        if (logo === this.state.cubeRightBackgroundUrl) {return null}
+        if (logo === this.state.cubeTopBackgroundUrl) {return this.getRandomLogo()}
+        if (logo === this.state.cubeBottomBackgroundUrl) {return this.getRandomLogo()}
+        if (logo === this.state.cubeBackBackgroundUrl) {return this.getRandomLogo()}
+        if (logo === this.state.cubeFrontBackgroundUrl) {return this.getRandomLogo()}
+        if (logo === this.state.cubeLeftBackgroundUrl) {return this.getRandomLogo()}
+        if (logo === this.state.cubeRightBackgroundUrl) {return this.getRandomLogo()}
 
         return logo;
     }
