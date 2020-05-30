@@ -12,22 +12,31 @@ class LogoCube extends Component {
     constructor(props) {
         super(props);
         this.state = {
-            isPainting: false
+            painters: 0
         };
-        this.isPainting = this.isPainting.bind(this);
+        this.startPainting = this.startPainting.bind(this);
+        this.finishPainting = this.finishPainting.bind(this);
     }
 
-    isPainting() {
+    startPainting() {
         this.setState({
-            isPainting: true
+            painters: this.state.painters++
         });
+
+    }
+    finishPainting() {
+        this.setState({
+            painters: this.state.painters--
+        });
+
     }
 
 
     componentDidMount() {
 
+        console.log("componentDidMount()", this.state.painters);
         var self = this;
-        if (!self.props.isPainting) {
+        if (self.state.painters == 0) {
             setTimeout(function() {
                 console.log("i'm calling repaint()")
                 self.repaint();
@@ -102,8 +111,12 @@ class LogoCube extends Component {
             console.log("i am not ready.");
             return false;
         }
-        this.isPainting();
-        console.log("repaint()", self.props.logos.items.length);
+        if (self.state.painters > 0) {
+            console.log("too many painters. leaving.");
+            return false;
+        }
+        this.startPainting();
+        console.log("repaint()", self.state.painters);
 
         function random_logo(logos) {
             return logos[Math.floor(Math.random() * logos.length)];
@@ -130,6 +143,7 @@ class LogoCube extends Component {
                     .duration(500)
                     .style("opacity", 1);
         
+                self.finishPainting();
                 self.repaint();
               }, 3000*Math.random());   
       
