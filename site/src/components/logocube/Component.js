@@ -12,18 +12,17 @@ class LogoCube extends Component {
 
     componentDidMount() {
         // D3 Code to create the chart
-        if (this.props.logos.items.length > 0) {
-            this.repaint();
-        }
+        var self = this;
+        setTimeout(function() {
+            self.repaint();
+        }, 2000);
 
     }
 
     componentDidUpdate() {
         // D3 Code to update the chart
 
-        if (this.props.logos.items.length > 0) {
-            this.repaint();
-        }
+        this.repaint();
     }
 
     render() {
@@ -79,17 +78,21 @@ class LogoCube extends Component {
         return array;
     }
 
-    random_logo() {
-        var self = this;
-        const arr = self.shuffleArray(self.props.logos.items);
-        return arr[Math.floor(Math.random() * self.props.logos.items.length)];
-    }
 
     repaint() {
         var self = this;
+        if (self.props.logos.items.length == 0) {
+            return false;
+        }
         console.log("repaint()", self.props.logos.items.length);
-        const logos = self.props.logos;
 
+        function random_logo(logos) {
+            return logos[Math.floor(Math.random() * logos.length)];
+        }
+    
+        const logos =  this.props.logos.items.map((post, indx) => {
+            return wpGetFeaturedImage(post, null);
+        });
               
         var idx = Math.floor(Math.random() * selectAll(".logo").size());
         selectAll(".logo")
@@ -102,7 +105,7 @@ class LogoCube extends Component {
                   .duration(500)
                   .style("opacity", 0);
       
-              side.style("background-image", "url('" + self.random_logo() + "')");
+              side.style("background-image", "url('" + random_logo(logos) + "')");
       
               side.transition()
                   .duration(500)
