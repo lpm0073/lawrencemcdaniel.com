@@ -9,41 +9,15 @@ import './styles.css';
 
 class LogoCube extends Component {
 
-    constructor(props) {
-        super(props);
-        this.state = {
-            painters: 0
-        };
-        this.startPainting = this.startPainting.bind(this);
-        this.finishPainting = this.finishPainting.bind(this);
-    }
-
-    startPainting() {
-        this.setState({
-            painters: this.state.painters++
-        });
-
-    }
-    finishPainting() {
-        this.setState({
-            painters: this.state.painters--
-        });
-
-    }
-
 
     componentDidMount() {
-
-        console.log("componentDidMount()", this.state.painters);
+        
         var self = this;
-        if (self.state.painters == 0) {
+        if (!this.props.logos.isLoading) {
             setTimeout(function() {
-                console.log("i'm calling repaint()")
                 self.repaint();
-            }, 1000);
-    
+            }, 1000);    
         }
-
 
     }
 
@@ -55,7 +29,7 @@ class LogoCube extends Component {
 
         return(
 
-            <div className="d3-container">
+            <div id="logoprop" className="d3-container">
                 <div className="d3-cube">
                     <div className="d3-side top"><div>
                         <div className="logo"></div>
@@ -104,19 +78,11 @@ class LogoCube extends Component {
         return array;
     }
 
-
     repaint() {
         var self = this;
-        if (self.props.logos.items.length == 0) {
-            console.log("i am not ready.");
+        if (self.props.logos.isLoading || self.props.logos.items.length === 0) {
             return false;
         }
-        if (self.state.painters > 0) {
-            console.log("too many painters. leaving.");
-            return false;
-        }
-        this.startPainting();
-        console.log("repaint()", self.state.painters);
 
         function random_logo(logos) {
             return logos[Math.floor(Math.random() * logos.length)];
@@ -133,17 +99,20 @@ class LogoCube extends Component {
       
             var side = select(this);
             setTimeout(function() {
-                side.transition()
-                    .duration(500)
-                    .style("opacity", 0);
-        
-                side.style("background-image", "url('" + random_logo(logos) + "')");
-        
-                side.transition()
-                    .duration(500)
-                    .style("opacity", 1);
-        
-                self.finishPainting();
+               side.transition()
+               .duration(500)
+               .style("opacity", 0);
+               
+               if (Math.random() < 0.10) {
+                   side.style("background-image", "none");
+               } else {
+                   side.style("background-image", "url('" + random_logo(logos) + "')");
+               }
+       
+               side.transition()
+                   .duration(500)
+                   .style("opacity", 1);
+   
                 self.repaint();
               }, 3000*Math.random());   
       
