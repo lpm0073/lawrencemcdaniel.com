@@ -1,10 +1,10 @@
+.dark-background {
+    background-color: black;
+}
 
 .jumbotron {
     margin:0px auto;
     color:floralwhite;
-    /*
-    background-image: url('https://cdn.lawrencemcdaniel.com/wp-content/uploads/2016/09/22195717/banner-o2.jpg');
-    */
     height: 87vh;
     border-radius: 0 !important;
 
@@ -15,9 +15,7 @@
     letter-spacing: -2px;
     font-weight: 900;
 }
-.jumbotron-title-font {
 
-}
 .jumbotron-subtitle {
     font-size: 32px;
     font-weight: 500;
@@ -27,10 +25,7 @@
     width: 50% !important;
 }
 
-.border-3 {
-    border: 3px solid white;
-    border-radius: 3px;
-}
+
 
 /*-------------- Responsive Styling -----------------------*/
 
@@ -54,18 +49,13 @@
 /********** Extra small devices only **********/
 @media (max-width: 767px) {
 
-.border-3 {
-    border: none !important;
-}
-.super-bold {
+.super-bold,
+.jumbotron-subtitle {
     font-size: 24px !important;
     letter-spacing: initial !important;
     font-weight: initial !important;
 }
 
-.jumbotron-subtitle {
-    visibility: hidden;
-}
 
 }
 /********** Super extra small devices Only :-) (e.g., iPhone 4) **********/

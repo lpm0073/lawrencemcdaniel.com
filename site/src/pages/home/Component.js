@@ -7,39 +7,18 @@ import './cool-backgrounds.css'
 
 function Home(props) {
     return(
-            <div>
-                <div className="row justify-content-center align-self-center w-100">
-                    <Fade in>
-                        <div className="col-12 text-center noselect">
-                            <p className="jumbotron-subtitle jumbotron-title-font">Full Stack Developer</p>
-                            <h1 className="display-4">
-                                <span className="border-3 px-3 jumbotron-title-font super-bold">Lawrence McDaniel</span>
-                            </h1>
-                            <p className="jumbotron-subtitle jumbotron-title-font">Open edX Enthusiast</p>
-                        </div>
-                    </Fade>
-                </div>
-                <div className="row justify-content-center align-self-center w-100">
-                    <LogoCube logos={props.logos}/>
-                </div>
-            </div>
-    );
-}
-
-function _Home(props) {
-    return(
-    <Jumbotron className="floating-cogs">
-        <div className="d-flex h-100">
-            <div className="row justify-content-center align-self-center w-100">
-                <Fade in>
-                    <div className="col-12 text-center noselect">
-                        <p className="jumbotron-subtitle jumbotron-title-font">Full Stack Developer</p>
+    <Jumbotron className="dark-background">
+        <div className="h-100">
+            <div className="row ml-0 mr-0 mt-5 px-0">
+                    <div className="col-lg-6 col-md-12 mt-4 text-center noselect ">
                         <h1 className="display-4">
-                            <span className="border-3 px-3 jumbotron-title-font super-bold">Lawrence McDaniel</span>
+                            <span className="px-3 jumbotron-title-font super-bold">Lawrence McDaniel</span>
                         </h1>
-                        <p className="jumbotron-subtitle jumbotron-title-font">Open edX Enthusiast</p>
+                        <p className="jumbotron-subtitle jumbotron-title-font">Full Stack Developer</p>
                     </div>
-                </Fade>
+                    <div className="col-lg-6 col-md-12">
+                        <LogoCube logos={props.logos} />
+                    </div>
             </div>
         </div>                    
     </Jumbotron>

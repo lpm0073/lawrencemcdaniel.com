@@ -9,20 +9,37 @@ import './styles.css';
 
 class LogoCube extends Component {
 
+    constructor(props) {
+        super(props);
+        this.state = {
+            isPainting: false
+        };
+        this.isPainting = this.isPainting.bind(this);
+    }
+
+    isPainting() {
+        this.setState({
+            isPainting: true
+        });
+    }
+
 
     componentDidMount() {
-        // D3 Code to create the chart
+
         var self = this;
-        setTimeout(function() {
-            self.repaint();
-        }, 2000);
+        if (!self.props.isPainting) {
+            setTimeout(function() {
+                console.log("i'm calling repaint()")
+                self.repaint();
+            }, 1000);
+    
+        }
+
 
     }
 
     componentDidUpdate() {
-        // D3 Code to update the chart
 
-        this.repaint();
     }
 
     render() {
@@ -82,8 +99,10 @@ class LogoCube extends Component {
     repaint() {
         var self = this;
         if (self.props.logos.items.length == 0) {
+            console.log("i am not ready.");
             return false;
         }
+        this.isPainting();
         console.log("repaint()", self.props.logos.items.length);
 
         function random_logo(logos) {
@@ -101,17 +120,17 @@ class LogoCube extends Component {
       
             var side = select(this);
             setTimeout(function() {
-              side.transition()
-                  .duration(500)
-                  .style("opacity", 0);
-      
-              side.style("background-image", "url('" + random_logo(logos) + "')");
-      
-              side.transition()
-                  .duration(500)
-                  .style("opacity", 1);
-      
-                  self.repaint();
+                side.transition()
+                    .duration(500)
+                    .style("opacity", 0);
+        
+                side.style("background-image", "url('" + random_logo(logos) + "')");
+        
+                side.transition()
+                    .duration(500)
+                    .style("opacity", 1);
+        
+                self.repaint();
               }, 3000*Math.random());   
       
       
