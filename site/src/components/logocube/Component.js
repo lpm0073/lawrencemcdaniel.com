@@ -7,6 +7,7 @@ import transition from 'd3-transition';
 import { wpGetFeaturedImage } from '../../shared/wpGetFeaturedImage';
 import './styles.css';
 import { nominalTypeHack } from 'prop-types';
+import Loading from '../Loading';
 
 class LogoCube extends Component {
 
@@ -68,8 +69,10 @@ class LogoCube extends Component {
     render() {
 
         return(
-
             <div id="logoprop" className="d3-container">
+            {this.props.logos.isLoading ? (
+                <Loading />
+              ) : (
                 <div className="d3-cube">
                     <div className="d3-side top"><div>
                         <div id="cube-top" className="logo"></div>
@@ -90,8 +93,8 @@ class LogoCube extends Component {
                         <div id="cube-left" className="logo"></div>
                     </div></div>
                 </div>
+              )}
             </div>
-
         );
     }
 
@@ -188,7 +191,7 @@ class LogoCube extends Component {
                    .style("opacity", 1);
    
                 self.repaint();
-              }, 3000*Math.random());   
+              }, 1000 * Math.random());   
       
       
           });
