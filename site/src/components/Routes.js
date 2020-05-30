@@ -25,6 +25,7 @@ import ReactPage from '../pages/react/Component';
 
 const mapStateToProps = state => {
   return {
+    logos: state.specialties,
     specialties: state.specialties,
     portfolio: state.portfolio,
     education: state.education,
@@ -36,6 +37,7 @@ const mapStateToProps = state => {
 
 const mapDispatchToProps = (dispatch) => ({
   fetchSpecialties: () => {dispatch(fetchSpecialties())},
+  fetchLogos: () => {dispatch(fetchSpecialties())},
   fetchPortfolio: () => {dispatch(fetchPortfolio())},
   fetchEducation: () => {dispatch(fetchEducation())},
   fetchRecommendations: () => {dispatch(fetchRecommendations())},
@@ -48,6 +50,7 @@ class Routes extends Component {
   
   componentDidMount() {
     this.props.fetchSpecialties();
+    this.props.fetchLogos();
     this.props.fetchPortfolio();
     this.props.fetchEducation();
     this.props.fetchRecommendations();
@@ -73,7 +76,7 @@ class Routes extends Component {
     return(
         <React.Fragment>
           <Switch>
-            <Route path="/home" component={() => <Home logos={this.props.specialties} />} />
+            <Route path="/home" component={() => <Home logos={this.props.logos} />} />
             <Route exact path="/contact" component={Contact} />
             <Route exact path="/about" component={About} />
             <Route exact path="/machine-learning" component={MachineLearning} />
