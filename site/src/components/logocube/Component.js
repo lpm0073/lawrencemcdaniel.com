@@ -2,13 +2,30 @@
     https://www.smashingmagazine.com/2018/02/react-d3-ecosystem/
  */
 import React, { Component } from 'react';
-import { selectAll, select } from "d3-selection";
-import transition from 'd3-transition';
 import { wpGetFeaturedImage } from '../../shared/wpGetFeaturedImage';
 import './styles.css';
-import { nominalTypeHack } from 'prop-types';
 import Loading from '../Loading';
 
+const LogoDiv = (props) => {
+
+    const clsId = "d3-side " + props.side;
+    const divId = "cube-" + props.side + "-logo";
+    const divStyle = {
+        backgroundImage: "url('" + props.url + "')"
+      }
+
+    console.log(divStyle);
+    return(
+        <React.Fragment >
+            <div className={clsId}><div>
+                <div key={divId} 
+                     className="logo" 
+                     style={divStyle}>
+                </div>
+            </div></div>
+        </React.Fragment>
+    );
+}
 class LogoCube extends Component {
 
     constructor(props) {
@@ -26,22 +43,38 @@ class LogoCube extends Component {
         var d = new Date();
         d.setSeconds(d.getSeconds() - 2);
 
+        const logos =  this.props.logos.items.map((post, indx) => {
+            return wpGetFeaturedImage(post, null);
+        });
+
         this.state = {
+            logos: logos,
             timeout: null,
             cubeTop: d,
             cubeBottom: d,
             cubeLeft: d,
             cubeRight: d,
             cubeFront: d,
-            cubeBack: d
+            cubeBack: d,
+
+            cubeTopBackgroundUrl: '',
+            cubeBottomBackgroundUrl: '',
+            cubeLeftBackgroundUrl: '',
+            cubeRightBackgroundUrl: '',
+            cubeFrontBackgroundUrl: '',
+            cubeBackBackgroundUrl: ''
           };
 
-          this.timestampSide = this.timestampSide.bind(this);
-          this.timeElapsedSide = this.timeElapsedSide.bind(this);
-          this.logos = this.logos.bind(this);
-          this.shuffleArray = this.shuffleArray.bind(this);
-          this.repaint = this.repaint.bind(this);
+        this.resetElapsedTime = this.resetElapsedTime.bind(this);
+        this.getElapsedTime = this.getElapsedTime.bind(this);
+        this.getBackgroundUrl = this.getBackgroundUrl.bind(this);
+        this.setBackgroundUrl = this.setBackgroundUrl.bind(this);
+        this.getRandomSide = this.getRandomSide.bind(this);
+        this.getRandomLogo = this.getRandomLogo.bind(this);
+    
+        this.repaint = this.repaint.bind(this);
         }
+
 
 
     componentDidMount() {
@@ -74,130 +107,124 @@ class LogoCube extends Component {
                 <Loading />
               ) : (
                 <div className="d3-cube">
-                    <div className="d3-side top"><div>
-                        <div id="cube-top" className="logo"></div>
-                    </div></div>
-                    <div className="d3-side bottom"><div>
-                        <div id="cube-bottom" className="logo"></div>
-                    </div></div>
-                    <div className="d3-side front"><div>
-                        <div id="cube-front" className="logo"></div>
-                    </div></div>
-                    <div className="d3-side back"><div>
-                        <div id="cube-back" className="logo"></div>
-                    </div></div>
-                    <div className="d3-side right"><div>
-                        <div id="cube-right" className="logo"></div>
-                    </div></div>
-                    <div className="d3-side left"><div>
-                        <div id="cube-left" className="logo"></div>
-                    </div></div>
+                    <LogoDiv side={"top"} url={this.getBackgroundUrl("top")} />
+                    <LogoDiv side={"bottom"} url={this.getBackgroundUrl("bottom")} />
+                    <LogoDiv side={"front"} url={this.getBackgroundUrl("front")} />
+                    <LogoDiv side={"back"} url={this.getBackgroundUrl("back")} />
+                    <LogoDiv side={"right"} url={this.getBackgroundUrl("right")} />
+                    <LogoDiv side={"left"} url={this.getBackgroundUrl("left")} />
                 </div>
               )}
             </div>
         );
     }
 
-    timestampSide(side) {
-        const d = new Date();
-        switch(side) {
-            case "cube-top":
-                this.setState({cubeTop: d});
-                break;
-            case "cube-bottom":
-                this.setState({cubeBottom: d});
-                break;
-            case "cube-left":
-                this.setState({cubeLeft: d});
-                break;
-            case "cube-right":
-                this.setState({cubeRight: d});
-                break;
-            case "cube-front":
-                this.setState({cubeFront: d});
-                break;
-            case "cube-back":
-                this.setState({cubeBack: d});
-                break;
-        }        
-    }
-
-    timeElapsedSide(side) {
-        const d = new Date();
-        switch(side) {
-            case "cube-top": return d - this.state.cubeTop;
-            case "cube-bottom": return d - this.state.cubeBottom;
-            case "cube-left": return d - this.state.cubeLeft;
-            case "cube-right": return d - this.state.cubeRight;
-            case "cube-front": return d - this.state.cubeFront;
-            case "cube-back": return d - this.state.cubeBack;
-                                                                      }        
-    }
-
-    logos() {
-        var self = this;
-        return self.props.logos.items;
-    }
-
-    shuffleArray(array) {
-        let i = array.length - 1;
-        for (; i > 0; i--) {
-            const j = Math.floor(Math.random() * (i + 1));
-            const temp = array[i];
-            array[i] = array[j];
-            array[j] = temp;
-        }
-        return array;
-    }
-
     repaint() {
         var self = this;
-        if (self.props.logos.isLoading || self.props.logos.items.length === 0) {
-            return false;
-        }
-
-        function random_logo(logos) {
-            return logos[Math.floor(Math.random() * logos.length)];
-        }
-    
-        const logos =  this.props.logos.items.map((post, indx) => {
-            return wpGetFeaturedImage(post, null);
-        });
-              
-        var idx = Math.floor(Math.random() * selectAll(".logo").size());
-        selectAll(".logo")
-          .filter(function(d, i) {return i === idx})
-          .each(function() {
-      
-            var side = select(this);
-            var sideId = this.id;
-
-            setTimeout(function() {
-               side.transition()
-               .duration(500)
-               .style("opacity", 0);
-               
-               if (Math.random() < 0.10) {
-                   side.style("background-image", "none");
-               } else {
-                   if (self.timeElapsedSide(sideId) > 5000) {
-                        side.style("background-image", "url('" + random_logo(logos) + "')");
-                        self.timestampSide(sideId);
-                   }
-               }
-       
-               side.transition()
-                   .duration(500)
-                   .style("opacity", 1);
-   
-                self.repaint();
-              }, 1000 * Math.random());   
-      
-      
-          });
+        
+        setTimeout(function() {
+            const side = self.getRandomSide();
+            const logo = self.getRandomLogo();
+            const elapsed = self.getElapsedTime(side);
+            if (side != null && elapsed > 3000) {
+                self.setBackgroundUrl(side, logo);
+            }
+            self.repaint();
+        }, 1000 * Math.random());   
       
     }
+
+
+    getBackgroundUrl(side) {
+        let retval;
+        switch(side) {
+            case "top": retval = this.state.cubeTopBackgroundUrl; break;
+            case "bottom": retval =  this.state.cubeBottomBackgroundUrl; break;
+            case "left": retval =  this.state.cubeLeftBackgroundUrl; break;
+            case "right": retval =  this.state.cubeRightBackgroundUrl; break;
+            case "front": retval =  this.state.cubeFrontBackgroundUrl; break;
+            case "back": retval =  this.state.cubeBackBackgroundUrl; break;
+        }
+        return retval;
+    }
+
+    setBackgroundUrl(side, url) {
+
+        let state;
+        switch(side) {
+            case "top": state = {cubeTopBackgroundUrl: url}; break;
+            case "bottom": state = {cubeBottomBackgroundUrl: url}; break;
+            case "left": state = {cubeLeftBackgroundUrl: url}; break;
+            case "right": state = {cubeRightBackgroundUrl: url}; break;
+            case "front": state = {cubeFrontBackgroundUrl: url}; break;
+            case "back": state = {cubeBackBackgroundUrl: url}; break;
+        }
+        this.setState(state, () => {
+            this.resetElapsedTime(side);
+        });
+
+    }
+
+    resetElapsedTime(side) {
+        const d = new Date();
+        let state;
+        switch(side) {
+            case "top": state = {cubeTop: d}; break;
+            case "bottom": state = {cubeBottom: d}; break;
+            case "left":state = {cubeLeft: d}; break;
+            case "right": state = {cubeRight: d}; break;
+            case "front": state = {cubeFront: d}; break;
+            case "back": state = {cubeBack: d}; break;
+        }
+        this.setState(state);
+
+    }
+
+    getElapsedTime(side) {
+        const d = new Date();
+        switch(side) {
+            case "top": return d - this.state.cubeTop;
+            case "bottom": return d - this.state.cubeBottom;
+            case "left": return d - this.state.cubeLeft;
+            case "right": return d - this.state.cubeRight;
+            case "front": return d - this.state.cubeFront;
+            case "back": return d - this.state.cubeBack;
+        }
+    }
       
+    getRandomLogo() {
+        const logo = this.state.logos[Math.floor(Math.random() * this.state.logos.length)];
+
+        /* 
+          we don't want to see the same logo twice.
+          if we have a duplicate logo then we'll use this as an opportunity to 
+          create the occasional blank side (no logo).
+         */
+        if (logo === this.state.cubeTopBackgroundUrl) {return null}
+        if (logo === this.state.cubeBottomBackgroundUrl) {return null}
+        if (logo === this.state.cubeBackBackgroundUrl) {return null}
+        if (logo === this.state.cubeFrontBackgroundUrl) {return null}
+        if (logo === this.state.cubeLeftBackgroundUrl) {return null}
+        if (logo === this.state.cubeRightBackgroundUrl) {return null}
+
+        return logo;
+    }
+
+    
+    getRandomSide() {
+
+        const side = Math.floor(Math.random() * 6);
+        switch(side) {
+            case 0: return "top";
+            case 1: return "bottom";
+            case 2: return "left";
+            case 3: return "right";
+            case 4: return "front";
+            case 5: return "back";
+        }
+    
+    }
+    
 }
 
 export default LogoCube;
