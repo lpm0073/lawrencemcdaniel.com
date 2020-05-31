@@ -13,10 +13,10 @@ function Home(props) {
                     <div className="row ml-0 mr-0 px-0 jumbotron-spacer">
                         <div className="col-lg-6 col-md-12 text-center noselect ">
                             <h1 className="display-4">
-                                <span className="px-3 jumbotron-title-font super-bold">Lawrence McDaniel</span>
+                                <span className="px-3 super-bold pre-wrap">Lawrence McDaniel</span>
                             </h1>
                             <Fade in> 
-                                <p className="jumbotron-subtitle jumbotron-title-font">Full Stack Developer</p>
+                                <p className="jumbotron-subtitle pre-wrap">Full Stack Developer</p>
                             </Fade>
                         </div>
                         <div className="col-lg-6 col-md-12">

@@ -29,6 +29,10 @@
     width: 50% !important;
 }
 
+.pre-wrap {
+    white-space: pre-wrap;
+}
+
 
 
 /*-------------- Responsive Styling -----------------------*/
