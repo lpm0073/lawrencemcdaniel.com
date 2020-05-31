@@ -109,13 +109,13 @@ class LogoCube extends Component {
     render() {
 
         return(
-            <div id="logoprop" className="d3-container">
+            <div key="logo-cube" className="d3-container">
             {this.props.logos.isLoading ? (
                 <div className="mt-5 pt-5">
                     <Loading />
                 </div>
               ) : (
-                <div className="d3-cube">
+                <div className="d3-cube mt-5">
                     <CubeSide side={"top"} url={this.getBackgroundUrl("top")} />
                     <CubeSide side={"bottom"} url={this.getBackgroundUrl("bottom")} />
                     <CubeSide side={"front"} url={this.getBackgroundUrl("front")} />

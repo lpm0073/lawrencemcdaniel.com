@@ -16,6 +16,10 @@
     font-weight: 900;
 }
 
+.jumbotron-spacer {
+    margin-top: 10vh;
+}
+
 .jumbotron-subtitle {
     font-size: 32px;
     font-weight: 500;
@@ -44,18 +48,25 @@
 /********** Small devices only **********/
 @media (min-width: 768px) and (max-width: 991px) {
 
+    .jumbotron-spacer {
+        margin-top: 0 !important;
+    }
+    
 }
 
 /********** Extra small devices only **********/
 @media (max-width: 767px) {
 
-.super-bold,
-.jumbotron-subtitle {
-    font-size: 24px !important;
-    letter-spacing: initial !important;
-    font-weight: initial !important;
-}
+    .super-bold,
+    .jumbotron-subtitle {
+        font-size: 24px !important;
+        letter-spacing: initial !important;
+        font-weight: initial !important;
+    }
 
+    .jumbotron-spacer {
+        margin-top: 0 !important;
+    }
 
 }
 /********** Super extra small devices Only :-) (e.g., iPhone 4) **********/
