@@ -1,7 +1,7 @@
 import React from 'react';
 import { Jumbotron} from 'reactstrap';
 import { Fade } from 'react-animation-components';
-import LogoCube from '../../components/logocube/Component';
+import LogoCube from '../../components/logoCube/Component';
 import './styles.css';
 import './cool-backgrounds.css'
 

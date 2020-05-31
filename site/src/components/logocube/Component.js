@@ -81,16 +81,14 @@ class LogoCube extends Component {
         var self = this;
         if (!this.props.logos.isLoading) {
 
-            this.setBackgroundUrl("top", this.getRandomLogo(this.state.featured_logos));                
+            this.setBackgroundUrl("top", this.getRandomLogo(this.state.featured_logos));
             this.setBackgroundUrl("bottom", this.getRandomLogo(this.state.featured_logos));                
             this.setBackgroundUrl("left", this.getRandomLogo(this.state.featured_logos));                
             this.setBackgroundUrl("right", this.getRandomLogo(this.state.featured_logos));                
             this.setBackgroundUrl("front", this.getRandomLogo(this.state.featured_logos));                
             this.setBackgroundUrl("back", this.getRandomLogo(this.state.featured_logos));                
 
-            /*
-                kick off an infinite loop of repaint()
-             */
+            /* kick off an infinite loop of repaint() */
             var myTimeout = setTimeout(function() {
                 self.repaint();
             }, 1000);    
@@ -100,9 +98,7 @@ class LogoCube extends Component {
     }
 
     componentWillUnmount() {
-        /*
-            kill any pending repaint() invocation from componentDidMount().
-         */
+        /* kill any pending repaint() invocation from componentDidMount(). */
         clearTimeout(this.state.timeout);        
     }
     
@@ -130,13 +126,8 @@ class LogoCube extends Component {
         var self = this;
         
         setTimeout(function() {
-            let logos;
             const side = self.getRandomSide();
-            if (side === "front") {
-                logos = self.state.featured_logos;
-            } else {
-                logos = self.state.logos;
-            }
+            const logos = (side === "front") ? self.state.featured_logos: self.state.logos;
             const logo = self.getRandomLogo(logos);
             const elapsed = self.getElapsedTime(side);
             if (side != null && elapsed > 3000) {
@@ -207,23 +198,20 @@ class LogoCube extends Component {
       
     getRandomLogo(logos) {
 
-        /*
-            choose a random logo
-        */
         const logo = logos[Math.floor(Math.random() * logos.length)];
 
-        /* 
-          we don't want to see the same logo twice, so if we got a duplicate then
-          reshuffle.
-         */
-        if (logo === this.state.cubeTopBackgroundUrl) {return this.getRandomLogo(logos)}
-        if (logo === this.state.cubeBottomBackgroundUrl) {return this.getRandomLogo(logos)}
-        if (logo === this.state.cubeBackBackgroundUrl) {return this.getRandomLogo(logos)}
-        if (logo === this.state.cubeFrontBackgroundUrl) {return this.getRandomLogo(logos)}
-        if (logo === this.state.cubeLeftBackgroundUrl) {return this.getRandomLogo(logos)}
-        if (logo === this.state.cubeRightBackgroundUrl) {return this.getRandomLogo(logos)}
-
-        return logo;
+        /* we don't want to see the same logo twice, so if we got a duplicate then reshuffle. */
+        switch (logo) {
+            case this.state.cubeTopBackgroundUrl:
+            case this.state.cubeBottomBackgroundUrl:
+            case this.state.cubeBackBackgroundUrl:
+            case this.state.cubeFrontBackgroundUrl:
+            case this.state.cubeLeftBackgroundUrl:
+            case this.state.cubeRightBackgroundUrl:
+                return this.getRandomLogo(logos);
+            default:
+                return logo;
+        }
     }
 
     
@@ -255,12 +243,14 @@ const CubeSide = (props) => {
 
     return(
         <React.Fragment >
-            <div className={clsId}><div>
-                <div key={divId} 
-                     className="logo" 
-                     style={divStyle}>
+            <div key={divId}  
+                 className={clsId}>
+                <div>
+                    <div className="logo" 
+                        style={divStyle}>
+                    </div>
                 </div>
-            </div></div>
+            </div>
         </React.Fragment>
     );
 }
