@@ -15,7 +15,7 @@ class ProjectsGrid extends Component {
       }
       return (
         <Link to={`/portfolio/${project.slug}`} >
-              <div className="portfolio-item">
+              <div className="portfolio-item p-1">
                 <div className="portfolio-item-image"
                     style={item_style}>
                 </div>
