@@ -111,7 +111,9 @@ class LogoCube extends Component {
         return(
             <div id="logoprop" className="d3-container">
             {this.props.logos.isLoading ? (
-                <Loading />
+                <div className="mt-5 pt-5">
+                    <Loading />
+                </div>
               ) : (
                 <div className="d3-cube">
                     <CubeSide side={"top"} url={this.getBackgroundUrl("top")} />
