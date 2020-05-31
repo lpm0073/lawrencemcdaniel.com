@@ -90,10 +90,12 @@ class LogoCube extends Component {
             this.setBackgroundUrl("front", this.getSerializedLogo(this.state.featured_logos, 4));                
             this.setBackgroundUrl("back", this.getSerializedLogo(this.state.featured_logos, 5));                
 
-            /* kick off an infinite loop of repaint() */
+            /*  the cube is initialized with the most impactful logos, so    
+                wait a while before we begin shuffling the logos. Then
+                kick off an infinite loop of repaint() */
             var myTimeout = setTimeout(function() {
                 self.repaint();
-            }, 1000);    
+            }, 5000);    
         }
         this.setState({timeout: myTimeout});
 
