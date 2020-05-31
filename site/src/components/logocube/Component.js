@@ -64,6 +64,8 @@ class LogoCube extends Component {
         this.setBackgroundUrl = this.setBackgroundUrl.bind(this);
         this.getRandomSide = this.getRandomSide.bind(this);
         this.getRandomLogo = this.getRandomLogo.bind(this);
+        this.getSerializedLogo = this.getSerializedLogo.bind(this);
+        this.isLogoCollision = this.isLogoCollision.bind(this);
     
         this.repaint = this.repaint.bind(this);
         }
@@ -81,12 +83,12 @@ class LogoCube extends Component {
         var self = this;
         if (!this.props.logos.isLoading) {
 
-            this.setBackgroundUrl("top", this.getRandomLogo(this.state.featured_logos));
-            this.setBackgroundUrl("bottom", this.getRandomLogo(this.state.featured_logos));                
-            this.setBackgroundUrl("left", this.getRandomLogo(this.state.featured_logos));                
-            this.setBackgroundUrl("right", this.getRandomLogo(this.state.featured_logos));                
-            this.setBackgroundUrl("front", this.getRandomLogo(this.state.featured_logos));                
-            this.setBackgroundUrl("back", this.getRandomLogo(this.state.featured_logos));                
+            this.setBackgroundUrl("left", this.getSerializedLogo(this.state.featured_logos, 0));                
+            this.setBackgroundUrl("right", this.getSerializedLogo(this.state.featured_logos, 1));                
+            this.setBackgroundUrl("top", this.getSerializedLogo(this.state.featured_logos, 2));
+            this.setBackgroundUrl("bottom", this.getSerializedLogo(this.state.featured_logos, 3));                
+            this.setBackgroundUrl("front", this.getSerializedLogo(this.state.featured_logos, 4));                
+            this.setBackgroundUrl("back", this.getSerializedLogo(this.state.featured_logos, 5));                
 
             /* kick off an infinite loop of repaint() */
             var myTimeout = setTimeout(function() {
@@ -124,15 +126,16 @@ class LogoCube extends Component {
 
     repaint() {
         var self = this;
-        
+
+        const side = self.getRandomSide();
+        const logos = (side === "front") ? self.state.featured_logos: self.state.logos;
+        const logo = self.getRandomLogo(logos);
+        const elapsed = self.getElapsedTime(side);
+        if (side != null && elapsed > 3000) {
+            self.setBackgroundUrl(side, logo);
+        }
+    
         setTimeout(function() {
-            const side = self.getRandomSide();
-            const logos = (side === "front") ? self.state.featured_logos: self.state.logos;
-            const logo = self.getRandomLogo(logos);
-            const elapsed = self.getElapsedTime(side);
-            if (side != null && elapsed > 3000) {
-                self.setBackgroundUrl(side, logo);
-            }
             self.repaint();
         }, 1000 * Math.random());   
       
@@ -196,11 +199,13 @@ class LogoCube extends Component {
         }
     }
       
-    getRandomLogo(logos) {
+    getSerializedLogo(logos, i) {
+        if (i < logos.length) {
+            return logos[i];
+        }
+    }
+    isLogoCollision(logo) {
 
-        const logo = logos[Math.floor(Math.random() * logos.length)];
-
-        /* we don't want to see the same logo twice, so if we got a duplicate then reshuffle. */
         switch (logo) {
             case this.state.cubeTopBackgroundUrl:
             case this.state.cubeBottomBackgroundUrl:
@@ -208,10 +213,19 @@ class LogoCube extends Component {
             case this.state.cubeFrontBackgroundUrl:
             case this.state.cubeLeftBackgroundUrl:
             case this.state.cubeRightBackgroundUrl:
-                return this.getRandomLogo(logos);
+                return true;
             default:
-                return logo;
+                return false;
         }
+
+    }
+    getRandomLogo(logos) {
+        var logo, i = 0;
+        do {
+            logo = logos[Math.floor(Math.random() * logos.length)];
+            i++;
+        } while (this.isLogoCollision(logo) && (i <= logos.length))
+        return logo;
     }
 
     
