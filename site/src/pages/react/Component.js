@@ -12,7 +12,7 @@ const ReactPage = (props) => {
         return(
 
             <React.Fragment>
-                <div className="site-page react-page">
+                <div key="react-page" className="site-page react-page">
                     <RenderPageTitle theme="light" icon="fa-react" title="BUILT WITH" boxed_title="REACTJS" />
                     <div className="row mt-lg-5 pl-2">
                         <div className="col-lg-3 hide-medium">

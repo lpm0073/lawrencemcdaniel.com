@@ -28,7 +28,7 @@ class ProjectsGrid extends Component {
 
   }
     return (
-        <React.Fragment>
+        <div key="projects-grid">
           {this.props.isLoading ? (
             <Loading />
           ) : (
@@ -45,7 +45,7 @@ class ProjectsGrid extends Component {
             </div>
             )
           }
-        </React.Fragment>
+        </div>
     );
   }
 }

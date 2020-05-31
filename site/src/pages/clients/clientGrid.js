@@ -11,7 +11,7 @@ class ClientGrid extends Component {
   render() {
     const itemList = this.props.clients.logos;
     return (
-        <div >
+        <div key="client-grid">
           {this.props.isLoading ? (
             <Loading />
           ) : (

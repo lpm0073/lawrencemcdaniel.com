@@ -39,7 +39,7 @@ class ClientCarousel extends Component {
   render() {
     const itemList = this.shuffleArray(this.props.clients.logos);
     return (
-        <div >
+        <div key="client-carousel">
           {this.props.isLoading ? (
             <Loading />
           ) : (

@@ -6,13 +6,13 @@ import drawBar from './drawBar';
 const SkillBar = (props) => {
     
     const ref = useRef();
-
+    const keyName = "skill-bar-" + props.key;
     useEffect(() => drawBar(ref));
 
     return(
         <React.Fragment>
 
-            <div className="m-3 pl-2 pt-1">
+            <div key={keyName} className="m-3 pl-2 pt-1">
                 <div className="skill-bar right-rounded">
                     <div className="skill-bar-text ml-5 mt-2">
                         {props.description}

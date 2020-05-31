@@ -64,7 +64,7 @@ const PortfolioDetail = (props) => {
 
 
         return(
-            <div className="site-page project-page">
+            <div key="portfolio-detail" className="site-page project-page">
                 <RenderPageTitle theme="light" icon="fa-briefcase" title="PROJECT" boxed_title="Detail" />
                 <div className="row">
                     <div className="col">

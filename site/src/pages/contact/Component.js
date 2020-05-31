@@ -9,7 +9,7 @@ class Contact extends Component {
     render() {
 
         return(
-            <div className="site-page contact-page">
+            <div key="contact-page" className="site-page contact-page">
                 <RenderPageTitle theme="light" icon="fa-phone" title="LETS" boxed_title="TALK" />
 
                 <div className="row text-center mt-5">

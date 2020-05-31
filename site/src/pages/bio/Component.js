@@ -11,7 +11,7 @@ const Bio = (props) => {
 
         return(
 
-            <div className="site-page bio-page">
+            <div key="bio-page" className="site-page bio-page">
                 <RenderPageTitle theme="light" icon="fa-align-left" title="FULL" boxed_title="BIO" />
                 <div className="row mt-5">
                     <div className="col-lg-3 hide-medium">

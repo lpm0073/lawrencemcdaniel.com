@@ -11,7 +11,7 @@ const MachineLearning = (props) => {
 
             <React.Fragment>
                 
-                <div className="site-page machine-learning-page">
+                <div key="machine-learning-page" className="site-page machine-learning-page">
                     <RenderPageTitle theme="light" icon="fa-magic" title="MACHINE" boxed_title="LEARNING" />
                     <div className="row mt-5 pl-2">
                         <div className="column-left col-lg-4 col-md-6 col-sm-12 hide-medium">

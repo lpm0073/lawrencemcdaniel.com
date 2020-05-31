@@ -11,7 +11,7 @@ class CoursesGrid extends Component {
           {this.props.isLoading ? (
             <Loading />
           ) : (
-            <div id="education-grid">
+            <div key="education-grid" id="education-grid">
               <div className="row my-5 mx-0 py-5 px-0 text-center">
               {this.props.education.courses.map((education_item, indx) => {
                   const item_url = wpGetFeaturedImage(education_item, null); 

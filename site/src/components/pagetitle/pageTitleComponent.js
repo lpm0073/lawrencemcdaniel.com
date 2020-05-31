@@ -8,7 +8,7 @@ const RenderPageTitle = (props) => {
     const pageClasses = "col-12 page-title " + props.theme;
 
     return(
-        <div className="row text-center noselect">
+        <div key="page-title" className="row text-center noselect">
             <div className={pageClasses}>
                 <span className={iconClasses}></span>
                 <h1 className="display-4">{props.title} <i className="page-title-boxed light">{props.boxed_title}</i></h1>

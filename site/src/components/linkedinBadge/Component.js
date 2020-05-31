@@ -4,7 +4,7 @@ import './styles.css';
 export const LinkedinBadge = () => {
 
     return(
-        <div className="LI-badge-container text-center">
+        <div key="linkedin-badge" className="LI-badge-container text-center">
             <div className="">
                 <div className="">
                     <div className="LI-profile-pic-container pt-4">

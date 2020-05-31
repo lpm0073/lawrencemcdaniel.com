@@ -12,12 +12,13 @@ const SkillColumn = (props) => {
     
     const thisClassName = "fa p-3 " + props.icon + " fa-2x";
     const ref = useRef();
+    const keyName = "skill-column-" + props.key
 
     useEffect(() => drawCircle(ref));
 
     return(
         <React.Fragment>
-            <div className="col-lg-2 col-md-4 col-sm-6 px-1 mb-5">
+            <div key={keyName} className="col-lg-2 col-md-4 col-sm-6 px-1 mb-5">
                 <div className="skill-column text-center">
                     <div className="skill-pct text-center">
                         <div className="skill-pct-text">
@@ -32,7 +33,6 @@ const SkillColumn = (props) => {
                     </div>
                 </div>
             </div>
-
         </React.Fragment>
 
     );

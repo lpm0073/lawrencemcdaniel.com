@@ -41,7 +41,7 @@ class RecommendationsCarousel extends Component {
     const recommendationsList = this.shuffleArray(this.props.recommendations.items);
     
     return (
-        <div className="">
+        <div key="recommendations-carousel">
           {this.props.isLoading ? (
             <Loading />
           ) : (
