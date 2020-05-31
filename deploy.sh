@@ -10,3 +10,4 @@
 #             app to AWS S3 bucket.
 #---------------------------------------------------------
 aws s3 sync ./site/build/ s3://reactjs.lawrencemcdaniel.com --acl public-read
+aws s3 cp ./site/build/index.html s3://reactjs.lawrencemcdaniel.com --acl public-read --cache-control "no cache"
