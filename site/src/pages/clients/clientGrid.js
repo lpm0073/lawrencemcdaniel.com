@@ -3,8 +3,30 @@ import Carousel from "react-multi-carousel";
 import "react-multi-carousel/lib/styles.css";
 import Loading from '../../components/Loading';
 import {wpGetFeaturedImage} from '../../shared/wpGetFeaturedImage';
+import { FadeTransform } from 'react-animation-components';
 
+const ClientCard = (props) => {
+    
+  var item_url = wpGetFeaturedImage(props.client, null);
+  const background_url = "url('" + item_url + "')";
+  const item_style = {
+    "background-image": background_url
+  };
+  const transform = {
+    exitTransform: 'scale(0.5) translateY(-50%)'
+  };
 
+  return (
+        <div className="col-lg-4 col-md-6 col-sm-12" key={props.indx}>
+          <div className="client-item my-2 px-0 py-1">
+              <FadeTransform in transformProps={transform}>
+                <div className="client-image" style={item_style} />
+              </FadeTransform>                      
+          </div>
+        </div>
+  );
+
+}
 class ClientGrid extends Component {
 
 
@@ -18,18 +40,8 @@ class ClientGrid extends Component {
             <div id="clients-carousel" className="ml-2 mr-2">
                 <div className="row my-2 mx-0 px-0 text-center">
                   {itemList.map((client, indx) => {
-                    var item_url = wpGetFeaturedImage(client, null);
-                    const background_url = "url('" + item_url + "')";
-                    const item_style = {
-                      "background-image": background_url
-                    }
-
-                    return (
-                        <div className="col-lg-4 col-md-6 col-sm-12" key={indx}>
-                          <div className="client-item my-2 px-0 py-1">
-                            <div className="client-image" style={item_style} />
-                          </div>
-                        </div>
+                    return(
+                      <ClientCard client={client} indx={indx} />
                     );
                   })}
                 </div>
@@ -43,4 +55,6 @@ class ClientGrid extends Component {
 
 
 export default ClientGrid;
+
+
 
