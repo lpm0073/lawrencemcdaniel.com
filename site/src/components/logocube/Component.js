@@ -109,7 +109,7 @@ class LogoCube extends Component {
     render() {
 
         return(
-            <div key="logo-cube" className="d3-container">
+            <div key="logo-cube" className="d3-container mt-0">
             {this.props.logos.isLoading ? (
                 <div className="mt-5 pt-5">
                     <Loading />
