@@ -6,25 +6,7 @@ import { wpGetFeaturedImage } from '../../shared/wpGetFeaturedImage';
 import './styles.css';
 import Loading from '../Loading';
 
-const CubeSide = (props) => {
 
-    const clsId = "d3-side " + props.side;
-    const divId = "cube-" + props.side + "-logo";
-    const divStyle = {
-        backgroundImage: "url('" + props.url + "')"
-      }
-
-    return(
-        <React.Fragment >
-            <div className={clsId}><div>
-                <div key={divId} 
-                     className="logo" 
-                     style={divStyle}>
-                </div>
-            </div></div>
-        </React.Fragment>
-    );
-}
 class LogoCube extends Component {
 
     constructor(props) {
@@ -46,8 +28,20 @@ class LogoCube extends Component {
             return wpGetFeaturedImage(post, null);
         });
 
+        const featured_logos =  this.props.logos.items.filter((post, indx) => {
+            for (var i=0 ; i < post.categories.length ; i++) {
+                if (post.categories[i] === 48) {  /* featured technology */
+                    return true;
+                }
+            }
+            return false;
+        }).map((featuredPost, indx) => {
+            return wpGetFeaturedImage(featuredPost, null);
+        });
+
         this.state = {
             logos: logos,
+            featured_logos: featured_logos,
             timeout: null,
             cubeTop: d,
             cubeBottom: d,
@@ -75,7 +69,6 @@ class LogoCube extends Component {
         }
 
 
-
     componentDidMount() {
         /*
             Note: componentDidMount() gets called a half dozen times bc the Home component
@@ -88,12 +81,14 @@ class LogoCube extends Component {
         var self = this;
         if (!this.props.logos.isLoading) {
 
-            this.setBackgroundUrl("top", this.getRandomLogo());                
-            this.setBackgroundUrl("bottom", this.getRandomLogo());                
-            this.setBackgroundUrl("left", this.getRandomLogo());                
-            this.setBackgroundUrl("right", this.getRandomLogo());                
-            this.setBackgroundUrl("front", this.getRandomLogo());                
-            this.setBackgroundUrl("back", this.getRandomLogo());                
+            console.log(this.state.featured_logos);
+
+            this.setBackgroundUrl("top", this.getRandomLogo(this.state.featured_logos));                
+            this.setBackgroundUrl("bottom", this.getRandomLogo(this.state.featured_logos));                
+            this.setBackgroundUrl("left", this.getRandomLogo(this.state.featured_logos));                
+            this.setBackgroundUrl("right", this.getRandomLogo(this.state.featured_logos));                
+            this.setBackgroundUrl("front", this.getRandomLogo(this.state.featured_logos));                
+            this.setBackgroundUrl("back", this.getRandomLogo(this.state.featured_logos));                
 
             /*
                 kick off an infinite loop of repaint()
@@ -137,8 +132,14 @@ class LogoCube extends Component {
         var self = this;
         
         setTimeout(function() {
+            let logos;
             const side = self.getRandomSide();
-            const logo = self.getRandomLogo();
+            if (side === "front") {
+                logos = self.state.featured_logos;
+            } else {
+                logos = self.state.logos;
+            }
+            const logo = self.getRandomLogo(logos);
             const elapsed = self.getElapsedTime(side);
             if (side != null && elapsed > 3000) {
                 self.setBackgroundUrl(side, logo);
@@ -206,23 +207,23 @@ class LogoCube extends Component {
         }
     }
       
-    getRandomLogo() {
+    getRandomLogo(logos) {
 
         /*
             choose a random logo
         */
-        const logo = this.state.logos[Math.floor(Math.random() * this.state.logos.length)];
+        const logo = logos[Math.floor(Math.random() * logos.length)];
 
         /* 
           we don't want to see the same logo twice, so if we got a duplicate then
           reshuffle.
          */
-        if (logo === this.state.cubeTopBackgroundUrl) {return this.getRandomLogo()}
-        if (logo === this.state.cubeBottomBackgroundUrl) {return this.getRandomLogo()}
-        if (logo === this.state.cubeBackBackgroundUrl) {return this.getRandomLogo()}
-        if (logo === this.state.cubeFrontBackgroundUrl) {return this.getRandomLogo()}
-        if (logo === this.state.cubeLeftBackgroundUrl) {return this.getRandomLogo()}
-        if (logo === this.state.cubeRightBackgroundUrl) {return this.getRandomLogo()}
+        if (logo === this.state.cubeTopBackgroundUrl) {return this.getRandomLogo(logos)}
+        if (logo === this.state.cubeBottomBackgroundUrl) {return this.getRandomLogo(logos)}
+        if (logo === this.state.cubeBackBackgroundUrl) {return this.getRandomLogo(logos)}
+        if (logo === this.state.cubeFrontBackgroundUrl) {return this.getRandomLogo(logos)}
+        if (logo === this.state.cubeLeftBackgroundUrl) {return this.getRandomLogo(logos)}
+        if (logo === this.state.cubeRightBackgroundUrl) {return this.getRandomLogo(logos)}
 
         return logo;
     }
@@ -245,3 +246,23 @@ class LogoCube extends Component {
 }
 
 export default LogoCube;
+
+const CubeSide = (props) => {
+
+    const clsId = "d3-side " + props.side;
+    const divId = "cube-" + props.side + "-logo";
+    const divStyle = {
+        backgroundImage: "url('" + props.url + "')"
+      }
+
+    return(
+        <React.Fragment >
+            <div className={clsId}><div>
+                <div key={divId} 
+                     className="logo" 
+                     style={divStyle}>
+                </div>
+            </div></div>
+        </React.Fragment>
+    );
+}
