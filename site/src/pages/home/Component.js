@@ -15,7 +15,9 @@ function Home(props) {
                             <h1 className="display-4">
                                 <span className="px-3 jumbotron-title-font super-bold">Lawrence McDaniel</span>
                             </h1>
-                            <p className="jumbotron-subtitle jumbotron-title-font">Full Stack Developer</p>
+                            <Fade in> 
+                                <p className="jumbotron-subtitle jumbotron-title-font">Full Stack Developer</p>
+                            </Fade>
                         </div>
                         <div className="col-lg-6 col-md-12">
                             <LogoCube logos={props.logos} />
