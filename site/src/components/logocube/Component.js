@@ -81,8 +81,6 @@ class LogoCube extends Component {
         var self = this;
         if (!this.props.logos.isLoading) {
 
-            console.log(this.state.featured_logos);
-
             this.setBackgroundUrl("top", this.getRandomLogo(this.state.featured_logos));                
             this.setBackgroundUrl("bottom", this.getRandomLogo(this.state.featured_logos));                
             this.setBackgroundUrl("left", this.getRandomLogo(this.state.featured_logos));                
