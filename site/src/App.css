@@ -1,3 +1,7 @@
+html, body {
+    height: 100%;
+}
+
 body {
     max-width: 1200px;
     background-color: #f1f1f1;
@@ -6,7 +10,6 @@ body {
 }
 
 .site-page {
-    min-height: 87vh;
     padding-bottom: 25px;
 }
 
