@@ -9,7 +9,7 @@ function Footer(props) {
     const curr_year = d.getFullYear();
 
     return(
-        <div key="app-footer" className="footer">
+        <div key="app-footer" className="footer navbar fixed-bottom">
             <div className="">
                 <div className="row justify-content-center">
                     <div className="col-auto">
