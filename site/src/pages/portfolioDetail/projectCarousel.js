@@ -57,7 +57,6 @@ class ProjectCarousel extends Component {
                       <img className="project_image mb-5 p-2"
                         src={url}
                         alt={"alt text"}
-                        loading="lazy"
                       />
                     </div>
                   );
