@@ -2,14 +2,13 @@ import * as ActionTypes from './ActionTypes';
 import { backendUrl } from '../shared/urls';
 import { wpGetFeaturedImage } from '../shared/wpGetFeaturedImage';
 
-function imagePreFetcher(arr, desc) {
+function imagePreFetcher(arr, delay, desc) {
 
     setTimeout(function() {
-        console.log('imagePreFetcher', desc);
         arr.forEach((post) => {
             new Image().src = wpGetFeaturedImage(post);
         });
-        }, 10000 * Math.random());
+        }, delay * 1000 * Math.random());
 
 }
 
@@ -36,7 +35,7 @@ export const fetchSpecialties = () => (dispatch) => {
         })
     .then(response => response.json())
     .then(specialties => dispatch(addSpecialties(specialties)))
-    .then(specialties => imagePreFetcher(specialties.payload, "Specialities"))
+    .then(specialties => imagePreFetcher(specialties.payload, 0, "Specialities"))
     .catch(error => dispatch(specialtiesFailed(error.message)));
 
 }
@@ -76,7 +75,7 @@ export const fetchPortfolio = () => (dispatch) => {
         })
     .then(response => response.json())
     .then(portfolio => dispatch(addPortfolio(portfolio)))
-    .then(portfolio => imagePreFetcher(portfolio.payload, "Portfolio"))
+    .then(portfolio => imagePreFetcher(portfolio.payload, 10, "Portfolio"))
     .catch(error => dispatch(portfolioFailed(error.message)));
 
 }
@@ -116,7 +115,7 @@ export const fetchEducation = () => (dispatch) => {
         })
     .then(response => response.json())
     .then(education => dispatch(addEducation(education)))
-    .then(education => imagePreFetcher(education.payload, "Education"))
+    .then(education => imagePreFetcher(education.payload, 10, "Education"))
     .catch(error => dispatch(educationFailed(error.message)));
 
 }
@@ -197,7 +196,7 @@ export const fetchProjectImages = () => (dispatch) => {
         })
     .then(response => response.json())
     .then(images => dispatch(addProjectImages(images)))
-    .then(images => imagePreFetcher(images.payload, "Projects"))
+    .then(images => imagePreFetcher(images.payload, 10, "Projects"))
     .catch(error => dispatch(projectImagesFailed(error.message)));
 
 }
@@ -239,7 +238,7 @@ export const fetchClients = () => (dispatch) => {
         })
     .then(response => response.json())
     .then(images => dispatch(addClients(images)))
-    .then(images => imagePreFetcher(images.payload, "Clients"))
+    .then(images => imagePreFetcher(images.payload, 15, "Clients"))
     .catch(error => dispatch(clientsFailed(error.message)));
 
 }
