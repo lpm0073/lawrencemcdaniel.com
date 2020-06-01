@@ -155,6 +155,7 @@ class LogoCube extends Component {
             case "right": retval =  this.state.cubeRightBackgroundUrl; break;
             case "front": retval =  this.state.cubeFrontBackgroundUrl; break;
             case "back": retval =  this.state.cubeBackBackgroundUrl; break;
+            default: retval = null; break;
         }
         return retval;
     }
@@ -169,6 +170,7 @@ class LogoCube extends Component {
             case "right": state = {cubeRightBackgroundUrl: url}; break;
             case "front": state = {cubeFrontBackgroundUrl: url}; break;
             case "back": state = {cubeBackBackgroundUrl: url}; break;
+            default: state = {}; break;
         }
         this.setState(state, () => {
             this.resetElapsedTime(side);
@@ -186,6 +188,7 @@ class LogoCube extends Component {
             case "right": state = {cubeRight: d}; break;
             case "front": state = {cubeFront: d}; break;
             case "back": state = {cubeBack: d}; break;
+            default: state = {}; break;
         }
         this.setState(state);
 
@@ -200,6 +203,7 @@ class LogoCube extends Component {
             case "right": return d - this.state.cubeRight;
             case "front": return d - this.state.cubeFront;
             case "back": return d - this.state.cubeBack;
+            default: return 0;
         }
     }
       
@@ -243,6 +247,7 @@ class LogoCube extends Component {
             case 3: return "right";
             case 4: return "front";
             case 5: return "back";
+            default: return null;
         }
     
     }
