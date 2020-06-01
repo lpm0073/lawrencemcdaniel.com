@@ -9,6 +9,11 @@ body {
     margin-right: auto;
 }
 
+/* Page Insights recommendation for font awesome */
+@font-face {
+    font-display: swap;
+}
+
 .site-page {
     padding-bottom: 25px;
 }
