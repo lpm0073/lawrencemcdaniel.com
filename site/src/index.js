@@ -7,17 +7,12 @@ import 'bootstrap/dist/css/bootstrap.min.css';
 import 'font-awesome/css/font-awesome.min.css';
 import 'bootstrap-social/bootstrap-social.css';
 import './index.css';
-import { Suspense } from 'react';
-import Loading from './components/Loading';
 import * as serviceWorker from './serviceWorker';
-
-const App = React.lazy(() => import('./App'));
+import App from './App';
 
 ReactDOM.render(
   <React.StrictMode>
-    <Suspense fallback={Loading}>
-      <App />
-    </Suspense>
+    <App />
   </React.StrictMode>,
   document.getElementById('root')
 );
