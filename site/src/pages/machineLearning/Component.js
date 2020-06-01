@@ -1,6 +1,7 @@
 import React from 'react';
 import RenderPageTitle from '../../components/pagetitle/pageTitleComponent';
 import SpecialtiesBanner from './machinelearningBanner';
+
 import './styles.css';
 
 
@@ -16,8 +17,7 @@ const MachineLearning = (props) => {
                     <div className="row mt-5 pl-2">
                         <div className="column-left col-lg-4 col-md-6 col-sm-12 hide-medium">
                             <img src="https://cdn.lawrencemcdaniel.com/wp-content/uploads/2016/12/22195700/lawrence-mcdaniel-portrait.jpg" 
-                                 alt="Lawrence McDaniel"
-                                 loading="lazy" />
+                                 alt="Lawrence McDaniel" />
                             <div className="name-block mt-1 text-center">
                                 <h4 className="my-0">Lawrence McDaniel</h4>
                                 <h5 className="my-0">Full Stack Developer</h5>
@@ -36,12 +36,10 @@ const MachineLearning = (props) => {
                                 <div className="column-right col-lg-6 col-md-12">
                                     <a href="https://www.coursera.org/account/accomplishments/verify/2MVW9YRMFYC9?utm_source=link&utm_campaign=copybutton_certificate&utm_product=course" >
                                         <img src="https://cdn.lawrencemcdaniel.com/wp-content/uploads/2016/12/22195700/machine-learning-certificate.png" 
-                                             alt="Machine Learning Certification"
-                                             loading="lazy" />
+                                             alt="Machine Learning Certification" />
                                         <img className="mt-3" 
                                              src="https://cdn.lawrencemcdaniel.com/wp-content/uploads/2016/12/22195700/machine-learning-grade.png" 
-                                             alt="Machine Learning Grade Received"
-                                             loading="lazy" />
+                                             alt="Machine Learning Grade Received" />
                                     </a>
                                 </div>
                             </div>
