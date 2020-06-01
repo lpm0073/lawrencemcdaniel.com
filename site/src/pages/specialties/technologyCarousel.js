@@ -72,7 +72,7 @@ class TechnologyCarousel extends Component {
                   var item_url = wpGetFeaturedImage(specialty, null);
                   const background_url = "url('" + item_url + "')";
                   const item_style = {
-                    "background-image": background_url
+                    "backgroundImage": background_url
                   }
 
                   return (
