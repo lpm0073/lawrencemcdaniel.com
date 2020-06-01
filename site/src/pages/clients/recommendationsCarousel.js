@@ -94,6 +94,7 @@ class RecommendationsCarousel extends Component {
                               <img className="recommendation-pic mt-1" 
                                   src={wpGetFeaturedImage(recommendation, 'thumbnail')}
                                   alt={recommendation.slug}
+                                  loading="lazy"
                               />
                             </div>
                             <div className="col-md-9">
