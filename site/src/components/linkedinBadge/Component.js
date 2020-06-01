@@ -17,7 +17,7 @@ export const LinkedinBadge = () => {
                     <div className="LI-name mb-1">
                         <a href="https://www.linkedin.com/in/lawrencemcdaniel?trk=profile-badge-name">Lawrence McDaniel</a>
                     </div>
-                    <div className="LI-title">📡Full Stack Developer</div>
+                    <div className="LI-title"><span role="image" >📡</span> Full Stack Developer</div>
                 </div>
             </div>
             <div className="">
