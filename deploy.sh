@@ -10,7 +10,14 @@
 #             app to AWS S3 bucket.
 #
 #             https://gist.github.com/kellyrmilligan/e242d3dc743105fe91a83cc933ee1314
+# 
+#             1. Build the React application
+#             2. Upload to AWS S3
+#             3. Invalidate all items in the AWS Cloudfront CDN.
 #---------------------------------------------------------
+cd /Users/mcdaniel/github/lpm0073/lawrencemcdaniel.com/site
+yarn build
+cd /Users/mcdaniel/github/lpm0073/lawrencemcdaniel.com/
 
 # ------------------------
 # add all built files to the S3 bucket.
