@@ -2,12 +2,15 @@ import React from 'react';
 
 import RenderPageTitle from '../../components/pagetitle/pageTitleComponent';
 import { LinkedinBadge } from '../../components/linkedinBadge/Component';
+import LazyImage from '../../components/LazyImage';
 
 import { resumeUrl } from '../../shared/urls';
 import './styles.css';
 
 
+
 const ReactPage = (props) => {
+
 
         return(
 
@@ -43,7 +46,7 @@ const ReactPage = (props) => {
                     </div>
                     
                     <div className="aws-diagram hide-medium row mt-lg-5 pl-2 ml-0 mr-0">
-                        <img src="https://cdn.lawrencemcdaniel.com/wp-content/uploads/2020/05/19131001/aws-react-hosting.png" alt="AWS React Hosting Architecture" />
+                    <LazyImage src="https://cdn.lawrencemcdaniel.com/wp-content/uploads/2020/05/19131001/aws-react-hosting.png" alt="AWS React Hosting Architecture" />
                     </div>
                 </div>
             </React.Fragment>
