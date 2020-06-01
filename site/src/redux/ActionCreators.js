@@ -1,7 +1,17 @@
 import * as ActionTypes from './ActionTypes';
 import { backendUrl } from '../shared/urls';
+import { wpGetFeaturedImage } from '../shared/wpGetFeaturedImage';
 
+function imagePreFetcher(arr, desc) {
 
+    setTimeout(function() {
+        console.log('imagePreFetcher', desc);
+        arr.forEach((post) => {
+            new Image().src = wpGetFeaturedImage(post);
+        });
+        }, 10000 * Math.random());
+
+}
 
 
 /* ----------------------------------- */
@@ -26,6 +36,7 @@ export const fetchSpecialties = () => (dispatch) => {
         })
     .then(response => response.json())
     .then(specialties => dispatch(addSpecialties(specialties)))
+    .then(specialties => imagePreFetcher(specialties.payload, "Specialities"))
     .catch(error => dispatch(specialtiesFailed(error.message)));
 
 }
@@ -65,6 +76,7 @@ export const fetchPortfolio = () => (dispatch) => {
         })
     .then(response => response.json())
     .then(portfolio => dispatch(addPortfolio(portfolio)))
+    .then(portfolio => imagePreFetcher(portfolio.payload, "Portfolio"))
     .catch(error => dispatch(portfolioFailed(error.message)));
 
 }
@@ -104,6 +116,7 @@ export const fetchEducation = () => (dispatch) => {
         })
     .then(response => response.json())
     .then(education => dispatch(addEducation(education)))
+    .then(education => imagePreFetcher(education.payload, "Education"))
     .catch(error => dispatch(educationFailed(error.message)));
 
 }
@@ -184,6 +197,7 @@ export const fetchProjectImages = () => (dispatch) => {
         })
     .then(response => response.json())
     .then(images => dispatch(addProjectImages(images)))
+    .then(images => imagePreFetcher(images.payload, "Projects"))
     .catch(error => dispatch(projectImagesFailed(error.message)));
 
 }
@@ -225,6 +239,7 @@ export const fetchClients = () => (dispatch) => {
         })
     .then(response => response.json())
     .then(images => dispatch(addClients(images)))
+    .then(images => imagePreFetcher(images.payload, "Clients"))
     .catch(error => dispatch(clientsFailed(error.message)));
 
 }
