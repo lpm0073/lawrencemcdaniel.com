@@ -5,7 +5,6 @@ import RenderPageTitle from '../../components/pagetitle/pageTitleComponent';
 import { LinkedinBadge } from '../../components/linkedinBadge/Component';
 import AboutTile from './tileComponent';
 import { Fade } from 'react-animation-components';
-import { TransitionGroup, CSSTransition } from 'react-transition-group';
 
 import './styles.css';
 

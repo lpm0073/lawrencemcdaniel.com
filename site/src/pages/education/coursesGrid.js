@@ -1,6 +1,6 @@
 import React, { Component } from "react";
 import Loading from '../../components/Loading';
-import { Stagger, Fade } from 'react-animation-components';
+import { Fade } from 'react-animation-components';
 import {wpGetFeaturedImage} from '../../shared/wpGetFeaturedImage';
 
 class CoursesGrid extends Component {
