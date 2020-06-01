@@ -196,7 +196,6 @@ export const fetchProjectImages = () => (dispatch) => {
         })
     .then(response => response.json())
     .then(images => dispatch(addProjectImages(images)))
-    .then(images => imagePreFetcher(images.payload, 10, "Projects"))
     .catch(error => dispatch(projectImagesFailed(error.message)));
 
 }
