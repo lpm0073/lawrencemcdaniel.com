@@ -1,15 +1,23 @@
+/*
+https://blog.bitsrc.io/lazy-loading-react-components-with-react-lazy-and-suspense-f05c4cfde10c
+ */
 import React from 'react';
 import ReactDOM from 'react-dom';
 import 'bootstrap/dist/css/bootstrap.min.css';
 import 'font-awesome/css/font-awesome.min.css';
 import 'bootstrap-social/bootstrap-social.css';
 import './index.css';
-import App from './App';
+import { Suspense } from 'react';
+import Loading from './components/Loading';
 import * as serviceWorker from './serviceWorker';
+
+const App = React.lazy(() => import('./App'));
 
 ReactDOM.render(
   <React.StrictMode>
-    <App />
+    <Suspense fallback={Loading}>
+      <App />
+    </Suspense>
   </React.StrictMode>,
   document.getElementById('root')
 );
