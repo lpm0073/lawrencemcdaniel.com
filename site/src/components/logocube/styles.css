@@ -145,3 +145,24 @@
   from { -webkit-transform: rotateY(0deg); }
   to { -webkit-transform: rotateY(360deg); }
 }
+
+.grow-side {
+  animation: grow-side 1s linear;
+  -webkit-animation: grow-side 1s linear;
+}
+
+@keyframes grow-side {
+  from { height: 0; }
+  to { height: var(--width); }
+}
+
+.fade-in {
+  animation: fade-in 1s linear;
+  -webkit-animation: fade-in 1s linear;
+}
+
+@keyframes fade-in {
+  0% { opacity: 0 }
+  99% { opacity: 0; }
+  100% { opacity: 1; }
+}

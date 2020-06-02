@@ -42,7 +42,8 @@ class LogoCube extends Component {
         this.state = {
             logos: logos,
             featured_logos: featured_logos,
-            timeout: null,
+            repaintDelay: null,
+            logosDelay: null,
             cubeTop: d,
             cubeBottom: d,
             cubeLeft: d,
@@ -83,27 +84,31 @@ class LogoCube extends Component {
         var self = this;
         if (!this.props.logos.isLoading) {
 
-            this.setBackgroundUrl("left", this.getSerializedLogo(this.state.featured_logos, 0));                
-            this.setBackgroundUrl("right", this.getSerializedLogo(this.state.featured_logos, 1));                
-            this.setBackgroundUrl("top", this.getSerializedLogo(this.state.featured_logos, 2));
-            this.setBackgroundUrl("bottom", this.getSerializedLogo(this.state.featured_logos, 3));                
-            this.setBackgroundUrl("front", this.getSerializedLogo(this.state.featured_logos, 4));                
-            this.setBackgroundUrl("back", this.getSerializedLogo(this.state.featured_logos, 5));                
-
             /*  the cube is initialized with the most impactful logos, so    
                 wait a while before we begin shuffling the logos. Then
                 kick off an infinite loop of repaint() */
             var myTimeout = setTimeout(function() {
                 self.repaint();
             }, 5000);    
+
+            /* wait for animations to complete. */
+            myTimeout = setTimeout(function() {
+                self.setBackgroundUrl("left", self.getSerializedLogo(self.state.featured_logos, 0));                
+                self.setBackgroundUrl("right", self.getSerializedLogo(self.state.featured_logos, 1));                
+                self.setBackgroundUrl("top", self.getSerializedLogo(self.state.featured_logos, 2));
+                self.setBackgroundUrl("bottom", self.getSerializedLogo(self.state.featured_logos, 3));                
+                self.setBackgroundUrl("front", self.getSerializedLogo(self.state.featured_logos, 4));                
+                self.setBackgroundUrl("back", self.getSerializedLogo(self.state.featured_logos, 5));                
+                }, 2000);    
+            this.setState({logosDelay: myTimeout});
         }
-        this.setState({timeout: myTimeout});
 
     }
 
     componentWillUnmount() {
         /* kill any pending repaint() invocation from componentDidMount(). */
-        clearTimeout(this.state.timeout);        
+        clearTimeout(this.state.repaintDelay);
+        clearTimeout(this.state.logosDelay);
     }
     
     render() {
@@ -116,12 +121,12 @@ class LogoCube extends Component {
                 </div>
               ) : (
                 <div className="d3-cube mt-5">
-                    <CubeSide side={"top"} url={this.getBackgroundUrl("top")} />
-                    <CubeSide side={"bottom"} url={this.getBackgroundUrl("bottom")} />
-                    <CubeSide side={"front"} url={this.getBackgroundUrl("front")} />
-                    <CubeSide side={"back"} url={this.getBackgroundUrl("back")} />
-                    <CubeSide side={"right"} url={this.getBackgroundUrl("right")} />
-                    <CubeSide side={"left"} url={this.getBackgroundUrl("left")} />
+                    <CubeSide side="top" url={this.getBackgroundUrl("top")} classes="fade-in" />
+                    <CubeSide side="bottom" url={this.getBackgroundUrl("bottom")} classes="fade-in" />
+                    <CubeSide side="front" url={this.getBackgroundUrl("front")} classes="grow-side"/>
+                    <CubeSide side="back" url={this.getBackgroundUrl("back")} classes="grow-side" />
+                    <CubeSide side="right" url={this.getBackgroundUrl("right")} classes="grow-side" />
+                    <CubeSide side="left" url={this.getBackgroundUrl("left")} classes="grow-side" />
                 </div>
               )}
             </div>
@@ -258,7 +263,7 @@ export default LogoCube;
 
 const CubeSide = (props) => {
 
-    const clsId = "d3-side " + props.side;
+    const clsId = "d3-side " + props.side + " " + props.classes;
     const divId = "cube-" + props.side + "-logo";
     const divStyle = {
         backgroundImage: "url('" + props.url + "')"
