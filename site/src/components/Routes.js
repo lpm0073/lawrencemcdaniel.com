@@ -79,6 +79,9 @@ class Routes extends Component {
             <Route exact path="/about" component={About} />
             <Route exact path="/machine-learning" component={MachineLearning} />
             <Route exact path="/bio" component={Bio} />
+            <Route exact path="/full-bio">
+              {<Redirect to="/bio" />}
+            </Route>            
             <Route exact path="/specialties" component={() => <Specialties specialties={this.props.specialties} />} />
             <Route exact path="/portfolio" component={() => <Portfolio portfolio={this.props.portfolio} />} />
             <Route path="/portfolio/:portfolioId" component={PortfolioWithSlug} />
