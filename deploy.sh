@@ -22,7 +22,10 @@ cd /Users/mcdaniel/github/lpm0073/lawrencemcdaniel.com/
 # ------------------------
 # add all built files to the S3 bucket.
 # ------------------------
-aws s3 sync ./site/build/ s3://reactjs.lawrencemcdaniel.com --acl public-read --delete --cache-control max-age=31536000,public
+aws s3 sync ./site/build/ s3://reactjs.lawrencemcdaniel.com \
+            --acl public-read \
+            --delete --cache-control max-age=31536000,public \
+            --expires '31 Dec 2030 00:00:01 GMT'
 
 # ------------------------
 # remove the cache-control header created above with a "no-cache" header so that browsers never cache this page
