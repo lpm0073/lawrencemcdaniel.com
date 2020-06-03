@@ -102,7 +102,7 @@ class LogoCube extends Component {
                 self.setBackgroundUrl("front", self.getSerializedLogo(self.state.featured_logos, 4));                
                 self.setBackgroundUrl("back", self.getSerializedLogo(self.state.featured_logos, 5));
                 self.setState({shouldUpdate: true});
-                }, 2000);    
+                }, 1500);    
                 self.setState({logosDelay: myTimeout});
         }
 
@@ -115,6 +115,7 @@ class LogoCube extends Component {
     }
     
     shouldComponentUpdate(nextProps, nextState) {
+        console.log("shouldComponentUpdate()", this.state.shouldUpdate)
         return this.state.shouldUpdate;
     }
 
