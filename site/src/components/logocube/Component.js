@@ -181,7 +181,6 @@ class LogoCube extends Component {
 
           };
 
-        this.resetElapsedTime = this.resetElapsedTime.bind(this);
         this.getElapsedTime = this.getElapsedTime.bind(this);
         this.getBackgroundUrl = this.getBackgroundUrl.bind(this);
         this.setBackgroundUrl = this.setBackgroundUrl.bind(this);
@@ -297,38 +296,21 @@ class LogoCube extends Component {
     }
 
     setBackgroundUrl(side, url) {
-
-        let state;
-        switch(side) {
-            case "top": state = {cubeTopBackgroundUrl: url}; break;
-            case "bottom": state = {cubeBottomBackgroundUrl: url}; break;
-            case "left": state = {cubeLeftBackgroundUrl: url}; break;
-            case "right": state = {cubeRightBackgroundUrl: url}; break;
-            case "front": state = {cubeFrontBackgroundUrl: url}; break;
-            case "back": state = {cubeBackBackgroundUrl: url}; break;
-            default: state = {}; break;
-        }
-        this.setState(state, () => {
-            this.resetElapsedTime(side);
-        });
-
-    }
-
-    resetElapsedTime(side) {
         const d = new Date();
+
         let state;
         switch(side) {
-            case "top": state = {cubeTop: d}; break;
-            case "bottom": state = {cubeBottom: d}; break;
-            case "left":state = {cubeLeft: d}; break;
-            case "right": state = {cubeRight: d}; break;
-            case "front": state = {cubeFront: d}; break;
-            case "back": state = {cubeBack: d}; break;
+            case "top": state = {cubeTopBackgroundUrl: url, cubeTop: d}; break;
+            case "bottom": state = {cubeBottomBackgroundUrl: url, cubeBottom: d}; break;
+            case "left": state = {cubeLeftBackgroundUrl: url, cubeLeft: d}; break;
+            case "right": state = {cubeRightBackgroundUrl: url, cubeRight: d}; break;
+            case "front": state = {cubeFrontBackgroundUrl: url, cubeFront: d}; break;
+            case "back": state = {cubeBackBackgroundUrl: url, cubeBack: d}; break;
             default: state = {}; break;
         }
         this.setState(state);
-
     }
+
 
     getElapsedTime(side) {
         const d = new Date();
