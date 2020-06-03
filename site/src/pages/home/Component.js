@@ -20,7 +20,7 @@ function Home(props) {
                             </Fade>
                         </div>
                         <div className="col-lg-6 col-md-12">
-                            <LogoCube logos={props.logos} />
+                            <LogoCube />
                         </div>
                     </div>
                 </div>                    
