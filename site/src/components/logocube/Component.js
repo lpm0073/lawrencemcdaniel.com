@@ -85,10 +85,15 @@ class LogoCube extends Component {
         var self = this;
         if (!this.props.logos.isLoading) {
 
+            /* enable render() 1 second after logos are loaded */
+            var myTimeout = setTimeout(function() {
+                self.setState({shouldUpdate: true});
+            }, 1000);    
+
             /*  the cube is initialized with the most impactful logos, so    
                 wait a while before we begin shuffling the logos. Then
                 kick off an infinite loop of repaint() */
-            var myTimeout = setTimeout(function() {
+            myTimeout = setTimeout(function() {
                 self.repaint();
             }, 5000);    
             this.setState({repaintDelay: myTimeout});
@@ -101,7 +106,6 @@ class LogoCube extends Component {
                 self.setBackgroundUrl("bottom", self.getSerializedLogo(self.state.featured_logos, 3));                
                 self.setBackgroundUrl("front", self.getSerializedLogo(self.state.featured_logos, 4));                
                 self.setBackgroundUrl("back", self.getSerializedLogo(self.state.featured_logos, 5));
-                self.setState({shouldUpdate: true});
                 }, 1500);    
                 self.setState({logosDelay: myTimeout});
         }
@@ -115,7 +119,6 @@ class LogoCube extends Component {
     }
     
     shouldComponentUpdate(nextProps, nextState) {
-        console.log("shouldComponentUpdate()", this.state.shouldUpdate)
         return this.state.shouldUpdate;
     }
 
