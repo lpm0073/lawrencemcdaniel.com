@@ -12,13 +12,13 @@
     of logo images (for slow internet connections).
 
     2. Initial logo display:
-    Show the 6 "featured" logos that I most want visitors to see.
-    (React, Angular, Django, AWS, etc.)
+    Display six "featured" logos (one per cube side) that I most want visitors to see.
+    (React, Redux, Angular, Django, AWS, Wordpress)
 
     3. Update infinitely:
     Randomly show lots of other logos. The longer the site visitor stares at this logo cube
     the better, because it buys time for the image pre-fetcher to download more 
-    site content in the background.
+    site content in the background. Don't be impressed however, I stole this idea from nytimes.com
 
 
     Some of the challenges, and their solutions:
@@ -27,7 +27,7 @@
     The logo cube is supposed to be a creative way of showcasing my most important
     (self-proclaimed) technology skills to site visitors. Most visitors however,
     will only see the cube for a couple of seconds and then move on to some other page.
-    A random selection of logos works at cross purposes to this objective since 
+    Thus, a random selection of logos works at cross purposes to this design objective since 
     most of the logos pertain to lesser-known supporting technologies.
 
     solution: I created a 2nd api feed consisting of six "featured" logos.
