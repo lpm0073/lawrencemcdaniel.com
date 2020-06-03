@@ -1,13 +1,17 @@
 /*
     Renders a spinning cube that shows random collections of logos that randomly
     update at random intervals. Logos are provided by a REST api that is 
-    managed by Redux: 
-    https://api.lawrencemcdaniel.com/wp-json/wp/v2/posts?categories=43&_embed&per_page=100
+    managed by Redux.
+    
+    Logos API: https://api.lawrencemcdaniel.com/wp-json/wp/v2/posts?categories=43&_embed&per_page=100
 
     The cube, which is pure CSS and HTML, was scaffolded from a D3 example that I liked, created by Noah Veltman. 
     Ironically, the D3 source code itself wasn't useful. I encountered a variety of challenges with using D3.js for this component. 
-    Though all of these challenges were solvable, in the end it was most practical to leave the DOM manipulations to ReactJS.
+    Though all of these challenges were solvable, in the end it was most practical to leave the DOM manipulations to ReactJS. 
+    You can review the GitHub commit history of this file to see my initial versions of this component implemented with D3.js
+
     Noah's original cube: https://bl.ocks.org/veltman/4c989172ac2f820b0b7267c53cb96975 
+    
 
     The component life cycle is as follows:
     =================================================
@@ -49,7 +53,20 @@
     I reserve one of the six cube sides for exclusively displaying
     one of the six featured logos.
 
-    C. Screen flicker. 
+    C. Reverse Rotation (aka "Wagon Wheel" Effect)
+    I had trouble visually tracking the motion of the original version of the cube's spinning animations.
+    The cube would sometimes appear to be spinning left-to-right, and other times right-to-left. In
+    the latter cases the cube appeared mal-constructed and disfigured. Here's a technical explanation
+    of the nature of this problem: https://en.wikipedia.org/wiki/Wagon-wheel_effect
+
+    solution:
+    First, i tinkered with the opacity of the cube sides so that the side that is supposed to be in front is brighter, 
+    and the reverse side is darker. Secondly, adding the cube rendering helped a lot because the cube begins
+    as a 2-dimensional spinning square, which afterwards grows to become a cube. The 2D spinning image is easier for your
+    visual cortex to process, and the growth animation provides a way for your mind to bootstrap and retain what's
+    happening on-screen.
+
+    D. Screen flicker. 
     React mounts/unmounts components multiple times, often for 
     reasons that are external to the component. React also calls render()
     several times during normal component initialization. Both of these are 
@@ -61,14 +78,14 @@
     animations) until React has had enough time to get the home screen 
     completely setup.
 
-    D. Erratic Logo updates. 
+    E. Erratic Logo updates. 
     Logos change at random intervals. However, it looks bad if a logo is replaced too quickly. 
 
     solution: I added 6 timers to track the elapsed lifetime of each logo,
     and then I only replace a logo if its been visible for a minimum
     length of time.
 
-    E. Orphan Threads.
+    F. Orphan Threads.
     Launching the painter() method with a timer delay is tricky
     because it is initiated on a new asynchronous background thread.
     When the component mounts/unmounts very quickly, the threads lives on,
@@ -78,7 +95,7 @@
     solution: I fixed the threading issue by keeping track of, and explicitly killing 
     all background threads that I create.
 
-    F. Slow loading logos.
+    G. Slow loading logos.
     The cube itself is rendered purely in CSS and so always renders smoothly, but it
     depends on a collection of around 75 logo images provided by the
     REST api via Redux. On a slow internet connection you could see each new logo
@@ -88,7 +105,7 @@
     this logo cube but for the hundreds of other images on this site as
     well.
 
-    G. Duplicate logos
+    H. Duplicate logos
     It bothered me that the same logo would sometimes appears on two (or more)
     sides.
 
