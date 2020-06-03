@@ -44,6 +44,7 @@ class LogoCube extends Component {
             featured_logos: featured_logos,
             repaintDelay: null,
             logosDelay: null,
+            shouldUpdate: false,
             cubeTop: d,
             cubeBottom: d,
             cubeLeft: d,
@@ -90,6 +91,7 @@ class LogoCube extends Component {
             var myTimeout = setTimeout(function() {
                 self.repaint();
             }, 5000);    
+            this.setState({repaintDelay: myTimeout});
 
             /* wait for animations to complete. */
             myTimeout = setTimeout(function() {
@@ -98,9 +100,10 @@ class LogoCube extends Component {
                 self.setBackgroundUrl("top", self.getSerializedLogo(self.state.featured_logos, 2));
                 self.setBackgroundUrl("bottom", self.getSerializedLogo(self.state.featured_logos, 3));                
                 self.setBackgroundUrl("front", self.getSerializedLogo(self.state.featured_logos, 4));                
-                self.setBackgroundUrl("back", self.getSerializedLogo(self.state.featured_logos, 5));                
+                self.setBackgroundUrl("back", self.getSerializedLogo(self.state.featured_logos, 5));
+                self.setState({shouldUpdate: true});
                 }, 2000);    
-            this.setState({logosDelay: myTimeout});
+                self.setState({logosDelay: myTimeout});
         }
 
     }
@@ -111,6 +114,10 @@ class LogoCube extends Component {
         clearTimeout(this.state.logosDelay);
     }
     
+    shouldComponentUpdate(nextProps, nextState) {
+        return this.state.shouldUpdate;
+    }
+
     render() {
 
         return(
