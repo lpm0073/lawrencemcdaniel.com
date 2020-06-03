@@ -8,7 +8,7 @@
     The cube, which is pure CSS and HTML, was scaffolded from a D3 example that I liked, created by Noah Veltman. 
     Ironically, the D3 source code itself wasn't useful. I encountered a variety of challenges with using D3.js for this component. 
     Though all of these challenges were solvable, in the end it was most practical to leave the DOM manipulations to ReactJS. 
-    You can review the GitHub commit history of this file to see my initial versions of this component implemented with D3.js
+    You can review the GitHub commit history of this file to see the early versions of this component implemented with D3.js
 
     Noah's original cube: https://bl.ocks.org/veltman/4c989172ac2f820b0b7267c53cb96975 
     
@@ -169,7 +169,7 @@ class LogoCube extends Component {
             /* delay threads, to prevent the component from re-rendering if we're in mid-animation */
             repaintDelay: null,
             logosDelay: null,
-            shouldUpdate: false,
+            shouldUpdate: true, /* allow updates while the "Loading" spinner is present */
 
             /* time stamps to track elapsed time of each logo image */
             constructed: d,
@@ -205,6 +205,7 @@ class LogoCube extends Component {
          */
         var self = this;
         if (!this.props.logos.isLoading) {
+            self.setState({shouldUpdate: false});
 
             /* this is a general purpose moratorium on React
             updates for the first 500ms of the component's
