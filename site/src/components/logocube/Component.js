@@ -169,7 +169,7 @@ class LogoCube extends Component {
             /* delay threads, to prevent the component from re-rendering if we're in mid-animation */
             repaintDelay: null,
             logosDelay: null,
-            shouldUpdate: true, /* allow updates while the "Loading" spinner is present */
+            shouldRender: false, /* allow updates while the "Loading" spinner is present */
 
             /* time stamps to track elapsed time of each logo image */
             constructed: d,
@@ -195,6 +195,14 @@ class LogoCube extends Component {
 
 
     componentDidMount() {
+        var self = this;
+        /* this is a general purpose moratorium on React
+        updates until the component actually mounts. From visual inspection in the 
+        JS console this prevents the first dozen or
+        so calls to render(), which is what cause the
+        screen flicker. */
+        self.setState({shouldRender: true});
+
         /*
             Note: componentDidMount() gets called a half dozen times bc the Home component
             which instantiates this component itself mounts and unmounts multiple times.
@@ -203,20 +211,10 @@ class LogoCube extends Component {
             we also have to keep track of the repaint() threads that we invoke so that 
             we can kill them in cases where the component mounts and then quickly unmounts.
          */
-        var self = this;
         if (!this.props.logos.isLoading) {
-            self.setState({shouldUpdate: false});
-
-            /* this is a general purpose moratorium on React
-            updates for the first 500ms of the component's
-            life cycle. */
-            var myTimeout = setTimeout(function() {
-                self.setState({shouldUpdate: true});
-            }, 500);    
-
             /* This is intended to create a small dramatic delay between the initial
             cube-rendering animation and the presentation of the first set of logos. */
-            myTimeout = setTimeout(function() {
+            var myTimeout = setTimeout(function() {
                 self.setBackgroundUrl("left", self.getSerializedLogo(self.state.featured_logos, 0));                
                 self.setBackgroundUrl("right", self.getSerializedLogo(self.state.featured_logos, 1));                
                 self.setBackgroundUrl("top", self.getSerializedLogo(self.state.featured_logos, 2));
@@ -246,14 +244,14 @@ class LogoCube extends Component {
     shouldComponentUpdate(nextProps, nextState) {
         /* Potentially veto React's decisions to update the 
         component, calling render() */
-        return this.state.shouldUpdate;
+        return this.state.shouldRender;
     }
 
     render() {
 
         return(
             <div key="logo-cube" className="d3-container mt-0">
-            {(this.props.logos.isLoading || this.getElapsedTime() < 350) ? (
+            {(!this.state.shouldRender) ? (
                 <div className="mt-5 pt-5">
                     <Loading />
                 </div>
