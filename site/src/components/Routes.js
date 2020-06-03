@@ -1,4 +1,4 @@
-import React, { Component } from 'react';
+import React, { PureComponent } from 'react';
 import { Switch, Route, Redirect } from 'react-router-dom';
 import { withRouter } from 'react-router-dom';
 
@@ -45,7 +45,7 @@ const mapDispatchToProps = (dispatch) => ({
 });
 
 
-class Routes extends Component {
+class Routes extends PureComponent {
   
   componentDidMount() {
     this.props.fetchSpecialties();
@@ -56,6 +56,18 @@ class Routes extends Component {
     this.props.fetchClients();
   }
 
+  shouldComponentUpdate(nextProps, nextState) {
+    if (
+      (this.props.specialties.isLoading && !nextProps.specialties.isLoading) ||
+      (this.props.portfolio.isLoading && !nextProps.portfolio.isLoading) ||
+      (this.props.education.isLoading && !nextProps.education.isLoading) ||
+      (this.props.recommendations.isLoading && !nextProps.recommendations.isLoading) ||
+      (this.props.project.isLoading && !nextProps.project.isLoading) ||
+      (this.props.clients.isLoading && !nextProps.clients.isLoading)) {
+      return false;
+    } 
+    return true;
+  }
   render() {
 
     const PortfolioWithSlug = ({match}) => {
