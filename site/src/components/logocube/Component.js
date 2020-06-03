@@ -1,67 +1,89 @@
 /*
     Renders a spinning cube that shows random collections of logos that randomly
-    update at random intervals. The component life cycle is as follows:
+    update at random intervals. Logos are provided by a REST api that is 
+    managed by Redux: 
+    https://api.lawrencemcdaniel.com/wp-json/wp/v2/posts?categories=43&_embed&per_page=100
+    
+    The component life cycle is as follows:
+    =================================================
 
-    1. Animated cube rendering. This is intended to distract the site
-    visitor for a moment while we pre-fetch the first set
+    1. Animated cube rendering:
+    This is intended to distract the site visitor for a moment while we pre-fetch the first set
     of logo images (for slow internet connections).
 
-    2. Initial logo display. Show the 6 "featured" logos that I most want visitors
-    to see: React, Angular, Django, AWS, etc.
+    2. Initial logo display:
+    Show the 6 "featured" logos that I most want visitors to see.
+    (React, Angular, Django, AWS, etc.)
 
-    3. Randomly show lots of other logos. The longer the site visitor
-    stares at this logocube the better, because it buys time for 
-    the image pre-fetcher to download more site content in the background.
+    3. Update infinitely:
+    Randomly show lots of other logos. The longer the site visitor stares at this logo cube
+    the better, because it buys time for the image pre-fetcher to download more 
+    site content in the background.
 
-    Some challenges encountered, and their solutions:
+
+    Some of the challenges, and their solutions:
     =================================================
-    A. Screen flicker. 
+    A. Lack of impact
+    The logo cube is supposed to be a creative way of showcasing my most important
+    (self-proclaimed) technology skills to site visitors. Most visitors however,
+    will only see the cube for a couple of seconds and then move on to some other page.
+    A random selection of logos works at cross purposes to this objective since 
+    most of the logos pertain to lesser-known supporting technologies.
+
+    solution: I created a 2nd api feed consisting of six "featured" logos.
+    I initialize the cube with the featured logos, and then hold these
+    logos in place for 5 seconds before initiating the random logo replacements.
+    
+    B. Disappointing logo shuffle.
+    It bothered me that sometimes all six cube sides would display only
+    the logos of unimpressive technologies for an extended period of time.
+    I found myself staring at the cube anxiously waiting for a "good" 
+    logo to appear.
+
+    solution: 
+    I reserve one of the six cube sides for exclusively displaying
+    one of the six featured logos.
+
+    C. Screen flicker. 
     React mounts/unmounts components multiple times, often for 
-    reasons that are external to the component. React also call render()
-    a lot more than I'd realized. Both of these cause screen flicker when the
-    component is in early stages of on-screen rendering.
+    reasons that are external to the component. React also calls render()
+    several times during normal component initialization. Both of these are 
+    problems for CSS animations because these end up getting killed in mid-animation and
+    restarted multiple times (ie screen flicker), which looks terrible.
 
-    solution: I fixed the flicker with a few different kinds of delays that are intended
-    to provide React with enough time to get the home screen completely setup
-    before this component attempts to put any animated objects on screen.
+    solution: I fixed the screen flicker with a few different kinds of timers
+    that are intended to delay rendering the cube (and thus initiating the CSS
+    animations) until React has had enough time to get the home screen 
+    completely setup.
 
-    B. Erratic Logo updates. 
-    Logos change at random intervals. However,
-    it looks bad if a logo is replaced to quickly. 
+    D. Erratic Logo updates. 
+    Logos change at random intervals. However, it looks bad if a logo is replaced too quickly. 
 
-    solution: I added 6 timers to track the elapsed time of each logo,
+    solution: I added 6 timers to track the elapsed lifetime of each logo,
     and then I only replace a logo if its been visible for a minimum
     length of time.
 
-    C. Disappointing logo shuffle.
-    It bothered me that the cube would sometimes display only
-    the logos of unimpressive technologies for an extended period of time.
-
-    solution: i elected to reserve one of the six sides for exclusively
-    displaying featured logos.
-
-    D. Thread issues.
-    Kicking off the first painter() thread is tricky
-    because the component initialization depends on delays for multiple
-    reasons; each of these being initiated on a new asynchronous thread.
-    When the component mounts/unmounts very quickly, the threads live on,
+    E. Orphan Threads.
+    Launching the painter() method with a timer delay is tricky
+    because it is initiated on a new asynchronous background thread.
+    When the component mounts/unmounts very quickly, the threads lives on,
     resulting in several painter() threads co-existing, which causes
     the cube to update multitudes more frequently than I wanted.
 
     solution: I fixed the threading issue by keeping track of, and explicitly killing 
     all background threads that I create.
 
-    E. Slow loading logos.
-    The cube itself is rendered purely in CSS, but it
-    depends on a collection of around 75 logo images, and on a slow
-    internet connection each new logo would visibly download as it 
-    was being presented on a cube side which looked terrible. 
+    F. Slow loading logos.
+    The cube itself is rendered purely in CSS and so always renders smoothly, but it
+    depends on a collection of around 75 logo images provided by the
+    REST api via Redux. On a slow internet connection you could see each new logo
+    downloading on the cube side, which looked terrible. 
 
     solution: i setup an image pre-fetcher inside of Redux, not just for
     this logo cube but for the hundreds of other images on this site as
     well.
 
-    F. Duplicate logos
+    G. Duplicate logos
     It bothered me that the same logo would sometimes appears on two (or more)
     sides.
 
