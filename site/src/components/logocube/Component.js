@@ -168,7 +168,6 @@ class LogoCube extends Component {
 
             /* delay threads, to prevent the component from re-rendering if we're in mid-animation */
             repaintDelay: null,
-            logosDelay: null,
             shouldRender: false, /* allow updates while the "Loading" spinner is present */
 
             /* time stamps to track elapsed time of each logo image */
@@ -203,29 +202,23 @@ class LogoCube extends Component {
         screen flicker. */
         self.setState({shouldRender: true});
 
-        /*
-            Note: componentDidMount() gets called a half dozen times bc the Home component
-            which instantiates this component itself mounts and unmounts multiple times.
-
-            we therefore delay the first repaint for a while. however
-            we also have to keep track of the repaint() threads that we invoke so that 
-            we can kill them in cases where the component mounts and then quickly unmounts.
-         */
         if (!this.props.logos.isLoading) {
-            /* This is intended to create a small dramatic delay between the initial
-            cube-rendering animation and the presentation of the first set of logos. */
-            var myTimeout = setTimeout(function() {
-                self.setBackgroundUrl("left", self.getSerializedLogo(self.state.featured_logos, 0));                
-                self.setBackgroundUrl("right", self.getSerializedLogo(self.state.featured_logos, 1));                
-                self.setBackgroundUrl("top", self.getSerializedLogo(self.state.featured_logos, 2));
-                self.setBackgroundUrl("bottom", self.getSerializedLogo(self.state.featured_logos, 3));                
-                self.setBackgroundUrl("front", self.getSerializedLogo(self.state.featured_logos, 4));                
-                self.setBackgroundUrl("back", self.getSerializedLogo(self.state.featured_logos, 5));
-            }, 500);
-            self.setState({logosDelay: myTimeout});
+            /* 
+            we reduce a lot of component overhead and calls to render() by 
+            condensing all of the background URL initializations into a single
+            call to setState()
+             */
+            this.setState({
+                cubeTopBackgroundUrl: this.getSerializedLogo(this.state.featured_logos, 0),
+                cubeBottomBackgroundUrl: this.getSerializedLogo(this.state.featured_logos, 1),
+                cubeLeftBackgroundUrl: this.getSerializedLogo(this.state.featured_logos, 2),
+                cubeRightBackgroundUrl: this.getSerializedLogo(this.state.featured_logos, 3),
+                cubeFrontBackgroundUrl: this.getSerializedLogo(this.state.featured_logos, 4),
+                cubeBackBackgroundUrl: this.getSerializedLogo(this.state.featured_logos, 5)
+            });
 
             /* Begin random logo updates after a 5-second initial delay */
-            myTimeout = setTimeout(function() {
+            var myTimeout = setTimeout(function() {
                 self.repaint();
             }, 5000);    
             this.setState({repaintDelay: myTimeout});
@@ -238,7 +231,6 @@ class LogoCube extends Component {
         /* kill any pending background threads that were
         invoked in componentDidMount(). */
         clearTimeout(this.state.repaintDelay);
-        clearTimeout(this.state.logosDelay);
     }
     
     shouldComponentUpdate(nextProps, nextState) {
