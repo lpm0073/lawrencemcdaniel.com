@@ -60,6 +60,7 @@ class Routes extends Component {
     const path = this.props.location.pathname;
     if (path === "/home"  || path === "/" ) {
       if (
+            (this.props.specialties.isLoading && !nextProps.specialties.isLoading) ||
             (this.props.portfolio.isLoading && !nextProps.portfolio.isLoading) ||
             (this.props.education.isLoading && !nextProps.education.isLoading) ||
             (this.props.recommendations.isLoading && !nextProps.recommendations.isLoading) ||
@@ -91,7 +92,7 @@ class Routes extends Component {
     return(
         <React.Fragment>
           <Switch>
-            <Route path="/home" component={() => <Home logos={this.props.logos} />} />
+            <Route path="/home" component={() => <Home />} />
             <Route exact path="/contact" component={Contact} />
             <Route exact path="/about" component={About} />
             <Route exact path="/machine-learning" component={MachineLearning} />
