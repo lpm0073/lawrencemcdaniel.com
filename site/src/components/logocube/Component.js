@@ -3,7 +3,12 @@
     update at random intervals. Logos are provided by a REST api that is 
     managed by Redux: 
     https://api.lawrencemcdaniel.com/wp-json/wp/v2/posts?categories=43&_embed&per_page=100
-    
+
+    The cube, which is pure CSS and HTML, was scaffolded from a D3 example that I liked, created by Noah Veltman. 
+    Ironically, the D3 source code itself wasn't useful. I encountered a variety of challenges with using D3.js for this component. 
+    Though all of these challenges were solvable, in the end it was most practical to leave the DOM manipulations to ReactJS.
+    Noah's original cube: https://bl.ocks.org/veltman/4c989172ac2f820b0b7267c53cb96975 
+
     The component life cycle is as follows:
     =================================================
 
