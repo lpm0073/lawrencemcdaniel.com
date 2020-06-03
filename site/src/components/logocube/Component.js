@@ -22,7 +22,6 @@ class LogoCube extends Component {
             for at least X milliseconds.
          */
         var d = new Date();
-        d.setSeconds(d.getSeconds() - 2);
 
         const logos =  this.props.logos.items.map((post, indx) => {
             return wpGetFeaturedImage(post, null);
@@ -45,6 +44,7 @@ class LogoCube extends Component {
             repaintDelay: null,
             logosDelay: null,
             shouldUpdate: false,
+            constructed: d,
             cubeTop: d,
             cubeBottom: d,
             cubeLeft: d,
@@ -88,7 +88,7 @@ class LogoCube extends Component {
             /* enable render() 1 second after logos are loaded */
             var myTimeout = setTimeout(function() {
                 self.setState({shouldUpdate: true});
-            }, 1000);    
+            }, 500);    
 
             /*  the cube is initialized with the most impactful logos, so    
                 wait a while before we begin shuffling the logos. Then
@@ -106,9 +106,9 @@ class LogoCube extends Component {
                 self.setBackgroundUrl("bottom", self.getSerializedLogo(self.state.featured_logos, 3));                
                 self.setBackgroundUrl("front", self.getSerializedLogo(self.state.featured_logos, 4));                
                 self.setBackgroundUrl("back", self.getSerializedLogo(self.state.featured_logos, 5));
-                }, 1500);    
-                self.setState({logosDelay: myTimeout});
-        }
+            }, 500);
+            self.setState({logosDelay: myTimeout});
+        }   
 
     }
 
@@ -126,7 +126,7 @@ class LogoCube extends Component {
 
         return(
             <div key="logo-cube" className="d3-container mt-0">
-            {this.props.logos.isLoading ? (
+            {(this.props.logos.isLoading || this.getElapsedTime() < 350) ? (
                 <div className="mt-5 pt-5">
                     <Loading />
                 </div>
@@ -219,7 +219,7 @@ class LogoCube extends Component {
             case "right": return d - this.state.cubeRight;
             case "front": return d - this.state.cubeFront;
             case "back": return d - this.state.cubeBack;
-            default: return 0;
+            default: return d - this.state.constructed;
         }
     }
       
