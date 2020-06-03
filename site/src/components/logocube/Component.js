@@ -1,6 +1,74 @@
 /*
-    https://www.smashingmagazine.com/2018/02/react-d3-ecosystem/
- */
+    Renders a spinning cube that shows random collections of logos that randomly
+    update at random intervals. The component life cycle is as follows:
+
+    1. Animated cube rendering. This is intended to distract the site
+    visitor for a moment while we pre-fetch the first set
+    of logo images (for slow internet connections).
+
+    2. Initial logo display. Show the 6 "featured" logos that I most want visitors
+    to see: React, Angular, Django, AWS, etc.
+
+    3. Randomly show lots of other logos. The longer the site visitor
+    stares at this logocube the better, because it buys time for 
+    the image pre-fetcher to download more site content in the background.
+
+    Some challenges encountered, and their solutions:
+    =================================================
+    A. Screen flicker. 
+    React mounts/unmounts components multiple times, often for 
+    reasons that are external to the component. React also call render()
+    a lot more than I'd realized. Both of these cause screen flicker when the
+    component is in early stages of on-screen rendering.
+
+    solution: I fixed the flicker with a few different kinds of delays that are intended
+    to provide React with enough time to get the home screen completely setup
+    before this component attempts to put any animated objects on screen.
+
+    B. Erratic Logo updates. 
+    Logos change at random intervals. However,
+    it looks bad if a logo is replaced to quickly. 
+
+    solution: I added 6 timers to track the elapsed time of each logo,
+    and then I only replace a logo if its been visible for a minimum
+    length of time.
+
+    C. Disappointing logo shuffle.
+    It bothered me that the cube would sometimes display only
+    the logos of unimpressive technologies for an extended period of time.
+
+    solution: i elected to reserve one of the six sides for exclusively
+    displaying featured logos.
+
+    D. Thread issues.
+    Kicking off the first painter() thread is tricky
+    because the component initialization depends on delays for multiple
+    reasons; each of these being initiated on a new asynchronous thread.
+    When the component mounts/unmounts very quickly, the threads live on,
+    resulting in several painter() threads co-existing, which causes
+    the cube to update multitudes more frequently than I wanted.
+
+    solution: I fixed the threading issue by keeping track of, and explicitly killing 
+    all background threads that I create.
+
+    E. Slow loading logos.
+    The cube itself is rendered purely in CSS, but it
+    depends on a collection of around 75 logo images, and on a slow
+    internet connection each new logo would visibly download as it 
+    was being presented on a cube side which looked terrible. 
+
+    solution: i setup an image pre-fetcher inside of Redux, not just for
+    this logo cube but for the hundreds of other images on this site as
+    well.
+
+    F. Duplicate logos
+    It bothered me that the same logo would sometimes appears on two (or more)
+    sides.
+
+    solution: i added some "no collision" logic to prevent the random logo
+    selector from choosing any logos that are currently being displayed.
+
+*/
 import React, { Component } from 'react';
 import { wpGetFeaturedImage } from '../../shared/wpGetFeaturedImage';
 import './styles.css';
@@ -12,21 +80,24 @@ class LogoCube extends Component {
     constructor(props) {
         super(props);
 
-        /*
-            Note: one ugly side effect of the randomness in choosing which side to update, and
-            the time at which to update is that, sometimes, the same panel gets chosen very quickly
-            which leads to jerky-looking behavior.
-
-            To prevent this we keep track of how long each logo has been on a given cube side.
-            the repaint() method will only repaint a side if that side has been in the same state 
-            for at least X milliseconds.
-         */
         var d = new Date();
 
+        /* Logo urls from Redux */
         const logos =  this.props.logos.items.map((post, indx) => {
+            /* 
+            image list is managed by a Wordpress api and a custom
+            plugin that a) web-optimizes images b) uploads images to
+            the CDN, and c) creates a collection of alternative 
+            image sizes. The rest api therefore returns
+            many possible URL's for each URL. wpGetFeaturedImage()
+            sifts through the list to choose the best image for our
+            particular need.
+             */
             return wpGetFeaturedImage(post, null);
         });
 
+        /* I flagged 6 images in Wordpress that I want displayed
+        when the cube first renders. */
         const featured_logos =  this.props.logos.items.filter((post, indx) => {
             for (var i=0 ; i < post.categories.length ; i++) {
                 if (post.categories[i] === 48) {  /* featured technology */
@@ -39,25 +110,32 @@ class LogoCube extends Component {
         });
 
         this.state = {
+            /* logo lists */
             logos: logos,
             featured_logos: featured_logos,
+
+            /* the current logo image URL for each of the 6 logos */
+            cubeTopBackgroundUrl: null,
+            cubeBottomBackgroundUrl: null,
+            cubeLeftBackgroundUrl: null,
+            cubeRightBackgroundUrl: null,
+            cubeFrontBackgroundUrl: null,
+            cubeBackBackgroundUrl: null,
+
+            /* delay threads, to prevent the component from re-rendering if we're in mid-animation */
             repaintDelay: null,
             logosDelay: null,
             shouldUpdate: false,
+
+            /* time stamps to track elapsed time of each logo image */
             constructed: d,
             cubeTop: d,
             cubeBottom: d,
             cubeLeft: d,
             cubeRight: d,
             cubeFront: d,
-            cubeBack: d,
+            cubeBack: d
 
-            cubeTopBackgroundUrl: null,
-            cubeBottomBackgroundUrl: null,
-            cubeLeftBackgroundUrl: null,
-            cubeRightBackgroundUrl: null,
-            cubeFrontBackgroundUrl: null,
-            cubeBackBackgroundUrl: null
           };
 
         this.resetElapsedTime = this.resetElapsedTime.bind(this);
@@ -68,7 +146,6 @@ class LogoCube extends Component {
         this.getRandomLogo = this.getRandomLogo.bind(this);
         this.getSerializedLogo = this.getSerializedLogo.bind(this);
         this.isLogoCollision = this.isLogoCollision.bind(this);
-    
         this.repaint = this.repaint.bind(this);
         }
 
@@ -85,20 +162,15 @@ class LogoCube extends Component {
         var self = this;
         if (!this.props.logos.isLoading) {
 
-            /* enable render() 1 second after logos are loaded */
+            /* this is a general purpose moratorium on React
+            rendering for the first 500ms of the component's
+            life cycle. */
             var myTimeout = setTimeout(function() {
                 self.setState({shouldUpdate: true});
             }, 500);    
 
-            /*  the cube is initialized with the most impactful logos, so    
-                wait a while before we begin shuffling the logos. Then
-                kick off an infinite loop of repaint() */
-            myTimeout = setTimeout(function() {
-                self.repaint();
-            }, 5000);    
-            this.setState({repaintDelay: myTimeout});
-
-            /* wait for animations to complete. */
+            /* This is intended to create a small dramatic delay between the initial
+            cube-rendering animation and the presentation of the first set of logos. */
             myTimeout = setTimeout(function() {
                 self.setBackgroundUrl("left", self.getSerializedLogo(self.state.featured_logos, 0));                
                 self.setBackgroundUrl("right", self.getSerializedLogo(self.state.featured_logos, 1));                
@@ -108,17 +180,28 @@ class LogoCube extends Component {
                 self.setBackgroundUrl("back", self.getSerializedLogo(self.state.featured_logos, 5));
             }, 500);
             self.setState({logosDelay: myTimeout});
+
+            /* Showcase the first batch of logos for 5 seconds before we begin
+            randomly replacing them */
+            myTimeout = setTimeout(function() {
+                self.repaint();
+            }, 5000);    
+            this.setState({repaintDelay: myTimeout});
+    
         }   
 
     }
 
     componentWillUnmount() {
-        /* kill any pending repaint() invocation from componentDidMount(). */
+        /* kill any pending background threads that were
+        invoked in componentDidMount(). */
         clearTimeout(this.state.repaintDelay);
         clearTimeout(this.state.logosDelay);
     }
     
     shouldComponentUpdate(nextProps, nextState) {
+        /* Potentially veto React's decisions to update the 
+        component, calling render() */
         return this.state.shouldUpdate;
     }
 
@@ -145,6 +228,7 @@ class LogoCube extends Component {
     }
 
     repaint() {
+        /* place a random logo on a random side at a random point in time. */
         var self = this;
 
         const side = self.getRandomSide();
@@ -161,7 +245,9 @@ class LogoCube extends Component {
       
     }
 
-
+    /* ---------------------------------------------------------------
+        Hereon, the drudgerous grind of working with a six-sided object.  
+     * --------------------------------------------------------------- */
     getBackgroundUrl(side) {
         let retval;
         switch(side) {
@@ -224,6 +310,9 @@ class LogoCube extends Component {
     }
       
     getSerializedLogo(logos, i) {
+        /* this handles the hopefully-rare case
+        where I might stupidly neglect to have 6 more
+        featured logos in the Wordpress api. */
         if (i < logos.length) {
             return logos[i];
         }
@@ -243,6 +332,7 @@ class LogoCube extends Component {
         }
 
     }
+
     getRandomLogo(logos) {
         var logo, i = 0;
         do {
@@ -275,17 +365,17 @@ export default LogoCube;
 const CubeSide = (props) => {
 
     const clsId = "d3-side " + props.side + " " + props.classes;
-    const divId = "cube-" + props.side + "-logo";
+    const divId = "cube-" + props.side + "-logo-div";
     const divStyle = {
         backgroundImage: "url('" + props.url + "')"
       }
 
     return(
         <React.Fragment >
-            <div key={divId}  
+            <div key={divId}
                  className={clsId}>
                 <div>
-                    <div className="logo" 
+                    <div key={divId+"-logo"} className="logo" 
                         style={divStyle}>
                     </div>
                 </div>
