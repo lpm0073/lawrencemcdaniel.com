@@ -116,7 +116,7 @@
 import React, { Component } from 'react';
 import { wpGetFeaturedImage } from '../../shared/wpGetFeaturedImage';
 import './styles.css';
-import Loading from '../Loading';
+import { backendUrl } from '../../shared/urls';
 
 
 class LogoCube extends Component {
@@ -126,37 +126,14 @@ class LogoCube extends Component {
 
         var d = new Date();
 
-        /* Logo urls from Redux */
-        const logos =  this.props.logos.items.map((post, indx) => {
-            /* 
-            image list is managed by a Wordpress api and a custom
-            plugin that a) web-optimizes images b) uploads images to
-            the CDN, and c) creates a collection of alternative 
-            image sizes. The rest api therefore returns
-            many possible URL's for each URL. wpGetFeaturedImage()
-            sifts through the list to choose the best image for our
-            particular need.
-             */
-            return wpGetFeaturedImage(post, null);
-        });
-
-        /* I flagged six images in Wordpress that I want displayed
-        when the cube first renders. */
-        const featured_logos =  this.props.logos.items.filter((post, indx) => {
-            for (var i=0 ; i < post.categories.length ; i++) {
-                if (post.categories[i] === 48) {  /* featured technology */
-                    return true;
-                }
-            }
-            return false;
-        }).map((featuredPost, indx) => {
-            return wpGetFeaturedImage(featuredPost, null);
-        });
 
         this.state = {
             /* logo lists */
-            logos: logos,
-            featured_logos: featured_logos,
+            logos: null,
+            featured_logos: null,
+            /* delay threads, to prevent the component from re-rendering if we're in mid-animation */
+            repaintDelay: null,
+            fetchDelay: null,
 
             /* the current logo image URL for each of the 6 logos */
             cubeTopBackgroundUrl: null,
@@ -165,10 +142,6 @@ class LogoCube extends Component {
             cubeRightBackgroundUrl: null,
             cubeFrontBackgroundUrl: null,
             cubeBackBackgroundUrl: null,
-
-            /* delay threads, to prevent the component from re-rendering if we're in mid-animation */
-            repaintDelay: null,
-            shouldRender: false, /* allow updates while the "Loading" spinner is present */
 
             /* time stamps to track elapsed time of each logo image */
             constructed: d,
@@ -189,40 +162,80 @@ class LogoCube extends Component {
         this.getSerializedLogo = this.getSerializedLogo.bind(this);
         this.isLogoCollision = this.isLogoCollision.bind(this);
         this.repaint = this.repaint.bind(this);
+        this.fetcher = this.fetcher.bind(this);
         }
 
+    fetcher() {
+        const self = this;
+        fetch(backendUrl + "posts?categories=43&_embed&per_page=100")
+        .then(
+            response => {
+                if (response.ok) {
+                    return response;
+                } else {
+                    var error = new Error('Error ' + response.status + ': ' + response.statusText);
+                    error.response = response;
+                    throw error;
+                }
+            },
+            error => {
+                var errmess = new Error(error.message);
+                throw errmess;
+            })
+        .then(response => response.json())
+        .then(posts => {
 
-    componentDidMount() {
-        var self = this;
-        /* this is a general purpose moratorium on React
-        updates until the component actually mounts. From visual inspection in the 
-        JS console this prevents the first dozen or
-        so calls to render(), which is what cause the
-        screen flicker. */
-        self.setState({shouldRender: true});
+            const logos = posts.map((post, indx) => {
+                return wpGetFeaturedImage(post, null);
+            });
 
-        if (!this.props.logos.isLoading) {
-            /* 
-            we reduce a lot of component overhead and calls to render() by 
-            condensing all of the background URL initializations into a single
-            call to setState()
-             */
-            this.setState({
-                cubeTopBackgroundUrl: this.getSerializedLogo(this.state.featured_logos, 0),
-                cubeBottomBackgroundUrl: this.getSerializedLogo(this.state.featured_logos, 1),
-                cubeLeftBackgroundUrl: this.getSerializedLogo(this.state.featured_logos, 2),
-                cubeRightBackgroundUrl: this.getSerializedLogo(this.state.featured_logos, 3),
-                cubeFrontBackgroundUrl: this.getSerializedLogo(this.state.featured_logos, 4),
-                cubeBackBackgroundUrl: this.getSerializedLogo(this.state.featured_logos, 5)
+            const featured_logos =  posts.filter((post, indx) => {
+                for (var i=0 ; i < post.categories.length ; i++) {
+                    if (post.categories[i] === 48) {  /* featured technology */
+                        return true;
+                    }
+                }
+                return false;
+            }).map((featuredPost, indx) => {
+                return wpGetFeaturedImage(featuredPost, null);
             });
 
             /* Begin random logo updates after a 5-second initial delay */
             var myTimeout = setTimeout(function() {
                 self.repaint();
             }, 5000);    
-            this.setState({repaintDelay: myTimeout});
-    
-        }   
+
+            self.setState({
+                logos: logos,
+                featured_logos: featured_logos,
+                repaintDelay: myTimeout,
+                cubeTopBackgroundUrl: self.getSerializedLogo(featured_logos, 0),
+                cubeBottomBackgroundUrl: self.getSerializedLogo(featured_logos, 1),
+                cubeLeftBackgroundUrl: self.getSerializedLogo(featured_logos, 2),
+                cubeRightBackgroundUrl: self.getSerializedLogo(featured_logos, 3),
+                cubeFrontBackgroundUrl: self.getSerializedLogo(featured_logos, 4),
+                cubeBackBackgroundUrl: self.getSerializedLogo(featured_logos, 5)
+            });
+
+            }
+        )
+    }
+
+    componentDidMount() {
+        /* this is a general purpose moratorium on React
+        updates until the component actually mounts. From visual inspection in the 
+        JS console this prevents the first dozen or
+        so calls to render(), which is what cause the
+        screen flicker. */
+        console.log("LogoCube.componentDidMount()");
+
+        const self = this;
+        var myTimeout = setTimeout(function() {
+            self.fetcher();
+        }, 100);    
+        this.setState({
+            fetchDelay: myTimeout
+        });
 
     }
 
@@ -230,23 +243,13 @@ class LogoCube extends Component {
         /* kill any pending background threads that were
         invoked in componentDidMount(). */
         clearTimeout(this.state.repaintDelay);
+        clearTimeout(this.state.fetchDelay);
     }
     
-    shouldComponentUpdate(nextProps, nextState) {
-        /* Potentially veto React's decisions to update the 
-        component, calling render() */
-        return this.state.shouldRender;
-    }
-
     render() {
 
         return(
             <div key="logo-cube" className="d3-container mt-0">
-            {(!this.state.shouldRender) ? (
-                <div className="mt-5 pt-5">
-                    <Loading />
-                </div>
-              ) : (
                 <div className="d3-cube mt-5">
                     <CubeSide side="top" url={this.getBackgroundUrl("top")} classes="fade-in" />
                     <CubeSide side="bottom" url={this.getBackgroundUrl("bottom")} classes="fade-in" />
@@ -255,7 +258,6 @@ class LogoCube extends Component {
                     <CubeSide side="right" url={this.getBackgroundUrl("right")} classes="grow-side" />
                     <CubeSide side="left" url={this.getBackgroundUrl("left")} classes="grow-side" />
                 </div>
-              )}
             </div>
         );
     }
@@ -329,6 +331,9 @@ class LogoCube extends Component {
         /* this handles the hopefully-rare case
         where I might stupidly neglect to have 6 more
         featured logos in the Wordpress api. */
+
+        if (logos === null) return 0;
+
         if (i < logos.length) {
             return logos[i];
         }
@@ -350,6 +355,8 @@ class LogoCube extends Component {
     }
 
     getRandomLogo(logos) {
+        if (logos === null) return null;
+
         var logo, i = 0;
         do {
             logo = logos[Math.floor(Math.random() * logos.length)];
