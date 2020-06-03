@@ -7,11 +7,11 @@
     The component life cycle is as follows:
     =================================================
 
-    1. Animated cube rendering:
+    1. Animated cube rendering (1000 ms):
     This is intended to distract the site visitor for a moment while we pre-fetch the first set
     of logo images (for slow internet connections).
 
-    2. Initial logo display:
+    2. Initial logo display (5000 ms):
     Display six "featured" logos (one per cube side) that I most want visitors to see.
     (React, Redux, Angular, Django, AWS, Wordpress)
 
@@ -118,7 +118,7 @@ class LogoCube extends Component {
             return wpGetFeaturedImage(post, null);
         });
 
-        /* I flagged 6 images in Wordpress that I want displayed
+        /* I flagged six images in Wordpress that I want displayed
         when the cube first renders. */
         const featured_logos =  this.props.logos.items.filter((post, indx) => {
             for (var i=0 ; i < post.categories.length ; i++) {
@@ -185,7 +185,7 @@ class LogoCube extends Component {
         if (!this.props.logos.isLoading) {
 
             /* this is a general purpose moratorium on React
-            rendering for the first 500ms of the component's
+            updates for the first 500ms of the component's
             life cycle. */
             var myTimeout = setTimeout(function() {
                 self.setState({shouldUpdate: true});
@@ -203,8 +203,7 @@ class LogoCube extends Component {
             }, 500);
             self.setState({logosDelay: myTimeout});
 
-            /* Showcase the first batch of logos for 5 seconds before we begin
-            randomly replacing them */
+            /* Begin random logo updates after a 5-second initial delay */
             myTimeout = setTimeout(function() {
                 self.repaint();
             }, 5000);    
