@@ -67,9 +67,8 @@ class Routes extends Component {
             (this.props.project.isLoading && !nextProps.project.isLoading) ||
             (this.props.clients.isLoading && !nextProps.clients.isLoading)
             
-        ) {
-          return false;
-          }
+        ) return false;
+          
     return true;
   }
 }
@@ -92,7 +91,7 @@ class Routes extends Component {
     return(
         <React.Fragment>
           <Switch>
-            <Route path="/home" component={() => <Home />} />
+            <Route path="/home" component={Home} />
             <Route exact path="/contact" component={Contact} />
             <Route exact path="/about" component={About} />
             <Route exact path="/machine-learning" component={MachineLearning} />

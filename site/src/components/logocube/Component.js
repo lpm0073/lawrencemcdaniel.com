@@ -227,8 +227,6 @@ class LogoCube extends Component {
         JS console this prevents the first dozen or
         so calls to render(), which is what cause the
         screen flicker. */
-        console.log("LogoCube.componentDidMount()");
-
         const self = this;
         var myTimeout = setTimeout(function() {
             self.fetcher();
