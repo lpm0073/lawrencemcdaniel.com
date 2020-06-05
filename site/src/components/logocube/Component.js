@@ -127,6 +127,7 @@ class LogoCube extends Component {
 
         var d = new Date();
 
+        const initialLogos = this.getInitialCubeLogos();
 
         this.state = {
             /* logo lists */
@@ -137,12 +138,12 @@ class LogoCube extends Component {
             fetchDelay: null,
 
             /* the current logo image URL for each of the 6 logos */
-            cubeTopBackgroundUrl: null,
-            cubeBottomBackgroundUrl: null,
-            cubeLeftBackgroundUrl: null,
-            cubeRightBackgroundUrl: null,
-            cubeFrontBackgroundUrl: null,
-            cubeBackBackgroundUrl: null,
+            cubeTopBackgroundUrl: this.getSerializedLogo(initialLogos, 0),
+            cubeBottomBackgroundUrl: this.getSerializedLogo(initialLogos, 1),
+            cubeLeftBackgroundUrl: this.getSerializedLogo(initialLogos, 2),
+            cubeRightBackgroundUrl: this.getSerializedLogo(initialLogos, 3),
+            cubeFrontBackgroundUrl: this.getSerializedLogo(initialLogos, 4),
+            cubeBackBackgroundUrl: this.getSerializedLogo(initialLogos, 5),
 
             /* time stamps to track elapsed time of each logo image */
             constructed: d,
@@ -206,17 +207,10 @@ class LogoCube extends Component {
                 self.repaint();
             }, 5000);    
 
-            const initialLogos = this.getInitialCubeLogos();
             self.setState({
                 logos: logos,
                 featured_logos: featured_logos,
-                repaintDelay: myTimeout,
-                cubeTopBackgroundUrl: self.getSerializedLogo(initialLogos, 0),
-                cubeBottomBackgroundUrl: self.getSerializedLogo(initialLogos, 1),
-                cubeLeftBackgroundUrl: self.getSerializedLogo(initialLogos, 2),
-                cubeRightBackgroundUrl: self.getSerializedLogo(initialLogos, 3),
-                cubeFrontBackgroundUrl: self.getSerializedLogo(initialLogos, 4),
-                cubeBackBackgroundUrl: self.getSerializedLogo(initialLogos, 5)
+                repaintDelay: myTimeout
             });
 
             }
