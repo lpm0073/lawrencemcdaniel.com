@@ -1,3 +1,4 @@
+/*
 export const shuffleArray = array => {
     let i = array.length - 1;
     for (; i > 0; i--) {
@@ -7,4 +8,21 @@ export const shuffleArray = array => {
       array[j] = temp;
     }
     return array;
+  }
+*/
+
+
+export const shuffleArray = array => {
+
+  var tmp = [];
+  var j = 0;
+  console.log("shuffleArray() - begin")
+  for (var i = 0; i < array.length; i++) {
+      while (tmp.includes(array[j])) {
+        j = Math.floor(Math.random() * array.length);
+      }
+      tmp.push(array[j]);
+      console.log("shuffleArray()", i, j)
+    }
+    return tmp;
   }

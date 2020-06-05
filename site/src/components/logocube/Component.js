@@ -206,16 +206,17 @@ class LogoCube extends Component {
                 self.repaint();
             }, 5000);    
 
+            const initialLogos = this.getInitialCubeLogos();
             self.setState({
                 logos: logos,
                 featured_logos: featured_logos,
                 repaintDelay: myTimeout,
-                cubeTopBackgroundUrl: self.getSerializedLogo(this.getInitialCubeLogos(), 0),
-                cubeBottomBackgroundUrl: self.getSerializedLogo(this.getInitialCubeLogos(), 1),
-                cubeLeftBackgroundUrl: self.getSerializedLogo(this.getInitialCubeLogos(), 2),
-                cubeRightBackgroundUrl: self.getSerializedLogo(this.getInitialCubeLogos(), 3),
-                cubeFrontBackgroundUrl: self.getSerializedLogo(this.getInitialCubeLogos(), 4),
-                cubeBackBackgroundUrl: self.getSerializedLogo(this.getInitialCubeLogos(), 5)
+                cubeTopBackgroundUrl: self.getSerializedLogo(initialLogos, 0),
+                cubeBottomBackgroundUrl: self.getSerializedLogo(initialLogos, 1),
+                cubeLeftBackgroundUrl: self.getSerializedLogo(initialLogos, 2),
+                cubeRightBackgroundUrl: self.getSerializedLogo(initialLogos, 3),
+                cubeFrontBackgroundUrl: self.getSerializedLogo(initialLogos, 4),
+                cubeBackBackgroundUrl: self.getSerializedLogo(initialLogos, 5)
             });
 
             }
@@ -381,14 +382,14 @@ class LogoCube extends Component {
     }
 
     getInitialCubeLogos() {
-        return [
+        return shuffleArray([
             'assets/images/amazon-web-services.png',
             'assets/images/django-logo-300x137.png',
             'assets/images/open-edx.png',
             'assets/images/react-logo-300x261.png',
             'assets/images/Redux_Logo-300x80.png',
             'assets/images/wordpress-100x161.png'
-        ]
+        ]);
     }
     
 }
