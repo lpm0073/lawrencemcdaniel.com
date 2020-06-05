@@ -358,7 +358,7 @@ class LogoCube extends Component {
         .then(posts => {
 
             const logos = posts.map((post, indx) => {
-                return wpGetFeaturedImage(post, null);
+                return wpGetFeaturedImage(post, "medium");
             });
 
             const featured_logos =  shuffleArray(posts.filter((post, indx) => {
@@ -369,7 +369,7 @@ class LogoCube extends Component {
                 }
                 return false;
             }).map((featuredPost, indx) => {
-                return wpGetFeaturedImage(featuredPost, null);
+                return wpGetFeaturedImage(featuredPost, "medium");
             }));
 
             /* Begin random logo updates after a 5-second initial delay */
