@@ -16,7 +16,7 @@ const MachineLearning = (props) => {
                     <RenderPageTitle theme="light" icon="fa-magic" title="MACHINE" boxed_title="LEARNING" />
                     <div className="row mt-5 pl-2">
                         <div className="column-left col-lg-4 col-md-6 col-sm-12 hide-medium">
-                            <img src="https://cdn.lawrencemcdaniel.com/wp-content/uploads/2016/12/22195700/lawrence-mcdaniel-portrait.jpg" 
+                            <img src="https://cdn.lawrencemcdaniel.com/wp-content/uploads/2020/06/05220017/lawrence-mcdaniel-portrait.jpg" 
                                  alt="Lawrence McDaniel" />
                             <div className="name-block mt-1 text-center">
                                 <h4 className="my-0">Lawrence McDaniel</h4>
@@ -35,7 +35,7 @@ const MachineLearning = (props) => {
                                 </div>
                                 <div className="column-right col-lg-6 col-md-12">
                                     <a href="https://www.coursera.org/account/accomplishments/verify/2MVW9YRMFYC9?utm_source=link&utm_campaign=copybutton_certificate&utm_product=course" >
-                                        <img src="https://cdn.lawrencemcdaniel.com/wp-content/uploads/2016/12/22195700/machine-learning-certificate.png" 
+                                        <img src="https://cdn.lawrencemcdaniel.com/wp-content/uploads/2020/06/05220349/machine-learning-certificate.jpg" 
                                              alt="Machine Learning Certification" />
                                         <img className="mt-3" 
                                              src="https://cdn.lawrencemcdaniel.com/wp-content/uploads/2016/12/22195700/machine-learning-grade.png" 
