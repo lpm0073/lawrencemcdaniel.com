@@ -3,6 +3,7 @@ import Carousel from "react-multi-carousel";
 import "react-multi-carousel/lib/styles.css";
 import Loading from '../../components/Loading';
 import {wpGetFeaturedImage} from '../../shared/wpGetFeaturedImage';
+import { shuffleArray } from '../../shared/shuffle';
 
 const responsive = {
   superLargeDesktop: {
@@ -25,19 +26,9 @@ const responsive = {
 
 class ClientCarousel extends Component {
 
-  shuffleArray(array) {
-    let i = array.length - 1;
-    for (; i > 0; i--) {
-      const j = Math.floor(Math.random() * (i + 1));
-      const temp = array[i];
-      array[i] = array[j];
-      array[j] = temp;
-    }
-    return array;
-  }
 
   render() {
-    const itemList = this.shuffleArray(this.props.clients.logos);
+    const itemList = shuffleArray(this.props.clients.logos);
     return (
         <div key="client-carousel">
           {this.props.isLoading ? (

@@ -4,6 +4,7 @@ import Carousel from "react-multi-carousel";
 import "react-multi-carousel/lib/styles.css";
 import Moment from 'moment';
 import {wpGetFeaturedImage} from '../../shared/wpGetFeaturedImage';
+import { shuffleArray } from '../../shared/shuffle';
 
 const responsive = {
   superLargeDesktop: {
@@ -25,20 +26,9 @@ const responsive = {
 };
 
 class RecommendationsCarousel extends Component {
-
-  shuffleArray(array) {
-    let i = array.length - 1;
-    for (; i > 0; i--) {
-      const j = Math.floor(Math.random() * (i + 1));
-      const temp = array[i];
-      array[i] = array[j];
-      array[j] = temp;
-    }
-    return array;
-  }
   
   render() {
-    const recommendationsList = this.shuffleArray(this.props.recommendations.items);
+    const recommendationsList = shuffleArray(this.props.recommendations.items);
     
     return (
         <div key="recommendations-carousel">

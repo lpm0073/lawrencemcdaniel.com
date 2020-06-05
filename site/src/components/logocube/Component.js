@@ -117,6 +117,7 @@ import React, { Component } from 'react';
 import { wpGetFeaturedImage } from '../../shared/wpGetFeaturedImage';
 import './styles.css';
 import { backendUrl } from '../../shared/urls';
+import { shuffleArray } from '../../shared/shuffle';
 
 
 class LogoCube extends Component {
@@ -189,7 +190,7 @@ class LogoCube extends Component {
                 return wpGetFeaturedImage(post, null);
             });
 
-            const featured_logos =  posts.filter((post, indx) => {
+            const featured_logos =  shuffleArray(posts.filter((post, indx) => {
                 for (var i=0 ; i < post.categories.length ; i++) {
                     if (post.categories[i] === 48) {  /* featured technology */
                         return true;
@@ -198,7 +199,7 @@ class LogoCube extends Component {
                 return false;
             }).map((featuredPost, indx) => {
                 return wpGetFeaturedImage(featuredPost, null);
-            });
+            }));
 
             /* Begin random logo updates after a 5-second initial delay */
             var myTimeout = setTimeout(function() {
