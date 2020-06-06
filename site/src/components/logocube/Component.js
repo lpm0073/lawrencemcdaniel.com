@@ -115,56 +115,26 @@
 */
 import React, { Component } from 'react';
 import { connect } from 'react-redux';
-import { fetchSpecialties } from '../../redux/ActionCreators';
+import { bindActionCreators } from 'redux';
+import * as Actions from '../../redux/ActionCreators';
 
 import { wpGetFeaturedImage } from '../../shared/wpGetFeaturedImage';
 import { shuffleArray } from '../../shared/shuffle';
 import './styles.css';
 
 
-const mapStateToProps = state => {
-    return {
-      specialties: state.specialties,
-    }
-  }
+const mapStateToProps = state => ({
+      ...state
+});
   
 const mapDispatchToProps = (dispatch) => ({
-    fetchSpecialties: () => {dispatch(fetchSpecialties())},
+    actions: bindActionCreators(Actions, dispatch)
 });
   
 class LogoCube extends Component {
 
     constructor(props) {
         super(props);
-
-        var d = new Date();
-        const initialLogos = this.getInitialCubeLogos();
-
-        this.state = {
-            /* logo lists */
-            logos: null,
-            featured_logos: null,
-            /* delay threads, to prevent the component from re-rendering if we're in mid-animation */
-            repaintDelay: null,
-
-            /* the current logo image URL for each of the 6 logos */
-            cubeTopBackgroundUrl: this.getSerializedLogo(initialLogos, 0),
-            cubeBottomBackgroundUrl: this.getSerializedLogo(initialLogos, 1),
-            cubeLeftBackgroundUrl: this.getSerializedLogo(initialLogos, 2),
-            cubeRightBackgroundUrl: this.getSerializedLogo(initialLogos, 3),
-            cubeFrontBackgroundUrl: this.getSerializedLogo(initialLogos, 4),
-            cubeBackBackgroundUrl: this.getSerializedLogo(initialLogos, 5),
-
-            /* time stamps to track elapsed time of each logo image */
-            constructed: d,
-            cubeTop: d,
-            cubeBottom: d,
-            cubeLeft: d,
-            cubeRight: d,
-            cubeFront: d,
-            cubeBack: d
-
-          };
 
         this.getElapsedTime = this.getElapsedTime.bind(this);
         this.getBackgroundUrl = this.getBackgroundUrl.bind(this);
@@ -175,6 +145,43 @@ class LogoCube extends Component {
         this.isLogoCollision = this.isLogoCollision.bind(this);
         this.repaint = this.repaint.bind(this);
         this.setLogos = this.setLogos.bind(this);
+
+        /* check for component state in Redux store */
+        if (this.props.logoCube.isSet) {
+            this.state = this.props.logoCube.state;
+        } else {
+            var d = new Date();
+            const initialLogos = this.getInitialCubeLogos();
+    
+            this.state = {
+                /* logo lists */
+                logos: null,
+                featured_logos: null,
+                /* delay threads, to prevent the component from re-rendering if we're in mid-animation */
+                repaintDelay: null,
+    
+                /* the current logo image URL for each of the 6 logos */
+                cubeTopBackgroundUrl: this.getSerializedLogo(initialLogos, 0),
+                cubeBottomBackgroundUrl: this.getSerializedLogo(initialLogos, 1),
+                cubeLeftBackgroundUrl: this.getSerializedLogo(initialLogos, 2),
+                cubeRightBackgroundUrl: this.getSerializedLogo(initialLogos, 3),
+                cubeFrontBackgroundUrl: this.getSerializedLogo(initialLogos, 4),
+                cubeBackBackgroundUrl: this.getSerializedLogo(initialLogos, 5),
+    
+                /* time stamps to track elapsed time of each logo image */
+                constructed: d,
+                cubeTop: d,
+                cubeBottom: d,
+                cubeLeft: d,
+                cubeRight: d,
+                cubeFront: d,
+                cubeBack: d
+    
+              };
+    
+        }
+
+
         }
 
 
@@ -200,6 +207,10 @@ class LogoCube extends Component {
         invoked in componentDidMount(). */
         clearTimeout(this.state.repaintDelay);
         clearTimeout(this.state.fetchDelay);
+
+        /* send component state to Redux store */
+        const state = this.state;
+        this.props.actions.setLogoState({state});
     }
     
     render() {

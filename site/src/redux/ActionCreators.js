@@ -25,6 +25,17 @@ function imagePreFetcher(arr, delay, desc) {
 }
 
 
+/* ----------------------------------- */
+  
+export const setLogoState = ({state}) => {
+    return ({
+        type: ActionTypes.SET_LOGOCUBE_STATE,
+        state: state
+        });
+    
+}
+
+
 
 /* ----------------------------------- */
 
