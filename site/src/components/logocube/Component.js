@@ -114,14 +114,12 @@
 
 */
 import React, { Component } from 'react';
-import { wpGetFeaturedImage } from '../../shared/wpGetFeaturedImage';
-import './styles.css';
-import { backendUrl } from '../../shared/urls';
-import { shuffleArray } from '../../shared/shuffle';
-
-// Redux
 import { connect } from 'react-redux';
 import { fetchSpecialties } from '../../redux/ActionCreators';
+
+import { wpGetFeaturedImage } from '../../shared/wpGetFeaturedImage';
+import { shuffleArray } from '../../shared/shuffle';
+import './styles.css';
 
 
 const mapStateToProps = state => {
@@ -130,9 +128,9 @@ const mapStateToProps = state => {
     }
   }
   
-  const mapDispatchToProps = (dispatch) => ({
+const mapDispatchToProps = (dispatch) => ({
     fetchSpecialties: () => {dispatch(fetchSpecialties())},
-  });
+});
   
 class LogoCube extends Component {
 
@@ -228,12 +226,11 @@ class LogoCube extends Component {
             }
 
             if (this.state.logos) {
-                console.log("repaint()", this.state.logos);
                 const side = this.getRandomSide();
                 const logos = (side === "front") ? this.state.featured_logos: this.state.logos;
                 const logo = this.getRandomLogo(logos);
                 const elapsed = this.getElapsedTime(side);
-                if (side != null && elapsed > 3000) {
+                if (side != null && elapsed > 2000) {
                     this.setBackgroundUrl(side, logo);
                 }
             }
@@ -242,7 +239,7 @@ class LogoCube extends Component {
         var self = this;
         setTimeout(function() {
             self.repaint();
-        }, 1000 * Math.random());   
+        }, 500 * Math.random());   
       
     }
 
