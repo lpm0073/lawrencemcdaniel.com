@@ -69,8 +69,8 @@ class Routes extends Component {
             
         ) return false;
           
-    return true;
   }
+  return true;
 }
 
   render() {
