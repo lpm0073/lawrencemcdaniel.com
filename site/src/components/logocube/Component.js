@@ -119,14 +119,27 @@ import './styles.css';
 import { backendUrl } from '../../shared/urls';
 import { shuffleArray } from '../../shared/shuffle';
 
+// Redux
+import { connect } from 'react-redux';
+import { fetchSpecialties } from '../../redux/ActionCreators';
 
+
+const mapStateToProps = state => {
+    return {
+      specialties: state.specialties,
+    }
+  }
+  
+  const mapDispatchToProps = (dispatch) => ({
+    fetchSpecialties: () => {dispatch(fetchSpecialties())},
+  });
+  
 class LogoCube extends Component {
 
     constructor(props) {
         super(props);
 
         var d = new Date();
-
         const initialLogos = this.getInitialCubeLogos();
 
         this.state = {
@@ -135,7 +148,6 @@ class LogoCube extends Component {
             featured_logos: null,
             /* delay threads, to prevent the component from re-rendering if we're in mid-animation */
             repaintDelay: null,
-            fetchDelay: null,
 
             /* the current logo image URL for each of the 6 logos */
             cubeTopBackgroundUrl: this.getSerializedLogo(initialLogos, 0),
@@ -164,7 +176,7 @@ class LogoCube extends Component {
         this.getSerializedLogo = this.getSerializedLogo.bind(this);
         this.isLogoCollision = this.isLogoCollision.bind(this);
         this.repaint = this.repaint.bind(this);
-        this.fetcher = this.fetcher.bind(this);
+        this.setLogos = this.setLogos.bind(this);
         }
 
 
@@ -174,12 +186,13 @@ class LogoCube extends Component {
         JS console this prevents the first dozen or
         so calls to render(), which is what cause the
         screen flicker. */
+
         const self = this;
         var myTimeout = setTimeout(function() {
-            self.fetcher();
+            self.repaint();
         }, 100);    
         this.setState({
-            fetchDelay: myTimeout
+            repaintDelay: myTimeout
         });
 
     }
@@ -209,16 +222,24 @@ class LogoCube extends Component {
 
     repaint() {
         /* place a random logo on a random side at a random point in time. */
-        var self = this;
+        if (!this.props.specialties.isLoading) {
+            if (!this.state.logos) {
+                this.setLogos();
+            }
 
-        const side = self.getRandomSide();
-        const logos = (side === "front") ? self.state.featured_logos: self.state.logos;
-        const logo = self.getRandomLogo(logos);
-        const elapsed = self.getElapsedTime(side);
-        if (side != null && elapsed > 3000) {
-            self.setBackgroundUrl(side, logo);
+            if (this.state.logos) {
+                console.log("repaint()", this.state.logos);
+                const side = this.getRandomSide();
+                const logos = (side === "front") ? this.state.featured_logos: this.state.logos;
+                const logo = this.getRandomLogo(logos);
+                const elapsed = this.getElapsedTime(side);
+                if (side != null && elapsed > 3000) {
+                    this.setBackgroundUrl(side, logo);
+                }
+            }
         }
     
+        var self = this;
         setTimeout(function() {
             self.repaint();
         }, 1000 * Math.random());   
@@ -337,59 +358,35 @@ class LogoCube extends Component {
         ]);
     }
 
-    fetcher() {
-        const self = this;
-        fetch(backendUrl + "posts?categories=43&_embed&per_page=100")
-        .then(
-            response => {
-                if (response.ok) {
-                    return response;
-                } else {
-                    var error = new Error('Error ' + response.status + ': ' + response.statusText);
-                    error.response = response;
-                    throw error;
+    setLogos() {
+
+        const posts = this.props.specialties.items;
+        const logos = posts.map((post, indx) => {
+            return wpGetFeaturedImage(post, "medium");
+        });
+
+        const featured_logos =  shuffleArray(posts.filter((post, indx) => {
+            for (var i=0 ; i < post.categories.length ; i++) {
+                if (post.categories[i] === 48) {  /* featured technology */
+                    return true;
                 }
-            },
-            error => {
-                var errmess = new Error(error.message);
-                throw errmess;
-            })
-        .then(response => response.json())
-        .then(posts => {
-
-            const logos = posts.map((post, indx) => {
-                return wpGetFeaturedImage(post, "medium");
-            });
-
-            const featured_logos =  shuffleArray(posts.filter((post, indx) => {
-                for (var i=0 ; i < post.categories.length ; i++) {
-                    if (post.categories[i] === 48) {  /* featured technology */
-                        return true;
-                    }
-                }
-                return false;
-            }).map((featuredPost, indx) => {
-                return wpGetFeaturedImage(featuredPost, "medium");
-            }));
-
-            /* Begin random logo updates after a 5-second initial delay */
-            var myTimeout = setTimeout(function() {
-                self.repaint();
-            }, 5000);    
-
-            self.setState({
-                logos: logos,
-                featured_logos: featured_logos,
-                repaintDelay: myTimeout
-            });
-
             }
-        )
+            return false;
+        }).map((featuredPost, indx) => {
+            return wpGetFeaturedImage(featuredPost, "medium");
+        }));
+
+        this.setState({
+            logos: logos,
+            featured_logos: featured_logos
+        });
+
     }
+
     
 }
 
-export default LogoCube;
+export default connect(mapStateToProps, mapDispatchToProps)(LogoCube);
 
 const CubeSide = (props) => {
 
