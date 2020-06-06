@@ -1,4 +1,8 @@
 /*
+    ----------------------------------------
+    How to store component state in Redux: https://medium.com/the-web-tub/managing-your-react-state-with-redux-affab72de4b1
+    ----------------------------------------
+
     Renders a spinning cube that shows random collections of logos that randomly
     update at random intervals. Logos are provided by a REST api that is 
     managed by Redux.
@@ -157,6 +161,7 @@ class LogoCube extends Component {
                 /* logo lists */
                 logos: null,
                 featured_logos: null,
+
                 /* delay threads, to prevent the component from re-rendering if we're in mid-animation */
                 repaintDelay: null,
     
@@ -214,16 +219,17 @@ class LogoCube extends Component {
     }
     
     render() {
+        const cls = !this.props.logoCube.isSet ? "grow-side": "" ;
 
         return(
             <div key="logo-cube" className="d3-container mt-0">
                 <div className="d3-cube mt-5">
                     <CubeSide side="top" url={this.getBackgroundUrl("top")} classes="fade-in" />
                     <CubeSide side="bottom" url={this.getBackgroundUrl("bottom")} classes="fade-in" />
-                    <CubeSide side="front" url={this.getBackgroundUrl("front")} classes="grow-side"/>
-                    <CubeSide side="back" url={this.getBackgroundUrl("back")} classes="grow-side" />
-                    <CubeSide side="right" url={this.getBackgroundUrl("right")} classes="grow-side" />
-                    <CubeSide side="left" url={this.getBackgroundUrl("left")} classes="grow-side" />
+                    <CubeSide side="front" url={this.getBackgroundUrl("front")} classes={cls} />
+                    <CubeSide side="back" url={this.getBackgroundUrl("back")} classes={cls} />
+                    <CubeSide side="right" url={this.getBackgroundUrl("right")} classes={cls} />
+                    <CubeSide side="left" url={this.getBackgroundUrl("left")} classes={cls} />
                 </div>
             </div>
         );
