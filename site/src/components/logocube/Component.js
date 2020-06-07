@@ -122,7 +122,6 @@ import { connect } from 'react-redux';
 import { bindActionCreators } from 'redux';
 import * as Actions from '../../redux/ActionCreators';
 
-import { wpGetFeaturedImage } from '../../shared/wpGetFeaturedImage';
 import { shuffleArray } from '../../shared/shuffle';
 import './styles.css';
 
@@ -130,7 +129,6 @@ import './styles.css';
 const mapStateToProps = state => ({
       ...state
 });
-  
 const mapDispatchToProps = (dispatch) => ({
     actions: bindActionCreators(Actions, dispatch)
 });
@@ -148,7 +146,6 @@ class LogoCube extends Component {
         this.getSerializedLogo = this.getSerializedLogo.bind(this);
         this.isLogoCollision = this.isLogoCollision.bind(this);
         this.repaint = this.repaint.bind(this);
-        this.setLogos = this.setLogos.bind(this);
 
         /* check for component state in Redux store */
         if (this.props.logoCube.isSet) {
@@ -158,9 +155,6 @@ class LogoCube extends Component {
             const initialLogos = this.getInitialCubeLogos();
     
             this.state = {
-                /* logo lists */
-                logos: null,
-                featured_logos: null,
 
                 /* delay threads, to prevent the component from re-rendering if we're in mid-animation */
                 repaintDelay: null,
@@ -187,7 +181,7 @@ class LogoCube extends Component {
         }
 
 
-        }
+    }
 
 
     componentDidMount() {
@@ -238,19 +232,15 @@ class LogoCube extends Component {
     repaint() {
         /* place a random logo on a random side at a random point in time. */
         if (!this.props.specialties.isLoading) {
-            if (!this.state.logos) {
-                this.setLogos();
+
+            const side = this.getRandomSide();
+            const logos = (side === "front") ? this.props.specialties.featured_logos: this.props.specialties.logos;
+            const logo = this.getRandomLogo(logos);
+            const elapsed = this.getElapsedTime(side);
+            if (side != null && elapsed > 2000) {
+                this.setBackgroundUrl(side, logo);
             }
 
-            if (this.state.logos) {
-                const side = this.getRandomSide();
-                const logos = (side === "front") ? this.state.featured_logos: this.state.logos;
-                const logo = this.getRandomLogo(logos);
-                const elapsed = this.getElapsedTime(side);
-                if (side != null && elapsed > 2000) {
-                    this.setBackgroundUrl(side, logo);
-                }
-            }
         }
     
         var self = this;
@@ -372,32 +362,7 @@ class LogoCube extends Component {
         ]);
     }
 
-    setLogos() {
-
-        const posts = this.props.specialties.items;
-        const logos = posts.map((post, indx) => {
-            return wpGetFeaturedImage(post, "medium");
-        });
-
-        const featured_logos =  shuffleArray(posts.filter((post, indx) => {
-            for (var i=0 ; i < post.categories.length ; i++) {
-                if (post.categories[i] === 48) {  /* featured technology */
-                    return true;
-                }
-            }
-            return false;
-        }).map((featuredPost, indx) => {
-            return wpGetFeaturedImage(featuredPost, "medium");
-        }));
-
-        this.setState({
-            logos: logos,
-            featured_logos: featured_logos
-        });
-
-    }
-
-    
+   
 }
 
 export default connect(mapStateToProps, mapDispatchToProps)(LogoCube);
