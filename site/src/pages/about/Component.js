@@ -40,10 +40,6 @@ class About extends Component {
         }
 
         render() {
-            var d = new Date();
-            const years_experience = d.getFullYear() - 1992 - 11 - 1 - 2;
-            const years_opensource = d.getFullYear() - 2010;
-            const years_biking = d.getFullYear() - 1999;
     
             return(
     
@@ -69,18 +65,8 @@ class About extends Component {
                                 </div>
                             </div>
                                 <div className="column-3 col-lg-4 col-md-6 col-sm-12 p-3">
-                                    <Fade in delay={0} duration={400}>
-                                        <div className="row hide-small hide-medium about-tiles m-0">
-                                            <AboutTile icon="fa-globe" value="13" text="Countries worked in" />
-                                            <AboutTile icon="fa-cloud" value={years_experience} text="Years Experience" />
-                                            <AboutTile icon="fa-linux" value={years_opensource} text="Years Open Source" />
-                                            <AboutTile icon="fa-taxi" value={years_biking} text="Years bicycle commuting" />
-                                        </div>
-                                        <div className="column-3-text text-justify mt-1 pt-1">
-                                            <p>I lived abroad for 25 of the last 30 years, in Mexico, Western Europe and SE Asia. Prior to that I earned a B.S. from University of North Texas with majors in Computer Science and Mathematics and minors in Physics and English.</p>
-                                            <p><strong>Read my <a href="/bio/"><span>full bio here</span></a>.</strong></p>
-                                        </div>
-                                    </Fade>
+                                    {this.props.aboutPage.isSet && <RightColumn /> }
+                                    {!this.props.aboutPage.isSet && <Fade in delay={0} duration={400}> <RightColumn /> </Fade>}
                                 </div>
                         </div>
                     </div>
@@ -90,5 +76,26 @@ class About extends Component {
         }
 
 }
+const RightColumn = () => {
+    var d = new Date();
+    const years_experience = d.getFullYear() - 1992 - 11 - 1 - 2;
+    const years_opensource = d.getFullYear() - 2010;
+    const years_biking = d.getFullYear() - 1999;
 
+    return(
+        <div>
+            <div className="row hide-small hide-medium about-tiles m-0">
+                <AboutTile icon="fa-globe" value="13" text="Countries worked in" />
+                <AboutTile icon="fa-cloud" value={years_experience} text="Years Experience" />
+                <AboutTile icon="fa-linux" value={years_opensource} text="Years Open Source" />
+                <AboutTile icon="fa-taxi" value={years_biking} text="Years bicycle commuting" />
+            </div>
+            <div className="column-3-text text-justify mt-1 pt-1">
+                <p>I lived abroad for 25 of the last 30 years, in Mexico, Western Europe and SE Asia. Prior to that I earned a B.S. from University of North Texas with majors in Computer Science and Mathematics and minors in Physics and English.</p>
+                <p><strong>Read my <a href="/bio/"><span>full bio here</span></a>.</strong></p>
+            </div>
+        </div>
+
+    );
+}
 export default connect(mapStateToProps, mapDispatchToProps)(About);    
