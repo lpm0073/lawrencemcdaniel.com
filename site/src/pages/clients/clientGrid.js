@@ -30,9 +30,13 @@ const ClientCard = (props) => {
   return (
         <div className="col-lg-4 col-md-6 col-sm-12" key={props.indx}>
           <div className="client-item my-2 px-0 py-1">
-              <FadeTransform in transformProps={transform}>
+              {!props.isSet ?
+                <FadeTransform in transformProps={transform}>
+                  <div className="client-image" style={item_style} />
+                </FadeTransform>
+                :
                 <div className="client-image" style={item_style} />
-              </FadeTransform>                      
+              }
           </div>
         </div>
   );
@@ -67,7 +71,7 @@ class ClientGrid extends Component {
                 <div className="row my-2 mx-0 px-0 text-center">
                   {itemList.map((client, indx) => {
                     return(
-                      <ClientCard client={client} indx={indx} />
+                      <ClientCard isSet={this.props.clientGrid.isSet} client={client} indx={indx} />
                     );
                   })}
                 </div>
