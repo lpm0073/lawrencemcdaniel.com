@@ -23,17 +23,9 @@ import MachineLearning from '../pages/machineLearning/Component';
 import ReactPage from '../pages/react/Component';
 
 
-const mapStateToProps = state => {
-  return {
-    logos: state.specialties,
-    specialties: state.specialties,
-    portfolio: state.portfolio,
-    education: state.education,
-    recommendations: state.recommendations,
-    project: state.project,
-    clients: state.clients
-  }
-}
+const mapStateToProps = state => ({
+  ...state
+})
 
 const mapDispatchToProps = (dispatch) => ({
   fetchSpecialties: () => {dispatch(fetchSpecialties())},
@@ -57,20 +49,27 @@ class Routes extends Component {
   }
 
   shouldComponentUpdate(nextProps, nextState) {
+    /* pare down updates on pages with entry animations */
     const path = this.props.location.pathname;
     if (path === "/home"  || path === "/" ) {
-      if (
-            (this.props.specialties.isLoading && !nextProps.specialties.isLoading) ||
-            (this.props.portfolio.isLoading && !nextProps.portfolio.isLoading) ||
-            (this.props.education.isLoading && !nextProps.education.isLoading) ||
-            (this.props.recommendations.isLoading && !nextProps.recommendations.isLoading) ||
-            (this.props.project.isLoading && !nextProps.project.isLoading) ||
-            (this.props.clients.isLoading && !nextProps.clients.isLoading)
-            
-        ) return false;
-          
-  }
-  return true;
+      if (!this.props.homePage.isSet) {
+          return true;
+        }
+      return false;
+    }
+    if (path === "/clients") {
+      if (!this.props.clientGrid.isSet) {
+          return true;
+        }
+      return false;
+    }
+    if (path === "/education") {
+      if (!this.props.coursesGrid.isSet) {
+          return true;
+        }
+      return false;
+    }
+    return true;
 }
 
   render() {
