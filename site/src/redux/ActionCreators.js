@@ -26,6 +26,14 @@ function imagePreFetcher(arr, delay, desc) {
 
 
 /* ----------------------------------- */
+export const setCoursesGrid = ({state}) => {
+    return ({
+        type: ActionTypes.SET_COURSESGRID_STATE,
+        state: state
+        });
+    
+}
+
 export const setClientGrid = ({state}) => {
     return ({
         type: ActionTypes.SET_CLIENTGRID_STATE,

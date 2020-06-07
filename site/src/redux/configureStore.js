@@ -8,6 +8,7 @@ import { Clients } from './clients';
 import { LogoCube } from './logoCube';
 import { AboutPageRedux } from './aboutPage';
 import { ClientGridRedux  } from './clientGrid';
+import { CoursesGridRedux } from './coursesGrid';
 
 import thunk from 'redux-thunk';
 import logger from 'redux-thunk';
@@ -26,7 +27,8 @@ export const ConfigureStore = () => {
             clients: Clients,
             logoCube: LogoCube,
             aboutPage: AboutPageRedux,
-            clientGrid: ClientGridRedux
+            clientGrid: ClientGridRedux,
+            coursesGrid: CoursesGridRedux
         }),
         applyMiddleware(thunk, logger)
     );

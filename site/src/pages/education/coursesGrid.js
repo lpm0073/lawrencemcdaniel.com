@@ -1,9 +1,37 @@
 import React, { Component } from "react";
+import { connect } from 'react-redux';
+import { bindActionCreators } from 'redux';
+import * as Actions from '../../redux/ActionCreators';
+
 import Loading from '../../components/Loading';
 import { Fade } from 'react-animation-components';
 import {wpGetFeaturedImage} from '../../shared/wpGetFeaturedImage';
 
+const mapStateToProps = state => ({
+  ...state
+});
+const mapDispatchToProps = (dispatch) => ({
+actions: bindActionCreators(Actions, dispatch)
+});
+
 class CoursesGrid extends Component {
+  constructor(props) {
+    super(props);
+
+    if (this.props.coursesGrid.isSet) {
+      console.log("Courses Grid is set", this.props.coursesGrid.state);
+    }
+
+    this.state = {
+      coursesGrid: false
+    }
+
+  }
+
+  componentWillUnmount() {
+    const state = this.state;
+    this.props.actions.setCoursesGrid({state});
+  }
 
   render() {
     return (
@@ -37,4 +65,4 @@ class CoursesGrid extends Component {
   }
 }
 
-export default CoursesGrid;
+export default connect(mapStateToProps, mapDispatchToProps)(CoursesGrid);
