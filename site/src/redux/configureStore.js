@@ -9,6 +9,7 @@ import { LogoCube } from './logoCube';
 import { AboutPageRedux } from './aboutPage';
 import { ClientGridRedux  } from './clientGrid';
 import { CoursesGridRedux } from './coursesGrid';
+import { HomePageRedux } from './homePage.js';
 
 import thunk from 'redux-thunk';
 import logger from 'redux-thunk';
@@ -28,7 +29,8 @@ export const ConfigureStore = () => {
             logoCube: LogoCube,
             aboutPage: AboutPageRedux,
             clientGrid: ClientGridRedux,
-            coursesGrid: CoursesGridRedux
+            coursesGrid: CoursesGridRedux,
+            homePage: HomePageRedux
         }),
         applyMiddleware(thunk, logger)
     );

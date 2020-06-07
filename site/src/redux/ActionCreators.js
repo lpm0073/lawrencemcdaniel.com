@@ -26,6 +26,14 @@ function imagePreFetcher(arr, delay, desc) {
 
 
 /* ----------------------------------- */
+export const setHomePage = ({state}) => {
+    return ({
+        type: ActionTypes.SET_HOMEPAGE_STATE,
+        state: state
+        });
+    
+}
+
 export const setCoursesGrid = ({state}) => {
     return ({
         type: ActionTypes.SET_COURSESGRID_STATE,
