@@ -47,9 +47,13 @@ class Home extends Component {
                                 <h1 className="display-4">
                                     <span className="px-3 super-bold pre-wrap">Lawrence McDaniel</span>
                                 </h1>
-                                <Fade in> 
+                                {this.props.homePage.isSet ? 
                                     <p className="jumbotron-subtitle pre-wrap">Full Stack Developer</p>
-                                </Fade>
+                                    :
+                                    <Fade in> 
+                                        <p className="jumbotron-subtitle pre-wrap">Full Stack Developer</p>
+                                    </Fade>
+                            }
                             </div>
                             <div className="col-lg-6 col-md-12">
                                 <LogoCube />
