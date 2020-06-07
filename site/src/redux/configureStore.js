@@ -6,6 +6,8 @@ import { Project } from './project';
 import { Recommendations } from './recommendations';
 import { Clients } from './clients';
 import { LogoCube } from './logoCube';
+import { AboutPageRedux } from './aboutPage';
+
 import thunk from 'redux-thunk';
 import logger from 'redux-thunk';
 
@@ -21,7 +23,8 @@ export const ConfigureStore = () => {
             recommendations: Recommendations,
             project: Project,
             clients: Clients,
-            logoCube: LogoCube
+            logoCube: LogoCube,
+            aboutPage: AboutPageRedux
         }),
         applyMiddleware(thunk, logger)
     );

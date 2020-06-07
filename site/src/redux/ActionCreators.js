@@ -26,6 +26,13 @@ function imagePreFetcher(arr, delay, desc) {
 
 
 /* ----------------------------------- */
+export const setAboutPage = ({state}) => {
+    return ({
+        type: ActionTypes.SET_ABOUTPAGE_STATE,
+        state: state
+        });
+    
+}
   
 export const setLogoState = ({state}) => {
     return ({
