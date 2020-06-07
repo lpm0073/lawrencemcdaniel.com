@@ -1,8 +1,4 @@
 /*
-    ----------------------------------------
-    How to store component state in Redux: https://medium.com/the-web-tub/managing-your-react-state-with-redux-affab72de4b1
-    ----------------------------------------
-
     Renders a spinning cube that shows random collections of logos that randomly
     update at random intervals. Logos are provided by a REST api that is 
     managed by Redux.
@@ -20,15 +16,13 @@
     The component life cycle is as follows:
     =================================================
 
-    1. Animated cube rendering (1000 ms):
+    I. Animated cube rendering (approximately 1,500 ms):
     This is intended to distract the site visitor for a moment while we pre-fetch the first set
-    of logo images (for slow internet connections).
-
-    2. Initial logo display (5000 ms):
-    Display six "featured" logos (one per cube side) that I most want visitors to see.
+    of logo images (for slow internet connections). We initialize the cube w 6 locally-stored
+    and highly-optimized logos (one per cube side) that, incidentally, I most want visitors to see.
     (React, Redux, Angular, Django, AWS, Wordpress)
 
-    3. Update infinitely:
+    II. Update infinitely:
     Randomly show lots of other logos. The longer the site visitor stares at this logo cube
     the better, because it buys time for the image pre-fetcher to download more 
     site content in the background. Don't be impressed however, I stole this idea from nytimes.com
@@ -105,9 +99,18 @@
     REST api via Redux. On a slow internet connection you could see each new logo
     downloading on the cube side, which looked terrible. 
 
-    solution: i setup an image pre-fetcher inside of Redux, not just for
+    solution: 
+    a.) i setup an image pre-fetcher inside of Redux, not just for
     this logo cube but for the hundreds of other images on this site as
     well.
+
+    b.) i store the first six logos locally so that these are included in the React
+    bundles and are delivered to the browser immediately.
+
+    c.) i web-optimized all of the logos to decrease network load.
+
+    d.) i make AWS Cloudfront gzip all of the images, which reduces an additional 30%
+    or so of network overhead.
 
     H. Duplicate logos
     It bothered me that the same logo would sometimes appears on two (or more)
@@ -115,6 +118,16 @@
 
     solution: i added some "no collision" logic to prevent the random logo
     selector from choosing any logos that are currently being displayed.
+
+    I. React Insomnia. 
+    Every time the cube rendered, React would behave as if the site visitor had just
+    arrived to the site, even when this was not the case. For example, if a user lands 
+    on the home page then they would see the glory of the Logo Cube. But if they navigated
+    to another page and later returned to the home page then they'd see then entire 
+    construction of the cube, and the same 6 initialization logos.
+
+    solution: i push the component state to Redux, and disable the initial rendering animations
+    if the cube has already been rendered. More: https://medium.com/the-web-tub/managing-your-react-state-with-redux-affab72de4b1
 
 */
 import React, { Component } from 'react';
@@ -125,14 +138,35 @@ import * as Actions from '../../redux/ActionCreators';
 import { shuffleArray } from '../../shared/shuffle';
 import './styles.css';
 
-
 const mapStateToProps = state => ({
       ...state
 });
 const mapDispatchToProps = (dispatch) => ({
     actions: bindActionCreators(Actions, dispatch)
 });
-  
+
+const CubeSide = (props) => {
+
+    const clsId = "d3-side " + props.side + " " + props.classes;
+    const divId = "cube-" + props.side + "-logo-div";
+    const divStyle = {
+        backgroundImage: "url('" + props.url + "')"
+      }
+
+    return(
+        <React.Fragment >
+            <div key={divId}
+                 className={clsId}>
+                <div>
+                    <div key={divId+"-logo"} className="logo" 
+                        style={divStyle}>
+                    </div>
+                </div>
+            </div>
+        </React.Fragment>
+    );
+}
+
 class LogoCube extends Component {
 
     constructor(props) {
@@ -151,7 +185,9 @@ class LogoCube extends Component {
         if (this.props.logoCube.isSet) {
             this.state = this.props.logoCube.state;
         } else {
-            var d = new Date();
+            const d = new Date();
+
+            /* grab a locally-stored set of six logos for initializing the cube sides */
             const initialLogos = this.getInitialCubeLogos();
     
             this.state = {
@@ -174,25 +210,19 @@ class LogoCube extends Component {
                 cubeLeft: d,
                 cubeRight: d,
                 cubeFront: d,
-                cubeBack: d
-    
+                cubeBack: d    
               };
-    
         }
-
-
     }
 
-
     componentDidMount() {
-        /* this is a general purpose moratorium on React
-        updates until the component actually mounts. From visual inspection in the 
-        JS console this prevents the first dozen or
-        so calls to render(), which is what cause the
-        screen flicker. */
+        /*  we nest repaint() inside of a timer so that we have a means
+            of killing the thread in cases where the component 
+            quickly unmounts.
+        */
 
         const self = this;
-        var myTimeout = setTimeout(function() {
+        const myTimeout = setTimeout(function() {
             self.repaint();
         }, 100);    
         this.setState({
@@ -213,17 +243,18 @@ class LogoCube extends Component {
     }
     
     render() {
-        const cls = !this.props.logoCube.isSet ? "grow-side": "" ;
+        const sideClass = !this.props.logoCube.isSet ? "grow-side": "" ;
+        const capClass = !this.props.logoCube.isSet ? "fade-in": "" ;
 
         return(
             <div key="logo-cube" className="d3-container mt-0">
                 <div className="d3-cube mt-5">
-                    <CubeSide side="top" url={this.getBackgroundUrl("top")} classes="fade-in" />
-                    <CubeSide side="bottom" url={this.getBackgroundUrl("bottom")} classes="fade-in" />
-                    <CubeSide side="front" url={this.getBackgroundUrl("front")} classes={cls} />
-                    <CubeSide side="back" url={this.getBackgroundUrl("back")} classes={cls} />
-                    <CubeSide side="right" url={this.getBackgroundUrl("right")} classes={cls} />
-                    <CubeSide side="left" url={this.getBackgroundUrl("left")} classes={cls} />
+                    <CubeSide side="top" url={this.getBackgroundUrl("top")} classes={capClass} />
+                    <CubeSide side="bottom" url={this.getBackgroundUrl("bottom")} classes={capClass} />
+                    <CubeSide side="front" url={this.getBackgroundUrl("front")} classes={sideClass} />
+                    <CubeSide side="back" url={this.getBackgroundUrl("back")} classes={sideClass} />
+                    <CubeSide side="right" url={this.getBackgroundUrl("right")} classes={sideClass} />
+                    <CubeSide side="left" url={this.getBackgroundUrl("left")} classes={sideClass} />
                 </div>
             </div>
         );
@@ -243,10 +274,10 @@ class LogoCube extends Component {
 
         }
     
-        var self = this;
+        const self = this;
         setTimeout(function() {
             self.repaint();
-        }, 500 * Math.random());   
+        }, 750 * Math.random());   
       
     }
 
@@ -283,7 +314,6 @@ class LogoCube extends Component {
         this.setState(state);
     }
 
-
     getElapsedTime(side) {
         const d = new Date();
         switch(side) {
@@ -308,6 +338,7 @@ class LogoCube extends Component {
             return logos[i];
         }
     }
+
     isLogoCollision(logo) {
 
         switch (logo) {
@@ -335,9 +366,7 @@ class LogoCube extends Component {
         return logo;
     }
 
-    
     getRandomSide() {
-
         const side = Math.floor(Math.random() * 6);
         switch(side) {
             case 0: return "top";
@@ -348,7 +377,6 @@ class LogoCube extends Component {
             case 5: return "back";
             default: return null;
         }
-    
     }
 
     getInitialCubeLogos() {
@@ -361,30 +389,7 @@ class LogoCube extends Component {
             'assets/images/wordpress-100x161.png'
         ]);
     }
-
-   
-}
+} /* LogoCube component */
 
 export default connect(mapStateToProps, mapDispatchToProps)(LogoCube);
 
-const CubeSide = (props) => {
-
-    const clsId = "d3-side " + props.side + " " + props.classes;
-    const divId = "cube-" + props.side + "-logo-div";
-    const divStyle = {
-        backgroundImage: "url('" + props.url + "')"
-      }
-
-    return(
-        <React.Fragment >
-            <div key={divId}
-                 className={clsId}>
-                <div>
-                    <div key={divId+"-logo"} className="logo" 
-                        style={divStyle}>
-                    </div>
-                </div>
-            </div>
-        </React.Fragment>
-    );
-}
