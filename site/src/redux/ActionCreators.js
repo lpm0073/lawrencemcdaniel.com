@@ -26,6 +26,14 @@ function imagePreFetcher(arr, delay, desc) {
 
 
 /* ----------------------------------- */
+export const setClientGrid = ({state}) => {
+    return ({
+        type: ActionTypes.SET_CLIENTGRID_STATE,
+        state: state
+        });
+    
+}
+
 export const setAboutPage = ({state}) => {
     return ({
         type: ActionTypes.SET_ABOUTPAGE_STATE,

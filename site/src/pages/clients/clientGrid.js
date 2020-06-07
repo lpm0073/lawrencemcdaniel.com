@@ -1,8 +1,20 @@
 import React, { Component } from "react";
+import { connect } from 'react-redux';
+import { bindActionCreators } from 'redux';
+import * as Actions from '../../redux/ActionCreators';
+
 import "react-multi-carousel/lib/styles.css";
 import Loading from '../../components/Loading';
 import {wpGetFeaturedImage} from '../../shared/wpGetFeaturedImage';
 import { FadeTransform } from 'react-animation-components';
+
+const mapStateToProps = state => ({
+  ...state
+});
+const mapDispatchToProps = (dispatch) => ({
+actions: bindActionCreators(Actions, dispatch)
+});
+
 
 const ClientCard = (props) => {
     
@@ -28,6 +40,21 @@ const ClientCard = (props) => {
 }
 class ClientGrid extends Component {
 
+  constructor(props) {
+    super(props);
+    if (this.props.clientGrid.isSet) {
+      console.log("Client Grid is set", this.props.clientGrid.state);
+    }
+
+    this.state = {
+      clientGrid: false
+    }
+  }
+
+  componentWillUnmount() {
+    const state = this.state;
+    this.props.actions.setClientGrid({state});
+  }
 
   render() {
     const itemList = this.props.clients.logos;
@@ -53,7 +80,7 @@ class ClientGrid extends Component {
 }
 
 
-export default ClientGrid;
+export default connect(mapStateToProps, mapDispatchToProps)(ClientGrid);
 
 
 
