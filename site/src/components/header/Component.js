@@ -26,7 +26,7 @@ class Header extends Component {
     render() {
         return(
         <div key="app-header" >
-            <Navbar className="app-navbar navbar-dark bg-dark" dark expand="md">
+            <Navbar className="navbar-dark bg-dark" dark expand="md" fixed="top">
                 <NavbarToggler onClick={this.toggleNav} />
                 <Collapse isOpen={this.state.isNavOpen} navbar>
                     <Nav navbar>
