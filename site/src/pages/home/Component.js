@@ -20,7 +20,6 @@ const mapDispatchToProps = (dispatch) => ({
 class Home extends Component {
 
     componentWillUnmount() {
-        const state = this.state;
         this.props.actions.setHomePage();
     }
 

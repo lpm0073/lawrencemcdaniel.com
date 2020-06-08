@@ -53,6 +53,7 @@ class Routes extends Component {
     const path = this.props.location.pathname;
     if (path === "/home"  || path === "/" ) {
       if (!this.props.homePage.isSet) {
+          console.log("shouldComponentUpdate()", this.props.homePage, nextProps, nextState);
           return true;
         }
       return false;

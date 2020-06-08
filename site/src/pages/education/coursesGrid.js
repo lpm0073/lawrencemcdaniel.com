@@ -17,7 +17,6 @@ actions: bindActionCreators(Actions, dispatch)
 class CoursesGrid extends Component {
 
   componentWillUnmount() {
-    const state = this.state;
     this.props.actions.setCoursesGrid();
   }
 

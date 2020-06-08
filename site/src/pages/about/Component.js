@@ -23,7 +23,6 @@ class About extends Component {
 
         componentWillUnmount() {
 
-            const state = this.state;
             this.props.actions.setAboutPage();
         }
 

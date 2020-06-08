@@ -45,7 +45,6 @@ const ClientCard = (props) => {
 class ClientGrid extends Component {
 
   componentWillUnmount() {
-    const state = this.state;
     this.props.actions.setClientGrid();
   }
 
