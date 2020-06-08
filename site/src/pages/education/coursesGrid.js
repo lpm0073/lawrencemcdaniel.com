@@ -15,22 +15,10 @@ actions: bindActionCreators(Actions, dispatch)
 });
 
 class CoursesGrid extends Component {
-  constructor(props) {
-    super(props);
-
-    if (this.props.coursesGrid.isSet) {
-      console.log("Courses Grid is set", this.props.coursesGrid.state);
-    }
-
-    this.state = {
-      coursesGrid: false
-    }
-
-  }
 
   componentWillUnmount() {
     const state = this.state;
-    this.props.actions.setCoursesGrid({state});
+    this.props.actions.setCoursesGrid();
   }
 
   render() {

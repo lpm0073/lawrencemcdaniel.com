@@ -2,12 +2,11 @@ import * as ActionTypes from './ActionTypes';
 
 
 export const HomePageRedux = (state = {
-    isSet: false,
-    state: null
+    isSet: false
     }, action) => {
     switch(action.type) {
         case ActionTypes.SET_HOMEPAGE_STATE:
-            return {...state, isSet: true, state: action.state};
+            return {...state, isSet: true};
             
         default: 
             return state;

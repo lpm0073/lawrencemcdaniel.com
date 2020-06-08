@@ -21,22 +21,10 @@ const mapDispatchToProps = (dispatch) => ({
 
 class About extends Component {
 
-        constructor(props) {
-            super(props);
-
-            if (this.props.aboutPage.isSet) {
-                console.log("About page is set", this.props.aboutPage.state);
-            }
-
-            this.state = {
-                placebo: false
-            }
-        }
-
         componentWillUnmount() {
 
             const state = this.state;
-            this.props.actions.setAboutPage({state});
+            this.props.actions.setAboutPage();
         }
 
         render() {

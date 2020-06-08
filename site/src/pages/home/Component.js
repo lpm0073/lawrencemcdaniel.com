@@ -19,22 +19,9 @@ const mapDispatchToProps = (dispatch) => ({
 
 class Home extends Component {
 
-    constructor(props) {
-        super(props);
-
-        if (this.props.homePage.isSet) {
-            console.log("Home page is set", this.props.homePage.state);
-
-        }
-
-        this.state = {
-            homePage: false
-        }
-    }
-
     componentWillUnmount() {
         const state = this.state;
-        this.props.actions.setHomePage({state});
+        this.props.actions.setHomePage();
     }
 
     render() {

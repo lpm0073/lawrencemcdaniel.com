@@ -26,34 +26,30 @@ function imagePreFetcher(arr, delay, desc) {
 
 
 /* ----------------------------------- */
-export const setHomePage = ({state}) => {
+export const setHomePage = () => {
     return ({
-        type: ActionTypes.SET_HOMEPAGE_STATE,
-        state: state
+        type: ActionTypes.SET_HOMEPAGE_STATE
         });
     
 }
 
-export const setCoursesGrid = ({state}) => {
+export const setCoursesGrid = () => {
     return ({
-        type: ActionTypes.SET_COURSESGRID_STATE,
-        state: state
+        type: ActionTypes.SET_COURSESGRID_STATE
         });
     
 }
 
-export const setClientGrid = ({state}) => {
+export const setClientGrid = () => {
     return ({
-        type: ActionTypes.SET_CLIENTGRID_STATE,
-        state: state
+        type: ActionTypes.SET_CLIENTGRID_STATE
         });
     
 }
 
-export const setAboutPage = ({state}) => {
+export const setAboutPage = () => {
     return ({
-        type: ActionTypes.SET_ABOUTPAGE_STATE,
-        state: state
+        type: ActionTypes.SET_ABOUTPAGE_STATE
         });
     
 }

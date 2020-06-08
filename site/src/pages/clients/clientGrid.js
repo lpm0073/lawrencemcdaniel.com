@@ -44,20 +44,9 @@ const ClientCard = (props) => {
 }
 class ClientGrid extends Component {
 
-  constructor(props) {
-    super(props);
-    if (this.props.clientGrid.isSet) {
-      console.log("Client Grid is set", this.props.clientGrid.state);
-    }
-
-    this.state = {
-      clientGrid: false
-    }
-  }
-
   componentWillUnmount() {
     const state = this.state;
-    this.props.actions.setClientGrid({state});
+    this.props.actions.setClientGrid();
   }
 
   render() {
