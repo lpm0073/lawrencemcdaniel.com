@@ -3,7 +3,10 @@ import { backendUrl } from '../shared/urls';
 import { imagePreFetcher } from '../shared/imagePrefetcher';
 
 
-/* ----------------------------------- */
+/*  ----------------------------------- 
+    methods to track whether page entry animations
+    have rendered.
+    -----------------------------------  */
 export const setHomePage = () => {
     return ({
         type: ActionTypes.SET_HOMEPAGE_STATE
@@ -42,7 +45,9 @@ export const setLogoState = ({state}) => {
 
 
 
-/* ----------------------------------- */
+/*  ----------------------------------- 
+    methods to fetch data from api / cdn
+    -----------------------------------  */
 
 export const fetchSpecialties = () => (dispatch) => {
     dispatch(specialtiesLoading(true));
