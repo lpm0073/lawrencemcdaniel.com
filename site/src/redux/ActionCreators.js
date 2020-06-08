@@ -1,28 +1,6 @@
 import * as ActionTypes from './ActionTypes';
 import { backendUrl } from '../shared/urls';
-import { wpGetFeaturedImage } from '../shared/wpGetFeaturedImage';
-
-function imagePreFetcherStatic(arr, delay, desc) {
-
-    setTimeout(function() {
-        for (var i=0; i<arr.length; i++) {
-            new Image().src = arr[i];
-        }
-    }, delay * 1000 * Math.random());
-
-    return arr;
-}
-
-function imagePreFetcher(arr, delay, desc) {
-
-    setTimeout(function() {
-        arr.forEach((post) => {
-            new Image().src = wpGetFeaturedImage(post);
-        });
-        }, delay * 1000 * Math.random());
-
-    return arr;
-}
+import { imagePreFetcher } from '../shared/imagePrefetcher';
 
 
 /* ----------------------------------- */
@@ -88,7 +66,7 @@ export const fetchSpecialties = () => (dispatch) => {
     .then(specialties => dispatch(addSpecialties(specialties)))
     .then(specialties => {
         imagePreFetcher(specialties.payload, 0, "Specialities");
-        imagePreFetcherStatic([
+        imagePreFetcher([
             'https://cdn.lawrencemcdaniel.com/wp-content/uploads/2020/05/15213432/linkedin-profile-pic.jpeg',
             'https://cdn.lawrencemcdaniel.com/wp-content/uploads/2020/05/15213433/logo_linkedin_flat_white_93x21.png',
             'https://cdn.lawrencemcdaniel.com/wp-content/uploads/2020/06/05215543/linkedin-background.jpg',
