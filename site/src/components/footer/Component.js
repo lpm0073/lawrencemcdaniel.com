@@ -20,7 +20,7 @@ function Footer(props) {
                                 <a className="mx-1" href="https://www.facebook.com/lawrence.p.mcdaniel" target="_blank" rel="noopener noreferrer">Facebook</a><span className="footer-extra-links"> | </span>
                                 <a className="mx-1 footer-extra-links" href="https://github.com/lpm0073" target="_blank" rel="noopener noreferrer">Github</a><span className="footer-extra-links"> | </span>
                                 <a className="mx-1 footer-extra-links" href="https://angel.co/lpm0073-gmail-com" target="_blank" rel="noopener noreferrer">Angel Network</a><span className="footer-extra-links"> | </span>
-                                <a className="mx-1 footer-extra-links" href="https://www.codementor.io/lawrencemcdaniel" target="_blank" rel="noopener noreferrer">Codementor.io</a><span className="footer-extra-links"> | </span>
+                                <a className="mx-1 footer-extra-links" href="https://www.codementor.io/lawrencemcdaniel" target="_blank" rel="noopener noreferrer">Codementor.io</a>
                             </div>
                         </div>
                     </div>
