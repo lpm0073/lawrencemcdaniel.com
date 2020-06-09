@@ -6,8 +6,7 @@ My personal web site, developed with ReactJS/Redux.
 ```bash
 # Setup dev environment
 git clone https://github.com/lpm0073/lawrencemcdaniel.com.git
-cd site
-yarn install
+./site/yarn install
 
 # Develop
 ./site/yarn start
@@ -22,9 +21,9 @@ yarn install
 ## Resources
 - API: https://api.lawrencemcdaniel.com/
 - CDN: https://cdn.lawrencemcdaniel.com/
+- [Create React App](https://github.com/facebook/create-react-app)
 - Deploy to AWS S3: https://medium.com/serverlessguru/deploy-reactjs-app-with-s3-static-hosting-f640cb49d7e6
 - Configure Cloudfront: https://stackoverflow.com/questions/46497969/cloudfront-returns-403-forbidden-when-refreshing-page
-- [Create React App](https://github.com/facebook/create-react-app)
 
 
 ## Available Scripts
