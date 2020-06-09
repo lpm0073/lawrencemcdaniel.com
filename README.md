@@ -1,38 +1,29 @@
 # lawrencemcdaniel.com
 
-ReactJS front end for my personal web site.
+My personal web site, developed with ReactJS/Redux.
 
-- Develop: ./site/yarn start
-- Build: ./site/yarn build
-- Deploy: ./deploy.sh
+## Installation
+```bash
+# Setup dev environment
+git clone https://github.com/lpm0073/lawrencemcdaniel.com.git
+cd site
+yarn install
 
-## Wordpress Integration
+# Develop
+./site/yarn start
 
-https://developer.wordpress.org/rest-api/using-the-rest-api/client-libraries/
-https://gist.github.com/verticalgrain/eb694cfbc8ac7da7ae8d876858019921
-https://lawrencemcdaniel.com/wp-json/wp/v2
+# Buid:
+./site/yarn build
 
+# Deploy:
+./deploy.sh
+```
 
-## Specialties images
-- portfolio: https://lawrencemcdaniel.com/wp-json/wp/v2/posts?categories=47&_embed&_fields=id,content,title,featured_media
-- clients: https://lawrencemcdaniel.com/wp-json/wp/v2/posts?categories=46&_embed
-- ???????: https://lawrencemcdaniel.com/wp-json/wp/v2/posts?categories=45&_embed
-- ???????: https://lawrencemcdaniel.com/wp-json/wp/v2/posts?categories=45&_embed
-- Specialties: https://lawrencemcdaniel.com/wp-json/wp/v2/posts?categories=43&_embed
-- https://lawrencemcdaniel.com/wp-json/wp/v2/posts?categories=43&_embed&id=2664
-- https://lawrencemcdaniel.com/wp-json/wp/v2/portfolio
-- https://lawrencemcdaniel.com/wp-json/wp/v2/media
-- https://lawrencemcdaniel.com/wp-json/wp/v2/categories
-
-## Media URL by Media ID
-- https://lawrencemcdaniel.com/wp-json/wp/v2/media?_fields=id,source_url&include[]=2324
-
-
-## Deploy to AWS S3
-- https://medium.com/serverlessguru/deploy-reactjs-app-with-s3-static-hosting-f640cb49d7e6
-
-## Configure Cloudfront
-- https://stackoverflow.com/questions/46497969/cloudfront-returns-403-forbidden-when-refreshing-page
+## Resources
+- API: https://api.lawrencemcdaniel.com/
+- CDN: https://cdn.lawrencemcdaniel.com/
+- Deploy to AWS S3: https://medium.com/serverlessguru/deploy-reactjs-app-with-s3-static-hosting-f640cb49d7e6
+- Configure Cloudfront: https://stackoverflow.com/questions/46497969/cloudfront-returns-403-forbidden-when-refreshing-page
 
 
 This project was bootstrapped with [Create React App](https://github.com/facebook/create-react-app).
