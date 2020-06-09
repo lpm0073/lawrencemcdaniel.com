@@ -60,7 +60,7 @@ class Header extends Component {
                             <DropdownToggle nav caret>Code</DropdownToggle>
                             <DropdownMenu >
                                 <DropdownItem>
-                                    <a className="" href='/reactjs' rel="noopener noreferrer">ReactJS</a>
+                                    <a className="" href='/reactjs' target="_self">ReactJS</a>
                                 </DropdownItem>
                                 <DropdownItem>
                                     <a className="" href='https://horrors.lawrencemcdaniel.com/' target="_blank" rel="noopener noreferrer">AngularJS Site</a>
@@ -69,7 +69,7 @@ class Header extends Component {
                                     <a className="" href='https://my.roverbyopenstax.org/' target="_blank" rel="noopener noreferrer">Open edX Site</a>
                                 </DropdownItem>
                                 <DropdownItem>
-                                    <a className="" href='/machine-learning' rel="noopener noreferrer">Machine Learning</a>
+                                    <a className="" href='/machine-learning' target="_self">Machine Learning</a>
                                 </DropdownItem>
 
                                 <DropdownItem divider />
