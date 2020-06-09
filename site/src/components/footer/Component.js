@@ -11,14 +11,6 @@ function Footer(props) {
     return(
         <React.Fragment>
             <div key="app-footer">
-                <div className="row mx-0 react-banner">
-                    <div className="col-12">
-                        <div className="text-right mr-3 mb-2">
-                            <img className="react-logo" src="/assets/images/react-logo-300x261.png" />
-                            Built with ReactJS & Redux. <a className="mx-1 footer-extra-links" href="/reactjs" target="_self">Learn more</a>
-                        </div>
-                    </div>
-                </div>
                 <div className="footer">
                     <div className="row justify-content-center">
                         <div className="col-auto">

@@ -6,25 +6,14 @@
     padding: 20px 0 0 0;
     font-family: 'Courier New', Courier, monospace;
 }
-.react-banner {
-    background-color: black;
-    color: white;
-}
-
-.footer,
-.react-banner {
+.footer {
     font-size: small;
 }
 
-.react-banner a,
 .footer a {
     color: white;
 }
 
-.react-logo {
-    width: 15px;
-    margin-right: 5px;
-}
 /*-------------- Responsive Styling -----------------------*/
 
 /********** Large devices only **********/

@@ -5,7 +5,7 @@
 .jumbotron {
     margin:0px auto;
     color:floralwhite;
-    height: 87vh;
+    height: 88vh;
     border-radius: 0 !important;
 
 }
@@ -33,6 +33,20 @@
     white-space: pre-wrap;
 }
 
+
+.react-banner {
+    background-color: black;
+    color: white;
+    font-size: small;
+}
+
+.react-banner a {
+    color: white;
+}
+.react-logo {
+    width: 15px;
+    margin-right: 5px;
+}
 
 
 /*-------------- Responsive Styling -----------------------*/
