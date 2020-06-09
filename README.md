@@ -24,15 +24,8 @@ yarn install
 - CDN: https://cdn.lawrencemcdaniel.com/
 - Deploy to AWS S3: https://medium.com/serverlessguru/deploy-reactjs-app-with-s3-static-hosting-f640cb49d7e6
 - Configure Cloudfront: https://stackoverflow.com/questions/46497969/cloudfront-returns-403-forbidden-when-refreshing-page
+- [Create React App](https://github.com/facebook/create-react-app)
 
-
-This project was bootstrapped with [Create React App](https://github.com/facebook/create-react-app).
-
-## Node dev server:
-cd /Users/mcdaniel/github/lpm0073/lawrencemcdaniel.com/json-server/
-json-server --watch db.json -p 3001 -d 2000
-
-https://www.coursera.org/learn/front-end-react/peer/ptyN7/react-router-and-single-page-applications
 
 ## Available Scripts
 
