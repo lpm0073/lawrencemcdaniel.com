@@ -9,6 +9,15 @@ function Footer(props) {
     const curr_year = d.getFullYear();
 
     return(
+        <React.Fragment>
+        <div className="row mx-0">
+            <div className="col-12 react-banner">
+                <div className="text-right mr-3 mb-2">
+                    <img className="react-logo" src="/assets/images/react-logo-300x261.png" />
+                    Built with ReactJS & Redux. <a className="mx-1 footer-extra-links" href="/reactjs" target="_self">Learn more</a>
+                </div>
+            </div>
+        </div>
         <div key="app-footer" className="footer">
             <div className="">
                 <div className="row justify-content-center">
@@ -30,7 +39,9 @@ function Footer(props) {
                     </div>
                 </div>
             </div>
-        </div>        
+        </div>
+
+        </React.Fragment>
     );
 }
 

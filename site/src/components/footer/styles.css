@@ -1,17 +1,30 @@
 
-.footer{
+.footer {
     background-color: #333;
     color: white;
     margin:0px auto;
     padding: 20px 0 0 0;
     font-family: 'Courier New', Courier, monospace;
+}
+.react-banner {
+    background-color: black;
+    color: white;
+}
+
+.footer,
+.react-banner {
     font-size: small;
 }
 
+.react-banner a,
 .footer a {
     color: white;
 }
 
+.react-logo {
+    width: 15px;
+    margin-right: 5px;
+}
 /*-------------- Responsive Styling -----------------------*/
 
 /********** Large devices only **********/
@@ -34,12 +47,13 @@
 /********** Extra small devices only **********/
 @media (max-width: 767px) {
 
-
+.react-banner,
 .footer-extra-links {
     visibility: hidden;
     width: 0 !important;
-
+    height: 0 !important;
 }
+
 }
 /********** Super extra small devices Only :-) (e.g., iPhone 4) **********/
 @media (max-width: 479px) {
