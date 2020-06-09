@@ -1,6 +1,0 @@
-{
-  "dependencies": {
-    "react-fullpage": "^0.1.19",
-    "react-page-scroller": "^2.0.7-beta"
-  }
-}
