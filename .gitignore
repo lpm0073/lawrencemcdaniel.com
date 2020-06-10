@@ -3,7 +3,7 @@
 passwords.js
 
 # dependencies
-/site/node_modules
+node_modules
 /.pnp
 .pnp.js
 
@@ -11,7 +11,7 @@ passwords.js
 /coverage
 
 # production
-/site/build
+build
 
 # misc
 .DS_Store
