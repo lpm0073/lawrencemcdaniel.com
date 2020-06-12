@@ -25,7 +25,7 @@ class Header extends Component {
 
     render() {
         return(
-        <div key="app-header" >
+        <header key="app-header" >
             <Navbar className="navbar-dark bg-dark" dark expand="md" fixed="top">
                 <NavbarToggler onClick={this.toggleNav} />
                 <Collapse isOpen={this.state.isNavOpen} navbar>
@@ -100,7 +100,7 @@ class Header extends Component {
                     </Nav>
                 </Collapse>
             </Navbar>
-        </div>
+        </header>
 
         );
     }

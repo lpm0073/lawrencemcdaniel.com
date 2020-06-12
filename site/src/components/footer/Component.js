@@ -10,7 +10,7 @@ function Footer(props) {
 
     return(
         <React.Fragment>
-            <div key="app-footer">
+            <footer key="app-footer">
                 <div className="footer">
                     <div className="row justify-content-center">
                         <div className="col-auto">
@@ -30,7 +30,7 @@ function Footer(props) {
                         </div>
                     </div>
                 </div>
-            </div>
+            </footer>
         </React.Fragment>
     );
 }
