@@ -3,7 +3,6 @@ import { connect } from 'react-redux';
 import { bindActionCreators } from 'redux';
 import * as Actions from '../../redux/ActionCreators';
 
-import { Jumbotron} from 'reactstrap';
 import { Fade } from 'react-animation-components';
 import LogoCube from '../../components/logoCube/Component';
 
@@ -25,8 +24,8 @@ class Home extends Component {
 
     render() {
         return(
-            <div key="home-page">
-                <Jumbotron className="dark-background">
+            <React.Fragment>
+                <div key="home-page" className="jumbotron dark-background">
                     <div className="h-100">
                         <div className="row ml-0 mr-0 px-0 jumbotron-spacer">
                             <div className="col-lg-6 col-md-12 text-center noselect ">
@@ -39,14 +38,14 @@ class Home extends Component {
                                     <Fade in> 
                                         <p className="jumbotron-subtitle pre-wrap">Full Stack Developer</p>
                                     </Fade>
-                            }
+                                }
                             </div>
                             <div className="col-lg-6 col-md-12">
                                 <LogoCube />
                             </div>
                         </div>
                     </div>                    
-                </Jumbotron>
+                </div>
                 <div className="row mx-0 react-banner">
                     <div className="col-12">
                         <div className="text-right mr-3 mb-2">
@@ -55,7 +54,8 @@ class Home extends Component {
                         </div>
                     </div>
                 </div>
-            </div>    
+            </React.Fragment>
+
         );
     
     }

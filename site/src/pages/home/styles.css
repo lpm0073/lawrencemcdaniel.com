@@ -5,7 +5,7 @@
 .jumbotron {
     margin:0px auto;
     color:floralwhite;
-    height: 88vh;
+    height: calc(100vh - 65px - 54px); /* full height less header/footer heights */
     border-radius: 0 !important;
 
 }
