@@ -66,7 +66,7 @@ class Header extends Component {
                                     <a className="" href='https://horrors.lawrencemcdaniel.com/' target="_blank" rel="noopener noreferrer">AngularJS Site</a>
                                 </DropdownItem>
                                 <DropdownItem>
-                                    <a className="" href='https://my.roverbyopenstax.org/' target="_blank" rel="noopener noreferrer">Open edX Site</a>
+                                    <a className="" href='https://my.roverbyopenstax.org/' target="_blank" rel="noopener noreferrer">Open edX® Site</a>
                                 </DropdownItem>
                                 <DropdownItem>
                                     <a className="" href='/machine-learning' target="_self">Machine Learning</a>
