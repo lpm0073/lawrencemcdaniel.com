@@ -81,7 +81,7 @@ class Header extends Component {
                                     <a className="" href='https://clients.lawrencemcdaniel.com/' target="_blank" rel="noopener noreferrer">Ecommerce Site</a>
                                 </DropdownItem>
                                 <DropdownItem>
-                                    <a className="" href='https://edx.lawrencemcdaniel.com/' target="_blank" rel="noopener noreferrer">Pure HTML</a>
+                                    <a className="" href='https://html.lawrencemcdaniel.com/' target="_blank" rel="noopener noreferrer">Pure HTML</a>
                                 </DropdownItem>
                                 <DropdownItem>
                                     <a className="" href='https://webdev-class.lawrencemcdaniel.com/' target="_blank" rel="noopener noreferrer">Bootstrap</a>
