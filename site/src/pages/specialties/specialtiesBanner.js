@@ -50,7 +50,7 @@ const SpecialtiesBanner = (props) => {
                 />
 
             <SpecialtyColumn 
-            title="OPEN EDX" 
+            title="OPEN EDX® PLATFORM" 
             icon="fa-mortar-board" 
             description="Installation, configuration, customization and training of the Open edX® learning management system and course development studio. Author of one of the industry's most important technical how-to blog sites."
                 />
