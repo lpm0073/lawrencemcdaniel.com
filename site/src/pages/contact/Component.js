@@ -13,7 +13,7 @@ class Contact extends Component {
                 <RenderPageTitle theme="light" icon="fa-phone" title="LETS" boxed_title="TALK" />
 
                 <div className="row text-center mt-5">
-                    <div className="col-md-3"></div>
+                    <div className="col-md-1"></div>
                     <div className="col-md-6 contact-data">
                         <div>
                         <a target="_blank" href="https://goo.gl/maps/WJy25bNGit2L8Nzz8" rel="noopener noreferrer">
@@ -26,7 +26,7 @@ class Contact extends Component {
                             </address>
                         </a>
                         </div>
-                        <a className="m-4 contact-phone-link" href="tel:+1 (617) 834-6172">+1 (617) 834-6172</a>                                
+                        <a className="m-4 contact-phone-link" href="tel:+525532972732">+52 (55) 3297-2732</a>                                
 
                         <div className="contact-social-buttons m-4">
                             <a className="m-1" target="_blank" href="https://linkedin.com/in/lawrencemcdaniel" rel="noopener noreferrer"><i class="fa fa-linkedin-square fa-3x"></i></a>
@@ -38,7 +38,15 @@ class Contact extends Component {
                         </a>
                         <h4>Drop me a line at <a href="mailto:lpm0073@gmail.com">lpm0073@gmail.com</a> or Skype me at mcdaniel0073</h4>
                     </div>
-                    <div className="col-md-3"></div>
+                    <div className="col-md-4 m-4">
+                        <div className="col-md-1"></div>
+                        <div className="col-md-10">
+                            <h4 className="mb-4">Whatsapp QR Code</h4>
+                            <div className="col-md-12 whatsapp-qr-code square"></div>
+                        </div>
+                        <div className="col-md-1"></div>
+                    </div>
+                    <div className="col-md-1"></div>
                 </div>
             </div>
 
