@@ -26,7 +26,9 @@ class Contact extends Component {
                             </address>
                         </a>
                         </div>
-                        <a className="m-4 contact-phone-link" href="tel:+525532972732">+52 (55) 3297-2732</a>                                
+                        <h6 className="mb-4">Email: <a href="mailto:lpm0073@gmail.com">lpm0073@gmail.com</a></h6>
+                        <p className="mb-0">Cell: <a className="mt-4 contact-phone-link" href="tel:+525532972732">+52 (55) 3297-2732</a></p>
+                        <p>Skype: mcdaniel0073</p>
 
                         <div className="contact-social-buttons m-4">
                             <a className="m-1" target="_blank" href="https://linkedin.com/in/lawrencemcdaniel" rel="noopener noreferrer"><i class="fa fa-linkedin-square fa-3x"></i></a>
@@ -36,7 +38,6 @@ class Contact extends Component {
                         <a className="m-4 btn btn-danger" role="button" target="_blank" href={resumeUrl} rel="noopener noreferrer">
                             <i className="fa fa-download"></i> Download Resume
                         </a>
-                        <h4>Drop me a line at <a href="mailto:lpm0073@gmail.com">lpm0073@gmail.com</a> or Skype me at mcdaniel0073</h4>
                     </div>
                     <div className="col-md-4 m-4">
                         <div className="col-md-1"></div>
