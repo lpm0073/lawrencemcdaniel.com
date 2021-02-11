@@ -37,6 +37,9 @@ class Header extends Component {
                             <NavLink className="nav-link" to='/about'>About</NavLink>
                         </NavItem>
                         <NavItem>
+                            <NavLink className="nav-link" to='/open-edx'>Open edX®</NavLink>
+                        </NavItem>
+                        <NavItem>
                             <NavLink className="nav-link"  to='/specialties'>Specialties</NavLink>
                         </NavItem>
                         <NavItem>

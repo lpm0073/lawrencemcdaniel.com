@@ -6,6 +6,7 @@ export default (
         <Route path="/home"  />
         <Route exact path="/contact" />
         <Route exact path="/about"  />
+        <Route exact path="/open-edx"  />
         <Route exact path="/machine-learning" />
         <Route exact path="/bio" />
         <Route exact path="/specialties"  />
