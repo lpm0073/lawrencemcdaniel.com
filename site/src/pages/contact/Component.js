@@ -27,8 +27,7 @@ class Contact extends Component {
                         </a>
                         </div>
                         <h6 className="mb-4">Email: <a href="mailto:lpm0073@gmail.com">lpm0073@gmail.com</a></h6>
-                        <p className="mb-0">USA: <a className="mt-4 contact-phone-link" href="tel:+16178346172">+1 (617) 834-6172</a></p>
-                        <p className="mb-0">Mexico: <a className="mt-4 contact-phone-link" href="tel:+525532972732">+52 (55) 3297-2732</a></p>
+                        <p className="mb-0">Phone: <a className="mt-4 contact-phone-link" href="tel:+16178346172">+1 (617) 834-6172</a></p>
                         <p>Skype: mcdaniel0073</p>
 
                         <div className="contact-social-buttons m-4">
