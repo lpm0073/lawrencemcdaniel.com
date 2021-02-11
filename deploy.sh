@@ -16,6 +16,7 @@
 #             3. Invalidate all items in the AWS Cloudfront CDN.
 #---------------------------------------------------------
 cd /Users/mcdaniel/github/lpm0073/lawrencemcdaniel.com/site
+npm run sitemap
 yarn build
 cd /Users/mcdaniel/github/lpm0073/lawrencemcdaniel.com/
 

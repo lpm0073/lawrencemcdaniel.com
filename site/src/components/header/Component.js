@@ -37,7 +37,7 @@ class Header extends Component {
                             <NavLink className="nav-link" to='/about'>About</NavLink>
                         </NavItem>
                         <NavItem>
-                            <NavLink className="nav-link" to='/open-edx'>Open edX®</NavLink>
+                            <NavLink className="nav-link" to='/openedx'>Open edX®</NavLink>
                         </NavItem>
                         <NavItem>
                             <NavLink className="nav-link"  to='/specialties'>Specialties</NavLink>
@@ -78,13 +78,10 @@ class Header extends Component {
                                 <DropdownItem divider />
 
                                 <DropdownItem >
-                                    <a className="" href='https://www.sustainableimpactfund.com/' target="_blank" rel="noopener noreferrer">Wordpress Site</a>
+                                    <a className="" href='https://www.freshfrommexico.com/' target="_blank" rel="noopener noreferrer">Wordpress Site</a>
                                 </DropdownItem>
                                 <DropdownItem>
                                     <a className="" href='https://clients.lawrencemcdaniel.com/' target="_blank" rel="noopener noreferrer">Ecommerce Site</a>
-                                </DropdownItem>
-                                <DropdownItem>
-                                    <a className="" href='https://html.lawrencemcdaniel.com/' target="_blank" rel="noopener noreferrer">Pure HTML</a>
                                 </DropdownItem>
                                 <DropdownItem>
                                     <a className="" href='https://webdev-class.lawrencemcdaniel.com/' target="_blank" rel="noopener noreferrer">Bootstrap</a>

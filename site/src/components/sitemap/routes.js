@@ -4,17 +4,17 @@ import { Route } from 'react-router';
 export default (
     <Route>
         <Route path="/home"  />
-        <Route exact path="/contact" />
-        <Route exact path="/about"  />
-        <Route exact path="/open-edx"  />
-        <Route exact path="/machine-learning" />
-        <Route exact path="/bio" />
-        <Route exact path="/specialties"  />
-        <Route exact path="/portfolio"  />
-        <Route exact path="/education"  />
-        <Route exact path="/skills"  />
-        <Route exact path="/reactjs"  />
-        <Route exact path="/clients" />
+        <Route path="/contact" />
+        <Route path="/about"  />
+        <Route path="/openedx"  />
+        <Route path="/machine-learning" />
+        <Route path="/bio" />
+        <Route path="/specialties"  />
+        <Route path="/portfolio"  />
+        <Route path="/education"  />
+        <Route path="/skills"  />
+        <Route path="/reactjs"  />
+        <Route path="/clients" />
     </Route>
 );
 
