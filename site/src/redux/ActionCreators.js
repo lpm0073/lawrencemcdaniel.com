@@ -256,9 +256,9 @@ export const projectImagesFailed = (errmess) => ({
     payload: errmess
 });
 
-export const addProjectImages = (recommendations) => ({
+export const addProjectImages = (images) => ({
     type: ActionTypes.ADD_PROJECT_IMAGES,
-    payload: recommendations
+    payload: images
 });
 
 /* ----------------------------------- */
@@ -283,8 +283,8 @@ export const fetchClients = () => (dispatch) => {
             throw errmess;
         })
     .then(response => response.json())
-    .then(images => dispatch(addClients(images)))
-    .then(images => imagePreFetcher(images.payload, 15, "Clients"))
+    .then(clients => dispatch(addClients(clients)))
+    .then(clients => imagePreFetcher(clients.payload, 15, "Clients"))
     .catch(error => dispatch(clientsFailed(error.message)));
 
 }
@@ -298,9 +298,9 @@ export const clientsFailed = (errmess) => ({
     payload: errmess
 });
 
-export const addClients = (recommendations) => ({
+export const addClients = (clients) => ({
     type: ActionTypes.ADD_CLIENTS,
-    payload: recommendations
+    payload: clients
 });
 
 /* ----------------------------------- */
