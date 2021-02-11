@@ -94,7 +94,7 @@ class Routes extends Component {
             <Route path="/home" component={Home} />
             <Route exact path="/contact" component={Contact} />
             <Route exact path="/about" component={About} />
-            <Route exact path="open-edx" component={Openedx} />
+            <Route exact path="/open-edx" component={Openedx} />
             <Route exact path="/machine-learning" component={MachineLearning} />
             <Route exact path="/bio" component={Bio} />
             <Route exact path="/full-bio">
