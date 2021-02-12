@@ -14,6 +14,10 @@ const Openedx = (props) => {
                 <Helmet>
                     <title>Open edX Consultant</title>
                     <meta name="description" content="Turnkey installation, configuration, theming, customization and support of the Open edX® Learning Management System." />
+                    <meta property="og:description" content="Turnkey installation, configuration, theming, customization and support of the Open edX® Learning Management System." />
+                    <meta property="og:title" content="Lawrence McDaniel - Open edX® Consultant" />
+                    <meta name="twitter:title" content="Lawrence McDaniel - Open edX® Consultant" />
+                    <meta name="twitter:description" content="Lawrence McDaniel - Open edX® Consultant" />
                 </Helmet>
                 <div key="openedx-page" className="site-page openedx-page">
                     <RenderPageTitle theme="light" icon="fa-align-left" title="Open edX®" boxed_title="Consultant" />
