@@ -38,4 +38,4 @@ aws s3 cp s3://reactjs.lawrencemcdaniel.com/sitemap.xml s3://reactjs.lawrencemcd
 # invalidate the Cloudfront cache
 aws cloudfront create-invalidation \
               --distribution-id E2364TSMHRWAWL \
-              --paths "/*" "/index.html" "/sitemap.xml" "/service-worker.js"
+              --paths "/*" "/index.html" "/sitemap.xml"

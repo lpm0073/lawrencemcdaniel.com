@@ -57,7 +57,7 @@ class Home extends Component {
                     <div className="col-12">
                         <div className="text-right mr-3 mb-2">
                             <img className="react-logo" src="/assets/images/react-logo-300x261.png" alt="ReactJS logo" />
-                            Built with ReactJS & Redux. <a className="mx-1 footer-extra-links" href="/reactjs" target="_self">Learn more</a>
+                            Built with ReactJS & Redux. <a className="mx-1 learn-more-link" href="/reactjs" target="_self">Learn more</a>
                         </div>
                     </div>
                 </div>

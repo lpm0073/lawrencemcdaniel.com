@@ -6,7 +6,7 @@ p a:not(.btn-danger) {
     color: #999 !important;
 }
 
-.footer-extra-links {
+.learn-more-link {
     text-decoration: underline;
 }
 

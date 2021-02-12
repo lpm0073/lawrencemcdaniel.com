@@ -16,6 +16,7 @@ function Footer(props) {
                         <div className="col-auto">
                             <div className="text-center">                        
                                 <a className="mx-1" href={resumeUrl} target="_blank" rel="noopener noreferrer">Resume</a><span> | </span>
+                                <a className="mx-1" href="/openedx" target="_self" >Consulting</a><span> | </span>
                                 <a className="mx-1" href="https://www.linkedin.com/in/lawrencemcdaniel/" target="_blank" rel="noopener noreferrer">LinkedIn</a><span> | </span>
                                 <a className="mx-1" href="https://www.facebook.com/lawrence.p.mcdaniel" target="_blank" rel="noopener noreferrer">Facebook</a><span className="footer-extra-links"> | </span>
                                 <a className="mx-1 footer-extra-links" href="https://github.com/lpm0073" target="_blank" rel="noopener noreferrer">Github</a><span className="footer-extra-links"> | </span>
