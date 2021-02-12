@@ -27,7 +27,7 @@ function Footer(props) {
                     </div>
                     <div className="row justify-content-center">             
                         <div className="col-auto">
-                            <p>© Copyright 2015 - {curr_year}. edX and Open edX are registered trademarks of edX Inc. All Rights Reserved.</p>
+                            <p>© Copyright 2015 - {curr_year}. edX and <a className="mx-1 " href="https://open.edx.org/" target="_blank" rel="noopener noreferrer"><span className="edx-links">Open edX</span></a> are registered trademarks of <a className="mx-1" href="https://www.edx.org/" target="_blank" rel="noopener noreferrer"><span className="edx-links">edX Inc.</span></a> All Rights Reserved.</p>
                         </div>
                     </div>
                 </div>

@@ -14,6 +14,16 @@
     color: white;
 }
 
+p a:not(.btn-danger) {
+    text-decoration: none !important;
+}
+
+.edx-links {
+    color: white;
+    font-style: normal;
+}
+
+
 /*-------------- Responsive Styling -----------------------*/
 
 /********** Large devices only **********/
@@ -42,6 +52,7 @@
     width: 0 !important;
     height: 0 !important;
 }
+
 
 }
 /********** Super extra small devices Only :-) (e.g., iPhone 4) **********/
