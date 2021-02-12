@@ -61,7 +61,7 @@ class ClientGrid extends Component {
           {this.props.isLoading ? (
             <Loading />
           ) : (
-            <div id="client-grid" className="ml-2 mr-2">
+            <div id="clients-carousel" className="ml-2 mr-2">
                 <div className="row my-2 mx-0 px-0 text-center">
                   {itemList.map((client, indx) => {
                     return(
