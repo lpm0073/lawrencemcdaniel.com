@@ -26,7 +26,7 @@ cd /Users/mcdaniel/github/lpm0073/lawrencemcdaniel.com/
 aws s3 sync ./site/build/ s3://reactjs.lawrencemcdaniel.com \
             --acl public-read \
             --delete --cache-control max-age=31536000,public \
-            --expires '31 Dec 2030 00:00:01 GMT'
+            --expires '31 Dec 2050 00:00:01 GMT'
 
 # ------------------------
 # remove the cache-control header created above with a "no-cache" header so that browsers never cache this page
@@ -38,4 +38,4 @@ aws s3 cp s3://reactjs.lawrencemcdaniel.com/sitemap.xml s3://reactjs.lawrencemcd
 # invalidate the Cloudfront cache
 aws cloudfront create-invalidation \
               --distribution-id E2364TSMHRWAWL \
-              --paths "/*" "/index.html"
+              --paths "/*" "/index.html" "/sitemap.xml" "/service-worker.js"
