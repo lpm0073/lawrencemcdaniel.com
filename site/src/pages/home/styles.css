@@ -2,6 +2,14 @@
     background-color: black;
 }
 
+p a:not(.btn-danger) {
+    color: #999 !important;
+}
+
+.footer-extra-links {
+    text-decoration: underline;
+}
+
 .jumbotron {
     margin:0px auto;
     color:floralwhite;
