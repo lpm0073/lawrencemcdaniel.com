@@ -83,7 +83,7 @@ class Header extends Component {
                             </DropdownMenu>
                         </UncontrolledDropdown>
                         <NavItem>
-                            <NavLink className="nav-link" to='https://blog.lawrencemcdaniel.com/'>Blog</NavLink>
+                            <a className="nav-link" href='https://blog.lawrencemcdaniel.com/' target="_self" rel="noopener noreferrer">Blog</a>
                         </NavItem>
                         <NavItem>
                             <NavLink className="nav-link" to='/contact'>Contact</NavLink>
