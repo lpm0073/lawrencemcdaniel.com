@@ -4,7 +4,7 @@ import { bindActionCreators } from 'redux';
 import * as Actions from '../../redux/ActionCreators';
 
 import "react-multi-carousel/lib/styles.css";
-import Loading from '../../components/Loading';
+import Loading from '../Loading';
 import {wpGetFeaturedImage} from '../../shared/wpGetFeaturedImage';
 import { FadeTransform } from 'react-animation-components';
 

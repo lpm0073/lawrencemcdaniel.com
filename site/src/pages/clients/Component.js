@@ -1,7 +1,7 @@
 import React from 'react';
 import RenderPageTitle from '../../components/pagetitle/pageTitleComponent';
 import RecommendationsCarousel from './recommendationsCarousel';
-import ClientGrid from './clientGrid';
+import ClientGrid from '../../components/clientGrid/Component';
 import './styles.css';
 
 const Clients = (props) => {
