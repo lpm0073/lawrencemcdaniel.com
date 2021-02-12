@@ -34,11 +34,11 @@ const Openedx = (props) => {
                                 </a>
                             </div>
                         </div>
-                        <div className="col-lg-9 col-md-12 pl-3 pr-5">
-                            <div className="text-justify">
+                        <div className="col-lg-9 col-md-12">
+                            <div className="text-justify ml-lg-0 mr-lg-5 mx-2">
                                 <p>I am a 20-year veteran web developer specializing in the <a href="https://open.edx.org/" target="_blank" rel="noopener noreferrer">Open edX® platform</a>. Thousands of organizations around the world have used my <a href="https://blog.lawrencemcdaniel.com/category/open-edx/" target="_blank" rel="noopener noreferrer">Open edX® blog articles</a> to turn their online education vision into reality. In fact, my how-to guides and tutorials on <a href="https://blog.lawrencemcdaniel.com/open-edx-installation/" target="_blank" rel="noopener noreferrer">production installation</a>, <a href="https://blog.lawrencemcdaniel.com/scaling-open-edx/" target="_blank" rel="noopener noreferrer">platform scaling</a>, <a href="https://blog.lawrencemcdaniel.com/open-edx-custom-theming-tutorial/" target="_blank" rel="noopener noreferrer">custom theming</a>, and <a href="https://blog.lawrencemcdaniel.com/open-edx-configuration-tutorial/" target="_blank" rel="noopener noreferrer">configuration</a> have been viewed more than fifty thousand times.</p>
                                 <p>I provide free initial consultations in English and Spanish. Based in North America, I split my time between Cambridge, Massachusetts and Mexico City. As a freelancer with a low-overhead lifestyle I tend to be the most economical option in many cases. I provide personalized service and fast response to clients located around the world. All of my customers have my personal mobile phone number and can reach me any time by <a href="/contact">voice, whatsapp or email</a>. My <a href="/portfolio">Portfolio</a>, <a href="/clients">Client List and Recommendations</a> are all available on this site.</p>
-                                <ul>
+                                <ul className="mx-0 mr-lg-5">
                                     <li>Are you in planning stages of an Open edX® project?</li>
                                     <li>Are you looking for a low-risk deployment solution and an Open edX® service provider with a proven track record?</li>
                                     <li>Do you need affordable full-service administration and technical support?</li>
@@ -47,9 +47,9 @@ const Openedx = (props) => {
                         </div>
                     </div>
                     <div className="row">
-                        <div className="col-lg-12 col-md-12 ml-5">
-                            <div className="text-justify mr-5 pr-5">
-                                <h3 className="mt-5">Services That I Provide to the Open edX® Community</h3>
+                        <div className="col-lg-12 col-md-12">
+                            <div className="text-justify mx-lg-5 mx-2">
+                                <h3 className="mt-lg-5 mt-1">Services That I Provide to the Open edX® Community</h3>
                                 <hr />
                                 <h4>Production Installation & Configuration of Open edX®</h4>
                                 <p>You should consider hiring a professional to install your Open edX® plaform for you, if your budget permits. I have performed dozens of production installations for clients since 2016 on cloud platforms including AWS and Digital Ocean as well as specialized regional cloud providers across Asia and Afrika. I publish technical articles that fully describe all of my methods for preparing your Open edX® platform for production use, including <a href="https://blog.lawrencemcdaniel.com/open-edx-complete-backup-solution/" target="_blank" rel="noopener noreferrer">off-site data backup</a>, setting up <a href="https://blog.lawrencemcdaniel.com/open-edx-setup-smtp-email/" target="_blank" rel="noopener noreferrer">SMTP email</a>, adding <a href="https://blog.lawrencemcdaniel.com/open-edx-ssl-encryption/" target="_blank" rel="noopener noreferrer">SSL certificates</a>, and taking care of SEO.</p>
@@ -68,7 +68,7 @@ const Openedx = (props) => {
                             </div>
                         </div>
                         <div className="hide-medium">
-                            <h3 className="ml-auto text-center pl-2 mt-5 mb-5">Open edX® Client List</h3>
+                            <h3 className="ml-auto text-center pl-2 mx-5">Open edX® Client List</h3>
                             <ClientGrid clients={props.clients} filter="edx" />
                         </div>
                     </div>
