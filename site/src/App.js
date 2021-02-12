@@ -22,11 +22,12 @@ class App extends Component {
               <meta name="description" content="Full Stack Web Developer and Open edX® Consultant specializing in Python, Django, ReactJS, Redux, AngularJS, and AWS." />
               <meta name="keywords"  content="Lawrence McDaniel, open edx consultant, open edx service provider, Open edX, web developer, freelancer, full stack developer, full stack web developer, web developer, Python, Django, React, ReactJS, Redux, Wordpress, AWS, Boto3, Angular, AngularJS" />
 
+              <link rel="apple-touch-icon" href="https://lawrencemcdaniel.com/logo192.png" />
+              <link rel="manifest" href="https://lawrencemcdaniel.com/manifest.json" />
+
               <link rel="shortcut icon" href="/favicon.jpg" type="image/vnd.microsoft.icon"/>    
               <meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1" />
               <meta name="theme-color" content="#f1f1f1" />
-              <link rel="apple-touch-icon" href="%PUBLIC_URL%/logo192.png" />
-              <link rel="manifest" href="%PUBLIC_URL%/manifest.json" />
 
               <meta property="og:description" content="Freelance full stack web developer and Open edX® Consultant specializing in Python, Django, ReactJS, Redux, AngularJS, Wordpress, and AWS." />
               <meta property="og:title" content="Lawrence McDaniel - Full Stack Developer" />
@@ -46,7 +47,6 @@ class App extends Component {
               <meta name="twitter:image" content="https://cdn.lawrencemcdaniel.com/social-1200x675.jpg" />
               <meta name="twitter:description" content="Lawrence McDaniel - Full Stack Developer" />
               <meta itemprop="image" content="https://cdn.lawrencemcdaniel.com/social-1200x630.jpg" />
-
             </Helmet>
             <Main  />
           </div>

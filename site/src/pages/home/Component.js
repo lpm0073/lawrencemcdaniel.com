@@ -7,7 +7,6 @@ import { Fade } from 'react-animation-components';
 import LogoCube from '../../components/logoCube/Component';
 
 import './styles.css';
-import './cool-backgrounds.css'
 
 const mapStateToProps = state => ({
     ...state
