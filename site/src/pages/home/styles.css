@@ -94,6 +94,10 @@
         margin-top: 0 !important;
     }
 
+    .open-edx-consultant-bookends {
+        visibility: hidden !important;
+    }
+
 }
 /********** Super extra small devices Only :-) (e.g., iPhone 4) **********/
 @media (max-width: 479px) {

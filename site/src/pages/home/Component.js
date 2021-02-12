@@ -39,9 +39,9 @@ class Home extends Component {
                                         <div className="">
                                             <p className="jumbotron-subtitle mb-0">Full Stack Developer</p>
                                             <p className="lead mt-0 mb-0">
-                                                <span  role="img" aria-label="Close">⇥📙📚 </span>
+                                                <span className="open-edx-consultant-bookends" role="img" aria-label="Close">⇥📙📚 </span>
                                                 <a href="/openedx"><span className="open-edx-consultant">Open edX® Consultant</span></a>
-                                                <span  role="img" aria-label="Close"> 📚📘⇤</span>
+                                                <span className="open-edx-consultant-bookends" role="img" aria-label="Close"> 📚📘⇤</span>
                                             </p>
                                         </div>
                                     </Fade>
