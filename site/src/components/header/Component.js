@@ -37,9 +37,6 @@ class Header extends Component {
                             <NavLink className="nav-link" to='/about'>About</NavLink>
                         </NavItem>
                         <NavItem>
-                            <NavLink className="nav-link" to='/openedx'>Open edX®</NavLink>
-                        </NavItem>
-                        <NavItem>
                             <NavLink className="nav-link"  to='/specialties'>Specialties</NavLink>
                         </NavItem>
                         <NavItem>
@@ -54,49 +51,43 @@ class Header extends Component {
                         <NavItem>
                             <NavLink className="nav-link"  to='/clients'>Clients</NavLink>
                         </NavItem>
-
-                        <NavItem>
-                            <NavLink className="nav-link" to='/contact'>Contact</NavLink>
-                        </NavItem>
-
                         <UncontrolledDropdown nav inNavbar>
-                            <DropdownToggle nav caret>Code</DropdownToggle>
+                            <DropdownToggle nav caret>Code Samples</DropdownToggle>
                             <DropdownMenu >
-                                <DropdownItem>
-                                    <a className="" href='/reactjs' target="_self">ReactJS</a>
-                                </DropdownItem>
-                                <DropdownItem>
-                                    <a className="" href='https://horrors.lawrencemcdaniel.com/' target="_blank" rel="noopener noreferrer">AngularJS Site</a>
-                                </DropdownItem>
-                                <DropdownItem>
-                                    <a className="" href='https://my.roverbyopenstax.org/' target="_blank" rel="noopener noreferrer">Open edX® Site</a>
-                                </DropdownItem>
-                                <DropdownItem>
-                                    <a className="" href='/machine-learning' target="_self">Machine Learning</a>
-                                </DropdownItem>
-
-                                <DropdownItem divider />
-
-                                <DropdownItem >
-                                    <a className="" href='https://www.freshfrommexico.com/' target="_blank" rel="noopener noreferrer">Wordpress Site</a>
-                                </DropdownItem>
-                                <DropdownItem>
-                                    <a className="" href='https://clients.lawrencemcdaniel.com/' target="_blank" rel="noopener noreferrer">Ecommerce Site</a>
-                                </DropdownItem>
-                                <DropdownItem>
-                                    <a className="" href='https://webdev-class.lawrencemcdaniel.com/' target="_blank" rel="noopener noreferrer">Bootstrap</a>
-                                </DropdownItem>
-
-                                <DropdownItem divider />
-
                                 <DropdownItem>
                                     <a className="" href='https://github.com/lpm0073' target="_blank" rel="noopener noreferrer">Me on Github</a>
                                 </DropdownItem>
                                 <DropdownItem>
-                                    <a className="" href='https://blog.lawrencemcdaniel.com/' target="_blank" rel="noopener noreferrer">My Blog</a>
+                                    <a className="" href='/reactjs' target="_self">ReactJS</a>
+                                </DropdownItem>
+                                <DropdownItem>
+                                    <a className="" href='https://horrors.lawrencemcdaniel.com/' target="_blank" rel="noopener noreferrer">Angular</a>
+                                </DropdownItem>
+                                <DropdownItem>
+                                    <a className="" href='https://blog.lawrencemcdaniel.com/comprehensive-django-setup-guide-part-i/' target="_blank" rel="noopener noreferrer">Django</a>
+                                </DropdownItem>
+                                <DropdownItem>
+                                    <a className="" href='/machine-learning/' target="_self" rel="noopener noreferrer">Machine Learning</a>
+                                </DropdownItem>
+                                <DropdownItem divider />
+
+                                <DropdownItem >
+                                    <a className="" href='https://www.freshfrommexico.com/' target="_blank" rel="noopener noreferrer">Wordpress</a>
+                                </DropdownItem>
+                                <DropdownItem>
+                                    <a className="" href='https://clients.lawrencemcdaniel.com/' target="_blank" rel="noopener noreferrer">E-commerce</a>
+                                </DropdownItem>
+                                <DropdownItem>
+                                    <a className="" href='https://webdev-class.lawrencemcdaniel.com/' target="_blank" rel="noopener noreferrer">Bootstrap</a>
                                 </DropdownItem>
                             </DropdownMenu>
                         </UncontrolledDropdown>
+                        <NavItem>
+                            <NavLink className="nav-link" to='https://blog.lawrencemcdaniel.com/'>Blog</NavLink>
+                        </NavItem>
+                        <NavItem>
+                            <NavLink className="nav-link" to='/contact'>Contact</NavLink>
+                        </NavItem>
                     </Nav>
                 </Collapse>
             </Navbar>
