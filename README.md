@@ -30,6 +30,10 @@ git clone https://github.com/lpm0073/lawrencemcdaniel.com.git
 
 In the project directory, you can run:
 
+### `./deploy.sh`
+Executes yarn sitemap + yarn build, pushes to S3 and sets no-cache headers as necesary for 
+cache busting purposes.
+
 ### `yarn start`
 
 Runs the app in the development mode.<br />
@@ -53,6 +57,8 @@ Your app is ready to be deployed!
 
 See the section about [deployment](https://facebook.github.io/create-react-app/docs/deployment) for more information.
 
+### `yarn sitemap`
+Builds sitemap.xml based on configuration in src/components/sitemap/
 ### `yarn eject`
 
 **Note: this is a one-way operation. Once you `eject`, you can’t go back!**
