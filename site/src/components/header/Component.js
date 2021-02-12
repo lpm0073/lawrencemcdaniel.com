@@ -67,6 +67,12 @@ class Header extends Component {
                                     <a className="" href='https://blog.lawrencemcdaniel.com/comprehensive-django-setup-guide-part-i/' target="_blank" rel="noopener noreferrer">Django</a>
                                 </DropdownItem>
                                 <DropdownItem>
+                                    <a className="" href='https://api.lawrencemcdaniel.com/' target="_blank" rel="noopener noreferrer">REST api</a>
+                                </DropdownItem>
+                                <DropdownItem>
+                                    <a className="" href='https://blog.lawrencemcdaniel.com/category/aws/' target="_blank" rel="noopener noreferrer">Dev Ops</a>
+                                </DropdownItem>
+                                <DropdownItem>
                                     <a className="" href='/machine-learning/' target="_self" rel="noopener noreferrer">Machine Learning</a>
                                 </DropdownItem>
                                 <DropdownItem divider />
