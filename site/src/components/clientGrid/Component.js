@@ -48,8 +48,14 @@ class ClientGrid extends Component {
     this.props.actions.setClientGrid();
   }
 
+  filterLogos(logos, filter = "all") {
+    if (filter==="edx") return logos.filter(logo => logo.tags.includes(55));
+    return logos;
+  }
+
   render() {
-    const itemList = this.props.clients.logos;
+    const itemList=this.filterLogos(this.props.clients.logos, this.props.filter);
+
     return (
         <div key="client-grid">
           {this.props.isLoading ? (
