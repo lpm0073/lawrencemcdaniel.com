@@ -15,7 +15,7 @@ const Specialties = (props) => {
                     <SpecialtiesBanner />
                     <TechnologyCarousel specialties={props.specialties} />
 
-                    <div className="row specialties-code-samples mt-5 p-3 m-3">
+                    <div className="row specialties-code-samples mt-5 p-3 m-3 hide-medium">
                         <div className="col">
                             <div>
                                 <h2>Want to see code samples?</h2>

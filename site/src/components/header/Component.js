@@ -51,7 +51,7 @@ class Header extends Component {
                         <NavItem>
                             <NavLink className="nav-link"  to='/clients'>Clients</NavLink>
                         </NavItem>
-                        <UncontrolledDropdown nav inNavbar>
+                        <UncontrolledDropdown nav inNavbar className="hide-medium">
                             <DropdownToggle nav caret>Code Samples</DropdownToggle>
                             <DropdownMenu >
                                 <DropdownItem>

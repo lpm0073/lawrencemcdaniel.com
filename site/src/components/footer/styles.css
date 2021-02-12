@@ -43,13 +43,6 @@
 /********** Extra small devices only **********/
 @media (max-width: 767px) {
 
-.react-banner,
-.footer-extra-links {
-    visibility: hidden;
-    width: 0 !important;
-    height: 0 !important;
-}
-
 
 }
 /********** Super extra small devices Only :-) (e.g., iPhone 4) **********/
