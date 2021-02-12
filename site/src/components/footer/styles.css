@@ -14,9 +14,6 @@
     color: white;
 }
 
-p a:not(.btn-danger) {
-    text-decoration: none !important;
-}
 
 .edx-links {
     color: white;
