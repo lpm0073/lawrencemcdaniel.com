@@ -4,6 +4,7 @@ import { LinkedinBadge } from '../../components/linkedinBadge/Component';
 import ClientGrid from '../../components/clientGrid/Component';
 import { resumeUrl } from '../../shared/urls';
 import {Helmet} from "react-helmet";
+import { gsdServiceOpenedX } from '../../shared/seo/gsdServiceOpenedx';
 import './styles.css';
 
 
@@ -25,7 +26,16 @@ const Openedx = (props) => {
 
                     <meta name="twitter:title" content="Lawrence McDaniel - Open edX® Consultant" />
                     <meta name="twitter:description" content="Lawrence McDaniel - Open edX® Consultant" />
-                    <script src="https://lawrencemcdaniel.com/assets/seo/gsd-service-openedx.json" type="application/ld+json" />
+                    <script type="application/ld+json">{JSON.stringify(gsdServiceOpenedX)}</script>
+
+                    {/* 
+                        Google structured data: https://developers.google.com/search/docs/guides/intro-structured-data
+                        note that using a script tag with src does not work.
+                        
+                        https://stackoverflow.com/questions/30864619/does-json-ld-have-to-be-embedded 
+                        https://stackoverflow.com/questions/29064209/does-schema-org-markup-work-if-markup-is-dynamically-built-with-javascript/29066759#29066759
+                    */}
+
                 </Helmet>
                 <div key="openedx-page" className="site-page openedx-page">
                     <RenderPageTitle theme="light" icon="fa-align-left" title="Open edX®" boxed_title="Consulting" />

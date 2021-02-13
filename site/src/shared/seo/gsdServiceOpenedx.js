@@ -1,4 +1,4 @@
-{
+export const gsdServiceOpenedX = {
     "@context":"https://schema.org/",
     "@type":"Service",
     "serviceType":"Open edX Consulting",
@@ -26,9 +26,35 @@
       "hasOccupation":{
          "@type":"Occupation",
          "name":"Full Stack Developer",
+         "mainEntityOfPage": {
+            "@type": "WebPage",
+            "@id": "https://lawrencemcdaniel.com/"
+         },
+         "description":"Web developer or engineer who works with both the front and back ends of a website or application",
+         "estimatedSalary": {
+            "@type": "MonetaryAmountDistribution",
+            "name": "base",
+            "currency": "USD",
+            "median": "75.00",
+            "percentile10": "75.00",
+            "percentile25": "75.00",
+            "percentile75": "75.00",
+            "percentile90": "75.00",
+            "duration": "PT1H"
+         },
+         "occupationLocation": [
+            {
+              "@type": "City",
+              "name": "Cambridge"
+            },
+            {
+               "@type": "City",
+               "name": "Mexico City"
+             }
+           ],
          "qualifications":{
-            "@type":"EducationalOccupationalCredential",
-            "educationalLevel":"Bachelors or equivalent"
+         "@type":"EducationalOccupationalCredential",
+         "educationalLevel":"Bachelors or equivalent"
          }
       },
       "image":"https://cdn.lawrencemcdaniel.com/social-1200x675.jpg",
