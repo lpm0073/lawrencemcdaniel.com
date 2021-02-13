@@ -26,7 +26,7 @@ const Openedx = (props) => {
                     <meta name="twitter:description" content="Lawrence McDaniel - Open edX® Consultant" />
                 </Helmet>
                 <div key="openedx-page" className="site-page openedx-page">
-                    <RenderPageTitle theme="light" icon="fa-align-left" title="Open edX®" boxed_title="Consultant" />
+                    <RenderPageTitle theme="light" icon="fa-align-left" title="Open edX®" boxed_title="Consulting" />
                     <div className="row mt-5">
                         <div className="col-lg-3 hide-medium">
                             <div className="pl-3 text-center">

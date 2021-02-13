@@ -58,6 +58,9 @@ class Header extends Component {
                                     <a className="" href='https://github.com/lpm0073' target="_blank" rel="noopener noreferrer">Me on Github</a>
                                 </DropdownItem>
                                 <DropdownItem>
+                                    <a className="" href='/openedx' target="_self">Open edX</a>
+                                </DropdownItem>
+                                <DropdownItem>
                                     <a className="" href='/reactjs' target="_self">ReactJS</a>
                                 </DropdownItem>
                                 <DropdownItem>
