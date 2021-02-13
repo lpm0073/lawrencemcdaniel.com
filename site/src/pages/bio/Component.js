@@ -13,7 +13,7 @@ const Bio = (props) => {
         return(
             <React.Fragment>
                 <Helmet>
-                    <link rel="canonical" href="https://lawrencemcdaniel.com/bio" />
+                    <link rel="canonical" href="https://lawrencemcdaniel.com/" />
                 </Helmet>
                 <div key="bio-page" className="site-page bio-page">
                     <RenderPageTitle theme="light" icon="fa-align-left" title="FULL" boxed_title="BIO" />

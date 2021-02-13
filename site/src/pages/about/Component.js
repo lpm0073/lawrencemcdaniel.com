@@ -33,7 +33,7 @@ class About extends Component {
     
                 <React.Fragment>
                     <Helmet>
-                        <link rel="canonical" href="https://lawrencemcdaniel.com/about" />
+                        <link rel="canonical" href="https://lawrencemcdaniel.com/" />
                     </Helmet>
                     <div key="about-page" className="site-page about-page">
                         <RenderPageTitle theme="light" icon="fa-user" title="ABOUT" boxed_title="ME" />

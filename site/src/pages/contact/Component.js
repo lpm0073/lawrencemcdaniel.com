@@ -12,7 +12,7 @@ class Contact extends Component {
         return(
             <React.Fragment>
                 <Helmet>
-                    <link rel="canonical" href="https://lawrencemcdaniel.com/contacts" />
+                    <link rel="canonical" href="https://lawrencemcdaniel.com/" />
                 </Helmet>
                 <div key="contact-page" className="site-page contact-page">
                     <RenderPageTitle theme="light" icon="fa-phone" title="LETS" boxed_title="TALK" />

@@ -11,7 +11,7 @@ const Skills = (props) => {
     return(
         <React.Fragment>
             <Helmet>
-                <link rel="canonical" href="https://lawrencemcdaniel.com/skills" />
+                <link rel="canonical" href="https://lawrencemcdaniel.com/" />
             </Helmet>
             <div key="skills-page" className="site-page skills-page">
                 <RenderPageTitle theme="light" icon="fa-book" title="HARD" boxed_title="SKILLS" />

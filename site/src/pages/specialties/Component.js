@@ -11,7 +11,7 @@ const Specialties = (props) => {
     return(
         <React.Fragment>
             <Helmet>
-                <link rel="canonical" href="https://lawrencemcdaniel.com/specialties" />
+                <link rel="canonical" href="https://lawrencemcdaniel.com/" />
             </Helmet>
             <div className="specialties-page">
                 <div className="site-page ">

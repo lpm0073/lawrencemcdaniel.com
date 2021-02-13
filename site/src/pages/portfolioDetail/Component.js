@@ -67,7 +67,7 @@ const PortfolioDetail = (props) => {
         return(
             <React.Fragment>
                 <Helmet>
-                    <link rel="canonical" href="https://lawrencemcdaniel.com/portfolio" />
+                    <link rel="canonical" href="https://lawrencemcdaniel.com/" />
                 </Helmet>
                 <div key="portfolio-detail" className="site-page project-page">
                     <RenderPageTitle theme="light" icon="fa-briefcase" title="PROJECT" boxed_title="Detail" />

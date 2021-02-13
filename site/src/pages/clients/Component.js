@@ -10,7 +10,7 @@ const Clients = (props) => {
     return(
         <React.Fragment>
             <Helmet>
-                <link rel="canonical" href="https://lawrencemcdaniel.com/clients" />
+                <link rel="canonical" href="https://lawrencemcdaniel.com/" />
             </Helmet>
             <div key="client-page" className="recommendations-page">
                 <div className="site-page ">

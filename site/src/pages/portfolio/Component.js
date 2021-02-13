@@ -10,7 +10,7 @@ const Portfolio = (props) => {
     return(
         <React.Fragment>
             <Helmet>
-                <link rel="canonical" href="https://lawrencemcdaniel.com/portfolio" />
+                <link rel="canonical" href="https://lawrencemcdaniel.com/" />
             </Helmet>
             <div key="portfolio-page" className="portfolio-page">
                 <div className="site-page ">
