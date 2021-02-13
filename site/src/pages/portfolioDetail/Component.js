@@ -2,6 +2,7 @@ import React from 'react';
 import RenderPageTitle from '../../components/pagetitle/pageTitleComponent';
 import Loading from '../../components/Loading';
 import ProjectCarousel from './projectCarousel';
+import {Helmet} from "react-helmet";
 
 import './styles.css';
 
@@ -64,16 +65,21 @@ const PortfolioDetail = (props) => {
 
 
         return(
-            <div key="portfolio-detail" className="site-page project-page">
-                <RenderPageTitle theme="light" icon="fa-briefcase" title="PROJECT" boxed_title="Detail" />
-                <div className="row">
-                    <div className="col">
-                        {description}
-                        <hr />
-                        <ProjectCarousel images={urls} />
+            <React.Fragment>
+                <Helmet>
+                    <link rel="canonical" href="https://lawrencemcdaniel.com/portfolio" />
+                </Helmet>
+                <div key="portfolio-detail" className="site-page project-page">
+                    <RenderPageTitle theme="light" icon="fa-briefcase" title="PROJECT" boxed_title="Detail" />
+                    <div className="row">
+                        <div className="col">
+                            {description}
+                            <hr />
+                            <ProjectCarousel images={urls} />
+                        </div>
                     </div>
                 </div>
-            </div>
+            </React.Fragment>
         );
     } 
 }

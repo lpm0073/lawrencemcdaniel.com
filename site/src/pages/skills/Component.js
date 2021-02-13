@@ -2,6 +2,7 @@ import React from 'react';
 import RenderPageTitle from '../../components/pagetitle/pageTitleComponent';
 import SkillColumn from './skillColumn';
 import SkillBar from './skillBar';
+import {Helmet} from "react-helmet";
 import './styles.css';
 
 
@@ -9,7 +10,9 @@ const Skills = (props) => {
 
     return(
         <React.Fragment>
-
+            <Helmet>
+                <link rel="canonical" href="https://lawrencemcdaniel.com/skills" />
+            </Helmet>
             <div key="skills-page" className="site-page skills-page">
                 <RenderPageTitle theme="light" icon="fa-book" title="HARD" boxed_title="SKILLS" />
 

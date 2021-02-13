@@ -2,6 +2,7 @@ import React from 'react';
 
 import RenderPageTitle from '../../components/pagetitle/pageTitleComponent';
 import { LinkedinBadge } from '../../components/linkedinBadge/Component';
+import {Helmet} from "react-helmet";
 
 import { resumeUrl } from '../../shared/urls';
 import './styles.css';
@@ -12,8 +13,10 @@ const ReactPage = (props) => {
 
 
         return(
-
             <React.Fragment>
+                <Helmet>
+                    <link rel="canonical" href="https://lawrencemcdaniel.com/reactjs" />
+                </Helmet>
                 <div key="react-page" className="site-page react-page">
                     <RenderPageTitle theme="light" icon="fa-react" title="BUILT WITH" boxed_title="REACTJS" />
                     <div className="row mt-lg-5 pl-2">

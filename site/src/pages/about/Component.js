@@ -8,6 +8,7 @@ import RenderPageTitle from '../../components/pagetitle/pageTitleComponent';
 import { LinkedinBadge } from '../../components/linkedinBadge/Component';
 import AboutTile from './tileComponent';
 import { Fade } from 'react-animation-components';
+import {Helmet} from "react-helmet";
 
 import './styles.css';
 
@@ -31,7 +32,9 @@ class About extends Component {
             return(
     
                 <React.Fragment>
-                    
+                    <Helmet>
+                        <link rel="canonical" href="https://lawrencemcdaniel.com/about" />
+                    </Helmet>
                     <div key="about-page" className="site-page about-page">
                         <RenderPageTitle theme="light" icon="fa-user" title="ABOUT" boxed_title="ME" />
                         <div className="row mt-5 ml-0 mr-0">

@@ -13,6 +13,8 @@ const Openedx = (props) => {
             <div>
                 <Helmet>
                     <title>Open edX Consultant</title>
+                    <link rel="canonical" href="https://lawrencemcdaniel.com/openedx" />
+
                     <meta name="description" content="Turnkey installation, configuration, theming, customization and support of the Open edX® Learning Management System." />
 
                     <meta property="og:description" content="Turnkey installation, configuration, theming, customization and support of the Open edX® Learning Management System." />

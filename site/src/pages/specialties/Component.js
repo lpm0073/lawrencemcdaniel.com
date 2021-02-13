@@ -2,6 +2,7 @@ import React from 'react';
 import RenderPageTitle from '../../components/pagetitle/pageTitleComponent';
 import SpecialtiesBanner from './specialtiesBanner';
 import TechnologyCarousel from './technologyCarousel';
+import {Helmet} from "react-helmet";
 import './styles.css';
 
 
@@ -9,6 +10,9 @@ const Specialties = (props) => {
 
     return(
         <React.Fragment>
+            <Helmet>
+                <link rel="canonical" href="https://lawrencemcdaniel.com/specialties" />
+            </Helmet>
             <div className="specialties-page">
                 <div className="site-page ">
                     <RenderPageTitle theme="dark" icon="fa-pencil-square-o" title="MY" boxed_title="SPECIALTIES" />
