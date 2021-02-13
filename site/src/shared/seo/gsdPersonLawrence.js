@@ -42,20 +42,66 @@ export const gsdPersonLawrenceMcDaniel = {
          "percentile90": "75.00",
          "duration": "PT1H"
       },
-   "occupationLocation": [
+      "occupationLocation": [
+            {
+            "@type": "City",
+            "name": "Cambridge"
+            },
+            {
+               "@type": "City",
+               "name": "Mexico City"
+            }
+         ],
+      "qualifications":[
          {
-           "@type": "City",
-           "name": "Cambridge"
+            "@type":"EducationalOccupationalCredential",
+            "name": "University of North Texas",
+            "url": "https://www.unt.edu/",
+            "educationalLevel":"Bachelors or equivalent",
+            "description": "Bachelor of Science in Computer Science and Mathematics, Minors in Physics and English.",
+            "dateCreated": "1992-08-01"
          },
          {
-            "@type": "City",
-            "name": "Mexico City"
-          }
-        ],
-      "qualifications":{
-         "@type":"EducationalOccupationalCredential",
-         "educationalLevel":"Bachelors or equivalent"
-      }
+            "@type":"EducationalOccupationalCredential",
+            "name": "Johns Hopkins University",
+            "url": "https://www.coursera.org/learn/single-page-web-apps-with-angularjs/home/welcome",
+            "educationalLevel":"Certificate or equivalent",
+            "description": "Web App Development With AngularJS",
+            "dateCreated": "2017-06-01"
+         },
+         {
+            "@type":"EducationalOccupationalCredential",
+            "name": "Hong Kong University of Science and Technology",
+            "url": "https://www.coursera.org/learn/front-end-react/home/welcome",
+            "educationalLevel":"Certificate or equivalent",
+            "description": "Front-End Web Development with ReactJS",
+            "dateCreated": "2020-03-01"
+         },
+         {
+            "@type":"EducationalOccupationalCredential",
+            "name": "Wharton University of Pennsylvania",
+            "url": "https://www.coursera.org/learn/accounting-analytics/home/welcome",
+            "educationalLevel":"Certificate or equivalent",
+            "description": "Business Analytics Certification",
+            "dateCreated": "2017-08-01"
+         },
+         {
+            "@type":"EducationalOccupationalCredential",
+            "name": "Stanford University",
+            "url": "https://www.coursera.org/learn/machine-learning/home/welcome",
+            "educationalLevel":"Certificate or equivalent",
+            "description": "Machine Learning Certification",
+            "dateCreated": "2016-21-31"
+         },
+         {
+            "@type":"EducationalOccupationalCredential",
+            "name": "Stanford University",
+            "url": "https://cs193p.sites.stanford.edu/",
+            "educationalLevel":"Certificate or equivalent",
+            "description": "CS193P Developing Applications in iOS",
+            "dateCreated": "2012-06-30"
+         }
+      ]
    },
    "image":"https://cdn.lawrencemcdaniel.com/social-1200x675.jpg",
    "jobTitle":"Full Stack Developer",
