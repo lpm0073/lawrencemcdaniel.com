@@ -1,0 +1,60 @@
+{
+   "@context":"https://schema.org/",
+   "@type":"Person",
+   "address":{
+      "@type":"PostalAddress",
+      "addressLocality":"Cambridge",
+      "addressRegion":"MA",
+      "postalCode":"02139",
+      "streetAddress":"210 Broadway Street"
+   },
+   "affiliation":[
+      {
+         "@type":"Organization",
+         "name":"Open edX Marketplace",
+         "url":"https://open.edx.org/marketplace/lawrence-mcdaniel/"
+      }
+   ],
+   "email":"mailto:lpm0073@gmail.com",
+   "familyName":"McDaniel",
+   "givenName":"Lawrence",
+   "hasOccupation":{
+      "@type":"Occupation",
+      "name":"Full Stack Developer",
+      "qualifications":{
+         "@type":"EducationalOccupationalCredential",
+         "educationalLevel":"Bachelors or equivalent"
+      }
+   },
+   "image":"https://cdn.lawrencemcdaniel.com/social-1200x675.jpg",
+   "jobTitle":"Full Stack Developer",
+   "sameAs": [
+      "https://lawrencemcdaniel.com/",
+      "https://blog.lawrencemcdaniel.com/",
+      "https://www.linkedin.com/in/lawrencemcdaniel/",
+      "https://www.facebook.com/lawrence.p.mcdaniel",
+      "https://open.edx.org/marketplace/lawrence-mcdaniel/",
+      "https://github.com/lpm0073",
+      "https://angel.co/p/lpm0073-gmail-com",
+      "https://www.codementor.io/@lawrencemcdaniel"
+   ],
+   "telephone":"+1 (617) 834-6172",
+   "url":"https://lawrencemcdaniel.com",
+   "knowsAbout":[
+      "Open edX",
+      "https://open.edx.org/"
+   ],
+   "knowsLanguage":[
+      {
+         "@type":"Language",
+         "name":"English"
+      },
+      {
+         "@type":"Language",
+         "name":"Spanish"
+      }
+   ],
+   "nationality":"American",
+   "description":"I’m an American full stack developer with significant experience with classic backend stacks and front-end frameworks including Django, React, Angular, and WordPress. I also work extensively with the Open edX® learning management system. I am a veteran of multiple startups and early-stage ventures with dozens of successful product launches in multiple industries and markets around the world. I advocate for open source, try to keep things DRY and well-documented and when possible I adhere to the principals of 12-factor development. I’m a passionate learner and frequent blogger, currently interested in machine learning, AI and quantum computing.",
+   "subjectOf":"https://blog.lawrencemcdaniel.com/"
+}

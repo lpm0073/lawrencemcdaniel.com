@@ -47,6 +47,7 @@ class App extends Component {
               <meta name="twitter:image" content="https://cdn.lawrencemcdaniel.com/social-1200x675.jpg" />
               <meta name="twitter:description" content="Lawrence McDaniel - Full Stack Developer" />
               <meta itemprop="image" content="https://cdn.lawrencemcdaniel.com/social-1200x630.jpg" />
+              <script src="https://lawrencemcdaniel.com/assets/seo/gsd-person-lawrencemcdaniel.json" type="application/ld+json" />
             </Helmet>
             <Main  />
           </div>
