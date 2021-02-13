@@ -15,15 +15,17 @@ const Openedx = (props) => {
                     <title>Open edX Consultant</title>
                     <link rel="canonical" href="https://lawrencemcdaniel.com/openedx" />
 
-                    <meta name="description" content="Turnkey installation, configuration, theming, customization and support of the Open edX® Learning Management System." />
+                    <meta name="description" content="Free initial consultation. Turnkey installation, configuration, theming, customization training and support of the Open edX® Learning Management System." />
+                    <meta name="keywords"  content="Lawrence McDaniel, open edx, open edx consulting, open edx service providers, open edx installation, open edx configuration, open edx customization, open edx training, open edx support, open edx documentation, consultations, free quotations, free consultations" />
 
-                    <meta property="og:description" content="Turnkey installation, configuration, theming, customization and support of the Open edX® Learning Management System." />
+                    <meta property="og:description" content="Free initial consultation. Turnkey installation, configuration, theming, customization and support of the Open edX® Learning Management System." />
                     <meta property="og:title" content="Lawrence McDaniel - Open edX® Consultant" />
                     <meta property="og:site_name" content="Lawrence McDaniel - Open edX® Consultant" />
                     <meta property="og:url" content="https://lawrencemcdaniel.com/openedx" />
 
                     <meta name="twitter:title" content="Lawrence McDaniel - Open edX® Consultant" />
                     <meta name="twitter:description" content="Lawrence McDaniel - Open edX® Consultant" />
+
                 </Helmet>
                 <div key="openedx-page" className="site-page openedx-page">
                     <RenderPageTitle theme="light" icon="fa-align-left" title="Open edX®" boxed_title="Consulting" />

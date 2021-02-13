@@ -16,6 +16,8 @@ const ReactPage = (props) => {
             <React.Fragment>
                 <Helmet>
                     <link rel="canonical" href="https://lawrencemcdaniel.com/reactjs" />
+                    <meta name="description" content="Full Stack Web Developer with extensive experience using ReactJS and Redux. Follow links to the GitHub repository for this site." />
+                    <meta property="og:description" content="Full Stack Web Developer with extensive experience using ReactJS and Redux. Follow links to the GitHub repository for this site." />
                 </Helmet>
                 <div key="react-page" className="site-page react-page">
                     <RenderPageTitle theme="light" icon="fa-react" title="BUILT WITH" boxed_title="REACTJS" />
