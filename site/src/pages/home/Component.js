@@ -5,6 +5,9 @@ import * as Actions from '../../redux/ActionCreators';
 
 import { Fade } from 'react-animation-components';
 import LogoCube from '../../components/logoCube/Component';
+import { gsdPersonLawrenceMcDaniel } from '../../shared/seo/gsdPersonLawrence';
+import { gsdProfessionalService } from '../../shared/seo/gsdProfessionalService';
+import {Helmet} from "react-helmet";
 
 import './styles.css';
 
@@ -24,6 +27,16 @@ class Home extends Component {
     render() {
         return(
             <React.Fragment>
+                <Helmet>
+                    {/* 
+                        Google structured data: https://developers.google.com/search/docs/guides/intro-structured-data
+                        note that using a script tag with src does not work.
+                        
+                        https://stackoverflow.com/questions/30864619/does-json-ld-have-to-be-embedded 
+                        https://stackoverflow.com/questions/29064209/does-schema-org-markup-work-if-markup-is-dynamically-built-with-javascript/29066759#29066759
+                    */}
+                    <script type="application/ld+json">{JSON.stringify(gsdPersonLawrenceMcDaniel)}</script>
+                </Helmet>
                 <div key="home-page" className="jumbotron dark-background">
                     <div className="h-100">
                         <div className="row ml-0 mr-0 px-0 jumbotron-spacer">

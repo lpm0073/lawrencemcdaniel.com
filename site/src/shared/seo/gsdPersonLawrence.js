@@ -1,6 +1,7 @@
 export const gsdPersonLawrenceMcDaniel = {
    "@context":"https://schema.org/",
    "@type":"Person",
+   "@id": "https://lawrencemcdaniel.com",
    "address":{
       "@type":"PostalAddress",
       "addressLocality":"Cambridge",
@@ -13,13 +14,21 @@ export const gsdPersonLawrenceMcDaniel = {
          "@type":"Organization",
          "name":"Open edX Marketplace",
          "url":"https://open.edx.org/marketplace/lawrence-mcdaniel/"
-      },
-      {
-         "@type":"Organization",
-         "name":"University of North Texas",
-         "url":"https://www.unt.edu/"
       }
    ],
+   "alumniOf": [
+      {
+       "@type": "CollegeOrUniversity",
+       "name": "University of North Texas",
+       "url":"https://www.unt.edu/",
+       "sameAs": "https://www.unt.edu/"
+      }
+   ],
+   "birthPlace": "Houston, TX, USA",
+   "birthDate": "1966-12-31",
+   "height": "183 cm",
+   "gender": "Male",
+   "description": "Full Stack Developer",
    "email":"mailto:lpm0073@gmail.com",
    "familyName":"McDaniel",
    "givenName":"Lawrence",
@@ -28,9 +37,10 @@ export const gsdPersonLawrenceMcDaniel = {
       "name":"Full Stack Developer",
       "mainEntityOfPage": {
          "@type": "WebPage",
-         "@id": "https://lawrencemcdaniel.com/"
+         "@id": "https://lawrencemcdaniel.com/",
+         "lastReviewed": "2021-02-14"
       },
-      "description":"Web developer or engineer who works with both the front and back ends of a website or application",
+      "description":"I’m an American full stack developer with significant experience with classic backend stacks and front-end frameworks including Django, React, Angular, and WordPress. I also work extensively with the Open edX® learning management system. I am a veteran of multiple startups and early-stage ventures with dozens of successful product launches in multiple industries and markets around the world. I advocate for open source, try to keep things DRY and well-documented and when possible I adhere to the principals of 12-factor development. I’m a passionate learner and frequent blogger, currently interested in machine learning, AI and quantum computing.",
       "estimatedSalary": {
          "@type": "MonetaryAmountDistribution",
          "name": "base",
@@ -151,6 +161,7 @@ export const gsdPersonLawrenceMcDaniel = {
          }
       ]
    },
+   "identifier":"https://lawrencemcdaniel.com/",
    "image": {
       "@type": "ImageObject",
       "author": "Barry Wolfryd",
@@ -164,7 +175,8 @@ export const gsdPersonLawrenceMcDaniel = {
       "copyrightYear": "2017",
       "mainEntityOfPage": {
          "@type": "WebPage",
-         "@id": "https://lawrencemcdaniel.com/"
+         "@id": "https://lawrencemcdaniel.com/",
+         "lastReviewed": "2021-02-14"
       },
       "keywords":"Lawrence McDaniel, Barry Wolfryd photography, Roma Norte, CDMX",
       "description": "Barry Wolfryd did a series of these for an article I wrote in geek.ly",
@@ -1539,7 +1551,6 @@ export const gsdPersonLawrenceMcDaniel = {
       }
    ],
    "nationality":"American",
-   "description":"I’m an American full stack developer with significant experience with classic backend stacks and front-end frameworks including Django, React, Angular, and WordPress. I also work extensively with the Open edX® learning management system. I am a veteran of multiple startups and early-stage ventures with dozens of successful product launches in multiple industries and markets around the world. I advocate for open source, try to keep things DRY and well-documented and when possible I adhere to the principals of 12-factor development. I’m a passionate learner and frequent blogger, currently interested in machine learning, AI and quantum computing.",
    "subjectOf":[
       "https://blog.lawrencemcdaniel.com/",
       "https://iblnews.org/installing-and-deploying-an-open-edx-instance-a-view-of-developer-and-author-mcdaniel/",
