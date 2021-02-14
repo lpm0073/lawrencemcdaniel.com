@@ -231,6 +231,28 @@ export const gsdPersonLawrenceMcDaniel = {
          "brand":{
             "@id":"https://open.edx.org/"
          },
+         "review":[
+            {
+               "@type":"Review",
+               "author":"Lawrence McDaniel",
+               "datePublished":"2021-02-14",
+               "name":"Review by Lawrence",
+               "reviewBody":"My self review of this product.",
+               "reviewRating":{
+                  "@type":"Rating",
+                  "bestRating": "10",
+                  "ratingValue":"10",
+                  "worstRating": "1"
+               }
+            }
+         ],
+         "aggregateRating":{
+            "@type":"AggregateRating",
+            "ratingValue":"10",
+            "reviewCount":"1",
+            "bestRating":"10",
+            "worstRating":"1"
+         },
          "description":"Open edX learning management system",
          "isbn":"openedx",
          "offers":[
@@ -259,6 +281,28 @@ export const gsdPersonLawrenceMcDaniel = {
          "sku":"swagger",
          "brand":{
             "@id":"https://swagger.io/"
+         },
+         "review":[
+            {
+               "@type":"Review",
+               "author":"Lawrence McDaniel",
+               "datePublished":"2021-02-14",
+               "name":"Review by Lawrence",
+               "reviewBody":"My self review of this product.",
+               "reviewRating":{
+                  "@type":"Rating",
+                  "bestRating": "10",
+                  "ratingValue":"10",
+                  "worstRating": "1"
+               }
+            }
+         ],
+         "aggregateRating":{
+            "@type":"AggregateRating",
+            "ratingValue":"10",
+            "reviewCount":"1",
+            "bestRating":"10",
+            "worstRating":"1"
          },
          "description":"Swagger",
          "isbn":"swagger",
@@ -289,6 +333,28 @@ export const gsdPersonLawrenceMcDaniel = {
          "brand":{
             "@id":"https://readthedocs.org/"
          },
+         "review":[
+            {
+               "@type":"Review",
+               "author":"Lawrence McDaniel",
+               "datePublished":"2021-02-14",
+               "name":"Review by Lawrence",
+               "reviewBody":"My self review of this product.",
+               "reviewRating":{
+                  "@type":"Rating",
+                  "bestRating": "10",
+                  "ratingValue":"10",
+                  "worstRating": "1"
+               }
+            }
+         ],
+         "aggregateRating":{
+            "@type":"AggregateRating",
+            "ratingValue":"10",
+            "reviewCount":"1",
+            "bestRating":"10",
+            "worstRating":"1"
+         },
          "description":"ReadTheDocs",
          "isbn":"ReadTheDocs",
          "offers":[
@@ -317,6 +383,28 @@ export const gsdPersonLawrenceMcDaniel = {
          "sku":"Atlassian",
          "brand":{
             "@id":"https://www.atlassian.com/"
+         },
+         "review":[
+            {
+               "@type":"Review",
+               "author":"Lawrence McDaniel",
+               "datePublished":"2021-02-14",
+               "name":"Review by Lawrence",
+               "reviewBody":"My self review of this product.",
+               "reviewRating":{
+                  "@type":"Rating",
+                  "bestRating": "10",
+                  "ratingValue":"10",
+                  "worstRating": "1"
+               }
+            }
+         ],
+         "aggregateRating":{
+            "@type":"AggregateRating",
+            "ratingValue":"10",
+            "reviewCount":"1",
+            "bestRating":"10",
+            "worstRating":"1"
          },
          "description":"Atlassian",
          "isbn":"Atlassian",
@@ -347,6 +435,28 @@ export const gsdPersonLawrenceMcDaniel = {
          "brand":{
             "@id":"https://www.digitalocean.com/"
          },
+         "review":[
+            {
+               "@type":"Review",
+               "author":"Lawrence McDaniel",
+               "datePublished":"2021-02-14",
+               "name":"Review by Lawrence",
+               "reviewBody":"My self review of this product.",
+               "reviewRating":{
+                  "@type":"Rating",
+                  "bestRating": "10",
+                  "ratingValue":"10",
+                  "worstRating": "1"
+               }
+            }
+         ],
+         "aggregateRating":{
+            "@type":"AggregateRating",
+            "ratingValue":"10",
+            "reviewCount":"1",
+            "bestRating":"10",
+            "worstRating":"1"
+         },
          "description":"Digital Ocean",
          "isbn":"DigitalOcean",
          "offers":[
@@ -375,6 +485,28 @@ export const gsdPersonLawrenceMcDaniel = {
          "sku":"oAuth",
          "brand":{
             "@id":"https://oauth.net/"
+         },
+         "review":[
+            {
+               "@type":"Review",
+               "author":"Lawrence McDaniel",
+               "datePublished":"2021-02-14",
+               "name":"Review by Lawrence",
+               "reviewBody":"My self review of this product.",
+               "reviewRating":{
+                  "@type":"Rating",
+                  "bestRating": "10",
+                  "ratingValue":"10",
+                  "worstRating": "1"
+               }
+            }
+         ],
+         "aggregateRating":{
+            "@type":"AggregateRating",
+            "ratingValue":"10",
+            "reviewCount":"1",
+            "bestRating":"10",
+            "worstRating":"1"
          },
          "description":"oAuth",
          "isbn":"oAuth",
@@ -405,6 +537,28 @@ export const gsdPersonLawrenceMcDaniel = {
          "brand":{
             "@id":"https://www.gnu.org/"
          },
+         "review":[
+            {
+               "@type":"Review",
+               "author":"Lawrence McDaniel",
+               "datePublished":"2021-02-14",
+               "name":"Review by Lawrence",
+               "reviewBody":"My self review of this product.",
+               "reviewRating":{
+                  "@type":"Rating",
+                  "bestRating": "10",
+                  "ratingValue":"10",
+                  "worstRating": "1"
+               }
+            }
+         ],
+         "aggregateRating":{
+            "@type":"AggregateRating",
+            "ratingValue":"10",
+            "reviewCount":"1",
+            "bestRating":"10",
+            "worstRating":"1"
+         },
          "description":"GNU",
          "isbn":"GNU",
          "offers":[
@@ -433,6 +587,28 @@ export const gsdPersonLawrenceMcDaniel = {
          "sku":"Debian",
          "brand":{
             "@id":"https://www.debian.org/"
+         },
+         "review":[
+            {
+               "@type":"Review",
+               "author":"Lawrence McDaniel",
+               "datePublished":"2021-02-14",
+               "name":"Review by Lawrence",
+               "reviewBody":"My self review of this product.",
+               "reviewRating":{
+                  "@type":"Rating",
+                  "bestRating": "10",
+                  "ratingValue":"10",
+                  "worstRating": "1"
+               }
+            }
+         ],
+         "aggregateRating":{
+            "@type":"AggregateRating",
+            "ratingValue":"10",
+            "reviewCount":"1",
+            "bestRating":"10",
+            "worstRating":"1"
          },
          "description":"Debian",
          "isbn":"Debian",
@@ -463,6 +639,28 @@ export const gsdPersonLawrenceMcDaniel = {
          "brand":{
             "@id":"https://www.redhat.com/"
          },
+         "review":[
+            {
+               "@type":"Review",
+               "author":"Lawrence McDaniel",
+               "datePublished":"2021-02-14",
+               "name":"Review by Lawrence",
+               "reviewBody":"My self review of this product.",
+               "reviewRating":{
+                  "@type":"Rating",
+                  "bestRating": "10",
+                  "ratingValue":"10",
+                  "worstRating": "1"
+               }
+            }
+         ],
+         "aggregateRating":{
+            "@type":"AggregateRating",
+            "ratingValue":"10",
+            "reviewCount":"1",
+            "bestRating":"10",
+            "worstRating":"1"
+         },
          "description":"RedHat",
          "isbn":"RedHat",
          "offers":[
@@ -491,6 +689,28 @@ export const gsdPersonLawrenceMcDaniel = {
          "sku":"CentOS",
          "brand":{
             "@id":"https://www.centos.org/"
+         },
+         "review":[
+            {
+               "@type":"Review",
+               "author":"Lawrence McDaniel",
+               "datePublished":"2021-02-14",
+               "name":"Review by Lawrence",
+               "reviewBody":"My self review of this product.",
+               "reviewRating":{
+                  "@type":"Rating",
+                  "bestRating": "10",
+                  "ratingValue":"10",
+                  "worstRating": "1"
+               }
+            }
+         ],
+         "aggregateRating":{
+            "@type":"AggregateRating",
+            "ratingValue":"10",
+            "reviewCount":"1",
+            "bestRating":"10",
+            "worstRating":"1"
          },
          "description":"CentOS",
          "isbn":"CentOS",
@@ -521,6 +741,28 @@ export const gsdPersonLawrenceMcDaniel = {
          "brand":{
             "@id":"https://www.django-rest-framework.org/"
          },
+         "review":[
+            {
+               "@type":"Review",
+               "author":"Lawrence McDaniel",
+               "datePublished":"2021-02-14",
+               "name":"Review by Lawrence",
+               "reviewBody":"My self review of this product.",
+               "reviewRating":{
+                  "@type":"Rating",
+                  "bestRating": "10",
+                  "ratingValue":"10",
+                  "worstRating": "1"
+               }
+            }
+         ],
+         "aggregateRating":{
+            "@type":"AggregateRating",
+            "ratingValue":"10",
+            "reviewCount":"1",
+            "bestRating":"10",
+            "worstRating":"1"
+         },
          "description":"Django REST Framework",
          "isbn":"DRF",
          "offers":[
@@ -549,6 +791,28 @@ export const gsdPersonLawrenceMcDaniel = {
          "sku":"Gunicorn",
          "brand":{
             "@id":"https://gunicorn.org/"
+         },
+         "review":[
+            {
+               "@type":"Review",
+               "author":"Lawrence McDaniel",
+               "datePublished":"2021-02-14",
+               "name":"Review by Lawrence",
+               "reviewBody":"My self review of this product.",
+               "reviewRating":{
+                  "@type":"Rating",
+                  "bestRating": "10",
+                  "ratingValue":"10",
+                  "worstRating": "1"
+               }
+            }
+         ],
+         "aggregateRating":{
+            "@type":"AggregateRating",
+            "ratingValue":"10",
+            "reviewCount":"1",
+            "bestRating":"10",
+            "worstRating":"1"
          },
          "description":"Gunicorn",
          "isbn":"Gunicorn",
@@ -579,6 +843,28 @@ export const gsdPersonLawrenceMcDaniel = {
          "brand":{
             "@id":"https://www.crummy.com/software/BeautifulSoup/"
          },
+         "review":[
+            {
+               "@type":"Review",
+               "author":"Lawrence McDaniel",
+               "datePublished":"2021-02-14",
+               "name":"Review by Lawrence",
+               "reviewBody":"My self review of this product.",
+               "reviewRating":{
+                  "@type":"Rating",
+                  "bestRating": "10",
+                  "ratingValue":"10",
+                  "worstRating": "1"
+               }
+            }
+         ],
+         "aggregateRating":{
+            "@type":"AggregateRating",
+            "ratingValue":"10",
+            "reviewCount":"1",
+            "bestRating":"10",
+            "worstRating":"1"
+         },
          "description":"BeautifulSoup",
          "isbn":"BeautifulSoup",
          "offers":[
@@ -607,6 +893,28 @@ export const gsdPersonLawrenceMcDaniel = {
          "sku":"Scrapy",
          "brand":{
             "@id":"https://scrapy.org/"
+         },
+         "review":[
+            {
+               "@type":"Review",
+               "author":"Lawrence McDaniel",
+               "datePublished":"2021-02-14",
+               "name":"Review by Lawrence",
+               "reviewBody":"My self review of this product.",
+               "reviewRating":{
+                  "@type":"Rating",
+                  "bestRating": "10",
+                  "ratingValue":"10",
+                  "worstRating": "1"
+               }
+            }
+         ],
+         "aggregateRating":{
+            "@type":"AggregateRating",
+            "ratingValue":"10",
+            "reviewCount":"1",
+            "bestRating":"10",
+            "worstRating":"1"
          },
          "description":"Scrapy",
          "isbn":"Scrapy",
@@ -637,6 +945,28 @@ export const gsdPersonLawrenceMcDaniel = {
          "brand":{
             "@id":"https://numpy.org/"
          },
+         "review":[
+            {
+               "@type":"Review",
+               "author":"Lawrence McDaniel",
+               "datePublished":"2021-02-14",
+               "name":"Review by Lawrence",
+               "reviewBody":"My self review of this product.",
+               "reviewRating":{
+                  "@type":"Rating",
+                  "bestRating": "10",
+                  "ratingValue":"10",
+                  "worstRating": "1"
+               }
+            }
+         ],
+         "aggregateRating":{
+            "@type":"AggregateRating",
+            "ratingValue":"10",
+            "reviewCount":"1",
+            "bestRating":"10",
+            "worstRating":"1"
+         },
          "description":"NumPy",
          "isbn":"NumPy",
          "offers":[
@@ -665,6 +995,28 @@ export const gsdPersonLawrenceMcDaniel = {
          "sku":"SciPi",
          "brand":{
             "@id":"https://www.scipy.org/"
+         },
+         "review":[
+            {
+               "@type":"Review",
+               "author":"Lawrence McDaniel",
+               "datePublished":"2021-02-14",
+               "name":"Review by Lawrence",
+               "reviewBody":"My self review of this product.",
+               "reviewRating":{
+                  "@type":"Rating",
+                  "bestRating": "10",
+                  "ratingValue":"10",
+                  "worstRating": "1"
+               }
+            }
+         ],
+         "aggregateRating":{
+            "@type":"AggregateRating",
+            "ratingValue":"10",
+            "reviewCount":"1",
+            "bestRating":"10",
+            "worstRating":"1"
          },
          "description":"SciPi",
          "isbn":"SciPi",
@@ -695,6 +1047,28 @@ export const gsdPersonLawrenceMcDaniel = {
          "brand":{
             "@id":"https://www.sphinx-doc.org/en/master/"
          },
+         "review":[
+            {
+               "@type":"Review",
+               "author":"Lawrence McDaniel",
+               "datePublished":"2021-02-14",
+               "name":"Review by Lawrence",
+               "reviewBody":"My self review of this product.",
+               "reviewRating":{
+                  "@type":"Rating",
+                  "bestRating": "10",
+                  "ratingValue":"10",
+                  "worstRating": "1"
+               }
+            }
+         ],
+         "aggregateRating":{
+            "@type":"AggregateRating",
+            "ratingValue":"10",
+            "reviewCount":"1",
+            "bestRating":"10",
+            "worstRating":"1"
+         },
          "description":"Sphinx Doc",
          "isbn":"SphinxDoc",
          "offers":[
@@ -723,6 +1097,28 @@ export const gsdPersonLawrenceMcDaniel = {
          "sku":"NPM",
          "brand":{
             "@id":"https://www.npmjs.com/"
+         },
+         "review":[
+            {
+               "@type":"Review",
+               "author":"Lawrence McDaniel",
+               "datePublished":"2021-02-14",
+               "name":"Review by Lawrence",
+               "reviewBody":"My self review of this product.",
+               "reviewRating":{
+                  "@type":"Rating",
+                  "bestRating": "10",
+                  "ratingValue":"10",
+                  "worstRating": "1"
+               }
+            }
+         ],
+         "aggregateRating":{
+            "@type":"AggregateRating",
+            "ratingValue":"10",
+            "reviewCount":"1",
+            "bestRating":"10",
+            "worstRating":"1"
          },
          "description":"Node Package Manager",
          "isbn":"NPM",
@@ -753,6 +1149,28 @@ export const gsdPersonLawrenceMcDaniel = {
          "brand":{
             "@id":"https://nodejs.org/"
          },
+         "review":[
+            {
+               "@type":"Review",
+               "author":"Lawrence McDaniel",
+               "datePublished":"2021-02-14",
+               "name":"Review by Lawrence",
+               "reviewBody":"My self review of this product.",
+               "reviewRating":{
+                  "@type":"Rating",
+                  "bestRating": "10",
+                  "ratingValue":"10",
+                  "worstRating": "1"
+               }
+            }
+         ],
+         "aggregateRating":{
+            "@type":"AggregateRating",
+            "ratingValue":"10",
+            "reviewCount":"1",
+            "bestRating":"10",
+            "worstRating":"1"
+         },
          "description":"NodeJS",
          "isbn":"NodeJS",
          "offers":[
@@ -781,6 +1199,28 @@ export const gsdPersonLawrenceMcDaniel = {
          "sku":"Mako",
          "brand":{
             "@id":"https://www.makotemplates.org/"
+         },
+         "review":[
+            {
+               "@type":"Review",
+               "author":"Lawrence McDaniel",
+               "datePublished":"2021-02-14",
+               "name":"Review by Lawrence",
+               "reviewBody":"My self review of this product.",
+               "reviewRating":{
+                  "@type":"Rating",
+                  "bestRating": "10",
+                  "ratingValue":"10",
+                  "worstRating": "1"
+               }
+            }
+         ],
+         "aggregateRating":{
+            "@type":"AggregateRating",
+            "ratingValue":"10",
+            "reviewCount":"1",
+            "bestRating":"10",
+            "worstRating":"1"
          },
          "description":"Mako Templates",
          "isbn":"Mako",
@@ -811,6 +1251,28 @@ export const gsdPersonLawrenceMcDaniel = {
          "brand":{
             "@id":"https://www.google.com/chrome/"
          },
+         "review":[
+            {
+               "@type":"Review",
+               "author":"Lawrence McDaniel",
+               "datePublished":"2021-02-14",
+               "name":"Review by Lawrence",
+               "reviewBody":"My self review of this product.",
+               "reviewRating":{
+                  "@type":"Rating",
+                  "bestRating": "10",
+                  "ratingValue":"10",
+                  "worstRating": "1"
+               }
+            }
+         ],
+         "aggregateRating":{
+            "@type":"AggregateRating",
+            "ratingValue":"10",
+            "reviewCount":"1",
+            "bestRating":"10",
+            "worstRating":"1"
+         },
          "description":"Chrome",
          "isbn":"Chrome",
          "offers":[
@@ -839,6 +1301,28 @@ export const gsdPersonLawrenceMcDaniel = {
          "sku":"LetsEncrypt",
          "brand":{
             "@id":"https://letsencrypt.org/"
+         },
+         "review":[
+            {
+               "@type":"Review",
+               "author":"Lawrence McDaniel",
+               "datePublished":"2021-02-14",
+               "name":"Review by Lawrence",
+               "reviewBody":"My self review of this product.",
+               "reviewRating":{
+                  "@type":"Rating",
+                  "bestRating": "10",
+                  "ratingValue":"10",
+                  "worstRating": "1"
+               }
+            }
+         ],
+         "aggregateRating":{
+            "@type":"AggregateRating",
+            "ratingValue":"10",
+            "reviewCount":"1",
+            "bestRating":"10",
+            "worstRating":"1"
          },
          "description":"Lets Encrypt",
          "isbn":"LetsEncrypt",
@@ -869,6 +1353,28 @@ export const gsdPersonLawrenceMcDaniel = {
          "brand":{
             "@id":"https://en.wikipedia.org/wiki/Hypertext_Transfer_Protocol"
          },
+         "review":[
+            {
+               "@type":"Review",
+               "author":"Lawrence McDaniel",
+               "datePublished":"2021-02-14",
+               "name":"Review by Lawrence",
+               "reviewBody":"My self review of this product.",
+               "reviewRating":{
+                  "@type":"Rating",
+                  "bestRating": "10",
+                  "ratingValue":"10",
+                  "worstRating": "1"
+               }
+            }
+         ],
+         "aggregateRating":{
+            "@type":"AggregateRating",
+            "ratingValue":"10",
+            "reviewCount":"1",
+            "bestRating":"10",
+            "worstRating":"1"
+         },
          "description":"HTTP",
          "isbn":"HTTP",
          "offers":[
@@ -897,6 +1403,28 @@ export const gsdPersonLawrenceMcDaniel = {
          "sku":"Yarn",
          "brand":{
             "@id":"https://yarnpkg.com/"
+         },
+         "review":[
+            {
+               "@type":"Review",
+               "author":"Lawrence McDaniel",
+               "datePublished":"2021-02-14",
+               "name":"Review by Lawrence",
+               "reviewBody":"My self review of this product.",
+               "reviewRating":{
+                  "@type":"Rating",
+                  "bestRating": "10",
+                  "ratingValue":"10",
+                  "worstRating": "1"
+               }
+            }
+         ],
+         "aggregateRating":{
+            "@type":"AggregateRating",
+            "ratingValue":"10",
+            "reviewCount":"1",
+            "bestRating":"10",
+            "worstRating":"1"
          },
          "description":"Yarn",
          "isbn":"Yarn",
@@ -927,6 +1455,28 @@ export const gsdPersonLawrenceMcDaniel = {
          "brand":{
             "@id":"https://memcached.org/"
          },
+         "review":[
+            {
+               "@type":"Review",
+               "author":"Lawrence McDaniel",
+               "datePublished":"2021-02-14",
+               "name":"Review by Lawrence",
+               "reviewBody":"My self review of this product.",
+               "reviewRating":{
+                  "@type":"Rating",
+                  "bestRating": "10",
+                  "ratingValue":"10",
+                  "worstRating": "1"
+               }
+            }
+         ],
+         "aggregateRating":{
+            "@type":"AggregateRating",
+            "ratingValue":"10",
+            "reviewCount":"1",
+            "bestRating":"10",
+            "worstRating":"1"
+         },
          "description":"Memcached",
          "isbn":"Memcached",
          "offers":[
@@ -955,6 +1505,28 @@ export const gsdPersonLawrenceMcDaniel = {
          "sku":"Ubuntu",
          "brand":{
             "@id":"https://ubuntu.com/"
+         },
+         "review":[
+            {
+               "@type":"Review",
+               "author":"Lawrence McDaniel",
+               "datePublished":"2021-02-14",
+               "name":"Review by Lawrence",
+               "reviewBody":"My self review of this product.",
+               "reviewRating":{
+                  "@type":"Rating",
+                  "bestRating": "10",
+                  "ratingValue":"10",
+                  "worstRating": "1"
+               }
+            }
+         ],
+         "aggregateRating":{
+            "@type":"AggregateRating",
+            "ratingValue":"10",
+            "reviewCount":"1",
+            "bestRating":"10",
+            "worstRating":"1"
          },
          "description":"Ubuntu",
          "isbn":"Ubuntu",
@@ -985,6 +1557,28 @@ export const gsdPersonLawrenceMcDaniel = {
          "brand":{
             "@id":"https://en.wikipedia.org/wiki/JavaScript"
          },
+         "review":[
+            {
+               "@type":"Review",
+               "author":"Lawrence McDaniel",
+               "datePublished":"2021-02-14",
+               "name":"Review by Lawrence",
+               "reviewBody":"My self review of this product.",
+               "reviewRating":{
+                  "@type":"Rating",
+                  "bestRating": "10",
+                  "ratingValue":"10",
+                  "worstRating": "1"
+               }
+            }
+         ],
+         "aggregateRating":{
+            "@type":"AggregateRating",
+            "ratingValue":"10",
+            "reviewCount":"1",
+            "bestRating":"10",
+            "worstRating":"1"
+         },
          "description":"Javascript",
          "isbn":"Javascript",
          "offers":[
@@ -1013,6 +1607,28 @@ export const gsdPersonLawrenceMcDaniel = {
          "sku":"CSS3",
          "brand":{
             "@id":"https://en.wikipedia.org/wiki/CSS"
+         },
+         "review":[
+            {
+               "@type":"Review",
+               "author":"Lawrence McDaniel",
+               "datePublished":"2021-02-14",
+               "name":"Review by Lawrence",
+               "reviewBody":"My self review of this product.",
+               "reviewRating":{
+                  "@type":"Rating",
+                  "bestRating": "10",
+                  "ratingValue":"10",
+                  "worstRating": "1"
+               }
+            }
+         ],
+         "aggregateRating":{
+            "@type":"AggregateRating",
+            "ratingValue":"10",
+            "reviewCount":"1",
+            "bestRating":"10",
+            "worstRating":"1"
          },
          "description":"CSS3",
          "isbn":"CSS3",
@@ -1043,6 +1659,28 @@ export const gsdPersonLawrenceMcDaniel = {
          "brand":{
             "@id":"https://en.wikipedia.org/wiki/HTML5"
          },
+         "review":[
+            {
+               "@type":"Review",
+               "author":"Lawrence McDaniel",
+               "datePublished":"2021-02-14",
+               "name":"Review by Lawrence",
+               "reviewBody":"My self review of this product.",
+               "reviewRating":{
+                  "@type":"Rating",
+                  "bestRating": "10",
+                  "ratingValue":"10",
+                  "worstRating": "1"
+               }
+            }
+         ],
+         "aggregateRating":{
+            "@type":"AggregateRating",
+            "ratingValue":"10",
+            "reviewCount":"1",
+            "bestRating":"10",
+            "worstRating":"1"
+         },
          "description":"HTML5",
          "isbn":"HTML5",
          "offers":[
@@ -1071,6 +1709,28 @@ export const gsdPersonLawrenceMcDaniel = {
          "sku":"underscorejs",
          "brand":{
             "@id":"https://underscorejs.org/"
+         },
+         "review":[
+            {
+               "@type":"Review",
+               "author":"Lawrence McDaniel",
+               "datePublished":"2021-02-14",
+               "name":"Review by Lawrence",
+               "reviewBody":"My self review of this product.",
+               "reviewRating":{
+                  "@type":"Rating",
+                  "bestRating": "10",
+                  "ratingValue":"10",
+                  "worstRating": "1"
+               }
+            }
+         ],
+         "aggregateRating":{
+            "@type":"AggregateRating",
+            "ratingValue":"10",
+            "reviewCount":"1",
+            "bestRating":"10",
+            "worstRating":"1"
          },
          "description":"underscore.js",
          "isbn":"underscorejs",
@@ -1101,6 +1761,28 @@ export const gsdPersonLawrenceMcDaniel = {
          "brand":{
             "@id":"https://www.rabbitmq.com/"
          },
+         "review":[
+            {
+               "@type":"Review",
+               "author":"Lawrence McDaniel",
+               "datePublished":"2021-02-14",
+               "name":"Review by Lawrence",
+               "reviewBody":"My self review of this product.",
+               "reviewRating":{
+                  "@type":"Rating",
+                  "bestRating": "10",
+                  "ratingValue":"10",
+                  "worstRating": "1"
+               }
+            }
+         ],
+         "aggregateRating":{
+            "@type":"AggregateRating",
+            "ratingValue":"10",
+            "reviewCount":"1",
+            "bestRating":"10",
+            "worstRating":"1"
+         },
          "description":"RabbitMQ",
          "isbn":"RabbitMQ",
          "offers":[
@@ -1129,6 +1811,28 @@ export const gsdPersonLawrenceMcDaniel = {
          "sku":"Celery",
          "brand":{
             "@id":"https://docs.celeryproject.org"
+         },
+         "review":[
+            {
+               "@type":"Review",
+               "author":"Lawrence McDaniel",
+               "datePublished":"2021-02-14",
+               "name":"Review by Lawrence",
+               "reviewBody":"My self review of this product.",
+               "reviewRating":{
+                  "@type":"Rating",
+                  "bestRating": "10",
+                  "ratingValue":"10",
+                  "worstRating": "1"
+               }
+            }
+         ],
+         "aggregateRating":{
+            "@type":"AggregateRating",
+            "ratingValue":"10",
+            "reviewCount":"1",
+            "bestRating":"10",
+            "worstRating":"1"
          },
          "description":"Celery",
          "isbn":"Celery",
@@ -1159,6 +1863,28 @@ export const gsdPersonLawrenceMcDaniel = {
          "brand":{
             "@id":"https://www.nginx.com/"
          },
+         "review":[
+            {
+               "@type":"Review",
+               "author":"Lawrence McDaniel",
+               "datePublished":"2021-02-14",
+               "name":"Review by Lawrence",
+               "reviewBody":"My self review of this product.",
+               "reviewRating":{
+                  "@type":"Rating",
+                  "bestRating": "10",
+                  "ratingValue":"10",
+                  "worstRating": "1"
+               }
+            }
+         ],
+         "aggregateRating":{
+            "@type":"AggregateRating",
+            "ratingValue":"10",
+            "reviewCount":"1",
+            "bestRating":"10",
+            "worstRating":"1"
+         },
          "description":"Nginx",
          "isbn":"Nginx",
          "offers":[
@@ -1187,6 +1913,28 @@ export const gsdPersonLawrenceMcDaniel = {
          "sku":"Redux",
          "brand":{
             "@id":"https://redux.js.org/"
+         },
+         "review":[
+            {
+               "@type":"Review",
+               "author":"Lawrence McDaniel",
+               "datePublished":"2021-02-14",
+               "name":"Review by Lawrence",
+               "reviewBody":"My self review of this product.",
+               "reviewRating":{
+                  "@type":"Rating",
+                  "bestRating": "10",
+                  "ratingValue":"10",
+                  "worstRating": "1"
+               }
+            }
+         ],
+         "aggregateRating":{
+            "@type":"AggregateRating",
+            "ratingValue":"10",
+            "reviewCount":"1",
+            "bestRating":"10",
+            "worstRating":"1"
          },
          "description":"Redux",
          "isbn":"Redux",
@@ -1217,6 +1965,28 @@ export const gsdPersonLawrenceMcDaniel = {
          "brand":{
             "@id":"https://reactjs.org/"
          },
+         "review":[
+            {
+               "@type":"Review",
+               "author":"Lawrence McDaniel",
+               "datePublished":"2021-02-14",
+               "name":"Review by Lawrence",
+               "reviewBody":"My self review of this product.",
+               "reviewRating":{
+                  "@type":"Rating",
+                  "bestRating": "10",
+                  "ratingValue":"10",
+                  "worstRating": "1"
+               }
+            }
+         ],
+         "aggregateRating":{
+            "@type":"AggregateRating",
+            "ratingValue":"10",
+            "reviewCount":"1",
+            "bestRating":"10",
+            "worstRating":"1"
+         },
          "description":"ReactJS",
          "isbn":"ReactJS",
          "offers":[
@@ -1245,6 +2015,28 @@ export const gsdPersonLawrenceMcDaniel = {
          "sku":"bootstrap",
          "brand":{
             "@id":"https://getbootstrap.com/"
+         },
+         "review":[
+            {
+               "@type":"Review",
+               "author":"Lawrence McDaniel",
+               "datePublished":"2021-02-14",
+               "name":"Review by Lawrence",
+               "reviewBody":"My self review of this product.",
+               "reviewRating":{
+                  "@type":"Rating",
+                  "bestRating": "10",
+                  "ratingValue":"10",
+                  "worstRating": "1"
+               }
+            }
+         ],
+         "aggregateRating":{
+            "@type":"AggregateRating",
+            "ratingValue":"10",
+            "reviewCount":"1",
+            "bestRating":"10",
+            "worstRating":"1"
          },
          "description":"bootstrap",
          "isbn":"bootstrap",
@@ -1275,6 +2067,28 @@ export const gsdPersonLawrenceMcDaniel = {
          "brand":{
             "@id":"https://aws.amazon.com/"
          },
+         "review":[
+            {
+               "@type":"Review",
+               "author":"Lawrence McDaniel",
+               "datePublished":"2021-02-14",
+               "name":"Review by Lawrence",
+               "reviewBody":"My self review of this product.",
+               "reviewRating":{
+                  "@type":"Rating",
+                  "bestRating": "10",
+                  "ratingValue":"10",
+                  "worstRating": "1"
+               }
+            }
+         ],
+         "aggregateRating":{
+            "@type":"AggregateRating",
+            "ratingValue":"10",
+            "reviewCount":"1",
+            "bestRating":"10",
+            "worstRating":"1"
+         },
          "description":"Amazon Web Services",
          "isbn":"aws",
          "offers":[
@@ -1303,6 +2117,28 @@ export const gsdPersonLawrenceMcDaniel = {
          "sku":"wordpress",
          "brand":{
             "@id":"https://wordpress.com/"
+         },
+         "review":[
+            {
+               "@type":"Review",
+               "author":"Lawrence McDaniel",
+               "datePublished":"2021-02-14",
+               "name":"Review by Lawrence",
+               "reviewBody":"My self review of this product.",
+               "reviewRating":{
+                  "@type":"Rating",
+                  "bestRating": "10",
+                  "ratingValue":"10",
+                  "worstRating": "1"
+               }
+            }
+         ],
+         "aggregateRating":{
+            "@type":"AggregateRating",
+            "ratingValue":"10",
+            "reviewCount":"1",
+            "bestRating":"10",
+            "worstRating":"1"
          },
          "description":"wordpress",
          "isbn":"wordpress",
@@ -1333,6 +2169,28 @@ export const gsdPersonLawrenceMcDaniel = {
          "brand":{
             "@id":"https://woocommerce.com/"
          },
+         "review":[
+            {
+               "@type":"Review",
+               "author":"Lawrence McDaniel",
+               "datePublished":"2021-02-14",
+               "name":"Review by Lawrence",
+               "reviewBody":"My self review of this product.",
+               "reviewRating":{
+                  "@type":"Rating",
+                  "bestRating": "10",
+                  "ratingValue":"10",
+                  "worstRating": "1"
+               }
+            }
+         ],
+         "aggregateRating":{
+            "@type":"AggregateRating",
+            "ratingValue":"10",
+            "reviewCount":"1",
+            "bestRating":"10",
+            "worstRating":"1"
+         },
          "description":"Woo Commerce",
          "isbn":"woo",
          "offers":[
@@ -1361,6 +2219,28 @@ export const gsdPersonLawrenceMcDaniel = {
          "sku":"ror",
          "brand":{
             "@id":"https://rubyonrails.org/"
+         },
+         "review":[
+            {
+               "@type":"Review",
+               "author":"Lawrence McDaniel",
+               "datePublished":"2021-02-14",
+               "name":"Review by Lawrence",
+               "reviewBody":"My self review of this product.",
+               "reviewRating":{
+                  "@type":"Rating",
+                  "bestRating": "10",
+                  "ratingValue":"10",
+                  "worstRating": "1"
+               }
+            }
+         ],
+         "aggregateRating":{
+            "@type":"AggregateRating",
+            "ratingValue":"10",
+            "reviewCount":"1",
+            "bestRating":"10",
+            "worstRating":"1"
          },
          "description":"Ruby on Rails",
          "isbn":"ror",
@@ -1391,6 +2271,28 @@ export const gsdPersonLawrenceMcDaniel = {
          "brand":{
             "@id":"https://angular.io/"
          },
+         "review":[
+            {
+               "@type":"Review",
+               "author":"Lawrence McDaniel",
+               "datePublished":"2021-02-14",
+               "name":"Review by Lawrence",
+               "reviewBody":"My self review of this product.",
+               "reviewRating":{
+                  "@type":"Rating",
+                  "bestRating": "10",
+                  "ratingValue":"10",
+                  "worstRating": "1"
+               }
+            }
+         ],
+         "aggregateRating":{
+            "@type":"AggregateRating",
+            "ratingValue":"10",
+            "reviewCount":"1",
+            "bestRating":"10",
+            "worstRating":"1"
+         },
          "description":"Angular",
          "isbn":"Angular",
          "offers":[
@@ -1419,6 +2321,28 @@ export const gsdPersonLawrenceMcDaniel = {
          "sku":"Ionic",
          "brand":{
             "@id":"https://ionicframework.com/"
+         },
+         "review":[
+            {
+               "@type":"Review",
+               "author":"Lawrence McDaniel",
+               "datePublished":"2021-02-14",
+               "name":"Review by Lawrence",
+               "reviewBody":"My self review of this product.",
+               "reviewRating":{
+                  "@type":"Rating",
+                  "bestRating": "10",
+                  "ratingValue":"10",
+                  "worstRating": "1"
+               }
+            }
+         ],
+         "aggregateRating":{
+            "@type":"AggregateRating",
+            "ratingValue":"10",
+            "reviewCount":"1",
+            "bestRating":"10",
+            "worstRating":"1"
          },
          "description":"Ionic",
          "isbn":"Ionic",
@@ -1449,6 +2373,28 @@ export const gsdPersonLawrenceMcDaniel = {
          "brand":{
             "@id":"https://github.com/"
          },
+         "review":[
+            {
+               "@type":"Review",
+               "author":"Lawrence McDaniel",
+               "datePublished":"2021-02-14",
+               "name":"Review by Lawrence",
+               "reviewBody":"My self review of this product.",
+               "reviewRating":{
+                  "@type":"Rating",
+                  "bestRating": "10",
+                  "ratingValue":"10",
+                  "worstRating": "1"
+               }
+            }
+         ],
+         "aggregateRating":{
+            "@type":"AggregateRating",
+            "ratingValue":"10",
+            "reviewCount":"1",
+            "bestRating":"10",
+            "worstRating":"1"
+         },
          "description":"GitHub",
          "isbn":"GitHub",
          "offers":[
@@ -1477,6 +2423,28 @@ export const gsdPersonLawrenceMcDaniel = {
          "sku":"Apache",
          "brand":{
             "@id":"https://httpd.apache.org/"
+         },
+         "review":[
+            {
+               "@type":"Review",
+               "author":"Lawrence McDaniel",
+               "datePublished":"2021-02-14",
+               "name":"Review by Lawrence",
+               "reviewBody":"My self review of this product.",
+               "reviewRating":{
+                  "@type":"Rating",
+                  "bestRating": "10",
+                  "ratingValue":"10",
+                  "worstRating": "1"
+               }
+            }
+         ],
+         "aggregateRating":{
+            "@type":"AggregateRating",
+            "ratingValue":"10",
+            "reviewCount":"1",
+            "bestRating":"10",
+            "worstRating":"1"
          },
          "description":"Apache",
          "isbn":"Apache",
@@ -1507,6 +2475,28 @@ export const gsdPersonLawrenceMcDaniel = {
          "brand":{
             "@id":"https://www.php.net/"
          },
+         "review":[
+            {
+               "@type":"Review",
+               "author":"Lawrence McDaniel",
+               "datePublished":"2021-02-14",
+               "name":"Review by Lawrence",
+               "reviewBody":"My self review of this product.",
+               "reviewRating":{
+                  "@type":"Rating",
+                  "bestRating": "10",
+                  "ratingValue":"10",
+                  "worstRating": "1"
+               }
+            }
+         ],
+         "aggregateRating":{
+            "@type":"AggregateRating",
+            "ratingValue":"10",
+            "reviewCount":"1",
+            "bestRating":"10",
+            "worstRating":"1"
+         },
          "description":"PHP",
          "isbn":"PHP",
          "offers":[
@@ -1535,6 +2525,28 @@ export const gsdPersonLawrenceMcDaniel = {
          "sku":"Python",
          "brand":{
             "@id":"https://www.python.org/"
+         },
+         "review":[
+            {
+               "@type":"Review",
+               "author":"Lawrence McDaniel",
+               "datePublished":"2021-02-14",
+               "name":"Review by Lawrence",
+               "reviewBody":"My self review of this product.",
+               "reviewRating":{
+                  "@type":"Rating",
+                  "bestRating": "10",
+                  "ratingValue":"10",
+                  "worstRating": "1"
+               }
+            }
+         ],
+         "aggregateRating":{
+            "@type":"AggregateRating",
+            "ratingValue":"10",
+            "reviewCount":"1",
+            "bestRating":"10",
+            "worstRating":"1"
          },
          "description":"Python",
          "isbn":"Python",
@@ -1565,6 +2577,28 @@ export const gsdPersonLawrenceMcDaniel = {
          "brand":{
             "@id":"https://www.djangoproject.com/"
          },
+         "review":[
+            {
+               "@type":"Review",
+               "author":"Lawrence McDaniel",
+               "datePublished":"2021-02-14",
+               "name":"Review by Lawrence",
+               "reviewBody":"My self review of this product.",
+               "reviewRating":{
+                  "@type":"Rating",
+                  "bestRating": "10",
+                  "ratingValue":"10",
+                  "worstRating": "1"
+               }
+            }
+         ],
+         "aggregateRating":{
+            "@type":"AggregateRating",
+            "ratingValue":"10",
+            "reviewCount":"1",
+            "bestRating":"10",
+            "worstRating":"1"
+         },
          "description":"Django",
          "isbn":"Django",
          "offers":[
@@ -1593,6 +2627,28 @@ export const gsdPersonLawrenceMcDaniel = {
          "sku":"msexcel",
          "brand":{
             "@id":"https://www.microsoft.com/en-us/microsoft-365/excel"
+         },
+         "review":[
+            {
+               "@type":"Review",
+               "author":"Lawrence McDaniel",
+               "datePublished":"2021-02-14",
+               "name":"Review by Lawrence",
+               "reviewBody":"My self review of this product.",
+               "reviewRating":{
+                  "@type":"Rating",
+                  "bestRating": "10",
+                  "ratingValue":"10",
+                  "worstRating": "1"
+               }
+            }
+         ],
+         "aggregateRating":{
+            "@type":"AggregateRating",
+            "ratingValue":"10",
+            "reviewCount":"1",
+            "bestRating":"10",
+            "worstRating":"1"
          },
          "description":"Microsoft Excel",
          "isbn":"msexcel",
@@ -1623,6 +2679,28 @@ export const gsdPersonLawrenceMcDaniel = {
          "brand":{
             "@id":"https://docs.microsoft.com/en-us/office/vba/library-reference/concepts/getting-started-with-vba-in-office"
          },
+         "review":[
+            {
+               "@type":"Review",
+               "author":"Lawrence McDaniel",
+               "datePublished":"2021-02-14",
+               "name":"Review by Lawrence",
+               "reviewBody":"My self review of this product.",
+               "reviewRating":{
+                  "@type":"Rating",
+                  "bestRating": "10",
+                  "ratingValue":"10",
+                  "worstRating": "1"
+               }
+            }
+         ],
+         "aggregateRating":{
+            "@type":"AggregateRating",
+            "ratingValue":"10",
+            "reviewCount":"1",
+            "bestRating":"10",
+            "worstRating":"1"
+         },
          "description":"Microsoft Visual Basic For Applications",
          "isbn":"msvba",
          "offers":[
@@ -1651,6 +2729,28 @@ export const gsdPersonLawrenceMcDaniel = {
          "sku":"PostgreSQL",
          "brand":{
             "@id":"https://www.postgresql.org/"
+         },
+         "review":[
+            {
+               "@type":"Review",
+               "author":"Lawrence McDaniel",
+               "datePublished":"2021-02-14",
+               "name":"Review by Lawrence",
+               "reviewBody":"My self review of this product.",
+               "reviewRating":{
+                  "@type":"Rating",
+                  "bestRating": "10",
+                  "ratingValue":"10",
+                  "worstRating": "1"
+               }
+            }
+         ],
+         "aggregateRating":{
+            "@type":"AggregateRating",
+            "ratingValue":"10",
+            "reviewCount":"1",
+            "bestRating":"10",
+            "worstRating":"1"
          },
          "description":"PostgreSQL",
          "isbn":"PostgreSQL",
@@ -1681,6 +2781,28 @@ export const gsdPersonLawrenceMcDaniel = {
          "brand":{
             "@id":"https://www.mysql.com/"
          },
+         "review":[
+            {
+               "@type":"Review",
+               "author":"Lawrence McDaniel",
+               "datePublished":"2021-02-14",
+               "name":"Review by Lawrence",
+               "reviewBody":"My self review of this product.",
+               "reviewRating":{
+                  "@type":"Rating",
+                  "bestRating": "10",
+                  "ratingValue":"10",
+                  "worstRating": "1"
+               }
+            }
+         ],
+         "aggregateRating":{
+            "@type":"AggregateRating",
+            "ratingValue":"10",
+            "reviewCount":"1",
+            "bestRating":"10",
+            "worstRating":"1"
+         },
          "description":"MySQL",
          "isbn":"MySQL",
          "offers":[
@@ -1709,6 +2831,28 @@ export const gsdPersonLawrenceMcDaniel = {
          "sku":"mssqlserver",
          "brand":{
             "@id":"https://www.microsoft.com/en-us/sql-server"
+         },
+         "review":[
+            {
+               "@type":"Review",
+               "author":"Lawrence McDaniel",
+               "datePublished":"2021-02-14",
+               "name":"Review by Lawrence",
+               "reviewBody":"My self review of this product.",
+               "reviewRating":{
+                  "@type":"Rating",
+                  "bestRating": "10",
+                  "ratingValue":"10",
+                  "worstRating": "1"
+               }
+            }
+         ],
+         "aggregateRating":{
+            "@type":"AggregateRating",
+            "ratingValue":"10",
+            "reviewCount":"1",
+            "bestRating":"10",
+            "worstRating":"1"
          },
          "description":"MS SQL Server",
          "isbn":"mssqlserver",
@@ -1739,6 +2883,28 @@ export const gsdPersonLawrenceMcDaniel = {
          "brand":{
             "@id":"https://www.sqlite.org/"
          },
+         "review":[
+            {
+               "@type":"Review",
+               "author":"Lawrence McDaniel",
+               "datePublished":"2021-02-14",
+               "name":"Review by Lawrence",
+               "reviewBody":"My self review of this product.",
+               "reviewRating":{
+                  "@type":"Rating",
+                  "bestRating": "10",
+                  "ratingValue":"10",
+                  "worstRating": "1"
+               }
+            }
+         ],
+         "aggregateRating":{
+            "@type":"AggregateRating",
+            "ratingValue":"10",
+            "reviewCount":"1",
+            "bestRating":"10",
+            "worstRating":"1"
+         },
          "description":"SQLite",
          "isbn":"SQLite",
          "offers":[
@@ -1767,6 +2933,28 @@ export const gsdPersonLawrenceMcDaniel = {
          "sku":"mongoDB",
          "brand":{
             "@id":"https://www.mongodb.com/"
+         },
+         "review":[
+            {
+               "@type":"Review",
+               "author":"Lawrence McDaniel",
+               "datePublished":"2021-02-14",
+               "name":"Review by Lawrence",
+               "reviewBody":"My self review of this product.",
+               "reviewRating":{
+                  "@type":"Rating",
+                  "bestRating": "10",
+                  "ratingValue":"10",
+                  "worstRating": "1"
+               }
+            }
+         ],
+         "aggregateRating":{
+            "@type":"AggregateRating",
+            "ratingValue":"10",
+            "reviewCount":"1",
+            "bestRating":"10",
+            "worstRating":"1"
          },
          "description":"mongoDB",
          "isbn":"mongoDB",
@@ -1797,6 +2985,28 @@ export const gsdPersonLawrenceMcDaniel = {
          "brand":{
             "@id":"https://hadoop.apache.org/"
          },
+         "review":[
+            {
+               "@type":"Review",
+               "author":"Lawrence McDaniel",
+               "datePublished":"2021-02-14",
+               "name":"Review by Lawrence",
+               "reviewBody":"My self review of this product.",
+               "reviewRating":{
+                  "@type":"Rating",
+                  "bestRating": "10",
+                  "ratingValue":"10",
+                  "worstRating": "1"
+               }
+            }
+         ],
+         "aggregateRating":{
+            "@type":"AggregateRating",
+            "ratingValue":"10",
+            "reviewCount":"1",
+            "bestRating":"10",
+            "worstRating":"1"
+         },
          "description":"Apache Hadoop",
          "isbn":"ApacheHadoop",
          "offers":[
@@ -1825,6 +3035,28 @@ export const gsdPersonLawrenceMcDaniel = {
          "sku":"XML",
          "brand":{
             "@id":"https://www.w3.org/XML/"
+         },
+         "review":[
+            {
+               "@type":"Review",
+               "author":"Lawrence McDaniel",
+               "datePublished":"2021-02-14",
+               "name":"Review by Lawrence",
+               "reviewBody":"My self review of this product.",
+               "reviewRating":{
+                  "@type":"Rating",
+                  "bestRating": "10",
+                  "ratingValue":"10",
+                  "worstRating": "1"
+               }
+            }
+         ],
+         "aggregateRating":{
+            "@type":"AggregateRating",
+            "ratingValue":"10",
+            "reviewCount":"1",
+            "bestRating":"10",
+            "worstRating":"1"
          },
          "description":"XML",
          "isbn":"XML",
@@ -1855,6 +3087,28 @@ export const gsdPersonLawrenceMcDaniel = {
          "brand":{
             "@id":"https://www.json.org/json-en.html"
          },
+         "review":[
+            {
+               "@type":"Review",
+               "author":"Lawrence McDaniel",
+               "datePublished":"2021-02-14",
+               "name":"Review by Lawrence",
+               "reviewBody":"My self review of this product.",
+               "reviewRating":{
+                  "@type":"Rating",
+                  "bestRating": "10",
+                  "ratingValue":"10",
+                  "worstRating": "1"
+               }
+            }
+         ],
+         "aggregateRating":{
+            "@type":"AggregateRating",
+            "ratingValue":"10",
+            "reviewCount":"1",
+            "bestRating":"10",
+            "worstRating":"1"
+         },
          "description":"JSON",
          "isbn":"JSON",
          "offers":[
@@ -1883,6 +3137,28 @@ export const gsdPersonLawrenceMcDaniel = {
          "sku":"git",
          "brand":{
             "@id":"https://git-scm.com/"
+         },
+         "review":[
+            {
+               "@type":"Review",
+               "author":"Lawrence McDaniel",
+               "datePublished":"2021-02-14",
+               "name":"Review by Lawrence",
+               "reviewBody":"My self review of this product.",
+               "reviewRating":{
+                  "@type":"Rating",
+                  "bestRating": "10",
+                  "ratingValue":"10",
+                  "worstRating": "1"
+               }
+            }
+         ],
+         "aggregateRating":{
+            "@type":"AggregateRating",
+            "ratingValue":"10",
+            "reviewCount":"1",
+            "bestRating":"10",
+            "worstRating":"1"
          },
          "description":"git",
          "isbn":"git",
@@ -1913,6 +3189,28 @@ export const gsdPersonLawrenceMcDaniel = {
          "brand":{
             "@id":"https://www.ansible.com/"
          },
+         "review":[
+            {
+               "@type":"Review",
+               "author":"Lawrence McDaniel",
+               "datePublished":"2021-02-14",
+               "name":"Review by Lawrence",
+               "reviewBody":"My self review of this product.",
+               "reviewRating":{
+                  "@type":"Rating",
+                  "bestRating": "10",
+                  "ratingValue":"10",
+                  "worstRating": "1"
+               }
+            }
+         ],
+         "aggregateRating":{
+            "@type":"AggregateRating",
+            "ratingValue":"10",
+            "reviewCount":"1",
+            "bestRating":"10",
+            "worstRating":"1"
+         },
          "description":"Red Hat Ansible",
          "isbn":"ansible",
          "offers":[
@@ -1941,6 +3239,28 @@ export const gsdPersonLawrenceMcDaniel = {
          "sku":"chef",
          "brand":{
             "@id":"https://www.chef.io/"
+         },
+         "review":[
+            {
+               "@type":"Review",
+               "author":"Lawrence McDaniel",
+               "datePublished":"2021-02-14",
+               "name":"Review by Lawrence",
+               "reviewBody":"My self review of this product.",
+               "reviewRating":{
+                  "@type":"Rating",
+                  "bestRating": "10",
+                  "ratingValue":"10",
+                  "worstRating": "1"
+               }
+            }
+         ],
+         "aggregateRating":{
+            "@type":"AggregateRating",
+            "ratingValue":"10",
+            "reviewCount":"1",
+            "bestRating":"10",
+            "worstRating":"1"
          },
          "description":"CHEF Progress",
          "isbn":"chef",
@@ -1971,6 +3291,28 @@ export const gsdPersonLawrenceMcDaniel = {
          "brand":{
             "@id":"https://puppet.com/"
          },
+         "review":[
+            {
+               "@type":"Review",
+               "author":"Lawrence McDaniel",
+               "datePublished":"2021-02-14",
+               "name":"Review by Lawrence",
+               "reviewBody":"My self review of this product.",
+               "reviewRating":{
+                  "@type":"Rating",
+                  "bestRating": "10",
+                  "ratingValue":"10",
+                  "worstRating": "1"
+               }
+            }
+         ],
+         "aggregateRating":{
+            "@type":"AggregateRating",
+            "ratingValue":"10",
+            "reviewCount":"1",
+            "bestRating":"10",
+            "worstRating":"1"
+         },
          "description":"puppet",
          "isbn":"puppet",
          "offers":[
@@ -1999,6 +3341,28 @@ export const gsdPersonLawrenceMcDaniel = {
          "sku":"Jenkins",
          "brand":{
             "@id":"https://www.jenkins.io/"
+         },
+         "review":[
+            {
+               "@type":"Review",
+               "author":"Lawrence McDaniel",
+               "datePublished":"2021-02-14",
+               "name":"Review by Lawrence",
+               "reviewBody":"My self review of this product.",
+               "reviewRating":{
+                  "@type":"Rating",
+                  "bestRating": "10",
+                  "ratingValue":"10",
+                  "worstRating": "1"
+               }
+            }
+         ],
+         "aggregateRating":{
+            "@type":"AggregateRating",
+            "ratingValue":"10",
+            "reviewCount":"1",
+            "bestRating":"10",
+            "worstRating":"1"
          },
          "description":"Jenkins",
          "isbn":"Jenkins",
@@ -2029,6 +3393,28 @@ export const gsdPersonLawrenceMcDaniel = {
          "brand":{
             "@id":"https://www.qualcomm.com/snapdragon"
          },
+         "review":[
+            {
+               "@type":"Review",
+               "author":"Lawrence McDaniel",
+               "datePublished":"2021-02-14",
+               "name":"Review by Lawrence",
+               "reviewBody":"My self review of this product.",
+               "reviewRating":{
+                  "@type":"Rating",
+                  "bestRating": "10",
+                  "ratingValue":"10",
+                  "worstRating": "1"
+               }
+            }
+         ],
+         "aggregateRating":{
+            "@type":"AggregateRating",
+            "ratingValue":"10",
+            "reviewCount":"1",
+            "bestRating":"10",
+            "worstRating":"1"
+         },
          "description":"Qualcomm snapdragon",
          "isbn":"snapdragon",
          "offers":[
@@ -2057,6 +3443,28 @@ export const gsdPersonLawrenceMcDaniel = {
          "sku":"d3",
          "brand":{
             "@id":"https://d3js.org/"
+         },
+         "review":[
+            {
+               "@type":"Review",
+               "author":"Lawrence McDaniel",
+               "datePublished":"2021-02-14",
+               "name":"Review by Lawrence",
+               "reviewBody":"My self review of this product.",
+               "reviewRating":{
+                  "@type":"Rating",
+                  "bestRating": "10",
+                  "ratingValue":"10",
+                  "worstRating": "1"
+               }
+            }
+         ],
+         "aggregateRating":{
+            "@type":"AggregateRating",
+            "ratingValue":"10",
+            "reviewCount":"1",
+            "bestRating":"10",
+            "worstRating":"1"
          },
          "description":"D3 Data-Driven Documents",
          "isbn":"d3",
@@ -2087,6 +3495,28 @@ export const gsdPersonLawrenceMcDaniel = {
          "brand":{
             "@id":"https://en.wikipedia.org/wiki/LAMP_(software_bundle)"
          },
+         "review":[
+            {
+               "@type":"Review",
+               "author":"Lawrence McDaniel",
+               "datePublished":"2021-02-14",
+               "name":"Review by Lawrence",
+               "reviewBody":"My self review of this product.",
+               "reviewRating":{
+                  "@type":"Rating",
+                  "bestRating": "10",
+                  "ratingValue":"10",
+                  "worstRating": "1"
+               }
+            }
+         ],
+         "aggregateRating":{
+            "@type":"AggregateRating",
+            "ratingValue":"10",
+            "reviewCount":"1",
+            "bestRating":"10",
+            "worstRating":"1"
+         },
          "description":"LAMP Stack",
          "isbn":"lamp",
          "offers":[
@@ -2116,6 +3546,28 @@ export const gsdPersonLawrenceMcDaniel = {
          "brand":{
             "@id":"https://www.linux.org/"
          },
+         "review":[
+            {
+               "@type":"Review",
+               "author":"Lawrence McDaniel",
+               "datePublished":"2021-02-14",
+               "name":"Review by Lawrence",
+               "reviewBody":"My self review of this product.",
+               "reviewRating":{
+                  "@type":"Rating",
+                  "bestRating": "10",
+                  "ratingValue":"10",
+                  "worstRating": "1"
+               }
+            }
+         ],
+         "aggregateRating":{
+            "@type":"AggregateRating",
+            "ratingValue":"10",
+            "reviewCount":"1",
+            "bestRating":"10",
+            "worstRating":"1"
+         },
          "description":"Linux",
          "isbn":"Linux",
          "offers":[
@@ -2144,6 +3596,28 @@ export const gsdPersonLawrenceMcDaniel = {
          "sku":"HTML5",
          "brand":{
             "@id":"https://en.wikipedia.org/wiki/HTML5"
+         },
+         "review":[
+            {
+               "@type":"Review",
+               "author":"Lawrence McDaniel",
+               "datePublished":"2021-02-14",
+               "name":"Review by Lawrence",
+               "reviewBody":"My self review of this product.",
+               "reviewRating":{
+                  "@type":"Rating",
+                  "bestRating": "10",
+                  "ratingValue":"10",
+                  "worstRating": "1"
+               }
+            }
+         ],
+         "aggregateRating":{
+            "@type":"AggregateRating",
+            "ratingValue":"10",
+            "reviewCount":"1",
+            "bestRating":"10",
+            "worstRating":"1"
          },
          "description":"HTML5",
          "isbn":"HTML5",
