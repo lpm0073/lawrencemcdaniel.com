@@ -2,6 +2,19 @@ export const gsdPersonLawrenceMcDaniel = {
    "@context":"https://schema.org/",
    "@type":"Person",
    "@id": "https://lawrencemcdaniel.com",
+   "identifier":"https://lawrencemcdaniel.com/",
+   "email":"mailto:lpm0073@gmail.com",
+   "familyName":"McDaniel",
+   "givenName":"Lawrence",
+   "description": "Full Stack Developer",
+   "jobTitle":"Full Stack Developer",
+   "telephone":"+1 (617) 834-6172",
+   "url":"https://lawrencemcdaniel.com",
+   "birthPlace": "Houston, TX, USA",
+   "nationality":"American",
+   "birthDate": "1966-12-31",
+   "height": "183 cm",
+   "gender": "Male",
    "address":{
       "@type":"PostalAddress",
       "addressLocality":"Cambridge",
@@ -9,6 +22,17 @@ export const gsdPersonLawrenceMcDaniel = {
       "postalCode":"02139",
       "streetAddress":"210 Broadway Street"
    },
+   "sameAs": [
+      "https://lawrencemcdaniel.com/",
+      "https://blog.lawrencemcdaniel.com/",
+      "https://www.linkedin.com/in/lawrencemcdaniel/",
+      "https://www.facebook.com/lawrence.p.mcdaniel",
+      "https://open.edx.org/marketplace/lawrence-mcdaniel/",
+      "https://github.com/lpm0073",
+      "https://angel.co/p/lpm0073-gmail-com",
+      "https://www.codementor.io/@lawrencemcdaniel",
+      "http://geek.ly/lmcdaniel"
+   ],
    "affiliation":[
       {
          "@type":"Organization",
@@ -24,14 +48,47 @@ export const gsdPersonLawrenceMcDaniel = {
        "sameAs": "https://www.unt.edu/"
       }
    ],
-   "birthPlace": "Houston, TX, USA",
-   "birthDate": "1966-12-31",
-   "height": "183 cm",
-   "gender": "Male",
-   "description": "Full Stack Developer",
-   "email":"mailto:lpm0073@gmail.com",
-   "familyName":"McDaniel",
-   "givenName":"Lawrence",
+   "subjectOf":[
+      "https://blog.lawrencemcdaniel.com/",
+      "https://iblnews.org/installing-and-deploying-an-open-edx-instance-a-view-of-developer-and-author-mcdaniel/",
+      "https://opensource.com/user_articles/224351",
+      "https://opensource.com/article/18/6/getting-started-open-edx",
+      "https://open.edx.org/marketplace/lawrence-mcdaniel/",
+      "https://openedx2018.sched.com/lpm0073",
+      "http://geek.ly/lmcdaniel"
+   ],
+   "knowsLanguage":[
+      {
+         "@type":"Language",
+         "name":"English"
+      },
+      {
+         "@type":"Language",
+         "name":"Spanish"
+      }
+   ],
+   "image": {
+      "@type": "ImageObject",
+      "author": "Barry Wolfryd",
+      "creator": "Barry Wolfryd",
+      "contentLocation": "Colonia Roma Norte, CDMX, Mexico",
+      "locationCreated":"Colonia Roma Norte, CDMX, Mexico",
+      "discussionUrl": "https://www.barrywolfryd.com/",
+      "contentUrl": "https://cdn.lawrencemcdaniel.com/social-1200x675.jpg",
+      "datePublished": "2017-06-15",
+      "uploadDate": "2020-06-30",
+      "copyrightYear": "2017",
+      "mainEntityOfPage": {
+         "@type": "WebPage",
+         "@id": "https://lawrencemcdaniel.com/",
+         "lastReviewed": "2021-02-14"
+      },
+      "keywords":"Lawrence McDaniel, Barry Wolfryd photography, Roma Norte, CDMX",
+      "description": "Barry Wolfryd did a series of these for an article I wrote in geek.ly",
+      "about": "Barry Wolfryd did a series of these for an article I wrote in geek.ly",
+      "comment": "Barry Wolfryd did a series of these for an article I wrote in geek.ly",
+      "name": "Lawrence McDaniel Portfolio Images"
+    },
    "hasOccupation":{
       "@type":"Occupation",
       "name":"Full Stack Developer",
@@ -161,43 +218,6 @@ export const gsdPersonLawrenceMcDaniel = {
          }
       ]
    },
-   "identifier":"https://lawrencemcdaniel.com/",
-   "image": {
-      "@type": "ImageObject",
-      "author": "Barry Wolfryd",
-      "creator": "Barry Wolfryd",
-      "contentLocation": "Colonia Roma Norte, CDMX, Mexico",
-      "locationCreated":"Colonia Roma Norte, CDMX, Mexico",
-      "discussionUrl": "https://www.barrywolfryd.com/",
-      "contentUrl": "https://cdn.lawrencemcdaniel.com/social-1200x675.jpg",
-      "datePublished": "2017-06-15",
-      "uploadDate": "2020-06-30",
-      "copyrightYear": "2017",
-      "mainEntityOfPage": {
-         "@type": "WebPage",
-         "@id": "https://lawrencemcdaniel.com/",
-         "lastReviewed": "2021-02-14"
-      },
-      "keywords":"Lawrence McDaniel, Barry Wolfryd photography, Roma Norte, CDMX",
-      "description": "Barry Wolfryd did a series of these for an article I wrote in geek.ly",
-      "about": "Barry Wolfryd did a series of these for an article I wrote in geek.ly",
-      "comment": "Barry Wolfryd did a series of these for an article I wrote in geek.ly",
-      "name": "Lawrence McDaniel Portfolio Images"
-    },
-   "jobTitle":"Full Stack Developer",
-   "sameAs": [
-      "https://lawrencemcdaniel.com/",
-      "https://blog.lawrencemcdaniel.com/",
-      "https://www.linkedin.com/in/lawrencemcdaniel/",
-      "https://www.facebook.com/lawrence.p.mcdaniel",
-      "https://open.edx.org/marketplace/lawrence-mcdaniel/",
-      "https://github.com/lpm0073",
-      "https://angel.co/p/lpm0073-gmail-com",
-      "https://www.codementor.io/@lawrencemcdaniel",
-      "http://geek.ly/lmcdaniel"
-   ],
-   "telephone":"+1 (617) 834-6172",
-   "url":"https://lawrencemcdaniel.com",
    "knowsAbout":[
       {
          "@type":"Product",
@@ -1539,25 +1559,5 @@ export const gsdPersonLawrenceMcDaniel = {
             }
          ]
       }
-   ],
-   "knowsLanguage":[
-      {
-         "@type":"Language",
-         "name":"English"
-      },
-      {
-         "@type":"Language",
-         "name":"Spanish"
-      }
-   ],
-   "nationality":"American",
-   "subjectOf":[
-      "https://blog.lawrencemcdaniel.com/",
-      "https://iblnews.org/installing-and-deploying-an-open-edx-instance-a-view-of-developer-and-author-mcdaniel/",
-      "https://opensource.com/user_articles/224351",
-      "https://opensource.com/article/18/6/getting-started-open-edx",
-      "https://open.edx.org/marketplace/lawrence-mcdaniel/",
-      "https://openedx2018.sched.com/lpm0073",
-      "http://geek.ly/lmcdaniel"
    ]
 }
