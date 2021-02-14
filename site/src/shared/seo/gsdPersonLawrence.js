@@ -71,6 +71,30 @@ export const gsdPersonLawrenceMcDaniel = {
          },
          {
             "@type":"EducationalOccupationalCredential",
+            "name": "Johns Hopkins University",
+            "url": "https://www.coursera.org/learn/html-css-javascript-for-web-developers",
+            "educationalLevel":"Certificate or equivalent",
+            "description": "HTML, CSS, and Javascript for Web Developers",
+            "dateCreated": "2017-07-01"
+         },
+         {
+            "@type":"EducationalOccupationalCredential",
+            "name": "Johns Hopkins University",
+            "url": "https://www.coursera.org/learn/ruby-on-rails-intro",
+            "educationalLevel":"Certificate or equivalent",
+            "description": "Ruby on Rails: An Introduction",
+            "dateCreated": "2017-08-01"
+         },
+         {
+            "@type":"EducationalOccupationalCredential",
+            "name": "Johns Hopkins University",
+            "url": "https://www.coursera.org/learn/rails-with-active-record",
+            "educationalLevel":"Certificate or equivalent",
+            "description": "Rails with Active Record and Action Pack",
+            "dateCreated": "2017-08-01"
+         },
+         {
+            "@type":"EducationalOccupationalCredential",
             "name": "Hong Kong University of Science and Technology",
             "url": "https://www.coursera.org/learn/front-end-react/home/welcome",
             "educationalLevel":"Certificate or equivalent",
@@ -82,8 +106,32 @@ export const gsdPersonLawrenceMcDaniel = {
             "name": "Wharton University of Pennsylvania",
             "url": "https://www.coursera.org/learn/accounting-analytics/home/welcome",
             "educationalLevel":"Certificate or equivalent",
-            "description": "Business Analytics Certification",
+            "description": "Accounting Analytics Certification",
             "dateCreated": "2017-08-01"
+         },
+         {
+            "@type":"EducationalOccupationalCredential",
+            "name": "Wharton University of Pennsylvania",
+            "url": "https://www.coursera.org/learn/wharton-operations-analytics/home/welcome",
+            "educationalLevel":"Certificate or equivalent",
+            "description": "People Analytics Certification",
+            "dateCreated": "2017-08-01"
+         },
+         {
+            "@type":"EducationalOccupationalCredential",
+            "name": "Wharton University of Pennsylvania",
+            "url": "https://www.coursera.org/learn/wharton-people-analytics/home/welcome",
+            "educationalLevel":"Certificate or equivalent",
+            "description": "Operations Analytics Certification",
+            "dateCreated": "2017-09-01"
+         },
+         {
+            "@type":"EducationalOccupationalCredential",
+            "name": "Wharton University of Pennsylvania",
+            "url": "https://www.coursera.org/learn/wharton-customer-analytics/home/welcome",
+            "educationalLevel":"Certificate or equivalent",
+            "description": "Customer Analytics Certification",
+            "dateCreated": "2017-09-01"
          },
          {
             "@type":"EducationalOccupationalCredential",
@@ -134,7 +182,8 @@ export const gsdPersonLawrenceMcDaniel = {
                "itemOffered":{
                   "@type":"Service",
                   "name":"Open edX Consulting"
-               }
+               },
+               "url":"https://lawrencemcdaniel/"
             }
          ]
       },
@@ -153,7 +202,8 @@ export const gsdPersonLawrenceMcDaniel = {
                "itemOffered":{
                   "@type":"Service",
                   "name":"Full Stack Web Development"
-               }
+               },
+               "url":"https://lawrencemcdaniel/"
             }
          ]
       },
@@ -172,7 +222,8 @@ export const gsdPersonLawrenceMcDaniel = {
                "itemOffered":{
                   "@type":"Service",
                   "name":"Full Stack Web Development"
-               }
+               },
+               "url":"https://lawrencemcdaniel/"
             }
          ]
       },
@@ -191,7 +242,8 @@ export const gsdPersonLawrenceMcDaniel = {
                "itemOffered":{
                   "@type":"Service",
                   "name":"Full Stack Web Development"
-               }
+               },
+               "url":"https://lawrencemcdaniel/"
             }
          ]
       },
@@ -210,7 +262,8 @@ export const gsdPersonLawrenceMcDaniel = {
                "itemOffered":{
                   "@type":"Service",
                   "name":"Full Stack Web Development"
-               }
+               },
+               "url":"https://lawrencemcdaniel/"
             }
          ]
       },
@@ -229,7 +282,8 @@ export const gsdPersonLawrenceMcDaniel = {
                "itemOffered":{
                   "@type":"Service",
                   "name":"Full Stack Web Development"
-               }
+               },
+               "url":"https://lawrencemcdaniel/"
             }
          ]
       },
@@ -248,7 +302,8 @@ export const gsdPersonLawrenceMcDaniel = {
                "itemOffered":{
                   "@type":"Service",
                   "name":"Full Stack Web Development"
-               }
+               },
+               "url":"https://lawrencemcdaniel/"
             }
          ]
       },
@@ -267,7 +322,8 @@ export const gsdPersonLawrenceMcDaniel = {
                "itemOffered":{
                   "@type":"Service",
                   "name":"Full Stack Web Development"
-               }
+               },
+               "url":"https://lawrencemcdaniel/"
             }
          ]
       },
@@ -286,7 +342,8 @@ export const gsdPersonLawrenceMcDaniel = {
                "itemOffered":{
                   "@type":"Service",
                   "name":"Full Stack Web Development"
-               }
+               },
+               "url":"https://lawrencemcdaniel/"
             }
          ]
       },
@@ -305,7 +362,8 @@ export const gsdPersonLawrenceMcDaniel = {
                "itemOffered":{
                   "@type":"Service",
                   "name":"Full Stack Web Development"
-               }
+               },
+               "url":"https://lawrencemcdaniel/"
             }
          ]
       },
@@ -324,7 +382,8 @@ export const gsdPersonLawrenceMcDaniel = {
                "itemOffered":{
                   "@type":"Service",
                   "name":"Full Stack Web Development"
-               }
+               },
+               "url":"https://lawrencemcdaniel/"
             }
          ]
       },
@@ -343,7 +402,8 @@ export const gsdPersonLawrenceMcDaniel = {
                "itemOffered":{
                   "@type":"Service",
                   "name":"Full Stack Web Development"
-               }
+               },
+               "url":"https://lawrencemcdaniel/"
             }
          ]
       },
@@ -362,7 +422,8 @@ export const gsdPersonLawrenceMcDaniel = {
                "itemOffered":{
                   "@type":"Service",
                   "name":"Full Stack Web Development"
-               }
+               },
+               "url":"https://lawrencemcdaniel/"
             }
          ]
       },
@@ -381,7 +442,8 @@ export const gsdPersonLawrenceMcDaniel = {
                "itemOffered":{
                   "@type":"Service",
                   "name":"Full Stack Web Development"
-               }
+               },
+               "url":"https://lawrencemcdaniel/"
             }
          ]
       },
@@ -400,7 +462,8 @@ export const gsdPersonLawrenceMcDaniel = {
                "itemOffered":{
                   "@type":"Service",
                   "name":"Full Stack Web Development"
-               }
+               },
+               "url":"https://lawrencemcdaniel/"
             }
          ]
       },
@@ -419,7 +482,8 @@ export const gsdPersonLawrenceMcDaniel = {
                "itemOffered":{
                   "@type":"Service",
                   "name":"Full Stack Web Development"
-               }
+               },
+               "url":"https://lawrencemcdaniel/"
             }
          ]
       },
@@ -438,7 +502,8 @@ export const gsdPersonLawrenceMcDaniel = {
                "itemOffered":{
                   "@type":"Service",
                   "name":"Full Stack Web Development"
-               }
+               },
+               "url":"https://lawrencemcdaniel/"
             }
          ]
       },
@@ -457,7 +522,8 @@ export const gsdPersonLawrenceMcDaniel = {
                "itemOffered":{
                   "@type":"Service",
                   "name":"Full Stack Web Development"
-               }
+               },
+               "url":"https://lawrencemcdaniel/"
             }
          ]
       },
@@ -476,7 +542,8 @@ export const gsdPersonLawrenceMcDaniel = {
                "itemOffered":{
                   "@type":"Service",
                   "name":"Full Stack Web Development"
-               }
+               },
+               "url":"https://lawrencemcdaniel/"
             }
          ]
       },
@@ -495,7 +562,8 @@ export const gsdPersonLawrenceMcDaniel = {
                "itemOffered":{
                   "@type":"Service",
                   "name":"Full Stack Web Development"
-               }
+               },
+               "url":"https://lawrencemcdaniel/"
             }
          ]
       },
@@ -514,7 +582,8 @@ export const gsdPersonLawrenceMcDaniel = {
                "itemOffered":{
                   "@type":"Service",
                   "name":"Full Stack Web Development"
-               }
+               },
+               "url":"https://lawrencemcdaniel/"
             }
          ]
       },
@@ -533,7 +602,8 @@ export const gsdPersonLawrenceMcDaniel = {
                "itemOffered":{
                   "@type":"Service",
                   "name":"Full Stack Web Development"
-               }
+               },
+               "url":"https://lawrencemcdaniel/"
             }
          ]
       },
@@ -552,7 +622,8 @@ export const gsdPersonLawrenceMcDaniel = {
                "itemOffered":{
                   "@type":"Service",
                   "name":"Full Stack Web Development"
-               }
+               },
+               "url":"https://lawrencemcdaniel/"
             }
          ]
       },
@@ -571,7 +642,8 @@ export const gsdPersonLawrenceMcDaniel = {
                "itemOffered":{
                   "@type":"Service",
                   "name":"Full Stack Web Development"
-               }
+               },
+               "url":"https://lawrencemcdaniel/"
             }
          ]
       },
@@ -590,7 +662,8 @@ export const gsdPersonLawrenceMcDaniel = {
                "itemOffered":{
                   "@type":"Service",
                   "name":"Full Stack Web Development"
-               }
+               },
+               "url":"https://lawrencemcdaniel/"
             }
          ]
       },
@@ -609,7 +682,8 @@ export const gsdPersonLawrenceMcDaniel = {
                "itemOffered":{
                   "@type":"Service",
                   "name":"Full Stack Web Development"
-               }
+               },
+               "url":"https://lawrencemcdaniel/"
             }
          ]
       },
@@ -628,7 +702,8 @@ export const gsdPersonLawrenceMcDaniel = {
                "itemOffered":{
                   "@type":"Service",
                   "name":"Full Stack Web Development"
-               }
+               },
+               "url":"https://lawrencemcdaniel/"
             }
          ]
       },
@@ -647,729 +722,8 @@ export const gsdPersonLawrenceMcDaniel = {
                "itemOffered":{
                   "@type":"Service",
                   "name":"Full Stack Web Development"
-               }
-            }
-         ]
-      },
-      {
-         "@type":"Product",
-         "logo":"https://cdn.lawrencemcdaniel.com/wp-content/uploads/2014/09/22195648/html5.png",
-         "image":"https://cdn.lawrencemcdaniel.com/wp-content/uploads/2014/09/22195648/html5.png",
-         "url":"https://en.wikipedia.org/wiki/HTML5",
-         "name":"HTML5",
-         "offers": [
-            {
-               "@type":"Offer",
-               "price":"75.00",
-               "priceCurrency":"USD",
-               "priceSpecification":"HOUR",
-               "itemOffered":{
-                  "@type":"Service",
-                  "name":"Full Stack Web Development"
-               }
-            }
-         ]
-      },
-      {
-         "@type":"Product",
-         "logo":"https://cdn.lawrencemcdaniel.com/wp-content/uploads/2020/05/17014701/underscore-logo.png",
-         "image":"https://cdn.lawrencemcdaniel.com/wp-content/uploads/2020/05/17014701/underscore-logo.png",
-         "url":"https://underscorejs.org/",
-         "name":"underscore.js",
-         "offers": [
-            {
-               "@type":"Offer",
-               "price":"75.00",
-               "priceCurrency":"USD",
-               "priceSpecification":"HOUR",
-               "itemOffered":{
-                  "@type":"Service",
-                  "name":"Full Stack Web Development"
-               }
-            }
-         ]
-      },
-      {
-         "@type":"Product",
-         "logo":"https://cdn.lawrencemcdaniel.com/wp-content/uploads/2020/05/17014531/rabbitmq-logo.png",
-         "image":"https://cdn.lawrencemcdaniel.com/wp-content/uploads/2020/05/17014531/rabbitmq-logo.png",
-         "url":"https://www.rabbitmq.com/",
-         "name":"RabbitMQ",
-         "offers": [
-            {
-               "@type":"Offer",
-               "price":"75.00",
-               "priceCurrency":"USD",
-               "priceSpecification":"HOUR",
-               "itemOffered":{
-                  "@type":"Service",
-                  "name":"Full Stack Web Development"
-               }
-            }
-         ]
-      },
-      {
-         "@type":"Product",
-         "logo":"https://cdn.lawrencemcdaniel.com/wp-content/uploads/2020/05/17014355/celery-transparent-django-1.png",
-         "image":"https://cdn.lawrencemcdaniel.com/wp-content/uploads/2020/05/17014355/celery-transparent-django-1.png",
-         "url":"https://docs.celeryproject.org/en/stable/",
-         "name":"Celery",
-         "offers": [
-            {
-               "@type":"Offer",
-               "price":"75.00",
-               "priceCurrency":"USD",
-               "priceSpecification":"HOUR",
-               "itemOffered":{
-                  "@type":"Service",
-                  "name":"Full Stack Web Development"
-               }
-            }
-         ]
-      },
-      {
-         "@type":"Product",
-         "logo":"https://cdn.lawrencemcdaniel.com/wp-content/uploads/2020/05/17014146/nginx-logo.png",
-         "image":"https://cdn.lawrencemcdaniel.com/wp-content/uploads/2020/05/17014146/nginx-logo.png",
-         "url":"https://www.nginx.com/",
-         "name":"Nginx",
-         "offers": [
-            {
-               "@type":"Offer",
-               "price":"75.00",
-               "priceCurrency":"USD",
-               "priceSpecification":"HOUR",
-               "itemOffered":{
-                  "@type":"Service",
-                  "name":"Full Stack Web Development"
-               }
-            }
-         ]
-      },
-      {
-         "@type":"Product",
-         "logo":"https://cdn.lawrencemcdaniel.com/wp-content/uploads/2020/05/17005525/Redux_Logo.png",
-         "image":"https://cdn.lawrencemcdaniel.com/wp-content/uploads/2020/05/17005525/Redux_Logo.png",
-         "url":"https://redux.js.org/",
-         "name":"Redux",
-         "offers": [
-            {
-               "@type":"Offer",
-               "price":"75.00",
-               "priceCurrency":"USD",
-               "priceSpecification":"HOUR",
-               "itemOffered":{
-                  "@type":"Service",
-                  "name":"Full Stack Web Development"
-               }
-            }
-         ]
-      },
-      {
-         "@type":"Product",
-         "logo":"https://cdn.lawrencemcdaniel.com/wp-content/uploads/2020/05/01144300/react-logo.png",
-         "image":"https://cdn.lawrencemcdaniel.com/wp-content/uploads/2020/05/01144300/react-logo.png",
-         "url":"https://reactjs.org/",
-         "name":"ReactJS",
-         "offers": [
-            {
-               "@type":"Offer",
-               "price":"75.00",
-               "priceCurrency":"USD",
-               "priceSpecification":"HOUR",
-               "itemOffered":{
-                  "@type":"Service",
-                  "name":"Full Stack Web Development"
-               }
-            }
-         ]
-      },
-      {
-         "@type":"Product",
-         "logo":"https://cdn.lawrencemcdaniel.com/wp-content/uploads/2014/09/22195649/bootstrap.png",
-         "image":"https://cdn.lawrencemcdaniel.com/wp-content/uploads/2014/09/22195649/bootstrap.png",
-         "url":"https://getbootstrap.com/",
-         "name":"bootstrap",
-         "offers": [
-            {
-               "@type":"Offer",
-               "price":"75.00",
-               "priceCurrency":"USD",
-               "priceSpecification":"HOUR",
-               "itemOffered":{
-                  "@type":"Service",
-                  "name":"Full Stack Web Development"
-               }
-            }
-         ]
-      },
-      {
-         "@type":"Product",
-         "logo":"https://cdn.lawrencemcdaniel.com/wp-content/uploads/2014/09/22195650/amazon-web-services.png",
-         "image":"https://cdn.lawrencemcdaniel.com/wp-content/uploads/2014/09/22195650/amazon-web-services.png",
-         "url":"https://aws.amazon.com/",
-         "name":"Amazon Web Services",
-         "offers": [
-            {
-               "@type":"Offer",
-               "price":"75.00",
-               "priceCurrency":"USD",
-               "priceSpecification":"HOUR",
-               "itemOffered":{
-                  "@type":"Service",
-                  "name":"Full Stack Web Development"
-               }
-            }
-         ]
-      },
-      {
-         "@type":"Product",
-         "logo":"https://cdn.lawrencemcdaniel.com/wp-content/uploads/2014/09/22195643/wordpress-1.png",
-         "image":"https://cdn.lawrencemcdaniel.com/wp-content/uploads/2014/09/22195643/wordpress-1.png",
-         "url":"https://wordpress.com/",
-         "name":"wordpress",
-         "offers": [
-            {
-               "@type":"Offer",
-               "price":"75.00",
-               "priceCurrency":"USD",
-               "priceSpecification":"HOUR",
-               "itemOffered":{
-                  "@type":"Service",
-                  "name":"Full Stack Web Development"
-               }
-            }
-         ]
-      },
-      {
-         "@type":"Product",
-         "logo":"https://cdn.lawrencemcdaniel.com/wp-content/uploads/2014/09/22195644/woocommerce.png",
-         "image":"https://cdn.lawrencemcdaniel.com/wp-content/uploads/2014/09/22195644/woocommerce.png",
-         "url":"https://woocommerce.com/",
-         "name":"Woo Commerce",
-         "offers": [
-            {
-               "@type":"Offer",
-               "price":"75.00",
-               "priceCurrency":"USD",
-               "priceSpecification":"HOUR",
-               "itemOffered":{
-                  "@type":"Service",
-                  "name":"Full Stack Web Development"
-               }
-            }
-         ]
-      },
-      {
-         "@type":"Product",
-         "logo":"https://cdn.lawrencemcdaniel.com/wp-content/uploads/2014/09/22195644/ruby-on-rails.png",
-         "image":"https://cdn.lawrencemcdaniel.com/wp-content/uploads/2014/09/22195644/ruby-on-rails.png",
-         "url":"https://rubyonrails.org/",
-         "name":"Ruby on Rails",
-         "offers": [
-            {
-               "@type":"Offer",
-               "price":"75.00",
-               "priceCurrency":"USD",
-               "priceSpecification":"HOUR",
-               "itemOffered":{
-                  "@type":"Service",
-                  "name":"Full Stack Web Development"
-               }
-            }
-         ]
-      },
-      {
-         "@type":"Product",
-         "logo":"https://cdn.lawrencemcdaniel.com/wp-content/uploads/2014/09/22195650/angularjs.png",
-         "image":"https://cdn.lawrencemcdaniel.com/wp-content/uploads/2014/09/22195650/angularjs.png",
-         "url":"https://angular.io/",
-         "name":"Angular",
-         "offers": [
-            {
-               "@type":"Offer",
-               "price":"75.00",
-               "priceCurrency":"USD",
-               "priceSpecification":"HOUR",
-               "itemOffered":{
-                  "@type":"Service",
-                  "name":"Full Stack Web Development"
-               }
-            }
-         ]
-      },
-      {
-         "@type":"Product",
-         "logo":"https://cdn.lawrencemcdaniel.com/wp-content/uploads/2014/09/22195647/ionic.png",
-         "image":"https://cdn.lawrencemcdaniel.com/wp-content/uploads/2014/09/22195647/ionic.png",
-         "url":"https://ionicframework.com/",
-         "name":"Ionic",
-         "offers": [
-            {
-               "@type":"Offer",
-               "price":"75.00",
-               "priceCurrency":"USD",
-               "priceSpecification":"HOUR",
-               "itemOffered":{
-                  "@type":"Service",
-                  "name":"Full Stack Web Development"
-               }
-            }
-         ]
-      },
-      {
-         "@type":"Product",
-         "logo":"https://cdn.lawrencemcdaniel.com/wp-content/uploads/2014/09/22195648/github.png",
-         "image":"https://cdn.lawrencemcdaniel.com/wp-content/uploads/2014/09/22195648/github.png",
-         "url":"https://github.com/",
-         "name":"GitHub",
-         "offers": [
-            {
-               "@type":"Offer",
-               "price":"75.00",
-               "priceCurrency":"USD",
-               "priceSpecification":"HOUR",
-               "itemOffered":{
-                  "@type":"Service",
-                  "name":"Full Stack Web Development"
-               }
-            }
-         ]
-      },
-      {
-         "@type":"Product",
-         "logo":"https://cdn.lawrencemcdaniel.com/wp-content/uploads/2014/09/22195649/apache.png",
-         "image":"https://cdn.lawrencemcdaniel.com/wp-content/uploads/2014/09/22195649/apache.png",
-         "url":"https://httpd.apache.org/",
-         "name":"Apache",
-         "offers": [
-            {
-               "@type":"Offer",
-               "price":"75.00",
-               "priceCurrency":"USD",
-               "priceSpecification":"HOUR",
-               "itemOffered":{
-                  "@type":"Service",
-                  "name":"Full Stack Web Development"
-               }
-            }
-         ]
-      },
-      {
-         "@type":"Product",
-         "logo":"https://cdn.lawrencemcdaniel.com/wp-content/uploads/2014/09/22195645/php.png",
-         "image":"https://cdn.lawrencemcdaniel.com/wp-content/uploads/2014/09/22195645/php.png",
-         "url":"https://www.php.net/",
-         "name":"PHP",
-         "offers": [
-            {
-               "@type":"Offer",
-               "price":"75.00",
-               "priceCurrency":"USD",
-               "priceSpecification":"HOUR",
-               "itemOffered":{
-                  "@type":"Service",
-                  "name":"Full Stack Web Development"
-               }
-            }
-         ]
-      },
-      {
-         "@type":"Product",
-         "logo":"https://cdn.lawrencemcdaniel.com/wp-content/uploads/2014/09/22195644/python.png",
-         "image":"https://cdn.lawrencemcdaniel.com/wp-content/uploads/2014/09/22195644/python.png",
-         "url":"https://www.python.org/",
-         "name":"Python",
-         "offers": [
-            {
-               "@type":"Offer",
-               "price":"75.00",
-               "priceCurrency":"USD",
-               "priceSpecification":"HOUR",
-               "itemOffered":{
-                  "@type":"Service",
-                  "name":"Full Stack Web Development"
-               }
-            }
-         ]
-      },
-      {
-         "@type":"Product",
-         "logo":"https://cdn.lawrencemcdaniel.com/wp-content/uploads/2020/05/01144338/django-logo.png",
-         "image":"https://cdn.lawrencemcdaniel.com/wp-content/uploads/2020/05/01144338/django-logo.png",
-         "url":"https://www.djangoproject.com/",
-         "name":"Django",
-         "offers": [
-            {
-               "@type":"Offer",
-               "price":"75.00",
-               "priceCurrency":"USD",
-               "priceSpecification":"HOUR",
-               "itemOffered":{
-                  "@type":"Service",
-                  "name":"Full Stack Web Development"
-               }
-            }
-         ]
-      },
-      {
-         "@type":"Product",
-         "logo":"https://cdn.lawrencemcdaniel.com/wp-content/uploads/2014/09/22195648/excel.png",
-         "image":"https://cdn.lawrencemcdaniel.com/wp-content/uploads/2014/09/22195648/excel.png",
-         "url":"https://www.microsoft.com/en-us/microsoft-365/excel",
-         "name":"Microsoft Excel",
-         "offers": [
-            {
-               "@type":"Offer",
-               "price":"75.00",
-               "priceCurrency":"USD",
-               "priceSpecification":"HOUR",
-               "itemOffered":{
-                  "@type":"Service",
-                  "name":"Full Stack Web Development"
-               }
-            }
-         ]
-      },
-      {
-         "@type":"Product",
-         "logo":"https://cdn.lawrencemcdaniel.com/wp-content/uploads/2014/09/22195644/vba.png",
-         "image":"https://cdn.lawrencemcdaniel.com/wp-content/uploads/2014/09/22195644/vba.png",
-         "url":"https://docs.microsoft.com/en-us/office/vba/library-reference/concepts/getting-started-with-vba-in-office",
-         "name":"Microsoft Visual Basic For Applications",
-         "offers": [
-            {
-               "@type":"Offer",
-               "price":"75.00",
-               "priceCurrency":"USD",
-               "priceSpecification":"HOUR",
-               "itemOffered":{
-                  "@type":"Service",
-                  "name":"Full Stack Web Development"
-               }
-            }
-         ]
-      },
-      {
-         "@type":"Product",
-         "logo":"https://cdn.lawrencemcdaniel.com/wp-content/uploads/2014/09/22195645/postgresql.png",
-         "image":"https://cdn.lawrencemcdaniel.com/wp-content/uploads/2014/09/22195645/postgresql.png",
-         "url":"https://www.postgresql.org/",
-         "name":"PostgreSQL",
-         "offers": [
-            {
-               "@type":"Offer",
-               "price":"75.00",
-               "priceCurrency":"USD",
-               "priceSpecification":"HOUR",
-               "itemOffered":{
-                  "@type":"Service",
-                  "name":"Full Stack Web Development"
-               }
-            }
-         ]
-      },
-      {
-         "@type":"Product",
-         "logo":"https://cdn.lawrencemcdaniel.com/wp-content/uploads/2014/09/22195646/mysql.png",
-         "image":"https://cdn.lawrencemcdaniel.com/wp-content/uploads/2014/09/22195646/mysql.png",
-         "url":"https://www.mysql.com/",
-         "name":"MySQL",
-         "offers": [
-            {
-               "@type":"Offer",
-               "price":"75.00",
-               "priceCurrency":"USD",
-               "priceSpecification":"HOUR",
-               "itemOffered":{
-                  "@type":"Service",
-                  "name":"Full Stack Web Development"
-               }
-            }
-         ]
-      },
-      {
-         "@type":"Product",
-         "logo":"https://cdn.lawrencemcdaniel.com/wp-content/uploads/2014/09/22195646/mssql-server.png",
-         "image":"https://cdn.lawrencemcdaniel.com/wp-content/uploads/2014/09/22195646/mssql-server.png",
-         "url":"https://www.microsoft.com/en-us/sql-server",
-         "name":"MS SQL Server",
-         "offers": [
-            {
-               "@type":"Offer",
-               "price":"75.00",
-               "priceCurrency":"USD",
-               "priceSpecification":"HOUR",
-               "itemOffered":{
-                  "@type":"Service",
-                  "name":"Full Stack Web Development"
-               }
-            }
-         ]
-      },
-      {
-         "@type":"Product",
-         "logo":"https://cdn.lawrencemcdaniel.com/wp-content/uploads/2014/09/22195644/sqlite.png",
-         "image":"https://cdn.lawrencemcdaniel.com/wp-content/uploads/2014/09/22195644/sqlite.png",
-         "url":"https://www.sqlite.org/",
-         "name":"SQLite",
-         "offers": [
-            {
-               "@type":"Offer",
-               "price":"75.00",
-               "priceCurrency":"USD",
-               "priceSpecification":"HOUR",
-               "itemOffered":{
-                  "@type":"Service",
-                  "name":"Full Stack Web Development"
-               }
-            }
-         ]
-      },
-      {
-         "@type":"Product",
-         "logo":"https://cdn.lawrencemcdaniel.com/wp-content/uploads/2014/09/22195647/mongodb.png",
-         "image":"https://cdn.lawrencemcdaniel.com/wp-content/uploads/2014/09/22195647/mongodb.png",
-         "url":"https://www.mongodb.com/",
-         "name":"mongoDB",
-         "offers": [
-            {
-               "@type":"Offer",
-               "price":"75.00",
-               "priceCurrency":"USD",
-               "priceSpecification":"HOUR",
-               "itemOffered":{
-                  "@type":"Service",
-                  "name":"Full Stack Web Development"
-               }
-            }
-         ]
-      },
-      {
-         "@type":"Product",
-         "logo":"https://cdn.lawrencemcdaniel.com/wp-content/uploads/2014/09/22195648/hadoop.png",
-         "image":"https://cdn.lawrencemcdaniel.com/wp-content/uploads/2014/09/22195648/hadoop.png",
-         "url":"https://hadoop.apache.org/",
-         "name":"Apache Hadoop",
-         "offers": [
-            {
-               "@type":"Offer",
-               "price":"75.00",
-               "priceCurrency":"USD",
-               "priceSpecification":"HOUR",
-               "itemOffered":{
-                  "@type":"Service",
-                  "name":"Full Stack Web Development"
-               }
-            }
-         ]
-      },
-      {
-         "@type":"Product",
-         "logo":"https://cdn.lawrencemcdaniel.com/wp-content/uploads/2014/09/22195643/xml.png",
-         "image":"https://cdn.lawrencemcdaniel.com/wp-content/uploads/2014/09/22195643/xml.png",
-         "url":"https://www.w3.org/XML/",
-         "name":"XML",
-         "offers": [
-            {
-               "@type":"Offer",
-               "price":"75.00",
-               "priceCurrency":"USD",
-               "priceSpecification":"HOUR",
-               "itemOffered":{
-                  "@type":"Service",
-                  "name":"Full Stack Web Development"
-               }
-            }
-         ]
-      },
-      {
-         "@type":"Product",
-         "logo":"https://cdn.lawrencemcdaniel.com/wp-content/uploads/2014/09/22195647/json.png",
-         "image":"https://cdn.lawrencemcdaniel.com/wp-content/uploads/2014/09/22195647/json.png",
-         "url":"https://www.json.org/json-en.html",
-         "name":"JSON",
-         "offers": [
-            {
-               "@type":"Offer",
-               "price":"75.00",
-               "priceCurrency":"USD",
-               "priceSpecification":"HOUR",
-               "itemOffered":{
-                  "@type":"Service",
-                  "name":"Full Stack Web Development"
-               }
-            }
-         ]
-      },
-      {
-         "@type":"Product",
-         "logo":"https://cdn.lawrencemcdaniel.com/wp-content/uploads/2014/09/22195648/git.png",
-         "image":"https://cdn.lawrencemcdaniel.com/wp-content/uploads/2014/09/22195648/git.png",
-         "url":"https://git-scm.com/",
-         "name":"git",
-         "offers": [
-            {
-               "@type":"Offer",
-               "price":"75.00",
-               "priceCurrency":"USD",
-               "priceSpecification":"HOUR",
-               "itemOffered":{
-                  "@type":"Service",
-                  "name":"Full Stack Web Development"
-               }
-            }
-         ]
-      },
-      {
-         "@type":"Product",
-         "logo":"https://cdn.lawrencemcdaniel.com/wp-content/uploads/2014/09/22195650/ansible.png",
-         "image":"https://cdn.lawrencemcdaniel.com/wp-content/uploads/2014/09/22195650/ansible.png",
-         "url":"https://www.ansible.com/",
-         "name":"Red Hat Ansible",
-         "offers": [
-            {
-               "@type":"Offer",
-               "price":"75.00",
-               "priceCurrency":"USD",
-               "priceSpecification":"HOUR",
-               "itemOffered":{
-                  "@type":"Service",
-                  "name":"Full Stack Web Development"
-               }
-            }
-         ]
-      },
-      {
-         "@type":"Product",
-         "logo":"https://cdn.lawrencemcdaniel.com/wp-content/uploads/2014/09/22195649/chef.png",
-         "image":"https://cdn.lawrencemcdaniel.com/wp-content/uploads/2014/09/22195649/chef.png",
-         "url":"https://www.chef.io/",
-         "name":"CHEF Progress",
-         "offers": [
-            {
-               "@type":"Offer",
-               "price":"75.00",
-               "priceCurrency":"USD",
-               "priceSpecification":"HOUR",
-               "itemOffered":{
-                  "@type":"Service",
-                  "name":"Full Stack Web Development"
-               }
-            }
-         ]
-      },
-      {
-         "@type":"Product",
-         "logo":"https://cdn.lawrencemcdaniel.com/wp-content/uploads/2014/09/22195645/puppet.png",
-         "image":"https://cdn.lawrencemcdaniel.com/wp-content/uploads/2014/09/22195645/puppet.png",
-         "url":"https://puppet.com/",
-         "name":"puppet",
-         "offers": [
-            {
-               "@type":"Offer",
-               "price":"75.00",
-               "priceCurrency":"USD",
-               "priceSpecification":"HOUR",
-               "itemOffered":{
-                  "@type":"Service",
-                  "name":"Full Stack Web Development"
-               }
-            }
-         ]
-      },
-      {
-         "@type":"Product",
-         "logo":"https://cdn.lawrencemcdaniel.com/wp-content/uploads/2014/09/22195647/jenkins.png",
-         "image":"https://cdn.lawrencemcdaniel.com/wp-content/uploads/2014/09/22195647/jenkins.png",
-         "url":"https://www.jenkins.io/",
-         "name":"Jenkins",
-         "offers": [
-            {
-               "@type":"Offer",
-               "price":"75.00",
-               "priceCurrency":"USD",
-               "priceSpecification":"HOUR",
-               "itemOffered":{
-                  "@type":"Service",
-                  "name":"Full Stack Web Development"
-               }
-            }
-         ]
-      },
-      {
-         "@type":"Product",
-         "logo":"https://cdn.lawrencemcdaniel.com/wp-content/uploads/2014/09/22195644/qualcomm-snapdragon.png",
-         "image":"https://cdn.lawrencemcdaniel.com/wp-content/uploads/2014/09/22195644/qualcomm-snapdragon.png",
-         "url":"https://www.qualcomm.com/snapdragon",
-         "name":"Qualcomm snapdragon",
-         "offers": [
-            {
-               "@type":"Offer",
-               "price":"75.00",
-               "priceCurrency":"USD",
-               "priceSpecification":"HOUR",
-               "itemOffered":{
-                  "@type":"Service",
-                  "name":"Full Stack Web Development"
-               }
-            }
-         ]
-      },
-      {
-         "@type":"Product",
-         "logo":"https://cdn.lawrencemcdaniel.com/wp-content/uploads/2014/09/22195648/d3.png",
-         "image":"https://cdn.lawrencemcdaniel.com/wp-content/uploads/2014/09/22195648/d3.png",
-         "url":"https://d3js.org/",
-         "name":"D3 Data-Driven Documents",
-         "offers": [
-            {
-               "@type":"Offer",
-               "price":"75.00",
-               "priceCurrency":"USD",
-               "priceSpecification":"HOUR",
-               "itemOffered":{
-                  "@type":"Service",
-                  "name":"Full Stack Web Development"
-               }
-            }
-         ]
-      },
-      {
-         "@type":"Product",
-         "logo":"https://cdn.lawrencemcdaniel.com/wp-content/uploads/2014/09/22195643/lamp-logo.png",
-         "image":"https://cdn.lawrencemcdaniel.com/wp-content/uploads/2014/09/22195643/lamp-logo.png",
-         "url":"https://en.wikipedia.org/wiki/LAMP_(software_bundle)",
-         "name":"LAMP Stack",
-         "offers": [
-            {
-               "@type":"Offer",
-               "price":"75.00",
-               "priceCurrency":"USD",
-               "priceSpecification":"HOUR",
-               "itemOffered":{
-                  "@type":"Service",
-                  "name":"Full Stack Web Development"
-               }
-            }
-         ]
-      },
-      {
-         "@type":"Product",
-         "logo":"https://cdn.lawrencemcdaniel.com/wp-content/uploads/2014/09/22195647/linux.png",
-         "image":"https://cdn.lawrencemcdaniel.com/wp-content/uploads/2014/09/22195647/linux.png",
-         "url":"https://www.linux.org/",
-         "name":"Linux",
-         "offers": [
-            {
-               "@type":"Offer",
-               "price":"75.00",
-               "priceCurrency":"USD",
-               "priceSpecification":"HOUR",
-               "itemOffered":{
-                  "@type":"Service",
-                  "name":"Full Stack Web Development"
-               }
+               },
+               "url":"https://lawrencemcdaniel/"
             }
          ]
       },
@@ -1391,15 +745,767 @@ export const gsdPersonLawrenceMcDaniel = {
                },
                "url":"https://lawrencemcdaniel/"
             }
-         ],
-         "brand": {
-            "type":"Product",
-            "name": "HTML5",
-            "url":"https://en.wikipedia.org/wiki/HTML5",
-            "logo": "https://cdn.lawrencemcdaniel.com/wp-content/uploads/2014/09/22195648/html5.png",
-            "image": "https://cdn.lawrencemcdaniel.com/wp-content/uploads/2014/09/22195648/html5.png",
-            "description":"HTML5 is a markup language used for structuring and presenting content on the World Wide Web."
-         }
+         ]
+      },
+      {
+         "@type":"Product",
+         "logo":"https://cdn.lawrencemcdaniel.com/wp-content/uploads/2020/05/17014701/underscore-logo.png",
+         "image":"https://cdn.lawrencemcdaniel.com/wp-content/uploads/2020/05/17014701/underscore-logo.png",
+         "url":"https://underscorejs.org/",
+         "name":"underscore.js",
+         "offers": [
+            {
+               "@type":"Offer",
+               "price":"75.00",
+               "priceCurrency":"USD",
+               "priceSpecification":"HOUR",
+               "itemOffered":{
+                  "@type":"Service",
+                  "name":"Full Stack Web Development"
+               },
+               "url":"https://lawrencemcdaniel/"
+            }
+         ]
+      },
+      {
+         "@type":"Product",
+         "logo":"https://cdn.lawrencemcdaniel.com/wp-content/uploads/2020/05/17014531/rabbitmq-logo.png",
+         "image":"https://cdn.lawrencemcdaniel.com/wp-content/uploads/2020/05/17014531/rabbitmq-logo.png",
+         "url":"https://www.rabbitmq.com/",
+         "name":"RabbitMQ",
+         "offers": [
+            {
+               "@type":"Offer",
+               "price":"75.00",
+               "priceCurrency":"USD",
+               "priceSpecification":"HOUR",
+               "itemOffered":{
+                  "@type":"Service",
+                  "name":"Full Stack Web Development"
+               },
+               "url":"https://lawrencemcdaniel/"
+            }
+         ]
+      },
+      {
+         "@type":"Product",
+         "logo":"https://cdn.lawrencemcdaniel.com/wp-content/uploads/2020/05/17014355/celery-transparent-django-1.png",
+         "image":"https://cdn.lawrencemcdaniel.com/wp-content/uploads/2020/05/17014355/celery-transparent-django-1.png",
+         "url":"https://docs.celeryproject.org/en/stable/",
+         "name":"Celery",
+         "offers": [
+            {
+               "@type":"Offer",
+               "price":"75.00",
+               "priceCurrency":"USD",
+               "priceSpecification":"HOUR",
+               "itemOffered":{
+                  "@type":"Service",
+                  "name":"Full Stack Web Development"
+               },
+               "url":"https://lawrencemcdaniel/"
+            }
+         ]
+      },
+      {
+         "@type":"Product",
+         "logo":"https://cdn.lawrencemcdaniel.com/wp-content/uploads/2020/05/17014146/nginx-logo.png",
+         "image":"https://cdn.lawrencemcdaniel.com/wp-content/uploads/2020/05/17014146/nginx-logo.png",
+         "url":"https://www.nginx.com/",
+         "name":"Nginx",
+         "offers": [
+            {
+               "@type":"Offer",
+               "price":"75.00",
+               "priceCurrency":"USD",
+               "priceSpecification":"HOUR",
+               "itemOffered":{
+                  "@type":"Service",
+                  "name":"Full Stack Web Development"
+               },
+               "url":"https://lawrencemcdaniel/"
+            }
+         ]
+      },
+      {
+         "@type":"Product",
+         "logo":"https://cdn.lawrencemcdaniel.com/wp-content/uploads/2020/05/17005525/Redux_Logo.png",
+         "image":"https://cdn.lawrencemcdaniel.com/wp-content/uploads/2020/05/17005525/Redux_Logo.png",
+         "url":"https://redux.js.org/",
+         "name":"Redux",
+         "offers": [
+            {
+               "@type":"Offer",
+               "price":"75.00",
+               "priceCurrency":"USD",
+               "priceSpecification":"HOUR",
+               "itemOffered":{
+                  "@type":"Service",
+                  "name":"Full Stack Web Development"
+               },
+               "url":"https://lawrencemcdaniel/"
+            }
+         ]
+      },
+      {
+         "@type":"Product",
+         "logo":"https://cdn.lawrencemcdaniel.com/wp-content/uploads/2020/05/01144300/react-logo.png",
+         "image":"https://cdn.lawrencemcdaniel.com/wp-content/uploads/2020/05/01144300/react-logo.png",
+         "url":"https://reactjs.org/",
+         "name":"ReactJS",
+         "offers": [
+            {
+               "@type":"Offer",
+               "price":"75.00",
+               "priceCurrency":"USD",
+               "priceSpecification":"HOUR",
+               "itemOffered":{
+                  "@type":"Service",
+                  "name":"Full Stack Web Development"
+               },
+               "url":"https://lawrencemcdaniel/"
+            }
+         ]
+      },
+      {
+         "@type":"Product",
+         "logo":"https://cdn.lawrencemcdaniel.com/wp-content/uploads/2014/09/22195649/bootstrap.png",
+         "image":"https://cdn.lawrencemcdaniel.com/wp-content/uploads/2014/09/22195649/bootstrap.png",
+         "url":"https://getbootstrap.com/",
+         "name":"bootstrap",
+         "offers": [
+            {
+               "@type":"Offer",
+               "price":"75.00",
+               "priceCurrency":"USD",
+               "priceSpecification":"HOUR",
+               "itemOffered":{
+                  "@type":"Service",
+                  "name":"Full Stack Web Development"
+               },
+               "url":"https://lawrencemcdaniel/"
+            }
+         ]
+      },
+      {
+         "@type":"Product",
+         "logo":"https://cdn.lawrencemcdaniel.com/wp-content/uploads/2014/09/22195650/amazon-web-services.png",
+         "image":"https://cdn.lawrencemcdaniel.com/wp-content/uploads/2014/09/22195650/amazon-web-services.png",
+         "url":"https://aws.amazon.com/",
+         "name":"Amazon Web Services",
+         "offers": [
+            {
+               "@type":"Offer",
+               "price":"75.00",
+               "priceCurrency":"USD",
+               "priceSpecification":"HOUR",
+               "itemOffered":{
+                  "@type":"Service",
+                  "name":"Full Stack Web Development"
+               },
+               "url":"https://lawrencemcdaniel/"
+            }
+         ]
+      },
+      {
+         "@type":"Product",
+         "logo":"https://cdn.lawrencemcdaniel.com/wp-content/uploads/2014/09/22195643/wordpress-1.png",
+         "image":"https://cdn.lawrencemcdaniel.com/wp-content/uploads/2014/09/22195643/wordpress-1.png",
+         "url":"https://wordpress.com/",
+         "name":"wordpress",
+         "offers": [
+            {
+               "@type":"Offer",
+               "price":"75.00",
+               "priceCurrency":"USD",
+               "priceSpecification":"HOUR",
+               "itemOffered":{
+                  "@type":"Service",
+                  "name":"Full Stack Web Development"
+               },
+               "url":"https://lawrencemcdaniel/"
+            }
+         ]
+      },
+      {
+         "@type":"Product",
+         "logo":"https://cdn.lawrencemcdaniel.com/wp-content/uploads/2014/09/22195644/woocommerce.png",
+         "image":"https://cdn.lawrencemcdaniel.com/wp-content/uploads/2014/09/22195644/woocommerce.png",
+         "url":"https://woocommerce.com/",
+         "name":"Woo Commerce",
+         "offers": [
+            {
+               "@type":"Offer",
+               "price":"75.00",
+               "priceCurrency":"USD",
+               "priceSpecification":"HOUR",
+               "itemOffered":{
+                  "@type":"Service",
+                  "name":"Full Stack Web Development"
+               },
+               "url":"https://lawrencemcdaniel/"
+            }
+         ]
+      },
+      {
+         "@type":"Product",
+         "logo":"https://cdn.lawrencemcdaniel.com/wp-content/uploads/2014/09/22195644/ruby-on-rails.png",
+         "image":"https://cdn.lawrencemcdaniel.com/wp-content/uploads/2014/09/22195644/ruby-on-rails.png",
+         "url":"https://rubyonrails.org/",
+         "name":"Ruby on Rails",
+         "offers": [
+            {
+               "@type":"Offer",
+               "price":"75.00",
+               "priceCurrency":"USD",
+               "priceSpecification":"HOUR",
+               "itemOffered":{
+                  "@type":"Service",
+                  "name":"Full Stack Web Development"
+               },
+               "url":"https://lawrencemcdaniel/"
+            }
+         ]
+      },
+      {
+         "@type":"Product",
+         "logo":"https://cdn.lawrencemcdaniel.com/wp-content/uploads/2014/09/22195650/angularjs.png",
+         "image":"https://cdn.lawrencemcdaniel.com/wp-content/uploads/2014/09/22195650/angularjs.png",
+         "url":"https://angular.io/",
+         "name":"Angular",
+         "offers": [
+            {
+               "@type":"Offer",
+               "price":"75.00",
+               "priceCurrency":"USD",
+               "priceSpecification":"HOUR",
+               "itemOffered":{
+                  "@type":"Service",
+                  "name":"Full Stack Web Development"
+               },
+               "url":"https://lawrencemcdaniel/"
+            }
+         ]
+      },
+      {
+         "@type":"Product",
+         "logo":"https://cdn.lawrencemcdaniel.com/wp-content/uploads/2014/09/22195647/ionic.png",
+         "image":"https://cdn.lawrencemcdaniel.com/wp-content/uploads/2014/09/22195647/ionic.png",
+         "url":"https://ionicframework.com/",
+         "name":"Ionic",
+         "offers": [
+            {
+               "@type":"Offer",
+               "price":"75.00",
+               "priceCurrency":"USD",
+               "priceSpecification":"HOUR",
+               "itemOffered":{
+                  "@type":"Service",
+                  "name":"Full Stack Web Development"
+               },
+               "url":"https://lawrencemcdaniel/"
+            }
+         ]
+      },
+      {
+         "@type":"Product",
+         "logo":"https://cdn.lawrencemcdaniel.com/wp-content/uploads/2014/09/22195648/github.png",
+         "image":"https://cdn.lawrencemcdaniel.com/wp-content/uploads/2014/09/22195648/github.png",
+         "url":"https://github.com/",
+         "name":"GitHub",
+         "offers": [
+            {
+               "@type":"Offer",
+               "price":"75.00",
+               "priceCurrency":"USD",
+               "priceSpecification":"HOUR",
+               "itemOffered":{
+                  "@type":"Service",
+                  "name":"Full Stack Web Development"
+               },
+               "url":"https://lawrencemcdaniel/"
+            }
+         ]
+      },
+      {
+         "@type":"Product",
+         "logo":"https://cdn.lawrencemcdaniel.com/wp-content/uploads/2014/09/22195649/apache.png",
+         "image":"https://cdn.lawrencemcdaniel.com/wp-content/uploads/2014/09/22195649/apache.png",
+         "url":"https://httpd.apache.org/",
+         "name":"Apache",
+         "offers": [
+            {
+               "@type":"Offer",
+               "price":"75.00",
+               "priceCurrency":"USD",
+               "priceSpecification":"HOUR",
+               "itemOffered":{
+                  "@type":"Service",
+                  "name":"Full Stack Web Development"
+               },
+               "url":"https://lawrencemcdaniel/"
+            }
+         ]
+      },
+      {
+         "@type":"Product",
+         "logo":"https://cdn.lawrencemcdaniel.com/wp-content/uploads/2014/09/22195645/php.png",
+         "image":"https://cdn.lawrencemcdaniel.com/wp-content/uploads/2014/09/22195645/php.png",
+         "url":"https://www.php.net/",
+         "name":"PHP",
+         "offers": [
+            {
+               "@type":"Offer",
+               "price":"75.00",
+               "priceCurrency":"USD",
+               "priceSpecification":"HOUR",
+               "itemOffered":{
+                  "@type":"Service",
+                  "name":"Full Stack Web Development"
+               },
+               "url":"https://lawrencemcdaniel/"
+            }
+         ]
+      },
+      {
+         "@type":"Product",
+         "logo":"https://cdn.lawrencemcdaniel.com/wp-content/uploads/2014/09/22195644/python.png",
+         "image":"https://cdn.lawrencemcdaniel.com/wp-content/uploads/2014/09/22195644/python.png",
+         "url":"https://www.python.org/",
+         "name":"Python",
+         "offers": [
+            {
+               "@type":"Offer",
+               "price":"75.00",
+               "priceCurrency":"USD",
+               "priceSpecification":"HOUR",
+               "itemOffered":{
+                  "@type":"Service",
+                  "name":"Full Stack Web Development"
+               },
+               "url":"https://lawrencemcdaniel/"
+            }
+         ]
+      },
+      {
+         "@type":"Product",
+         "logo":"https://cdn.lawrencemcdaniel.com/wp-content/uploads/2020/05/01144338/django-logo.png",
+         "image":"https://cdn.lawrencemcdaniel.com/wp-content/uploads/2020/05/01144338/django-logo.png",
+         "url":"https://www.djangoproject.com/",
+         "name":"Django",
+         "offers": [
+            {
+               "@type":"Offer",
+               "price":"75.00",
+               "priceCurrency":"USD",
+               "priceSpecification":"HOUR",
+               "itemOffered":{
+                  "@type":"Service",
+                  "name":"Full Stack Web Development"
+               },
+               "url":"https://lawrencemcdaniel/"
+            }
+         ]
+      },
+      {
+         "@type":"Product",
+         "logo":"https://cdn.lawrencemcdaniel.com/wp-content/uploads/2014/09/22195648/excel.png",
+         "image":"https://cdn.lawrencemcdaniel.com/wp-content/uploads/2014/09/22195648/excel.png",
+         "url":"https://www.microsoft.com/en-us/microsoft-365/excel",
+         "name":"Microsoft Excel",
+         "offers": [
+            {
+               "@type":"Offer",
+               "price":"75.00",
+               "priceCurrency":"USD",
+               "priceSpecification":"HOUR",
+               "itemOffered":{
+                  "@type":"Service",
+                  "name":"Full Stack Web Development"
+               },
+               "url":"https://lawrencemcdaniel/"
+            }
+         ]
+      },
+      {
+         "@type":"Product",
+         "logo":"https://cdn.lawrencemcdaniel.com/wp-content/uploads/2014/09/22195644/vba.png",
+         "image":"https://cdn.lawrencemcdaniel.com/wp-content/uploads/2014/09/22195644/vba.png",
+         "url":"https://docs.microsoft.com/en-us/office/vba/library-reference/concepts/getting-started-with-vba-in-office",
+         "name":"Microsoft Visual Basic For Applications",
+         "offers": [
+            {
+               "@type":"Offer",
+               "price":"75.00",
+               "priceCurrency":"USD",
+               "priceSpecification":"HOUR",
+               "itemOffered":{
+                  "@type":"Service",
+                  "name":"Full Stack Web Development"
+               },
+               "url":"https://lawrencemcdaniel/"
+            }
+         ]
+      },
+      {
+         "@type":"Product",
+         "logo":"https://cdn.lawrencemcdaniel.com/wp-content/uploads/2014/09/22195645/postgresql.png",
+         "image":"https://cdn.lawrencemcdaniel.com/wp-content/uploads/2014/09/22195645/postgresql.png",
+         "url":"https://www.postgresql.org/",
+         "name":"PostgreSQL",
+         "offers": [
+            {
+               "@type":"Offer",
+               "price":"75.00",
+               "priceCurrency":"USD",
+               "priceSpecification":"HOUR",
+               "itemOffered":{
+                  "@type":"Service",
+                  "name":"Full Stack Web Development"
+               },
+               "url":"https://lawrencemcdaniel/"
+            }
+         ]
+      },
+      {
+         "@type":"Product",
+         "logo":"https://cdn.lawrencemcdaniel.com/wp-content/uploads/2014/09/22195646/mysql.png",
+         "image":"https://cdn.lawrencemcdaniel.com/wp-content/uploads/2014/09/22195646/mysql.png",
+         "url":"https://www.mysql.com/",
+         "name":"MySQL",
+         "offers": [
+            {
+               "@type":"Offer",
+               "price":"75.00",
+               "priceCurrency":"USD",
+               "priceSpecification":"HOUR",
+               "itemOffered":{
+                  "@type":"Service",
+                  "name":"Full Stack Web Development"
+               },
+               "url":"https://lawrencemcdaniel/"
+            }
+         ]
+      },
+      {
+         "@type":"Product",
+         "logo":"https://cdn.lawrencemcdaniel.com/wp-content/uploads/2014/09/22195646/mssql-server.png",
+         "image":"https://cdn.lawrencemcdaniel.com/wp-content/uploads/2014/09/22195646/mssql-server.png",
+         "url":"https://www.microsoft.com/en-us/sql-server",
+         "name":"MS SQL Server",
+         "offers": [
+            {
+               "@type":"Offer",
+               "price":"75.00",
+               "priceCurrency":"USD",
+               "priceSpecification":"HOUR",
+               "itemOffered":{
+                  "@type":"Service",
+                  "name":"Full Stack Web Development"
+               },
+               "url":"https://lawrencemcdaniel/"
+            }
+         ]
+      },
+      {
+         "@type":"Product",
+         "logo":"https://cdn.lawrencemcdaniel.com/wp-content/uploads/2014/09/22195644/sqlite.png",
+         "image":"https://cdn.lawrencemcdaniel.com/wp-content/uploads/2014/09/22195644/sqlite.png",
+         "url":"https://www.sqlite.org/",
+         "name":"SQLite",
+         "offers": [
+            {
+               "@type":"Offer",
+               "price":"75.00",
+               "priceCurrency":"USD",
+               "priceSpecification":"HOUR",
+               "itemOffered":{
+                  "@type":"Service",
+                  "name":"Full Stack Web Development"
+               },
+               "url":"https://lawrencemcdaniel/"
+            }
+         ]
+      },
+      {
+         "@type":"Product",
+         "logo":"https://cdn.lawrencemcdaniel.com/wp-content/uploads/2014/09/22195647/mongodb.png",
+         "image":"https://cdn.lawrencemcdaniel.com/wp-content/uploads/2014/09/22195647/mongodb.png",
+         "url":"https://www.mongodb.com/",
+         "name":"mongoDB",
+         "offers": [
+            {
+               "@type":"Offer",
+               "price":"75.00",
+               "priceCurrency":"USD",
+               "priceSpecification":"HOUR",
+               "itemOffered":{
+                  "@type":"Service",
+                  "name":"Full Stack Web Development"
+               },
+               "url":"https://lawrencemcdaniel/"
+            }
+         ]
+      },
+      {
+         "@type":"Product",
+         "logo":"https://cdn.lawrencemcdaniel.com/wp-content/uploads/2014/09/22195648/hadoop.png",
+         "image":"https://cdn.lawrencemcdaniel.com/wp-content/uploads/2014/09/22195648/hadoop.png",
+         "url":"https://hadoop.apache.org/",
+         "name":"Apache Hadoop",
+         "offers": [
+            {
+               "@type":"Offer",
+               "price":"75.00",
+               "priceCurrency":"USD",
+               "priceSpecification":"HOUR",
+               "itemOffered":{
+                  "@type":"Service",
+                  "name":"Full Stack Web Development"
+               },
+               "url":"https://lawrencemcdaniel/"
+            }
+         ]
+      },
+      {
+         "@type":"Product",
+         "logo":"https://cdn.lawrencemcdaniel.com/wp-content/uploads/2014/09/22195643/xml.png",
+         "image":"https://cdn.lawrencemcdaniel.com/wp-content/uploads/2014/09/22195643/xml.png",
+         "url":"https://www.w3.org/XML/",
+         "name":"XML",
+         "offers": [
+            {
+               "@type":"Offer",
+               "price":"75.00",
+               "priceCurrency":"USD",
+               "priceSpecification":"HOUR",
+               "itemOffered":{
+                  "@type":"Service",
+                  "name":"Full Stack Web Development"
+               },
+               "url":"https://lawrencemcdaniel/"
+            }
+         ]
+      },
+      {
+         "@type":"Product",
+         "logo":"https://cdn.lawrencemcdaniel.com/wp-content/uploads/2014/09/22195647/json.png",
+         "image":"https://cdn.lawrencemcdaniel.com/wp-content/uploads/2014/09/22195647/json.png",
+         "url":"https://www.json.org/json-en.html",
+         "name":"JSON",
+         "offers": [
+            {
+               "@type":"Offer",
+               "price":"75.00",
+               "priceCurrency":"USD",
+               "priceSpecification":"HOUR",
+               "itemOffered":{
+                  "@type":"Service",
+                  "name":"Full Stack Web Development"
+               },
+               "url":"https://lawrencemcdaniel/"
+            }
+         ]
+      },
+      {
+         "@type":"Product",
+         "logo":"https://cdn.lawrencemcdaniel.com/wp-content/uploads/2014/09/22195648/git.png",
+         "image":"https://cdn.lawrencemcdaniel.com/wp-content/uploads/2014/09/22195648/git.png",
+         "url":"https://git-scm.com/",
+         "name":"git",
+         "offers": [
+            {
+               "@type":"Offer",
+               "price":"75.00",
+               "priceCurrency":"USD",
+               "priceSpecification":"HOUR",
+               "itemOffered":{
+                  "@type":"Service",
+                  "name":"Full Stack Web Development"
+               },
+               "url":"https://lawrencemcdaniel/"
+            }
+         ]
+      },
+      {
+         "@type":"Product",
+         "logo":"https://cdn.lawrencemcdaniel.com/wp-content/uploads/2014/09/22195650/ansible.png",
+         "image":"https://cdn.lawrencemcdaniel.com/wp-content/uploads/2014/09/22195650/ansible.png",
+         "url":"https://www.ansible.com/",
+         "name":"Red Hat Ansible",
+         "offers": [
+            {
+               "@type":"Offer",
+               "price":"75.00",
+               "priceCurrency":"USD",
+               "priceSpecification":"HOUR",
+               "itemOffered":{
+                  "@type":"Service",
+                  "name":"Full Stack Web Development"
+               },
+               "url":"https://lawrencemcdaniel/"
+            }
+         ]
+      },
+      {
+         "@type":"Product",
+         "logo":"https://cdn.lawrencemcdaniel.com/wp-content/uploads/2014/09/22195649/chef.png",
+         "image":"https://cdn.lawrencemcdaniel.com/wp-content/uploads/2014/09/22195649/chef.png",
+         "url":"https://www.chef.io/",
+         "name":"CHEF Progress",
+         "offers": [
+            {
+               "@type":"Offer",
+               "price":"75.00",
+               "priceCurrency":"USD",
+               "priceSpecification":"HOUR",
+               "itemOffered":{
+                  "@type":"Service",
+                  "name":"Full Stack Web Development"
+               },
+               "url":"https://lawrencemcdaniel/"
+            }
+         ]
+      },
+      {
+         "@type":"Product",
+         "logo":"https://cdn.lawrencemcdaniel.com/wp-content/uploads/2014/09/22195645/puppet.png",
+         "image":"https://cdn.lawrencemcdaniel.com/wp-content/uploads/2014/09/22195645/puppet.png",
+         "url":"https://puppet.com/",
+         "name":"puppet",
+         "offers": [
+            {
+               "@type":"Offer",
+               "price":"75.00",
+               "priceCurrency":"USD",
+               "priceSpecification":"HOUR",
+               "itemOffered":{
+                  "@type":"Service",
+                  "name":"Full Stack Web Development"
+               },
+               "url":"https://lawrencemcdaniel/"
+            }
+         ]
+      },
+      {
+         "@type":"Product",
+         "logo":"https://cdn.lawrencemcdaniel.com/wp-content/uploads/2014/09/22195647/jenkins.png",
+         "image":"https://cdn.lawrencemcdaniel.com/wp-content/uploads/2014/09/22195647/jenkins.png",
+         "url":"https://www.jenkins.io/",
+         "name":"Jenkins",
+         "offers": [
+            {
+               "@type":"Offer",
+               "price":"75.00",
+               "priceCurrency":"USD",
+               "priceSpecification":"HOUR",
+               "itemOffered":{
+                  "@type":"Service",
+                  "name":"Full Stack Web Development"
+               },
+               "url":"https://lawrencemcdaniel/"
+            }
+         ]
+      },
+      {
+         "@type":"Product",
+         "logo":"https://cdn.lawrencemcdaniel.com/wp-content/uploads/2014/09/22195644/qualcomm-snapdragon.png",
+         "image":"https://cdn.lawrencemcdaniel.com/wp-content/uploads/2014/09/22195644/qualcomm-snapdragon.png",
+         "url":"https://www.qualcomm.com/snapdragon",
+         "name":"Qualcomm snapdragon",
+         "offers": [
+            {
+               "@type":"Offer",
+               "price":"75.00",
+               "priceCurrency":"USD",
+               "priceSpecification":"HOUR",
+               "itemOffered":{
+                  "@type":"Service",
+                  "name":"Full Stack Web Development"
+               },
+               "url":"https://lawrencemcdaniel/"
+            }
+         ]
+      },
+      {
+         "@type":"Product",
+         "logo":"https://cdn.lawrencemcdaniel.com/wp-content/uploads/2014/09/22195648/d3.png",
+         "image":"https://cdn.lawrencemcdaniel.com/wp-content/uploads/2014/09/22195648/d3.png",
+         "url":"https://d3js.org/",
+         "name":"D3 Data-Driven Documents",
+         "offers": [
+            {
+               "@type":"Offer",
+               "price":"75.00",
+               "priceCurrency":"USD",
+               "priceSpecification":"HOUR",
+               "itemOffered":{
+                  "@type":"Service",
+                  "name":"Full Stack Web Development"
+               },
+               "url":"https://lawrencemcdaniel/"
+            }
+         ]
+      },
+      {
+         "@type":"Product",
+         "logo":"https://cdn.lawrencemcdaniel.com/wp-content/uploads/2014/09/22195643/lamp-logo.png",
+         "image":"https://cdn.lawrencemcdaniel.com/wp-content/uploads/2014/09/22195643/lamp-logo.png",
+         "url":"https://en.wikipedia.org/wiki/LAMP_(software_bundle)",
+         "name":"LAMP Stack",
+         "offers": [
+            {
+               "@type":"Offer",
+               "price":"75.00",
+               "priceCurrency":"USD",
+               "priceSpecification":"HOUR",
+               "itemOffered":{
+                  "@type":"Service",
+                  "name":"Full Stack Web Development"
+               },
+               "url":"https://lawrencemcdaniel/"
+            }
+         ]
+      },
+      {
+         "@type":"Product",
+         "logo":"https://cdn.lawrencemcdaniel.com/wp-content/uploads/2014/09/22195647/linux.png",
+         "image":"https://cdn.lawrencemcdaniel.com/wp-content/uploads/2014/09/22195647/linux.png",
+         "url":"https://www.linux.org/",
+         "name":"Linux",
+         "offers": [
+            {
+               "@type":"Offer",
+               "price":"75.00",
+               "priceCurrency":"USD",
+               "priceSpecification":"HOUR",
+               "itemOffered":{
+                  "@type":"Service",
+                  "name":"Full Stack Web Development"
+               },
+               "url":"https://lawrencemcdaniel/"
+            }
+         ]
+      },
+      {
+         "@type":"Product",
+         "logo":"https://cdn.lawrencemcdaniel.com/wp-content/uploads/2014/09/22195648/html5.png",
+         "image":"https://cdn.lawrencemcdaniel.com/wp-content/uploads/2014/09/22195648/html5.png",
+         "url":"https://en.wikipedia.org/wiki/HTML5",
+         "name":"HTML5",
+         "offers": [
+            {
+               "@type":"Offer",
+               "price":"75.00",
+               "priceCurrency":"USD",
+               "priceSpecification":"HOUR",
+               "itemOffered":{
+                  "@type":"Service",
+                  "name":"Full Stack Web Development"
+               },
+               "url":"https://lawrencemcdaniel/"
+            }
+         ]
       }
    ],
    "knowsLanguage":[
