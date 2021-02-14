@@ -1,20 +1,20 @@
 export const gsdPersonLawrenceMcDaniel = {
    "@context":"https://schema.org/",
    "@type":"Person",
-   "@id": "https://lawrencemcdaniel.com",
+   "@id":"https://lawrencemcdaniel.com",
    "identifier":"https://lawrencemcdaniel.com/",
    "email":"mailto:lpm0073@gmail.com",
    "familyName":"McDaniel",
    "givenName":"Lawrence",
-   "description": "Full Stack Developer",
+   "description":"Full Stack Developer",
    "jobTitle":"Full Stack Developer",
    "telephone":"+1 (617) 834-6172",
    "url":"https://lawrencemcdaniel.com",
-   "birthPlace": "Houston, TX, USA",
+   "birthPlace":"Houston, TX, USA",
    "nationality":"American",
-   "birthDate": "1966-12-31",
-   "height": "183 cm",
-   "gender": "Male",
+   "birthDate":"1966-12-31",
+   "height":"183 cm",
+   "gender":"Male",
    "address":{
       "@type":"PostalAddress",
       "addressLocality":"Cambridge",
@@ -22,7 +22,7 @@ export const gsdPersonLawrenceMcDaniel = {
       "postalCode":"02139",
       "streetAddress":"210 Broadway Street"
    },
-   "sameAs": [
+   "sameAs":[
       "https://lawrencemcdaniel.com/",
       "https://blog.lawrencemcdaniel.com/",
       "https://www.linkedin.com/in/lawrencemcdaniel/",
@@ -40,12 +40,12 @@ export const gsdPersonLawrenceMcDaniel = {
          "url":"https://open.edx.org/marketplace/lawrence-mcdaniel/"
       }
    ],
-   "alumniOf": [
+   "alumniOf":[
       {
-       "@type": "CollegeOrUniversity",
-       "name": "University of North Texas",
-       "url":"https://www.unt.edu/",
-       "sameAs": "https://www.unt.edu/"
+         "@type":"CollegeOrUniversity",
+         "name":"University of North Texas",
+         "url":"https://www.unt.edu/",
+         "sameAs":"https://www.unt.edu/"
       }
    ],
    "subjectOf":[
@@ -67,156 +67,156 @@ export const gsdPersonLawrenceMcDaniel = {
          "name":"Spanish"
       }
    ],
-   "image": {
-      "@type": "ImageObject",
-      "author": "Barry Wolfryd",
-      "creator": "Barry Wolfryd",
-      "contentLocation": "Colonia Roma Norte, CDMX, Mexico",
+   "image":{
+      "@type":"ImageObject",
+      "author":"Barry Wolfryd",
+      "creator":"Barry Wolfryd",
+      "contentLocation":"Colonia Roma Norte, CDMX, Mexico",
       "locationCreated":"Colonia Roma Norte, CDMX, Mexico",
-      "discussionUrl": "https://www.barrywolfryd.com/",
-      "contentUrl": "https://cdn.lawrencemcdaniel.com/social-1200x675.jpg",
-      "width": "1200",
-      "height": "675",
-      "datePublished": "2017-06-15",
-      "uploadDate": "2020-06-30",
-      "copyrightYear": "2017",
-      "mainEntityOfPage": {
-         "@type": "WebPage",
-         "@id": "https://lawrencemcdaniel.com/",
-         "lastReviewed": "2021-02-14"
+      "discussionUrl":"https://www.barrywolfryd.com/",
+      "contentUrl":"https://cdn.lawrencemcdaniel.com/social-1200x675.jpg",
+      "width":"1200",
+      "height":"675",
+      "datePublished":"2017-06-15",
+      "uploadDate":"2020-06-30",
+      "copyrightYear":"2017",
+      "mainEntityOfPage":{
+         "@type":"WebPage",
+         "@id":"https://lawrencemcdaniel.com/",
+         "lastReviewed":"2021-02-14"
       },
       "keywords":"Lawrence McDaniel, Barry Wolfryd photography, Roma Norte, CDMX",
-      "description": "Barry Wolfryd did a series of these for an article I wrote in geek.ly",
-      "about": "Barry Wolfryd did a series of these for an article I wrote in geek.ly",
-      "comment": "Barry Wolfryd did a series of these for an article I wrote in geek.ly",
-      "name": "Lawrence McDaniel Portfolio Images"
-    },
+      "description":"Barry Wolfryd did a series of these for an article I wrote in geek.ly",
+      "about":"Barry Wolfryd did a series of these for an article I wrote in geek.ly",
+      "comment":"Barry Wolfryd did a series of these for an article I wrote in geek.ly",
+      "name":"Lawrence McDaniel Portfolio Images"
+   },
    "hasOccupation":{
       "@type":"Occupation",
       "name":"Full Stack Developer",
-      "mainEntityOfPage": {
-         "@type": "WebPage",
-         "@id": "https://lawrencemcdaniel.com/",
-         "lastReviewed": "2021-02-14"
+      "mainEntityOfPage":{
+         "@type":"WebPage",
+         "@id":"https://lawrencemcdaniel.com/",
+         "lastReviewed":"2021-02-14"
       },
       "description":"I’m an American full stack developer with significant experience with classic backend stacks and front-end frameworks including Django, React, Angular, and WordPress. I also work extensively with the Open edX® learning management system. I am a veteran of multiple startups and early-stage ventures with dozens of successful product launches in multiple industries and markets around the world. I advocate for open source, try to keep things DRY and well-documented and when possible I adhere to the principals of 12-factor development. I’m a passionate learner and frequent blogger, currently interested in machine learning, AI and quantum computing.",
-      "estimatedSalary": {
-         "@type": "MonetaryAmountDistribution",
-         "name": "base",
-         "currency": "USD",
-         "median": "75.00",
-         "percentile10": "75.00",
-         "percentile25": "75.00",
-         "percentile75": "75.00",
-         "percentile90": "75.00",
-         "duration": "PT1H"
+      "estimatedSalary":{
+         "@type":"MonetaryAmountDistribution",
+         "name":"base",
+         "currency":"USD",
+         "median":"75.00",
+         "percentile10":"75.00",
+         "percentile25":"75.00",
+         "percentile75":"75.00",
+         "percentile90":"75.00",
+         "duration":"PT1H"
       },
-      "occupationLocation": [
-            {
-            "@type": "City",
-            "name": "Cambridge"
-            },
-            {
-               "@type": "City",
-               "name": "Mexico City"
-            }
-         ],
+      "occupationLocation":[
+         {
+            "@type":"City",
+            "name":"Cambridge"
+         },
+         {
+            "@type":"City",
+            "name":"Mexico City"
+         }
+      ],
       "qualifications":[
          {
             "@type":"EducationalOccupationalCredential",
-            "name": "University of North Texas",
-            "url": "https://www.unt.edu/",
+            "name":"University of North Texas",
+            "url":"https://www.unt.edu/",
             "educationalLevel":"Bachelors or equivalent",
-            "description": "Bachelor of Science in Computer Science and Mathematics, Minors in Physics and English.",
-            "dateCreated": "1992-08-01"
+            "description":"Bachelor of Science in Computer Science and Mathematics, Minors in Physics and English.",
+            "dateCreated":"1992-08-01"
          },
          {
             "@type":"EducationalOccupationalCredential",
-            "name": "Johns Hopkins University",
-            "url": "https://www.coursera.org/learn/single-page-web-apps-with-angularjs/home/welcome",
+            "name":"Johns Hopkins University",
+            "url":"https://www.coursera.org/learn/single-page-web-apps-with-angularjs/home/welcome",
             "educationalLevel":"Certificate or equivalent",
-            "description": "Web App Development With AngularJS",
-            "dateCreated": "2017-06-01"
+            "description":"Web App Development With AngularJS",
+            "dateCreated":"2017-06-01"
          },
          {
             "@type":"EducationalOccupationalCredential",
-            "name": "Johns Hopkins University",
-            "url": "https://www.coursera.org/learn/html-css-javascript-for-web-developers",
+            "name":"Johns Hopkins University",
+            "url":"https://www.coursera.org/learn/html-css-javascript-for-web-developers",
             "educationalLevel":"Certificate or equivalent",
-            "description": "HTML, CSS, and Javascript for Web Developers",
-            "dateCreated": "2017-07-01"
+            "description":"HTML, CSS, and Javascript for Web Developers",
+            "dateCreated":"2017-07-01"
          },
          {
             "@type":"EducationalOccupationalCredential",
-            "name": "Johns Hopkins University",
-            "url": "https://www.coursera.org/learn/ruby-on-rails-intro",
+            "name":"Johns Hopkins University",
+            "url":"https://www.coursera.org/learn/ruby-on-rails-intro",
             "educationalLevel":"Certificate or equivalent",
-            "description": "Ruby on Rails: An Introduction",
-            "dateCreated": "2017-08-01"
+            "description":"Ruby on Rails: An Introduction",
+            "dateCreated":"2017-08-01"
          },
          {
             "@type":"EducationalOccupationalCredential",
-            "name": "Johns Hopkins University",
-            "url": "https://www.coursera.org/learn/rails-with-active-record",
+            "name":"Johns Hopkins University",
+            "url":"https://www.coursera.org/learn/rails-with-active-record",
             "educationalLevel":"Certificate or equivalent",
-            "description": "Rails with Active Record and Action Pack",
-            "dateCreated": "2017-08-01"
+            "description":"Rails with Active Record and Action Pack",
+            "dateCreated":"2017-08-01"
          },
          {
             "@type":"EducationalOccupationalCredential",
-            "name": "Hong Kong University of Science and Technology",
-            "url": "https://www.coursera.org/learn/front-end-react/home/welcome",
+            "name":"Hong Kong University of Science and Technology",
+            "url":"https://www.coursera.org/learn/front-end-react/home/welcome",
             "educationalLevel":"Certificate or equivalent",
-            "description": "Front-End Web Development with ReactJS",
-            "dateCreated": "2020-03-01"
+            "description":"Front-End Web Development with ReactJS",
+            "dateCreated":"2020-03-01"
          },
          {
             "@type":"EducationalOccupationalCredential",
-            "name": "Wharton University of Pennsylvania",
-            "url": "https://www.coursera.org/learn/accounting-analytics/home/welcome",
+            "name":"Wharton University of Pennsylvania",
+            "url":"https://www.coursera.org/learn/accounting-analytics/home/welcome",
             "educationalLevel":"Certificate or equivalent",
-            "description": "Accounting Analytics Certification",
-            "dateCreated": "2017-08-01"
+            "description":"Accounting Analytics Certification",
+            "dateCreated":"2017-08-01"
          },
          {
             "@type":"EducationalOccupationalCredential",
-            "name": "Wharton University of Pennsylvania",
-            "url": "https://www.coursera.org/learn/wharton-operations-analytics/home/welcome",
+            "name":"Wharton University of Pennsylvania",
+            "url":"https://www.coursera.org/learn/wharton-operations-analytics/home/welcome",
             "educationalLevel":"Certificate or equivalent",
-            "description": "People Analytics Certification",
-            "dateCreated": "2017-08-01"
+            "description":"People Analytics Certification",
+            "dateCreated":"2017-08-01"
          },
          {
             "@type":"EducationalOccupationalCredential",
-            "name": "Wharton University of Pennsylvania",
-            "url": "https://www.coursera.org/learn/wharton-people-analytics/home/welcome",
+            "name":"Wharton University of Pennsylvania",
+            "url":"https://www.coursera.org/learn/wharton-people-analytics/home/welcome",
             "educationalLevel":"Certificate or equivalent",
-            "description": "Operations Analytics Certification",
-            "dateCreated": "2017-09-01"
+            "description":"Operations Analytics Certification",
+            "dateCreated":"2017-09-01"
          },
          {
             "@type":"EducationalOccupationalCredential",
-            "name": "Wharton University of Pennsylvania",
-            "url": "https://www.coursera.org/learn/wharton-customer-analytics/home/welcome",
+            "name":"Wharton University of Pennsylvania",
+            "url":"https://www.coursera.org/learn/wharton-customer-analytics/home/welcome",
             "educationalLevel":"Certificate or equivalent",
-            "description": "Customer Analytics Certification",
-            "dateCreated": "2017-09-01"
+            "description":"Customer Analytics Certification",
+            "dateCreated":"2017-09-01"
          },
          {
             "@type":"EducationalOccupationalCredential",
-            "name": "Stanford University",
-            "url": "https://www.coursera.org/learn/machine-learning/home/welcome",
+            "name":"Stanford University",
+            "url":"https://www.coursera.org/learn/machine-learning/home/welcome",
             "educationalLevel":"Certificate or equivalent",
-            "description": "Machine Learning Certification",
-            "dateCreated": "2016-21-31"
+            "description":"Machine Learning Certification",
+            "dateCreated":"2016-21-31"
          },
          {
             "@type":"EducationalOccupationalCredential",
-            "name": "Stanford University",
-            "url": "https://cs193p.sites.stanford.edu/",
+            "name":"Stanford University",
+            "url":"https://cs193p.sites.stanford.edu/",
             "educationalLevel":"Certificate or equivalent",
-            "description": "CS193P Developing Applications in iOS",
-            "dateCreated": "2012-06-30"
+            "description":"CS193P Developing Applications in iOS",
+            "dateCreated":"2012-06-30"
          }
       ]
    },
@@ -229,24 +229,24 @@ export const gsdPersonLawrenceMcDaniel = {
          "name":"Open edX®",
          "sku":"openedx",
          "brand":{
-            "@id": "https://open.edx.org/"
+            "@id":"https://open.edx.org/"
          },
          "description":"Open edX learning management system",
          "isbn":"openedx",
-         "offers": [
+         "offers":[
             {
                "@type":"Offer",
                "price":"75.00",
                "priceCurrency":"USD",
                "priceSpecification":"HOUR",
-               "availability": "InStock",
+               "availability":"InStock",
                "priceValidUntil":"2050-12-31",
                "itemOffered":{
                   "@type":"Service",
-                  "additionalType": "https://www.wikidata.org/wiki/Q96072517",              
+                  "additionalType":"https://www.wikidata.org/wiki/Q96072517",
                   "name":"Full Stack Web Development"
                },
-                   "url":"https://lawrencemcdaniel.com/"
+               "url":"https://lawrencemcdaniel.com/"
             }
          ]
       },
@@ -258,24 +258,24 @@ export const gsdPersonLawrenceMcDaniel = {
          "name":"Swagger",
          "sku":"swagger",
          "brand":{
-            "@id": "https://swagger.io/"
+            "@id":"https://swagger.io/"
          },
          "description":"Swagger",
          "isbn":"swagger",
-         "offers": [
+         "offers":[
             {
                "@type":"Offer",
                "price":"75.00",
                "priceCurrency":"USD",
                "priceSpecification":"HOUR",
-               "availability": "InStock",
+               "availability":"InStock",
                "priceValidUntil":"2050-12-31",
                "itemOffered":{
                   "@type":"Service",
-                  "additionalType": "https://www.wikidata.org/wiki/Q96072517",              
+                  "additionalType":"https://www.wikidata.org/wiki/Q96072517",
                   "name":"Full Stack Web Development"
                },
-                   "url":"https://lawrencemcdaniel.com/"
+               "url":"https://lawrencemcdaniel.com/"
             }
          ]
       },
@@ -287,21 +287,21 @@ export const gsdPersonLawrenceMcDaniel = {
          "name":"ReadTheDocs",
          "sku":"ReadTheDocs",
          "brand":{
-            "@id": "https://readthedocs.org/"
+            "@id":"https://readthedocs.org/"
          },
          "description":"ReadTheDocs",
          "isbn":"ReadTheDocs",
-         "offers": [
+         "offers":[
             {
                "@type":"Offer",
                "price":"75.00",
                "priceCurrency":"USD",
                "priceSpecification":"HOUR",
-               "availability": "InStock",
+               "availability":"InStock",
                "priceValidUntil":"2050-12-31",
                "itemOffered":{
                   "@type":"Service",
-                  "additionalType": "https://www.wikidata.org/wiki/Q96072517",              
+                  "additionalType":"https://www.wikidata.org/wiki/Q96072517",
                   "name":"Full Stack Web Development"
                },
                "url":"https://lawrencemcdaniel.com/"
@@ -316,21 +316,21 @@ export const gsdPersonLawrenceMcDaniel = {
          "name":"Atlassian",
          "sku":"Atlassian",
          "brand":{
-            "@id": "https://www.atlassian.com/"
+            "@id":"https://www.atlassian.com/"
          },
          "description":"Atlassian",
          "isbn":"Atlassian",
-         "offers": [
+         "offers":[
             {
                "@type":"Offer",
                "price":"75.00",
                "priceCurrency":"USD",
                "priceSpecification":"HOUR",
-               "availability": "InStock",
+               "availability":"InStock",
                "priceValidUntil":"2050-12-31",
                "itemOffered":{
                   "@type":"Service",
-                  "additionalType": "https://www.wikidata.org/wiki/Q96072517",              
+                  "additionalType":"https://www.wikidata.org/wiki/Q96072517",
                   "name":"Full Stack Web Development"
                },
                "url":"https://lawrencemcdaniel.com/"
@@ -345,21 +345,21 @@ export const gsdPersonLawrenceMcDaniel = {
          "name":"Digital Ocean",
          "sku":"DigitalOcean",
          "brand":{
-            "@id": "https://www.digitalocean.com/"
+            "@id":"https://www.digitalocean.com/"
          },
          "description":"Digital Ocean",
          "isbn":"DigitalOcean",
-         "offers": [
+         "offers":[
             {
                "@type":"Offer",
                "price":"75.00",
                "priceCurrency":"USD",
                "priceSpecification":"HOUR",
-               "availability": "InStock",
+               "availability":"InStock",
                "priceValidUntil":"2050-12-31",
                "itemOffered":{
                   "@type":"Service",
-                  "additionalType": "https://www.wikidata.org/wiki/Q96072517",              
+                  "additionalType":"https://www.wikidata.org/wiki/Q96072517",
                   "name":"Full Stack Web Development"
                },
                "url":"https://lawrencemcdaniel.com/"
@@ -374,21 +374,21 @@ export const gsdPersonLawrenceMcDaniel = {
          "name":"oAuth",
          "sku":"oAuth",
          "brand":{
-            "@id": "https://oauth.net/"
+            "@id":"https://oauth.net/"
          },
          "description":"oAuth",
          "isbn":"oAuth",
-         "offers": [
+         "offers":[
             {
                "@type":"Offer",
                "price":"75.00",
                "priceCurrency":"USD",
                "priceSpecification":"HOUR",
-               "availability": "InStock",
+               "availability":"InStock",
                "priceValidUntil":"2050-12-31",
                "itemOffered":{
                   "@type":"Service",
-                  "additionalType": "https://www.wikidata.org/wiki/Q96072517",              
+                  "additionalType":"https://www.wikidata.org/wiki/Q96072517",
                   "name":"Full Stack Web Development"
                },
                "url":"https://lawrencemcdaniel.com/"
@@ -403,21 +403,21 @@ export const gsdPersonLawrenceMcDaniel = {
          "name":"GNU",
          "sku":"GNU",
          "brand":{
-            "@id": "https://www.gnu.org/"
+            "@id":"https://www.gnu.org/"
          },
          "description":"GNU",
          "isbn":"GNU",
-         "offers": [
+         "offers":[
             {
                "@type":"Offer",
                "price":"75.00",
                "priceCurrency":"USD",
                "priceSpecification":"HOUR",
-               "availability": "InStock",
+               "availability":"InStock",
                "priceValidUntil":"2050-12-31",
                "itemOffered":{
                   "@type":"Service",
-                  "additionalType": "https://www.wikidata.org/wiki/Q96072517",              
+                  "additionalType":"https://www.wikidata.org/wiki/Q96072517",
                   "name":"Full Stack Web Development"
                },
                "url":"https://lawrencemcdaniel.com/"
@@ -432,21 +432,21 @@ export const gsdPersonLawrenceMcDaniel = {
          "name":"Debian",
          "sku":"Debian",
          "brand":{
-            "@id": "https://www.debian.org/"
+            "@id":"https://www.debian.org/"
          },
          "description":"Debian",
          "isbn":"Debian",
-         "offers": [
+         "offers":[
             {
                "@type":"Offer",
                "price":"75.00",
                "priceCurrency":"USD",
                "priceSpecification":"HOUR",
-               "availability": "InStock",
+               "availability":"InStock",
                "priceValidUntil":"2050-12-31",
                "itemOffered":{
                   "@type":"Service",
-                  "additionalType": "https://www.wikidata.org/wiki/Q96072517",              
+                  "additionalType":"https://www.wikidata.org/wiki/Q96072517",
                   "name":"Full Stack Web Development"
                },
                "url":"https://lawrencemcdaniel.com/"
@@ -461,21 +461,21 @@ export const gsdPersonLawrenceMcDaniel = {
          "name":"Red Hat",
          "sku":"RedHat",
          "brand":{
-            "@id": "https://www.redhat.com/"
+            "@id":"https://www.redhat.com/"
          },
          "description":"RedHat",
          "isbn":"RedHat",
-         "offers": [
+         "offers":[
             {
                "@type":"Offer",
                "price":"75.00",
                "priceCurrency":"USD",
                "priceSpecification":"HOUR",
-               "availability": "InStock",
+               "availability":"InStock",
                "priceValidUntil":"2050-12-31",
                "itemOffered":{
                   "@type":"Service",
-                  "additionalType": "https://www.wikidata.org/wiki/Q96072517",              
+                  "additionalType":"https://www.wikidata.org/wiki/Q96072517",
                   "name":"Full Stack Web Development"
                },
                "url":"https://lawrencemcdaniel.com/"
@@ -490,21 +490,21 @@ export const gsdPersonLawrenceMcDaniel = {
          "name":"CentOS",
          "sku":"CentOS",
          "brand":{
-            "@id": "https://www.centos.org/"
+            "@id":"https://www.centos.org/"
          },
          "description":"CentOS",
          "isbn":"CentOS",
-         "offers": [
+         "offers":[
             {
                "@type":"Offer",
                "price":"75.00",
                "priceCurrency":"USD",
                "priceSpecification":"HOUR",
-               "availability": "InStock",
+               "availability":"InStock",
                "priceValidUntil":"2050-12-31",
                "itemOffered":{
                   "@type":"Service",
-                  "additionalType": "https://www.wikidata.org/wiki/Q96072517",              
+                  "additionalType":"https://www.wikidata.org/wiki/Q96072517",
                   "name":"Full Stack Web Development"
                },
                "url":"https://lawrencemcdaniel.com/"
@@ -519,21 +519,21 @@ export const gsdPersonLawrenceMcDaniel = {
          "name":"Django REST Framework",
          "sku":"DRF",
          "brand":{
-               "@id": "https://www.django-rest-framework.org/"
-            },
+            "@id":"https://www.django-rest-framework.org/"
+         },
          "description":"Django REST Framework",
          "isbn":"DRF",
-         "offers": [
+         "offers":[
             {
                "@type":"Offer",
                "price":"75.00",
                "priceCurrency":"USD",
                "priceSpecification":"HOUR",
-               "availability": "InStock",
+               "availability":"InStock",
                "priceValidUntil":"2050-12-31",
                "itemOffered":{
                   "@type":"Service",
-                  "additionalType": "https://www.wikidata.org/wiki/Q96072517",              
+                  "additionalType":"https://www.wikidata.org/wiki/Q96072517",
                   "name":"Full Stack Web Development"
                },
                "url":"https://lawrencemcdaniel.com/"
@@ -548,21 +548,21 @@ export const gsdPersonLawrenceMcDaniel = {
          "name":"Gunicorn",
          "sku":"Gunicorn",
          "brand":{
-            "@id": "https://gunicorn.org/"
+            "@id":"https://gunicorn.org/"
          },
          "description":"Gunicorn",
          "isbn":"Gunicorn",
-         "offers": [
+         "offers":[
             {
                "@type":"Offer",
                "price":"75.00",
                "priceCurrency":"USD",
                "priceSpecification":"HOUR",
-               "availability": "InStock",
+               "availability":"InStock",
                "priceValidUntil":"2050-12-31",
                "itemOffered":{
                   "@type":"Service",
-                  "additionalType": "https://www.wikidata.org/wiki/Q96072517",              
+                  "additionalType":"https://www.wikidata.org/wiki/Q96072517",
                   "name":"Full Stack Web Development"
                },
                "url":"https://lawrencemcdaniel.com/"
@@ -577,21 +577,21 @@ export const gsdPersonLawrenceMcDaniel = {
          "name":"BeautifulSoup",
          "sku":"BeautifulSoup",
          "brand":{
-            "@id": "https://www.crummy.com/software/BeautifulSoup/"
+            "@id":"https://www.crummy.com/software/BeautifulSoup/"
          },
          "description":"BeautifulSoup",
          "isbn":"BeautifulSoup",
-         "offers": [
+         "offers":[
             {
                "@type":"Offer",
                "price":"75.00",
                "priceCurrency":"USD",
                "priceSpecification":"HOUR",
-               "availability": "InStock",
+               "availability":"InStock",
                "priceValidUntil":"2050-12-31",
                "itemOffered":{
                   "@type":"Service",
-                  "additionalType": "https://www.wikidata.org/wiki/Q96072517",              
+                  "additionalType":"https://www.wikidata.org/wiki/Q96072517",
                   "name":"Full Stack Web Development"
                },
                "url":"https://lawrencemcdaniel.com/"
@@ -606,21 +606,21 @@ export const gsdPersonLawrenceMcDaniel = {
          "name":"Scrapy",
          "sku":"Scrapy",
          "brand":{
-            "@id": "https://scrapy.org/"
+            "@id":"https://scrapy.org/"
          },
          "description":"Scrapy",
          "isbn":"Scrapy",
-         "offers": [
+         "offers":[
             {
                "@type":"Offer",
                "price":"75.00",
                "priceCurrency":"USD",
                "priceSpecification":"HOUR",
-               "availability": "InStock",
+               "availability":"InStock",
                "priceValidUntil":"2050-12-31",
                "itemOffered":{
                   "@type":"Service",
-                  "additionalType": "https://www.wikidata.org/wiki/Q96072517",              
+                  "additionalType":"https://www.wikidata.org/wiki/Q96072517",
                   "name":"Full Stack Web Development"
                },
                "url":"https://lawrencemcdaniel.com/"
@@ -635,21 +635,21 @@ export const gsdPersonLawrenceMcDaniel = {
          "name":"NumPy",
          "sku":"NumPy",
          "brand":{
-            "@id": "https://numpy.org/"
+            "@id":"https://numpy.org/"
          },
          "description":"NumPy",
          "isbn":"NumPy",
-         "offers": [
+         "offers":[
             {
                "@type":"Offer",
                "price":"75.00",
                "priceCurrency":"USD",
                "priceSpecification":"HOUR",
-               "availability": "InStock",
+               "availability":"InStock",
                "priceValidUntil":"2050-12-31",
                "itemOffered":{
                   "@type":"Service",
-                  "additionalType": "https://www.wikidata.org/wiki/Q96072517",              
+                  "additionalType":"https://www.wikidata.org/wiki/Q96072517",
                   "name":"Full Stack Web Development"
                },
                "url":"https://lawrencemcdaniel.com/"
@@ -664,21 +664,21 @@ export const gsdPersonLawrenceMcDaniel = {
          "name":"SciPi",
          "sku":"SciPi",
          "brand":{
-            "@id": "https://www.scipy.org/"
+            "@id":"https://www.scipy.org/"
          },
          "description":"SciPi",
          "isbn":"SciPi",
-         "offers": [
+         "offers":[
             {
                "@type":"Offer",
                "price":"75.00",
                "priceCurrency":"USD",
                "priceSpecification":"HOUR",
-               "availability": "InStock",
+               "availability":"InStock",
                "priceValidUntil":"2050-12-31",
                "itemOffered":{
                   "@type":"Service",
-                  "additionalType": "https://www.wikidata.org/wiki/Q96072517",              
+                  "additionalType":"https://www.wikidata.org/wiki/Q96072517",
                   "name":"Full Stack Web Development"
                },
                "url":"https://lawrencemcdaniel.com/"
@@ -693,21 +693,21 @@ export const gsdPersonLawrenceMcDaniel = {
          "name":"Sphinx Doc",
          "sku":"SphinxDoc",
          "brand":{
-            "@id": "https://www.sphinx-doc.org/en/master/"
+            "@id":"https://www.sphinx-doc.org/en/master/"
          },
          "description":"Sphinx Doc",
          "isbn":"SphinxDoc",
-         "offers": [
+         "offers":[
             {
                "@type":"Offer",
                "price":"75.00",
                "priceCurrency":"USD",
                "priceSpecification":"HOUR",
-               "availability": "InStock",
+               "availability":"InStock",
                "priceValidUntil":"2050-12-31",
                "itemOffered":{
                   "@type":"Service",
-                  "additionalType": "https://www.wikidata.org/wiki/Q96072517",              
+                  "additionalType":"https://www.wikidata.org/wiki/Q96072517",
                   "name":"Full Stack Web Development"
                },
                "url":"https://lawrencemcdaniel.com/"
@@ -722,21 +722,21 @@ export const gsdPersonLawrenceMcDaniel = {
          "name":"NPM",
          "sku":"NPM",
          "brand":{
-        "@id": "https://www.npmjs.com/"
-     },
+            "@id":"https://www.npmjs.com/"
+         },
          "description":"Node Package Manager",
          "isbn":"NPM",
-         "offers": [
+         "offers":[
             {
                "@type":"Offer",
                "price":"75.00",
                "priceCurrency":"USD",
                "priceSpecification":"HOUR",
-               "availability": "InStock",
+               "availability":"InStock",
                "priceValidUntil":"2050-12-31",
                "itemOffered":{
                   "@type":"Service",
-                  "additionalType": "https://www.wikidata.org/wiki/Q96072517",              
+                  "additionalType":"https://www.wikidata.org/wiki/Q96072517",
                   "name":"Full Stack Web Development"
                },
                "url":"https://lawrencemcdaniel.com/"
@@ -751,21 +751,21 @@ export const gsdPersonLawrenceMcDaniel = {
          "name":"NodeJS",
          "sku":"NodeJS",
          "brand":{
-            "@id": "https://nodejs.org/"
+            "@id":"https://nodejs.org/"
          },
          "description":"NodeJS",
          "isbn":"NodeJS",
-         "offers": [
+         "offers":[
             {
                "@type":"Offer",
                "price":"75.00",
                "priceCurrency":"USD",
                "priceSpecification":"HOUR",
-               "availability": "InStock",
+               "availability":"InStock",
                "priceValidUntil":"2050-12-31",
                "itemOffered":{
                   "@type":"Service",
-                  "additionalType": "https://www.wikidata.org/wiki/Q96072517",              
+                  "additionalType":"https://www.wikidata.org/wiki/Q96072517",
                   "name":"Full Stack Web Development"
                },
                "url":"https://lawrencemcdaniel.com/"
@@ -780,21 +780,21 @@ export const gsdPersonLawrenceMcDaniel = {
          "name":"Mako",
          "sku":"Mako",
          "brand":{
-        "@id": "https://www.makotemplates.org/"
-     },
+            "@id":"https://www.makotemplates.org/"
+         },
          "description":"Mako Templates",
          "isbn":"Mako",
-         "offers": [
+         "offers":[
             {
                "@type":"Offer",
                "price":"75.00",
                "priceCurrency":"USD",
                "priceSpecification":"HOUR",
-               "availability": "InStock",
+               "availability":"InStock",
                "priceValidUntil":"2050-12-31",
                "itemOffered":{
                   "@type":"Service",
-                  "additionalType": "https://www.wikidata.org/wiki/Q96072517",              
+                  "additionalType":"https://www.wikidata.org/wiki/Q96072517",
                   "name":"Full Stack Web Development"
                },
                "url":"https://lawrencemcdaniel.com/"
@@ -809,21 +809,21 @@ export const gsdPersonLawrenceMcDaniel = {
          "name":"Chrome",
          "sku":"Chrome",
          "brand":{
-            "@id": "https://www.google.com/chrome/"
+            "@id":"https://www.google.com/chrome/"
          },
          "description":"Chrome",
          "isbn":"Chrome",
-         "offers": [
+         "offers":[
             {
                "@type":"Offer",
                "price":"75.00",
                "priceCurrency":"USD",
                "priceSpecification":"HOUR",
-               "availability": "InStock",
+               "availability":"InStock",
                "priceValidUntil":"2050-12-31",
                "itemOffered":{
                   "@type":"Service",
-                  "additionalType": "https://www.wikidata.org/wiki/Q96072517",              
+                  "additionalType":"https://www.wikidata.org/wiki/Q96072517",
                   "name":"Full Stack Web Development"
                },
                "url":"https://lawrencemcdaniel.com/"
@@ -838,21 +838,21 @@ export const gsdPersonLawrenceMcDaniel = {
          "name":"Lets Encrypt",
          "sku":"LetsEncrypt",
          "brand":{
-        "@id": "https://letsencrypt.org/"
-     },
+            "@id":"https://letsencrypt.org/"
+         },
          "description":"Lets Encrypt",
          "isbn":"LetsEncrypt",
-         "offers": [
+         "offers":[
             {
                "@type":"Offer",
                "price":"75.00",
                "priceCurrency":"USD",
                "priceSpecification":"HOUR",
-               "availability": "InStock",
+               "availability":"InStock",
                "priceValidUntil":"2050-12-31",
                "itemOffered":{
                   "@type":"Service",
-                  "additionalType": "https://www.wikidata.org/wiki/Q96072517",              
+                  "additionalType":"https://www.wikidata.org/wiki/Q96072517",
                   "name":"Full Stack Web Development"
                },
                "url":"https://lawrencemcdaniel.com/"
@@ -867,21 +867,21 @@ export const gsdPersonLawrenceMcDaniel = {
          "name":"HTTP",
          "sku":"HTTP",
          "brand":{
-        "@id": "https://en.wikipedia.org/wiki/Hypertext_Transfer_Protocol"
-     },
+            "@id":"https://en.wikipedia.org/wiki/Hypertext_Transfer_Protocol"
+         },
          "description":"HTTP",
          "isbn":"HTTP",
-         "offers": [
+         "offers":[
             {
                "@type":"Offer",
                "price":"75.00",
                "priceCurrency":"USD",
                "priceSpecification":"HOUR",
-               "availability": "InStock",
+               "availability":"InStock",
                "priceValidUntil":"2050-12-31",
                "itemOffered":{
                   "@type":"Service",
-                  "additionalType": "https://www.wikidata.org/wiki/Q96072517",              
+                  "additionalType":"https://www.wikidata.org/wiki/Q96072517",
                   "name":"Full Stack Web Development"
                },
                "url":"https://lawrencemcdaniel.com/"
@@ -896,21 +896,21 @@ export const gsdPersonLawrenceMcDaniel = {
          "name":"Yarn",
          "sku":"Yarn",
          "brand":{
-        "@id": "https://yarnpkg.com/"
-     },
+            "@id":"https://yarnpkg.com/"
+         },
          "description":"Yarn",
          "isbn":"Yarn",
-         "offers": [
+         "offers":[
             {
                "@type":"Offer",
                "price":"75.00",
                "priceCurrency":"USD",
                "priceSpecification":"HOUR",
-               "availability": "InStock",
+               "availability":"InStock",
                "priceValidUntil":"2050-12-31",
                "itemOffered":{
                   "@type":"Service",
-                  "additionalType": "https://www.wikidata.org/wiki/Q96072517",              
+                  "additionalType":"https://www.wikidata.org/wiki/Q96072517",
                   "name":"Full Stack Web Development"
                },
                "url":"https://lawrencemcdaniel.com/"
@@ -925,21 +925,21 @@ export const gsdPersonLawrenceMcDaniel = {
          "name":"Memcached",
          "sku":"Memcached",
          "brand":{
-        "@id": "https://memcached.org/"
-     },
+            "@id":"https://memcached.org/"
+         },
          "description":"Memcached",
          "isbn":"Memcached",
-         "offers": [
+         "offers":[
             {
                "@type":"Offer",
                "price":"75.00",
                "priceCurrency":"USD",
                "priceSpecification":"HOUR",
-               "availability": "InStock",
+               "availability":"InStock",
                "priceValidUntil":"2050-12-31",
                "itemOffered":{
                   "@type":"Service",
-                  "additionalType": "https://www.wikidata.org/wiki/Q96072517",              
+                  "additionalType":"https://www.wikidata.org/wiki/Q96072517",
                   "name":"Full Stack Web Development"
                },
                "url":"https://lawrencemcdaniel.com/"
@@ -954,21 +954,21 @@ export const gsdPersonLawrenceMcDaniel = {
          "name":"Ubuntu",
          "sku":"Ubuntu",
          "brand":{
-        "@id": "https://ubuntu.com/"
-     },
+            "@id":"https://ubuntu.com/"
+         },
          "description":"Ubuntu",
          "isbn":"Ubuntu",
-         "offers": [
+         "offers":[
             {
                "@type":"Offer",
                "price":"75.00",
                "priceCurrency":"USD",
                "priceSpecification":"HOUR",
-               "availability": "InStock",
+               "availability":"InStock",
                "priceValidUntil":"2050-12-31",
                "itemOffered":{
                   "@type":"Service",
-                  "additionalType": "https://www.wikidata.org/wiki/Q96072517",              
+                  "additionalType":"https://www.wikidata.org/wiki/Q96072517",
                   "name":"Full Stack Web Development"
                },
                "url":"https://lawrencemcdaniel.com/"
@@ -983,21 +983,21 @@ export const gsdPersonLawrenceMcDaniel = {
          "name":"Javascript",
          "sku":"Javascript",
          "brand":{
-        "@id": "https://en.wikipedia.org/wiki/JavaScript"
-     },
+            "@id":"https://en.wikipedia.org/wiki/JavaScript"
+         },
          "description":"Javascript",
          "isbn":"Javascript",
-         "offers": [
+         "offers":[
             {
                "@type":"Offer",
                "price":"75.00",
                "priceCurrency":"USD",
                "priceSpecification":"HOUR",
-               "availability": "InStock",
+               "availability":"InStock",
                "priceValidUntil":"2050-12-31",
                "itemOffered":{
                   "@type":"Service",
-                  "additionalType": "https://www.wikidata.org/wiki/Q96072517",              
+                  "additionalType":"https://www.wikidata.org/wiki/Q96072517",
                   "name":"Full Stack Web Development"
                },
                "url":"https://lawrencemcdaniel.com/"
@@ -1012,21 +1012,21 @@ export const gsdPersonLawrenceMcDaniel = {
          "name":"CSS3",
          "sku":"CSS3",
          "brand":{
-        "@id": "https://en.wikipedia.org/wiki/CSS"
-     },
+            "@id":"https://en.wikipedia.org/wiki/CSS"
+         },
          "description":"CSS3",
          "isbn":"CSS3",
-         "offers": [
+         "offers":[
             {
                "@type":"Offer",
                "price":"75.00",
                "priceCurrency":"USD",
                "priceSpecification":"HOUR",
-               "availability": "InStock",
+               "availability":"InStock",
                "priceValidUntil":"2050-12-31",
                "itemOffered":{
                   "@type":"Service",
-                  "additionalType": "https://www.wikidata.org/wiki/Q96072517",              
+                  "additionalType":"https://www.wikidata.org/wiki/Q96072517",
                   "name":"Full Stack Web Development"
                },
                "url":"https://lawrencemcdaniel.com/"
@@ -1041,21 +1041,21 @@ export const gsdPersonLawrenceMcDaniel = {
          "name":"HTML5",
          "sku":"HTML5",
          "brand":{
-        "@id": "https://en.wikipedia.org/wiki/HTML5"
-     },
+            "@id":"https://en.wikipedia.org/wiki/HTML5"
+         },
          "description":"HTML5",
          "isbn":"HTML5",
-         "offers": [
+         "offers":[
             {
                "@type":"Offer",
                "price":"75.00",
                "priceCurrency":"USD",
                "priceSpecification":"HOUR",
-               "availability": "InStock",
+               "availability":"InStock",
                "priceValidUntil":"2050-12-31",
                "itemOffered":{
                   "@type":"Service",
-                  "additionalType": "https://www.wikidata.org/wiki/Q96072517",              
+                  "additionalType":"https://www.wikidata.org/wiki/Q96072517",
                   "name":"Full Stack Web Development"
                },
                "url":"https://lawrencemcdaniel.com/"
@@ -1070,21 +1070,21 @@ export const gsdPersonLawrenceMcDaniel = {
          "name":"underscore.js",
          "sku":"underscorejs",
          "brand":{
-        "@id": "https://underscorejs.org/"
-     },
+            "@id":"https://underscorejs.org/"
+         },
          "description":"underscore.js",
          "isbn":"underscorejs",
-         "offers": [
+         "offers":[
             {
                "@type":"Offer",
                "price":"75.00",
                "priceCurrency":"USD",
                "priceSpecification":"HOUR",
-               "availability": "InStock",
+               "availability":"InStock",
                "priceValidUntil":"2050-12-31",
                "itemOffered":{
                   "@type":"Service",
-                  "additionalType": "https://www.wikidata.org/wiki/Q96072517",              
+                  "additionalType":"https://www.wikidata.org/wiki/Q96072517",
                   "name":"Full Stack Web Development"
                },
                "url":"https://lawrencemcdaniel.com/"
@@ -1099,21 +1099,21 @@ export const gsdPersonLawrenceMcDaniel = {
          "name":"RabbitMQ",
          "sku":"RabbitMQ",
          "brand":{
-        "@id": "https://www.rabbitmq.com/"
-     },
+            "@id":"https://www.rabbitmq.com/"
+         },
          "description":"RabbitMQ",
          "isbn":"RabbitMQ",
-         "offers": [
+         "offers":[
             {
                "@type":"Offer",
                "price":"75.00",
                "priceCurrency":"USD",
                "priceSpecification":"HOUR",
-               "availability": "InStock",
+               "availability":"InStock",
                "priceValidUntil":"2050-12-31",
                "itemOffered":{
                   "@type":"Service",
-                  "additionalType": "https://www.wikidata.org/wiki/Q96072517",              
+                  "additionalType":"https://www.wikidata.org/wiki/Q96072517",
                   "name":"Full Stack Web Development"
                },
                "url":"https://lawrencemcdaniel.com/"
@@ -1128,21 +1128,21 @@ export const gsdPersonLawrenceMcDaniel = {
          "name":"Celery",
          "sku":"Celery",
          "brand":{
-            "@id": "https://docs.celeryproject.org"
+            "@id":"https://docs.celeryproject.org"
          },
          "description":"Celery",
          "isbn":"Celery",
-         "offers": [
+         "offers":[
             {
                "@type":"Offer",
                "price":"75.00",
                "priceCurrency":"USD",
                "priceSpecification":"HOUR",
-               "availability": "InStock",
+               "availability":"InStock",
                "priceValidUntil":"2050-12-31",
                "itemOffered":{
                   "@type":"Service",
-                  "additionalType": "https://www.wikidata.org/wiki/Q96072517",              
+                  "additionalType":"https://www.wikidata.org/wiki/Q96072517",
                   "name":"Full Stack Web Development"
                },
                "url":"https://lawrencemcdaniel.com/"
@@ -1157,21 +1157,21 @@ export const gsdPersonLawrenceMcDaniel = {
          "name":"Nginx",
          "sku":"Nginx",
          "brand":{
-        "@id": "https://www.nginx.com/"
-     },
+            "@id":"https://www.nginx.com/"
+         },
          "description":"Nginx",
          "isbn":"Nginx",
-         "offers": [
+         "offers":[
             {
                "@type":"Offer",
                "price":"75.00",
                "priceCurrency":"USD",
                "priceSpecification":"HOUR",
-               "availability": "InStock",
+               "availability":"InStock",
                "priceValidUntil":"2050-12-31",
                "itemOffered":{
                   "@type":"Service",
-                  "additionalType": "https://www.wikidata.org/wiki/Q96072517",              
+                  "additionalType":"https://www.wikidata.org/wiki/Q96072517",
                   "name":"Full Stack Web Development"
                },
                "url":"https://lawrencemcdaniel.com/"
@@ -1186,21 +1186,21 @@ export const gsdPersonLawrenceMcDaniel = {
          "name":"Redux",
          "sku":"Redux",
          "brand":{
-        "@id": "https://redux.js.org/"
-     },
+            "@id":"https://redux.js.org/"
+         },
          "description":"Redux",
          "isbn":"Redux",
-         "offers": [
+         "offers":[
             {
                "@type":"Offer",
                "price":"75.00",
                "priceCurrency":"USD",
                "priceSpecification":"HOUR",
-               "availability": "InStock",
+               "availability":"InStock",
                "priceValidUntil":"2050-12-31",
                "itemOffered":{
                   "@type":"Service",
-                  "additionalType": "https://www.wikidata.org/wiki/Q96072517",              
+                  "additionalType":"https://www.wikidata.org/wiki/Q96072517",
                   "name":"Full Stack Web Development"
                },
                "url":"https://lawrencemcdaniel.com/"
@@ -1215,21 +1215,21 @@ export const gsdPersonLawrenceMcDaniel = {
          "name":"ReactJS",
          "sku":"ReactJS",
          "brand":{
-        "@id": "https://reactjs.org/"
-     },
+            "@id":"https://reactjs.org/"
+         },
          "description":"ReactJS",
          "isbn":"ReactJS",
-         "offers": [
+         "offers":[
             {
                "@type":"Offer",
                "price":"75.00",
                "priceCurrency":"USD",
                "priceSpecification":"HOUR",
-               "availability": "InStock",
+               "availability":"InStock",
                "priceValidUntil":"2050-12-31",
                "itemOffered":{
                   "@type":"Service",
-                  "additionalType": "https://www.wikidata.org/wiki/Q96072517",              
+                  "additionalType":"https://www.wikidata.org/wiki/Q96072517",
                   "name":"Full Stack Web Development"
                },
                "url":"https://lawrencemcdaniel.com/"
@@ -1244,21 +1244,21 @@ export const gsdPersonLawrenceMcDaniel = {
          "name":"bootstrap",
          "sku":"bootstrap",
          "brand":{
-        "@id": "https://getbootstrap.com/"
-     },
+            "@id":"https://getbootstrap.com/"
+         },
          "description":"bootstrap",
          "isbn":"bootstrap",
-         "offers": [
+         "offers":[
             {
                "@type":"Offer",
                "price":"75.00",
                "priceCurrency":"USD",
                "priceSpecification":"HOUR",
-               "availability": "InStock",
+               "availability":"InStock",
                "priceValidUntil":"2050-12-31",
                "itemOffered":{
                   "@type":"Service",
-                  "additionalType": "https://www.wikidata.org/wiki/Q96072517",              
+                  "additionalType":"https://www.wikidata.org/wiki/Q96072517",
                   "name":"Full Stack Web Development"
                },
                "url":"https://lawrencemcdaniel.com/"
@@ -1273,21 +1273,21 @@ export const gsdPersonLawrenceMcDaniel = {
          "name":"Amazon Web Services",
          "sku":"aws",
          "brand":{
-        "@id": "https://aws.amazon.com/"
-     },
+            "@id":"https://aws.amazon.com/"
+         },
          "description":"Amazon Web Services",
          "isbn":"aws",
-         "offers": [
+         "offers":[
             {
                "@type":"Offer",
                "price":"75.00",
                "priceCurrency":"USD",
                "priceSpecification":"HOUR",
-               "availability": "InStock",
+               "availability":"InStock",
                "priceValidUntil":"2050-12-31",
                "itemOffered":{
                   "@type":"Service",
-                  "additionalType": "https://www.wikidata.org/wiki/Q96072517",              
+                  "additionalType":"https://www.wikidata.org/wiki/Q96072517",
                   "name":"Full Stack Web Development"
                },
                "url":"https://lawrencemcdaniel.com/"
@@ -1302,21 +1302,21 @@ export const gsdPersonLawrenceMcDaniel = {
          "name":"wordpress",
          "sku":"wordpress",
          "brand":{
-        "@id": "https://wordpress.com/"
-     },
+            "@id":"https://wordpress.com/"
+         },
          "description":"wordpress",
          "isbn":"wordpress",
-         "offers": [
+         "offers":[
             {
                "@type":"Offer",
                "price":"75.00",
                "priceCurrency":"USD",
                "priceSpecification":"HOUR",
-               "availability": "InStock",
+               "availability":"InStock",
                "priceValidUntil":"2050-12-31",
                "itemOffered":{
                   "@type":"Service",
-                  "additionalType": "https://www.wikidata.org/wiki/Q96072517",              
+                  "additionalType":"https://www.wikidata.org/wiki/Q96072517",
                   "name":"Full Stack Web Development"
                },
                "url":"https://lawrencemcdaniel.com/"
@@ -1331,21 +1331,21 @@ export const gsdPersonLawrenceMcDaniel = {
          "name":"Woo Commerce",
          "sku":"woo",
          "brand":{
-        "@id": "https://woocommerce.com/"
-     },
+            "@id":"https://woocommerce.com/"
+         },
          "description":"Woo Commerce",
          "isbn":"woo",
-         "offers": [
+         "offers":[
             {
                "@type":"Offer",
                "price":"75.00",
                "priceCurrency":"USD",
                "priceSpecification":"HOUR",
-               "availability": "InStock",
+               "availability":"InStock",
                "priceValidUntil":"2050-12-31",
                "itemOffered":{
                   "@type":"Service",
-                  "additionalType": "https://www.wikidata.org/wiki/Q96072517",              
+                  "additionalType":"https://www.wikidata.org/wiki/Q96072517",
                   "name":"Full Stack Web Development"
                },
                "url":"https://lawrencemcdaniel.com/"
@@ -1360,21 +1360,21 @@ export const gsdPersonLawrenceMcDaniel = {
          "name":"Ruby on Rails",
          "sku":"ror",
          "brand":{
-        "@id": "https://rubyonrails.org/"
-     },
+            "@id":"https://rubyonrails.org/"
+         },
          "description":"Ruby on Rails",
          "isbn":"ror",
-         "offers": [
+         "offers":[
             {
                "@type":"Offer",
                "price":"75.00",
                "priceCurrency":"USD",
                "priceSpecification":"HOUR",
-               "availability": "InStock",
+               "availability":"InStock",
                "priceValidUntil":"2050-12-31",
                "itemOffered":{
                   "@type":"Service",
-                  "additionalType": "https://www.wikidata.org/wiki/Q96072517",              
+                  "additionalType":"https://www.wikidata.org/wiki/Q96072517",
                   "name":"Full Stack Web Development"
                },
                "url":"https://lawrencemcdaniel.com/"
@@ -1389,21 +1389,21 @@ export const gsdPersonLawrenceMcDaniel = {
          "name":"Angular",
          "sku":"Angular",
          "brand":{
-        "@id": "https://angular.io/"
-     },
+            "@id":"https://angular.io/"
+         },
          "description":"Angular",
          "isbn":"Angular",
-         "offers": [
+         "offers":[
             {
                "@type":"Offer",
                "price":"75.00",
                "priceCurrency":"USD",
                "priceSpecification":"HOUR",
-               "availability": "InStock",
+               "availability":"InStock",
                "priceValidUntil":"2050-12-31",
                "itemOffered":{
                   "@type":"Service",
-                  "additionalType": "https://www.wikidata.org/wiki/Q96072517",              
+                  "additionalType":"https://www.wikidata.org/wiki/Q96072517",
                   "name":"Full Stack Web Development"
                },
                "url":"https://lawrencemcdaniel.com/"
@@ -1418,21 +1418,21 @@ export const gsdPersonLawrenceMcDaniel = {
          "name":"Ionic",
          "sku":"Ionic",
          "brand":{
-        "@id": "https://ionicframework.com/"
-     },
+            "@id":"https://ionicframework.com/"
+         },
          "description":"Ionic",
          "isbn":"Ionic",
-         "offers": [
+         "offers":[
             {
                "@type":"Offer",
                "price":"75.00",
                "priceCurrency":"USD",
                "priceSpecification":"HOUR",
-               "availability": "InStock",
+               "availability":"InStock",
                "priceValidUntil":"2050-12-31",
                "itemOffered":{
                   "@type":"Service",
-                  "additionalType": "https://www.wikidata.org/wiki/Q96072517",              
+                  "additionalType":"https://www.wikidata.org/wiki/Q96072517",
                   "name":"Full Stack Web Development"
                },
                "url":"https://lawrencemcdaniel.com/"
@@ -1447,21 +1447,21 @@ export const gsdPersonLawrenceMcDaniel = {
          "name":"GitHub",
          "sku":"GitHub",
          "brand":{
-        "@id": "https://github.com/"
-     },
+            "@id":"https://github.com/"
+         },
          "description":"GitHub",
          "isbn":"GitHub",
-         "offers": [
+         "offers":[
             {
                "@type":"Offer",
                "price":"75.00",
                "priceCurrency":"USD",
                "priceSpecification":"HOUR",
-               "availability": "InStock",
+               "availability":"InStock",
                "priceValidUntil":"2050-12-31",
                "itemOffered":{
                   "@type":"Service",
-                  "additionalType": "https://www.wikidata.org/wiki/Q96072517",              
+                  "additionalType":"https://www.wikidata.org/wiki/Q96072517",
                   "name":"Full Stack Web Development"
                },
                "url":"https://lawrencemcdaniel.com/"
@@ -1476,21 +1476,21 @@ export const gsdPersonLawrenceMcDaniel = {
          "name":"Apache",
          "sku":"Apache",
          "brand":{
-        "@id": "https://httpd.apache.org/"
-     },
+            "@id":"https://httpd.apache.org/"
+         },
          "description":"Apache",
          "isbn":"Apache",
-         "offers": [
+         "offers":[
             {
                "@type":"Offer",
                "price":"75.00",
                "priceCurrency":"USD",
                "priceSpecification":"HOUR",
-               "availability": "InStock",
+               "availability":"InStock",
                "priceValidUntil":"2050-12-31",
                "itemOffered":{
                   "@type":"Service",
-                  "additionalType": "https://www.wikidata.org/wiki/Q96072517",              
+                  "additionalType":"https://www.wikidata.org/wiki/Q96072517",
                   "name":"Full Stack Web Development"
                },
                "url":"https://lawrencemcdaniel.com/"
@@ -1505,21 +1505,21 @@ export const gsdPersonLawrenceMcDaniel = {
          "name":"PHP",
          "sku":"PHP",
          "brand":{
-        "@id": "https://www.php.net/"
-     },
+            "@id":"https://www.php.net/"
+         },
          "description":"PHP",
          "isbn":"PHP",
-         "offers": [
+         "offers":[
             {
                "@type":"Offer",
                "price":"75.00",
                "priceCurrency":"USD",
                "priceSpecification":"HOUR",
-               "availability": "InStock",
+               "availability":"InStock",
                "priceValidUntil":"2050-12-31",
                "itemOffered":{
                   "@type":"Service",
-                  "additionalType": "https://www.wikidata.org/wiki/Q96072517",              
+                  "additionalType":"https://www.wikidata.org/wiki/Q96072517",
                   "name":"Full Stack Web Development"
                },
                "url":"https://lawrencemcdaniel.com/"
@@ -1534,21 +1534,21 @@ export const gsdPersonLawrenceMcDaniel = {
          "name":"Python",
          "sku":"Python",
          "brand":{
-            "@id": "https://www.python.org/"
+            "@id":"https://www.python.org/"
          },
          "description":"Python",
          "isbn":"Python",
-         "offers": [
+         "offers":[
             {
                "@type":"Offer",
                "price":"75.00",
                "priceCurrency":"USD",
                "priceSpecification":"HOUR",
-               "availability": "InStock",
+               "availability":"InStock",
                "priceValidUntil":"2050-12-31",
                "itemOffered":{
                   "@type":"Service",
-                  "additionalType": "https://www.wikidata.org/wiki/Q96072517",              
+                  "additionalType":"https://www.wikidata.org/wiki/Q96072517",
                   "name":"Full Stack Web Development"
                },
                "url":"https://lawrencemcdaniel.com/"
@@ -1563,21 +1563,21 @@ export const gsdPersonLawrenceMcDaniel = {
          "name":"Django",
          "sku":"Django",
          "brand":{
-            "@id": "https://www.djangoproject.com/"
+            "@id":"https://www.djangoproject.com/"
          },
          "description":"Django",
          "isbn":"Django",
-         "offers": [
+         "offers":[
             {
                "@type":"Offer",
                "price":"75.00",
                "priceCurrency":"USD",
                "priceSpecification":"HOUR",
-               "availability": "InStock",
+               "availability":"InStock",
                "priceValidUntil":"2050-12-31",
                "itemOffered":{
                   "@type":"Service",
-                  "additionalType": "https://www.wikidata.org/wiki/Q96072517",              
+                  "additionalType":"https://www.wikidata.org/wiki/Q96072517",
                   "name":"Full Stack Web Development"
                },
                "url":"https://lawrencemcdaniel.com/"
@@ -1592,21 +1592,21 @@ export const gsdPersonLawrenceMcDaniel = {
          "name":"Microsoft Excel",
          "sku":"msexcel",
          "brand":{
-        "@id": "https://www.microsoft.com/en-us/microsoft-365/excel"
-     },
+            "@id":"https://www.microsoft.com/en-us/microsoft-365/excel"
+         },
          "description":"Microsoft Excel",
          "isbn":"msexcel",
-         "offers": [
+         "offers":[
             {
                "@type":"Offer",
                "price":"75.00",
                "priceCurrency":"USD",
                "priceSpecification":"HOUR",
-               "availability": "InStock",
+               "availability":"InStock",
                "priceValidUntil":"2050-12-31",
                "itemOffered":{
                   "@type":"Service",
-                  "additionalType": "https://www.wikidata.org/wiki/Q96072517",              
+                  "additionalType":"https://www.wikidata.org/wiki/Q96072517",
                   "name":"Full Stack Web Development"
                },
                "url":"https://lawrencemcdaniel.com/"
@@ -1621,21 +1621,21 @@ export const gsdPersonLawrenceMcDaniel = {
          "name":"Microsoft Visual Basic For Applications",
          "sku":"msvba",
          "brand":{
-            "@id": "https://docs.microsoft.com/en-us/office/vba/library-reference/concepts/getting-started-with-vba-in-office"
+            "@id":"https://docs.microsoft.com/en-us/office/vba/library-reference/concepts/getting-started-with-vba-in-office"
          },
          "description":"Microsoft Visual Basic For Applications",
          "isbn":"msvba",
-         "offers": [
+         "offers":[
             {
                "@type":"Offer",
                "price":"75.00",
                "priceCurrency":"USD",
                "priceSpecification":"HOUR",
-               "availability": "InStock",
+               "availability":"InStock",
                "priceValidUntil":"2050-12-31",
                "itemOffered":{
                   "@type":"Service",
-                  "additionalType": "https://www.wikidata.org/wiki/Q96072517",              
+                  "additionalType":"https://www.wikidata.org/wiki/Q96072517",
                   "name":"Full Stack Web Development"
                },
                "url":"https://lawrencemcdaniel.com/"
@@ -1650,21 +1650,21 @@ export const gsdPersonLawrenceMcDaniel = {
          "name":"PostgreSQL",
          "sku":"PostgreSQL",
          "brand":{
-        "@id": "https://www.postgresql.org/"
-     },
+            "@id":"https://www.postgresql.org/"
+         },
          "description":"PostgreSQL",
          "isbn":"PostgreSQL",
-         "offers": [
+         "offers":[
             {
                "@type":"Offer",
                "price":"75.00",
                "priceCurrency":"USD",
                "priceSpecification":"HOUR",
-               "availability": "InStock",
+               "availability":"InStock",
                "priceValidUntil":"2050-12-31",
                "itemOffered":{
                   "@type":"Service",
-                  "additionalType": "https://www.wikidata.org/wiki/Q96072517",              
+                  "additionalType":"https://www.wikidata.org/wiki/Q96072517",
                   "name":"Full Stack Web Development"
                },
                "url":"https://lawrencemcdaniel.com/"
@@ -1679,21 +1679,21 @@ export const gsdPersonLawrenceMcDaniel = {
          "name":"MySQL",
          "sku":"MySQL",
          "brand":{
-        "@id": "https://www.mysql.com/"
-     },
+            "@id":"https://www.mysql.com/"
+         },
          "description":"MySQL",
          "isbn":"MySQL",
-         "offers": [
+         "offers":[
             {
                "@type":"Offer",
                "price":"75.00",
                "priceCurrency":"USD",
                "priceSpecification":"HOUR",
-               "availability": "InStock",
+               "availability":"InStock",
                "priceValidUntil":"2050-12-31",
                "itemOffered":{
                   "@type":"Service",
-                  "additionalType": "https://www.wikidata.org/wiki/Q96072517",              
+                  "additionalType":"https://www.wikidata.org/wiki/Q96072517",
                   "name":"Full Stack Web Development"
                },
                "url":"https://lawrencemcdaniel.com/"
@@ -1708,21 +1708,21 @@ export const gsdPersonLawrenceMcDaniel = {
          "name":"MS SQL Server",
          "sku":"mssqlserver",
          "brand":{
-            "@id": "https://www.microsoft.com/en-us/sql-server"
+            "@id":"https://www.microsoft.com/en-us/sql-server"
          },
          "description":"MS SQL Server",
          "isbn":"mssqlserver",
-         "offers": [
+         "offers":[
             {
                "@type":"Offer",
                "price":"75.00",
                "priceCurrency":"USD",
                "priceSpecification":"HOUR",
-               "availability": "InStock",
+               "availability":"InStock",
                "priceValidUntil":"2050-12-31",
                "itemOffered":{
                   "@type":"Service",
-                  "additionalType": "https://www.wikidata.org/wiki/Q96072517",              
+                  "additionalType":"https://www.wikidata.org/wiki/Q96072517",
                   "name":"Full Stack Web Development"
                },
                "url":"https://lawrencemcdaniel.com/"
@@ -1737,21 +1737,21 @@ export const gsdPersonLawrenceMcDaniel = {
          "name":"SQLite",
          "sku":"SQLite",
          "brand":{
-        "@id": "https://www.sqlite.org/"
-     },
+            "@id":"https://www.sqlite.org/"
+         },
          "description":"SQLite",
          "isbn":"SQLite",
-         "offers": [
+         "offers":[
             {
                "@type":"Offer",
                "price":"75.00",
                "priceCurrency":"USD",
                "priceSpecification":"HOUR",
-               "availability": "InStock",
+               "availability":"InStock",
                "priceValidUntil":"2050-12-31",
                "itemOffered":{
                   "@type":"Service",
-                  "additionalType": "https://www.wikidata.org/wiki/Q96072517",              
+                  "additionalType":"https://www.wikidata.org/wiki/Q96072517",
                   "name":"Full Stack Web Development"
                },
                "url":"https://lawrencemcdaniel.com/"
@@ -1766,21 +1766,21 @@ export const gsdPersonLawrenceMcDaniel = {
          "name":"mongoDB",
          "sku":"mongoDB",
          "brand":{
-        "@id": "https://www.mongodb.com/"
-     },
+            "@id":"https://www.mongodb.com/"
+         },
          "description":"mongoDB",
          "isbn":"mongoDB",
-         "offers": [
+         "offers":[
             {
                "@type":"Offer",
                "price":"75.00",
                "priceCurrency":"USD",
                "priceSpecification":"HOUR",
-               "availability": "InStock",
+               "availability":"InStock",
                "priceValidUntil":"2050-12-31",
                "itemOffered":{
                   "@type":"Service",
-                  "additionalType": "https://www.wikidata.org/wiki/Q96072517",              
+                  "additionalType":"https://www.wikidata.org/wiki/Q96072517",
                   "name":"Full Stack Web Development"
                },
                "url":"https://lawrencemcdaniel.com/"
@@ -1795,21 +1795,21 @@ export const gsdPersonLawrenceMcDaniel = {
          "name":"Apache Hadoop",
          "sku":"ApacheHadoop",
          "brand":{
-        "@id": "https://hadoop.apache.org/"
-     },
+            "@id":"https://hadoop.apache.org/"
+         },
          "description":"Apache Hadoop",
          "isbn":"ApacheHadoop",
-         "offers": [
+         "offers":[
             {
                "@type":"Offer",
                "price":"75.00",
                "priceCurrency":"USD",
                "priceSpecification":"HOUR",
-               "availability": "InStock",
+               "availability":"InStock",
                "priceValidUntil":"2050-12-31",
                "itemOffered":{
                   "@type":"Service",
-                  "additionalType": "https://www.wikidata.org/wiki/Q96072517",              
+                  "additionalType":"https://www.wikidata.org/wiki/Q96072517",
                   "name":"Full Stack Web Development"
                },
                "url":"https://lawrencemcdaniel.com/"
@@ -1824,21 +1824,21 @@ export const gsdPersonLawrenceMcDaniel = {
          "name":"XML",
          "sku":"XML",
          "brand":{
-        "@id": "https://www.w3.org/XML/"
-     },
+            "@id":"https://www.w3.org/XML/"
+         },
          "description":"XML",
          "isbn":"XML",
-         "offers": [
+         "offers":[
             {
                "@type":"Offer",
                "price":"75.00",
                "priceCurrency":"USD",
                "priceSpecification":"HOUR",
-               "availability": "InStock",
+               "availability":"InStock",
                "priceValidUntil":"2050-12-31",
                "itemOffered":{
                   "@type":"Service",
-                  "additionalType": "https://www.wikidata.org/wiki/Q96072517",              
+                  "additionalType":"https://www.wikidata.org/wiki/Q96072517",
                   "name":"Full Stack Web Development"
                },
                "url":"https://lawrencemcdaniel.com/"
@@ -1853,21 +1853,21 @@ export const gsdPersonLawrenceMcDaniel = {
          "name":"JSON",
          "sku":"JSON",
          "brand":{
-        "@id": "https://www.json.org/json-en.html"
-     },
+            "@id":"https://www.json.org/json-en.html"
+         },
          "description":"JSON",
          "isbn":"JSON",
-         "offers": [
+         "offers":[
             {
                "@type":"Offer",
                "price":"75.00",
                "priceCurrency":"USD",
                "priceSpecification":"HOUR",
-               "availability": "InStock",
+               "availability":"InStock",
                "priceValidUntil":"2050-12-31",
                "itemOffered":{
                   "@type":"Service",
-                  "additionalType": "https://www.wikidata.org/wiki/Q96072517",              
+                  "additionalType":"https://www.wikidata.org/wiki/Q96072517",
                   "name":"Full Stack Web Development"
                },
                "url":"https://lawrencemcdaniel.com/"
@@ -1882,21 +1882,21 @@ export const gsdPersonLawrenceMcDaniel = {
          "name":"git",
          "sku":"git",
          "brand":{
-        "@id": "https://git-scm.com/"
-     },
+            "@id":"https://git-scm.com/"
+         },
          "description":"git",
          "isbn":"git",
-         "offers": [
+         "offers":[
             {
                "@type":"Offer",
                "price":"75.00",
                "priceCurrency":"USD",
                "priceSpecification":"HOUR",
-               "availability": "InStock",
+               "availability":"InStock",
                "priceValidUntil":"2050-12-31",
                "itemOffered":{
                   "@type":"Service",
-                  "additionalType": "https://www.wikidata.org/wiki/Q96072517",              
+                  "additionalType":"https://www.wikidata.org/wiki/Q96072517",
                   "name":"Full Stack Web Development"
                },
                "url":"https://lawrencemcdaniel.com/"
@@ -1911,21 +1911,21 @@ export const gsdPersonLawrenceMcDaniel = {
          "name":"Red Hat Ansible",
          "sku":"ansible",
          "brand":{
-        "@id": "https://www.ansible.com/"
-     },
+            "@id":"https://www.ansible.com/"
+         },
          "description":"Red Hat Ansible",
          "isbn":"ansible",
-         "offers": [
+         "offers":[
             {
                "@type":"Offer",
                "price":"75.00",
                "priceCurrency":"USD",
                "priceSpecification":"HOUR",
-               "availability": "InStock",
+               "availability":"InStock",
                "priceValidUntil":"2050-12-31",
                "itemOffered":{
                   "@type":"Service",
-                  "additionalType": "https://www.wikidata.org/wiki/Q96072517",              
+                  "additionalType":"https://www.wikidata.org/wiki/Q96072517",
                   "name":"Full Stack Web Development"
                },
                "url":"https://lawrencemcdaniel.com/"
@@ -1940,21 +1940,21 @@ export const gsdPersonLawrenceMcDaniel = {
          "name":"CHEF Progress",
          "sku":"chef",
          "brand":{
-        "@id": "https://www.chef.io/"
-     },
+            "@id":"https://www.chef.io/"
+         },
          "description":"CHEF Progress",
          "isbn":"chef",
-         "offers": [
+         "offers":[
             {
                "@type":"Offer",
                "price":"75.00",
                "priceCurrency":"USD",
                "priceSpecification":"HOUR",
-               "availability": "InStock",
+               "availability":"InStock",
                "priceValidUntil":"2050-12-31",
                "itemOffered":{
                   "@type":"Service",
-                  "additionalType": "https://www.wikidata.org/wiki/Q96072517",              
+                  "additionalType":"https://www.wikidata.org/wiki/Q96072517",
                   "name":"Full Stack Web Development"
                },
                "url":"https://lawrencemcdaniel.com/"
@@ -1969,21 +1969,21 @@ export const gsdPersonLawrenceMcDaniel = {
          "name":"puppet",
          "sku":"pupper",
          "brand":{
-        "@id": "https://puppet.com/"
-     },
+            "@id":"https://puppet.com/"
+         },
          "description":"puppet",
          "isbn":"puppet",
-         "offers": [
+         "offers":[
             {
                "@type":"Offer",
                "price":"75.00",
                "priceCurrency":"USD",
                "priceSpecification":"HOUR",
-               "availability": "InStock",
+               "availability":"InStock",
                "priceValidUntil":"2050-12-31",
                "itemOffered":{
                   "@type":"Service",
-                  "additionalType": "https://www.wikidata.org/wiki/Q96072517",              
+                  "additionalType":"https://www.wikidata.org/wiki/Q96072517",
                   "name":"Full Stack Web Development"
                },
                "url":"https://lawrencemcdaniel.com/"
@@ -1998,21 +1998,21 @@ export const gsdPersonLawrenceMcDaniel = {
          "name":"Jenkins",
          "sku":"Jenkins",
          "brand":{
-            "@id": "https://www.jenkins.io/"
+            "@id":"https://www.jenkins.io/"
          },
          "description":"Jenkins",
          "isbn":"Jenkins",
-         "offers": [
+         "offers":[
             {
                "@type":"Offer",
                "price":"75.00",
                "priceCurrency":"USD",
                "priceSpecification":"HOUR",
-               "availability": "InStock",
+               "availability":"InStock",
                "priceValidUntil":"2050-12-31",
                "itemOffered":{
                   "@type":"Service",
-                  "additionalType": "https://www.wikidata.org/wiki/Q96072517",              
+                  "additionalType":"https://www.wikidata.org/wiki/Q96072517",
                   "name":"Full Stack Web Development"
                },
                "url":"https://lawrencemcdaniel.com/"
@@ -2027,21 +2027,21 @@ export const gsdPersonLawrenceMcDaniel = {
          "name":"Qualcomm snapdragon",
          "sku":"snapdragon",
          "brand":{
-        "@id": "https://www.qualcomm.com/snapdragon"
-     },
+            "@id":"https://www.qualcomm.com/snapdragon"
+         },
          "description":"Qualcomm snapdragon",
          "isbn":"snapdragon",
-         "offers": [
+         "offers":[
             {
                "@type":"Offer",
                "price":"75.00",
                "priceCurrency":"USD",
                "priceSpecification":"HOUR",
-               "availability": "InStock",
+               "availability":"InStock",
                "priceValidUntil":"2050-12-31",
                "itemOffered":{
                   "@type":"Service",
-                  "additionalType": "https://www.wikidata.org/wiki/Q96072517",              
+                  "additionalType":"https://www.wikidata.org/wiki/Q96072517",
                   "name":"Full Stack Web Development"
                },
                "url":"https://lawrencemcdaniel.com/"
@@ -2056,21 +2056,21 @@ export const gsdPersonLawrenceMcDaniel = {
          "name":"D3 Data-Driven Documents",
          "sku":"d3",
          "brand":{
-        "@id": "https://d3js.org/"
-     },
+            "@id":"https://d3js.org/"
+         },
          "description":"D3 Data-Driven Documents",
          "isbn":"d3",
-         "offers": [
+         "offers":[
             {
                "@type":"Offer",
                "price":"75.00",
                "priceCurrency":"USD",
                "priceSpecification":"HOUR",
-               "availability": "InStock",
+               "availability":"InStock",
                "priceValidUntil":"2050-12-31",
                "itemOffered":{
                   "@type":"Service",
-                  "additionalType": "https://www.wikidata.org/wiki/Q96072517",              
+                  "additionalType":"https://www.wikidata.org/wiki/Q96072517",
                   "name":"Full Stack Web Development"
                },
                "url":"https://lawrencemcdaniel.com/"
@@ -2085,21 +2085,21 @@ export const gsdPersonLawrenceMcDaniel = {
          "name":"LAMP Stack",
          "sku":"lamp",
          "brand":{
-        "@id": "https://en.wikipedia.org/wiki/LAMP_(software_bundle)"
-     },
+            "@id":"https://en.wikipedia.org/wiki/LAMP_(software_bundle)"
+         },
          "description":"LAMP Stack",
          "isbn":"lamp",
-         "offers": [
+         "offers":[
             {
                "@type":"Offer",
                "price":"75.00",
                "priceCurrency":"USD",
                "priceSpecification":"HOUR",
-               "availability": "InStock",
+               "availability":"InStock",
                "priceValidUntil":"2050-12-31",
                "itemOffered":{
                   "@type":"Service",
-                  "additionalType": "https://www.wikidata.org/wiki/Q96072517",              
+                  "additionalType":"https://www.wikidata.org/wiki/Q96072517",
                   "name":"Full Stack Web Development"
                },
                "url":"https://lawrencemcdaniel.com/"
@@ -2114,21 +2114,21 @@ export const gsdPersonLawrenceMcDaniel = {
          "name":"Linux",
          "sku":"Linux",
          "brand":{
-        "@id": "https://www.linux.org/"
+            "@id":"https://www.linux.org/"
          },
          "description":"Linux",
          "isbn":"Linux",
-         "offers": [
+         "offers":[
             {
                "@type":"Offer",
                "price":"75.00",
                "priceCurrency":"USD",
                "priceSpecification":"HOUR",
-               "availability": "InStock",
+               "availability":"InStock",
                "priceValidUntil":"2050-12-31",
                "itemOffered":{
                   "@type":"Service",
-                  "additionalType": "https://www.wikidata.org/wiki/Q96072517",              
+                  "additionalType":"https://www.wikidata.org/wiki/Q96072517",
                   "name":"Full Stack Web Development"
                },
                "url":"https://lawrencemcdaniel.com/"
@@ -2143,21 +2143,21 @@ export const gsdPersonLawrenceMcDaniel = {
          "name":"HTML5",
          "sku":"HTML5",
          "brand":{
-        "@id": "https://en.wikipedia.org/wiki/HTML5"
+            "@id":"https://en.wikipedia.org/wiki/HTML5"
          },
          "description":"HTML5",
          "isbn":"HTML5",
-         "offers": [
+         "offers":[
             {
                "@type":"Offer",
                "price":"75.00",
                "priceCurrency":"USD",
                "priceSpecification":"HOUR",
-               "availability": "InStock",
+               "availability":"InStock",
                "priceValidUntil":"2050-12-31",
                "itemOffered":{
                   "@type":"Service",
-                  "additionalType": "https://www.wikidata.org/wiki/Q96072517",              
+                  "additionalType":"https://www.wikidata.org/wiki/Q96072517",
                   "name":"Full Stack Web Development"
                },
                "url":"https://lawrencemcdaniel.com/"
