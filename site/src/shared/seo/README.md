@@ -7,6 +7,7 @@ validate your json here: https://json-ld.org/playground/
 validate your page here: https://search.google.com/test/rich-results
 
 See the following examples:
+https://www.schemaapp.com/how-to/services-schema-markup-schema-org-services/
 https://schema.org/Person
 https://schema.org/Service
 https://schema.org/ProfessionalService

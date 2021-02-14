@@ -75,6 +75,8 @@ export const gsdPersonLawrenceMcDaniel = {
       "locationCreated":"Colonia Roma Norte, CDMX, Mexico",
       "discussionUrl": "https://www.barrywolfryd.com/",
       "contentUrl": "https://cdn.lawrencemcdaniel.com/social-1200x675.jpg",
+      "width": "1200",
+      "height": "675",
       "datePublished": "2017-06-15",
       "uploadDate": "2020-06-30",
       "copyrightYear": "2017",
