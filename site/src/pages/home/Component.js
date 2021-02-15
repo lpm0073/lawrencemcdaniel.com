@@ -6,7 +6,7 @@ import * as Actions from '../../redux/ActionCreators';
 import { Fade } from 'react-animation-components';
 import LogoCube from '../../components/logoCube/Component';
 import { gsdPersonLawrenceMcDaniel } from '../../shared/seo/gsdPersonLawrence';
-import { gsdProfessionalService } from '../../shared/seo/gsdProfessionalService';
+import { gsdLocalBusinessLawrenceMcDaniel } from '../../shared/seo/gsdLocalBusinessLawrenceMcdaniel';
 import {Helmet} from "react-helmet";
 
 import './styles.css';
@@ -36,6 +36,7 @@ class Home extends Component {
                         https://stackoverflow.com/questions/29064209/does-schema-org-markup-work-if-markup-is-dynamically-built-with-javascript/29066759#29066759
                     */}
                     <script type="application/ld+json">{JSON.stringify(gsdPersonLawrenceMcDaniel)}</script>
+                    <script type="application/ld+json">{JSON.stringify(gsdLocalBusinessLawrenceMcDaniel)}</script>
                 </Helmet>
                 <div key="home-page" className="jumbotron dark-background">
                     <div className="h-100">

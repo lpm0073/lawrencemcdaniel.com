@@ -8,6 +8,9 @@ export const gsdServiceOpenedX = {
    "category":"https://open.edx.org/",
    "url":"https://lawrencemcdaniel.com/openedx",
    "areaServed":"https://en.wikipedia.org/wiki/Americas",
+   "provider":{
+      "@id":"https://lawrencemcdaniel.com/#business"
+   },
    "serviceOutput": {
      "@type": "Product",
      "name": "Open edX Platform",
@@ -204,33 +207,5 @@ export const gsdServiceOpenedX = {
             ]
          }
       ]
-   },
-   "provider":{
-     "@context":"https://schema.org/",
-     "@type":"Person",
-     "additionalType": "https://www.wikidata.org/wiki/Q96072517",
-     "@id": "https://lawrencemcdaniel.com",
-     "jobTitle":"Full Stack Developer",
-     "address":{
-        "@type":"PostalAddress",
-        "addressLocality":"Cambridge",
-        "addressRegion":"MA",
-        "postalCode":"02139",
-        "streetAddress":"210 Broadway Street"
-     },
-     "sameAs": [
-        "https://lawrencemcdaniel.com/",
-        "https://blog.lawrencemcdaniel.com/",
-        "https://www.linkedin.com/in/lawrencemcdaniel/",
-        "https://www.facebook.com/lawrence.p.mcdaniel",
-        "https://open.edx.org/marketplace/lawrence-mcdaniel/",
-        "https://github.com/lpm0073",
-        "https://angel.co/p/lpm0073-gmail-com",
-        "https://www.codementor.io/@lawrencemcdaniel",
-        "http://geek.ly/lmcdaniel"
-     ],
-     "telephone":"+1 (617) 834-6172",
-     "url":"https://lawrencemcdaniel.com",
-     "nationality":"American"
-  },
+   }
 }
