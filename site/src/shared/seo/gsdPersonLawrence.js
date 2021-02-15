@@ -1,7 +1,7 @@
 export const gsdPersonLawrenceMcDaniel = {
    "@context":"https://schema.org/",
    "@type":"Person",
-   "@id":"https://lawrencemcdaniel.com/#id",
+   "@id":"https://lawrencemcdaniel.com/#me",
    "identifier":"https://lawrencemcdaniel.com/",
    "email":"mailto:lpm0073@gmail.com",
    "familyName":"McDaniel",

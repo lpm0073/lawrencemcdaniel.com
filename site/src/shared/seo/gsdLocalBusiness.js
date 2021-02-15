@@ -1,7 +1,7 @@
 export const gsdLocalBusinessLawrenceMcDaniel = {
     "@context": "https://schema.org",
     "@type": "LocalBusiness",
-    "additionalType": "https://en.wikipedia.org/wiki/Consultant",
+    "additionalType": "https://www.wikidata.org/wiki/Q96072517",
     "image": "https://cdn.lawrencemcdaniel.com/social-1200x675.jpg",
     "@id": "https://lawrencemcdaniel.com/#business",
     "brand": {
@@ -11,18 +11,29 @@ export const gsdLocalBusinessLawrenceMcDaniel = {
     "priceRange":"$$",
     "employee":[
       {
-        "@id":"https://lawrencemcdaniel.com/#id"
+        "@id":"https://lawrencemcdaniel.com/#me"
       }
     ],
-    "address":{
+    "address":[
+       {
         "@type":"PostalAddress",
-        "addressLocality":"Cambridge",
-        "addressRegion":"MA",
-        "postalCode":"02139",
-        "streetAddress":"210 Broadway Street"
-     },
+        "addressLocality":"Colonia Hipodromo Condesa",
+        "addressRegion":"CDMX",
+        "postalCode":"06100",
+        "streetAddress":"Avenida Amsterdam 240, Piso 4",
+        "addressCountry":"Mexico"
+      },
+      {
+         "@type":"PostalAddress",
+         "addressLocality":"Cambridge",
+         "addressRegion":"MA",
+         "postalCode":"02139",
+         "streetAddress":"210 Broadway Street"
+       }
+     ],
     "url": "https://lawrencemcdaniel.com/",
     "telephone":"+1 (617) 834-6172",
+    "email":"mailto:lpm0073@gmail.com",
     "openingHoursSpecification": [
       {
         "@type": "OpeningHoursSpecification",
@@ -80,7 +91,7 @@ export const gsdLocalBusinessLawrenceMcDaniel = {
       {
          "@type":"SoftwareApplication",
          "applicationCategory": "webBackendDevelopment",
-         "operatingSystem": "Ubuntu",
+         "operatingSystem": "Django",
          "thumbnailUrl":"https://cdn.lawrencemcdaniel.com/wp-content/uploads/2021/02/12213439/swagger_logo.png",
          "image":"https://cdn.lawrencemcdaniel.com/wp-content/uploads/2021/02/12213439/swagger_logo.png",
          "url":"https://swagger.io/",
@@ -118,7 +129,7 @@ export const gsdLocalBusinessLawrenceMcDaniel = {
       {
          "@type":"SoftwareApplication",
          "applicationCategory": "webBackendDevelopment",
-         "operatingSystem": "Ubuntu",
+         "operatingSystem": "Django",
          "thumbnailUrl":"https://cdn.lawrencemcdaniel.com/wp-content/uploads/2021/02/12211139/readthedocs-logo.png",
          "image":"https://cdn.lawrencemcdaniel.com/wp-content/uploads/2021/02/12211139/readthedocs-logo.png",
          "url":"https://readthedocs.org/",
@@ -156,7 +167,7 @@ export const gsdLocalBusinessLawrenceMcDaniel = {
       {
          "@type":"SoftwareApplication",
          "applicationCategory": "webBackendDevelopment",
-         "operatingSystem": "Ubuntu",
+         "operatingSystem": "Django",
          "thumbnailUrl":"https://cdn.lawrencemcdaniel.com/wp-content/uploads/2021/02/12211059/Atlassian-horizontal-blue%402x-rgb.png",
          "image":"https://cdn.lawrencemcdaniel.com/wp-content/uploads/2021/02/12211059/Atlassian-horizontal-blue%402x-rgb.png",
          "url":"https://www.atlassian.com/",
@@ -231,7 +242,7 @@ export const gsdLocalBusinessLawrenceMcDaniel = {
       },
       {
          "@type":"SoftwareApplication",
-         "applicationCategory": "webBackendDevelopment",
+         "applicationCategory": "webDevelopment",
          "operatingSystem": "Platform agnostic",
          "thumbnailUrl":"https://cdn.lawrencemcdaniel.com/wp-content/uploads/2020/05/31141608/oauth-logo.png",
          "image":"https://cdn.lawrencemcdaniel.com/wp-content/uploads/2020/05/31141608/oauth-logo.png",
@@ -269,7 +280,7 @@ export const gsdLocalBusinessLawrenceMcDaniel = {
       },
       {
          "@type":"SoftwareApplication",
-         "applicationCategory": "webBackendDevelopment",
+         "applicationCategory": "OS",
          "operatingSystem": "Open Source",
          "thumbnailUrl":"https://cdn.lawrencemcdaniel.com/wp-content/uploads/2020/05/31140847/gnu-logo.png",
          "image":"https://cdn.lawrencemcdaniel.com/wp-content/uploads/2020/05/31140847/gnu-logo.png",
@@ -307,7 +318,7 @@ export const gsdLocalBusinessLawrenceMcDaniel = {
       },
       {
          "@type":"SoftwareApplication",
-         "applicationCategory": "webBackendDevelopment",
+         "applicationCategory": "OS",
          "operatingSystem": "Debian",
          "thumbnailUrl":"https://cdn.lawrencemcdaniel.com/wp-content/uploads/2020/05/31140745/debian-logo.png",
          "image":"https://cdn.lawrencemcdaniel.com/wp-content/uploads/2020/05/31140745/debian-logo.png",
@@ -345,7 +356,7 @@ export const gsdLocalBusinessLawrenceMcDaniel = {
       },
       {
          "@type":"SoftwareApplication",
-         "applicationCategory": "webBackendDevelopment",
+         "applicationCategory": "OS",
          "operatingSystem": "RedHat",
          "thumbnailUrl":"https://cdn.lawrencemcdaniel.com/wp-content/uploads/2020/05/31140610/red-hat-logo.png",
          "image":"https://cdn.lawrencemcdaniel.com/wp-content/uploads/2020/05/31140610/red-hat-logo.png",
@@ -383,7 +394,7 @@ export const gsdLocalBusinessLawrenceMcDaniel = {
       },
       {
          "@type":"SoftwareApplication",
-         "applicationCategory": "webBackendDevelopment",
+         "applicationCategory": "OS",
          "operatingSystem": "CentOS",
          "thumbnailUrl":"https://cdn.lawrencemcdaniel.com/wp-content/uploads/2020/05/31140410/centos-logo.png",
          "image":"https://cdn.lawrencemcdaniel.com/wp-content/uploads/2020/05/31140410/centos-logo.png",
@@ -422,7 +433,7 @@ export const gsdLocalBusinessLawrenceMcDaniel = {
       {
          "@type":"SoftwareApplication",
          "applicationCategory": "webBackendDevelopment",
-         "operatingSystem": "Ubuntu",
+         "operatingSystem": "Django",
          "thumbnailUrl":"https://cdn.lawrencemcdaniel.com/wp-content/uploads/2020/05/05193240/django-rest-framework.jpg",
          "image":"https://cdn.lawrencemcdaniel.com/wp-content/uploads/2020/05/05193240/django-rest-framework.jpg",
          "url":"https://www.django-rest-framework.org/",
@@ -460,7 +471,7 @@ export const gsdLocalBusinessLawrenceMcDaniel = {
       {
          "@type":"SoftwareApplication",
          "applicationCategory": "webBackendDevelopment",
-         "operatingSystem": "Ubuntu",
+         "operatingSystem": "Django",
          "thumbnailUrl":"https://cdn.lawrencemcdaniel.com/wp-content/uploads/2020/05/31135255/gunicorn-logo.png",
          "image":"https://cdn.lawrencemcdaniel.com/wp-content/uploads/2020/05/31135255/gunicorn-logo.png",
          "url":"https://gunicorn.org/",
@@ -498,7 +509,7 @@ export const gsdLocalBusinessLawrenceMcDaniel = {
       {
          "@type":"SoftwareApplication",
          "applicationCategory": "webBackendDevelopment",
-         "operatingSystem": "Ubuntu",
+         "operatingSystem": "Python",
          "thumbnailUrl":"https://cdn.lawrencemcdaniel.com/wp-content/uploads/2020/05/31134448/beautiful-soup.png",
          "image":"https://cdn.lawrencemcdaniel.com/wp-content/uploads/2020/05/31134448/beautiful-soup.png",
          "url":"https://www.crummy.com/software/BeautifulSoup",
@@ -536,7 +547,7 @@ export const gsdLocalBusinessLawrenceMcDaniel = {
       {
          "@type":"SoftwareApplication",
          "applicationCategory": "webBackendDevelopment",
-         "operatingSystem": "Ubuntu",
+         "operatingSystem": "Python",
          "thumbnailUrl":"https://cdn.lawrencemcdaniel.com/wp-content/uploads/2020/05/05192528/scrapy-logo.png",
          "image":"https://cdn.lawrencemcdaniel.com/wp-content/uploads/2020/05/05192528/scrapy-logo.png",
          "url":"https://scrapy.org/",
@@ -574,7 +585,7 @@ export const gsdLocalBusinessLawrenceMcDaniel = {
       {
          "@type":"SoftwareApplication",
          "applicationCategory": "webBackendDevelopment",
-         "operatingSystem": "Ubuntu",
+         "operatingSystem": "Python",
          "thumbnailUrl":"https://cdn.lawrencemcdaniel.com/wp-content/uploads/2020/05/31133826/numpy-logo.png",
          "image":"https://cdn.lawrencemcdaniel.com/wp-content/uploads/2020/05/31133826/numpy-logo.png",
          "url":"https://numpy.org/",
@@ -650,7 +661,7 @@ export const gsdLocalBusinessLawrenceMcDaniel = {
       {
          "@type":"SoftwareApplication",
          "applicationCategory": "webBackendDevelopment",
-         "operatingSystem": "Ubuntu",
+         "operatingSystem": "Django",
          "thumbnailUrl":"https://cdn.lawrencemcdaniel.com/wp-content/uploads/2020/05/05195915/sphinx-logo.jpg",
          "image":"https://cdn.lawrencemcdaniel.com/wp-content/uploads/2020/05/05195915/sphinx-logo.jpg",
          "url":"https://www.sphinx-doc.org/en/master/",
@@ -688,7 +699,7 @@ export const gsdLocalBusinessLawrenceMcDaniel = {
       {
          "@type":"SoftwareApplication",
          "applicationCategory": "webBackendDevelopment",
-         "operatingSystem": "Ubuntu",
+         "operatingSystem": "Various",
          "thumbnailUrl":"https://cdn.lawrencemcdaniel.com/wp-content/uploads/2020/05/30224959/npm-logo.png",
          "image":"https://cdn.lawrencemcdaniel.com/wp-content/uploads/2020/05/30224959/npm-logo.png",
          "url":"https://www.npmjs.com/",
@@ -726,7 +737,7 @@ export const gsdLocalBusinessLawrenceMcDaniel = {
       {
          "@type":"SoftwareApplication",
          "applicationCategory": "webBackendDevelopment",
-         "operatingSystem": "Ubuntu",
+         "operatingSystem": "Various",
          "thumbnailUrl":"https://cdn.lawrencemcdaniel.com/wp-content/uploads/2020/05/30224856/nodejs-logo.png",
          "image":"https://cdn.lawrencemcdaniel.com/wp-content/uploads/2020/05/30224856/nodejs-logo.png",
          "thumbnailUrl":"https://nodejs.org/en/",
@@ -763,7 +774,7 @@ export const gsdLocalBusinessLawrenceMcDaniel = {
       {
          "@type":"SoftwareApplication",
          "applicationCategory": "webBackendDevelopment",
-         "operatingSystem": "Ubuntu",
+         "operatingSystem": "Django",
          "thumbnailUrl":"https://cdn.lawrencemcdaniel.com/wp-content/uploads/2020/05/30214639/mako-logo.png",
          "image":"https://cdn.lawrencemcdaniel.com/wp-content/uploads/2020/05/30214639/mako-logo.png",
          "url":"https://www.makotemplates.org/",
@@ -800,8 +811,8 @@ export const gsdLocalBusinessLawrenceMcDaniel = {
       },
       {
          "@type":"SoftwareApplication",
-         "applicationCategory": "webBackendDevelopment",
-         "operatingSystem": "Ubuntu",
+         "applicationCategory": "webFrontendDevelopment",
+         "operatingSystem": "Various",
          "thumbnailUrl":"https://cdn.lawrencemcdaniel.com/wp-content/uploads/2020/05/30213805/google-chrome-logo.png",
          "image":"https://cdn.lawrencemcdaniel.com/wp-content/uploads/2020/05/30213805/google-chrome-logo.png",
          "url":"https://www.google.com/chrome/",
@@ -876,7 +887,7 @@ export const gsdLocalBusinessLawrenceMcDaniel = {
       },
       {
          "@type":"SoftwareApplication",
-         "applicationCategory": "webBackendDevelopment",
+         "applicationCategory": "webDevelopment",
          "operatingSystem": "Platform Agnostic",
          "thumbnailUrl":"https://cdn.lawrencemcdaniel.com/wp-content/uploads/2020/05/30213049/HTTP-logo.png",
          "image":"https://cdn.lawrencemcdaniel.com/wp-content/uploads/2020/05/30213049/HTTP-logo.png",
@@ -915,7 +926,7 @@ export const gsdLocalBusinessLawrenceMcDaniel = {
       {
          "@type":"SoftwareApplication",
          "applicationCategory": "webFrontendDevelopment",
-         "operatingSystem": "OSX",
+         "operatingSystem": "NodeJS",
          "thumbnailUrl":"https://cdn.lawrencemcdaniel.com/wp-content/uploads/2020/05/30212611/yarn-js-logo.png",
          "image":"https://cdn.lawrencemcdaniel.com/wp-content/uploads/2020/05/30212611/yarn-js-logo.png",
          "url":"https://yarnpkg.com/",
@@ -953,7 +964,7 @@ export const gsdLocalBusinessLawrenceMcDaniel = {
       {
          "@type":"SoftwareApplication",
          "applicationCategory": "webBackendDevelopment",
-         "operatingSystem": "OSX",
+         "operatingSystem": "ubuntu",
          "thumbnailUrl":"https://cdn.lawrencemcdaniel.com/wp-content/uploads/2020/05/30212314/Memcached_logo.png",
          "image":"https://cdn.lawrencemcdaniel.com/wp-content/uploads/2020/05/30212314/Memcached_logo.png",
          "url":"https://memcached.org/",
@@ -990,7 +1001,7 @@ export const gsdLocalBusinessLawrenceMcDaniel = {
       },
       {
          "@type":"SoftwareApplication",
-         "applicationCategory": "webBackendDevelopment",
+         "applicationCategory": "OS",
          "operatingSystem": "Ubuntu",
          "thumbnailUrl":"https://cdn.lawrencemcdaniel.com/wp-content/uploads/2020/05/30211843/ubuntu-logo.png",
          "image":"https://cdn.lawrencemcdaniel.com/wp-content/uploads/2020/05/30211843/ubuntu-logo.png",
@@ -1066,8 +1077,8 @@ export const gsdLocalBusinessLawrenceMcDaniel = {
       },
       {
          "@type":"SoftwareApplication",
-         "applicationCategory": "webBackendDevelopment",
-         "operatingSystem": "Ubuntu",
+         "applicationCategory": "webFrontendDevelopment",
+         "operatingSystem": "Platform agnostic",
          "thumbnailUrl":"https://cdn.lawrencemcdaniel.com/wp-content/uploads/2020/05/05221500/css3-logo.png",
          "image":"https://cdn.lawrencemcdaniel.com/wp-content/uploads/2020/05/05221500/css3-logo.png",
          "url":"https://en.wikipedia.org/wiki/CSS",
@@ -1144,7 +1155,7 @@ export const gsdLocalBusinessLawrenceMcDaniel = {
       {
          "@type":"SoftwareApplication",
          "applicationCategory": "webFrontendDevelopment",
-         "operatingSystem": "Platform agnostic",
+         "operatingSystem": "Javascript",
          "thumbnailUrl":"https://cdn.lawrencemcdaniel.com/wp-content/uploads/2020/05/17014701/underscore-logo.png",
          "image":"https://cdn.lawrencemcdaniel.com/wp-content/uploads/2020/05/17014701/underscore-logo.png",
          "url":"https://underscorejs.org/",
@@ -1296,7 +1307,7 @@ export const gsdLocalBusinessLawrenceMcDaniel = {
       {
          "@type":"SoftwareApplication",
          "applicationCategory": "webFrontendDevelopment",
-         "operatingSystem": "Platform agnostic",
+         "operatingSystem": "Javascript",
          "thumbnailUrl":"https://cdn.lawrencemcdaniel.com/wp-content/uploads/2020/05/17005525/Redux_Logo.png",
          "image":"https://cdn.lawrencemcdaniel.com/wp-content/uploads/2020/05/17005525/Redux_Logo.png",
          "url":"https://redux.js.org/",
@@ -1339,7 +1350,7 @@ export const gsdLocalBusinessLawrenceMcDaniel = {
       {
          "@type":"SoftwareApplication",
          "applicationCategory": "webFrontendDevelopment",
-         "operatingSystem": "Platform agnostic",
+         "operatingSystem": "Javascript",
          "thumbnailUrl":"https://cdn.lawrencemcdaniel.com/wp-content/uploads/2020/05/01144300/react-logo.png",
          "image":"https://cdn.lawrencemcdaniel.com/wp-content/uploads/2020/05/01144300/react-logo.png",
          "url":"https://reactjs.org/",
@@ -1377,7 +1388,7 @@ export const gsdLocalBusinessLawrenceMcDaniel = {
       {
          "@type":"SoftwareApplication",
          "applicationCategory": "webFrontendDevelopment",
-         "operatingSystem": "Platform agnostic",
+         "operatingSystem": "CSS",
          "thumbnailUrl":"https://cdn.lawrencemcdaniel.com/wp-content/uploads/2014/09/22195649/bootstrap.png",
          "image":"https://cdn.lawrencemcdaniel.com/wp-content/uploads/2014/09/22195649/bootstrap.png",
          "url":"https://getbootstrap.com/",
@@ -1528,7 +1539,7 @@ export const gsdLocalBusinessLawrenceMcDaniel = {
       {
          "@type":"SoftwareApplication",
          "applicationCategory": "webBackendDevelopment",
-         "operatingSystem": "Various",
+         "operatingSystem": "Ubuntu",
          "thumbnailUrlogo":"https://cdn.lawrencemcdaniel.com/wp-content/uploads/2014/09/22195644/ruby-on-rails.png",
          "image":"https://cdn.lawrencemcdaniel.com/wp-content/uploads/2014/09/22195644/ruby-on-rails.png",
          "url":"https://rubyonrails.org/",
@@ -1675,8 +1686,8 @@ export const gsdLocalBusinessLawrenceMcDaniel = {
       },
       {
          "@type":"SoftwareApplication",
-         "applicationCategory": "softwareDevelopment",
-         "operatingSystem": "Platform agnostic",
+         "applicationCategory": "webBackendDevelopment",
+         "operatingSystem": "Ubuntu",
          "thumbnailUrlogo":"https://cdn.lawrencemcdaniel.com/wp-content/uploads/2014/09/22195649/apache.png",
          "image":"https://cdn.lawrencemcdaniel.com/wp-content/uploads/2014/09/22195649/apache.png",
          "url":"https://httpd.apache.org/",
@@ -1712,8 +1723,8 @@ export const gsdLocalBusinessLawrenceMcDaniel = {
       },
       {
          "@type":"SoftwareApplication",
-         "applicationCategory": "softwareDevelopment",
-         "operatingSystem": "Platform agnostic",
+         "applicationCategory": "webBackendDevelopment",
+         "operatingSystem": "Ubuntu",
          "thumbnailUrlogo":"https://cdn.lawrencemcdaniel.com/wp-content/uploads/2014/09/22195645/php.png",
          "image":"https://cdn.lawrencemcdaniel.com/wp-content/uploads/2014/09/22195645/php.png",
          "url":"https://www.php.net/",
@@ -1787,7 +1798,7 @@ export const gsdLocalBusinessLawrenceMcDaniel = {
       {
          "@type":"SoftwareApplication",
          "applicationCategory": "softwareDevelopment",
-         "operatingSystem": "Platform agnostic",
+         "operatingSystem": "Python",
          "thumbnailUrlogo":"https://cdn.lawrencemcdaniel.com/wp-content/uploads/2020/05/01144338/django-logo.png",
          "image":"https://cdn.lawrencemcdaniel.com/wp-content/uploads/2020/05/01144338/django-logo.png",
          "url":"https://www.djangoproject.com/",
@@ -2562,5 +2573,4 @@ export const gsdLocalBusinessLawrenceMcDaniel = {
           }
       }
    ]
-
 }

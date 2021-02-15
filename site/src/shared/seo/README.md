@@ -12,7 +12,9 @@ https://developers.google.com/search/docs/advanced/guidelines/webmaster-guidelin
 https://nystudio107.com/blog/annotated-json-ld-structured-data-examples
 
 
-Google-supported data types: https://developers.google.com/search/docs/data-types/
+Google-supported data types: 
+    https://developers.google.com/search/docs/data-types/software-app
+    https://developers.google.com/search/docs/data-types/article
 Article
 Course
 Software App
