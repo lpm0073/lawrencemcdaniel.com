@@ -12,6 +12,7 @@ export const gsdServiceOpenedX = {
      "@type": "Product",
      "name": "Open edX Platform",
      "sku":"openedx",
+     "isbn":"openedx",
      "@id": "https://en.wikipedia.org/wiki/EdX#Open_edX_Platform",
      "description":"Open edX platform is the open-source platform software developed by edX and made freely available to other institutions of higher learning that want to make similar offerings. On June 1, 2013, edX open sourced its entire platform.[20] The source code can be found on GitHub.",
      "image": {
@@ -24,7 +25,29 @@ export const gsdServiceOpenedX = {
       "brand": {
         "@id": "https://open.edx.org/"
      },
-      "offers": [
+     "review":[
+      {
+         "@type":"Review",
+         "author":"Lawrence McDaniel",
+         "datePublished":"2021-02-14",
+         "name":"Review by Lawrence",
+         "reviewBody":"My self review of this product.",
+         "reviewRating":{
+            "@type":"Rating",
+            "bestRating": "10",
+            "ratingValue":"10",
+            "worstRating": "1"
+         }
+      }
+   ],
+   "aggregateRating":{
+      "@type":"AggregateRating",
+      "ratingValue":"10",
+      "reviewCount":"1",
+      "bestRating":"10",
+      "worstRating":"1"
+   },
+   "offers": [
            {
            "@type":"Offer",
            "@id": "https://lawrencemcdaniel.com/openedx",
