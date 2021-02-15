@@ -6,7 +6,7 @@ import * as Actions from '../../redux/ActionCreators';
 import { Fade } from 'react-animation-components';
 import LogoCube from '../../components/logoCube/Component';
 import { gsdPersonLawrenceMcDaniel } from '../../shared/seo/gsdPersonLawrence';
-import { gsdLocalBusinessLawrenceMcDaniel } from '../../shared/seo/gsdLocalBusinessLawrenceMcdaniel';
+import { gsdLocalBusinessLawrenceMcDaniel } from '../../shared/seo/gsdLocalBusiness';
 import {Helmet} from "react-helmet";
 
 import './styles.css';

@@ -61,7 +61,7 @@ export const gsdServiceOpenedX = {
            "priceValidUntil":"2050-12-31",
            "itemOffered":{
               "@type":"Service",
-              "additionalType": "https://www.wikidata.org/wiki/Q96072517",              
+              "additionalType": "https://www.wikidata.org/wiki/Q96072517",
               "name":"Full Stack Web Development"
            },
            "url":"https://lawrencemcdaniel.com/openedx"
