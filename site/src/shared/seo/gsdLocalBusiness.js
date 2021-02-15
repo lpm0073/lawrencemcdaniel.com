@@ -7,7 +7,7 @@ export const gsdLocalBusinessLawrenceMcDaniel = {
     "brand": {
         "@id": "https://lawrencemcdaniel.com/"
     },
-    "name": "lawrencemcdaniel.com",
+    "name": "Lawrence McDaniel - Full Stack Developer",
     "priceRange":"$$",
     "employee":[
       {
@@ -1489,15 +1489,13 @@ export const gsdLocalBusinessLawrenceMcDaniel = {
           }
       },
       {
-         "@type":"Product",
-         "logo":"https://cdn.lawrencemcdaniel.com/wp-content/uploads/2014/09/22195644/woocommerce.png",
+         "@type":"SoftwareApplication",
+         "applicationCategory": "webDevelopment",
+         "operatingSystem": "Wordpress",
+         "thumbnailUrlogo":"https://cdn.lawrencemcdaniel.com/wp-content/uploads/2014/09/22195644/woocommerce.png",
          "image":"https://cdn.lawrencemcdaniel.com/wp-content/uploads/2014/09/22195644/woocommerce.png",
          "url":"https://woocommerce.com/",
          "name":"Woo Commerce",
-         "sku":"woo",
-         "brand":{
-            "@id":"https://woocommerce.com/"
-         },
          "review":[
             {
                "@type":"Review",
@@ -1521,7 +1519,6 @@ export const gsdLocalBusinessLawrenceMcDaniel = {
             "worstRating":"1"
          },
          "description":"Woo Commerce",
-         "isbn":"woo",
          "offers":{
             "@type": "Offer",
             "price": "1.00",
@@ -1529,15 +1526,13 @@ export const gsdLocalBusinessLawrenceMcDaniel = {
           }
       },
       {
-         "@type":"Product",
-         "logo":"https://cdn.lawrencemcdaniel.com/wp-content/uploads/2014/09/22195644/ruby-on-rails.png",
+         "@type":"SoftwareApplication",
+         "applicationCategory": "webBackendDevelopment",
+         "operatingSystem": "Various",
+         "thumbnailUrlogo":"https://cdn.lawrencemcdaniel.com/wp-content/uploads/2014/09/22195644/ruby-on-rails.png",
          "image":"https://cdn.lawrencemcdaniel.com/wp-content/uploads/2014/09/22195644/ruby-on-rails.png",
          "url":"https://rubyonrails.org/",
          "name":"Ruby on Rails",
-         "sku":"ror",
-         "brand":{
-            "@id":"https://rubyonrails.org/"
-         },
          "review":[
             {
                "@type":"Review",
@@ -1561,7 +1556,6 @@ export const gsdLocalBusinessLawrenceMcDaniel = {
             "worstRating":"1"
          },
          "description":"Ruby on Rails",
-         "isbn":"ror",
          "offers":{
             "@type": "Offer",
             "price": "1.00",
@@ -1569,15 +1563,13 @@ export const gsdLocalBusinessLawrenceMcDaniel = {
           }
       },
       {
-         "@type":"Product",
-         "logo":"https://cdn.lawrencemcdaniel.com/wp-content/uploads/2014/09/22195650/angularjs.png",
+         "@type":"SoftwareApplication",
+         "applicationCategory": "webFrontendDevelopment",
+         "operatingSystem": "Javascript",
+         "thumbnailUrlogo":"https://cdn.lawrencemcdaniel.com/wp-content/uploads/2014/09/22195650/angularjs.png",
          "image":"https://cdn.lawrencemcdaniel.com/wp-content/uploads/2014/09/22195650/angularjs.png",
          "url":"https://angular.io/",
          "name":"Angular",
-         "sku":"Angular",
-         "brand":{
-            "@id":"https://angular.io/"
-         },
          "review":[
             {
                "@type":"Review",
@@ -1601,7 +1593,6 @@ export const gsdLocalBusinessLawrenceMcDaniel = {
             "worstRating":"1"
          },
          "description":"Angular",
-         "isbn":"Angular",
          "offers":{
             "@type": "Offer",
             "price": "1.00",
@@ -1609,15 +1600,13 @@ export const gsdLocalBusinessLawrenceMcDaniel = {
           }
       },
       {
-         "@type":"Product",
-         "logo":"https://cdn.lawrencemcdaniel.com/wp-content/uploads/2014/09/22195647/ionic.png",
+         "@type":"SoftwareApplication",
+         "applicationCategory": "webFrontendDevelopment",
+         "operatingSystem": "Javascript",
+         "thumbnailUrlogo":"https://cdn.lawrencemcdaniel.com/wp-content/uploads/2014/09/22195647/ionic.png",
          "image":"https://cdn.lawrencemcdaniel.com/wp-content/uploads/2014/09/22195647/ionic.png",
          "url":"https://ionicframework.com/",
          "name":"Ionic",
-         "sku":"Ionic",
-         "brand":{
-            "@id":"https://ionicframework.com/"
-         },
          "review":[
             {
                "@type":"Review",
@@ -1641,7 +1630,6 @@ export const gsdLocalBusinessLawrenceMcDaniel = {
             "worstRating":"1"
          },
          "description":"Ionic",
-         "isbn":"Ionic",
          "offers":{
             "@type": "Offer",
             "price": "1.00",
@@ -1649,15 +1637,13 @@ export const gsdLocalBusinessLawrenceMcDaniel = {
           }
       },
       {
-         "@type":"Product",
-         "logo":"https://cdn.lawrencemcdaniel.com/wp-content/uploads/2014/09/22195648/github.png",
+         "@type":"SoftwareApplication",
+         "applicationCategory": "softwareDevelopment",
+         "operatingSystem": "Platform agnostic",
+         "thumbnailUrlogo":"https://cdn.lawrencemcdaniel.com/wp-content/uploads/2014/09/22195648/github.png",
          "image":"https://cdn.lawrencemcdaniel.com/wp-content/uploads/2014/09/22195648/github.png",
          "url":"https://github.com/",
          "name":"GitHub",
-         "sku":"GitHub",
-         "brand":{
-            "@id":"https://github.com/"
-         },
          "review":[
             {
                "@type":"Review",
@@ -1681,7 +1667,6 @@ export const gsdLocalBusinessLawrenceMcDaniel = {
             "worstRating":"1"
          },
          "description":"GitHub",
-         "isbn":"GitHub",
          "offers":{
             "@type": "Offer",
             "price": "1.00",
@@ -1689,15 +1674,13 @@ export const gsdLocalBusinessLawrenceMcDaniel = {
           }
       },
       {
-         "@type":"Product",
-         "logo":"https://cdn.lawrencemcdaniel.com/wp-content/uploads/2014/09/22195649/apache.png",
+         "@type":"SoftwareApplication",
+         "applicationCategory": "softwareDevelopment",
+         "operatingSystem": "Platform agnostic",
+         "thumbnailUrlogo":"https://cdn.lawrencemcdaniel.com/wp-content/uploads/2014/09/22195649/apache.png",
          "image":"https://cdn.lawrencemcdaniel.com/wp-content/uploads/2014/09/22195649/apache.png",
          "url":"https://httpd.apache.org/",
          "name":"Apache",
-         "sku":"Apache",
-         "brand":{
-            "@id":"https://httpd.apache.org/"
-         },
          "review":[
             {
                "@type":"Review",
@@ -1721,7 +1704,6 @@ export const gsdLocalBusinessLawrenceMcDaniel = {
             "worstRating":"1"
          },
          "description":"Apache",
-         "isbn":"Apache",
          "offers":{
             "@type": "Offer",
             "price": "1.00",
@@ -1729,15 +1711,13 @@ export const gsdLocalBusinessLawrenceMcDaniel = {
           }
       },
       {
-         "@type":"Product",
-         "logo":"https://cdn.lawrencemcdaniel.com/wp-content/uploads/2014/09/22195645/php.png",
+         "@type":"SoftwareApplication",
+         "applicationCategory": "softwareDevelopment",
+         "operatingSystem": "Platform agnostic",
+         "thumbnailUrlogo":"https://cdn.lawrencemcdaniel.com/wp-content/uploads/2014/09/22195645/php.png",
          "image":"https://cdn.lawrencemcdaniel.com/wp-content/uploads/2014/09/22195645/php.png",
          "url":"https://www.php.net/",
          "name":"PHP",
-         "sku":"PHP",
-         "brand":{
-            "@id":"https://www.php.net/"
-         },
          "review":[
             {
                "@type":"Review",
@@ -1761,7 +1741,6 @@ export const gsdLocalBusinessLawrenceMcDaniel = {
             "worstRating":"1"
          },
          "description":"PHP",
-         "isbn":"PHP",
          "offers":{
             "@type": "Offer",
             "price": "1.00",
@@ -1769,15 +1748,13 @@ export const gsdLocalBusinessLawrenceMcDaniel = {
           }
       },
       {
-         "@type":"Product",
-         "logo":"https://cdn.lawrencemcdaniel.com/wp-content/uploads/2014/09/22195644/python.png",
+         "@type":"SoftwareApplication",
+         "applicationCategory": "softwareDevelopment",
+         "operatingSystem": "Platform agnostic",
+         "thumbnailUrlogo":"https://cdn.lawrencemcdaniel.com/wp-content/uploads/2014/09/22195644/python.png",
          "image":"https://cdn.lawrencemcdaniel.com/wp-content/uploads/2014/09/22195644/python.png",
          "url":"https://www.python.org/",
          "name":"Python",
-         "sku":"Python",
-         "brand":{
-            "@id":"https://www.python.org/"
-         },
          "review":[
             {
                "@type":"Review",
@@ -1801,7 +1778,6 @@ export const gsdLocalBusinessLawrenceMcDaniel = {
             "worstRating":"1"
          },
          "description":"Python",
-         "isbn":"Python",
          "offers":{
             "@type": "Offer",
             "price": "1.00",
@@ -1809,15 +1785,13 @@ export const gsdLocalBusinessLawrenceMcDaniel = {
           }
       },
       {
-         "@type":"Product",
-         "logo":"https://cdn.lawrencemcdaniel.com/wp-content/uploads/2020/05/01144338/django-logo.png",
+         "@type":"SoftwareApplication",
+         "applicationCategory": "softwareDevelopment",
+         "operatingSystem": "Platform agnostic",
+         "thumbnailUrlogo":"https://cdn.lawrencemcdaniel.com/wp-content/uploads/2020/05/01144338/django-logo.png",
          "image":"https://cdn.lawrencemcdaniel.com/wp-content/uploads/2020/05/01144338/django-logo.png",
          "url":"https://www.djangoproject.com/",
          "name":"Django",
-         "sku":"Django",
-         "brand":{
-            "@id":"https://www.djangoproject.com/"
-         },
          "review":[
             {
                "@type":"Review",
@@ -1841,7 +1815,6 @@ export const gsdLocalBusinessLawrenceMcDaniel = {
             "worstRating":"1"
          },
          "description":"Django",
-         "isbn":"Django",
          "offers":{
             "@type": "Offer",
             "price": "1.00",
@@ -1849,15 +1822,13 @@ export const gsdLocalBusinessLawrenceMcDaniel = {
           }
       },
       {
-         "@type":"Product",
-         "logo":"https://cdn.lawrencemcdaniel.com/wp-content/uploads/2014/09/22195648/excel.png",
+         "@type":"SoftwareApplication",
+         "applicationCategory": "softwareDevelopment",
+         "operatingSystem": "Platform agnostic",
+         "thumbnailUrlogo":"https://cdn.lawrencemcdaniel.com/wp-content/uploads/2014/09/22195648/excel.png",
          "image":"https://cdn.lawrencemcdaniel.com/wp-content/uploads/2014/09/22195648/excel.png",
          "url":"https://www.microsoft.com/en-us/microsoft-365/excel",
          "name":"Microsoft Excel",
-         "sku":"msexcel",
-         "brand":{
-            "@id":"https://www.microsoft.com/en-us/microsoft-365/excel"
-         },
          "review":[
             {
                "@type":"Review",
@@ -1881,7 +1852,6 @@ export const gsdLocalBusinessLawrenceMcDaniel = {
             "worstRating":"1"
          },
          "description":"Microsoft Excel",
-         "isbn":"msexcel",
          "offers":{
             "@type": "Offer",
             "price": "1.00",
@@ -1889,15 +1859,13 @@ export const gsdLocalBusinessLawrenceMcDaniel = {
           }
       },
       {
-         "@type":"Product",
-         "logo":"https://cdn.lawrencemcdaniel.com/wp-content/uploads/2014/09/22195644/vba.png",
+         "@type":"SoftwareApplication",
+         "applicationCategory": "softwareDevelopment",
+         "operatingSystem": "Platform agnostic",
+         "thumbnailUrlogo":"https://cdn.lawrencemcdaniel.com/wp-content/uploads/2014/09/22195644/vba.png",
          "image":"https://cdn.lawrencemcdaniel.com/wp-content/uploads/2014/09/22195644/vba.png",
          "url":"https://docs.microsoft.com/en-us/office/vba/library-reference/concepts/getting-started-with-vba-in-office",
          "name":"Microsoft Visual Basic For Applications",
-         "sku":"msvba",
-         "brand":{
-            "@id":"https://docs.microsoft.com/en-us/office/vba/library-reference/concepts/getting-started-with-vba-in-office"
-         },
          "review":[
             {
                "@type":"Review",
@@ -1921,7 +1889,6 @@ export const gsdLocalBusinessLawrenceMcDaniel = {
             "worstRating":"1"
          },
          "description":"Microsoft Visual Basic For Applications",
-         "isbn":"msvba",
          "offers":{
             "@type": "Offer",
             "price": "1.00",
@@ -1929,15 +1896,13 @@ export const gsdLocalBusinessLawrenceMcDaniel = {
           }
       },
       {
-         "@type":"Product",
-         "logo":"https://cdn.lawrencemcdaniel.com/wp-content/uploads/2014/09/22195645/postgresql.png",
+         "@type":"SoftwareApplication",
+         "applicationCategory": "Database",
+         "operatingSystem": "Platform agnostic",
+         "thumbnailUrlogo":"https://cdn.lawrencemcdaniel.com/wp-content/uploads/2014/09/22195645/postgresql.png",
          "image":"https://cdn.lawrencemcdaniel.com/wp-content/uploads/2014/09/22195645/postgresql.png",
          "url":"https://www.postgresql.org/",
          "name":"PostgreSQL",
-         "sku":"PostgreSQL",
-         "brand":{
-            "@id":"https://www.postgresql.org/"
-         },
          "review":[
             {
                "@type":"Review",
@@ -1961,7 +1926,6 @@ export const gsdLocalBusinessLawrenceMcDaniel = {
             "worstRating":"1"
          },
          "description":"PostgreSQL",
-         "isbn":"PostgreSQL",
          "offers":{
             "@type": "Offer",
             "price": "1.00",
@@ -1969,15 +1933,13 @@ export const gsdLocalBusinessLawrenceMcDaniel = {
           }
       },
       {
-         "@type":"Product",
-         "logo":"https://cdn.lawrencemcdaniel.com/wp-content/uploads/2014/09/22195646/mysql.png",
+         "@type":"SoftwareApplication",
+         "applicationCategory": "Database",
+         "operatingSystem": "Platform agnostic",
+         "thumbnailUrlogo":"https://cdn.lawrencemcdaniel.com/wp-content/uploads/2014/09/22195646/mysql.png",
          "image":"https://cdn.lawrencemcdaniel.com/wp-content/uploads/2014/09/22195646/mysql.png",
          "url":"https://www.mysql.com/",
          "name":"MySQL",
-         "sku":"MySQL",
-         "brand":{
-            "@id":"https://www.mysql.com/"
-         },
          "review":[
             {
                "@type":"Review",
@@ -2001,7 +1963,6 @@ export const gsdLocalBusinessLawrenceMcDaniel = {
             "worstRating":"1"
          },
          "description":"MySQL",
-         "isbn":"MySQL",
          "offers":{
             "@type": "Offer",
             "price": "1.00",
@@ -2009,15 +1970,13 @@ export const gsdLocalBusinessLawrenceMcDaniel = {
           }
       },
       {
-         "@type":"Product",
-         "logo":"https://cdn.lawrencemcdaniel.com/wp-content/uploads/2014/09/22195646/mssql-server.png",
+         "@type":"SoftwareApplication",
+         "applicationCategory": "Database",
+         "operatingSystem": "Platform agnostic",
+         "thumbnailUrlogo":"https://cdn.lawrencemcdaniel.com/wp-content/uploads/2014/09/22195646/mssql-server.png",
          "image":"https://cdn.lawrencemcdaniel.com/wp-content/uploads/2014/09/22195646/mssql-server.png",
          "url":"https://www.microsoft.com/en-us/sql-server",
          "name":"MS SQL Server",
-         "sku":"mssqlserver",
-         "brand":{
-            "@id":"https://www.microsoft.com/en-us/sql-server"
-         },
          "review":[
             {
                "@type":"Review",
@@ -2041,7 +2000,6 @@ export const gsdLocalBusinessLawrenceMcDaniel = {
             "worstRating":"1"
          },
          "description":"MS SQL Server",
-         "isbn":"mssqlserver",
          "offers":{
             "@type": "Offer",
             "price": "1.00",
@@ -2049,15 +2007,13 @@ export const gsdLocalBusinessLawrenceMcDaniel = {
           }
       },
       {
-         "@type":"Product",
-         "logo":"https://cdn.lawrencemcdaniel.com/wp-content/uploads/2014/09/22195644/sqlite.png",
+         "@type":"SoftwareApplication",
+         "applicationCategory": "Database",
+         "operatingSystem": "Platform agnostic",
+         "thumbnailUrlogo":"https://cdn.lawrencemcdaniel.com/wp-content/uploads/2014/09/22195644/sqlite.png",
          "image":"https://cdn.lawrencemcdaniel.com/wp-content/uploads/2014/09/22195644/sqlite.png",
          "url":"https://www.sqlite.org/",
          "name":"SQLite",
-         "sku":"SQLite",
-         "brand":{
-            "@id":"https://www.sqlite.org/"
-         },
          "review":[
             {
                "@type":"Review",
@@ -2081,7 +2037,6 @@ export const gsdLocalBusinessLawrenceMcDaniel = {
             "worstRating":"1"
          },
          "description":"SQLite",
-         "isbn":"SQLite",
          "offers":{
             "@type": "Offer",
             "price": "1.00",
@@ -2089,15 +2044,13 @@ export const gsdLocalBusinessLawrenceMcDaniel = {
           }
       },
       {
-         "@type":"Product",
-         "logo":"https://cdn.lawrencemcdaniel.com/wp-content/uploads/2014/09/22195647/mongodb.png",
+         "@type":"SoftwareApplication",
+         "applicationCategory": "Database",
+         "operatingSystem": "Ubuntu",
+         "thumbnailUrlogo":"https://cdn.lawrencemcdaniel.com/wp-content/uploads/2014/09/22195647/mongodb.png",
          "image":"https://cdn.lawrencemcdaniel.com/wp-content/uploads/2014/09/22195647/mongodb.png",
          "url":"https://www.mongodb.com/",
          "name":"mongoDB",
-         "sku":"mongoDB",
-         "brand":{
-            "@id":"https://www.mongodb.com/"
-         },
          "review":[
             {
                "@type":"Review",
@@ -2121,7 +2074,6 @@ export const gsdLocalBusinessLawrenceMcDaniel = {
             "worstRating":"1"
          },
          "description":"mongoDB",
-         "isbn":"mongoDB",
          "offers":{
             "@type": "Offer",
             "price": "1.00",
@@ -2129,15 +2081,13 @@ export const gsdLocalBusinessLawrenceMcDaniel = {
           }
       },
       {
-         "@type":"Product",
-         "logo":"https://cdn.lawrencemcdaniel.com/wp-content/uploads/2014/09/22195648/hadoop.png",
+         "@type":"SoftwareApplication",
+         "applicationCategory": "BigData",
+         "operatingSystem": "Ubuntu",
+         "thumbnailUrlogo":"https://cdn.lawrencemcdaniel.com/wp-content/uploads/2014/09/22195648/hadoop.png",
          "image":"https://cdn.lawrencemcdaniel.com/wp-content/uploads/2014/09/22195648/hadoop.png",
          "url":"https://hadoop.apache.org/",
          "name":"Apache Hadoop",
-         "sku":"ApacheHadoop",
-         "brand":{
-            "@id":"https://hadoop.apache.org/"
-         },
          "review":[
             {
                "@type":"Review",
@@ -2161,7 +2111,6 @@ export const gsdLocalBusinessLawrenceMcDaniel = {
             "worstRating":"1"
          },
          "description":"Apache Hadoop",
-         "isbn":"ApacheHadoop",
          "offers":{
             "@type": "Offer",
             "price": "1.00",
@@ -2169,15 +2118,13 @@ export const gsdLocalBusinessLawrenceMcDaniel = {
           }
       },
       {
-         "@type":"Product",
-         "logo":"https://cdn.lawrencemcdaniel.com/wp-content/uploads/2014/09/22195643/xml.png",
+         "@type":"SoftwareApplication",
+         "applicationCategory": "Data",
+         "operatingSystem": "Ubuntu",
+         "thumbnailUrlogo":"https://cdn.lawrencemcdaniel.com/wp-content/uploads/2014/09/22195643/xml.png",
          "image":"https://cdn.lawrencemcdaniel.com/wp-content/uploads/2014/09/22195643/xml.png",
          "url":"https://www.w3.org/XML/",
          "name":"XML",
-         "sku":"XML",
-         "brand":{
-            "@id":"https://www.w3.org/XML/"
-         },
          "review":[
             {
                "@type":"Review",
@@ -2201,7 +2148,6 @@ export const gsdLocalBusinessLawrenceMcDaniel = {
             "worstRating":"1"
          },
          "description":"XML",
-         "isbn":"XML",
          "offers":{
             "@type": "Offer",
             "price": "1.00",
@@ -2209,15 +2155,13 @@ export const gsdLocalBusinessLawrenceMcDaniel = {
           }
       },
       {
-         "@type":"Product",
-         "logo":"https://cdn.lawrencemcdaniel.com/wp-content/uploads/2014/09/22195647/json.png",
+         "@type":"SoftwareApplication",
+         "applicationCategory": "Data",
+         "operatingSystem": "Ubuntu",
+         "thumbnailUrlogo":"https://cdn.lawrencemcdaniel.com/wp-content/uploads/2014/09/22195647/json.png",
          "image":"https://cdn.lawrencemcdaniel.com/wp-content/uploads/2014/09/22195647/json.png",
          "url":"https://www.json.org/json-en.html",
          "name":"JSON",
-         "sku":"JSON",
-         "brand":{
-            "@id":"https://www.json.org/json-en.html"
-         },
          "review":[
             {
                "@type":"Review",
@@ -2241,7 +2185,6 @@ export const gsdLocalBusinessLawrenceMcDaniel = {
             "worstRating":"1"
          },
          "description":"JSON",
-         "isbn":"JSON",
          "offers":{
             "@type": "Offer",
             "price": "1.00",
@@ -2249,15 +2192,13 @@ export const gsdLocalBusinessLawrenceMcDaniel = {
           }
       },
       {
-         "@type":"Product",
-         "logo":"https://cdn.lawrencemcdaniel.com/wp-content/uploads/2014/09/22195648/git.png",
+         "@type":"SoftwareApplication",
+         "applicationCategory": "Data",
+         "operatingSystem": "Ubuntu",
+         "thumbnailUrlogo":"https://cdn.lawrencemcdaniel.com/wp-content/uploads/2014/09/22195648/git.png",
          "image":"https://cdn.lawrencemcdaniel.com/wp-content/uploads/2014/09/22195648/git.png",
          "url":"https://git-scm.com/",
          "name":"git",
-         "sku":"git",
-         "brand":{
-            "@id":"https://git-scm.com/"
-         },
          "review":[
             {
                "@type":"Review",
@@ -2281,7 +2222,6 @@ export const gsdLocalBusinessLawrenceMcDaniel = {
             "worstRating":"1"
          },
          "description":"git",
-         "isbn":"git",
          "offers":{
             "@type": "Offer",
             "price": "1.00",
@@ -2289,15 +2229,13 @@ export const gsdLocalBusinessLawrenceMcDaniel = {
           }
       },
       {
-         "@type":"Product",
-         "logo":"https://cdn.lawrencemcdaniel.com/wp-content/uploads/2014/09/22195650/ansible.png",
+         "@type":"SoftwareApplication",
+         "applicationCategory": "DevOps",
+         "operatingSystem": "Ubuntu",
+         "thumbnailUrlogo":"https://cdn.lawrencemcdaniel.com/wp-content/uploads/2014/09/22195650/ansible.png",
          "image":"https://cdn.lawrencemcdaniel.com/wp-content/uploads/2014/09/22195650/ansible.png",
          "url":"https://www.ansible.com/",
          "name":"Red Hat Ansible",
-         "sku":"ansible",
-         "brand":{
-            "@id":"https://www.ansible.com/"
-         },
          "review":[
             {
                "@type":"Review",
@@ -2321,7 +2259,6 @@ export const gsdLocalBusinessLawrenceMcDaniel = {
             "worstRating":"1"
          },
          "description":"Red Hat Ansible",
-         "isbn":"ansible",
          "offers":{
             "@type": "Offer",
             "price": "1.00",
@@ -2329,15 +2266,13 @@ export const gsdLocalBusinessLawrenceMcDaniel = {
           }
       },
       {
-         "@type":"Product",
-         "logo":"https://cdn.lawrencemcdaniel.com/wp-content/uploads/2014/09/22195649/chef.png",
+         "@type":"SoftwareApplication",
+         "applicationCategory": "DevOps",
+         "operatingSystem": "Ubuntu",
+         "thumbnailUrlogo":"https://cdn.lawrencemcdaniel.com/wp-content/uploads/2014/09/22195649/chef.png",
          "image":"https://cdn.lawrencemcdaniel.com/wp-content/uploads/2014/09/22195649/chef.png",
          "url":"https://www.chef.io/",
          "name":"CHEF Progress",
-         "sku":"chef",
-         "brand":{
-            "@id":"https://www.chef.io/"
-         },
          "review":[
             {
                "@type":"Review",
@@ -2361,7 +2296,6 @@ export const gsdLocalBusinessLawrenceMcDaniel = {
             "worstRating":"1"
          },
          "description":"CHEF Progress",
-         "isbn":"chef",
          "offers":{
             "@type": "Offer",
             "price": "1.00",
@@ -2369,15 +2303,13 @@ export const gsdLocalBusinessLawrenceMcDaniel = {
           }
       },
       {
-         "@type":"Product",
-         "logo":"https://cdn.lawrencemcdaniel.com/wp-content/uploads/2014/09/22195645/puppet.png",
+         "@type":"SoftwareApplication",
+         "applicationCategory": "DevOps",
+         "operatingSystem": "Ubuntu",
+         "thumbnailUrlogo":"https://cdn.lawrencemcdaniel.com/wp-content/uploads/2014/09/22195645/puppet.png",
          "image":"https://cdn.lawrencemcdaniel.com/wp-content/uploads/2014/09/22195645/puppet.png",
          "url":"https://puppet.com/",
          "name":"puppet",
-         "sku":"pupper",
-         "brand":{
-            "@id":"https://puppet.com/"
-         },
          "review":[
             {
                "@type":"Review",
@@ -2401,7 +2333,6 @@ export const gsdLocalBusinessLawrenceMcDaniel = {
             "worstRating":"1"
          },
          "description":"puppet",
-         "isbn":"puppet",
          "offers":{
             "@type": "Offer",
             "price": "1.00",
@@ -2409,15 +2340,13 @@ export const gsdLocalBusinessLawrenceMcDaniel = {
           }
       },
       {
-         "@type":"Product",
-         "logo":"https://cdn.lawrencemcdaniel.com/wp-content/uploads/2014/09/22195647/jenkins.png",
+         "@type":"SoftwareApplication",
+         "applicationCategory": "DevOps",
+         "operatingSystem": "Ubuntu",
+         "thumbnailUrlogo":"https://cdn.lawrencemcdaniel.com/wp-content/uploads/2014/09/22195647/jenkins.png",
          "image":"https://cdn.lawrencemcdaniel.com/wp-content/uploads/2014/09/22195647/jenkins.png",
          "url":"https://www.jenkins.io/",
          "name":"Jenkins",
-         "sku":"Jenkins",
-         "brand":{
-            "@id":"https://www.jenkins.io/"
-         },
          "review":[
             {
                "@type":"Review",
@@ -2441,7 +2370,6 @@ export const gsdLocalBusinessLawrenceMcDaniel = {
             "worstRating":"1"
          },
          "description":"Jenkins",
-         "isbn":"Jenkins",
          "offers":{
             "@type": "Offer",
             "price": "1.00",
@@ -2449,15 +2377,13 @@ export const gsdLocalBusinessLawrenceMcDaniel = {
           }
       },
       {
-         "@type":"Product",
-         "logo":"https://cdn.lawrencemcdaniel.com/wp-content/uploads/2014/09/22195644/qualcomm-snapdragon.png",
+         "@type":"SoftwareApplication",
+         "applicationCategory": "Hardware",
+         "operatingSystem": "NA",
+         "thumbnailUrlogo":"https://cdn.lawrencemcdaniel.com/wp-content/uploads/2014/09/22195644/qualcomm-snapdragon.png",
          "image":"https://cdn.lawrencemcdaniel.com/wp-content/uploads/2014/09/22195644/qualcomm-snapdragon.png",
          "url":"https://www.qualcomm.com/snapdragon",
          "name":"Qualcomm snapdragon",
-         "sku":"snapdragon",
-         "brand":{
-            "@id":"https://www.qualcomm.com/snapdragon"
-         },
          "review":[
             {
                "@type":"Review",
@@ -2481,7 +2407,6 @@ export const gsdLocalBusinessLawrenceMcDaniel = {
             "worstRating":"1"
          },
          "description":"Qualcomm snapdragon",
-         "isbn":"snapdragon",
          "offers":{
             "@type": "Offer",
             "price": "1.00",
@@ -2489,15 +2414,13 @@ export const gsdLocalBusinessLawrenceMcDaniel = {
           }
       },
       {
-         "@type":"Product",
-         "logo":"https://cdn.lawrencemcdaniel.com/wp-content/uploads/2014/09/22195648/d3.png",
+         "@type":"SoftwareApplication",
+         "applicationCategory": "webFrontendDevelopment",
+         "operatingSystem": "Javascript",
+         "thumbnailUrlogo":"https://cdn.lawrencemcdaniel.com/wp-content/uploads/2014/09/22195648/d3.png",
          "image":"https://cdn.lawrencemcdaniel.com/wp-content/uploads/2014/09/22195648/d3.png",
          "url":"https://d3js.org/",
          "name":"D3 Data-Driven Documents",
-         "sku":"d3",
-         "brand":{
-            "@id":"https://d3js.org/"
-         },
          "review":[
             {
                "@type":"Review",
@@ -2521,7 +2444,6 @@ export const gsdLocalBusinessLawrenceMcDaniel = {
             "worstRating":"1"
          },
          "description":"D3 Data-Driven Documents",
-         "isbn":"d3",
          "offers":{
             "@type": "Offer",
             "price": "1.00",
@@ -2529,15 +2451,13 @@ export const gsdLocalBusinessLawrenceMcDaniel = {
           }
       },
       {
-         "@type":"Product",
-         "logo":"https://cdn.lawrencemcdaniel.com/wp-content/uploads/2014/09/22195643/lamp-logo.png",
+         "@type":"SoftwareApplication",
+         "applicationCategory": "webBackendDevelopment",
+         "operatingSystem": "Ubuntu",
+         "thumbnailUrlogo":"https://cdn.lawrencemcdaniel.com/wp-content/uploads/2014/09/22195643/lamp-logo.png",
          "image":"https://cdn.lawrencemcdaniel.com/wp-content/uploads/2014/09/22195643/lamp-logo.png",
          "url":"https://en.wikipedia.org/wiki/LAMP_(software_bundle)",
          "name":"LAMP Stack",
-         "sku":"lamp",
-         "brand":{
-            "@id":"https://en.wikipedia.org/wiki/LAMP_(software_bundle)"
-         },
          "review":[
             {
                "@type":"Review",
@@ -2561,7 +2481,6 @@ export const gsdLocalBusinessLawrenceMcDaniel = {
             "worstRating":"1"
          },
          "description":"LAMP Stack",
-         "isbn":"lamp",
          "offers":{
             "@type": "Offer",
             "price": "1.00",
@@ -2569,15 +2488,13 @@ export const gsdLocalBusinessLawrenceMcDaniel = {
           }
       },
       {
-         "@type":"Product",
-         "logo":"https://cdn.lawrencemcdaniel.com/wp-content/uploads/2014/09/22195647/linux.png",
+         "@type":"SoftwareApplication",
+         "applicationCategory": "webBackendDevelopment",
+         "operatingSystem": "Ubuntu",
+         "thumbnailUrlogo":"https://cdn.lawrencemcdaniel.com/wp-content/uploads/2014/09/22195647/linux.png",
          "image":"https://cdn.lawrencemcdaniel.com/wp-content/uploads/2014/09/22195647/linux.png",
          "url":"https://www.linux.org/",
          "name":"Linux",
-         "sku":"Linux",
-         "brand":{
-            "@id":"https://www.linux.org/"
-         },
          "review":[
             {
                "@type":"Review",
@@ -2601,7 +2518,6 @@ export const gsdLocalBusinessLawrenceMcDaniel = {
             "worstRating":"1"
          },
          "description":"Linux",
-         "isbn":"Linux",
          "offers":{
             "@type": "Offer",
             "price": "1.00",
@@ -2609,15 +2525,13 @@ export const gsdLocalBusinessLawrenceMcDaniel = {
           }
       },
       {
-         "@type":"Product",
-         "logo":"https://cdn.lawrencemcdaniel.com/wp-content/uploads/2014/09/22195648/html5.png",
+         "@type":"SoftwareApplication",
+         "applicationCategory": "Data",
+         "operatingSystem": "Platform agnostic",
+         "thumbnailUrlogo":"https://cdn.lawrencemcdaniel.com/wp-content/uploads/2014/09/22195648/html5.png",
          "image":"https://cdn.lawrencemcdaniel.com/wp-content/uploads/2014/09/22195648/html5.png",
          "url":"https://en.wikipedia.org/wiki/HTML5",
          "name":"HTML5",
-         "sku":"HTML5",
-         "brand":{
-            "@id":"https://en.wikipedia.org/wiki/HTML5"
-         },
          "review":[
             {
                "@type":"Review",
@@ -2641,7 +2555,6 @@ export const gsdLocalBusinessLawrenceMcDaniel = {
             "worstRating":"1"
          },
          "description":"HTML5",
-         "isbn":"HTML5",
          "offers":{
             "@type": "Offer",
             "price": "1.00",
