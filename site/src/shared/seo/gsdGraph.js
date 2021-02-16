@@ -133,6 +133,10 @@ export const gsdGraph = (url, webpageName, webpageDescription, primaryImageUrl, 
                "Organization"
             ],
             "@id":baseUrl + "/#me",
+         },
+         {
+            "@type":"LocalBusiness",
+            "@id":"https://lawrencemcdaniel.com/#business",
          }
       ]
      };

@@ -24,11 +24,11 @@ const hasOccupation = (includeExtraData = false) => {
          "@type":"MonetaryAmountDistribution",
          "name":"base",
          "currency":"USD",
-         "median":"75.00",
-         "percentile10":"75.00",
-         "percentile25":"75.00",
-         "percentile75":"75.00",
-         "percentile90":"75.00",
+         "median":75.00,
+         "percentile10":75.00,
+         "percentile25":75.00,
+         "percentile75":75.00,
+         "percentile90":75.00,
          "duration":"PT1H"
       },
       "occupationLocation":[
@@ -51,7 +51,10 @@ export const gsdPersonLawrenceMcDaniel = (includeExtraData = false) => {
 
    const retVal = {
       "@context":"https://schema.org/",
-      "@type":"Person",
+      "@type":[
+         "Person",
+         "Organization"
+      ],
       "@id":"https://lawrencemcdaniel.com/#me",
       "identifier":"https://lawrencemcdaniel.com/",
       "email":"mailto:lpm0073@gmail.com",
@@ -130,7 +133,7 @@ export const gsdPersonLawrenceMcDaniel = (includeExtraData = false) => {
          "caption":"Lawrence McDaniel"
       }],
       "logo":{
-         "@id":"https://blog.lawrencemcdaniel.com/#personlogo"
+         "@id":"https://lawrencemcdaniel.com/#personlogo"
       },
       "hasOccupation": hasOccupation(includeExtraData)
    }
