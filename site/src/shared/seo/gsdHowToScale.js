@@ -1,13 +1,21 @@
-export const gsdHowToInstallOpenEdx = {
+export const gsdHowToScaleOpenEdx = {
     "@context": "http://schema.org",
     "@type": "HowTo",
+    "url":"https://blog.lawrencemcdaniel.com/open-edx-installation/",
     "name": "Open edX Step-By-Step Production Installation Guide",
+    "dateCreated":"2021-01-27",
+    "dateModified":"2021-01-27",
+    "datePublished":"2021-01-27",
+    "creator":{
+      "@id":"https://blog.lawrencemcdaniel.com/#/schema/person/5cde4301ca9b99abf63feb5401a7a7b1"
+    },
+    "alternateName":"How To Install Open edX",
     "description": "Get your first Open edX platform up and running with this detailed step-by-step how-to guide that provides detailed instructions on how to build your AWS EC2 Ubuntu Linux server, execute the Open edX native build scripts, and configure your new platform.",
     "image": {
       "@type": "ImageObject",
       "url": "https://cdn-blog.lawrencemcdaniel.com/wp-content/uploads/2017/10/22125438/edx-install-banner.jpg",
-      "height": "374",
-      "width": "196"
+      "height": 374,
+      "width": 196
     },
     "supply": [
       {
@@ -111,8 +119,8 @@ export const gsdHowToInstallOpenEdx = {
         "image": {
           "@type": "ImageObject",
           "url": "https://cdn-blog.lawrencemcdaniel.com/wp-content/uploads/2021/02/15201246/how-to-screenshot-2.png",
-          "height": "1464",
-          "width": "460"
+          "height": 1464,
+          "width": 460
         }
       }, {
         "@type": "HowToStep",

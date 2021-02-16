@@ -26,3 +26,25 @@ https://schema.org/Service
 https://schema.org/ProfessionalService
 https://schema.org/WebSite
 
+## Google Structured Data source files for this site
+
+### gsdPersonLawrence.js
+Person data for Lawrence McDaniel. This is a top-level object that referenced by other objects.
+
+### gsdGraph.js
+This is the principal SEO structure. It describes the web site / page / contents hierarchy.
+### gsdLocalBusiness.js
+Organizational data for the company, lawrencemcdaniel.com
+
+#### gsdKnowsAbout.js
+JSON list of technologies, mostly identical in content to the Logo cube.
+#### gsdQualifications.js
+JSON list of completed courses. Google search seems to misinterpret the data, so not sure if its helpful.
+
+## Google Structured Data source files for blog articles
+### gsdHowToInstall.js
+Open edX Step-By-Step Production Installation Guide
+https://blog.lawrencemcdaniel.com/open-edx-installation/
+### gsdHowToScale.js
+Scaling Open edX
+https://blog.lawrencemcdaniel.com/scaling-open-edx/

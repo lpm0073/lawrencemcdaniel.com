@@ -7,8 +7,8 @@ export const gsdFAQ = {
         "image":{
           "@type": "ImageObject",
           "url": "https://cdn-blog.lawrencemcdaniel.com/wp-content/uploads/2017/10/22125438/edx-install-banner.jpg",
-          "height": "374",
-          "width": "196"
+          "height": 374,
+          "width": 196
         },
         "lastReviewed": "2021-02-15",
         "dateModified":"2021-02-15",

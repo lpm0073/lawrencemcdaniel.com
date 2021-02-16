@@ -21,8 +21,8 @@ export const gsdServiceOpenedX = {
      "image": {
         "@type": "ImageObject",
         "url": "https://cdn.lawrencemcdaniel.com/wp-content/uploads/2020/05/28144740/open-edx-logo-with-reg.png",
-        "height": "71",
-        "width": "365",
+        "height": 71,
+        "width": 365,
         "@id": "https://cdn.lawrencemcdaniel.com/wp-content/uploads/2020/05/28144740/open-edx-logo-with-reg.png"
      },    
       "brand": {
@@ -76,8 +76,8 @@ export const gsdServiceOpenedX = {
    "image": {
      "@type": "ImageObject",
      "url": "https://cdn.lawrencemcdaniel.com/wp-content/uploads/2020/05/28144740/open-edx-logo-with-reg.png",
-     "height": "71",
-     "width": "365",
+     "height": 71,
+     "width": 365,
      "@id": "https://cdn.lawrencemcdaniel.com/wp-content/uploads/2020/05/28144740/open-edx-logo-with-reg.png"
   },    
    "logo": {

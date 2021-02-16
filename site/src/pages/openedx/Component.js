@@ -7,6 +7,7 @@ import { gsdServiceOpenedX } from '../../shared/seo/gsdServiceOpenedx';
 import { gsdLocalBusinessLawrenceMcDaniel } from '../../shared/seo/gsdLocalBusiness';
 import { gsdPersonLawrenceMcDaniel } from '../../shared/seo/gsdPersonLawrence';
 import { gsdFAQ } from '../../shared/seo/gsdFAQ';
+import { gsdGraph } from '../../shared/seo/gsdGraph';
 import './styles.css';
 
 import Accordion from 'react-bootstrap/Accordion';
@@ -43,6 +44,12 @@ const Openedx = (props) => {
                     <script type="application/ld+json">{JSON.stringify(gsdLocalBusinessLawrenceMcDaniel)}</script>
                     <script type="application/ld+json">{JSON.stringify(gsdServiceOpenedX)}</script>
                     <script type="application/ld+json">{JSON.stringify(gsdFAQ)}</script>
+                    <script type="application/ld+json">{JSON.stringify(gsdGraph(
+                        "https://lawrencemcdaniel.com/openedx", 
+                        "Open edX® Consulting",
+                        "I am a 20-year veteran web developer specializing in the <a href='https://open.edx.org/' target='_blank' rel='noopener noreferrer'>Open edX® platform</a>. Thousands of organizations around the world have used my <a href='https://blog.lawrencemcdaniel.com/category/open-edx/' target='_blank' rel='noopener noreferrer'>Open edX® blog articles</a> to turn their online education vision into reality. In fact, my how-to guides and tutorials on <a href='https://blog.lawrencemcdaniel.com/open-edx-installation/' target='_blank' rel='noopener noreferrer'>production installation</a>, <a href='https://blog.lawrencemcdaniel.com/scaling-open-edx/' target='_blank' rel='noopener noreferrer'>platform scaling</a>, <a href='https://blog.lawrencemcdaniel.com/open-edx-custom-theming-tutorial/' target='_blank' rel='noopener noreferrer'>custom theming</a>, and <a href='https://blog.lawrencemcdaniel.com/open-edx-configuration-tutorial/' target='_blank' rel='noopener noreferrer'>configuration</a> have been viewed more than fifty thousand times.", 
+                        "https://cdn-blog.lawrencemcdaniel.com/wp-content/uploads/2018/01/22125438/Lawrence19.jpg"
+                    ))}</script>
                 </Helmet>
                 <div key="openedx-page" className="site-page openedx-page">
                     <RenderPageTitle theme="light" icon="fa-align-left" title="Open edX®" boxed_title="Consulting" />
