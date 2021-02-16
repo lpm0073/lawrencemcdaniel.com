@@ -2,7 +2,6 @@ import React from 'react';
 import RenderPageTitle from '../../components/pagetitle/pageTitleComponent';
 import { LinkedinBadge } from '../../components/linkedinBadge/Component';
 import ClientGrid from '../../components/clientGrid/Component';
-import { resumeUrl } from '../../shared/urls';
 import {Helmet} from "react-helmet";
 import { gsdServiceOpenedX } from '../../shared/seo/gsdServiceOpenedx';
 import { gsdLocalBusinessLawrenceMcDaniel } from '../../shared/seo/gsdLocalBusiness';
@@ -51,8 +50,8 @@ const Openedx = (props) => {
                         <div className="col-lg-3 hide-medium">
                             <div className="pl-3 text-center">
                                 <LinkedinBadge />
-                                <a className="mt-4 btn btn-danger" role="button" target="_blank" href={resumeUrl} rel="noopener noreferrer">
-                                        <i className="fa fa-download"></i> Download Resume
+                                <a className="mt-4 btn btn-danger" role="button" target="_self" href="/contact">
+                                        <i className="fa fa-phone"></i> Contact Me
                                 </a>
                             </div>
                         </div>
@@ -135,11 +134,16 @@ const Openedx = (props) => {
                                             <Card.Body>
                                                 <p>The answer depends a host of factors, but there are some generalizations on which you can safely rely.</p>
                                                 <ul>
-                                                    <li>Use a platform provider if you're just getting started and you lack technical support and your budget permits. All Open edX provider leave you in complete control of your data, so you'll always have the option of migrating the platform to your own private installation at a later date.</li>
+                                                    <li>Use a platform provider if you're just getting started and you lack technical support and your budget permits. All Open edX providers will leave you in complete control of your data, so you'll always have the option of migrating the platform to your own private installation at a later date.</li>
                                                     <li>Start with Tutor if you're just evaluating the platform and you're on a tight budget, as this is the easiest to get up and running quickly.</li>
-                                                    <li>Consider creating your own native build if you're a startup and are actively deciding on the feature set your want to offer customers.</li>
-                                                    <li>You can consider creating your own native build if you have a team in place who is competent in supporting enterprise Django platforms.</li>
-                                                    <li>Consider creating your own native build if you intend to customize the software in any way.</li>
+                                                    <li>Consider creating your own native build if 
+                                                        <ul>
+                                                            <li>you're a startup and you are actively deciding on the feature set you want to offer customers.</li>
+                                                            <li>you have a team in place who is competent in supporting enterprise Django platforms.</li>
+                                                            <li>you intend to customize the software.</li>
+                                                            <li>you do not need customizations, and, your user base will be small.</li>
+                                                        </ul>
+                                                    </li>
                                                 </ul>
                                             </Card.Body>
                                         </Accordion.Collapse>
