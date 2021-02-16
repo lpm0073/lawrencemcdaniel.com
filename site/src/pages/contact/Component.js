@@ -2,8 +2,6 @@ import React, { Component} from 'react';
 import RenderPageTitle from '../../components/pagetitle/pageTitleComponent';
 import {resumeUrl} from '../../shared/urls';
 import {Helmet} from "react-helmet";
-import { gsdPersonLawrenceMcDaniel } from '../../shared/seo/gsdPersonLawrence';
-import { gsdLocalBusinessLawrenceMcDaniel } from '../../shared/seo/gsdLocalBusiness';
 import { gsdGraph } from '../../shared/seo/gsdGraph';
 import './styles.css';
 
@@ -16,8 +14,6 @@ class Contact extends Component {
             <React.Fragment>
                 <Helmet>
                     <link rel="canonical" href="https://lawrencemcdaniel.com/contact" />
-                    <script type="application/ld+json">{JSON.stringify(gsdPersonLawrenceMcDaniel())}</script>
-                    <script type="application/ld+json">{JSON.stringify(gsdLocalBusinessLawrenceMcDaniel())}</script>
                     <script type="application/ld+json">{JSON.stringify(gsdGraph(
                         "https://lawrencemcdaniel.com/contact", 
                         "Lawrence McDaniel - Contact Information",

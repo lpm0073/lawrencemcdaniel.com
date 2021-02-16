@@ -4,7 +4,7 @@ const baseUrl = "https://lawrencemcdaniel.com";
 
 const siteImage = (imageUrl, url) => {
 
-   if (imageUrl != "") return {
+   if (imageUrl !== "") return {
       "@type":"ImageObject",
       "url":imageUrl,
       "@id":url + "/#primaryimage"

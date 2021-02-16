@@ -2,8 +2,6 @@ import React from 'react';
 import RenderPageTitle from '../../components/pagetitle/pageTitleComponent';
 import SpecialtiesBanner from './machinelearningBanner';
 import {Helmet} from "react-helmet";
-import { gsdPersonLawrenceMcDaniel } from '../../shared/seo/gsdPersonLawrence';
-import { gsdLocalBusinessLawrenceMcDaniel } from '../../shared/seo/gsdLocalBusiness';
 import { gsdGraph } from '../../shared/seo/gsdGraph';
 
 import './styles.css';
@@ -20,8 +18,6 @@ const MachineLearning = (props) => {
                     <meta name="description" content="Machine learning and algorithms expert with experience using regression, nueral networks, support vector machines, anomoly detection, recommender systems, and unsupervised learning" />
                     <meta property="og:description" content="Machine learning and algorithms expert with experience using regression, nueral networks, support vector machines, anomoly detection, recommender systems, and unsupervised learning" />
                     <meta name="keywords"  content="Lawrence McDaniel, machine learning, algorithms, regression, nueral networks, support vector machines, anomoly detection, recommender systems, unsupervised learning" />
-                    <script type="application/ld+json">{JSON.stringify(gsdPersonLawrenceMcDaniel())}</script>
-                    <script type="application/ld+json">{JSON.stringify(gsdLocalBusinessLawrenceMcDaniel())}</script>
                     <script type="application/ld+json">{JSON.stringify(gsdGraph(
                         "https://lawrencemcdaniel.com/machine-learning", 
                         "Lawrence McDaniel - Machine Learning",

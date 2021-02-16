@@ -3,8 +3,6 @@ import RenderPageTitle from '../../components/pagetitle/pageTitleComponent';
 import RecommendationsCarousel from './recommendationsCarousel';
 import ClientGrid from '../../components/clientGrid/Component';
 import {Helmet} from "react-helmet";
-import { gsdPersonLawrenceMcDaniel } from '../../shared/seo/gsdPersonLawrence';
-import { gsdLocalBusinessLawrenceMcDaniel } from '../../shared/seo/gsdLocalBusiness';
 import { gsdGraph } from '../../shared/seo/gsdGraph';
 import './styles.css';
 
@@ -14,8 +12,6 @@ const Clients = (props) => {
         <React.Fragment>
             <Helmet>
                 <link rel="canonical" href="https://lawrencemcdaniel.com/clients" />
-                <script type="application/ld+json">{JSON.stringify(gsdPersonLawrenceMcDaniel())}</script>
-                <script type="application/ld+json">{JSON.stringify(gsdLocalBusinessLawrenceMcDaniel())}</script>
                 <script type="application/ld+json">{JSON.stringify(gsdGraph(
                     "https://lawrencemcdaniel.com/clients", 
                     "Lawrence McDaniel - Clients",

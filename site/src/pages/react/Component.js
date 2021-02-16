@@ -4,8 +4,6 @@ import RenderPageTitle from '../../components/pagetitle/pageTitleComponent';
 import { LinkedinBadge } from '../../components/linkedinBadge/Component';
 import {Helmet} from "react-helmet";
 import { resumeUrl } from '../../shared/urls';
-import { gsdPersonLawrenceMcDaniel } from '../../shared/seo/gsdPersonLawrence';
-import { gsdLocalBusinessLawrenceMcDaniel } from '../../shared/seo/gsdLocalBusiness';
 import { gsdGraph } from '../../shared/seo/gsdGraph';
 import './styles.css';
 
@@ -20,8 +18,6 @@ const ReactPage = (props) => {
                     <link rel="canonical" href="https://lawrencemcdaniel.com/reactjs" />
                     <meta name="description" content="Full Stack Web Developer with extensive experience using ReactJS and Redux. Follow links to the GitHub repository for this site." />
                     <meta property="og:description" content="Full Stack Web Developer with extensive experience using ReactJS and Redux. Follow links to the GitHub repository for this site." />
-                    <script type="application/ld+json">{JSON.stringify(gsdPersonLawrenceMcDaniel())}</script>
-                    <script type="application/ld+json">{JSON.stringify(gsdLocalBusinessLawrenceMcDaniel())}</script>
                     <script type="application/ld+json">{JSON.stringify(gsdGraph(
                         "https://lawrencemcdaniel.com/reactjs", 
                         "Built With ReactJS",

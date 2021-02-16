@@ -5,6 +5,8 @@ import { BrowserRouter } from 'react-router-dom';
 import { Provider } from 'react-redux';
 import { ConfigureStore } from './redux/configureStore';
 import {Helmet} from "react-helmet";
+import { gsdPersonLawrenceMcDaniel } from './shared/seo/gsdPersonLawrence';
+import { gsdLocalBusinessLawrenceMcDaniel } from './shared/seo/gsdLocalBusiness';
 
 const store = ConfigureStore();
 
@@ -47,6 +49,16 @@ class App extends Component {
               <meta name="twitter:image" content="https://cdn.lawrencemcdaniel.com/social-1200x675.jpg" />
               <meta name="twitter:description" content="Lawrence McDaniel - Full Stack Developer" />
               <meta itemprop="image" content="https://cdn.lawrencemcdaniel.com/social-1200x630.jpg" />
+              {/* 
+                  Google structured data: https://developers.google.com/search/docs/guides/intro-structured-data
+                  note that using a script tag with src does not work.
+                  
+                  https://stackoverflow.com/questions/30864619/does-json-ld-have-to-be-embedded 
+                  https://stackoverflow.com/questions/29064209/does-schema-org-markup-work-if-markup-is-dynamically-built-with-javascript/29066759#29066759
+              */}
+              <script type="application/ld+json">{JSON.stringify(gsdPersonLawrenceMcDaniel(false))}</script>
+              <script type="application/ld+json">{JSON.stringify(gsdLocalBusinessLawrenceMcDaniel(false))}</script>
+
             </Helmet>
             <Main  />
           </div>

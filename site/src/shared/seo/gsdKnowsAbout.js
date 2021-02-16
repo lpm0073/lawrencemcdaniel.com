@@ -73,6 +73,7 @@ export const gsdKnowsAbout =
       softwareApplication("webBackendDevelopment", "Python", "NumPy", "", "https://numpy.org", "https://cdn.lawrencemcdaniel.com/wp-content/uploads/2020/05/31133826/numpy-logo.png"),
       softwareApplication("webBackendDevelopment", "Python", "SciPi", "", "https://www.scipy.org", "https://cdn.lawrencemcdaniel.com/wp-content/uploads/2020/05/31132745/scipy-logo.png"),
       softwareApplication("webBackendDevelopment", "Python", "Django", "", "https://www.djangoproject.com", "https://cdn.lawrencemcdaniel.com/wp-content/uploads/2020/05/01144338/django-logo.png"),
+      softwareApplication("webBackendDevelopment", "Linux, Windows, OSX", "Python", "", "https://www.python.org", "https://cdn.lawrencemcdaniel.com/wp-content/uploads/2014/09/22195644/python.png"),
 
       softwareApplication("webFrontendDevelopment", "Javascript", "D3 Data-Driven Documents", "", "https://d3js.org", "https://cdn.lawrencemcdaniel.com/wp-content/uploads/2014/09/22195648/d3.png"),
       softwareApplication("webFrontendDevelopment", "Javascript", "NPM", "", "https://www.npmjs.com", "https://cdn.lawrencemcdaniel.com/wp-content/uploads/2020/05/30224959/npm-logo.png"),
@@ -108,8 +109,7 @@ export const gsdKnowsAbout =
       softwareApplication("devops", "Linux", "Jenkins", "", "https://www.jenkins.io", "https://cdn.lawrencemcdaniel.com/wp-content/uploads/2014/09/22195647/jenkins.png"),
       softwareApplication("devops", "Linux", "Qualcomm snapdragon", "", "https://www.qualcomm.com/snapdragon", "https://cdn.lawrencemcdaniel.com/wp-content/uploads/2014/09/22195644/qualcomm-snapdragon.png"),
       softwareApplication("devops", "Linux", "LAMP Stack", "", "https://en.wikipedia.org/wiki/LAMP_(software_bundle)", "https://cdn.lawrencemcdaniel.com/wp-content/uploads/2014/09/22195643/lamp-logo.png"),
-
-      softwareApplication("webBackendDevelopment", "Linux", "Linux", "", "https://www.linux.org", "https://cdn.lawrencemcdaniel.com/wp-content/uploads/2014/09/22195647/linux.png"),
+      softwareApplication("devops", "Linux", "Linux", "", "https://www.linux.org", "https://cdn.lawrencemcdaniel.com/wp-content/uploads/2014/09/22195647/linux.png"),
 
       softwareApplication("webBackendDevelopment", "PHP", "Wordpress", "", "https://wordpress.com", "https://cdn.lawrencemcdaniel.com/wp-content/uploads/2014/09/22195643/wordpress-1.png"),
 
@@ -124,7 +124,6 @@ export const gsdKnowsAbout =
       softwareApplication("webDevelopment", "Platform agnostic", "oAuth", "", "https://oauth.net", "https://cdn.lawrencemcdaniel.com/wp-content/uploads/2020/05/31141608/oauth-logo.png"),
       softwareApplication("webDevelopment", "Platform Agnostic", "HTTP", "", "https://en.wikipedia.org/wiki/Hypertext_Transfer_Protocol", "https://cdn.lawrencemcdaniel.com/wp-content/uploads/2020/05/30213049/HTTP-logo.png"),
       softwareApplication("webDevelopment", "Platform agnostic", "GitHub", "", "https://github.com", "https://cdn.lawrencemcdaniel.com/wp-content/uploads/2014/09/22195648/github.png"),
-      softwareApplication("webDevelopment", "Platform agnostic", "Python", "", "https://www.python.org", "https://cdn.lawrencemcdaniel.com/wp-content/uploads/2014/09/22195644/python.png"),
       softwareApplication("webDevelopment", "Platform Agnostic", "XML", "", "https://www.w3.org/XML", "https://cdn.lawrencemcdaniel.com/wp-content/uploads/2014/09/22195643/xml.png"),
       softwareApplication("webDevelopment", "Platform Agnostic", "JSON", "", "https://www.json.org", "https://cdn.lawrencemcdaniel.com/wp-content/uploads/2014/09/22195647/json.png"),
       softwareApplication("webDevelopment", "Platform Agnostic", "git", "", "https://git-scm.com", "https://cdn.lawrencemcdaniel.com/wp-content/uploads/2014/09/22195648/git.png"),

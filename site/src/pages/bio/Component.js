@@ -5,8 +5,6 @@ import { LinkedinBadge } from '../../components/linkedinBadge/Component';
 import {Helmet} from "react-helmet";
 
 import { resumeUrl } from '../../shared/urls';
-import { gsdPersonLawrenceMcDaniel } from '../../shared/seo/gsdPersonLawrence';
-import { gsdLocalBusinessLawrenceMcDaniel } from '../../shared/seo/gsdLocalBusiness';
 import { gsdGraph } from '../../shared/seo/gsdGraph';
 import './styles.css';
 
@@ -17,8 +15,6 @@ const Bio = (props) => {
             <React.Fragment>
                 <Helmet>
                     <link rel="canonical" href="https://lawrencemcdaniel.com/bio" />
-                    <script type="application/ld+json">{JSON.stringify(gsdPersonLawrenceMcDaniel())}</script>
-                    <script type="application/ld+json">{JSON.stringify(gsdLocalBusinessLawrenceMcDaniel())}</script>
                     <script type="application/ld+json">{JSON.stringify(gsdGraph(
                         "https://lawrencemcdaniel.com/bio", 
                         "Lawrence McDaniel - Bio",

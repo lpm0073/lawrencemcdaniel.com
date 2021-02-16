@@ -5,8 +5,6 @@ import * as Actions from '../../redux/ActionCreators';
 
 import { Fade } from 'react-animation-components';
 import LogoCube from '../../components/logoCube/Component';
-import { gsdPersonLawrenceMcDaniel } from '../../shared/seo/gsdPersonLawrence';
-import { gsdLocalBusinessLawrenceMcDaniel } from '../../shared/seo/gsdLocalBusiness';
 import { gsdGraph } from '../../shared/seo/gsdGraph';
 import {Helmet} from "react-helmet";
 
@@ -36,8 +34,6 @@ class Home extends Component {
                         https://stackoverflow.com/questions/30864619/does-json-ld-have-to-be-embedded 
                         https://stackoverflow.com/questions/29064209/does-schema-org-markup-work-if-markup-is-dynamically-built-with-javascript/29066759#29066759
                     */}
-                    <script type="application/ld+json">{JSON.stringify(gsdPersonLawrenceMcDaniel())}</script>
-                    <script type="application/ld+json">{JSON.stringify(gsdLocalBusinessLawrenceMcDaniel())}</script>
                     <script type="application/ld+json">{JSON.stringify(gsdGraph(
                         "https://lawrencemcdaniel.com/home", 
                         "Lawrence McDaniel - Full Stack Developer",

@@ -4,8 +4,6 @@ import { LinkedinBadge } from '../../components/linkedinBadge/Component';
 import ClientGrid from '../../components/clientGrid/Component';
 import {Helmet} from "react-helmet";
 import { gsdServiceOpenedX } from '../../shared/seo/gsdServiceOpenedx';
-import { gsdLocalBusinessLawrenceMcDaniel } from '../../shared/seo/gsdLocalBusiness';
-import { gsdPersonLawrenceMcDaniel } from '../../shared/seo/gsdPersonLawrence';
 import { gsdFAQ } from '../../shared/seo/gsdFAQ';
 import { gsdGraph } from '../../shared/seo/gsdGraph';
 import './styles.css';
@@ -40,8 +38,6 @@ const Openedx = (props) => {
                         https://stackoverflow.com/questions/30864619/does-json-ld-have-to-be-embedded 
                         https://stackoverflow.com/questions/29064209/does-schema-org-markup-work-if-markup-is-dynamically-built-with-javascript/29066759#29066759
                     */}
-                    <script type="application/ld+json">{JSON.stringify(gsdPersonLawrenceMcDaniel(false))}</script>
-                    <script type="application/ld+json">{JSON.stringify(gsdLocalBusinessLawrenceMcDaniel(false))}</script>
                     <script type="application/ld+json">{JSON.stringify(gsdServiceOpenedX)}</script>
                     <script type="application/ld+json">{JSON.stringify(gsdFAQ)}</script>
                     <script type="application/ld+json">{JSON.stringify(gsdGraph(
