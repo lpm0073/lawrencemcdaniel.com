@@ -10,6 +10,7 @@ const qualifications = (includeExtraData = false) => {
 const hasOccupation = (includeExtraData = false) => {
 
    const retVal = {
+      "@context":"https://schema.org/",
       "@type":"Occupation",
       "additionalType": "https://www.wikidata.org/wiki/Q96072517",
       "name":"Full Stack Developer",

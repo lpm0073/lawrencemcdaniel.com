@@ -1,5 +1,6 @@
 export const primarySiteImage = {
-    "@type":"ImageObject",
+   "@context":"https://schema.org/",
+   "@type":"ImageObject",
     "@id":"https://lawrencemcdaniel.com/#primarySiteImage",
     "author":"Barry Wolfryd",
     "creator":"Barry Wolfryd",

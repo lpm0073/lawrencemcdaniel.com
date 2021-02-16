@@ -4,6 +4,7 @@
  */
 export const gsdQualifications = [
     {
+      "@context":"https://schema.org/",
        "@type":"EducationalOccupationalCredential",
        "name":"University of North Texas",
        "url":"https://www.unt.edu/",
@@ -26,6 +27,7 @@ export const gsdQualifications = [
        "dateCreated":"2017-06-01"
     },
     {
+      "@context":"https://schema.org/",
        "@type":"Course",
        "provider": {
           "@type": "Organization",
@@ -39,6 +41,7 @@ export const gsdQualifications = [
        "dateCreated":"2017-07-01"
     },
     {
+      "@context":"https://schema.org/",
        "@type":"Course",
        "provider": {
           "@type": "Organization",
@@ -52,6 +55,7 @@ export const gsdQualifications = [
        "dateCreated":"2017-08-01"
     },
     {
+      "@context":"https://schema.org/",
        "@type":"Course",
        "provider": {
           "@type": "Organization",
@@ -65,6 +69,7 @@ export const gsdQualifications = [
        "dateCreated":"2017-08-01"
     },
     {
+      "@context":"https://schema.org/",
        "@type":"Course",
        "provider": {
           "@type": "Organization",
@@ -78,6 +83,7 @@ export const gsdQualifications = [
        "dateCreated":"2020-03-01"
     },
     {
+      "@context":"https://schema.org/",
        "@type":"Course",
        "provider": {
           "@type": "Organization",
@@ -91,6 +97,7 @@ export const gsdQualifications = [
        "dateCreated":"2017-08-01"
     },
     {
+      "@context":"https://schema.org/",
        "@type":"Course",
        "provider": {
           "@type": "Organization",
@@ -104,6 +111,7 @@ export const gsdQualifications = [
        "dateCreated":"2017-08-01"
     },
     {
+      "@context":"https://schema.org/",
        "@type":"Course",
        "provider": {
           "@type": "Organization",
@@ -117,6 +125,7 @@ export const gsdQualifications = [
        "dateCreated":"2017-09-01"
     },
     {
+      "@context":"https://schema.org/",
        "@type":"Course",
        "provider": {
           "@type": "Organization",
@@ -130,6 +139,7 @@ export const gsdQualifications = [
        "dateCreated":"2017-09-01"
     },
     {
+      "@context":"https://schema.org/",
        "@type":"Course",
        "provider": {
           "@type": "Organization",
@@ -143,6 +153,7 @@ export const gsdQualifications = [
        "dateCreated":"2016-21-31"
     },
     {
+      "@context":"https://schema.org/",
        "@type":"Course",
        "provider": {
           "@type": "Organization",
