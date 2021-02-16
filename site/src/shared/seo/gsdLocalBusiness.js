@@ -1,12 +1,14 @@
 import { gsdKnowsAbout } from './gsdKnowsAbout';
 
-const knowsAbout = (include = false) => {
+const knowsAbout = (includeExtraData = false) => {
   
-  if (include) return gsdKnowsAbout;
+  if (includeExtraData) return gsdKnowsAbout;
   return [];
 }
 
-export const gsdLocalBusinessLawrenceMcDaniel =  {
+export const gsdLocalBusinessLawrenceMcDaniel = (includeExtraData = false) =>  {
+
+    var retVal = {
     "@context": "https://schema.org",
     "@type": "LocalBusiness",
     "additionalType": "https://www.wikidata.org/wiki/Q96072517",
@@ -56,5 +58,7 @@ export const gsdLocalBusinessLawrenceMcDaniel =  {
         "closes": "18:00"
       }
     ],
-    "knowsAbout": knowsAbout()
+    "knowsAbout": knowsAbout(includeExtraData)
+  }
+  return retVal;
 }

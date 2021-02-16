@@ -5,6 +5,9 @@ import { LinkedinBadge } from '../../components/linkedinBadge/Component';
 import {Helmet} from "react-helmet";
 
 import { resumeUrl } from '../../shared/urls';
+import { gsdPersonLawrenceMcDaniel } from '../../shared/seo/gsdPersonLawrence';
+import { gsdLocalBusinessLawrenceMcDaniel } from '../../shared/seo/gsdLocalBusiness';
+import { gsdGraph } from '../../shared/seo/gsdGraph';
 import './styles.css';
 
 
@@ -13,7 +16,15 @@ const Bio = (props) => {
         return(
             <React.Fragment>
                 <Helmet>
-                    <link rel="canonical" href="https://lawrencemcdaniel.com/" />
+                    <link rel="canonical" href="https://lawrencemcdaniel.com/bio" />
+                    <script type="application/ld+json">{JSON.stringify(gsdPersonLawrenceMcDaniel())}</script>
+                    <script type="application/ld+json">{JSON.stringify(gsdLocalBusinessLawrenceMcDaniel())}</script>
+                    <script type="application/ld+json">{JSON.stringify(gsdGraph(
+                        "https://lawrencemcdaniel.com/bio", 
+                        "Lawrewnce McDaniel - Bio",
+                        "Lawrence McDaniel is a freelance full-stack web developer and business analyst. He has a BS in computer science and mathematics with minors in physics and English from University of North Texas. He was an early employee at three startups that were later acquired by Goldman Sachs, IBM and Deutsche Bank respectively, and has participated in a successful NASDAQ IPO. He has worked as a freelance technology consultant since 1999 and has advised dozens of startups as well as banks, hedge funds and real estate investment funds from around the world including Morgan Stanley, Fortress Investment Group, IBM Seterus, and others.", 
+                        "https://cdn-blog.lawrencemcdaniel.com/wp-content/uploads/2018/01/22125438/Lawrence19.jpg"
+                    ))}</script>
                 </Helmet>
                 <div key="bio-page" className="site-page bio-page">
                     <RenderPageTitle theme="light" icon="fa-align-left" title="FULL" boxed_title="BIO" />

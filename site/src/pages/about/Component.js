@@ -9,6 +9,9 @@ import { LinkedinBadge } from '../../components/linkedinBadge/Component';
 import AboutTile from './tileComponent';
 import { Fade } from 'react-animation-components';
 import {Helmet} from "react-helmet";
+import { gsdPersonLawrenceMcDaniel } from '../../shared/seo/gsdPersonLawrence';
+import { gsdLocalBusinessLawrenceMcDaniel } from '../../shared/seo/gsdLocalBusiness';
+import { gsdGraph } from '../../shared/seo/gsdGraph';
 
 import './styles.css';
 
@@ -33,7 +36,15 @@ class About extends Component {
     
                 <React.Fragment>
                     <Helmet>
-                        <link rel="canonical" href="https://lawrencemcdaniel.com/" />
+                        <link rel="canonical" href="https://lawrencemcdaniel.com/about" />
+                        <script type="application/ld+json">{JSON.stringify(gsdPersonLawrenceMcDaniel())}</script>
+                        <script type="application/ld+json">{JSON.stringify(gsdLocalBusinessLawrenceMcDaniel())}</script>
+                        <script type="application/ld+json">{JSON.stringify(gsdGraph(
+                            "https://lawrencemcdaniel.com/about", 
+                            "Lawrewnce McDaniel - About",
+                            "I’m an American full stack developer with significant experience with classic backend stacks and front-end frameworks including Django, React, Angular, and WordPress. I also work extensively with the Open edX® learning management system. I am a veteran of multiple startups and early-stage ventures with dozens of successful product launches in multiple industries and markets around the world. I advocate for open source, try to keep things DRY and well-documented and when possible I adhere to the principals of 12-factor development. I’m a passionate learner and frequent blogger, currently interested in machine learning, AI and quantum computing.", 
+                            "https://cdn-blog.lawrencemcdaniel.com/wp-content/uploads/2018/01/22125438/Lawrence19.jpg"
+                        ))}</script>
                     </Helmet>
                     <div key="about-page" className="site-page about-page">
                         <RenderPageTitle theme="light" icon="fa-user" title="ABOUT" boxed_title="ME" />

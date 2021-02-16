@@ -1,3 +1,7 @@
+/*
+  SEO for blog article https://blog.lawrencemcdaniel.com/scaling-open-edx/
+*/
+
 export const gsdHowToScaleOpenEdx = {
     "@context": "http://schema.org",
     "@type": "HowTo",

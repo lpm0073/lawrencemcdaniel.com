@@ -1,7 +1,47 @@
-export const gsdGraph = (url, webpageName, webpageDescription, primaryImageUrl) => {
+const baseUrl = "https://lawrencemcdaniel.com";
 
-   const baseUrl = "https://lawrencemcdaniel.com";
+export const gsdGraph = (url, webpageName, webpageDescription, primaryImageUrl, isHomePage = false) => {
 
+   const breadcrumpListElements = (isHomePage = false) => {
+
+      var retVal = [
+         {
+            "@type":"ListItem",
+            "position":1,
+            "item":{
+               "@type":"WebPage",
+               "@id":baseUrl + "/",
+               "url":baseUrl + "/",
+               "name":"Home"
+            }
+         },
+         {
+            "@type":"ListItem",
+            "position":2,
+            "item":{
+               "@type":"WebPage",
+               "@id":baseUrl + "/home/",
+               "url":baseUrl + "/home/",
+               "name":"Home"
+            }
+         }
+      ];
+      if (isHomePage) return retVal;
+      retVal.push(         
+         {
+         "@type":"ListItem",
+         "position":3,
+         "item":{
+            "@type":"WebPage",
+            "@id":url + "/#thisListItem",
+            "url":url,
+            "name":webpageName
+            }
+         }
+         );
+      return retVal;
+   }
+   
    var retval = {
       "@context":"https://schema.org",
       "@graph":[
@@ -52,38 +92,7 @@ export const gsdGraph = (url, webpageName, webpageDescription, primaryImageUrl) 
          {
             "@type":"BreadcrumbList",
             "@id":url + "/#breadcrumb",
-            "itemListElement":[
-               {
-                  "@type":"ListItem",
-                  "position":1,
-                  "item":{
-                     "@type":"WebPage",
-                     "@id":baseUrl + "/",
-                     "url":baseUrl + "/",
-                     "name":"Home"
-                  }
-               },
-               {
-                  "@type":"ListItem",
-                  "position":2,
-                  "item":{
-                     "@type":"WebPage",
-                     "@id":baseUrl + "/home/",
-                     "url":baseUrl + "/home/",
-                     "name":"Home"
-                  }
-               },
-               {
-                  "@type":"ListItem",
-                  "position":3,
-                  "item":{
-                     "@type":"WebPage",
-                     "@id":url + "/#thisListItem",
-                     "url":url,
-                     "name":webpageName
-                  }
-               }
-            ]
+            "itemListElement":breadcrumpListElements(isHomePage)
          },
          {
             "@type":"Article",

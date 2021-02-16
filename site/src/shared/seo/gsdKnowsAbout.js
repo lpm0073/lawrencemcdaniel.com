@@ -1,3 +1,7 @@
+/*
+   List of technologies from Logocube. 
+   Appended to Organization object for Skills and Specialties pages.
+ */
 export const gsdKnowsAbout = 
     [
         {

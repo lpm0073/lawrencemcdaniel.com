@@ -3,6 +3,9 @@ import RenderPageTitle from '../../components/pagetitle/pageTitleComponent';
 import SpecialtiesBanner from './specialtiesBanner';
 import TechnologyCarousel from './technologyCarousel';
 import {Helmet} from "react-helmet";
+import { gsdPersonLawrenceMcDaniel } from '../../shared/seo/gsdPersonLawrence';
+import { gsdLocalBusinessLawrenceMcDaniel } from '../../shared/seo/gsdLocalBusiness';
+import { gsdGraph } from '../../shared/seo/gsdGraph';
 import './styles.css';
 
 
@@ -11,7 +14,15 @@ const Specialties = (props) => {
     return(
         <React.Fragment>
             <Helmet>
-                <link rel="canonical" href="https://lawrencemcdaniel.com/" />
+                <link rel="canonical" href="https://lawrencemcdaniel.com/specialties" />
+                <script type="application/ld+json">{JSON.stringify(gsdPersonLawrenceMcDaniel(false))}</script>
+                <script type="application/ld+json">{JSON.stringify(gsdLocalBusinessLawrenceMcDaniel(true))}</script>
+                <script type="application/ld+json">{JSON.stringify(gsdGraph(
+                    "https://lawrencemcdaniel.com/specialties", 
+                    "Lawrewnce McDaniel - Technical Specialties",
+                    "Lawrence McDaniel technical skills.", 
+                    "https://cdn-blog.lawrencemcdaniel.com/wp-content/uploads/2018/01/22125438/Lawrence19.jpg"
+                ))}</script>
             </Helmet>
             <div className="specialties-page">
                 <div className="site-page ">

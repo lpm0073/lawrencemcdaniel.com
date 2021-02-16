@@ -3,8 +3,10 @@ import React from 'react';
 import RenderPageTitle from '../../components/pagetitle/pageTitleComponent';
 import { LinkedinBadge } from '../../components/linkedinBadge/Component';
 import {Helmet} from "react-helmet";
-
 import { resumeUrl } from '../../shared/urls';
+import { gsdPersonLawrenceMcDaniel } from '../../shared/seo/gsdPersonLawrence';
+import { gsdLocalBusinessLawrenceMcDaniel } from '../../shared/seo/gsdLocalBusiness';
+import { gsdGraph } from '../../shared/seo/gsdGraph';
 import './styles.css';
 
 
@@ -18,6 +20,14 @@ const ReactPage = (props) => {
                     <link rel="canonical" href="https://lawrencemcdaniel.com/reactjs" />
                     <meta name="description" content="Full Stack Web Developer with extensive experience using ReactJS and Redux. Follow links to the GitHub repository for this site." />
                     <meta property="og:description" content="Full Stack Web Developer with extensive experience using ReactJS and Redux. Follow links to the GitHub repository for this site." />
+                    <script type="application/ld+json">{JSON.stringify(gsdPersonLawrenceMcDaniel())}</script>
+                    <script type="application/ld+json">{JSON.stringify(gsdLocalBusinessLawrenceMcDaniel())}</script>
+                    <script type="application/ld+json">{JSON.stringify(gsdGraph(
+                        "https://lawrencemcdaniel.com/reactjs", 
+                        "Built With ReactJS",
+                        "This site uses a ReactJS/Redux front end and a backend powered by a Wordpress REST api. I originally built this site in 2016 with Wordpress when I was first getting started with web development. I liked the appearance of the original site, so the new React version is nearly identical. I developed the current ReactJS version in mid-2020 immediately after taking an online ReactJS course on Coursera.com. This site was my first foray into creating a fully-blown ReactJS/Redux web application", 
+                        "https://cdn-blog.lawrencemcdaniel.com/wp-content/uploads/2018/01/22125438/Lawrence19.jpg"
+                    ))}</script>
                 </Helmet>
                 <div key="react-page" className="site-page react-page">
                     <RenderPageTitle theme="light" icon="fa-react" title="BUILT WITH" boxed_title="REACTJS" />

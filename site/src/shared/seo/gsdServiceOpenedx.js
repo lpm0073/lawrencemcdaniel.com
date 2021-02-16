@@ -1,7 +1,7 @@
 export const gsdServiceOpenedX = {
    "@context":"https://schema.org/",
    "@type":"Service",
-   "@id": "https://lawrencemcdaniel.com/openedx",
+   "@id": "https://lawrencemcdaniel.com/openedx/#service",
    "identifier":"https://lawrencemcdaniel.com/openedx",
    "serviceType":"ProfessionalService",
    "additionalType": "https://en.wikipedia.org/wiki/Consultant",
@@ -78,10 +78,10 @@ export const gsdServiceOpenedX = {
      "url": "https://cdn.lawrencemcdaniel.com/wp-content/uploads/2020/05/28144740/open-edx-logo-with-reg.png",
      "height": 71,
      "width": 365,
-     "@id": "https://cdn.lawrencemcdaniel.com/wp-content/uploads/2020/05/28144740/open-edx-logo-with-reg.png"
+     "@id": "https://lawrencemcdaniel.com/#open-edx-logo.png"
   },    
    "logo": {
-     "@id": "https://cdn.lawrencemcdaniel.com/"
+     "@id": "https://lawrencemcdaniel.com/#open-edx-logo.png"
   },
    "subjectOf":[
       "https://blog.lawrencemcdaniel.com/reset-the-mysql-root-password-in-open-edx/",

@@ -7,6 +7,7 @@ import { Fade } from 'react-animation-components';
 import LogoCube from '../../components/logoCube/Component';
 import { gsdPersonLawrenceMcDaniel } from '../../shared/seo/gsdPersonLawrence';
 import { gsdLocalBusinessLawrenceMcDaniel } from '../../shared/seo/gsdLocalBusiness';
+import { gsdGraph } from '../../shared/seo/gsdGraph';
 import {Helmet} from "react-helmet";
 
 import './styles.css';
@@ -35,8 +36,15 @@ class Home extends Component {
                         https://stackoverflow.com/questions/30864619/does-json-ld-have-to-be-embedded 
                         https://stackoverflow.com/questions/29064209/does-schema-org-markup-work-if-markup-is-dynamically-built-with-javascript/29066759#29066759
                     */}
-                    <script type="application/ld+json">{JSON.stringify(gsdPersonLawrenceMcDaniel)}</script>
-                    <script type="application/ld+json">{JSON.stringify(gsdLocalBusinessLawrenceMcDaniel)}</script>
+                    <script type="application/ld+json">{JSON.stringify(gsdPersonLawrenceMcDaniel())}</script>
+                    <script type="application/ld+json">{JSON.stringify(gsdLocalBusinessLawrenceMcDaniel())}</script>
+                    <script type="application/ld+json">{JSON.stringify(gsdGraph(
+                        "https://lawrencemcdaniel.com/home", 
+                        "Lawrewnce McDaniel - Full Stack Developer",
+                        "I’m an American full stack developer with significant experience with classic backend stacks and front-end frameworks including Django, React, Angular, and WordPress. I also work extensively with the Open edX® learning management system. I am a veteran of multiple startups and early-stage ventures with dozens of successful product launches in multiple industries and markets around the world. I advocate for open source, try to keep things DRY and well-documented and when possible I adhere to the principals of 12-factor development. I’m a passionate learner and frequent blogger, currently interested in machine learning, AI and quantum computing.", 
+                        "https://cdn-blog.lawrencemcdaniel.com/wp-content/uploads/2018/01/22125438/Lawrence19.jpg",
+                        true
+                    ))}</script>
                 </Helmet>
                 <div key="home-page" className="jumbotron dark-background">
                     <div className="h-100">

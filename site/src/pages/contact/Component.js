@@ -2,6 +2,9 @@ import React, { Component} from 'react';
 import RenderPageTitle from '../../components/pagetitle/pageTitleComponent';
 import {resumeUrl} from '../../shared/urls';
 import {Helmet} from "react-helmet";
+import { gsdPersonLawrenceMcDaniel } from '../../shared/seo/gsdPersonLawrence';
+import { gsdLocalBusinessLawrenceMcDaniel } from '../../shared/seo/gsdLocalBusiness';
+import { gsdGraph } from '../../shared/seo/gsdGraph';
 import './styles.css';
 
 
@@ -12,7 +15,15 @@ class Contact extends Component {
         return(
             <React.Fragment>
                 <Helmet>
-                    <link rel="canonical" href="https://lawrencemcdaniel.com/" />
+                    <link rel="canonical" href="https://lawrencemcdaniel.com/contact" />
+                    <script type="application/ld+json">{JSON.stringify(gsdPersonLawrenceMcDaniel())}</script>
+                    <script type="application/ld+json">{JSON.stringify(gsdLocalBusinessLawrenceMcDaniel())}</script>
+                    <script type="application/ld+json">{JSON.stringify(gsdGraph(
+                        "https://lawrencemcdaniel.com/contact", 
+                        "Lawrewnce McDaniel - Contact Information",
+                        "Lawrence McDaniel contact information.", 
+                        "https://cdn-blog.lawrencemcdaniel.com/wp-content/uploads/2018/01/22125438/Lawrence19.jpg"
+                    ))}</script>
                 </Helmet>
                 <div key="contact-page" className="site-page contact-page">
                     <RenderPageTitle theme="light" icon="fa-phone" title="LETS" boxed_title="TALK" />

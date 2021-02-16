@@ -1,3 +1,7 @@
+/*
+   Educational history + Courses completed.
+   Added to Education page.
+ */
 export const gsdQualifications = [
     {
        "@type":"EducationalOccupationalCredential",

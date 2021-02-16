@@ -49,10 +49,7 @@ export const gsdPersonLawrenceMcDaniel = (includeExtraData = false) => {
 
    const retVal = {
       "@context":"https://schema.org/",
-      "@type":[
-         "Person",
-         "Organization"
-      ],
+      "@type":"Person",
       "@id":"https://lawrencemcdaniel.com/#me",
       "identifier":"https://lawrencemcdaniel.com/",
       "email":"mailto:lpm0073@gmail.com",

@@ -1,3 +1,6 @@
+/*
+  SEO for blog article https://blog.lawrencemcdaniel.com/open-edx-installation/
+ */
 export const gsdHowToInstallOpenEdx = {
   "@context": "http://schema.org",
   "@type": "HowTo",
