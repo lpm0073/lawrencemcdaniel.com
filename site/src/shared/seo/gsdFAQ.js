@@ -4,7 +4,12 @@ export const gsdFAQ = {
         "name":"FAQ: Open edX",
         "alternateName":"Frequently Asked Questions about Open edX",
         "url":"https://lawrencemcdaniel.com/openedx",
-        "image":"https://cdn-blog.lawrencemcdaniel.com/wp-content/uploads/2017/10/22125438/edx-install-banner.jpg",
+        "image":{
+          "@type": "ImageObject",
+          "url": "https://cdn-blog.lawrencemcdaniel.com/wp-content/uploads/2017/10/22125438/edx-install-banner.jpg",
+          "height": "374",
+          "width": "196"
+        },
         "lastReviewed": "2021-02-15",
         "dateModified":"2021-02-15",
         "datePublished":"2021-02-15",
