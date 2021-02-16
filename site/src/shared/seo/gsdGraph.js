@@ -1,4 +1,17 @@
+import { primarySiteImage } from './gsdPrimarySiteImage';
+
 const baseUrl = "https://lawrencemcdaniel.com";
+
+const siteImage = (imageUrl, url) => {
+
+   if (imageUrl != "") return {
+      "@type":"ImageObject",
+      "url":imageUrl,
+      "@id":url + "/#primaryimage"
+    }
+   return primarySiteImage;
+
+}
 
 export const gsdGraph = (url, webpageName, webpageDescription, primaryImageUrl, isHomePage = false) => {
 
@@ -68,11 +81,7 @@ export const gsdGraph = (url, webpageName, webpageDescription, primaryImageUrl, 
             "isPartOf":{
                "@id":baseUrl + "/#website"
             },
-            "primaryImageOfPage":{
-              "@type":"ImageObject",
-              "url":primaryImageUrl,
-              "@id":url + "/#primaryimage"
-            },
+            "primaryImageOfPage":siteImage(primaryImageUrl, url),
             "datePublished":"2021-01-14T21:44:38+00:00",
             "dateModified":"2021-02-16T16:27:14+00:00",
             "description":webpageDescription,

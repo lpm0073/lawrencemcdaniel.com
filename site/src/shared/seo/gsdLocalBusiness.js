@@ -1,4 +1,5 @@
 import { gsdKnowsAbout } from './gsdKnowsAbout';
+import { primarySiteImage } from './gsdPrimarySiteImage';
 
 const knowsAbout = (includeExtraData = false) => {
   
@@ -12,7 +13,7 @@ export const gsdLocalBusinessLawrenceMcDaniel = (includeExtraData = false) =>  {
     "@context": "https://schema.org",
     "@type": "LocalBusiness",
     "additionalType": "https://www.wikidata.org/wiki/Q96072517",
-    "image": "https://cdn.lawrencemcdaniel.com/social-1200x675.jpg",
+    "image": primarySiteImage,
     "@id": "https://lawrencemcdaniel.com/#business",
     "brand": {
         "@id": "https://lawrencemcdaniel.com/"
