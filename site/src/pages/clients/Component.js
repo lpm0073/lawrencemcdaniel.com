@@ -18,7 +18,7 @@ const Clients = (props) => {
                 <script type="application/ld+json">{JSON.stringify(gsdLocalBusinessLawrenceMcDaniel())}</script>
                 <script type="application/ld+json">{JSON.stringify(gsdGraph(
                     "https://lawrencemcdaniel.com/clients", 
-                    "Lawrewnce McDaniel - Clients",
+                    "Lawrence McDaniel - Clients",
                     "Lawrence McDaniel client list for my Full Stack Developer practice.", 
                     "https://cdn-blog.lawrencemcdaniel.com/wp-content/uploads/2018/01/22125438/Lawrence19.jpg"
                 ))}</script>

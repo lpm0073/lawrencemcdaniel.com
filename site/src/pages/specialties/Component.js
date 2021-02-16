@@ -19,7 +19,7 @@ const Specialties = (props) => {
                 <script type="application/ld+json">{JSON.stringify(gsdLocalBusinessLawrenceMcDaniel(true))}</script>
                 <script type="application/ld+json">{JSON.stringify(gsdGraph(
                     "https://lawrencemcdaniel.com/specialties", 
-                    "Lawrewnce McDaniel - Technical Specialties",
+                    "Lawrence McDaniel - Technical Specialties",
                     "Lawrence McDaniel technical skills.", 
                     "https://cdn-blog.lawrencemcdaniel.com/wp-content/uploads/2018/01/22125438/Lawrence19.jpg"
                 ))}</script>
