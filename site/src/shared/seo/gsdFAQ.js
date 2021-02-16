@@ -39,6 +39,13 @@ export const gsdFAQ = {
           }
         }, {
           "@type": "Question",
+          "name": "Are there any consulting firms who specialize in Open edX?",
+          "acceptedAnswer": {
+            "@type": "Answer",
+            "text": "<p>Yes, there are several. The best place to start looking is the official <a href='https://open.edx.org/marketplace-category/service-partners/' target='_blank' rel='noopener noreferrer'>Open edX Service Providers Marketplace</a> managed by edX, Inc. In addition, I have worked with or collaborated with several for whom I can vouch, including (in no particular order)</p><ul> <li><a href='https://www.edunext.co/' target='_blank' rel='noopener noreferrer'>eduNEXT</a></li><li><a href='https://www.appsembler.com/' target='_blank' rel='noopener noreferrer'>appsembler</a></li><li><a href='https://opencraft.com/' target='_blank' rel='noopener noreferrer'>OpenCraft</a></li><li><a href='https://raccoongang.com/' target='_blank' rel='noopener noreferrer'>Raccoon Gang</a></li><li><a href='https://abc-ld.org/' target='_blank' rel='noopener noreferrer'>ABC MOOCs</a></li></ul> <p>I am also included in the marketplace, however, edX charges me a fee if you contact from their site, so it'll be cheaper for you and me if you contact me via email at <a href='mailto:lpm0073@gmail.com'>lpm0073@gmail.com</a></p>"
+          }
+        }, {
+          "@type": "Question",
           "name": "Should we run our own installation or use one of the recomended Application Service Providers?",
           "acceptedAnswer": {
             "@type": "Answer",
