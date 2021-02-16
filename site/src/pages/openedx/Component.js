@@ -183,7 +183,7 @@ const Openedx = (props) => {
                                         </Accordion.Toggle>
                                         <Accordion.Collapse eventKey="7">
                                             <Card.Body>
-                                                <p>You should almost always use the most recent named release; the rare exception being that you're organization is desperately awaiting the release of a new feature. edX publishes their "named releases" here, at <a href="https://edx.readthedocs.io/projects/edx-developer-docs/en/latest/named_releases.html" target="_blank" rel="noopener noreferrer">"Open edX Named Releases"</a>.</p>
+                                                <p>You should almost always use the most recent named release; the rare exception being that your organization is desperately awaiting the release of a new feature. edX publishes their "named releases" here, at <a href="https://edx.readthedocs.io/projects/edx-developer-docs/en/latest/named_releases.html" target="_blank" rel="noopener noreferrer">"Open edX Named Releases"</a>.</p>
                                             </Card.Body>
                                         </Accordion.Collapse>
                                     </Card>
@@ -193,7 +193,8 @@ const Openedx = (props) => {
                                         </Accordion.Toggle>
                                         <Accordion.Collapse eventKey="8">
                                             <Card.Body>
-                                                <p>Open edX is architected as a traditional enterprise-grade Python-Django web application. It is very large and very complex, and it makes use of the entire family of enterprise scaling technologies that one could possibly encounter in a Django project. As of the Koa release the front end is nearly entirely built with ReactJS. There is a substantial learning curve, even if your team are experienced Django/ReactJS folks. The most common technologies that I find myself using are as follows:</p>
+                                                <p>Open edX is a highly stable, well-behaved platform once you've got it up and running. edX has a world-class engineering team, and they take testing really seriously. With that in mind, and assuming minimal or no customizations to the platform, you can reasonably assume that your platform will essentially be maintenance free other than activities related to scaling (only if your user base grows) and occasional software updates of at least once per year.</p>
+                                                <p>If on the other hand, you plan to actively develop new features on the platform then the following might be of interest to you. Open edX is architected as a traditional enterprise-grade Python-Django web application. It is very large and very complex, and it makes use of the entire family of enterprise scaling technologies that one could possibly encounter in a Django project. As of the Koa release the front end is nearly entirely built with ReactJS. There is a substantial learning curve, even if your team are experienced Django/ReactJS folks. The most common technologies that I find myself using are as follows:</p>
                                                 <ul>
                                                     <li>Ubuntu command line and bash scripting</li>
                                                     <li>Git / GitHub</li>
