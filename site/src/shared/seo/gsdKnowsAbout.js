@@ -16,7 +16,7 @@
         "url":url,
         "name":appName,
         "sameAs": url,
-        "@id":url + "/#id",
+        "@id":url + "/#software-app-id",
         "review":[
            {
               "@type":"Review",
@@ -26,23 +26,23 @@
               "reviewBody":"My self review of this product.",
               "reviewRating":{
                  "@type":"Rating",
-                 "bestRating": "10",
-                 "ratingValue":"10",
-                 "worstRating": "1"
+                 "bestRating": 10,
+                 "ratingValue":10,
+                 "worstRating": 1
               }
            }
         ],
         "aggregateRating":{
            "@type":"AggregateRating",
-           "ratingValue":"10",
-           "reviewCount":"1",
-           "bestRating":"10",
-           "worstRating":"1"
+           "ratingValue":10,
+           "reviewCount":1,
+           "bestRating":10,
+           "worstRating":1
         },
         "about":about,
         "offers":{
            "@type": "Offer",
-           "price": "1.00",
+           "price": 1.00,
            "priceCurrency": "USD"
          }
      };
