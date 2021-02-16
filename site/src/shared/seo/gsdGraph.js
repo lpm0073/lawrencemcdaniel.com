@@ -55,7 +55,7 @@ export const gsdGraph = (url, webpageName, webpageDescription, primaryImageUrl, 
       return retVal;
    }
    
-   var retval = {
+   return {
       "@context":"https://schema.org",
       "@graph":[
          {
@@ -136,5 +136,4 @@ export const gsdGraph = (url, webpageName, webpageDescription, primaryImageUrl, 
          }
       ]
      };
-     return retval;
  }

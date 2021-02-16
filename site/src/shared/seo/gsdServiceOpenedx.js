@@ -1,10 +1,11 @@
-const hourlyRate = 75.00
+import {convertToSlug} from '../slug';
 
+const hourlyRate = 75.00
 const itemOffer = (name, description="") => {
 
    return {
       "@type":"Offer",
-      "@id": "https://lawrencemcdaniel.com/openedx/#" + description,
+      "@id": "https://lawrencemcdaniel.com/openedx/#" + convertToSlug(name),
       "price":hourlyRate,
       "priceCurrency":"USD",
       "priceSpecification":"HOUR",
