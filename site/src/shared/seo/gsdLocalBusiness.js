@@ -740,7 +740,8 @@ export const gsdLocalBusinessLawrenceMcDaniel = {
          "operatingSystem": "Various",
          "thumbnailUrl":"https://cdn.lawrencemcdaniel.com/wp-content/uploads/2020/05/30224856/nodejs-logo.png",
          "image":"https://cdn.lawrencemcdaniel.com/wp-content/uploads/2020/05/30224856/nodejs-logo.png",
-         "thumbnailUrl":"https://nodejs.org/en/",
+         "url":"https://nodejs.org/",
+         "sameAs":"https://nodejs.org/",
          "name":"NodeJS",
          "review":[
             {
