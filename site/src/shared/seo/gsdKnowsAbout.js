@@ -67,31 +67,7 @@ export const gsdKnowsAbout = (props) => {
 export const gsdKnowsAbout_OLD = (props) => {
    return(
    [
-      softwareApplication("onlineEducation", "Ubuntu", "Open edX®", "Open edX learning management system", "https://open.edx.org", "https://cdn.lawrencemcdaniel.com/wp-content/uploads/2020/05/28144740/open-edx-logo-with-reg.png"),
 
-      softwareApplication("OS", "Open Source", "GNU", "", "https://www.gnu.org", "https://cdn.lawrencemcdaniel.com/wp-content/uploads/2020/05/31140847/gnu-logo.png"),
-      softwareApplication("OS", "Open Source", "Debian", "", "https://www.debian.org", "https://cdn.lawrencemcdaniel.com/wp-content/uploads/2020/05/31140745/debian-logo.png"),
-      softwareApplication("OS", "Open Source", "Red Hat", "", "https://www.redhat.com", "https://cdn.lawrencemcdaniel.com/wp-content/uploads/2020/05/31140610/red-hat-logo.png"),
-      softwareApplication("OS", "Open Source", "CentOS", "", "https://www.centos.org", "https://cdn.lawrencemcdaniel.com/wp-content/uploads/2020/05/31140410/centos-logo.png"),
-      softwareApplication("OS", "Open Source", "Ubuntu", "", "https://ubuntu.com", "https://cdn.lawrencemcdaniel.com/wp-content/uploads/2020/05/30211843/ubuntu-logo.png"),
-
-      softwareApplication("webBackendDevelopment", "Django", "Swagger", "", "https://swagger.io", "https://cdn.lawrencemcdaniel.com/wp-content/uploads/2021/02/12213439/swagger_logo.png"),
-      softwareApplication("webBackendDevelopment", "Django", "ReadTheDocs", "", "https://readthedocs.org", "https://cdn.lawrencemcdaniel.com/wp-content/uploads/2021/02/12211139/readthedocs-logo.png"),
-      softwareApplication("webBackendDevelopment", "Django", "Atlassian", "", "https://www.atlassian.com", "https://cdn.lawrencemcdaniel.com/wp-content/uploads/2021/02/12211059/Atlassian-horizontal-blue%402x-rgb.png"),
-      softwareApplication("webBackendDevelopment", "Django", "Django REST Framework", "", "https://www.django-rest-framework.org", "https://cdn.lawrencemcdaniel.com/wp-content/uploads/2020/05/05193240/django-rest-framework.jpg"),
-      softwareApplication("webBackendDevelopment", "Django", "Gunicorn", "", "https://gunicorn.org", "https://cdn.lawrencemcdaniel.com/wp-content/uploads/2020/05/31135255/gunicorn-logo.png"),
-      softwareApplication("webBackendDevelopment", "Django", "Sphinx Doc", "", "https://www.sphinx-doc.org/en/master", "https://cdn.lawrencemcdaniel.com/wp-content/uploads/2020/05/05195915/sphinx-logo.jpg"),
-      softwareApplication("webBackendDevelopment", "Django", "Mako", "", "https://www.makotemplates.org", "https://cdn.lawrencemcdaniel.com/wp-content/uploads/2020/05/30214639/mako-logo.png"),
-
-      softwareApplication("webBackendDevelopment", "Python", "BeautifulSoup", "", "https://www.crummy.com/software/BeautifulSoup", "https://cdn.lawrencemcdaniel.com/wp-content/uploads/2020/05/31134448/beautiful-soup.png"),
-      softwareApplication("webBackendDevelopment", "Python", "Scrapy", "", "https://scrapy.org", "https://cdn.lawrencemcdaniel.com/wp-content/uploads/2020/05/05192528/scrapy-logo.png"),
-      softwareApplication("webBackendDevelopment", "Python", "NumPy", "", "https://numpy.org", "https://cdn.lawrencemcdaniel.com/wp-content/uploads/2020/05/31133826/numpy-logo.png"),
-      softwareApplication("webBackendDevelopment", "Python", "SciPi", "", "https://www.scipy.org", "https://cdn.lawrencemcdaniel.com/wp-content/uploads/2020/05/31132745/scipy-logo.png"),
-      softwareApplication("webBackendDevelopment", "Python", "Django", "", "https://www.djangoproject.com", "https://cdn.lawrencemcdaniel.com/wp-content/uploads/2020/05/01144338/django-logo.png"),
-      softwareApplication("webBackendDevelopment", "Linux, Windows, OSX", "Python", "", "https://www.python.org", "https://cdn.lawrencemcdaniel.com/wp-content/uploads/2014/09/22195644/python.png"),
-
-      softwareApplication("webFrontendDevelopment", "Javascript", "D3 Data-Driven Documents", "", "https://d3js.org", "https://cdn.lawrencemcdaniel.com/wp-content/uploads/2014/09/22195648/d3.png"),
-      softwareApplication("webFrontendDevelopment", "Javascript", "NPM", "", "https://www.npmjs.com", "https://cdn.lawrencemcdaniel.com/wp-content/uploads/2020/05/30224959/npm-logo.png"),
       softwareApplication("webFrontendDevelopment", "Javascript", "NodeJS", "", "https://nodejs.org", "https://cdn.lawrencemcdaniel.com/wp-content/uploads/2020/05/30224856/nodejs-logo.png"),
       softwareApplication("webFrontendDevelopment", "Javascript", "score.js", "", "https://underscorejs.org", "https://cdn.lawrencemcdaniel.com/wp-content/uploads/2020/05/17014701/underscore-logo.png"),
       softwareApplication("webFrontendDevelopment", "Javascript", "Redux", "", "https://redux.js.org", "https://cdn.lawrencemcdaniel.com/wp-content/uploads/2020/05/17005525/Redux_Logo.png"),

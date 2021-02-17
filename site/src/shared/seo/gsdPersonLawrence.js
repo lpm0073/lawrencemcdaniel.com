@@ -1,6 +1,8 @@
 import { gsdQualifications } from './gsdQualifications';
 import { primarySiteImage } from './gsdPrimarySiteImage';
 import { gsdKnowsAbout } from './gsdKnowsAbout';
+import { sameAs } from './gsdSameAs';
+import { brandLawrenceMcDaniel } from './gsdBrandLawrence';
 
 const knowsAbout = (includeExtraData = false, props = null) => {
   
@@ -72,6 +74,8 @@ export const gsdPersonLawrenceMcDaniel = (includeEducation = false, includeTechn
       "jobTitle":"Full Stack Developer",
       "telephone":"+1 (617) 834-6172",
       "url":"https://lawrencemcdaniel.com",
+      "logo":"https://cdn.lawrencemcdaniel.com/",
+      "brand":brandLawrenceMcDaniel,
       "birthPlace":"Houston, TX, USA",
       "nationality":"American",
       "birthDate":"1966-12-31",
@@ -84,17 +88,7 @@ export const gsdPersonLawrenceMcDaniel = (includeEducation = false, includeTechn
          "postalCode":"02139",
          "streetAddress":"210 Broadway Street"
       },
-      "sameAs":[
-         "https://lawrencemcdaniel.com/",
-         "https://blog.lawrencemcdaniel.com/",
-         "https://www.linkedin.com/in/lawrencemcdaniel/",
-         "https://www.facebook.com/lawrence.p.mcdaniel",
-         "https://open.edx.org/marketplace/lawrence-mcdaniel/",
-         "https://github.com/lpm0073",
-         "https://angel.co/p/lpm0073-gmail-com",
-         "https://www.codementor.io/@lawrencemcdaniel",
-         "http://geek.ly/lmcdaniel"
-      ],
+      "sameAs":sameAs,
       "affiliation":[
          {
             "@type":"Organization",
@@ -130,18 +124,15 @@ export const gsdPersonLawrenceMcDaniel = (includeEducation = false, includeTechn
          }
       ],
       "image":[primarySiteImage,
+         "https://cdn.lawrencemcdaniel.com/",
          {
          "@type":"ImageObject",
-         "@id":"https://lawrencemcdaniel.com/#personlogo",
          "inLanguage":"en-US",
          "url":"https://cdn-blog.lawrencemcdaniel.com/wp-content/uploads/2018/01/22125438/Lawrence19.jpg",
          "width":338,
          "height":500,
          "caption":"Lawrence McDaniel"
       }],
-      "logo":{
-         "@id":"https://lawrencemcdaniel.com/#personlogo"
-      },
       "hasOccupation": hasOccupation(includeEducation),
       "knowsAbout": knowsAbout(includeTechnologoes, props)
    }

@@ -1,4 +1,5 @@
 import { primarySiteImage } from './gsdPrimarySiteImage';
+import { brandLawrenceMcDaniel } from './gsdBrandLawrence';
 
 
 export const gsdLocalBusinessLawrenceMcDaniel = (includeExtraData = false) =>  {
@@ -9,9 +10,7 @@ export const gsdLocalBusinessLawrenceMcDaniel = (includeExtraData = false) =>  {
     "additionalType": "https://www.wikidata.org/wiki/Q96072517",
     "image": primarySiteImage,
     "@id": "https://lawrencemcdaniel.com/#business",
-    "brand": {
-        "@id": "https://lawrencemcdaniel.com/"
-    },
+    "brand": brandLawrenceMcDaniel,
     "name": "Lawrence McDaniel - Full Stack Developer",
     "priceRange":"$$",
     "employee":[
@@ -36,7 +35,8 @@ export const gsdLocalBusinessLawrenceMcDaniel = (includeExtraData = false) =>  {
          "streetAddress":"210 Broadway Street"
        }
      ],
-    "url": "https://lawrencemcdaniel.com/",
+    "url":"https://lawrencemcdaniel.com/",
+    "logo":"https://cdn.lawrencemcdaniel.com/",
     "telephone":"+1 (617) 834-6172",
     "email":"mailto:lpm0073@gmail.com",
     "openingHoursSpecification": [
