@@ -14,7 +14,7 @@ const Specialties = (props) => {
         <React.Fragment>
             <Helmet>
                 <link rel="canonical" href="https://lawrencemcdaniel.com/specialties" />
-                <script type="application/ld+json">{JSON.stringify(gsdPersonLawrenceMcDaniel(true))}</script>
+                <script type="application/ld+json">{JSON.stringify(gsdPersonLawrenceMcDaniel(false, true))}</script>
                 <script type="application/ld+json">{JSON.stringify(gsdGraph(
                     "https://lawrencemcdaniel.com/specialties", 
                     "Lawrence McDaniel - Technical Specialties",

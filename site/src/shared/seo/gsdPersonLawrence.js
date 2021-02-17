@@ -54,7 +54,7 @@ const hasOccupation = (includeExtraData = false) => {
    return {}
 }
 
-export const gsdPersonLawrenceMcDaniel = (includeExtraData = false) => {
+export const gsdPersonLawrenceMcDaniel = (includeEducation = false, includeTechnologoes = false) => {
 
    const retVal = {
       "@context":"https://schema.org/",
@@ -142,8 +142,8 @@ export const gsdPersonLawrenceMcDaniel = (includeExtraData = false) => {
       "logo":{
          "@id":"https://lawrencemcdaniel.com/#personlogo"
       },
-      "hasOccupation": hasOccupation(includeExtraData),
-      "knowsAbout": knowsAbout(includeExtraData)
+      "hasOccupation": hasOccupation(includeEducation),
+      "knowsAbout": knowsAbout(includeTechnologoes)
    }
    return retVal;
 
