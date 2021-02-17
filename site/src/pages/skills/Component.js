@@ -3,7 +3,7 @@ import RenderPageTitle from '../../components/pagetitle/pageTitleComponent';
 import SkillColumn from './skillColumn';
 import SkillBar from './skillBar';
 import {Helmet} from "react-helmet";
-import { gsdLocalBusinessLawrenceMcDaniel } from '../../shared/seo/gsdLocalBusiness';
+import { gsdPersonLawrenceMcDaniel } from '../../shared/seo/gsdPersonLawrence';
 import { gsdGraph } from '../../shared/seo/gsdGraph';
 import './styles.css';
 
@@ -14,7 +14,7 @@ const Skills = (props) => {
         <React.Fragment>
             <Helmet>
                 <link rel="canonical" href="https://lawrencemcdaniel.com/skills" />
-                <script type="application/ld+json">{JSON.stringify(gsdLocalBusinessLawrenceMcDaniel(true))}</script>
+                <script type="application/ld+json">{JSON.stringify(gsdPersonLawrenceMcDaniel(true))}</script>
                 <script type="application/ld+json">{JSON.stringify(gsdGraph(
                     "https://lawrencemcdaniel.com/skills", 
                     "Lawrence McDaniel - Technology Skills",

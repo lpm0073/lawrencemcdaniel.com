@@ -1,11 +1,5 @@
-import { gsdKnowsAbout } from './gsdKnowsAbout';
 import { primarySiteImage } from './gsdPrimarySiteImage';
 
-const knowsAbout = (includeExtraData = false) => {
-  
-  if (includeExtraData) return gsdKnowsAbout;
-  return [];
-}
 
 export const gsdLocalBusinessLawrenceMcDaniel = (includeExtraData = false) =>  {
 
@@ -58,8 +52,7 @@ export const gsdLocalBusinessLawrenceMcDaniel = (includeExtraData = false) =>  {
         "opens": "08:00",
         "closes": "18:00"
       }
-    ],
-    "knowsAbout": knowsAbout(includeExtraData)
+    ]
   }
   return retVal;
 }

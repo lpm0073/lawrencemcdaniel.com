@@ -1,6 +1,13 @@
 import { gsdQualifications } from './gsdQualifications';
 import { primarySiteImage } from './gsdPrimarySiteImage';
+import { gsdKnowsAbout } from './gsdKnowsAbout';
 
+const knowsAbout = (includeExtraData = false) => {
+  
+   if (includeExtraData) return gsdKnowsAbout;
+   return [];
+ }
+ 
 const qualifications = (includeExtraData = false) => {
 
    if (includeExtraData) return gsdQualifications;
@@ -135,7 +142,8 @@ export const gsdPersonLawrenceMcDaniel = (includeExtraData = false) => {
       "logo":{
          "@id":"https://lawrencemcdaniel.com/#personlogo"
       },
-      "hasOccupation": hasOccupation(includeExtraData)
+      "hasOccupation": hasOccupation(includeExtraData),
+      "knowsAbout": knowsAbout(includeExtraData)
    }
    return retVal;
 
