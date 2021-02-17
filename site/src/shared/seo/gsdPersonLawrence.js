@@ -1,8 +1,6 @@
 import { gsdQualifications } from './gsdQualifications';
-import { primarySiteImage } from './gsdPrimarySiteImage';
 import { gsdKnowsAbout } from './gsdKnowsAbout';
-import { sameAs } from './gsdSameAs';
-import { brandLawrenceMcDaniel } from './gsdBrandLawrence';
+import { sameAs, primarySiteImage, brandLawrenceMcDaniel } from './gsdCommon';
 
 const knowsAbout = (includeExtraData = false, props = null) => {
   

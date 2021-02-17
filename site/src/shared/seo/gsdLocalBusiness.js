@@ -1,5 +1,4 @@
-import { primarySiteImage } from './gsdPrimarySiteImage';
-import { brandLawrenceMcDaniel } from './gsdBrandLawrence';
+import { brandLawrenceMcDaniel, primarySiteImage } from './gsdCommon';
 
 
 export const gsdLocalBusinessLawrenceMcDaniel = (includeExtraData = false) =>  {

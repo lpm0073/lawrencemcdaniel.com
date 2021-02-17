@@ -1,4 +1,4 @@
-import { primarySiteImage } from './gsdPrimarySiteImage';
+import { primarySiteImage } from './gsdCommon';
 
 const baseUrl = "https://lawrencemcdaniel.com";
 
