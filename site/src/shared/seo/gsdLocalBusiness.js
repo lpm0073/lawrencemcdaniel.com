@@ -1,4 +1,4 @@
-import { brandLawrenceMcDaniel, primarySiteImage } from './gsdCommon';
+import { brandLawrenceMcDaniel, imagesLawrenceMcDaniel } from './gsdCommon';
 
 
 export const gsdLocalBusinessLawrenceMcDaniel = (includeExtraData = false) =>  {
@@ -7,7 +7,7 @@ export const gsdLocalBusinessLawrenceMcDaniel = (includeExtraData = false) =>  {
     "@context": "https://schema.org",
     "@type": "LocalBusiness",
     "additionalType": "https://www.wikidata.org/wiki/Q96072517",
-    "image": primarySiteImage,
+    "image": imagesLawrenceMcDaniel,
     "@id": "https://lawrencemcdaniel.com/#business",
     "brand": brandLawrenceMcDaniel,
     "name": "Lawrence McDaniel - Full Stack Developer",

@@ -1,4 +1,5 @@
 import {convertToSlug} from '../slug';
+import { brandLawrenceMcDaniel } from './gsdCommon';
 
 const hourlyRate = 75.00
 const itemOffer = (name, description="") => {
@@ -78,9 +79,7 @@ export const gsdServiceOpenedX = {
    "offers": [itemOffer("Full Stack Development")]
   },
    "name":"Open edX® Consulting Services",
-   "brand": {
-     "@id": "https://lawrencemcdaniel.com/#brand"
-  },
+   "brand": brandLawrenceMcDaniel,
    "description":"I am a 20-year veteran web developer specializing in the Open edX® platform. Thousands of organizations around the world have used my Open edX® blog articles to turn their online education vision into reality. In fact, my how-to guides and tutorials on production installation, platform scaling, custom theming, and configuration have been viewed more than fifty thousand times. Based in North America, I split my time between Cambridge, Massachusetts and Mexico City. As a freelancer with a low-overhead lifestyle I tend to be the most economical option in many cases. I provide personalized service and fast response to clients located around the world. All of my customers have my personal mobile phone number and can reach me any time by voice, whatsapp or email. My Portfolio, Client List and Recommendations are all available on this site.",
    "image": {
      "@type": "ImageObject",

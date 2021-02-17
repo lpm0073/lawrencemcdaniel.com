@@ -11,11 +11,13 @@ export const sameAs = [
  ]
 
  export const brandLawrenceMcDaniel = {
-    "@id": "https://lawrencemcdaniel.com/#brand",
-    "logo": "https://cdn.lawrencemcdaniel.com/",
-    "name":"Lawrence McDaniel - Full Stack Developer",
-    "url":"https://lawrencemcdaniel.com/",
-    "sameAs":sameAs
+   "@context":"https://schema.org/",
+   "type":"Brand",
+   "@id":"https://lawrencemcdaniel.com/#brand",
+   "logo":"https://cdn.lawrencemcdaniel.com/",
+   "name":"Lawrence McDaniel - Full Stack Developer",
+   "url":"https://lawrencemcdaniel.com/",
+   "sameAs":sameAs
 }
 
 export const primarySiteImage = {
@@ -47,4 +49,22 @@ export const primarySiteImage = {
      "name":"Lawrence McDaniel Portfolio Images"
   }
 
-  
+  export const imagesLawrenceMcDaniel = [
+   primarySiteImage,
+   {
+      "@type":"ImageObject",
+      "inLanguage":"en-US",
+      "url":"https://cdn.lawrencemcdaniel.com/",
+      "width":512,
+      "height":512,
+      "caption":"Lawrence McDaniel"
+   },         
+   {
+   "@type":"ImageObject",
+   "inLanguage":"en-US",
+   "url":"https://cdn-blog.lawrencemcdaniel.com/wp-content/uploads/2018/01/22125438/Lawrence19.jpg",
+   "width":338,
+   "height":500,
+   "caption":"Lawrence McDaniel"
+   }
+]

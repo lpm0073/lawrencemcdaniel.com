@@ -1,6 +1,6 @@
 import { gsdQualifications } from './gsdQualifications';
 import { gsdKnowsAbout } from './gsdKnowsAbout';
-import { sameAs, primarySiteImage, brandLawrenceMcDaniel } from './gsdCommon';
+import { sameAs, imagesLawrenceMcDaniel, brandLawrenceMcDaniel } from './gsdCommon';
 
 const knowsAbout = (includeExtraData = false, props = null) => {
   
@@ -121,16 +121,7 @@ export const gsdPersonLawrenceMcDaniel = (includeEducation = false, includeTechn
             "name":"Spanish"
          }
       ],
-      "image":[primarySiteImage,
-         "https://cdn.lawrencemcdaniel.com/",
-         {
-         "@type":"ImageObject",
-         "inLanguage":"en-US",
-         "url":"https://cdn-blog.lawrencemcdaniel.com/wp-content/uploads/2018/01/22125438/Lawrence19.jpg",
-         "width":338,
-         "height":500,
-         "caption":"Lawrence McDaniel"
-      }],
+      "image":imagesLawrenceMcDaniel,
       "hasOccupation": hasOccupation(includeEducation),
       "knowsAbout": knowsAbout(includeTechnologoes, props)
    }
