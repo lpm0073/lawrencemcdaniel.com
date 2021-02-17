@@ -106,7 +106,7 @@ export const gsdServiceOpenedX = {
    ],
    "hasOfferCatalog":{
       "@type":"OfferCatalog",
-      "name":"Open edX Support services",
+      "name":"Open edX Support Services",
       "itemListElement":[
          {
             "@type":"OfferCatalog",
@@ -119,7 +119,7 @@ export const gsdServiceOpenedX = {
          },
          {
             "@type":"OfferCatalog",
-            "name":"Open edX Consulting services",
+            "name":"Open edX Consulting Services",
             "itemListElement":[
                itemOffer("Open edX Installation & configuration", "I have performed dozens of production installations for clients since 2016 on cloud platforms including AWS and Digital Ocean as well as specialized regional cloud providers across Asia and Afrika. I publish technical articles that fully describe all of my methods for preparing your Open edX® platform for production use, including off-site data backup, setting up SMTP email, adding SSL certificates, and taking care of SEO. I am an expert in configuring the Open edX platform for a variety of common use cases including multi-language and e-commerce enabled platforms of widely varying scale. Open edX® is a mature and stable platform that is also highly configurable. Many customization requests can be implemented via the platform's many configuration parameters. However, configuring the Open edX® platform is a knowledge and experience-intensive endeavor. Properly managing your configuration is also something of a trade craft which you can read more about, here, Open edX Configuration Management Tutorial."),
                itemOffer("Open edX Custom theming", "You can customize the appearance of your Open edX® platform by creating and implementing a custom theme. In addition to creating a turn-key custom theming solution for your organization, I have also worked with many organizations around the world to train their inhouse graphic and web designers on how to re-style the look & feel of the platform as well as how to add custom content."),

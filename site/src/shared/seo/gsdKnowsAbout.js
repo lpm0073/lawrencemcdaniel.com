@@ -2,56 +2,71 @@
    List of technologies from Logocube. 
    Appended to Organization object for Skills and Specialties pages.
  */
+import { wpGetFeaturedImage } from '../wpGetFeaturedImage';
 
+export const gsdKnowsAbout = (props) => {
 
- const softwareApplication = (applicationCategory, operatingSystem, appName, about, url, thumbnailUrl) => {
+   if (!props || props.isLoading || !props.specialties || props.specialties.items.length === 0) return [];
 
-   return {
-      "@context":"https://schema.org/",
-      "@type":"SoftwareApplication",
-        "applicationCategory": applicationCategory,
-        "operatingSystem": operatingSystem,
-        "thumbnailUrl":thumbnailUrl,
-        "image":thumbnailUrl,
-        "url":url,
-        "name":appName,
-        "sameAs": url,
-        "@id":url + "/#software-app-id",
-        "review":[
-           {
-              "@type":"Review",
-              "author":"Lawrence McDaniel",
-              "datePublished":"2021-02-14",
-              "name":"Review by Lawrence",
-              "reviewBody":"My self review of this product.",
-              "reviewRating":{
-                 "@type":"Rating",
-                 "bestRating": 10,
-                 "ratingValue":10,
-                 "worstRating": 1
-              }
-           }
-        ],
-        "aggregateRating":{
-           "@type":"AggregateRating",
-           "ratingValue":10,
-           "reviewCount":1,
-           "bestRating":10,
-           "worstRating":1
-        },
-        "about":about,
-        "offers":{
-           "@type": "Offer",
-           "price": 1.00,
-           "priceCurrency": "USD"
-         }
-     };
+   const itemList = props.specialties.items;
+   const retVal = itemList.map((specialty, indx) => {
+      const applicationCategory = "webDevelopment";
+      const operatingSystem = "Linux, Windows, OSX";
+      const url = "https://somewhere.com";
+      const appName = specialty.title.rendered;
+      const about = specialty.title.rendered;
+      const thumbnailUrl = wpGetFeaturedImage(specialty, null);
 
- }
+      return (
+               {
+                  "@context":"https://schema.org/",
+                  "@type":"SoftwareApplication",
+                    "applicationCategory": applicationCategory,
+                    "operatingSystem": operatingSystem,
+                    "thumbnailUrl":thumbnailUrl,
+                    "image":thumbnailUrl,
+                    "url":url,
+                    "name":appName,
+                    "sameAs": url,
+                    "@id":url + "/#software-app-id",
+                    "review":[
+                       {
+                          "@type":"Review",
+                          "author":"Lawrence McDaniel",
+                          "datePublished":"2021-02-14",
+                          "name":"Review by Lawrence",
+                          "reviewBody":"My self review of this product.",
+                          "reviewRating":{
+                             "@type":"Rating",
+                             "bestRating": 10,
+                             "ratingValue":10,
+                             "worstRating": 1
+                          }
+                       }
+                    ],
+                    "aggregateRating":{
+                       "@type":"AggregateRating",
+                       "ratingValue":10,
+                       "reviewCount":1,
+                       "bestRating":10,
+                       "worstRating":1
+                    },
+                    "about":about,
+                    "offers":{
+                       "@type": "Offer",
+                       "price": 1.00,
+                       "priceCurrency": "USD"
+                     }
+                 }
+      );
+   })
+   return retVal;
+}
 
-
-export const gsdKnowsAbout = 
-    [
+/*
+export const gsdKnowsAbout_OLD = (props) => {
+   return(
+   [
       softwareApplication("onlineEducation", "Ubuntu", "Open edX®", "Open edX learning management system", "https://open.edx.org", "https://cdn.lawrencemcdaniel.com/wp-content/uploads/2020/05/28144740/open-edx-logo-with-reg.png"),
 
       softwareApplication("OS", "Open Source", "GNU", "", "https://www.gnu.org", "https://cdn.lawrencemcdaniel.com/wp-content/uploads/2020/05/31140847/gnu-logo.png"),
@@ -135,3 +150,6 @@ export const gsdKnowsAbout =
       softwareApplication("webFrontendDevelopment", "Platform agnostic", "HTML5", "", "https://en.wikipedia.org/wiki/HTML5", "https://cdn.lawrencemcdaniel.com/wp-content/uploads/2014/09/22195648/html5.png"),
 
    ]
+   );
+}
+ */

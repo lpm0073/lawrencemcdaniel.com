@@ -2,10 +2,10 @@ import { gsdQualifications } from './gsdQualifications';
 import { primarySiteImage } from './gsdPrimarySiteImage';
 import { gsdKnowsAbout } from './gsdKnowsAbout';
 
-const knowsAbout = (includeExtraData = false) => {
+const knowsAbout = (includeExtraData = false, props = null) => {
   
-   if (includeExtraData) return gsdKnowsAbout;
-   return [];
+   if (!props || !includeExtraData) return [];
+   if (includeExtraData) return gsdKnowsAbout(props);
  }
  
 const qualifications = (includeExtraData = false) => {
@@ -54,7 +54,7 @@ const hasOccupation = (includeExtraData = false) => {
    return {}
 }
 
-export const gsdPersonLawrenceMcDaniel = (includeEducation = false, includeTechnologoes = false) => {
+export const gsdPersonLawrenceMcDaniel = (includeEducation = false, includeTechnologoes = false, props) => {
 
    const retVal = {
       "@context":"https://schema.org/",
@@ -143,7 +143,7 @@ export const gsdPersonLawrenceMcDaniel = (includeEducation = false, includeTechn
          "@id":"https://lawrencemcdaniel.com/#personlogo"
       },
       "hasOccupation": hasOccupation(includeEducation),
-      "knowsAbout": knowsAbout(includeTechnologoes)
+      "knowsAbout": knowsAbout(includeTechnologoes, props)
    }
    return retVal;
 
