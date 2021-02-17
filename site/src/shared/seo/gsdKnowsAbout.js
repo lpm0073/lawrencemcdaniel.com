@@ -10,9 +10,9 @@ export const gsdKnowsAbout = (props) => {
 
    const itemList = props.specialties.items;
    const retVal = itemList.map((specialty, indx) => {
-      const applicationCategory = "webDevelopment";
-      const operatingSystem = "Linux, Windows, OSX";
-      const url = "https://somewhere.com";
+      const applicationCategory = specialty.acf.applicationCategory;
+      const operatingSystem = specialty.acf.operatingSystem;
+      const url = specialty.acf.url;
       const appName = specialty.title.rendered;
       const about = specialty.title.rendered;
       const thumbnailUrl = wpGetFeaturedImage(specialty, null);
@@ -59,7 +59,7 @@ export const gsdKnowsAbout = (props) => {
                      }
                  }
       );
-   })
+   });
    return retVal;
 }
 
