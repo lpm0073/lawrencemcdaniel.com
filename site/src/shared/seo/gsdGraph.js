@@ -37,13 +37,13 @@ const webSite = () => {
    };
 }
 
-const webPage = (pageType, slug, webpageDescription, relatedLink, primaryImageUrl) => {
+const webPage = (pageType, slug, webpageName, webpageDescription, relatedLink, primaryImageUrl) => {
 
       return {
          "@type":pageTypes(pageType),
          "@id":baseUrl+"/"+slug+"/#webpage",
          "url":baseUrl+"/"+slug+"/",
-         "name":nameLawrenceMcDaniel,
+         "name":webpageName,
          "isPartOf":{
             "@id":baseUrl+"/#website"
          },
@@ -103,7 +103,7 @@ export const gsdGraph = (slug, webpageName, webpageDescription, primaryImageUrl=
       "@graph":extraData.concat([
          webSite(),
          pageImage(primaryImageUrl),
-         webPage(pageType, slug, webpageDescription, relatedLink, primaryImageUrl),
+         webPage(pageType, slug, webpageName, webpageDescription, relatedLink, primaryImageUrl),
          breadcrumbList(slug, webpageName),
       ])
    };
