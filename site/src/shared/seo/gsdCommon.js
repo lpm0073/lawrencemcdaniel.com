@@ -4,12 +4,13 @@ const imageObject = (url, height, width) => {
    return {
       "@context":"https://schema.org/",
       "@type":"ImageObject",
-       "@id":url+"/#imageObject",
-       "url":url,
-       "width":width,
-       "height":height,
-       "name":nameLawrenceMcDaniel,
-       "caption":nameLawrenceMcDaniel,
+      "inLanguage":"en-US",
+      "@id":url+"/#imageObject",
+      "url":url,
+      "width":width,
+      "height":height,
+      "name":nameLawrenceMcDaniel,
+      "caption":nameLawrenceMcDaniel,
     }
 }
 

@@ -10,8 +10,10 @@ import AboutTile from './tileComponent';
 import { Fade } from 'react-animation-components';
 import {Helmet} from "react-helmet";
 import { gsdGraph } from '../../shared/seo/gsdGraph';
+import { gsdPersonLawrenceMcDaniel } from '../../shared/seo/gsdPersonLawrence';
 
 import './styles.css';
+
 
 const mapStateToProps = state => ({
     ...state
@@ -29,19 +31,21 @@ class About extends Component {
         }
 
         render() {
-    
+            /* Google Structured Data */
+            const slug = "about";
+            const webpageName = "About";
+            const webpageDescription = "I’m an American full stack developer with significant experience with classic backend stacks and front-end frameworks including Django, React, Angular, and WordPress. I also work extensively with the Open edX® learning management system. I am a veteran of multiple startups and early-stage ventures with dozens of successful product launches in multiple industries and markets around the world. I advocate for open source, try to keep things DRY and well-documented and when possible I adhere to the principals of 12-factor development. I’m a passionate learner and frequent blogger, currently interested in machine learning, AI and quantum computing.";
+            const primaryImageUrl = "";
+            const pageType = "AboutPage";
+            const relatedLink = "";
+            const graphExtraData = [gsdPersonLawrenceMcDaniel(false, false, this.props)];
+            
             return(
     
                 <React.Fragment>
                     <Helmet>
                         <link rel="canonical" href="https://lawrencemcdaniel.com/about" />
-                        <script type="application/ld+json">{JSON.stringify(gsdGraph(
-                            "about", 
-                            "About",
-                            "I’m an American full stack developer with significant experience with classic backend stacks and front-end frameworks including Django, React, Angular, and WordPress. I also work extensively with the Open edX® learning management system. I am a veteran of multiple startups and early-stage ventures with dozens of successful product launches in multiple industries and markets around the world. I advocate for open source, try to keep things DRY and well-documented and when possible I adhere to the principals of 12-factor development. I’m a passionate learner and frequent blogger, currently interested in machine learning, AI and quantum computing.", 
-                            "",
-                            "AboutPage"
-                        ))}</script>
+                        <script type="application/ld+json">{JSON.stringify(gsdGraph(slug, webpageName, webpageDescription, primaryImageUrl, pageType, relatedLink, graphExtraData))}</script>
                     </Helmet>
                     <div key="about-page" className="site-page about-page">
                         <RenderPageTitle theme="light" icon="fa-user" title="ABOUT" boxed_title="ME" />

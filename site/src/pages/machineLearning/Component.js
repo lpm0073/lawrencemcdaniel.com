@@ -3,11 +3,20 @@ import RenderPageTitle from '../../components/pagetitle/pageTitleComponent';
 import SpecialtiesBanner from './machinelearningBanner';
 import {Helmet} from "react-helmet";
 import { gsdGraph } from '../../shared/seo/gsdGraph';
+import { gsdPersonLawrenceMcDaniel } from '../../shared/seo/gsdPersonLawrence';
 
 import './styles.css';
 
 
 const MachineLearning = (props) => {
+        /* Google Structured Data */
+        const slug = "machine-learning";
+        const webpageName = "Machine Learning";
+        const webpageDescription = "Hi, I’m Lawrence McDaniel and I’m a technology freelancer. The rapid evolution of IT infrastructure cloud services combined with the sudden and staggering accumulation of electronic data has catalyzed an explosion of applied science and innovation for many ideas that only a few years ago were still not much more than theory. The math hasn’t gotten any easier, and IT infrastructure has actually become a lot more complex, however, If you understand both of these disciplines and you also are a halfway decent software engineer then the sky is the limit in terms of what you can do.";
+        const primaryImageUrl = "";
+        const pageType = "";
+        const relatedLink = "";
+        const graphExtraData = [gsdPersonLawrenceMcDaniel(false, false, props)];
 
         return(
             <React.Fragment>
@@ -16,13 +25,8 @@ const MachineLearning = (props) => {
                     <meta name="description" content="Machine learning and algorithms expert with experience using regression, nueral networks, support vector machines, anomoly detection, recommender systems, and unsupervised learning" />
                     <meta property="og:description" content="Machine learning and algorithms expert with experience using regression, nueral networks, support vector machines, anomoly detection, recommender systems, and unsupervised learning" />
                     <meta name="keywords"  content="Lawrence McDaniel, machine learning, algorithms, regression, nueral networks, support vector machines, anomoly detection, recommender systems, unsupervised learning" />
-                    <script type="application/ld+json">{JSON.stringify(gsdGraph(
-                        "machine-learning", 
-                        "Machine Learning",
-                        "Hi, I’m Lawrence McDaniel and I’m a technology freelancer. The rapid evolution of IT infrastructure cloud services combined with the sudden and staggering accumulation of electronic data has catalyzed an explosion of applied science and innovation for many ideas that only a few years ago were still not much more than theory. The math hasn’t gotten any easier, and IT infrastructure has actually become a lot more complex, however, If you understand both of these disciplines and you also are a halfway decent software engineer then the sky is the limit in terms of what you can do.", 
-                        "",
-                        ""
-                    ))}</script>
+                    <script type="application/ld+json">{JSON.stringify(gsdGraph(slug, webpageName, webpageDescription, primaryImageUrl, pageType, relatedLink, graphExtraData))}</script>
+                    
                 </Helmet>
                 <div key="machine-learning-page" className="site-page machine-learning-page">
                     <RenderPageTitle theme="light" icon="fa-magic" title="MACHINE" boxed_title="LEARNING" />

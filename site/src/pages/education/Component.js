@@ -9,18 +9,20 @@ import './styles.css';
 
 const Education = (props) => {
 
+    /* Google Structured Data */
+    const slug = "education";
+    const webpageName = "Eduction";
+    const webpageDescription = "Lawrence McDaniel educational background and courses completed.";
+    const primaryImageUrl = "";
+    const pageType = "";
+    const relatedLink = "";
+    const graphExtraData = [gsdPersonLawrenceMcDaniel(false, false, props)];
+
     return(
         <React.Fragment>
             <Helmet>
                 <link rel="canonical" href="https://lawrencemcdaniel.com/education" />
-                <script type="application/ld+json">{JSON.stringify(gsdPersonLawrenceMcDaniel(true, false, props))}</script>
-                <script type="application/ld+json">{JSON.stringify(gsdGraph(
-                    "education", 
-                    "Education",
-                    "Lawrence McDaniel educational background and courses completed.", 
-                    "",
-                    ""
-                ))}</script>
+                <script type="application/ld+json">{JSON.stringify(gsdGraph(slug, webpageName, webpageDescription, primaryImageUrl, pageType, relatedLink, graphExtraData))}</script>
             </Helmet>
             <div key="education-page" className="portfolio-page">
                 <div className="site-page ">

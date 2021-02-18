@@ -64,7 +64,7 @@ const subjectOf = (url) => {
    };
 }
 
-export const gsdPersonLawrenceMcDaniel = (includeEducation = false, includeTechnologoes = false, props) => {
+export const gsdPersonLawrenceMcDaniel = (includeEducation = false, includeTechnologies = false, props) => {
 
    const retVal = {
       "@context":"https://schema.org/",
@@ -133,7 +133,7 @@ export const gsdPersonLawrenceMcDaniel = (includeEducation = false, includeTechn
       ],
       "image":imagesLawrenceMcDaniel,
       "hasOccupation": hasOccupation(includeEducation),
-      "knowsAbout": knowsAbout(includeTechnologoes, props)
+      "knowsAbout": knowsAbout(includeTechnologies, props)
    }
    return retVal;
 

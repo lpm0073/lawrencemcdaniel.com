@@ -4,11 +4,20 @@ import Loading from '../../components/Loading';
 import ProjectCarousel from './projectCarousel';
 import {Helmet} from "react-helmet";
 import { gsdGraph } from '../../shared/seo/gsdGraph';
+import { gsdPersonLawrenceMcDaniel } from '../../shared/seo/gsdPersonLawrence';
 
 import './styles.css';
 
 
 const PortfolioDetail = (props) => {
+    /* Google Structured Data */
+    const slug = "portfolio";
+    const webpageName = "Portfolio";
+    const webpageDescription = "Lawrence McDaniel's portfolio.";
+    const primaryImageUrl = "";
+    const pageType = "";
+    const relatedLink = "";
+    const graphExtraData = [gsdPersonLawrenceMcDaniel(false, false, props)];
 
     if (props.postLoading) {
         return(
@@ -69,13 +78,7 @@ const PortfolioDetail = (props) => {
             <React.Fragment>
                 <Helmet>
                     <link rel="canonical" href="https://lawrencemcdaniel.com/portfolio" />
-                    <script type="application/ld+json">{JSON.stringify(gsdGraph(
-                    "portfolio", 
-                    "Portfolio",
-                    "Lawrence McDaniel portfolio", 
-                    "",
-                    ""
-                ))}</script>
+                    <script type="application/ld+json">{JSON.stringify(gsdGraph(slug, webpageName, webpageDescription, primaryImageUrl, pageType, relatedLink, graphExtraData))}</script>
                 </Helmet>
                 <div key="portfolio-detail" className="site-page project-page">
                     <RenderPageTitle theme="light" icon="fa-briefcase" title="PROJECT" boxed_title="Detail" />

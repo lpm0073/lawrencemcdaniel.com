@@ -3,25 +3,27 @@ import RenderPageTitle from '../../components/pagetitle/pageTitleComponent';
 import {resumeUrl} from '../../shared/urls';
 import {Helmet} from "react-helmet";
 import { gsdGraph } from '../../shared/seo/gsdGraph';
+import { gsdPersonLawrenceMcDaniel } from '../../shared/seo/gsdPersonLawrence';
 import './styles.css';
 
 
 class Contact extends Component {
 
     render() {
+        /* Google Structured Data */
+        const slug = "contact";
+        const webpageName = "Contact";
+        const webpageDescription = "Lawrence McDaniel contact information.";
+        const primaryImageUrl = "";
+        const pageType = "";
+        const relatedLink = "";
+        const graphExtraData = [gsdPersonLawrenceMcDaniel(false, false, this.props)];
 
         return(
             <React.Fragment>
                 <Helmet>
                     <link rel="canonical" href="https://lawrencemcdaniel.com/contact" />
-                    <script type="application/ld+json">{JSON.stringify(gsdGraph(
-                        "contact", 
-                        "Contact Information",
-                        "Lawrence McDaniel contact information.", 
-                        "",
-                        "ContactPage",
-                        "https://goo.gl/maps/k3d8mHKCmpbZxu6D6"
-                    ))}</script>
+                    <script type="application/ld+json">{JSON.stringify(gsdGraph(slug, webpageName, webpageDescription, primaryImageUrl, pageType, relatedLink, graphExtraData))}</script>
                 </Helmet>
                 <div key="contact-page" className="site-page contact-page">
                     <RenderPageTitle theme="light" icon="fa-phone" title="LETS" boxed_title="TALK" />

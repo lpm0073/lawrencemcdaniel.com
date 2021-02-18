@@ -7,14 +7,18 @@ import { gsdServiceOpenedX } from '../../shared/seo/gsdServiceOpenedx';
 import { gsdFAQ } from '../../shared/seo/gsdFAQ';
 import { gsdGraph } from '../../shared/seo/gsdGraph';
 import { nameLawrenceMcDaniel} from '../../shared/seo/gsdCommon';
+import { gsdArticle } from '../../shared/seo/gsdArticle';
+import { gsdPersonLawrenceMcDaniel } from '../../shared/seo/gsdPersonLawrence';
 import './styles.css';
 
 import Accordion from 'react-bootstrap/Accordion';
 import Card from 'react-bootstrap/Card';
 
-const baseTitle = nameLawrenceMcDaniel + " - Open edX® Consultant";
 
 const Openedx = (props) => {
+        const slug = "openedx";
+        const headline = "Open edX® Consulting";
+        const graphExtraData = [gsdPersonLawrenceMcDaniel(true, true, props), gsdArticle(slug, headline), gsdServiceOpenedX, gsdFAQ];
 
         return(
             <div>
@@ -40,14 +44,13 @@ const Openedx = (props) => {
                         https://stackoverflow.com/questions/30864619/does-json-ld-have-to-be-embedded 
                         https://stackoverflow.com/questions/29064209/does-schema-org-markup-work-if-markup-is-dynamically-built-with-javascript/29066759#29066759
                     */}
-                    <script type="application/ld+json">{JSON.stringify(gsdServiceOpenedX)}</script>
-                    <script type="application/ld+json">{JSON.stringify(gsdFAQ)}</script>
                     <script type="application/ld+json">{JSON.stringify(gsdGraph(
-                        "openedx", 
-                        "Open edX® Consulting",
+                        slug, 
+                        headline,
                         "I am a 20-year veteran web developer specializing in the <a href='https://open.edx.org/' target='_blank' rel='noopener noreferrer'>Open edX® platform</a>. Thousands of organizations around the world have used my <a href='https://blog.lawrencemcdaniel.com/category/open-edx/' target='_blank' rel='noopener noreferrer'>Open edX® blog articles</a> to turn their online education vision into reality. In fact, my how-to guides and tutorials on <a href='https://blog.lawrencemcdaniel.com/open-edx-installation/' target='_blank' rel='noopener noreferrer'>production installation</a>, <a href='https://blog.lawrencemcdaniel.com/scaling-open-edx/' target='_blank' rel='noopener noreferrer'>platform scaling</a>, <a href='https://blog.lawrencemcdaniel.com/open-edx-custom-theming-tutorial/' target='_blank' rel='noopener noreferrer'>custom theming</a>, and <a href='https://blog.lawrencemcdaniel.com/open-edx-configuration-tutorial/' target='_blank' rel='noopener noreferrer'>configuration</a> have been viewed more than fifty thousand times.", 
                         "",
-                        ""
+                        "",
+                        graphExtraData
                     ))}</script>
                 </Helmet>
                 <div key="openedx-page" className="site-page openedx-page">

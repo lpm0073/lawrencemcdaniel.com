@@ -35,19 +35,12 @@ const pageImage = (imageUrl, url) => {
    return primarySiteImage;
 }
 
-export const gsdGraph = (slug, webpageName, webpageDescription, primaryImageUrl="", pageType="", relatedLink="") => {
+export const gsdGraph = (slug, webpageName, webpageDescription, primaryImageUrl="", pageType="", relatedLink="", extraData=[]) => {
 
 
-   return {
+   const retVal = {
    "@context":"https://schema.org",
    "@graph":[
-      {
-         "@type":[
-            "Person",
-            "Organization"
-         ],
-         "@id":baseUrl+"#me"
-      },
       {
          "@type":"WebSite",
          "@id":baseUrl+"/#website",
@@ -59,7 +52,8 @@ export const gsdGraph = (slug, webpageName, webpageDescription, primaryImageUrl=
          },
          "inLanguage":"en-US"
       },
-      {
+      pageImage(primaryImageUrl, primarySiteImage),
+     {
          "@type":pageTypes(pageType),
          "@id":baseUrl+"/"+slug+"/#webpage",
          "url":baseUrl+"/"+slug+"/",
@@ -94,13 +88,36 @@ export const gsdGraph = (slug, webpageName, webpageDescription, primaryImageUrl=
                "position":1,
                "item":{
                   "@type":"WebPage",
+                  "@id":baseUrl+"/",
+                  "url":baseUrl+"/",
+                  "name":"Home"
+               }
+            },
+            {
+               "@type":"ListItem",
+               "position":2,
+               "item":{
+                  "@type":"WebPage",
+                  "@id":baseUrl+"/home/",
+                  "url":baseUrl+"/home/",
+                  "name":"Home"
+               }
+            },
+            {
+               "@type":"ListItem",
+               "position":3,
+               "item":{
+                  "@type":"WebPage",
                   "@id":baseUrl+"/"+slug+"/",
                   "url":baseUrl+"/"+slug+"/",
                   "name":pageName(webpageName)
                }
             }
-         ]
+         ].concat(extraData)
       }
    ]
-   }
+   };
+
+   return retVal;
+
 }

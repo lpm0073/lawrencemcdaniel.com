@@ -9,19 +9,21 @@ import './styles.css';
 
 
 const Skills = (props) => {
+    /* Google Structured Data */
+    const slug = "skills";
+    const webpageName = "Skills";
+    const webpageDescription = "Lawrence McDaniel's technology skills.";
+    const primaryImageUrl = "";
+    const pageType = "";
+    const relatedLink = "";
+    const graphExtraData = [gsdPersonLawrenceMcDaniel(false, false, props)];
 
     return(
         <React.Fragment>
             <Helmet>
                 <link rel="canonical" href="https://lawrencemcdaniel.com/skills" />
                 <script type="application/ld+json">{JSON.stringify(gsdPersonLawrenceMcDaniel(false, true))}</script>
-                <script type="application/ld+json">{JSON.stringify(gsdGraph(
-                    "skills", 
-                    "Technology Skills",
-                    "Lawrence McDaniel technical skills.", 
-                    "",
-                    ""
-                ))}</script>
+                <script type="application/ld+json">{JSON.stringify(gsdGraph(slug, webpageName, webpageDescription, primaryImageUrl, pageType, relatedLink, graphExtraData))}</script>
             </Helmet>
             <div key="skills-page" className="site-page skills-page">
                 <RenderPageTitle theme="light" icon="fa-book" title="HARD" boxed_title="SKILLS" />
