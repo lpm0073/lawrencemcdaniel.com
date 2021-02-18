@@ -72,14 +72,6 @@ export const fetchSpecialties = () => (dispatch) => {
     .then(specialties => {
         imagePreFetcher(specialties.payload, 0, "Specialities");
         imagePreFetcher([
-            'https://cdn.lawrencemcdaniel.com/wp-content/uploads/2020/05/15213432/linkedin-profile-pic.jpeg',
-            'https://cdn.lawrencemcdaniel.com/wp-content/uploads/2020/05/15213433/logo_linkedin_flat_white_93x21.png',
-            'https://cdn.lawrencemcdaniel.com/wp-content/uploads/2020/06/05215543/linkedin-background.jpg',
-            'https://cdn.lawrencemcdaniel.com/wp-content/uploads/2014/09/lawrence-signature.png',
-            'https://cdn.lawrencemcdaniel.com/wp-content/uploads/2020/06/05201857/Lawrence6.jpg',
-            'https://cdn.lawrencemcdaniel.com/wp-content/uploads/2020/06/05220017/lawrence-mcdaniel-portrait.jpg',
-            'https://cdn.lawrencemcdaniel.com/wp-content/uploads/2020/06/05220349/machine-learning-certificate.jpg',
-            'https://cdn.lawrencemcdaniel.com/wp-content/uploads/2016/12/22195700/machine-learning-grade.png',
             'https://cdn.lawrencemcdaniel.com/wp-content/uploads/2020/06/05201305/Lawrence21.jpg'
         ], 5, "Site Static")
         })
