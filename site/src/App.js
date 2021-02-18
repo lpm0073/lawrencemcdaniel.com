@@ -6,7 +6,6 @@ import { Provider } from 'react-redux';
 import { ConfigureStore } from './redux/configureStore';
 import {Helmet} from "react-helmet";
 import { gsdPersonLawrenceMcDaniel } from './shared/seo/gsdPersonLawrence';
-import { gsdLocalBusinessLawrenceMcDaniel } from './shared/seo/gsdLocalBusiness';
 
 const store = ConfigureStore();
 
@@ -57,8 +56,6 @@ class App extends Component {
                   https://stackoverflow.com/questions/29064209/does-schema-org-markup-work-if-markup-is-dynamically-built-with-javascript/29066759#29066759
               */}
               <script type="application/ld+json">{JSON.stringify(gsdPersonLawrenceMcDaniel(false))}</script>
-              <script type="application/ld+json">{JSON.stringify(gsdLocalBusinessLawrenceMcDaniel(false))}</script>
-
             </Helmet>
             <Main  />
           </div>

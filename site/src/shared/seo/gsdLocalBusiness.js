@@ -1,6 +1,6 @@
 import { brandLawrenceMcDaniel, imagesLawrenceMcDaniel } from './gsdCommon';
 
-
+/* DEPRECATE???? */
 export const gsdLocalBusinessLawrenceMcDaniel = (includeExtraData = false) =>  {
 
     var retVal = {

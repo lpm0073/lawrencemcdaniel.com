@@ -62,6 +62,7 @@ export const gsdPersonLawrenceMcDaniel = (includeEducation = false, includeTechn
          "Person",
          "Organization"
       ],
+      "additionalType": "https://www.wikidata.org/wiki/Q96072517",
       "@id":"https://lawrencemcdaniel.com/#me",
       "identifier":"https://lawrencemcdaniel.com/",
       "email":"mailto:lpm0073@gmail.com",
@@ -103,7 +104,6 @@ export const gsdPersonLawrenceMcDaniel = (includeEducation = false, includeTechn
          }
       ],
       "subjectOf":[
-         "https://blog.lawrencemcdaniel.com/",
          "https://iblnews.org/installing-and-deploying-an-open-edx-instance-a-view-of-developer-and-author-mcdaniel/",
          "https://opensource.com/user_articles/224351",
          "https://opensource.com/article/18/6/getting-started-open-edx",

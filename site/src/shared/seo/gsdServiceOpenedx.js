@@ -24,6 +24,16 @@ const itemOffer = (name, description="") => {
 
 }
 
+const subjectOf = (url) => {
+   return {
+      "@context":"https://schema.org/",
+      "@type":"TechArticle",
+      "@id": url+"#tech-article",
+      "url":url,
+      "mainEntity":"https://open.edx.org/"
+   };
+}
+
 export const gsdServiceOpenedX = {
    "@context":"https://schema.org/",
    "@type":"Service",
@@ -35,7 +45,7 @@ export const gsdServiceOpenedX = {
    "url":"https://lawrencemcdaniel.com/openedx",
    "areaServed":"https://en.wikipedia.org/wiki/Americas",
    "provider":{
-      "@id":"https://lawrencemcdaniel.com/#business"
+      "@id":"https://lawrencemcdaniel.com/#me"
    },
    "serviceOutput": {
      "@type": "Product",
@@ -92,16 +102,16 @@ export const gsdServiceOpenedX = {
      "@id": "https://lawrencemcdaniel.com/#open-edx-logo.png"
   },
    "subjectOf":[
-      "https://blog.lawrencemcdaniel.com/reset-the-mysql-root-password-in-open-edx/",
-      "https://blog.lawrencemcdaniel.com/scaling-open-edx/",
-      "https://blog.lawrencemcdaniel.com/scaling-memcached-for-open-edx/",
-      "https://blog.lawrencemcdaniel.com/scaling-mongodb-for-open-edx/",
-      "https://blog.lawrencemcdaniel.com/scaling-mysql-for-open-edx/",
-      "https://blog.lawrencemcdaniel.com/open-edx-configuration-management-tutorial/",
-      "https://blog.lawrencemcdaniel.com/open-edx-configuration-tutorial/",
-      "https://blog.lawrencemcdaniel.com/open-edx-installation/",
-      "https://blog.lawrencemcdaniel.com/open-edx-complete-backup-solution/",
-      "https://blog.lawrencemcdaniel.com/tutor-1-click-installer-open-edx-installation-guide/"
+      subjectOf("https://blog.lawrencemcdaniel.com/reset-the-mysql-root-password-in-open-edx/"),
+      subjectOf("https://blog.lawrencemcdaniel.com/scaling-open-edx/"),
+      subjectOf("https://blog.lawrencemcdaniel.com/scaling-memcached-for-open-edx/"),
+      subjectOf("https://blog.lawrencemcdaniel.com/scaling-mongodb-for-open-edx/"),
+      subjectOf("https://blog.lawrencemcdaniel.com/scaling-mysql-for-open-edx/"),
+      subjectOf("https://blog.lawrencemcdaniel.com/open-edx-configuration-management-tutorial/"),
+      subjectOf("https://blog.lawrencemcdaniel.com/open-edx-configuration-tutorial/"),
+      subjectOf("https://blog.lawrencemcdaniel.com/open-edx-installation/"),
+      subjectOf("https://blog.lawrencemcdaniel.com/open-edx-complete-backup-solution/"),
+      subjectOf("https://blog.lawrencemcdaniel.com/tutor-1-click-installer-open-edx-installation-guide/")
    ],
    "hasOfferCatalog":{
       "@type":"OfferCatalog",

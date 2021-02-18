@@ -4,6 +4,7 @@ export const sameAs = [
     "https://www.linkedin.com/in/lawrencemcdaniel/",
     "https://www.facebook.com/lawrence.p.mcdaniel",
     "https://open.edx.org/marketplace/lawrence-mcdaniel/",
+    "https://openedx2018.sched.com/lpm0073",
     "https://github.com/lpm0073",
     "https://angel.co/p/lpm0073-gmail-com",
     "https://www.codementor.io/@lawrencemcdaniel",
