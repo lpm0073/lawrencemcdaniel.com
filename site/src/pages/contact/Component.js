@@ -4,6 +4,7 @@ import {resumeUrl} from '../../shared/urls';
 import {Helmet} from "react-helmet";
 import { gsdGraph } from '../../shared/seo/gsdGraph';
 import { gsdPersonLawrenceMcDaniel } from '../../shared/seo/gsdPersonLawrence';
+import {baseTitle} from '../../shared/seo/gsdCommon';
 import './styles.css';
 
 
@@ -35,7 +36,7 @@ class Contact extends Component {
                             <a target="_blank" href="https://goo.gl/maps/WJy25bNGit2L8Nzz8" rel="noopener noreferrer">
                                 <i class="fa fa-map-marker fa-3x"></i>
                                 <address className="m-b-4">
-                                Lawrence McDaniel, Full Stack Developer<br />
+                                Lawrence McDaniel, {baseTitle}<br />
                                 210 Broadway, Suite 200<br />
                                 Cambridge, MA 02139<br />
                                 USA

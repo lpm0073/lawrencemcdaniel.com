@@ -5,6 +5,7 @@ import {Helmet} from "react-helmet";
 import { gsdGraph } from '../../shared/seo/gsdGraph';
 import { gsdPersonLawrenceMcDaniel } from '../../shared/seo/gsdPersonLawrence';
 import { gsdArticle } from '../../shared/seo/gsdArticle';
+import {baseTitle} from '../../shared/seo/gsdCommon';
 
 import './styles.css';
 
@@ -37,7 +38,7 @@ const MachineLearning = (props) => {
                                  alt="Lawrence McDaniel" />
                             <div className="name-block mt-1 text-center">
                                 <h4 className="my-0">Lawrence McDaniel</h4>
-                                <h5 className="my-0">Full Stack Developer</h5>
+                                <h5 className="my-0">{baseTitle}</h5>
                             </div>
                         </div>
                         <div className="col-lg-8 col-md-12 m-0 p-0">

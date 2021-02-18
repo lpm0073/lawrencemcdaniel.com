@@ -1,6 +1,6 @@
 import { gsdQualifications } from './gsdQualifications';
 import { gsdKnowsAbout } from './gsdKnowsAbout';
-import { sameAs, imagesLawrenceMcDaniel, brandLawrenceMcDaniel, nameLawrenceMcDaniel, lastReviewed, primarySiteImage } from './gsdCommon';
+import { baseUrl, sameAs, imagesLawrenceMcDaniel, brandLawrenceMcDaniel, nameLawrenceMcDaniel, lastReviewed, brandLogo, baseTitle} from './gsdCommon';
 import {hourlyRate} from './gsdCommon';
 
 const knowsAbout = (includeExtraData = false, props = null) => {
@@ -21,7 +21,7 @@ const hasOccupation = (includeExtraData = false) => {
       "@context":"https://schema.org/",
       "@type":"Occupation",
       "additionalType": "https://www.wikidata.org/wiki/Q96072517",
-      "name":"Full Stack Developer",
+      "name":baseTitle,
       "mainEntityOfPage":{
          "@type":"WebPage",
          "@id":"https://lawrencemcdaniel.com/",
@@ -80,10 +80,12 @@ export const gsdPersonLawrenceMcDaniel = (includeEducation = false, includeTechn
       "givenName":"Lawrence",
       "name":nameLawrenceMcDaniel,
       "description":"Personal web site for "+nameLawrenceMcDaniel,
-      "jobTitle":"Full Stack Developer",
+      "jobTitle":baseTitle,
       "telephone":"+1 (617) 834-6172",
       "url":"https://lawrencemcdaniel.com",
-      "logo":primarySiteImage,
+      "logo":{
+         "@id":baseUrl+"/#logo"
+      },
       "brand":brandLawrenceMcDaniel,
       "birthPlace":"Houston, TX, USA",
       "nationality":"American",

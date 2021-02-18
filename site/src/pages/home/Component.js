@@ -7,6 +7,7 @@ import { Fade } from 'react-animation-components';
 import LogoCube from '../../components/logoCube/Component';
 import { gsdGraph } from '../../shared/seo/gsdGraph';
 import { gsdPersonLawrenceMcDaniel } from '../../shared/seo/gsdPersonLawrence';
+import {basePageTitle, baseTitle} from '../../shared/seo/gsdCommon';
 import {Helmet} from "react-helmet";
 
 import './styles.css';
@@ -27,7 +28,7 @@ class Home extends Component {
     render() {
         /* Google Structured Data */
         const slug = "home";
-        const webpageName = "Full Stack Developer";
+        const webpageName = basePageTitle;
         const webpageDescription = "I’m an American full stack developer with significant experience with classic backend stacks and front-end frameworks including Django, React, Angular, and WordPress. I also work extensively with the Open edX® learning management system. I am a veteran of multiple startups and early-stage ventures with dozens of successful product launches in multiple industries and markets around the world. I advocate for open source, try to keep things DRY and well-documented and when possible I adhere to the principals of 12-factor development. I’m a passionate learner and frequent blogger, currently interested in machine learning, AI and quantum computing.";
         const primaryImageUrl = "";
         const pageType = "";
@@ -47,11 +48,11 @@ class Home extends Component {
                                         <span className="px-3 super-bold pre-wrap">Lawrence McDaniel</span>
                                     </h1>
                                     {this.props.homePage.isSet ? 
-                                        <p className="jumbotron-subtitle pre-wrap">Full Stack Developer</p>
+                                        <p className="jumbotron-subtitle pre-wrap">{baseTitle}</p>
                                         :
                                         <Fade in> 
                                             <div className="">
-                                                <p className="jumbotron-subtitle mb-0">Full Stack Developer</p>
+                                                <p className="jumbotron-subtitle mb-0">{baseTitle}</p>
                                                 <p className="lead mt-0 mb-0 hide-medium">
                                                     <span className="open-edx-consultant-bookends" role="img" aria-label="Close">⇥📙📚 </span>
                                                     <a href="/openedx"><span className="open-edx-consultant">Open edX® Consultant</span></a>

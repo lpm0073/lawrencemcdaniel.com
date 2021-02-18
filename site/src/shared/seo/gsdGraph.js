@@ -1,5 +1,8 @@
-import { primarySiteImage } from './gsdCommon';
 import {datePublished, dateModified, baseUrl, nameLawrenceMcDaniel} from './gsdCommon';
+
+const brandLogo = {
+   "@id":baseUrl+"/#logo"
+}
 
 const pageTypes = (pageType) => {
 
@@ -11,13 +14,13 @@ const pageName = (webpageName) => {
    return nameLawrenceMcDaniel + " - " + webpageName
 }
 
-const pageImage = (imageUrl, url) => {
+const pageImage = (imageUrl) => {
 
    if (imageUrl !== "") return {
       "@type":"ImageObject",
       "url":imageUrl
     };
-   return primarySiteImage;
+   return brandLogo;
 }
 
 const webSite = () => {
@@ -44,7 +47,7 @@ const webPage = (pageType, slug, webpageDescription, relatedLink, primaryImageUr
          "isPartOf":{
             "@id":baseUrl+"/#website"
          },
-         "image":pageImage(primaryImageUrl, primarySiteImage),
+         "image":pageImage(primaryImageUrl),
          "datePublished":datePublished,
          "dateModified":dateModified,
          "description":webpageDescription,
@@ -99,7 +102,7 @@ export const gsdGraph = (slug, webpageName, webpageDescription, primaryImageUrl=
       "@context":"https://schema.org",
       "@graph":extraData.concat([
          webSite(),
-         pageImage(primaryImageUrl, primarySiteImage),
+         pageImage(primaryImageUrl),
          webPage(pageType, slug, webpageDescription, relatedLink, primaryImageUrl),
          breadcrumbList(slug, webpageName),
       ])

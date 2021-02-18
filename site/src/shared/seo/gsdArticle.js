@@ -1,4 +1,4 @@
-import { baseUrl, datePublished, dateModified, primarySiteImage } from './gsdCommon';
+import { baseUrl, datePublished, dateModified } from './gsdCommon';
 
 export const gsdArticle = (slug, headline) => {
 
@@ -19,7 +19,7 @@ export const gsdArticle = (slug, headline) => {
         },
         "commentCount":0,
         "publisher":baseUrl+"/#me",
-        "image":primarySiteImage,
+        "image":baseUrl+"/#logo",
         "articleSection":slug,
         "inLanguage":"en-US"
      }

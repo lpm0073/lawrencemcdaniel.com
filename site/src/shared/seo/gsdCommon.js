@@ -14,8 +14,6 @@ const imageObject = (url, height, width) => {
     }
 }
 
-
-
 export const baseUrl = "https://lawrencemcdaniel.com";
 export const nameLawrenceMcDaniel = "Lawrence McDaniel";
 export const baseTitle = "Full Stack Developer";
@@ -37,18 +35,29 @@ export const sameAs = [
     "http://geek.ly/lmcdaniel"
 ]
 
-export const primarySiteImage = imageObject("https://cdn.lawrencemcdaniel.com/wp-content/uploads/2019/10/01135455/Lawrence1.jpg", 500, 381);
+export const brandLogo =  {
+      "@context":"https://schema.org/",
+      "@type":"ImageObject",
+      "inLanguage":"en-US",
+      "@id":baseUrl+"/#logo",
+      "url":"https://cdn.lawrencemcdaniel.com/wp-content/uploads/2019/10/01135455/Lawrence1.jpg",
+      "width":500,
+      "height":381,
+      "name":nameLawrenceMcDaniel,
+      "caption":nameLawrenceMcDaniel,
+}
+
 export const brandLawrenceMcDaniel = {
    "@context":"https://schema.org/",
    "type":"Brand",
    "@id":baseUrl+"/#brand",
-   "logo":primarySiteImage,
+   "logo":brandLogo,
    "name":nameLawrenceMcDaniel,
    "url":baseUrl+"/"
 }
 
 export const imagesLawrenceMcDaniel = [
-   primarySiteImage,
+   brandLogo,
    imageObject("https://cdn.lawrencemcdaniel.com", 512, 512),
    imageObject("https://cdn.lawrencemcdaniel.com/social-1200x675.jpg", 1200, 675),
    imageObject("https://cdn.lawrencemcdaniel.com/wp-content/uploads/2020/06/05201857/Lawrence6.jpg", 1600, 1084),

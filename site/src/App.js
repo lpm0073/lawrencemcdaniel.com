@@ -17,7 +17,7 @@ class App extends Component {
         <BrowserRouter>
           <div>
             <Helmet>
-              <title>Lawrence McDaniel - Full Stack Developer</title>
+              <title>{basePageTitle}</title>
               <meta name="author" content={nameLawrenceMcDaniel} />
               <link rel="canonical" href="https://lawrencemcdaniel.com/" />
               <meta name="description" content="Full Stack Web Developer and Open edX® Consultant specializing in Python, Django, ReactJS, Redux, AngularJS, and AWS." />
