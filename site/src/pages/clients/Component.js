@@ -13,10 +13,9 @@ const Clients = (props) => {
             <Helmet>
                 <link rel="canonical" href="https://lawrencemcdaniel.com/clients" />
                 <script type="application/ld+json">{JSON.stringify(gsdGraph(
-                    "https://lawrencemcdaniel.com/clients", 
-                    "Lawrence McDaniel - Clients",
-                    "Lawrence McDaniel client list for my Full Stack Developer practice.", 
-                    "https://cdn-blog.lawrencemcdaniel.com/wp-content/uploads/2018/01/22125438/Lawrence19.jpg"
+                    "clients", 
+                    "Clients",
+                    "Lawrence McDaniel client list for my Full Stack Developer practice."
                 ))}</script>
             </Helmet>
             <div key="client-page" className="recommendations-page">

@@ -15,7 +15,7 @@ export const sameAs = [
    "type":"Brand",
    "@id":"https://lawrencemcdaniel.com/#brand",
    "logo":"https://cdn.lawrencemcdaniel.com/",
-   "name":"Lawrence McDaniel - Full Stack Developer",
+   "name":"Lawrence McDaniel",
    "url":"https://lawrencemcdaniel.com/",
    "sameAs":sameAs
 }
@@ -46,7 +46,7 @@ export const primarySiteImage = {
      "description":"Barry Wolfryd did a series of these for an article I wrote in geek.ly",
      "about":"Barry Wolfryd did a series of these for an article I wrote in geek.ly",
      "comment":"Barry Wolfryd did a series of these for an article I wrote in geek.ly",
-     "name":"Lawrence McDaniel Portfolio Images"
+     "name":"Lawrence McDaniel"
   }
 
   export const imagesLawrenceMcDaniel = [

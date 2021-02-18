@@ -9,9 +9,7 @@ import './styles.css';
 
 const MachineLearning = (props) => {
 
-
         return(
-
             <React.Fragment>
                 <Helmet>
                     <link rel="canonical" href="https://lawrencemcdaniel.com/machine-learning" />
@@ -19,10 +17,11 @@ const MachineLearning = (props) => {
                     <meta property="og:description" content="Machine learning and algorithms expert with experience using regression, nueral networks, support vector machines, anomoly detection, recommender systems, and unsupervised learning" />
                     <meta name="keywords"  content="Lawrence McDaniel, machine learning, algorithms, regression, nueral networks, support vector machines, anomoly detection, recommender systems, unsupervised learning" />
                     <script type="application/ld+json">{JSON.stringify(gsdGraph(
-                        "https://lawrencemcdaniel.com/machine-learning", 
-                        "Lawrence McDaniel - Machine Learning",
+                        "machine-learning", 
+                        "Machine Learning",
                         "Hi, I’m Lawrence McDaniel and I’m a technology freelancer. The rapid evolution of IT infrastructure cloud services combined with the sudden and staggering accumulation of electronic data has catalyzed an explosion of applied science and innovation for many ideas that only a few years ago were still not much more than theory. The math hasn’t gotten any easier, and IT infrastructure has actually become a lot more complex, however, If you understand both of these disciplines and you also are a halfway decent software engineer then the sky is the limit in terms of what you can do.", 
-                        "https://cdn-blog.lawrencemcdaniel.com/wp-content/uploads/2018/01/22125438/Lawrence19.jpg"
+                        "",
+                        ""
                     ))}</script>
                 </Helmet>
                 <div key="machine-learning-page" className="site-page machine-learning-page">

@@ -16,10 +16,11 @@ const Skills = (props) => {
                 <link rel="canonical" href="https://lawrencemcdaniel.com/skills" />
                 <script type="application/ld+json">{JSON.stringify(gsdPersonLawrenceMcDaniel(false, true))}</script>
                 <script type="application/ld+json">{JSON.stringify(gsdGraph(
-                    "https://lawrencemcdaniel.com/skills", 
-                    "Lawrence McDaniel - Technology Skills",
+                    "skills", 
+                    "Technology Skills",
                     "Lawrence McDaniel technical skills.", 
-                    "https://cdn-blog.lawrencemcdaniel.com/wp-content/uploads/2018/01/22125438/Lawrence19.jpg"
+                    "",
+                    ""
                 ))}</script>
             </Helmet>
             <div key="skills-page" className="site-page skills-page">

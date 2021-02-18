@@ -68,7 +68,7 @@ export const gsdPersonLawrenceMcDaniel = (includeEducation = false, includeTechn
       "familyName":"McDaniel",
       "givenName":"Lawrence",
       "name":"Lawrence McDaniel",
-      "description":"Full Stack Developer",
+      "description":"Personal web site for Lawrence McDaniel",
       "jobTitle":"Full Stack Developer",
       "telephone":"+1 (617) 834-6172",
       "url":"https://lawrencemcdaniel.com",

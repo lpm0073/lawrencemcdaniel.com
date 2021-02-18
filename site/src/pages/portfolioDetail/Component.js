@@ -3,6 +3,7 @@ import RenderPageTitle from '../../components/pagetitle/pageTitleComponent';
 import Loading from '../../components/Loading';
 import ProjectCarousel from './projectCarousel';
 import {Helmet} from "react-helmet";
+import { gsdGraph } from '../../shared/seo/gsdGraph';
 
 import './styles.css';
 
@@ -67,7 +68,14 @@ const PortfolioDetail = (props) => {
         return(
             <React.Fragment>
                 <Helmet>
-                    <link rel="canonical" href="https://lawrencemcdaniel.com/" />
+                    <link rel="canonical" href="https://lawrencemcdaniel.com/portfolio" />
+                    <script type="application/ld+json">{JSON.stringify(gsdGraph(
+                    "portfolio", 
+                    "Portfolio",
+                    "Lawrence McDaniel portfolio", 
+                    "",
+                    ""
+                ))}</script>
                 </Helmet>
                 <div key="portfolio-detail" className="site-page project-page">
                     <RenderPageTitle theme="light" icon="fa-briefcase" title="PROJECT" boxed_title="Detail" />

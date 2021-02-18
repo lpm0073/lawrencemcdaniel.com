@@ -15,10 +15,11 @@ const Education = (props) => {
                 <link rel="canonical" href="https://lawrencemcdaniel.com/education" />
                 <script type="application/ld+json">{JSON.stringify(gsdPersonLawrenceMcDaniel(true, false, props))}</script>
                 <script type="application/ld+json">{JSON.stringify(gsdGraph(
-                    "https://lawrencemcdaniel.com/education", 
-                    "Lawrence McDaniel - Education",
+                    "education", 
+                    "Education",
                     "Lawrence McDaniel educational background and courses completed.", 
-                    "https://cdn-blog.lawrencemcdaniel.com/wp-content/uploads/2018/01/22125438/Lawrence19.jpg"
+                    "",
+                    ""
                 ))}</script>
             </Helmet>
             <div key="education-page" className="portfolio-page">

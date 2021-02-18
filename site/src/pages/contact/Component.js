@@ -15,10 +15,11 @@ class Contact extends Component {
                 <Helmet>
                     <link rel="canonical" href="https://lawrencemcdaniel.com/contact" />
                     <script type="application/ld+json">{JSON.stringify(gsdGraph(
-                        "https://lawrencemcdaniel.com/contact", 
-                        "Lawrence McDaniel - Contact Information",
+                        "contact", 
+                        "Contact Information",
                         "Lawrence McDaniel contact information.", 
-                        "https://cdn-blog.lawrencemcdaniel.com/wp-content/uploads/2018/01/22125438/Lawrence19.jpg"
+                        "",
+                        "ContactPage"
                     ))}</script>
                 </Helmet>
                 <div key="contact-page" className="site-page contact-page">
