@@ -1,6 +1,6 @@
 import { gsdQualifications } from './gsdQualifications';
 import { gsdKnowsAbout } from './gsdKnowsAbout';
-import { sameAs, imagesLawrenceMcDaniel, brandLawrenceMcDaniel, nameLawrenceMcDaniel, lastReviewed } from './gsdCommon';
+import { sameAs, imagesLawrenceMcDaniel, brandLawrenceMcDaniel, nameLawrenceMcDaniel, lastReviewed, primarySiteImage } from './gsdCommon';
 import {hourlyRate} from './gsdCommon';
 
 const knowsAbout = (includeExtraData = false, props = null) => {
@@ -83,7 +83,7 @@ export const gsdPersonLawrenceMcDaniel = (includeEducation = false, includeTechn
       "jobTitle":"Full Stack Developer",
       "telephone":"+1 (617) 834-6172",
       "url":"https://lawrencemcdaniel.com",
-      "logo":"https://cdn.lawrencemcdaniel.com/",
+      "logo":primarySiteImage,
       "brand":brandLawrenceMcDaniel,
       "birthPlace":"Houston, TX, USA",
       "nationality":"American",

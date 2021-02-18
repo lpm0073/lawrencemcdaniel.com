@@ -36,11 +36,11 @@ export const gsdFAQ = {
           "@id":"https://lawrencemcdaniel.com/#me"
         }, 
         "publisher":{
-          "@id":"https://lawrencemcdaniel.com/"
+          "@id":"https://lawrencemcdaniel.com/#me"
         },
         "sdDatePublished":"2021-02-15",
         "sdPublisher":{
-          "@id":"https://lawrencemcdaniel.com/"
+          "@id":"https://lawrencemcdaniel.com/#me"
         },
         "timeRequired":"PT5M",
         "keywords":"open edx, saas, native build, installation, budget, cost",

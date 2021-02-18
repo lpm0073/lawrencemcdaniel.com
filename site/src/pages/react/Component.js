@@ -6,9 +6,8 @@ import {Helmet} from "react-helmet";
 import { resumeUrl } from '../../shared/urls';
 import { gsdGraph } from '../../shared/seo/gsdGraph';
 import { gsdPersonLawrenceMcDaniel } from '../../shared/seo/gsdPersonLawrence';
+import { gsdArticle } from '../../shared/seo/gsdArticle';
 import './styles.css';
-
-
 
 const ReactPage = (props) => {
     /* Google Structured Data */
@@ -18,8 +17,7 @@ const ReactPage = (props) => {
     const primaryImageUrl = "";
     const pageType = "";
     const relatedLink = "";
-    const graphExtraData = [gsdPersonLawrenceMcDaniel(false, false, props)];
-
+    const graphExtraData = [gsdPersonLawrenceMcDaniel(false, false, props), gsdArticle(slug, webpageDescription)];
 
     return(
         <React.Fragment>

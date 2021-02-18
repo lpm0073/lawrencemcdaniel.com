@@ -16,13 +16,12 @@ const Specialties = (props) => {
     const primaryImageUrl = "";
     const pageType = "";
     const relatedLink = "";
-    const graphExtraData = [gsdPersonLawrenceMcDaniel(false, false, props)];
+    const graphExtraData = [gsdPersonLawrenceMcDaniel(false, true, props)];
 
     return(
         <React.Fragment>
             <Helmet>
                 <link rel="canonical" href="https://lawrencemcdaniel.com/specialties" />
-                <script type="application/ld+json">{JSON.stringify(gsdPersonLawrenceMcDaniel(false, true, props))}</script>
                 <script type="application/ld+json">{JSON.stringify(gsdGraph(slug, webpageName, webpageDescription, primaryImageUrl, pageType, relatedLink, graphExtraData))}</script>
             </Helmet>
             <div className="specialties-page">

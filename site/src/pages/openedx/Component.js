@@ -16,9 +16,14 @@ import Card from 'react-bootstrap/Card';
 
 
 const Openedx = (props) => {
+        /* Google Structured Data */
         const slug = "openedx";
         const headline = "Open edX® Consulting";
-        const graphExtraData = [gsdPersonLawrenceMcDaniel(true, true, props), gsdArticle(slug, headline), gsdServiceOpenedX, gsdFAQ];
+        const webpageDescription = "I am a 20-year veteran web developer specializing in the <a href='https://open.edx.org/' target='_blank' rel='noopener noreferrer'>Open edX® platform</a>. Thousands of organizations around the world have used my <a href='https://blog.lawrencemcdaniel.com/category/open-edx/' target='_blank' rel='noopener noreferrer'>Open edX® blog articles</a> to turn their online education vision into reality. In fact, my how-to guides and tutorials on <a href='https://blog.lawrencemcdaniel.com/open-edx-installation/' target='_blank' rel='noopener noreferrer'>production installation</a>, <a href='https://blog.lawrencemcdaniel.com/scaling-open-edx/' target='_blank' rel='noopener noreferrer'>platform scaling</a>, <a href='https://blog.lawrencemcdaniel.com/open-edx-custom-theming-tutorial/' target='_blank' rel='noopener noreferrer'>custom theming</a>, and <a href='https://blog.lawrencemcdaniel.com/open-edx-configuration-tutorial/' target='_blank' rel='noopener noreferrer'>configuration</a> have been viewed more than fifty thousand times.";
+        const primaryImageUrl = "";
+        const pageType = "";
+        const relatedLink = "";
+        const graphExtraData = [gsdPersonLawrenceMcDaniel(false, false, props), gsdArticle(slug, headline), gsdServiceOpenedX, gsdFAQ];
 
         return(
             <div>
@@ -37,21 +42,7 @@ const Openedx = (props) => {
                     <meta name="twitter:title" content={nameLawrenceMcDaniel} />
                     <meta name="twitter:description" content={nameLawrenceMcDaniel} />
 
-                    {/* 
-                        Google structured data: https://developers.google.com/search/docs/guides/intro-structured-data
-                        note that using a script tag with src does not work.
-                        
-                        https://stackoverflow.com/questions/30864619/does-json-ld-have-to-be-embedded 
-                        https://stackoverflow.com/questions/29064209/does-schema-org-markup-work-if-markup-is-dynamically-built-with-javascript/29066759#29066759
-                    */}
-                    <script type="application/ld+json">{JSON.stringify(gsdGraph(
-                        slug, 
-                        headline,
-                        "I am a 20-year veteran web developer specializing in the <a href='https://open.edx.org/' target='_blank' rel='noopener noreferrer'>Open edX® platform</a>. Thousands of organizations around the world have used my <a href='https://blog.lawrencemcdaniel.com/category/open-edx/' target='_blank' rel='noopener noreferrer'>Open edX® blog articles</a> to turn their online education vision into reality. In fact, my how-to guides and tutorials on <a href='https://blog.lawrencemcdaniel.com/open-edx-installation/' target='_blank' rel='noopener noreferrer'>production installation</a>, <a href='https://blog.lawrencemcdaniel.com/scaling-open-edx/' target='_blank' rel='noopener noreferrer'>platform scaling</a>, <a href='https://blog.lawrencemcdaniel.com/open-edx-custom-theming-tutorial/' target='_blank' rel='noopener noreferrer'>custom theming</a>, and <a href='https://blog.lawrencemcdaniel.com/open-edx-configuration-tutorial/' target='_blank' rel='noopener noreferrer'>configuration</a> have been viewed more than fifty thousand times.", 
-                        "",
-                        "",
-                        graphExtraData
-                    ))}</script>
+                    <script type="application/ld+json">{JSON.stringify(gsdGraph(slug, headline, webpageDescription, primaryImageUrl, pageType, relatedLink, graphExtraData))}</script>
                 </Helmet>
                 <div key="openedx-page" className="site-page openedx-page">
                     <RenderPageTitle theme="light" icon="fa-align-left" title="Open edX®" boxed_title="Consulting" />

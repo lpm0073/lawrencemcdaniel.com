@@ -37,22 +37,22 @@ export const sameAs = [
     "http://geek.ly/lmcdaniel"
 ]
 
+export const primarySiteImage = imageObject("https://cdn.lawrencemcdaniel.com/wp-content/uploads/2019/10/01135455/Lawrence1.jpg", 500, 381);
 export const brandLawrenceMcDaniel = {
    "@context":"https://schema.org/",
    "type":"Brand",
    "@id":baseUrl+"/#brand",
-   "logo":imageObject("https://cdn.lawrencemcdaniel.com/wp-content/uploads/2019/10/01135455/Lawrence1.jpg", 500, 381),
+   "logo":primarySiteImage,
    "name":nameLawrenceMcDaniel,
    "url":baseUrl+"/"
 }
 
-export const primarySiteImage = imageObject("https://cdn.lawrencemcdaniel.com/social-1200x675.jpg", 1200, 675);
 export const imagesLawrenceMcDaniel = [
    primarySiteImage,
-   imageObject("https://cdn.lawrencemcdaniel.com/", 512, 512),
+   imageObject("https://cdn.lawrencemcdaniel.com", 512, 512),
+   imageObject("https://cdn.lawrencemcdaniel.com/social-1200x675.jpg", 1200, 675),
    imageObject("https://cdn.lawrencemcdaniel.com/wp-content/uploads/2020/06/05201857/Lawrence6.jpg", 1600, 1084),
    imageObject("https://cdn.lawrencemcdaniel.com/wp-content/uploads/2020/06/05201305/Lawrence21.jpg", 1600, 1067),
-   imageObject("https://cdn.lawrencemcdaniel.com/wp-content/uploads/2019/10/01135455/Lawrence1.jpg", 500, 381),
    imageObject("https://cdn.lawrencemcdaniel.com/wp-content/uploads/2014/09/22195642/Lawrence19.jpg", 338, 500),
    imageObject("https://cdn.lawrencemcdaniel.com/wp-content/uploads/2020/06/05220017/lawrence-mcdaniel-portrait.jpg", 387,600),
    imageObject("https://cdn.lawrencemcdaniel.com/wp-content/uploads/2014/09/22195700/Lawrence-McDaniel-freelancer.jpg", 750, 706),

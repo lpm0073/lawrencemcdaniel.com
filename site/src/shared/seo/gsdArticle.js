@@ -1,5 +1,4 @@
 import { baseUrl, datePublished, dateModified, primarySiteImage } from './gsdCommon';
-import { gsdPersonLawrenceMcDaniel } from './gsdPersonLawrence';
 
 export const gsdArticle = (slug, headline) => {
 
@@ -19,7 +18,7 @@ export const gsdArticle = (slug, headline) => {
            "@id":baseUrl+"/"+slug+"/#webpage"
         },
         "commentCount":0,
-        "publisher":gsdPersonLawrenceMcDaniel,
+        "publisher":baseUrl+"/#me",
         "image":primarySiteImage,
         "articleSection":slug,
         "inLanguage":"en-US"

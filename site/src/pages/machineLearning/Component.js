@@ -4,6 +4,7 @@ import SpecialtiesBanner from './machinelearningBanner';
 import {Helmet} from "react-helmet";
 import { gsdGraph } from '../../shared/seo/gsdGraph';
 import { gsdPersonLawrenceMcDaniel } from '../../shared/seo/gsdPersonLawrence';
+import { gsdArticle } from '../../shared/seo/gsdArticle';
 
 import './styles.css';
 
@@ -16,7 +17,7 @@ const MachineLearning = (props) => {
         const primaryImageUrl = "";
         const pageType = "";
         const relatedLink = "";
-        const graphExtraData = [gsdPersonLawrenceMcDaniel(false, false, props)];
+        const graphExtraData = [gsdPersonLawrenceMcDaniel(false, false, props), gsdArticle(slug, webpageName)];
 
         return(
             <React.Fragment>

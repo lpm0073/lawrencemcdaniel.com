@@ -1,21 +1,6 @@
 import { primarySiteImage } from './gsdCommon';
 import {datePublished, dateModified, baseUrl, nameLawrenceMcDaniel} from './gsdCommon';
 
-/*
-More specific Types
-AboutPage
-ContactPage
-FAQPage
-ItemPage
-ProfilePage
-
-QAPage
-CheckoutPage
-CollectionPage
-MedicalWebPage
-RealEstateListing
-SearchResultsPage
- */
 const pageTypes = (pageType) => {
 
    if (pageType !== "") return ["WebPage", pageType];
@@ -31,29 +16,27 @@ const pageImage = (imageUrl, url) => {
    if (imageUrl !== "") return {
       "@type":"ImageObject",
       "url":imageUrl
-    }
+    };
    return primarySiteImage;
 }
 
-export const gsdGraph = (slug, webpageName, webpageDescription, primaryImageUrl="", pageType="", relatedLink="", extraData=[]) => {
-
-
-   const retVal = {
-   "@context":"https://schema.org",
-   "@graph":[
-      {
-         "@type":"WebSite",
-         "@id":baseUrl+"/#website",
-         "url":baseUrl+"/",
-         "name":nameLawrenceMcDaniel,
-         "description":"Personal web site",
-         "publisher":{
-            "@id":baseUrl+"#me"
-         },
-         "inLanguage":"en-US"
+const webSite = () => {
+   return       {
+      "@type":"WebSite",
+      "@id":baseUrl+"/#website",
+      "url":baseUrl+"/",
+      "name":nameLawrenceMcDaniel,
+      "description":"Personal web site",
+      "publisher":{
+         "@id":baseUrl+"#me"
       },
-      pageImage(primaryImageUrl, primarySiteImage),
-     {
+      "inLanguage":"en-US"
+   };
+}
+
+const webPage = (pageType, slug, webpageDescription, relatedLink, primaryImageUrl) => {
+
+      return {
          "@type":pageTypes(pageType),
          "@id":baseUrl+"/"+slug+"/#webpage",
          "url":baseUrl+"/"+slug+"/",
@@ -78,46 +61,48 @@ export const gsdGraph = (slug, webpageName, webpageDescription, primaryImageUrl=
                ]
             }
          ]
-      },
-      {
-         "@type":"BreadcrumbList",
-         "@id":baseUrl+"/"+slug+"/#breadcrumb",
-         "itemListElement":[
-            {
-               "@type":"ListItem",
-               "position":1,
-               "item":{
-                  "@type":"WebPage",
-                  "@id":baseUrl+"/",
-                  "url":baseUrl+"/",
-                  "name":"Home"
-               }
-            },
-            {
-               "@type":"ListItem",
-               "position":2,
-               "item":{
-                  "@type":"WebPage",
-                  "@id":baseUrl+"/home/",
-                  "url":baseUrl+"/home/",
-                  "name":"Home"
-               }
-            },
-            {
-               "@type":"ListItem",
-               "position":3,
-               "item":{
-                  "@type":"WebPage",
-                  "@id":baseUrl+"/"+slug+"/",
-                  "url":baseUrl+"/"+slug+"/",
-                  "name":pageName(webpageName)
-               }
-            }
-         ].concat(extraData)
-      }
-   ]
-   };
+      };
+}
 
-   return retVal;
+const listItem = (position, slug, itemName) => {
+
+      return {
+         "@type":"ListItem",
+         "position":position,
+         "item":{
+            "@type":"WebPage",
+            "@id":baseUrl+"/"+slug+"/",
+            "url":baseUrl+"/"+slug+"/",
+            "name":itemName
+         }
+      };
+}
+
+const breadcrumbList = (slug, webpageName) => {
+
+   var itemListElement = [
+      listItem(1, "", "Home"),
+      listItem(2, "home", "Home")
+   ];
+   if (slug !== "home") itemListElement.push(listItem(3, slug, pageName(webpageName)));
+
+   return {
+      "@type":"BreadcrumbList",
+      "@id":baseUrl+"/"+slug+"/#breadcrumb",
+      "itemListElement":itemListElement
+   };
+}
+
+export const gsdGraph = (slug, webpageName, webpageDescription, primaryImageUrl="", pageType="", relatedLink="", extraData=[]) => {
+
+   return {
+      "@context":"https://schema.org",
+      "@graph":extraData.concat([
+         webSite(),
+         pageImage(primaryImageUrl, primarySiteImage),
+         webPage(pageType, slug, webpageDescription, relatedLink, primaryImageUrl),
+         breadcrumbList(slug, webpageName),
+      ])
+   };
 
 }
