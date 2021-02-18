@@ -71,7 +71,7 @@ export const gsdGraph = (slug, webpageName, webpageDescription, primaryImageUrl=
          "datePublished":datePublished,
          "dateModified":dateModified,
          "description":webpageDescription,
-         "relatedLink":"",
+         "relatedLink":relatedLink,
          "breadcrumb":{
             "@id":baseUrl+"/"+slug+"/#breadcrumb"
          },

@@ -1,6 +1,6 @@
 import { gsdQualifications } from './gsdQualifications';
 import { gsdKnowsAbout } from './gsdKnowsAbout';
-import { sameAs, imagesLawrenceMcDaniel, brandLawrenceMcDaniel, nameLawrenceMcDaniel } from './gsdCommon';
+import { sameAs, imagesLawrenceMcDaniel, brandLawrenceMcDaniel, nameLawrenceMcDaniel, lastReviewed } from './gsdCommon';
 import {hourlyRate} from './gsdCommon';
 
 const knowsAbout = (includeExtraData = false, props = null) => {
@@ -25,7 +25,7 @@ const hasOccupation = (includeExtraData = false) => {
       "mainEntityOfPage":{
          "@type":"WebPage",
          "@id":"https://lawrencemcdaniel.com/",
-         "lastReviewed":"2021-02-14"
+         "lastReviewed":lastReviewed
       },
       "description":"I’m an American full stack developer with significant experience with classic backend stacks and front-end frameworks including Django, React, Angular, and WordPress. I also work extensively with the Open edX® learning management system. I am a veteran of multiple startups and early-stage ventures with dozens of successful product launches in multiple industries and markets around the world. I advocate for open source, try to keep things DRY and well-documented and when possible I adhere to the principals of 12-factor development. I’m a passionate learner and frequent blogger, currently interested in machine learning, AI and quantum computing.",
       "estimatedSalary":{
