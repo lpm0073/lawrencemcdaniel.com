@@ -1,5 +1,6 @@
+import {baseUrl} from './gsdCommon';
+
 const d = new Date();
-const baseUrl = "https://lawrencemcdaniel.com";
 const datePublished = '2017-01-15';
 const dateModified = d.toISOString();
 

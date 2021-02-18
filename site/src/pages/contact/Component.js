@@ -19,7 +19,8 @@ class Contact extends Component {
                         "Contact Information",
                         "Lawrence McDaniel contact information.", 
                         "",
-                        "ContactPage"
+                        "ContactPage",
+                        "https://goo.gl/maps/k3d8mHKCmpbZxu6D6"
                     ))}</script>
                 </Helmet>
                 <div key="contact-page" className="site-page contact-page">

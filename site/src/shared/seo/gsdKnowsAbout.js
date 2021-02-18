@@ -3,6 +3,7 @@
    Appended to Organization object for Skills and Specialties pages.
  */
 import { wpGetFeaturedImage } from '../wpGetFeaturedImage';
+import {datePublished, nameLawrenceMcDaniel} from './gsdCommon';
 
 export const gsdKnowsAbout = (props) => {
 
@@ -32,8 +33,8 @@ export const gsdKnowsAbout = (props) => {
                     "review":[
                        {
                           "@type":"Review",
-                          "author":"Lawrence McDaniel",
-                          "datePublished":"2021-02-14",
+                          "author":nameLawrenceMcDaniel,
+                          "datePublished":datePublished,
                           "name":"Review by Lawrence",
                           "reviewBody":"My self review of this product.",
                           "reviewRating":{

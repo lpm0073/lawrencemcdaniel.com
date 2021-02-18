@@ -1,6 +1,7 @@
 import { gsdQualifications } from './gsdQualifications';
 import { gsdKnowsAbout } from './gsdKnowsAbout';
-import { sameAs, imagesLawrenceMcDaniel, brandLawrenceMcDaniel } from './gsdCommon';
+import { sameAs, imagesLawrenceMcDaniel, brandLawrenceMcDaniel, nameLawrenceMcDaniel } from './gsdCommon';
+import {hourlyRate} from './gsdCommon';
 
 const knowsAbout = (includeExtraData = false, props = null) => {
   
@@ -31,11 +32,11 @@ const hasOccupation = (includeExtraData = false) => {
          "@type":"MonetaryAmountDistribution",
          "name":"base",
          "currency":"USD",
-         "median":75.00,
-         "percentile10":75.00,
-         "percentile25":75.00,
-         "percentile75":75.00,
-         "percentile90":75.00,
+         "median":hourlyRate,
+         "percentile10":hourlyRate,
+         "percentile25":hourlyRate,
+         "percentile75":hourlyRate,
+         "percentile90":hourlyRate,
          "duration":"PT1H"
       },
       "occupationLocation":[
@@ -54,6 +55,15 @@ const hasOccupation = (includeExtraData = false) => {
    return {}
 }
 
+const subjectOf = (url) => {
+   return {
+      "@context":"https://schema.org/",
+      "@type":"Url",
+      "@id": url+"#news-article",
+      "url":url
+   };
+}
+
 export const gsdPersonLawrenceMcDaniel = (includeEducation = false, includeTechnologoes = false, props) => {
 
    const retVal = {
@@ -68,8 +78,8 @@ export const gsdPersonLawrenceMcDaniel = (includeEducation = false, includeTechn
       "email":"mailto:lpm0073@gmail.com",
       "familyName":"McDaniel",
       "givenName":"Lawrence",
-      "name":"Lawrence McDaniel",
-      "description":"Personal web site for Lawrence McDaniel",
+      "name":nameLawrenceMcDaniel,
+      "description":"Personal web site for "+nameLawrenceMcDaniel,
       "jobTitle":"Full Stack Developer",
       "telephone":"+1 (617) 834-6172",
       "url":"https://lawrencemcdaniel.com",
@@ -104,12 +114,12 @@ export const gsdPersonLawrenceMcDaniel = (includeEducation = false, includeTechn
          }
       ],
       "subjectOf":[
-         "https://iblnews.org/installing-and-deploying-an-open-edx-instance-a-view-of-developer-and-author-mcdaniel/",
-         "https://opensource.com/user_articles/224351",
-         "https://opensource.com/article/18/6/getting-started-open-edx",
-         "https://open.edx.org/marketplace/lawrence-mcdaniel/",
-         "https://openedx2018.sched.com/lpm0073",
-         "http://geek.ly/lmcdaniel"
+         subjectOf("https://iblnews.org/installing-and-deploying-an-open-edx-instance-a-view-of-developer-and-author-mcdaniel/"),
+         subjectOf("https://opensource.com/user_articles/224351"),
+         subjectOf("https://opensource.com/article/18/6/getting-started-open-edx"),
+         subjectOf("https://open.edx.org/marketplace/lawrence-mcdaniel/"),
+         subjectOf("https://openedx2018.sched.com/lpm0073"),
+         subjectOf("http://geek.ly/lmcdaniel")
       ],
       "knowsLanguage":[
          {

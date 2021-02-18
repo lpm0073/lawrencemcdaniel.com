@@ -6,11 +6,13 @@ import {Helmet} from "react-helmet";
 import { gsdServiceOpenedX } from '../../shared/seo/gsdServiceOpenedx';
 import { gsdFAQ } from '../../shared/seo/gsdFAQ';
 import { gsdGraph } from '../../shared/seo/gsdGraph';
+import { nameLawrenceMcDaniel} from '../../shared/seo/gsdCommon';
 import './styles.css';
 
 import Accordion from 'react-bootstrap/Accordion';
 import Card from 'react-bootstrap/Card';
 
+const baseTitle = nameLawrenceMcDaniel + " - Open edX® Consultant";
 
 const Openedx = (props) => {
 
@@ -24,12 +26,12 @@ const Openedx = (props) => {
                     <meta name="keywords"  content="Lawrence McDaniel, open edx, open edx consulting, open edx service providers, open edx installation, open edx configuration, open edx customization, open edx training, open edx support, open edx documentation, consultations, free quotations, free consultations, lti integration. oauth, SAML" />
 
                     <meta property="og:description" content="Free initial consultation. Turnkey installation, configuration, theming, customization, systems integration, LTI integration, custom oAuth, and support of the Open edX® Learning Management System." />
-                    <meta property="og:title" content="Lawrence McDaniel - Open edX® Consultant" />
-                    <meta property="og:site_name" content="Lawrence McDaniel - Open edX® Consultant" />
+                    <meta property="og:title" content={nameLawrenceMcDaniel} />
+                    <meta property="og:site_name" content={nameLawrenceMcDaniel} />
                     <meta property="og:url" content="https://lawrencemcdaniel.com/openedx" />
 
-                    <meta name="twitter:title" content="Lawrence McDaniel - Open edX® Consultant" />
-                    <meta name="twitter:description" content="Lawrence McDaniel - Open edX® Consultant" />
+                    <meta name="twitter:title" content={nameLawrenceMcDaniel} />
+                    <meta name="twitter:description" content={nameLawrenceMcDaniel} />
 
                     {/* 
                         Google structured data: https://developers.google.com/search/docs/guides/intro-structured-data

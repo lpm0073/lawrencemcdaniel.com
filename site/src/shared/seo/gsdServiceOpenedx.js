@@ -1,7 +1,7 @@
 import {convertToSlug} from '../slug';
 import { brandLawrenceMcDaniel } from './gsdCommon';
+import {datePublished, hourlyRate, nameLawrenceMcDaniel} from './gsdCommon';
 
-const hourlyRate = 75.00
 const itemOffer = (name, description="") => {
 
    return {
@@ -27,7 +27,7 @@ const itemOffer = (name, description="") => {
 const subjectOf = (url) => {
    return {
       "@context":"https://schema.org/",
-      "@type":"TechArticle",
+      "@type":"Url",
       "@id": url+"#tech-article",
       "url":url,
       "mainEntity":"https://open.edx.org/"
@@ -67,8 +67,8 @@ export const gsdServiceOpenedX = {
      "review":[
       {
          "@type":"Review",
-         "author":"Lawrence McDaniel",
-         "datePublished":"2021-02-14",
+         "author":nameLawrenceMcDaniel,
+         "datePublished":datePublished,
          "name":"Review by Lawrence",
          "reviewBody":"My self review of this product.",
          "reviewRating":{

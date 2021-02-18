@@ -1,3 +1,5 @@
+import {datePublished, dateModified} from './gsdCommon';
+
 const question = (q, a) => {
 
     return {
@@ -24,8 +26,8 @@ export const gsdFAQ = {
           "caption":"Open edX Instllation Banner"
         },
         "lastReviewed": "2021-02-15",
-        "dateModified":"2021-02-15",
-        "datePublished":"2021-02-15",
+        "dateModified":dateModified,
+        "datePublished":datePublished,
         "about":"Open edX",
         "author":{
           "@id":"https://lawrencemcdaniel.com/#me"

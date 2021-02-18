@@ -1,5 +1,15 @@
+const d = new Date();
+
+
+export const baseUrl = "https://lawrencemcdaniel.com";
+export const nameLawrenceMcDaniel = "Lawrence McDaniel";
+export const baseTitle = "Full Stack Developer";
+export const basePageTitle = nameLawrenceMcDaniel + " - " + baseTitle;
+export const datePublished = '2017-01-15';
+export const dateModified = d.toISOString();
+export const hourlyRate = 75.00
+
 export const sameAs = [
-    "https://lawrencemcdaniel.com/",
     "https://blog.lawrencemcdaniel.com/",
     "https://www.linkedin.com/in/lawrencemcdaniel/",
     "https://www.facebook.com/lawrence.p.mcdaniel",
@@ -14,24 +24,24 @@ export const sameAs = [
  export const brandLawrenceMcDaniel = {
    "@context":"https://schema.org/",
    "type":"Brand",
-   "@id":"https://lawrencemcdaniel.com/#brand",
+   "@id":baseUrl+"/#brand",
    "logo":"https://cdn.lawrencemcdaniel.com/",
-   "name":"Lawrence McDaniel",
-   "url":"https://lawrencemcdaniel.com/",
+   "name":nameLawrenceMcDaniel,
+   "url":baseUrl+"/",
    "sameAs":sameAs
 }
 
 export const primarySiteImage = {
     "@context":"https://schema.org/",
     "@type":"ImageObject",
-     "@id":"https://lawrencemcdaniel.com/#primarySiteImage",
+     "@id":baseUrl+"/#primarySiteImage",
      "author":"Barry Wolfryd",
      "creator":"Barry Wolfryd",
      "contentLocation":"Colonia Roma Norte, CDMX, Mexico",
      "locationCreated":"Colonia Roma Norte, CDMX, Mexico",
      "discussionUrl":"https://www.barrywolfryd.com/",
      "contentUrl":"https://cdn.lawrencemcdaniel.com/social-1200x675.jpg",
-     "caption":"Lawrence McDaniel",
+     "caption":nameLawrenceMcDaniel,
      "url":"https://cdn.lawrencemcdaniel.com/social-1200x675.jpg",
      "width":1200,
      "height":675,
@@ -40,14 +50,14 @@ export const primarySiteImage = {
      "copyrightYear":"2017",
      "mainEntityOfPage":{
         "@type":"WebPage",
-        "@id":"https://lawrencemcdaniel.com/",
+        "@id":baseUrl+"/",
         "lastReviewed":"2021-02-14"
      },
      "keywords":"Lawrence McDaniel, Barry Wolfryd photography, Roma Norte, CDMX",
      "description":"Barry Wolfryd did a series of these for an article I wrote in geek.ly",
      "about":"Barry Wolfryd did a series of these for an article I wrote in geek.ly",
      "comment":"Barry Wolfryd did a series of these for an article I wrote in geek.ly",
-     "name":"Lawrence McDaniel"
+     "name":nameLawrenceMcDaniel
   }
 
   export const imagesLawrenceMcDaniel = [
@@ -58,7 +68,7 @@ export const primarySiteImage = {
       "url":"https://cdn.lawrencemcdaniel.com/",
       "width":512,
       "height":512,
-      "caption":"Lawrence McDaniel"
+      "caption":nameLawrenceMcDaniel
    },         
    {
    "@type":"ImageObject",
@@ -66,6 +76,6 @@ export const primarySiteImage = {
    "url":"https://cdn-blog.lawrencemcdaniel.com/wp-content/uploads/2018/01/22125438/Lawrence19.jpg",
    "width":338,
    "height":500,
-   "caption":"Lawrence McDaniel"
+   "caption":nameLawrenceMcDaniel
    }
 ]

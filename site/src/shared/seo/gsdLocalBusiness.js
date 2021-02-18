@@ -1,4 +1,4 @@
-import { brandLawrenceMcDaniel, imagesLawrenceMcDaniel } from './gsdCommon';
+import { brandLawrenceMcDaniel, imagesLawrenceMcDaniel, basePageTitle } from './gsdCommon';
 
 /* DEPRECATE???? */
 export const gsdLocalBusinessLawrenceMcDaniel = (includeExtraData = false) =>  {
@@ -10,7 +10,7 @@ export const gsdLocalBusinessLawrenceMcDaniel = (includeExtraData = false) =>  {
     "image": imagesLawrenceMcDaniel,
     "@id": "https://lawrencemcdaniel.com/#business",
     "brand": brandLawrenceMcDaniel,
-    "name": "Lawrence McDaniel - Full Stack Developer",
+    "name": basePageTitle,
     "priceRange":"$$",
     "employee":[
       {

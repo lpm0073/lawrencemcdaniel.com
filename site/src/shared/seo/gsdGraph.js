@@ -1,10 +1,5 @@
 import { primarySiteImage } from './gsdCommon';
-
-const d = new Date();
-const baseUrl = "https://lawrencemcdaniel.com";
-const basePageName = "Lawrence McDaniel";
-const datePublished = '2017-01-15';
-const dateModified = d.toISOString();
+import {datePublished, dateModified, baseUrl, nameLawrenceMcDaniel} from './gsdCommon';
 
 /*
 More specific Types
@@ -28,7 +23,7 @@ const pageTypes = (pageType) => {
 } 
 
 const pageName = (webpageName) => {
-   return basePageName + " - " + webpageName
+   return nameLawrenceMcDaniel + " - " + webpageName
 }
 
 const pageImage = (imageUrl, url) => {
@@ -40,7 +35,7 @@ const pageImage = (imageUrl, url) => {
    return primarySiteImage;
 }
 
-export const gsdGraph = (slug, webpageName, webpageDescription, primaryImageUrl="", pageType="") => {
+export const gsdGraph = (slug, webpageName, webpageDescription, primaryImageUrl="", pageType="", relatedLink="") => {
 
 
    return {
@@ -57,7 +52,7 @@ export const gsdGraph = (slug, webpageName, webpageDescription, primaryImageUrl=
          "@type":"WebSite",
          "@id":baseUrl+"/#website",
          "url":baseUrl+"/",
-         "name":"Lawrence McDaniel",
+         "name":nameLawrenceMcDaniel,
          "description":"Personal web site",
          "publisher":{
             "@id":baseUrl+"#me"
@@ -68,7 +63,7 @@ export const gsdGraph = (slug, webpageName, webpageDescription, primaryImageUrl=
          "@type":pageTypes(pageType),
          "@id":baseUrl+"/"+slug+"/#webpage",
          "url":baseUrl+"/"+slug+"/",
-         "name":"Lawrence McDaniel",
+         "name":nameLawrenceMcDaniel,
          "isPartOf":{
             "@id":baseUrl+"/#website"
          },
@@ -76,6 +71,7 @@ export const gsdGraph = (slug, webpageName, webpageDescription, primaryImageUrl=
          "datePublished":datePublished,
          "dateModified":dateModified,
          "description":webpageDescription,
+         "relatedLink":"",
          "breadcrumb":{
             "@id":baseUrl+"/"+slug+"/#breadcrumb"
          },

@@ -1,13 +1,14 @@
 import React from 'react';
 import {Helmet} from "react-helmet";
 import { titleCase } from '../../shared/titleCase';
+import { nameLawrenceMcDaniel } from '../../shared/seo/gsdCommon';
 import './styles.css';
 
 const RenderPageTitle = (props) => {
 
     const iconClasses = "fa " + props.icon + " fa-2x page-tile-icon";
     const pageClasses = "col-12 page-title " + props.theme;
-    const titleText = "Lawrence McDaniel - " + titleCase(props.title) + " " + titleCase(props.boxed_title)
+    const titleText = nameLawrenceMcDaniel + " - " + titleCase(props.title) + " " + titleCase(props.boxed_title)
 
     return(
         <React.Fragment>
