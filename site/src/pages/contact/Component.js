@@ -16,7 +16,7 @@ class Contact extends Component {
         const webpageName = "Contact";
         const webpageDescription = "Lawrence McDaniel contact information.";
         const primaryImageUrl = "";
-        const pageType = "";
+        const pageType = "ContactPage";
         const relatedLink = "";
         const graphExtraData = [gsdPersonLawrenceMcDaniel(false, false, this.props)];
 

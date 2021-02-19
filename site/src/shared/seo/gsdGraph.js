@@ -67,7 +67,7 @@ const webPage = (pageType, slug, webpageName, webpageDescription, relatedLink, p
       };
 }
 
-const listItem = (position, slug, itemName) => {
+const listItem = (position, slug, itemName, pageType="WebPage") => {
 
    var listItemUrl = baseUrl+"/"+slug+"/";
    if (slug === "") listItemUrl = baseUrl+"/";
@@ -76,7 +76,7 @@ const listItem = (position, slug, itemName) => {
       "@type":"ListItem",
       "position":position,
       "item":{
-         "@type":"WebPage",
+         "@type":pageType,
          "@id":listItemUrl,
          "url":listItemUrl,
          "name":itemName
@@ -84,13 +84,13 @@ const listItem = (position, slug, itemName) => {
    };
 }
 
-const breadcrumbList = (slug, webpageName) => {
+const breadcrumbList = (slug, webpageName, pageType) => {
 
    var itemListElement = [
       listItem(1, "", "Home"),
       listItem(2, "home", "Home")
    ];
-   if (slug !== "home") itemListElement.push(listItem(3, slug, pageName(webpageName)));
+   if (slug !== "home") itemListElement.push(listItem(3, slug, pageName(webpageName), pageType));
 
    return {
       "@type":"BreadcrumbList",
@@ -99,6 +99,10 @@ const breadcrumbList = (slug, webpageName) => {
    };
 }
 
+/*
+   This is the main entry point for adding Google Structured Data
+   to the <head> of a page.
+ */
 export const gsdGraph = (slug, webpageName, webpageDescription, primaryImageUrl="", pageType="", relatedLink="", extraData=[]) => {
 
    return {
@@ -107,7 +111,7 @@ export const gsdGraph = (slug, webpageName, webpageDescription, primaryImageUrl=
          webSite(),
          pageImage(primaryImageUrl),
          webPage(pageType, slug, webpageName, webpageDescription, relatedLink, primaryImageUrl),
-         breadcrumbList(slug, webpageName),
+         breadcrumbList(slug, webpageName, pageType),
       ])
    };
 
