@@ -4,19 +4,25 @@ import SpecialtiesBanner from './specialtiesBanner';
 import TechnologyCarousel from './technologyCarousel';
 import {Helmet} from "react-helmet";
 import { gsdPersonLawrenceMcDaniel } from '../../shared/seo/gsdPersonLawrence';
+import { gsdKnowsAbout } from '../../shared/seo/gsdKnowsAbout';
+
 import { gsdGraph } from '../../shared/seo/gsdGraph';
 import './styles.css';
 
 
 const Specialties = (props) => {
     /* Google Structured Data */
+    const specialties = gsdPersonLawrenceMcDaniel.push({
+        "key":"knowsAbout",
+        "value":gsdKnowsAbout
+    })
     const slug = "specialties";
     const webpageName = "Specialties";
     const webpageDescription = "Lawrence McDaniel's technical skills";
     const primaryImageUrl = "";
     const pageType = "";
     const relatedLink = "";
-    const graphExtraData = [gsdPersonLawrenceMcDaniel(false, true, false, props)];
+    const graphExtraData = [specialties];
 
     return(
         <React.Fragment>

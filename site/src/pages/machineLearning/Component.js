@@ -18,7 +18,7 @@ const MachineLearning = (props) => {
         const primaryImageUrl = "";
         const pageType = "";
         const relatedLink = "";
-        const graphExtraData = [gsdPersonLawrenceMcDaniel(false, false, false, props), gsdArticle(slug, webpageName)];
+        const graphExtraData = [gsdPersonLawrenceMcDaniel, gsdArticle(slug, webpageName)];
 
         return(
             <React.Fragment>

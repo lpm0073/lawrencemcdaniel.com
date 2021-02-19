@@ -23,7 +23,7 @@ const Openedx = (props) => {
         const primaryImageUrl = "";
         const pageType = "";
         const relatedLink = "";
-        const graphExtraData = [gsdPersonLawrenceMcDaniel(false, false, false, props), gsdArticle(slug, headline), gsdServiceOpenedX, gsdFAQ];
+        const graphExtraData = [gsdPersonLawrenceMcDaniel, gsdArticle(slug, headline), gsdServiceOpenedX, gsdFAQ];
 
         return(
             <div>

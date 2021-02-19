@@ -20,7 +20,7 @@ const Bio = (props) => {
     const primaryImageUrl = "";
     const pageType = "";
     const relatedLink = "";
-    const graphExtraData = [gsdPersonLawrenceMcDaniel(false, false, true, props)];
+    const graphExtraData = [gsdPersonLawrenceMcDaniel];
 
     return(
         <React.Fragment>

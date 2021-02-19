@@ -3,6 +3,8 @@ import RenderPageTitle from '../../components/pagetitle/pageTitleComponent';
 import CoursesGrid from './coursesGrid';
 import {Helmet} from "react-helmet";
 import { gsdPersonLawrenceMcDaniel } from '../../shared/seo/gsdPersonLawrence';
+import { hasOccupation } from '../../shared/seo/gsdPersonLawrence';
+
 import { gsdGraph } from '../../shared/seo/gsdGraph';
 import './styles.css';
 
@@ -10,13 +12,19 @@ import './styles.css';
 const Education = (props) => {
 
     /* Google Structured Data */
+    var person = gsdPersonLawrenceMcDaniel.push({
+        key: "hasOccupation",
+        value: hasOccupation
+    })
+    
+
     const slug = "education";
     const webpageName = "Eduction";
     const webpageDescription = "Lawrence McDaniel educational background and courses completed.";
     const primaryImageUrl = "";
     const pageType = "";
     const relatedLink = "";
-    const graphExtraData = [gsdPersonLawrenceMcDaniel(true, false, false, props)];
+    const graphExtraData = [person];
 
     return(
         <React.Fragment>

@@ -1,23 +1,10 @@
-import { gsdQualifications } from './gsdQualifications';
-import { gsdKnowsAbout } from './gsdKnowsAbout';
-import { baseUrl, sameAs, imagesLawrenceMcDaniel, brandLawrenceMcDaniel, nameLawrenceMcDaniel, lastReviewed, brandLogo, baseTitle} from './gsdCommon';
+import { baseUrl, sameAs, imagesLawrenceMcDaniel, brandLawrenceMcDaniel, nameLawrenceMcDaniel, lastReviewed, baseTitle} from './gsdCommon';
+import {gsdQualifications} from './gsdQualifications';
 import {hourlyRate} from './gsdCommon';
 
-const knowsAbout = (includeExtraData = false, props = null) => {
-  
-   if (!props || !includeExtraData) return [];
-   if (includeExtraData) return gsdKnowsAbout(props);
- }
- 
-const qualifications = (includeExtraData = false) => {
 
-   if (includeExtraData) return gsdQualifications;
-   return [];
-}
+export const hasOccupation = {
 
-const hasOccupation = (includeExtraData = false) => {
-
-   const retVal = {
       "@context":"https://schema.org/",
       "@type":"Occupation",
       "additionalType": "https://www.wikidata.org/wiki/Q96072517",
@@ -49,11 +36,8 @@ const hasOccupation = (includeExtraData = false) => {
             "name":"Mexico City"
          }
       ],
-      "qualifications":qualifications(includeExtraData)
+      "qualifications":gsdQualifications
    }
-   if (includeExtraData) return retVal;
-   return {}
-}
 
 const subjectOf = (url) => {
    return {
@@ -64,7 +48,7 @@ const subjectOf = (url) => {
    };
 }
 
-const personExtraData =  {
+export const personExtraData =  {
       "logo":{
          "@id":baseUrl+"/#logo"
       },
@@ -120,9 +104,8 @@ const personExtraData =  {
       ]
 }
 
-export const gsdPersonLawrenceMcDaniel = (includeEducation = false, includeTechnologies = false, includeExtraData=false, props) => {
+export const gsdPersonLawrenceMcDaniel = {
 
-   const retVal = {
       "@context":"https://schema.org/",
       "@type":[
          "Person",
@@ -137,10 +120,5 @@ export const gsdPersonLawrenceMcDaniel = (includeEducation = false, includeTechn
       "url":"https://lawrencemcdaniel.com",
       "sameAs":sameAs,
       "image":imagesLawrenceMcDaniel,
-      "hasOccupation": hasOccupation(includeEducation),
-      "knowsAbout": knowsAbout(includeTechnologies, props)
-   }
-   if (includeExtraData) return {...retVal, ...personExtraData}
-   return retVal;
 
 }

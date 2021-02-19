@@ -18,7 +18,7 @@ class Contact extends Component {
         const primaryImageUrl = "";
         const pageType = "ContactPage";
         const relatedLink = "";
-        const graphExtraData = [gsdPersonLawrenceMcDaniel(false, false, false, this.props)];
+        const graphExtraData = [gsdPersonLawrenceMcDaniel];
 
         return(
             <React.Fragment>
