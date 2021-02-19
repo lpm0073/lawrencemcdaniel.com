@@ -21,7 +21,7 @@ const Clients = (props) => {
     return(
         <React.Fragment>
             <Helmet>
-                <link rel="canonical" href="https://lawrencemcdaniel.com/clients" />
+                <link rel="canonical" href="https://lawrencemcdaniel.com/clients/" />
                 <script type="application/ld+json">{JSON.stringify(gsdGraph(slug, webpageName, webpageDescription, primaryImageUrl, pageType, relatedLink, graphExtraData))}</script>
             </Helmet>
             <div key="client-page" className="recommendations-page">

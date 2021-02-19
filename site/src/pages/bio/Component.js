@@ -25,7 +25,7 @@ const Bio = (props) => {
     return(
         <React.Fragment>
             <Helmet>
-                <link rel="canonical" href="https://lawrencemcdaniel.com/bio" />
+                <link rel="canonical" href="https://lawrencemcdaniel.com/bio/" />
                 <script type="application/ld+json">{JSON.stringify(gsdGraph(slug, webpageName, webpageDescription, primaryImageUrl, pageType, relatedLink, graphExtraData))}</script>
             </Helmet>
             <div key="bio-page" className="site-page bio-page">

@@ -38,6 +38,7 @@ class Home extends Component {
         return(
                 <React.Fragment>
                     <Helmet>
+                    <link rel="canonical" href="https://lawrencemcdaniel.com/home/" />
                         <script type="application/ld+json">{JSON.stringify(gsdGraph(slug, webpageName, webpageDescription, primaryImageUrl, pageType, relatedLink, graphExtraData))}</script>
                     </Helmet>
                     <div key="home-page" className="jumbotron dark-background">

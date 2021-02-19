@@ -29,7 +29,7 @@ const Openedx = (props) => {
             <div>
                 <Helmet>
                     <title>Open edX Consultant</title>
-                    <link rel="canonical" href="https://lawrencemcdaniel.com/openedx" />
+                    <link rel="canonical" href="https://lawrencemcdaniel.com/openedx/" />
 
                     <meta name="description" content="Free initial consultation. Turnkey installation, configuration, theming, customization, systems integration, LTI integration, custom oAuth, and support of the Open edX® Learning Management System." />
                     <meta name="keywords"  content="Lawrence McDaniel, open edx, open edx consulting, open edx service providers, open edx installation, open edx configuration, open edx customization, open edx training, open edx support, open edx documentation, consultations, free quotations, free consultations, lti integration. oauth, SAML" />

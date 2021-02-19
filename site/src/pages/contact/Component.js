@@ -23,7 +23,7 @@ class Contact extends Component {
         return(
             <React.Fragment>
                 <Helmet>
-                    <link rel="canonical" href="https://lawrencemcdaniel.com/contact" />
+                    <link rel="canonical" href="https://lawrencemcdaniel.com/contact/" />
                     <script type="application/ld+json">{JSON.stringify(gsdGraph(slug, webpageName, webpageDescription, primaryImageUrl, pageType, relatedLink, graphExtraData))}</script>
                 </Helmet>
                 <div key="contact-page" className="site-page contact-page">

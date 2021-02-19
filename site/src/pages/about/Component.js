@@ -44,7 +44,7 @@ class About extends Component {
     
                 <React.Fragment>
                     <Helmet>
-                        <link rel="canonical" href="https://lawrencemcdaniel.com/about" />
+                        <link rel="canonical" href="https://lawrencemcdaniel.com/about/" />
                         <script type="application/ld+json">{JSON.stringify(gsdGraph(slug, webpageName, webpageDescription, primaryImageUrl, pageType, relatedLink, graphExtraData))}</script>
                     </Helmet>
                     <div key="about-page" className="site-page about-page">

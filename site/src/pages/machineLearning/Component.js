@@ -23,7 +23,7 @@ const MachineLearning = (props) => {
         return(
             <React.Fragment>
                 <Helmet>
-                    <link rel="canonical" href="https://lawrencemcdaniel.com/machine-learning" />
+                    <link rel="canonical" href="https://lawrencemcdaniel.com/machine-learning/" />
                     <meta name="description" content="Machine learning and algorithms expert with experience using regression, nueral networks, support vector machines, anomoly detection, recommender systems, and unsupervised learning" />
                     <meta property="og:description" content="Machine learning and algorithms expert with experience using regression, nueral networks, support vector machines, anomoly detection, recommender systems, and unsupervised learning" />
                     <meta name="keywords"  content="Lawrence McDaniel, machine learning, algorithms, regression, nueral networks, support vector machines, anomoly detection, recommender systems, unsupervised learning" />

@@ -21,7 +21,7 @@ const Education = (props) => {
     return(
         <React.Fragment>
             <Helmet>
-                <link rel="canonical" href="https://lawrencemcdaniel.com/education" />
+                <link rel="canonical" href="https://lawrencemcdaniel.com/education/" />
                 <script type="application/ld+json">{JSON.stringify(gsdGraph(slug, webpageName, webpageDescription, primaryImageUrl, pageType, relatedLink, graphExtraData))}</script>
             </Helmet>
             <div key="education-page" className="portfolio-page">
