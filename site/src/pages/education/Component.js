@@ -12,10 +12,7 @@ import './styles.css';
 const Education = (props) => {
 
     /* Google Structured Data */
-    var person = gsdPersonLawrenceMcDaniel;
-    person["hasOccupation"] = hasOccupation;
-    
-
+    const person = {...gsdPersonLawrenceMcDaniel, ...{"hasOccupation": hasOccupation}};
     const slug = "education";
     const webpageName = "Eduction";
     const webpageDescription = "Lawrence McDaniel educational background and courses completed.";

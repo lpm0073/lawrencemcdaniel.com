@@ -12,8 +12,7 @@ import './styles.css';
 
 const Specialties = (props) => {
     /* Google Structured Data */
-    var person = gsdPersonLawrenceMcDaniel;
-    person.knowsAbout = gsdKnowsAbout(props);
+    const person = {...gsdPersonLawrenceMcDaniel, ...{"knowsAbout": gsdKnowsAbout(props)}};
     const slug = "specialties";
     const webpageName = "Specialties";
     const webpageDescription = "Lawrence McDaniel's technical skills";
