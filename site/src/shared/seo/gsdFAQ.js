@@ -13,7 +13,6 @@ const question = (q, a) => {
 }
 
 export const gsdFAQ = {
-        "@context": "https://schema.org",
         "@type": "FAQPage",
         "name":"FAQ: Open edX",
         "alternateName":"Frequently Asked Questions about Open edX",

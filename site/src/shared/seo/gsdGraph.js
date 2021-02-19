@@ -1,5 +1,12 @@
 import {datePublished, dateModified, baseUrl, nameLawrenceMcDaniel} from './gsdCommon';
 
+const defaultPageDescription = (webpageDescription) => {
+
+   if (webpageDescription !== "") return webpageDescription;
+   return "Full Stack Web Developer and Open edX® Consultant specializing in Python, Django, ReactJS, Redux, AngularJS, and AWS.";
+
+}
+ 
 const brandLogo = {
    "@id":baseUrl+"/#logo"
 }
@@ -33,13 +40,21 @@ const webSite = () => {
       "publisher":{
          "@id":baseUrl+"#me"
       },
+      "potentialAction":[
+         {
+            "@type":"ReadAction",
+            "target":[
+               "https://blog.lawrencemcdaniel.com/home/"
+            ]
+         }
+      ],
       "inLanguage":"en-US"
    };
 }
 
 const webPage = (pageType, slug, webpageName, webpageDescription, relatedLink, primaryImageUrl) => {
 
-      return {
+      const retVal = {
          "@type":pageTypes(pageType),
          "@id":baseUrl+"/"+slug+"/#webpage",
          "url":baseUrl+"/"+slug+"/",
@@ -47,11 +62,9 @@ const webPage = (pageType, slug, webpageName, webpageDescription, relatedLink, p
          "isPartOf":{
             "@id":baseUrl+"/#website"
          },
-         "image":pageImage(primaryImageUrl),
          "datePublished":datePublished,
          "dateModified":dateModified,
          "description":webpageDescription,
-         "relatedLink":relatedLink,
          "breadcrumb":{
             "@id":baseUrl+"/"+slug+"/#breadcrumb"
          },
@@ -65,6 +78,9 @@ const webPage = (pageType, slug, webpageName, webpageDescription, relatedLink, p
             }
          ]
       };
+      if (relatedLink !== "") retVal.relatedLink = relatedLink;
+      if (primaryImageUrl !== "") retVal.primaryImageUrl = pageImage(primaryImageUrl);
+      return retVal;
 }
 
 const listItem = (position, slug, itemName, pageType="WebPage") => {
@@ -87,10 +103,9 @@ const listItem = (position, slug, itemName, pageType="WebPage") => {
 const breadcrumbList = (slug, webpageName, pageType) => {
 
    var itemListElement = [
-      listItem(1, "", "Home"),
-      listItem(2, "home", "Home")
+      listItem(1, "home", "Home")
    ];
-   if (slug !== "home") itemListElement.push(listItem(3, slug, pageName(webpageName), pageType));
+   if (slug !== "home") itemListElement.push(listItem(2, slug, pageName(webpageName), pageType));
 
    return {
       "@type":"BreadcrumbList",
@@ -109,8 +124,8 @@ export const gsdGraph = (slug, webpageName, webpageDescription, primaryImageUrl=
       "@context":"https://schema.org",
       "@graph":extraData.concat([
          webSite(),
-         pageImage(primaryImageUrl),
-         webPage(pageType, slug, webpageName, webpageDescription, relatedLink, primaryImageUrl),
+         /* pageImage(primaryImageUrl), */
+         webPage(pageType, slug, webpageName, defaultPageDescription(webpageDescription), relatedLink, primaryImageUrl),
          breadcrumbList(slug, webpageName, pageType),
       ])
    };

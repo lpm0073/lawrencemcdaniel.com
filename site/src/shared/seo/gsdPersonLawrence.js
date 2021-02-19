@@ -5,7 +5,6 @@ import {hourlyRate} from './gsdCommon';
 
 export const hasOccupation = {
 
-      "@context":"https://schema.org/",
       "@type":"Occupation",
       "additionalType": "https://www.wikidata.org/wiki/Q96072517",
       "name":baseTitle,
@@ -41,7 +40,6 @@ export const hasOccupation = {
 
 const subjectOf = (url) => {
    return {
-      "@context":"https://schema.org/",
       "@type":"Url",
       "@id": url+"#news-article",
       "url":url
@@ -108,17 +106,18 @@ export const personExtraData =  {
 
 export const gsdPersonLawrenceMcDaniel = {
 
-      "@context":"https://schema.org/",
       "@type":[
          "Person",
          "Organization"
       ],
       "@id":"https://lawrencemcdaniel.com/#me",
       "name":nameLawrenceMcDaniel,
-      "description":"Personal web site for "+nameLawrenceMcDaniel,
+      "description":"Lawrence is a full stack developer and freelance Open edX Consultant / Open edX Service Provider specializing in Python/Django, ReactJS, Angular, Ionic, Wordpress and Amazon Web Services. He lives in Cambridge, Massachusetts. More info here: lawrencemcdaniel.com/bio",
       "jobTitle":baseTitle,
-      "url":"https://lawrencemcdaniel.com",
       "sameAs":sameAs,
+      "logo":{
+         "@id":baseUrl+"/#logo"
+      },
       "image":imagesLawrenceMcDaniel,
 
 }

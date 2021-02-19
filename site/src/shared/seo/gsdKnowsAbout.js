@@ -20,7 +20,6 @@ export const gsdKnowsAbout = (props) => {
 
       return (
                {
-                  "@context":"https://schema.org/",
                   "@type":"SoftwareApplication",
                     "applicationCategory": applicationCategory,
                     "operatingSystem": operatingSystem,

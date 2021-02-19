@@ -6,7 +6,6 @@
 const course = (courseName, description, url, providerName, providerUrl, dateCreated) => {
 
    return {
-      "@context": "https://schema.org",
       "@type": "Course",
       "name":courseName,
       "description":description,
@@ -23,7 +22,6 @@ const course = (courseName, description, url, providerName, providerUrl, dateCre
 
 export const gsdQualifications = [
     {
-      "@context":"https://schema.org/",
        "@type":"EducationalOccupationalCredential",
        "name":"University of North Texas",
        "url":"https://www.unt.edu/",

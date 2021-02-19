@@ -13,9 +13,9 @@ const ReactPage = (props) => {
     /* Google Structured Data */
     const slug = "reactjs";
     const webpageName = "ReactJS";
-    const webpageDescription = "Built with ReactJS.";
+    const webpageDescription = "";
     const primaryImageUrl = "";
-    const pageType = "";
+    const pageType = "BlogPosting";
     const relatedLink = "";
     const graphExtraData = [gsdPersonLawrenceMcDaniel, gsdArticle(slug, webpageDescription)];
 

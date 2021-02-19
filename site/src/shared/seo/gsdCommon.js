@@ -2,7 +2,6 @@ const d = new Date();
 const imageObject = (url, height, width) => {
 
    return {
-      "@context":"https://schema.org/",
       "@type":"ImageObject",
       "inLanguage":"en-US",
       "@id":url+"/#imageObject",
@@ -36,7 +35,6 @@ export const sameAs = [
 ]
 
 export const brandLogo =  {
-      "@context":"https://schema.org/",
       "@type":"ImageObject",
       "inLanguage":"en-US",
       "@id":baseUrl+"/#logo",
@@ -48,7 +46,6 @@ export const brandLogo =  {
 }
 
 export const brandLawrenceMcDaniel = {
-   "@context":"https://schema.org/",
    "type":"Brand",
    "@id":baseUrl+"/#brand",
    "logo":brandLogo,

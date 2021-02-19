@@ -4,7 +4,6 @@ import { brandLawrenceMcDaniel, imagesLawrenceMcDaniel, basePageTitle } from './
 export const gsdLocalBusinessLawrenceMcDaniel = (includeExtraData = false) =>  {
 
     var retVal = {
-    "@context": "https://schema.org",
     "@type": "LocalBusiness",
     "additionalType": "https://www.wikidata.org/wiki/Q96072517",
     "image": imagesLawrenceMcDaniel,

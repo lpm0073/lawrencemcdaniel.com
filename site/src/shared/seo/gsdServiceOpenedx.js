@@ -26,7 +26,6 @@ const itemOffer = (name, description="") => {
 
 const subjectOf = (url) => {
    return {
-      "@context":"https://schema.org/",
       "@type":"Url",
       "@id": url+"#tech-article",
       "url":url,
@@ -35,7 +34,6 @@ const subjectOf = (url) => {
 }
 
 export const gsdServiceOpenedX = {
-   "@context":"https://schema.org/",
    "@type":"Service",
    "@id": "https://lawrencemcdaniel.com/openedx/#service",
    "identifier":"https://lawrencemcdaniel.com/openedx",

@@ -14,9 +14,9 @@ const MachineLearning = (props) => {
         /* Google Structured Data */
         const slug = "machine-learning";
         const webpageName = "Machine Learning";
-        const webpageDescription = "Hi, I’m Lawrence McDaniel and I’m a technology freelancer. The rapid evolution of IT infrastructure cloud services combined with the sudden and staggering accumulation of electronic data has catalyzed an explosion of applied science and innovation for many ideas that only a few years ago were still not much more than theory. The math hasn’t gotten any easier, and IT infrastructure has actually become a lot more complex, however, If you understand both of these disciplines and you also are a halfway decent software engineer then the sky is the limit in terms of what you can do.";
+        const webpageDescription = "";
         const primaryImageUrl = "";
-        const pageType = "";
+        const pageType = "BlogPosting";
         const relatedLink = "";
         const graphExtraData = [gsdPersonLawrenceMcDaniel, gsdArticle(slug, webpageName)];
 
