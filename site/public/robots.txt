@@ -1,4 +1,4 @@
 # https://www.robotstxt.org/robotstxt.html
 User-agent: *
 Disallow:
-Sitemap: http://lawrencemcdaniel.com/sitemap.xml
+Sitemap: https://lawrencemcdaniel.com/sitemap.xml
