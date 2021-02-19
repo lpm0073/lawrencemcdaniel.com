@@ -38,7 +38,7 @@ class About extends Component {
             const primaryImageUrl = "";
             const pageType = "AboutPage";
             const relatedLink = "";
-            const graphExtraData = [gsdPersonLawrenceMcDaniel(false, false, this.props)];
+            const graphExtraData = [gsdPersonLawrenceMcDaniel(false, false, true, this.props)];
             
             return(
     

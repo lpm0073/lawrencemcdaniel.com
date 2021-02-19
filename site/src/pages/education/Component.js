@@ -16,7 +16,7 @@ const Education = (props) => {
     const primaryImageUrl = "";
     const pageType = "";
     const relatedLink = "";
-    const graphExtraData = [gsdPersonLawrenceMcDaniel(true, false, props)];
+    const graphExtraData = [gsdPersonLawrenceMcDaniel(true, false, false, props)];
 
     return(
         <React.Fragment>

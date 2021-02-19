@@ -17,7 +17,7 @@ const PortfolioDetail = (props) => {
     const primaryImageUrl = "";
     const pageType = "";
     const relatedLink = "";
-    const graphExtraData = [gsdPersonLawrenceMcDaniel(false, false, props)];
+    const graphExtraData = [gsdPersonLawrenceMcDaniel(false, false, false, props)];
 
     if (props.postLoading) {
         return(

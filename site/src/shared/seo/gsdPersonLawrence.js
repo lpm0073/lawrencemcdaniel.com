@@ -64,33 +64,19 @@ const subjectOf = (url) => {
    };
 }
 
-export const gsdPersonLawrenceMcDaniel = (includeEducation = false, includeTechnologies = false, props) => {
-
-   const retVal = {
-      "@context":"https://schema.org/",
-      "@type":[
-         "Person",
-         "Organization"
-      ],
-      "additionalType": "https://www.wikidata.org/wiki/Q96072517",
-      "@id":"https://lawrencemcdaniel.com/#me",
-      "identifier":"https://lawrencemcdaniel.com/",
-      "email":"mailto:lpm0073@gmail.com",
-      "familyName":"McDaniel",
-      "givenName":"Lawrence",
-      "name":nameLawrenceMcDaniel,
-      "description":"Personal web site for "+nameLawrenceMcDaniel,
-      "jobTitle":baseTitle,
-      "telephone":"+1 (617) 834-6172",
-      "url":"https://lawrencemcdaniel.com",
+const personExtraData =  {
       "logo":{
          "@id":baseUrl+"/#logo"
       },
+      "additionalType": "https://www.wikidata.org/wiki/Q96072517",
+      "identifier":"https://lawrencemcdaniel.com/",
       "brand":brandLawrenceMcDaniel,
       "birthPlace":"Houston, TX, USA",
       "nationality":"American",
       "birthDate":"1966-12-31",
       "height":"183 cm",
+      "familyName":"McDaniel",
+      "givenName":"Lawrence",
       "gender":"Male",
       "address":{
          "@type":"PostalAddress",
@@ -99,7 +85,6 @@ export const gsdPersonLawrenceMcDaniel = (includeEducation = false, includeTechn
          "postalCode":"02139",
          "streetAddress":"210 Broadway Street"
       },
-      "sameAs":sameAs,
       "affiliation":[
          {
             "@type":"Organization",
@@ -132,11 +117,30 @@ export const gsdPersonLawrenceMcDaniel = (includeEducation = false, includeTechn
             "@type":"Language",
             "name":"Spanish"
          }
+      ]
+}
+
+export const gsdPersonLawrenceMcDaniel = (includeEducation = false, includeTechnologies = false, includeExtraData=false, props) => {
+
+   const retVal = {
+      "@context":"https://schema.org/",
+      "@type":[
+         "Person",
+         "Organization"
       ],
+      "@id":"https://lawrencemcdaniel.com/#me",
+      "email":"mailto:lpm0073@gmail.com",
+      "name":nameLawrenceMcDaniel,
+      "description":"Personal web site for "+nameLawrenceMcDaniel,
+      "jobTitle":baseTitle,
+      "telephone":"+1 (617) 834-6172",
+      "url":"https://lawrencemcdaniel.com",
+      "sameAs":sameAs,
       "image":imagesLawrenceMcDaniel,
       "hasOccupation": hasOccupation(includeEducation),
       "knowsAbout": knowsAbout(includeTechnologies, props)
    }
+   if (includeExtraData) return {...retVal, ...personExtraData}
    return retVal;
 
 }

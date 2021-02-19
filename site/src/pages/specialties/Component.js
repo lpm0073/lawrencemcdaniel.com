@@ -16,7 +16,7 @@ const Specialties = (props) => {
     const primaryImageUrl = "";
     const pageType = "";
     const relatedLink = "";
-    const graphExtraData = [gsdPersonLawrenceMcDaniel(false, true, props)];
+    const graphExtraData = [gsdPersonLawrenceMcDaniel(false, true, false, props)];
 
     return(
         <React.Fragment>

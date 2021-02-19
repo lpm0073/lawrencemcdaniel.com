@@ -33,7 +33,7 @@ class Home extends Component {
         const primaryImageUrl = "";
         const pageType = "";
         const relatedLink = "";
-        const graphExtraData = [gsdPersonLawrenceMcDaniel(false, false, this.props)];
+        const graphExtraData = [gsdPersonLawrenceMcDaniel(false, false, false, this.props)];
 
         return(
                 <React.Fragment>

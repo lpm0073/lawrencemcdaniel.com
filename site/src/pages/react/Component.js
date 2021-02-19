@@ -17,7 +17,7 @@ const ReactPage = (props) => {
     const primaryImageUrl = "";
     const pageType = "";
     const relatedLink = "";
-    const graphExtraData = [gsdPersonLawrenceMcDaniel(false, false, props), gsdArticle(slug, webpageDescription)];
+    const graphExtraData = [gsdPersonLawrenceMcDaniel(false, false, false, props), gsdArticle(slug, webpageDescription)];
 
     return(
         <React.Fragment>
