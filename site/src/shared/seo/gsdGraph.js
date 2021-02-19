@@ -69,16 +69,19 @@ const webPage = (pageType, slug, webpageName, webpageDescription, relatedLink, p
 
 const listItem = (position, slug, itemName) => {
 
-      return {
-         "@type":"ListItem",
-         "position":position,
-         "item":{
-            "@type":"WebPage",
-            "@id":baseUrl+"/"+slug+"/",
-            "url":baseUrl+"/"+slug+"/",
-            "name":itemName
-         }
-      };
+   var listItemUrl = baseUrl+"/"+slug+"/";
+   if (slug === "") listItemUrl = baseUrl+"/";
+   
+   return {
+      "@type":"ListItem",
+      "position":position,
+      "item":{
+         "@type":"WebPage",
+         "@id":listItemUrl,
+         "url":listItemUrl,
+         "name":itemName
+      }
+   };
 }
 
 const breadcrumbList = (slug, webpageName) => {
