@@ -93,7 +93,7 @@ const listItem = (position, slug, itemName, pageType="WebPage") => {
       "position":position,
       "item":{
          "@type":pageType,
-         "@id":listItemUrl,
+         "@id":listItemUrl+"#breadcrumb",
          "url":listItemUrl,
          "name":itemName
       }
