@@ -1,4 +1,4 @@
-import {datePublished, dateModified, baseUrl, nameLawrenceMcDaniel} from './gsdCommon';
+import {datePublished, dateModified, baseUrl, nameLawrenceMcDaniel, basePageTitle} from './gsdCommon';
 
 const defaultPageDescription = (webpageDescription) => {
 
@@ -31,23 +31,15 @@ const pageImage = (imageUrl) => {
 }
 
 const webSite = () => {
-   return       {
+   return {
       "@type":"WebSite",
       "@id":baseUrl+"/#website",
       "url":baseUrl+"/",
       "name":nameLawrenceMcDaniel,
-      "description":"Personal web site",
+      "description":"Personal Web Site & Portfoio",
       "publisher":{
          "@id":baseUrl+"#me"
       },
-      "potentialAction":[
-         {
-            "@type":"ReadAction",
-            "target":[
-               "https://blog.lawrencemcdaniel.com/home/"
-            ]
-         }
-      ],
       "inLanguage":"en-US"
    };
 }
@@ -110,7 +102,8 @@ const breadcrumbList = (slug, webpageName, pageType) => {
    return {
       "@type":"BreadcrumbList",
       "@id":baseUrl+"/"+slug+"/#breadcrumb",
-      "itemListElement":itemListElement
+      "itemListElement":itemListElement,
+      "name":"Breadcrumb-"+slug
    };
 }
 
