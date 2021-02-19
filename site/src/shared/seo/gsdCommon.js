@@ -31,7 +31,8 @@ export const sameAs = [
     "https://github.com/lpm0073",
     "https://angel.co/p/lpm0073-gmail-com",
     "https://www.codementor.io/@lawrencemcdaniel",
-    "http://geek.ly/lmcdaniel"
+    "http://geek.ly/lmcdaniel",
+    "https://twitter.com/lorenzodpolanco"
 ]
 
 export const brandLogo =  {
