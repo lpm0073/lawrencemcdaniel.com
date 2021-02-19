@@ -62,6 +62,8 @@ export const personExtraData =  {
       "familyName":"McDaniel",
       "givenName":"Lawrence",
       "gender":"Male",
+      "email":"mailto:lpm0073@gmail.com",
+      "telephone":"+1 (617) 834-6172",
       "address":{
          "@type":"PostalAddress",
          "addressLocality":"Cambridge",
@@ -112,11 +114,9 @@ export const gsdPersonLawrenceMcDaniel = {
          "Organization"
       ],
       "@id":"https://lawrencemcdaniel.com/#me",
-      "email":"mailto:lpm0073@gmail.com",
       "name":nameLawrenceMcDaniel,
       "description":"Personal web site for "+nameLawrenceMcDaniel,
       "jobTitle":baseTitle,
-      "telephone":"+1 (617) 834-6172",
       "url":"https://lawrencemcdaniel.com",
       "sameAs":sameAs,
       "image":imagesLawrenceMcDaniel,

@@ -10,7 +10,7 @@ import AboutTile from './tileComponent';
 import { Fade } from 'react-animation-components';
 import {Helmet} from "react-helmet";
 import { gsdGraph } from '../../shared/seo/gsdGraph';
-import { gsdPersonLawrenceMcDaniel } from '../../shared/seo/gsdPersonLawrence';
+import { gsdPersonLawrenceMcDaniel, personExtraData } from '../../shared/seo/gsdPersonLawrence';
 
 import './styles.css';
 
@@ -38,7 +38,7 @@ class About extends Component {
             const primaryImageUrl = "";
             const pageType = "AboutPage";
             const relatedLink = "";
-            const graphExtraData = [gsdPersonLawrenceMcDaniel];
+            const graphExtraData = [{...gsdPersonLawrenceMcDaniel, ...personExtraData}];
             
             return(
     

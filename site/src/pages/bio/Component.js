@@ -6,7 +6,7 @@ import {Helmet} from "react-helmet";
 
 import { resumeUrl } from '../../shared/urls';
 import { gsdGraph } from '../../shared/seo/gsdGraph';
-import { gsdPersonLawrenceMcDaniel } from '../../shared/seo/gsdPersonLawrence';
+import { gsdPersonLawrenceMcDaniel, personExtraData } from '../../shared/seo/gsdPersonLawrence';
 
 import './styles.css';
 
@@ -20,7 +20,7 @@ const Bio = (props) => {
     const primaryImageUrl = "";
     const pageType = "";
     const relatedLink = "";
-    const graphExtraData = [gsdPersonLawrenceMcDaniel];
+    const graphExtraData = [{...gsdPersonLawrenceMcDaniel, ...personExtraData}];
 
     return(
         <React.Fragment>
