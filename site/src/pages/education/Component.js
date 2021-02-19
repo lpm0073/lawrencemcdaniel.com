@@ -12,10 +12,8 @@ import './styles.css';
 const Education = (props) => {
 
     /* Google Structured Data */
-    var person = gsdPersonLawrenceMcDaniel.push({
-        key: "hasOccupation",
-        value: hasOccupation
-    })
+    var person = gsdPersonLawrenceMcDaniel;
+    person["hasOccupation"] = hasOccupation;
     
 
     const slug = "education";

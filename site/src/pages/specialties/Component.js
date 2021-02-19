@@ -12,17 +12,15 @@ import './styles.css';
 
 const Specialties = (props) => {
     /* Google Structured Data */
-    const specialties = gsdPersonLawrenceMcDaniel.push({
-        "key":"knowsAbout",
-        "value":gsdKnowsAbout
-    })
+    var person = gsdPersonLawrenceMcDaniel;
+    person.knowsAbout = gsdKnowsAbout(props);
     const slug = "specialties";
     const webpageName = "Specialties";
     const webpageDescription = "Lawrence McDaniel's technical skills";
     const primaryImageUrl = "";
     const pageType = "";
     const relatedLink = "";
-    const graphExtraData = [specialties];
+    const graphExtraData = [person];
 
     return(
         <React.Fragment>
