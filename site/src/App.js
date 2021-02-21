@@ -19,7 +19,7 @@ class App extends Component {
             <Helmet>
               <title>{basePageTitle}</title>
               <meta name="author" content={nameLawrenceMcDaniel} />
-              <link rel="canonical" href="https://lawrencemcdaniel.com/" />
+              <link rel="canonical" href="https://lawrencemcdaniel.com/home/" />
               <meta name="description" content="Full Stack Web Developer and Open edX® Consultant specializing in Python, Django, ReactJS, Redux, AngularJS, and AWS." />
               <meta name="keywords"  content="Lawrence McDaniel, open edx consultant, open edx service provider, Open edX, web developer, freelancer, full stack developer, full stack web developer, web developer, Python, Django, React, ReactJS, Redux, Wordpress, AWS, Boto3, Angular, AngularJS" />
 
