@@ -14,8 +14,8 @@ const MachineLearning = (props) => {
         /* Google Structured Data */
         const slug = "machine-learning";
         const webpageName = "Machine Learning";
-        const webpageDescription = "";
-        const primaryImageUrl = "";
+        const webpageDescription = "Machine learning and algorithms expert with experience using regression, nueral networks, support vector machines, anomoly detection, recommender systems, and unsupervised learning";
+        const primaryImageUrl = "https://cdn.lawrencemcdaniel.com/wp-content/uploads/2020/06/05220349/machine-learning-certificate.jpg";
         const pageType = "BlogPosting";
         const relatedLink = "";
         const graphExtraData = [gsdPersonLawrenceMcDaniel, gsdArticle(slug, webpageName)];

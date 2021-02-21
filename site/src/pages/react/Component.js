@@ -14,7 +14,7 @@ const ReactPage = (props) => {
     const slug = "reactjs";
     const webpageName = "ReactJS";
     const webpageDescription = "";
-    const primaryImageUrl = "";
+    const primaryImageUrl = "https://cdn.lawrencemcdaniel.com/wp-content/uploads/2020/05/19131001/aws-react-hosting.png";
     const pageType = "BlogPosting";
     const relatedLink = "";
     const graphExtraData = [gsdPersonLawrenceMcDaniel, gsdArticle(slug, webpageDescription)];
@@ -57,13 +57,11 @@ const ReactPage = (props) => {
                         </div>
                     </div>
                 </div>
-                
                 <div className="aws-diagram hide-medium row mt-lg-5 pl-2 ml-0 mr-0">
                 <img src="https://cdn.lawrencemcdaniel.com/wp-content/uploads/2020/05/19131001/aws-react-hosting.png" alt="AWS React Hosting Architecture" />
                 </div>
             </div>
         </React.Fragment>
-
     );
 
 }
