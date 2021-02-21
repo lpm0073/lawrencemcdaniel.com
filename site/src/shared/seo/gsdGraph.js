@@ -46,7 +46,7 @@ const webSite = () => {
 
 const webPage = (pageType, slug, webpageName, webpageDescription, relatedLink, primaryImageUrl) => {
 
-      const retVal = {
+      var retVal = {
          "@type":pageTypes(pageType),
          "@id":baseUrl+"/"+slug+"/#webpage",
          "url":baseUrl+"/"+slug+"/",
@@ -72,32 +72,42 @@ const webPage = (pageType, slug, webpageName, webpageDescription, relatedLink, p
       };
       if (relatedLink !== "") retVal.relatedLink = relatedLink;
       if (primaryImageUrl !== "") retVal.primaryImageUrl = pageImage(primaryImageUrl);
+      if (pageType === "BlogPosting") {
+         retVal.headline = webpageName;
+         retVal.image = primaryImageUrl;
+         }
       return retVal;
 }
 
-const listItem = (position, slug, itemName, pageType="WebPage") => {
+const listItem = (position, slug, itemName, pageType="WebPage", pageImage) => {
 
    var listItemUrl = baseUrl+"/"+slug+"/";
    if (slug === "") listItemUrl = baseUrl+"/";
    
+   var item ={
+      "@type":pageType,
+      "@id":listItemUrl+"#breadcrumb",
+      "url":listItemUrl,
+      "name":itemName
+   }
+
+   if (pageType === "BlogPosting") {
+      item.headline = itemName;
+      item.image = pageImage;
+   }
    return {
       "@type":"ListItem",
       "position":position,
-      "item":{
-         "@type":pageType,
-         "@id":listItemUrl+"#breadcrumb",
-         "url":listItemUrl,
-         "name":itemName
-      }
+      "item":item
    };
 }
 
-const breadcrumbList = (slug, webpageName, pageType) => {
+const breadcrumbList = (slug, webpageName, pageType, pageImage) => {
 
    var itemListElement = [
       listItem(1, "home", "Home")
    ];
-   if (slug !== "home") itemListElement.push(listItem(2, slug, pageName(webpageName), pageType));
+   if (slug !== "home") itemListElement.push(listItem(2, slug, pageName(webpageName), pageType, pageImage));
 
    return {
       "@type":"BreadcrumbList",
@@ -118,8 +128,8 @@ export const gsdGraph = (slug, webpageName, webpageDescription, primaryImageUrl=
       "@graph":extraData.concat([
          webSite(),
          /* pageImage(primaryImageUrl), */
-         webPage(pageType, slug, webpageName, defaultPageDescription(webpageDescription), relatedLink, primaryImageUrl),
-         breadcrumbList(slug, webpageName, pageType),
+         webPage(pageType, slug, webpageName, defaultPageDescription(webpageDescription), relatedLink, pageImage(primaryImageUrl)),
+         breadcrumbList(slug, webpageName, pageType, pageImage(primaryImageUrl)),
       ])
    };
 

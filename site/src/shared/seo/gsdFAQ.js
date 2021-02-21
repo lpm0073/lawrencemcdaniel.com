@@ -37,7 +37,7 @@ export const gsdFAQ = {
         "publisher":{
           "@id":"https://lawrencemcdaniel.com/#me"
         },
-        "sdDatePublished":"2021-02-15",
+        "sdDatePublished":datePublished,
         "sdPublisher":{
           "@id":"https://lawrencemcdaniel.com/#me"
         },
