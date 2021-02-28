@@ -20,6 +20,14 @@ export const gsdHowToInstallOpenEdx = {
     "height": 374,
     "width": 196
   },
+  "tool": [{
+    "@type": "HowToTool",
+    "name": "SSH device",
+    "description": "Any internet-enabled device capable of maintaining an SSH connection"
+  },{
+    "@type": "HowToTool",
+    "name": "Internet Browser"
+  }],
   "supply": [
     {
       "@type": "HowToSupply",
@@ -162,7 +170,8 @@ export const gsdHowToInstallOpenEdx = {
       "itemListElement": [{
         "@type": "HowToDirection",
         "text": "Bear in mind that there are additional steps that you still need to take in order to prepare your environment for a production deployment. Following will get you started on the most common additional platform requirements for most types of institutions and organizations."
-      }]
+      }],
+      "image": {}
     }
   ],
   "totalTime": "PT8H"
