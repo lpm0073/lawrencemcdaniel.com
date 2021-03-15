@@ -25,6 +25,7 @@ export const hourlyRate = 75.00
 export const sameAs = [
     "https://blog.lawrencemcdaniel.com/",
     "https://horrors.lawrencemcdaniel.com/",
+    "https://clients.lawrencemcdaniel.com/",
     "https://www.linkedin.com/in/lawrencemcdaniel/",
     "https://www.facebook.com/lawrence.p.mcdaniel",
     "https://open.edx.org/marketplace/lawrence-mcdaniel/",
