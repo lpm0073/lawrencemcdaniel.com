@@ -5,6 +5,7 @@ export default (
     <Route>
         <Route path="/home"  />
         <Route path="/contact" />
+        <Route path="/qr" />
         <Route path="/about"  />
         <Route path="/openedx"  />
         <Route path="/machine-learning" />

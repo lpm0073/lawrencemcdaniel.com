@@ -11,6 +11,7 @@ import { fetchSpecialties, fetchPortfolio, fetchEducation,
 // Pages
 import Home from '../pages/home/Component';
 import Contact from '../pages/contact/Component';
+import QR from '../pages/qr/Component';
 import About from '../pages/about/Component';
 import Bio from '../pages/bio/Component';
 import Specialties from '../pages/specialties/Component';
@@ -93,6 +94,7 @@ class Routes extends Component {
           <Switch>
             <Route path="/home" component={Home} />
             <Route exact path="/contact" component={Contact} />
+            <Route exact path="/qr" component={QR} />
             <Route exact path="/about" component={About} />
             <Route exact path="/openedx" component={Openedx} />
             <Route exact path="/machine-learning" component={MachineLearning} />
