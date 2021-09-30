@@ -29,9 +29,9 @@ class Contact extends Component {
                 <div key="contact-page" className="site-page contact-page">
                     <RenderPageTitle theme="light" icon="fa-phone" title="LETS" boxed_title="TALK" />
 
-                    <div className="row text-center mt-5">
+                    <div className="row text-center mt-md-5">
                         <div className="col-md-1"></div>
-                        <div className="col-md-6 contact-data mt-5 pt-5">
+                        <div className="col-md-6 contact-data mt-md-5 pt-md-5">
                             <div className="row mt-3"></div>
                             <div className="">
                                 <a target="_blank" href="https://goo.gl/maps/WJy25bNGit2L8Nzz8" rel="noopener noreferrer">
@@ -58,7 +58,7 @@ class Contact extends Component {
                             </div>
                         </div>
                         <div className="col-md-4 m-4">
-                            <div className="row qr-code-container mb-4">
+                            <div className="row qr-code-container mb-5">
                                 <div className="col-md-1"></div>
                                 <div className="col-md-10">
                                     <div>
@@ -71,7 +71,7 @@ class Contact extends Component {
                                 </div>
                                 <div className="col-md-1"></div>
                             </div>
-                            <div className="row qr-code-container">
+                            <div className="row qr-code-container mb-sm-5 pb-sm-5">
                                 <div className="col-md-1"></div>
                                 <div className="col-md-10">
                                     <div>

@@ -23,7 +23,9 @@ h4 a {
 .image-container {
     background-repeat:no-repeat; 
     background-size:contain; 
-    background-position:top center;
+    background-position:center center;
+    max-width: 500px;
+    margin: auto;
 }
 
     .whatsapp-qr-code {
@@ -36,10 +38,12 @@ h4 a {
 
 .linkedin-logo {
     background-image:url(https://cdn.lawrencemcdaniel.com/wp-content/uploads/2021/09/30180629/linkedin-logo.png);
+    max-width: 125px;
 }
 
 .whatsapp-logo {
     background-image:url(https://cdn.lawrencemcdaniel.com/wp-content/uploads/2021/09/30182902/whatsapp-logo.png);
+    max-width: 125px;
 }
 
 .square {
