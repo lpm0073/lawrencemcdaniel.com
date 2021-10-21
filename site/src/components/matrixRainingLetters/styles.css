@@ -1,6 +1,4 @@
 
 .mrl-container {
-    height: 100vh; 
-    background-color: black;
-    border-radius: 0 !important;
+    background-color: rgba(0, 0, 0, 0.05);
 }

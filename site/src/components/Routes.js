@@ -23,7 +23,7 @@ import Clients from '../pages/clients/Component';
 import MachineLearning from '../pages/machineLearning/Component';
 import ReactPage from '../pages/react/Component';
 import Openedx from '../pages/openedx/Component';
-
+import Matrix from '../pages/matrix/Component';
 
 const mapStateToProps = state => ({
   ...state
@@ -98,6 +98,7 @@ class Routes extends Component {
             <Route exact path="/about" component={About} />
             <Route exact path="/openedx" component={Openedx} />
             <Route exact path="/machine-learning" component={MachineLearning} />
+            <Route exact path="/matrix" component={Matrix} />
             <Route exact path="/bio" component={Bio} />
             <Route exact path="/full-bio">
               {<Redirect to="/bio" />}

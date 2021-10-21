@@ -1,0 +1,7 @@
+body {
+    max-width:unset !important;
+    background-color: black !important;
+    margin-left: auto;
+    margin-right: auto;
+    padding-top: 59px;
+}
