@@ -1,11 +1,12 @@
 import React, { Component } from 'react';
 import Main from './components/Main';
-import './App.css';
 import { BrowserRouter } from 'react-router-dom';
 import { Provider } from 'react-redux';
 import { ConfigureStore } from './redux/configureStore';
 import {Helmet} from "react-helmet";
 import { nameLawrenceMcDaniel, basePageTitle } from './shared/seo/gsdCommon';
+
+import './App.css';
 
 const store = ConfigureStore();
 
@@ -19,7 +20,7 @@ class App extends Component {
             <Helmet>
               <title>{basePageTitle}</title>
               <meta name="author" content={nameLawrenceMcDaniel} />
-              <link rel="canonical" href="https://lawrencemcdaniel.com/home/" />
+              <link rel="canonical" href="https://lawrencemcdaniel.com/" />
               <meta name="description" content="Full Stack Web Developer and Open edX® Consultant specializing in Python, Django, ReactJS, Redux, AngularJS, and AWS." />
               <meta name="keywords"  content="Lawrence McDaniel, open edx consultant, open edx service provider, Open edX, web developer, freelancer, full stack developer, full stack web developer, web developer, Python, Django, React, ReactJS, Redux, Wordpress, AWS, Boto3, Angular, AngularJS" />
 
