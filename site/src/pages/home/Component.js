@@ -43,8 +43,8 @@ class Home extends Component {
                     </Helmet>
                     <div key="home-page" className="jumbotron dark-background">
                         <div className="h-100">
-                            <div className="row ml-0 mr-0 px-0 jumbotron-spacer">
-                                <div className="col-lg-6 col-md-12 text-center noselect ">
+                            <div className="row pt-5 m-0 mr-0 px-0 jumbotron-spacer">
+                                <div className="col-lg-6 pt-5 col-md-12 text-center noselect ">
                                     <h1 className="display-4">
                                         <span className="px-3 super-bold pre-wrap">Lawrence McDaniel</span>
                                     </h1>
@@ -63,7 +63,7 @@ class Home extends Component {
                                         </Fade>
                                     }
                                 </div>
-                                <div className="col-lg-6 col-md-12">
+                                <div className="col-lg-6 pt-5 col-md-12">
                                     <LogoCube />
                                 </div>
                             </div>

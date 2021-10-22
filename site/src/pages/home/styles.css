@@ -46,6 +46,7 @@
     background-color: black;
     color: white;
     font-size: small;
+    text-align: right;
 }
 
 .react-banner a {
