@@ -1,3 +1,6 @@
+/*
+    To do: add modal with title: https://reactstrap.github.io/components/modals/
+ */
 import React, { Component } from 'react';
 
 import {Helmet} from "react-helmet";
@@ -28,6 +31,7 @@ class Matrix extends Component {
     }
 
     render() {
+        //<h1>this.props.location</h1>
         return(
             <React.Fragment>
             {this.props.isLoading ? (
@@ -37,7 +41,6 @@ class Matrix extends Component {
                   <Helmet>
                       <link rel="canonical" href={siteUrl + "/matrix/"} />
                   </Helmet>
-                  <h1>this.props.location</h1>
                   <div className="matrixPage m-0 p-0">
                       {this.state.isMounted ? (
                         <MatrixRainingLetters key="" custom_class="ml-0 pl-0" />
