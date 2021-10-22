@@ -8,8 +8,19 @@ import './styles.css';
 
 class Matrix extends Component {
 
+    constructor(props) {
+        super(props);
+
+        this.state = {
+            isMounted: false
+          };
+
+        }
+
     componentDidMount() {
         document.body.classList.add('matrixPage');
+        console.log("mounted.")
+        this.state.isMounted = true;
     }
 
     componentWillUnmount() {
@@ -17,7 +28,6 @@ class Matrix extends Component {
     }
 
     render() {
-
         return(
             <React.Fragment>
             {this.props.isLoading ? (
@@ -27,8 +37,13 @@ class Matrix extends Component {
                   <Helmet>
                       <link rel="canonical" href={siteUrl + "/matrix/"} />
                   </Helmet>
+                  <h1>this.props.location</h1>
                   <div className="matrixPage m-0 p-0">
-                      <MatrixRainingLetters key="" custom_class="ml-0 pl-0" />
+                      {this.state.isMounted ? (
+                        <MatrixRainingLetters key="" custom_class="ml-0 pl-0" />
+                      ) : (
+                        <React.Fragment />
+                      )}
                   </div>
               </React.Fragment>
               )}
