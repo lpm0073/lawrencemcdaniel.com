@@ -32,6 +32,8 @@ https://react-bootstrap.github.io/components/
 
 In the project directory, you can run:
 
+### `cd ./site && ncu --upgrade && npm install`
+Check for node package upgrades, updates package-lock.json, updates packages.
 ### `./deploy.sh`
 Executes yarn sitemap + yarn build, pushes to S3 and sets no-cache headers as necesary for 
 cache busting purposes.
@@ -61,6 +63,7 @@ See the section about [deployment](https://facebook.github.io/create-react-app/d
 
 ### `yarn sitemap`
 Builds sitemap.xml based on configuration in src/components/sitemap/
+
 ### `yarn eject`
 
 **Note: this is a one-way operation. Once you `eject`, you can’t go back!**

@@ -1,106 +1,17 @@
-<?xml version="1.0" encoding="UTF-8"?><?xml-stylesheet type="text/xsl" href="https://lawrencemcdaniel.com/sitemap.xsl"?>
-<urlset xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" 
-		xmlns:image="http://www.google.com/schemas/sitemap-image/1.1" 
-		xsi:schemaLocation="http://www.sitemaps.org/schemas/sitemap/0.9 http://www.sitemaps.org/schemas/sitemap/0.9/sitemap.xsd http://www.google.com/schemas/sitemap-image/1.1 http://www.google.com/schemas/sitemap-image/1.1/sitemap-image.xsd" 
-		xmlns="http://www.sitemaps.org/schemas/sitemap/0.9">
-	<url>
-		<loc>https://lawrencemcdaniel.com/</loc>
-		<lastmod>2021-02-21T17:21:18+00:00</lastmod>
-	</url>
-	<url>
-		<loc>https://lawrencemcdaniel.com/home</loc>
-		<lastmod>2021-02-21T17:21:18+00:00</lastmod>
-		<image:image>
-			<image:loc>https://cdn.lawrencemcdaniel.com/wp-content/uploads/2019/10/01135455/Lawrence1.jpg</image:loc>
-			<image:title><![CDATA[lawrencemcdaniel.com site logo]]></image:title>
-		</image:image>
-	</url>
-	<url>
-		<loc>https://lawrencemcdaniel.com/contact</loc>
-		<lastmod>2021-02-19T17:10:50+00:00</lastmod>
-	</url>
-	<url>
-		<loc>https://lawrencemcdaniel.com/about</loc>
-		<lastmod>2021-02-19T17:10:50+00:00</lastmod>
-		<image:image>
-			<image:loc>https://cdn.lawrencemcdaniel.com</image:loc>
-			<image:title><![CDATA[Lawrence McDaniel]]></image:title>
-		</image:image>
-		<image:image>
-			<image:loc>https://cdn.lawrencemcdaniel.com/social-1200x675.jpg</image:loc>
-			<image:title><![CDATA[Lawrence McDaniel]]></image:title>
-		</image:image>
-		<image:image>
-			<image:loc>https://cdn.lawrencemcdaniel.com/wp-content/uploads/2020/06/05201857/Lawrence6.jpg</image:loc>
-			<image:title><![CDATA[Lawrence McDaniel]]></image:title>
-		</image:image>
-		<image:image>
-			<image:loc>https://cdn.lawrencemcdaniel.com/wp-content/uploads/2020/06/05201857/Lawrence19.jpg</image:loc>
-			<image:title><![CDATA[Lawrence McDaniel]]></image:title>
-		</image:image>
-		<image:image>
-			<image:loc>https://cdn.lawrencemcdaniel.com/wp-content/uploads/2020/06/05201857/Lawrence21.jpg</image:loc>
-			<image:title><![CDATA[Lawrence McDaniel]]></image:title>
-		</image:image>
-		<image:image>
-			<image:loc>https://cdn.lawrencemcdaniel.com/wp-content/uploads/2020/06/05220017/lawrence-mcdaniel-portrait.jpg</image:loc>
-			<image:title><![CDATA[Lawrence McDaniel Portrait]]></image:title>
-		</image:image>
-		<image:image>
-			<image:loc>https://cdn.lawrencemcdaniel.com/wp-content/uploads/2014/09/22195700/Lawrence-McDaniel-freelancer.jpg</image:loc>
-			<image:title><![CDATA[Lawrence McDaniel Freelancer]]></image:title>
-		</image:image>
-		<image:image>
-			<image:loc>https://cdn.lawrencemcdaniel.com/wp-content/uploads/2016/11/22195702/lawrence-banner-bw.jpg</image:loc>
-			<image:title><![CDATA[Lawrence McDaniel]]></image:title>
-		</image:image>
-		<image:image>
-			<image:loc>https://cdn.lawrencemcdaniel.com/wp-content/uploads/2016/11/22195703/lawrence-headshot-bw.jpg</image:loc>
-			<image:title><![CDATA[Lawrence McDaniel]]></image:title>
-		</image:image>
-		<image:image>
-			<image:loc>https://cdn.lawrencemcdaniel.com/wp-content/uploads/2016/09/22195718/lawrence-headshot.jpg</image:loc>
-			<image:title><![CDATA[Lawrence McDaniel]]></image:title>
-		</image:image>
-		<image:image>
-			<image:loc>https://cdn.lawrencemcdaniel.com/wp-content/uploads/2017/09/22195635/lawrencemcdaniel.com-linkedin.png</image:loc>
-			<image:title><![CDATA[Lawrence McDaniel LinkedIn]]></image:title>
-		</image:image>
-	</url>
-	<url>
-		<loc>https://lawrencemcdaniel.com/openedx</loc>
-		<lastmod>2021-02-19T17:10:50+00:00</lastmod>
-	</url>
-	<url>
-		<loc>https://lawrencemcdaniel.com/machine-learning</loc>
-		<lastmod>2021-02-19T17:10:50+00:00</lastmod>
-	</url>
-	<url>
-		<loc>https://lawrencemcdaniel.com/bio</loc>
-		<lastmod>2021-02-19T17:10:50+00:00</lastmod>
-	</url>
-	<url>
-		<loc>https://lawrencemcdaniel.com/specialties</loc>
-		<lastmod>2021-02-19T17:10:50+00:00</lastmod>
-	</url>
-	<url>
-		<loc>https://lawrencemcdaniel.com/portfolio</loc>
-		<lastmod>2021-02-19T17:10:50+00:00</lastmod>
-	</url>
-	<url>
-		<loc>https://lawrencemcdaniel.com/education</loc>
-		<lastmod>2021-02-19T17:10:50+00:00</lastmod>
-	</url>
-	<url>
-		<loc>https://lawrencemcdaniel.com/skills</loc>
-		<lastmod>2021-02-19T17:10:50+00:00</lastmod>
-	</url>
-	<url>
-		<loc>https://lawrencemcdaniel.com/reactjs</loc>
-		<lastmod>2021-02-19T17:10:50+00:00</lastmod>
-	</url>
-	<url>
-		<loc>https://lawrencemcdaniel.com/clients</loc>
-		<lastmod>2021-02-19T17:10:50+00:00</lastmod>
-	</url>
+<?xml version="1.0" encoding="UTF-8"?>
+<urlset xmlns="http://www.sitemaps.org/schemas/sitemap/0.9" xmlns:news="http://www.google.com/schemas/sitemap-news/0.9" xmlns:xhtml="http://www.w3.org/1999/xhtml" xmlns:mobile="http://www.google.com/schemas/sitemap-mobile/1.0" xmlns:image="http://www.google.com/schemas/sitemap-image/1.1" xmlns:video="http://www.google.com/schemas/sitemap-video/1.1">
+<url> <loc>https://lawrencemcdaniel.com/</loc> </url>
+<url> <loc>https://lawrencemcdaniel.com/home</loc> </url>
+<url> <loc>https://lawrencemcdaniel.com/contact</loc> </url>
+<url> <loc>https://lawrencemcdaniel.com/qr</loc> </url>
+<url> <loc>https://lawrencemcdaniel.com/about</loc> </url>
+<url> <loc>https://lawrencemcdaniel.com/openedx</loc> </url>
+<url> <loc>https://lawrencemcdaniel.com/machine-learning</loc> </url>
+<url> <loc>https://lawrencemcdaniel.com/bio</loc> </url>
+<url> <loc>https://lawrencemcdaniel.com/specialties</loc> </url>
+<url> <loc>https://lawrencemcdaniel.com/portfolio</loc> </url>
+<url> <loc>https://lawrencemcdaniel.com/education</loc> </url>
+<url> <loc>https://lawrencemcdaniel.com/skills</loc> </url>
+<url> <loc>https://lawrencemcdaniel.com/reactjs</loc> </url>
+<url> <loc>https://lawrencemcdaniel.com/clients</loc> </url>
 </urlset>
