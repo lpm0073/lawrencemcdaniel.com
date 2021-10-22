@@ -1,3 +1,5 @@
+import { siteUrl } from './shared/urls';
+
 require("babel-register")({
     presets: ["es2015", "react"]
   });
@@ -8,7 +10,7 @@ require("babel-register")({
   function generateSitemap() {
       return (
         new Sitemap(router)
-            .build("https://lawrencemcdaniel.com")
+            .build({siteUrl})
             .save("./public/sitemap.xml")
       );
   }

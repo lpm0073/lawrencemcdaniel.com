@@ -9,6 +9,7 @@ import { gsdGraph } from '../../shared/seo/gsdGraph';
 import { gsdPersonLawrenceMcDaniel } from '../../shared/seo/gsdPersonLawrence';
 import {basePageTitle, baseTitle} from '../../shared/seo/gsdCommon';
 import {Helmet} from "react-helmet";
+import { siteUrl } from '../../shared/urls';
 
 import './styles.css';
 
@@ -38,7 +39,7 @@ class Home extends Component {
         return(
                 <React.Fragment>
                     <Helmet>
-                        <link rel="canonical" href="https://lawrencemcdaniel.com/home/" />
+                        <link rel="canonical" href={siteUrl + "/home/"} />
                         <script type="application/ld+json">{JSON.stringify(gsdGraph(slug, webpageName, webpageDescription, primaryImageUrl, pageType, relatedLink, graphExtraData))}</script>
                     </Helmet>
                     <div key="home-page" className="jumbotron dark-background">

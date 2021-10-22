@@ -5,6 +5,7 @@ import SkillBar from './skillBar';
 import {Helmet} from "react-helmet";
 import { gsdPersonLawrenceMcDaniel } from '../../shared/seo/gsdPersonLawrence';
 import { gsdGraph } from '../../shared/seo/gsdGraph';
+import { siteUrl } from '../../shared/urls';
 import './styles.css';
 
 
@@ -21,7 +22,7 @@ const Skills = (props) => {
     return(
         <React.Fragment>
             <Helmet>
-                <link rel="canonical" href="https://lawrencemcdaniel.com/skills/" />
+                <link rel="canonical" href={siteUrl + "/skills/"} />
                 <script type="application/ld+json">{JSON.stringify(gsdGraph(slug, webpageName, webpageDescription, primaryImageUrl, pageType, relatedLink, graphExtraData))}</script>
             </Helmet>
             <div key="skills-page" className="site-page skills-page">

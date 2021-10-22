@@ -1,10 +1,9 @@
 import React, { Component} from 'react';
 import RenderPageTitle from '../../components/pagetitle/pageTitleComponent';
-import {resumeUrl} from '../../shared/urls';
 import {Helmet} from "react-helmet";
 import { gsdGraph } from '../../shared/seo/gsdGraph';
 import { gsdPersonLawrenceMcDaniel } from '../../shared/seo/gsdPersonLawrence';
-import {baseTitle} from '../../shared/seo/gsdCommon';
+import { siteUrl } from '../../shared/urls';
 import './styles.css';
 
 
@@ -23,7 +22,7 @@ class QR extends Component {
         return(
             <React.Fragment>
                 <Helmet>
-                    <link rel="canonical" href="https://lawrencemcdaniel.com/qr/" />
+                    <link rel="canonical" href={siteUrl + "/qr/"} />
                     <script type="application/ld+json">{JSON.stringify(gsdGraph(slug, webpageName, webpageDescription, primaryImageUrl, pageType, relatedLink, graphExtraData))}</script>
                 </Helmet>
                 <div key="qr-page" className="site-page qr-page">

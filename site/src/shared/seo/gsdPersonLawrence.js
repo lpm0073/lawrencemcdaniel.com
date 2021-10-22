@@ -1,6 +1,7 @@
 import { baseUrl, sameAs, imagesLawrenceMcDaniel, brandLawrenceMcDaniel, nameLawrenceMcDaniel, lastReviewed, baseTitle} from './gsdCommon';
 import {gsdQualifications} from './gsdQualifications';
 import {hourlyRate} from './gsdCommon';
+import { siteUrl } from '../urls';
 
 
 export const hasOccupation = {
@@ -10,7 +11,7 @@ export const hasOccupation = {
       "name":baseTitle,
       "mainEntityOfPage":{
          "@type":"WebPage",
-         "@id":"https://lawrencemcdaniel.com/",
+         "@id":siteUrl + "/",
          "lastReviewed":lastReviewed
       },
       "description":"I’m an American full stack developer with significant experience with classic backend stacks and front-end frameworks including Django, React, Angular, and WordPress. I also work extensively with the Open edX® learning management system. I am a veteran of multiple startups and early-stage ventures with dozens of successful product launches in multiple industries and markets around the world. I advocate for open source, try to keep things DRY and well-documented and when possible I adhere to the principals of 12-factor development. I’m a passionate learner and frequent blogger, currently interested in machine learning, AI and quantum computing.",
@@ -51,7 +52,7 @@ export const personExtraData =  {
          "@id":baseUrl+"/#logo"
       },
       "additionalType": "https://www.wikidata.org/wiki/Q96072517",
-      "identifier":"https://lawrencemcdaniel.com/",
+      "identifier":siteUrl + "/",
       "brand":brandLawrenceMcDaniel,
       "birthPlace":"Houston, TX, USA",
       "nationality":"American",
@@ -110,7 +111,7 @@ export const gsdPersonLawrenceMcDaniel = {
          "Person",
          "Organization"
       ],
-      "@id":"https://lawrencemcdaniel.com/#me",
+      "@id":siteUrl + "/#me",
       "name":nameLawrenceMcDaniel,
       "description":"Lawrence is a full stack developer and freelance Open edX Consultant / Open edX Service Provider specializing in Python/Django, ReactJS, Angular, Ionic, Wordpress and Amazon Web Services. He lives in Cambridge, Massachusetts. More info here: lawrencemcdaniel.com/bio",
       "jobTitle":baseTitle,

@@ -4,8 +4,8 @@ import CoursesGrid from './coursesGrid';
 import {Helmet} from "react-helmet";
 import { gsdPersonLawrenceMcDaniel } from '../../shared/seo/gsdPersonLawrence';
 import { hasOccupation } from '../../shared/seo/gsdPersonLawrence';
-
 import { gsdGraph } from '../../shared/seo/gsdGraph';
+import { siteUrl } from '../../shared/urls';
 import './styles.css';
 
 
@@ -24,7 +24,7 @@ const Education = (props) => {
     return(
         <React.Fragment>
             <Helmet>
-                <link rel="canonical" href="https://lawrencemcdaniel.com/education/" />
+                <link rel="canonical" href={siteUrl + "education/"} />
                 <script type="application/ld+json">{JSON.stringify(gsdGraph(slug, webpageName, webpageDescription, primaryImageUrl, pageType, relatedLink, graphExtraData))}</script>
             </Helmet>
             <div key="education-page" className="portfolio-page">

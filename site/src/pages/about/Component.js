@@ -11,6 +11,7 @@ import { Fade } from 'react-animation-components';
 import {Helmet} from "react-helmet";
 import { gsdGraph } from '../../shared/seo/gsdGraph';
 import { gsdPersonLawrenceMcDaniel, personExtraData } from '../../shared/seo/gsdPersonLawrence';
+import { siteUrl } from '../../shared/urls';
 
 import './styles.css';
 
@@ -44,7 +45,7 @@ class About extends Component {
     
                 <React.Fragment>
                     <Helmet>
-                        <link rel="canonical" href="https://lawrencemcdaniel.com/about/" />
+                        <link rel="canonical" href={siteUrl + "/about/"} />
                         <script type="application/ld+json">{JSON.stringify(gsdGraph(slug, webpageName, webpageDescription, primaryImageUrl, pageType, relatedLink, graphExtraData))}</script>
                     </Helmet>
                     <div key="about-page" className="site-page about-page">

@@ -1,3 +1,4 @@
+import { siteUrl } from "../urls";
 const d = new Date();
 const imageObject = (url, height, width) => {
 
@@ -13,7 +14,7 @@ const imageObject = (url, height, width) => {
     }
 }
 
-export const baseUrl = "https://lawrencemcdaniel.com";
+export const baseUrl = siteUrl;
 export const nameLawrenceMcDaniel = "Lawrence McDaniel";
 export const baseTitle = "Full Stack Developer";
 export const basePageTitle = nameLawrenceMcDaniel + " - " + baseTitle;

@@ -1,5 +1,5 @@
 import { brandLawrenceMcDaniel, imagesLawrenceMcDaniel, basePageTitle } from './gsdCommon';
-
+import { siteUrl } from '../urls';
 /* DEPRECATE???? */
 export const gsdLocalBusinessLawrenceMcDaniel = (includeExtraData = false) =>  {
 
@@ -7,13 +7,13 @@ export const gsdLocalBusinessLawrenceMcDaniel = (includeExtraData = false) =>  {
     "@type": "LocalBusiness",
     "additionalType": "https://www.wikidata.org/wiki/Q96072517",
     "image": imagesLawrenceMcDaniel,
-    "@id": "https://lawrencemcdaniel.com/#business",
+    "@id": siteUrl + "/#business",
     "brand": brandLawrenceMcDaniel,
     "name": basePageTitle,
     "priceRange":"$$",
     "employee":[
       {
-        "@id":"https://lawrencemcdaniel.com/#me"
+        "@id":siteUrl + "/#me"
       }
     ],
     "address":[
@@ -33,7 +33,7 @@ export const gsdLocalBusinessLawrenceMcDaniel = (includeExtraData = false) =>  {
          "streetAddress":"210 Broadway Street"
        }
      ],
-    "url":"https://lawrencemcdaniel.com/",
+    "url":siteUrl + "/",
     "logo":"https://cdn.lawrencemcdaniel.com/",
     "telephone":"+1 (617) 834-6172",
     "email":"mailto:lpm0073@gmail.com",

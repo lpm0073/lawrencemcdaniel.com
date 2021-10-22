@@ -1,12 +1,13 @@
 import {convertToSlug} from '../slug';
 import { brandLawrenceMcDaniel } from './gsdCommon';
 import {datePublished, hourlyRate, nameLawrenceMcDaniel} from './gsdCommon';
+import { siteUrl } from '../urls';
 
 const itemOffer = (name, description="") => {
 
    return {
       "@type":"Offer",
-      "@id": "https://lawrencemcdaniel.com/openedx/#" + convertToSlug(name),
+      "@id": siteUrl + "/openedx/#" + convertToSlug(name),
       "price":hourlyRate,
       "priceCurrency":"USD",
       "priceSpecification":"HOUR",
@@ -18,7 +19,7 @@ const itemOffer = (name, description="") => {
          "name":name,
          "description":description
       },
-      "url":"https://lawrencemcdaniel.com/openedx"
+      "url":siteUrl + "/openedx"
       }
 
 
@@ -35,15 +36,15 @@ const subjectOf = (url) => {
 
 export const gsdServiceOpenedX = {
    "@type":"Service",
-   "@id": "https://lawrencemcdaniel.com/openedx/#service",
-   "identifier":"https://lawrencemcdaniel.com/openedx",
+   "@id": siteUrl + "/openedx/#service",
+   "identifier":siteUrl + "/openedx",
    "serviceType":"ProfessionalService",
    "additionalType": "https://en.wikipedia.org/wiki/Consultant",
    "category":"https://open.edx.org/",
-   "url":"https://lawrencemcdaniel.com/openedx",
+   "url":siteUrl + "/openedx",
    "areaServed":"https://en.wikipedia.org/wiki/Americas",
    "provider":{
-      "@id":"https://lawrencemcdaniel.com/#me"
+      "@id":siteUrl + "/#me"
    },
    "serviceOutput": {
      "@type": "Product",
@@ -94,10 +95,10 @@ export const gsdServiceOpenedX = {
      "url": "https://cdn.lawrencemcdaniel.com/wp-content/uploads/2020/05/28144740/open-edx-logo-with-reg.png",
      "height": 71,
      "width": 365,
-     "@id": "https://lawrencemcdaniel.com/#open-edx-logo.png"
+     "@id": siteUrl + "/#open-edx-logo.png"
   },    
    "logo": {
-     "@id": "https://lawrencemcdaniel.com/#open-edx-logo.png"
+     "@id": siteUrl + "/#open-edx-logo.png"
   },
    "subjectOf":[
       subjectOf("https://blog.lawrencemcdaniel.com/reset-the-mysql-root-password-in-open-edx/"),

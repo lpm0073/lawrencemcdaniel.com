@@ -5,7 +5,7 @@ import { Provider } from 'react-redux';
 import { ConfigureStore } from './redux/configureStore';
 import {Helmet} from "react-helmet";
 import { nameLawrenceMcDaniel, basePageTitle } from './shared/seo/gsdCommon';
-
+import { siteUrl, cdnUrl } from './shared/urls';
 import './App.css';
 
 const store = ConfigureStore();
@@ -20,12 +20,12 @@ class App extends Component {
             <Helmet>
               <title>{basePageTitle}</title>
               <meta name="author" content={nameLawrenceMcDaniel} />
-              <link rel="canonical" href="https://lawrencemcdaniel.com/" />
+              <link rel="canonical" href={siteUrl + "/"} />
               <meta name="description" content="Full Stack Web Developer and Open edX® Consultant specializing in Python, Django, ReactJS, Redux, AngularJS, and AWS." />
               <meta name="keywords"  content="Lawrence McDaniel, open edx consultant, open edx service provider, Open edX, web developer, freelancer, full stack developer, full stack web developer, web developer, Python, Django, React, ReactJS, Redux, Wordpress, AWS, Boto3, Angular, AngularJS" />
 
-              <link rel="apple-touch-icon" href="https://lawrencemcdaniel.com/logo192.png" />
-              <link rel="manifest" href="https://lawrencemcdaniel.com/manifest.json" />
+              <link rel="apple-touch-icon" href={siteUrl + "/logo192.png"} />
+              <link rel="manifest" href="/manifest.json" />
 
               <link rel="shortcut icon" href="/favicon.jpg" type="image/vnd.microsoft.icon"/>    
               <meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1" />
@@ -35,9 +35,9 @@ class App extends Component {
               <meta property="og:title" content={basePageTitle} />
               <meta property="og:author" content={nameLawrenceMcDaniel} />
               <meta property="og:type" content="website" />
-              <meta property="og:url" content="https://lawrencemcdaniel.com" />
+              <meta property="og:url" content={siteUrl} />
               <meta property="og:site_name" content={basePageTitle} />
-              <meta property="og:image" content="https://cdn.lawrencemcdaniel.com/social-1200x630.jpg" />
+              <meta property="og:image" content={cdnUrl + "/social-1200x630.jpg"}  />
               <meta property="og:image:alt" content="Lawrence McDaniel Banner" />
               <meta property="og:image:width" content="1200" />
               <meta property="og:image:height" content="630" />
@@ -46,9 +46,9 @@ class App extends Component {
               <meta name="twitter:site" content="@LorenzoDPolanco" />
               <meta name="twitter:domain" content="lawrencemcdaniel.com" />
               <meta name="twitter:title" content={basePageTitle} />
-              <meta name="twitter:image" content="https://cdn.lawrencemcdaniel.com/social-1200x675.jpg" />
+              <meta name="twitter:image" content={ cdnUrl + "/social-1200x675.jpg"} />
               <meta name="twitter:description" content={basePageTitle} />
-              <meta itemprop="image" content="https://cdn.lawrencemcdaniel.com/social-1200x630.jpg" />
+              <meta itemprop="image" content={cdnUrl + "/social-1200x630.jpg"} />
             </Helmet>
             <Main  />
           </div>

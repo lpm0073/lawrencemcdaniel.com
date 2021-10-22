@@ -92,13 +92,12 @@ class Routes extends Component {
     return(
         <React.Fragment>
           <Switch>
-            <Route path="/home" component={Home} />
+            <Route exact path="/" component={Home} />
             <Route exact path="/contact" component={Contact} />
             <Route exact path="/qr" component={QR} />
             <Route exact path="/about" component={About} />
             <Route exact path="/openedx" component={Openedx} />
             <Route exact path="/machine-learning" component={MachineLearning} />
-            <Route exact path="/matrix" component={Matrix} />
             <Route exact path="/bio" component={Bio} />
             <Route exact path="/full-bio">
               {<Redirect to="/bio" />}
@@ -113,7 +112,7 @@ class Routes extends Component {
                                                               recommendations={this.props.recommendations}
                                                               clients={this.props.clients}
                                                              />} />
-            <Redirect to="/home" />
+            <Route path="*" component={Matrix} />
           </Switch>
         </React.Fragment>
     );

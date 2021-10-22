@@ -7,6 +7,7 @@ import {Helmet} from "react-helmet";
 import { resumeUrl } from '../../shared/urls';
 import { gsdGraph } from '../../shared/seo/gsdGraph';
 import { gsdPersonLawrenceMcDaniel, personExtraData } from '../../shared/seo/gsdPersonLawrence';
+import { siteUrl } from '../../shared/urls';
 
 import './styles.css';
 
@@ -25,7 +26,7 @@ const Bio = (props) => {
     return(
         <React.Fragment>
             <Helmet>
-                <link rel="canonical" href="https://lawrencemcdaniel.com/bio/" />
+                <link rel="canonical" href={siteUrl + "/bio/"} />
                 <script type="application/ld+json">{JSON.stringify(gsdGraph(slug, webpageName, webpageDescription, primaryImageUrl, pageType, relatedLink, graphExtraData))}</script>
             </Helmet>
             <div key="bio-page" className="site-page bio-page">

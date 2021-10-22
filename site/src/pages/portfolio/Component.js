@@ -4,6 +4,7 @@ import ProjectsGrid from './projectsGrid';
 import { gsdGraph } from '../../shared/seo/gsdGraph';
 import {Helmet} from "react-helmet";
 import { gsdPersonLawrenceMcDaniel } from '../../shared/seo/gsdPersonLawrence';
+import { siteUrl } from '../../shared/urls';
 import './styles.css';
 
 
@@ -20,7 +21,7 @@ const Portfolio = (props) => {
     return(
         <React.Fragment>
             <Helmet>
-                <link rel="canonical" href="https://lawrencemcdaniel.com/portfolio/" />
+                <link rel="canonical" href={siteUrl + "/portfolio/"} />
                 <script type="application/ld+json">{JSON.stringify(gsdGraph(slug, webpageName, webpageDescription, primaryImageUrl, pageType, relatedLink, graphExtraData))}</script>
             </Helmet>
             <div key="portfolio-page" className="portfolio-page">

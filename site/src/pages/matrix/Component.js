@@ -3,7 +3,7 @@ import React, { Component } from 'react';
 import {Helmet} from "react-helmet";
 import Loading from '../../components/Loading';
 import MatrixRainingLetters from '../../components/matrixRainingLetters/matrixRainingLetters';
-
+import { siteUrl } from '../../shared/urls';
 import './styles.css';
 
 class Matrix extends Component {
@@ -25,7 +25,7 @@ class Matrix extends Component {
             ) : (
               <React.Fragment>
                   <Helmet>
-                      <link rel="canonical" href="https://lawrencemcdaniel.com/matrix/" />
+                      <link rel="canonical" href={siteUrl + "/matrix/"} />
                   </Helmet>
                   <div className="matrixPage m-0 p-0">
                       <MatrixRainingLetters key="" custom_class="ml-0 pl-0" />
