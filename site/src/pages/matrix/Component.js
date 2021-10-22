@@ -8,6 +8,14 @@ import './styles.css';
 
 class Matrix extends Component {
 
+    componentDidMount() {
+        document.body.classList.add('matrixPage');
+    }
+
+    componentWillUnmount() {
+        document.body.classList.remove('matrixPage');
+    }
+
     render() {
 
         return(
@@ -19,7 +27,7 @@ class Matrix extends Component {
                   <Helmet>
                       <link rel="canonical" href="https://lawrencemcdaniel.com/matrix/" />
                   </Helmet>
-                  <div class="">
+                  <div className="matrixPage m-0 p-0">
                       <MatrixRainingLetters key="" custom_class="ml-0 pl-0" />
                   </div>
               </React.Fragment>
