@@ -112,6 +112,9 @@ class Routes extends Component {
                                                               recommendations={this.props.recommendations}
                                                               clients={this.props.clients}
                                                              />} />
+            <Route exact path="/home">
+              {<Redirect to="/" />}
+            </Route>            
             <Route path="*" component={Matrix} />
           </Switch>
         </React.Fragment>
