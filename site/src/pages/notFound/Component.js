@@ -9,7 +9,7 @@ import MatrixRainingLetters from '../../components/matrixRainingLetters/matrixRa
 import { siteUrl } from '../../shared/urls';
 import './styles.css';
 
-class Matrix extends Component {
+class PageNotFound extends Component {
 
     constructor(props) {
         super(props);
@@ -56,5 +56,5 @@ class Matrix extends Component {
 }
 
 
-export default Matrix;
+export default PageNotFound;
 

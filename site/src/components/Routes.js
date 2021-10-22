@@ -23,7 +23,7 @@ import Clients from '../pages/clients/Component';
 import MachineLearning from '../pages/machineLearning/Component';
 import ReactPage from '../pages/react/Component';
 import Openedx from '../pages/openedx/Component';
-import Matrix from '../pages/matrix/Component';
+import PageNotFound from '../pages/notFound/Component';
 
 const mapStateToProps = state => ({
   ...state
@@ -115,7 +115,7 @@ class Routes extends Component {
             <Route exact path="/home">
               {<Redirect to="/" />}
             </Route>            
-            <Route path="*" component={Matrix} />
+            <Route path="*" component={PageNotFound} />
           </Switch>
         </React.Fragment>
     );
