@@ -2,6 +2,7 @@
     To do: add modal with title: https://reactstrap.github.io/components/modals/
  */
 import React, { Component } from 'react';
+import { Modal, ModalHeader } from "reactstrap";
 
 import {Helmet} from "react-helmet";
 import Loading from '../../components/Loading';
@@ -32,6 +33,7 @@ class PageNotFound extends Component {
 
     render() {
         //<h1>this.props.location</h1>
+
         return(
             <React.Fragment>
             {this.props.isLoading ? (
@@ -43,7 +45,22 @@ class PageNotFound extends Component {
                   </Helmet>
                   <div className="matrixPage m-0 p-0">
                       {this.state.isMounted ? (
-                        <MatrixRainingLetters key="" custom_class="ml-0 pl-0" />
+                          <React.Fragment>
+                            <MatrixRainingLetters key="" custom_class="ml-0 pl-0" />
+                            <div>
+                                <Modal
+                                    isOpen={true}
+                                    modalTransition={{ timeout: 2000 }}
+                                    backdropTransition={{ timeout: 2000 }}
+                                    centered={true}
+                                    fade={true}
+                                    size='lg'
+                                >
+                                    <ModalHeader>404 Page Not Found</ModalHeader>
+                                </Modal>
+                                </div>
+                          </React.Fragment>
+                        
                       ) : (
                         <React.Fragment />
                       )}

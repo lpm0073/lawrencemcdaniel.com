@@ -5,3 +5,23 @@
     margin-right: auto;
     padding-top: 59px;
 }
+
+div.modal-content {
+    border-style: solid;
+    border-color: white;
+    background-color: transparent;
+    color: white;
+    text-align: center;
+}
+
+.modal-title {
+    width: 100%;
+    font-size: 6em;
+    font-weight: 800;
+}
+
+div.modal-header > button,
+div.modal-footer {
+    display: none;
+}
+
