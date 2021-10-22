@@ -31,25 +31,25 @@ class Header extends Component {
                 <Collapse isOpen={this.state.isNavOpen} navbar>
                     <Nav navbar>
                         <NavItem>
-                            <NavLink className="nav-link"  to='/'>Home</NavLink>
+                            <NavLink onClick={this.toggleNav} className="nav-link"  to='/'>Home</NavLink>
                         </NavItem>
                         <NavItem>
-                            <NavLink className="nav-link" to='/about'>About</NavLink>
+                            <NavLink onClick={this.toggleNav} className="nav-link" to='/about'>About</NavLink>
                         </NavItem>
                         <NavItem>
-                            <NavLink className="nav-link"  to='/specialties'>Specialties</NavLink>
+                            <NavLink onClick={this.toggleNav} className="nav-link"  to='/specialties'>Specialties</NavLink>
                         </NavItem>
                         <NavItem>
-                            <NavLink className="nav-link"  to='/portfolio'>Portfolio</NavLink>
+                            <NavLink onClick={this.toggleNav} className="nav-link"  to='/portfolio'>Portfolio</NavLink>
                         </NavItem>
                         <NavItem>
-                            <NavLink className="nav-link"  to='/skills'>Skills</NavLink>
+                            <NavLink onClick={this.toggleNav} className="nav-link"  to='/skills'>Skills</NavLink>
                         </NavItem>
                         <NavItem>
-                            <NavLink className="nav-link"  to='/education'>Education</NavLink>
+                            <NavLink onClick={this.toggleNav} className="nav-link"  to='/education'>Education</NavLink>
                         </NavItem>
                         <NavItem>
-                            <NavLink className="nav-link"  to='/clients'>Clients</NavLink>
+                            <NavLink onClick={this.toggleNav} className="nav-link"  to='/clients'>Clients</NavLink>
                         </NavItem>
                         <UncontrolledDropdown nav inNavbar className="hide-medium">
                             <DropdownToggle nav caret>Code Samples</DropdownToggle>
@@ -95,7 +95,7 @@ class Header extends Component {
                             <a className="nav-link" href='https://blog.lawrencemcdaniel.com/' target="_self" rel="noopener noreferrer">Blog</a>
                         </NavItem>
                         <NavItem>
-                            <NavLink className="nav-link" to='/contact'>Contact</NavLink>
+                            <NavLink onClick={this.toggleNav} className="nav-link" to='/contact'>Contact</NavLink>
                         </NavItem>
                     </Nav>
                 </Collapse>
