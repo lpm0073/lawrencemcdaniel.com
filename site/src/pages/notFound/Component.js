@@ -24,7 +24,10 @@ class PageNotFound extends Component {
     componentDidMount() {
         document.body.classList.add('matrixPage');
         console.log("mounted.")
-        this.state.isMounted = true;
+        this.setState({
+            isMounted: true
+        });
+
     }
 
     componentWillUnmount() {
@@ -32,7 +35,6 @@ class PageNotFound extends Component {
     }
 
     render() {
-        //<h1>this.props.location</h1>
 
         return(
             <React.Fragment>
