@@ -15,6 +15,8 @@ class Header extends Component {
           };
 
           this.toggleNav = this.toggleNav.bind(this);
+          this.toggleNavItem = this.toggleNavItem.bind(this);
+          this.getWindowDimensions = this.getWindowDimensions.bind(this);
         }
 
     toggleNav() {
@@ -22,6 +24,28 @@ class Header extends Component {
             isNavOpen: !this.state.isNavOpen
         });
     }
+    getWindowDimensions() {
+        const { innerWidth: width, innerHeight: height } = window;
+        return {
+          width,
+          height
+        };
+      }
+
+    toggleNavItem() {
+        // only want this to work on medium devices and smaller
+        // for the hamburger menu items.
+        //
+        // md = Medium ≥768px. Max container width 720px.
+        const windowSize = this.getWindowDimensions();
+        if (windowSize.width < 768) {
+            this.setState({
+                isNavOpen: !this.state.isNavOpen
+            });
+    
+        }
+    }
+
 
     render() {
         return(
@@ -31,25 +55,25 @@ class Header extends Component {
                 <Collapse isOpen={this.state.isNavOpen} navbar>
                     <Nav navbar>
                         <NavItem>
-                            <NavLink onClick={this.toggleNav} className="nav-link"  to='/'>Home</NavLink>
+                            <NavLink onClick={this.toggleNavItem} className="nav-link"  to='/'>Home</NavLink>
                         </NavItem>
                         <NavItem>
-                            <NavLink onClick={this.toggleNav} className="nav-link" to='/about'>About</NavLink>
+                            <NavLink onClick={this.toggleNavItem} className="nav-link" to='/about'>About</NavLink>
                         </NavItem>
                         <NavItem>
-                            <NavLink onClick={this.toggleNav} className="nav-link"  to='/specialties'>Specialties</NavLink>
+                            <NavLink onClick={this.toggleNavItem} className="nav-link"  to='/specialties'>Specialties</NavLink>
                         </NavItem>
                         <NavItem>
-                            <NavLink onClick={this.toggleNav} className="nav-link"  to='/portfolio'>Portfolio</NavLink>
+                            <NavLink onClick={this.toggleNavItem} className="nav-link"  to='/portfolio'>Portfolio</NavLink>
                         </NavItem>
                         <NavItem>
-                            <NavLink onClick={this.toggleNav} className="nav-link"  to='/skills'>Skills</NavLink>
+                            <NavLink onClick={this.toggleNavItem} className="nav-link"  to='/skills'>Skills</NavLink>
                         </NavItem>
                         <NavItem>
-                            <NavLink onClick={this.toggleNav} className="nav-link"  to='/education'>Education</NavLink>
+                            <NavLink onClick={this.toggleNavItem} className="nav-link"  to='/education'>Education</NavLink>
                         </NavItem>
                         <NavItem>
-                            <NavLink onClick={this.toggleNav} className="nav-link"  to='/clients'>Clients</NavLink>
+                            <NavLink onClick={this.toggleNavItem} className="nav-link"  to='/clients'>Clients</NavLink>
                         </NavItem>
                         <UncontrolledDropdown nav inNavbar className="hide-medium">
                             <DropdownToggle nav caret>Code Samples</DropdownToggle>
@@ -95,7 +119,7 @@ class Header extends Component {
                             <a className="nav-link" href='https://blog.lawrencemcdaniel.com/' target="_self" rel="noopener noreferrer">Blog</a>
                         </NavItem>
                         <NavItem>
-                            <NavLink onClick={this.toggleNav} className="nav-link" to='/contact'>Contact</NavLink>
+                            <NavLink onClick={this.toggleNavItem} className="nav-link" to='/contact'>Contact</NavLink>
                         </NavItem>
                     </Nav>
                 </Collapse>
