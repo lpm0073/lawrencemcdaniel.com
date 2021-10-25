@@ -21,5 +21,19 @@
   "start_url": ".",
   "display": "standalone",
   "theme_color": "#000000",
-  "background_color": "#f1f1f1"
+  "background_color": "#000000",
+  "description": "Web portfolio for Lawrence McDaniel: I've built tons of stuff.",
+  "screenshots": [
+    {
+      "src": "/assets/images/screenshot1.png",
+      "type": "image/png",
+      "sizes": "1024x620"
+    },
+    {
+      "src": "assets/images/screenshot2.jpg",
+      "type": "image/jpg",
+      "sizes": "2144x1384"
+    }
+  ]
 }
+
