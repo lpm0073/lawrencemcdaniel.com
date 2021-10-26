@@ -58,7 +58,7 @@ registerRoute(
     plugins: [
       // Ensure that once this runtime cache reaches a maximum size the
       // least-recently used images are removed.
-      new ExpirationPlugin({ maxEntries: 50 }),
+      new ExpirationPlugin({ maxEntries: 1000 }),
     ],
   })
 );
@@ -74,7 +74,7 @@ registerRoute(
       }),
       new ExpirationPlugin({
         maxEntries: 120,
-        maxAgeSeconds: 30 * 24 * 60 * 60, // 30 Days
+        maxAgeSeconds: 365 * 24 * 60 * 60, // 365 Days
       }),
     ],
   }),
@@ -93,6 +93,17 @@ registerRoute(
   }),
 );
 
+// Cache api-served static assets with a stale-while-revalidate strategy, with
+// a maximum number of entries.
+registerRoute(
+  ({url}) => url.origin === 'https://api.lawrencemcdaniel.com',
+  new StaleWhileRevalidate({
+    cacheName: 'api-assets',
+    plugins: [
+      new ExpirationPlugin({maxEntries: 1000}),
+    ],
+  }),
+);
 
 // This allows the web app to trigger skipWaiting via
 // registration.waiting.postMessage({type: 'SKIP_WAITING'})
