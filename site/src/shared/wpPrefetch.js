@@ -12,6 +12,8 @@ import { CORSOrigins } from './urls';
 import { wpGetFeaturedImage } from './wpGetFeaturedImage';
 
 export const wpPrefetch = (url) => {
+    //console.log("prefetching: ", url);
+
     fetch(url)
     .then(
         response => {
@@ -37,7 +39,9 @@ export const wpPrefetch = (url) => {
             mode: 'no-cors',
             headers: { 'Access-Control-Allow-Origin': CORSOrigins },
           })
-          .then(response => {}, error => {
+          .then(response => {
+            //console.log("prefetched: ", imageUrl);
+          }, error => {
               console.log("precache error: ", imageUrl, error.message);
           })
         }
