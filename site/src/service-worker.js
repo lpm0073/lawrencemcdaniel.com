@@ -61,6 +61,37 @@ registerRoute(
   })
 );
 
+// image cache example from https://developers.google.com/web/tools/workbox
+registerRoute(
+  ({request}) => request.destination === 'image',
+  new CacheFirst({
+    cacheName: 'images',
+    plugins: [
+      new CacheableResponsePlugin({
+        statuses: [0, 200],
+      }),
+      new ExpirationPlugin({
+        maxEntries: 120,
+        maxAgeSeconds: 30 * 24 * 60 * 60, // 30 Days
+      }),
+    ],
+  }),
+);
+
+// Cache Google Fonts with a stale-while-revalidate strategy, with
+// a maximum number of entries.
+registerRoute(
+  ({url}) => url.origin === 'https://fonts.googleapis.com' ||
+              url.origin === 'https://fonts.gstatic.com',
+  new StaleWhileRevalidate({
+    cacheName: 'google-fonts',
+    plugins: [
+      new ExpirationPlugin({maxEntries: 20}),
+    ],
+  }),
+);
+
+
 // This allows the web app to trigger skipWaiting via
 // registration.waiting.postMessage({type: 'SKIP_WAITING'})
 self.addEventListener('message', (event) => {
