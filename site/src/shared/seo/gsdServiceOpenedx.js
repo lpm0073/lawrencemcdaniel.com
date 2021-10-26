@@ -1,13 +1,13 @@
 import {convertToSlug} from '../slug';
 import { brandLawrenceMcDaniel } from './gsdCommon';
 import {datePublished, hourlyRate, nameLawrenceMcDaniel} from './gsdCommon';
-import { siteUrl } from '../urls';
+import { URL_SITE } from '../urls';
 
 const itemOffer = (name, description="") => {
 
    return {
       "@type":"Offer",
-      "@id": siteUrl + "/openedx/#" + convertToSlug(name),
+      "@id": URL_SITE + "/openedx/#" + convertToSlug(name),
       "price":hourlyRate,
       "priceCurrency":"USD",
       "priceSpecification":"HOUR",
@@ -19,7 +19,7 @@ const itemOffer = (name, description="") => {
          "name":name,
          "description":description
       },
-      "url":siteUrl + "/openedx"
+      "url":URL_SITE + "/openedx"
       }
 
 
@@ -36,15 +36,15 @@ const subjectOf = (url) => {
 
 export const gsdServiceOpenedX = {
    "@type":"Service",
-   "@id": siteUrl + "/openedx/#service",
-   "identifier":siteUrl + "/openedx",
+   "@id": URL_SITE + "/openedx/#service",
+   "identifier":URL_SITE + "/openedx",
    "serviceType":"ProfessionalService",
    "additionalType": "https://en.wikipedia.org/wiki/Consultant",
    "category":"https://open.edx.org/",
-   "url":siteUrl + "/openedx",
+   "url":URL_SITE + "/openedx",
    "areaServed":"https://en.wikipedia.org/wiki/Americas",
    "provider":{
-      "@id":siteUrl + "/#me"
+      "@id":URL_SITE + "/#me"
    },
    "serviceOutput": {
      "@type": "Product",
@@ -95,10 +95,10 @@ export const gsdServiceOpenedX = {
      "url": "https://cdn.lawrencemcdaniel.com/wp-content/uploads/2020/05/28144740/open-edx-logo-with-reg.png",
      "height": 71,
      "width": 365,
-     "@id": siteUrl + "/#open-edx-logo.png"
+     "@id": URL_SITE + "/#open-edx-logo.png"
   },    
    "logo": {
-     "@id": siteUrl + "/#open-edx-logo.png"
+     "@id": URL_SITE + "/#open-edx-logo.png"
   },
    "subjectOf":[
       subjectOf("https://blog.lawrencemcdaniel.com/reset-the-mysql-root-password-in-open-edx/"),

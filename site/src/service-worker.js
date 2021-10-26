@@ -16,9 +16,21 @@ import { registerRoute } from 'workbox-routing';
 import { StaleWhileRevalidate } from 'workbox-strategies';
 
 import { wpPrefetch } from './shared/wpPrefetch';
-import { cdnUrl, apiUrl, siteUrl, 
-         APISpecialtiesURL, APIPortfolioURL, APIEducationURL, 
-         APIRecommendationsURL, APIProjectsURL, APIClientsURL } from './shared/urls';
+
+import {
+    URL_CDN,              // AWS Cloudfront distribution: https://cdn.lawrencemcdaniel.com
+    URL_API,              // Wordpress REST apis: https://api.lawrencemcdaniel.com
+    URL_SITE,             // This site: https://lawrencemcdaniel.com
+
+    // Wordpress REST apis
+    // -------------------
+    URL_API_SPECIALTIES,
+    URL_API_PORTFOLIO,
+    URL_API_EDUCATION,
+    URL_API_RECOMMENDATIONS,
+    URL_API_PROJECTS, 
+    URL_API_CLIENTS
+} from './shared/urls';
 
 
 // ----------------------------------------
@@ -89,7 +101,7 @@ self.addEventListener('message', (event) => {
 // no max, no expiration.
 // docs: https://developers.google.com/web/tools/workbox/reference-docs/latest/module-workbox-strategies.StaleWhileRevalidate
 registerRoute(
-  ({url}) => url.origin === siteUrl + '/manifest.json',
+  ({url}) => url.origin === URL_SITE + '/manifest.json',
   new StaleWhileRevalidate({
     cacheName: 'manifest',
     plugins: [
@@ -104,7 +116,7 @@ registerRoute(
 // no max, no expiration.
 // docs: https://developers.google.com/web/tools/workbox/reference-docs/latest/module-workbox-strategies.StaleWhileRevalidate
 registerRoute(
-  ({url}) => url.origin === apiUrl,
+  ({url}) => url.origin === URL_API,
   new StaleWhileRevalidate({
     cacheName: 'api-responses',
     plugins: [
@@ -128,7 +140,7 @@ registerRoute(
 // A cache first strategy is useful for assets that have been revisioned, 
 // such as URLs like /styles/example.a8f5f1.css, since they can be cached for long periods of time.
 registerRoute(
-  ({url}) => url.origin === cdnUrl,
+  ({url}) => url.origin === URL_CDN,
   new CacheFirst({
     cacheName: 'cdn-responses',
     plugins: [
@@ -169,9 +181,9 @@ registerRoute(
 // invoke each image api and call the imagePreFetcher.
 // this should result in all static images getting cached 
 // via a registerRoute below on the CDN responses.
-wpPrefetch(APISpecialtiesURL);    // do me first!!!
-wpPrefetch(APIClientsURL);
-wpPrefetch(APIEducationURL);
-wpPrefetch(APIPortfolioURL);
-wpPrefetch(APIProjectsURL);
-wpPrefetch(APIRecommendationsURL);
+wpPrefetch(URL_API_SPECIALTIES);    // do me first!!!
+wpPrefetch(URL_API_CLIENTS);
+wpPrefetch(URL_API_EDUCATION);
+wpPrefetch(URL_API_PORTFOLIO);
+wpPrefetch(URL_API_PROJECTS);
+wpPrefetch(URL_API_RECOMMENDATIONS);

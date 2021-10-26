@@ -6,7 +6,7 @@ import { gsdGraph } from '../../shared/seo/gsdGraph';
 import { gsdPersonLawrenceMcDaniel } from '../../shared/seo/gsdPersonLawrence';
 import { gsdArticle } from '../../shared/seo/gsdArticle';
 import {baseTitle} from '../../shared/seo/gsdCommon';
-import { siteUrl } from '../../shared/urls';
+import { URL_SITE } from '../../shared/urls';
 
 import './styles.css';
 
@@ -24,7 +24,7 @@ const MachineLearning = (props) => {
         return(
             <React.Fragment>
                 <Helmet>
-                    <link rel="canonical" href={siteUrl + "/machine-learning/"} />
+                    <link rel="canonical" href={URL_SITE + "/machine-learning/"} />
                     <meta name="description" content="Machine learning and algorithms expert with experience using regression, nueral networks, support vector machines, anomoly detection, recommender systems, and unsupervised learning" />
                     <meta property="og:description" content="Machine learning and algorithms expert with experience using regression, nueral networks, support vector machines, anomoly detection, recommender systems, and unsupervised learning" />
                     <meta name="keywords"  content="Lawrence McDaniel, machine learning, algorithms, regression, nueral networks, support vector machines, anomoly detection, recommender systems, unsupervised learning" />

@@ -9,7 +9,7 @@ import { gsdGraph } from '../../shared/seo/gsdGraph';
 import { nameLawrenceMcDaniel} from '../../shared/seo/gsdCommon';
 import { gsdArticle } from '../../shared/seo/gsdArticle';
 import { gsdPersonLawrenceMcDaniel } from '../../shared/seo/gsdPersonLawrence';
-import { siteUrl } from '../../shared/urls';
+import { URL_SITE } from '../../shared/urls';
 import './styles.css';
 
 import Accordion from 'react-bootstrap/Accordion';
@@ -30,7 +30,7 @@ const Openedx = (props) => {
             <div>
                 <Helmet>
                     <title>Open edX Consultant</title>
-                    <link rel="canonical" href={siteUrl + "/openedx/"} />
+                    <link rel="canonical" href={URL_SITE + "/openedx/"} />
 
                     <meta name="description" content="Free initial consultation. Turnkey installation, configuration, theming, customization, systems integration, LTI integration, custom oAuth, and support of the Open edX® Learning Management System." />
                     <meta name="keywords"  content="Lawrence McDaniel, open edx, open edx consulting, open edx service providers, open edx installation, open edx configuration, open edx customization, open edx training, open edx support, open edx documentation, consultations, free quotations, free consultations, lti integration. oauth, SAML" />
@@ -38,7 +38,7 @@ const Openedx = (props) => {
                     <meta property="og:description" content="Free initial consultation. Turnkey installation, configuration, theming, customization, systems integration, LTI integration, custom oAuth, and support of the Open edX® Learning Management System." />
                     <meta property="og:title" content={nameLawrenceMcDaniel} />
                     <meta property="og:site_name" content={nameLawrenceMcDaniel} />
-                    <meta property="og:url" content={siteUrl + "/openedx"} />
+                    <meta property="og:url" content={URL_SITE + "/openedx"} />
 
                     <meta name="twitter:title" content={nameLawrenceMcDaniel} />
                     <meta name="twitter:description" content={nameLawrenceMcDaniel} />

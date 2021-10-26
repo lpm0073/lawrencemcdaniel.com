@@ -7,7 +7,7 @@ import { Modal, ModalHeader } from "reactstrap";
 import {Helmet} from "react-helmet";
 import Loading from '../../components/Loading';
 import MatrixRainingLetters from '../../components/matrixRainingLetters/matrixRainingLetters';
-import { siteUrl } from '../../shared/urls';
+import { URL_SITE } from '../../shared/urls';
 import './styles.css';
 
 class PageNotFound extends Component {
@@ -43,7 +43,7 @@ class PageNotFound extends Component {
             ) : (
               <React.Fragment>
                   <Helmet>
-                      <link rel="canonical" href={siteUrl + "/matrix/"} />
+                      <link rel="canonical" href={URL_SITE + "/matrix/"} />
                   </Helmet>
                   <div className="matrixPage m-0 p-0">
                       {this.state.isMounted ? (

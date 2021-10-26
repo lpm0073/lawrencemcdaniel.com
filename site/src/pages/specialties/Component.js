@@ -6,7 +6,7 @@ import {Helmet} from "react-helmet";
 import { gsdPersonLawrenceMcDaniel } from '../../shared/seo/gsdPersonLawrence';
 import { gsdKnowsAbout } from '../../shared/seo/gsdKnowsAbout';
 import { gsdGraph } from '../../shared/seo/gsdGraph';
-import { siteUrl } from '../../shared/urls';
+import { URL_SITE } from '../../shared/urls';
 import './styles.css';
 
 
@@ -24,7 +24,7 @@ const Specialties = (props) => {
     return(
         <React.Fragment>
             <Helmet>
-                <link rel="canonical" href={siteUrl + "/specialties/"} />
+                <link rel="canonical" href={URL_SITE + "/specialties/"} />
                 <script type="application/ld+json">{JSON.stringify(gsdGraph(slug, webpageName, webpageDescription, primaryImageUrl, pageType, relatedLink, graphExtraData))}</script>
             </Helmet>
             <div className="specialties-page">

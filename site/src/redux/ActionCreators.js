@@ -1,6 +1,6 @@
 import * as ActionTypes from './ActionTypes';
 import { imagePreFetcher } from '../shared/imagePrefetcher';
-import { APISpecialtiesURL, APIPortfolioURL, APIEducationURL, APIRecommendationsURL, APIProjectsURL, APIClientsURL } from '../shared/urls';
+import { URL_API_SPECIALTIES, URL_API_PORTFOLIO, URL_API_EDUCATION, URL_API_RECOMMENDATIONS, URL_API_PROJECTS, URL_API_CLIENTS } from '../shared/urls';
 
 
 
@@ -53,7 +53,7 @@ export const setLogoState = ({state}) => {
 export const fetchSpecialties = () => (dispatch) => {
     dispatch(specialtiesLoading(true));
 
-    return fetch(APISpecialtiesURL)
+    return fetch(URL_API_SPECIALTIES)
     .then(
         response => {
             if (response.ok) {
@@ -98,7 +98,7 @@ export const addSpecialties = (specialties) => ({
 export const fetchPortfolio = () => (dispatch) => {
     dispatch(portfolioLoading(true));
 
-    return fetch(APIPortfolioURL)
+    return fetch(URL_API_PORTFOLIO)
     .then(
         response => {
             if (response.ok) {
@@ -138,7 +138,7 @@ export const addPortfolio = (portfolio) => ({
 export const fetchEducation = () => (dispatch) => {
     dispatch(educationLoading(true));
 
-    return fetch(APIEducationURL)
+    return fetch(URL_API_EDUCATION)
     .then(
         response => {
             if (response.ok) {
@@ -179,7 +179,7 @@ export const addEducation = (education) => ({
 export const fetchRecommendations = () => (dispatch) => {
     dispatch(recommendationsLoading(true));
 
-    return fetch(APIRecommendationsURL)
+    return fetch(URL_API_RECOMMENDATIONS)
     .then(
         response => {
             if (response.ok) {
@@ -219,7 +219,7 @@ export const addRecommendations = (recommendations) => ({
 export const fetchProjectImages = () => (dispatch) => {
     dispatch(projectImagesLoading(true));
 
-    return fetch(APIProjectsURL)
+    return fetch(URL_API_PROJECTS)
     .then(
         response => {
             if (response.ok) {
@@ -260,7 +260,7 @@ export const addProjectImages = (images) => ({
 export const fetchClients = () => (dispatch) => {
     dispatch(clientsLoading(true));
 
-    return fetch(APIClientsURL)
+    return fetch(URL_API_CLIENTS)
     .then(
         response => {
             if (response.ok) {

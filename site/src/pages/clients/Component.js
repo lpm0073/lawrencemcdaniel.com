@@ -5,7 +5,7 @@ import ClientGrid from '../../components/clientGrid/Component';
 import {Helmet} from "react-helmet";
 import { gsdGraph } from '../../shared/seo/gsdGraph';
 import { gsdPersonLawrenceMcDaniel } from '../../shared/seo/gsdPersonLawrence';
-import { siteUrl } from '../../shared/urls';
+import { URL_SITE } from '../../shared/urls';
 
 import './styles.css';
 
@@ -22,7 +22,7 @@ const Clients = (props) => {
     return(
         <React.Fragment>
             <Helmet>
-                <link rel="canonical" href={siteUrl + "/clients/"} />
+                <link rel="canonical" href={URL_SITE + "/clients/"} />
                 <script type="application/ld+json">{JSON.stringify(gsdGraph(slug, webpageName, webpageDescription, primaryImageUrl, pageType, relatedLink, graphExtraData))}</script>
             </Helmet>
             <div key="client-page" className="recommendations-page">
