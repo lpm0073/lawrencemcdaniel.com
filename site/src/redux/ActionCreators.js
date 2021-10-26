@@ -1,6 +1,7 @@
 import * as ActionTypes from './ActionTypes';
-import { backendUrl } from '../shared/urls';
 import { imagePreFetcher } from '../shared/imagePrefetcher';
+import { CDNSpecialtiesURL, CDNPortfolioURL, CDNEducationURL, CDNRecommendationsURL, CDNProjectsURL, CDNClientsURL } from '../shared/urls';
+
 
 
 /*  ----------------------------------- 
@@ -52,7 +53,7 @@ export const setLogoState = ({state}) => {
 export const fetchSpecialties = () => (dispatch) => {
     dispatch(specialtiesLoading(true));
 
-    return fetch(backendUrl + "posts?categories=43&_embed&per_page=100")
+    return fetch(CDNSpecialtiesURL)
     .then(
         response => {
             if (response.ok) {
@@ -97,7 +98,7 @@ export const addSpecialties = (specialties) => ({
 export const fetchPortfolio = () => (dispatch) => {
     dispatch(portfolioLoading(true));
 
-    return fetch(backendUrl + "posts?categories=47&_embed&per_page=8")
+    return fetch(CDNPortfolioURL)
     .then(
         response => {
             if (response.ok) {
@@ -137,7 +138,7 @@ export const addPortfolio = (portfolio) => ({
 export const fetchEducation = () => (dispatch) => {
     dispatch(educationLoading(true));
 
-    return fetch(backendUrl + "posts?categories=44&_embed&per_page=100")
+    return fetch(CDNEducationURL)
     .then(
         response => {
             if (response.ok) {
@@ -178,7 +179,7 @@ export const addEducation = (education) => ({
 export const fetchRecommendations = () => (dispatch) => {
     dispatch(recommendationsLoading(true));
 
-    return fetch(backendUrl + "posts?categories=45&_embed&per_page=100")
+    return fetch(CDNRecommendationsURL)
     .then(
         response => {
             if (response.ok) {
@@ -218,7 +219,7 @@ export const addRecommendations = (recommendations) => ({
 export const fetchProjectImages = () => (dispatch) => {
     dispatch(projectImagesLoading(true));
 
-    return fetch(backendUrl + "media?include=2324,2320,2319,2300,2295,2296,2297,2298,2299,2301,2302,2303")
+    return fetch(CDNProjectsURL)
     .then(
         response => {
             if (response.ok) {
@@ -259,7 +260,7 @@ export const addProjectImages = (images) => ({
 export const fetchClients = () => (dispatch) => {
     dispatch(clientsLoading(true));
 
-    return fetch(backendUrl + "posts?categories=46&_embed&per_page=100")
+    return fetch(CDNClientsURL)
     .then(
         response => {
             if (response.ok) {
