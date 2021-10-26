@@ -1,6 +1,6 @@
 import * as ActionTypes from './ActionTypes';
 import { imagePreFetcher } from '../shared/imagePrefetcher';
-import { CDNSpecialtiesURL, CDNPortfolioURL, CDNEducationURL, CDNRecommendationsURL, CDNProjectsURL, CDNClientsURL } from '../shared/urls';
+import { APISpecialtiesURL, APIPortfolioURL, APIEducationURL, APIRecommendationsURL, APIProjectsURL, APIClientsURL } from '../shared/urls';
 
 
 
@@ -53,7 +53,7 @@ export const setLogoState = ({state}) => {
 export const fetchSpecialties = () => (dispatch) => {
     dispatch(specialtiesLoading(true));
 
-    return fetch(CDNSpecialtiesURL)
+    return fetch(APISpecialtiesURL)
     .then(
         response => {
             if (response.ok) {
@@ -71,7 +71,7 @@ export const fetchSpecialties = () => (dispatch) => {
     .then(response => response.json())
     .then(specialties => dispatch(addSpecialties(specialties)))
     .then(specialties => {
-        imagePreFetcher(specialties.payload, 0, "Specialities");
+        //imagePreFetcher(specialties.payload, 0, "Specialities");
         imagePreFetcher([
             'https://cdn.lawrencemcdaniel.com/wp-content/uploads/2020/06/05201305/Lawrence21.jpg'
         ], 5, "Site Static")
@@ -98,7 +98,7 @@ export const addSpecialties = (specialties) => ({
 export const fetchPortfolio = () => (dispatch) => {
     dispatch(portfolioLoading(true));
 
-    return fetch(CDNPortfolioURL)
+    return fetch(APIPortfolioURL)
     .then(
         response => {
             if (response.ok) {
@@ -115,7 +115,7 @@ export const fetchPortfolio = () => (dispatch) => {
         })
     .then(response => response.json())
     .then(portfolio => dispatch(addPortfolio(portfolio)))
-    .then(portfolio => imagePreFetcher(portfolio.payload, 10, "Portfolio"))
+    //.then(portfolio => imagePreFetcher(portfolio.payload, 10, "Portfolio"))
     .catch(error => dispatch(portfolioFailed(error.message)));
 
 }
@@ -138,7 +138,7 @@ export const addPortfolio = (portfolio) => ({
 export const fetchEducation = () => (dispatch) => {
     dispatch(educationLoading(true));
 
-    return fetch(CDNEducationURL)
+    return fetch(APIEducationURL)
     .then(
         response => {
             if (response.ok) {
@@ -155,7 +155,7 @@ export const fetchEducation = () => (dispatch) => {
         })
     .then(response => response.json())
     .then(education => dispatch(addEducation(education)))
-    .then(education => imagePreFetcher(education.payload, 10, "Education"))
+    //.then(education => imagePreFetcher(education.payload, 10, "Education"))
     .catch(error => dispatch(educationFailed(error.message)));
 
 }
@@ -179,7 +179,7 @@ export const addEducation = (education) => ({
 export const fetchRecommendations = () => (dispatch) => {
     dispatch(recommendationsLoading(true));
 
-    return fetch(CDNRecommendationsURL)
+    return fetch(APIRecommendationsURL)
     .then(
         response => {
             if (response.ok) {
@@ -219,7 +219,7 @@ export const addRecommendations = (recommendations) => ({
 export const fetchProjectImages = () => (dispatch) => {
     dispatch(projectImagesLoading(true));
 
-    return fetch(CDNProjectsURL)
+    return fetch(APIProjectsURL)
     .then(
         response => {
             if (response.ok) {
@@ -260,7 +260,7 @@ export const addProjectImages = (images) => ({
 export const fetchClients = () => (dispatch) => {
     dispatch(clientsLoading(true));
 
-    return fetch(CDNClientsURL)
+    return fetch(APIClientsURL)
     .then(
         response => {
             if (response.ok) {
@@ -277,7 +277,7 @@ export const fetchClients = () => (dispatch) => {
         })
     .then(response => response.json())
     .then(clients => dispatch(addClients(clients)))
-    .then(clients => imagePreFetcher(clients.payload, 15, "Clients"))
+    //.then(clients => imagePreFetcher(clients.payload, 15, "Clients"))
     .catch(error => dispatch(clientsFailed(error.message)));
 
 }
