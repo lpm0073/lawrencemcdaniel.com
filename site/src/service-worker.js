@@ -15,7 +15,7 @@ import { CacheFirst } from 'workbox-strategies';
 import { registerRoute } from 'workbox-routing';
 import { StaleWhileRevalidate } from 'workbox-strategies';
 
-import { cdnUrl, apiUrl } from './shared/urls';
+import { cdnUrl, apiUrl, siteUrl } from './shared/urls';
 
 clientsClaim();
 
@@ -77,6 +77,19 @@ self.addEventListener('message', (event) => {
   }
   
   
+// Cache the app manifest
+//
+// no max, no expiration.
+// docs: https://developers.google.com/web/tools/workbox/reference-docs/latest/module-workbox-strategies.StaleWhileRevalidate
+registerRoute(
+  ({url}) => url.origin === siteUrl + '/manifest.json',
+  new StaleWhileRevalidate({
+    cacheName: 'manifest',
+    plugins: [
+      new ExpirationPlugin({}),
+    ],
+  }),
+);
   
 // Cache api responses with a stale-while-revalidate strategy
 // these are small, as they're only the json response objects.

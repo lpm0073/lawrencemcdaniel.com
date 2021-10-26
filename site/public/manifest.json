@@ -27,12 +27,12 @@
     {
       "src": "/assets/images/screenshot1.png",
       "type": "image/png",
-      "sizes": "1024x620"
+      "sizes": "726x518"
     },
     {
       "src": "assets/images/screenshot2.jpg",
       "type": "image/jpg",
-      "sizes": "2144x1384"
+      "sizes": "726x518"
     }
   ]
 }

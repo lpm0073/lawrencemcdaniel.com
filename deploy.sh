@@ -40,4 +40,4 @@ aws s3 cp s3://reactjs.lawrencemcdaniel.com/manifest.json s3://reactjs.lawrencem
 # invalidate the Cloudfront cache
 aws cloudfront create-invalidation \
               --distribution-id E2364TSMHRWAWL \
-              --paths "/*" "/index.html" "/sitemap.xml" "/manifest.json" "service-worker.js"
+              --paths "/*" "/index.html" "/sitemap.xml" "/manifest.json" "/service-worker.js"
