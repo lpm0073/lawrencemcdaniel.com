@@ -1,6 +1,13 @@
 import * as ActionTypes from './ActionTypes';
 import { imagePreFetcher } from '../shared/imagePrefetcher';
-import { URL_API_SPECIALTIES, URL_API_PORTFOLIO, URL_API_EDUCATION, URL_API_RECOMMENDATIONS, URL_API_PROJECTS, URL_API_CLIENTS } from '../shared/urls';
+import { 
+    URL_API_SPECIALTIES, 
+    URL_API_PORTFOLIO, 
+    URL_API_EDUCATION, 
+    URL_API_RECOMMENDATIONS, 
+    URL_API_PROJECTS, 
+    URL_API_CLIENTS 
+} from '../shared/urls';
 
 
 
