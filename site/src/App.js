@@ -10,12 +10,21 @@ import './App.css';
 
 class App extends Component {
 
+  constructor(props) {
+    super(props);
+
+    this.state = {
+        customClass: props.cls
+      };
+
+    }
+
   render() {
     return ( 
       <React.Fragment>
         <Head />
         <BrowserRouter>
-          <div className="container-fluid p-0">
+          <div className={"container-fluid p-0 " + this.state.customClass}>
             <Header />
             <Routes />
             <Footer />

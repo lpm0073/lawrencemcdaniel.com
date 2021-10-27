@@ -4,7 +4,7 @@ import { bindActionCreators } from 'redux';
 import * as Actions from '../../redux/ActionCreators';
 
 import { Fade } from 'react-animation-components';
-import { Offline, Online } from "react-detect-offline";
+import { Offline } from "react-detect-offline";
 
 import LogoCube from '../../components/logoCube/Component';
 import FullStackDeveloper from '../../components/FullStackDeveloper';
@@ -52,8 +52,7 @@ class Home extends Component {
                                     <h1 className="display-4">
                                         <span className="px-3 super-bold pre-wrap">Lawrence McDaniel</span>
                                     </h1>
-                                    <Online><FullStackDeveloper idx="1" cls="" /></Online>
-                                    <Offline><FullStackDeveloper idx="2" cls="offline" /></Offline>
+                                    <FullStackDeveloper idx="1" cls="" />
                                 </div>
                                 <div className="col-lg-6 pt-5 col-md-12">
                                     <LogoCube />
@@ -67,8 +66,7 @@ class Home extends Component {
                                 <Offline><div key="1" className="offline-alert"><span className="fa fa-stop-circle"></span> Check your internet connection.</div></Offline>
                             </div>
                             <div className="text-right mr-3 mb-2">
-                                <Online><img key="1" className="react-logo" src="/assets/images/react-logo-300x261.png" alt="ReactJS logo" /></Online>
-                                <Offline><img key="2" className="react-logo offline" src="/assets/images/react-logo-300x261.png" alt="ReactJS logo" /></Offline>
+                                <img key="1" className="react-logo" src="/assets/images/react-logo-300x261.png" alt="ReactJS logo" />
                                 Progressive Web App Built with ReactJS, Redux and Workbox. <a className="mx-1 learn-more-link" href="/reactjs" target="_self">Learn more</a>
                             </div>
                         </div>

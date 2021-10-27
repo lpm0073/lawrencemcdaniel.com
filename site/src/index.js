@@ -27,10 +27,10 @@ ReactDOM.render(
   <React.StrictMode>
     <Provider store={store}>
       <Online>
-        <App />
+        <App cls="online" />
       </Online>
       <Offline>
-        <App className="offline" />
+        <App cls="offline" />
       </Offline>
     </Provider>
   </React.StrictMode>,
