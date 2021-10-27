@@ -7,6 +7,9 @@ import React from 'react';
 import ReactDOM from 'react-dom';
 import App from './App';
 
+import { Provider } from 'react-redux';
+import { ConfigureStore } from './redux/configureStore';
+
 import * as serviceWorkerRegistration from './serviceWorkerRegistration';
 import reportWebVitals from './reportWebVitals';
 
@@ -15,9 +18,13 @@ import 'font-awesome/css/font-awesome.min.css';
 import 'bootstrap-social/bootstrap-social.css';
 import './index.css';
 
+const store = ConfigureStore();
+
 ReactDOM.render(
   <React.StrictMode>
-    <App />
+    <Provider store={store}>
+      <App />
+    </Provider>
   </React.StrictMode>,
   document.getElementById('root')
 );
