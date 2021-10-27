@@ -7,6 +7,9 @@
 // You can also remove this file if you'd prefer not to use a
 // service worker, and the Workbox build step will be skipped.
 
+//-----------------------------------------------
+// Google Workbox 
+//-----------------------------------------------
 import { clientsClaim } from 'workbox-core';
 import { ExpirationPlugin } from 'workbox-expiration';
 import { precacheAndRoute, createHandlerBoundToURL } from 'workbox-precaching';
@@ -14,9 +17,9 @@ import { CacheableResponsePlugin } from 'workbox-cacheable-response';
 import { CacheFirst } from 'workbox-strategies';
 import { registerRoute } from 'workbox-routing';
 import { StaleWhileRevalidate } from 'workbox-strategies';
+//-----------------------------------------------
 
 import { wpPrefetch } from './shared/wpPrefetch';
-
 import {
     URL_CDN,              // AWS Cloudfront distribution: https://cdn.lawrencemcdaniel.com
     URL_API,              // Wordpress REST apis: https://api.lawrencemcdaniel.com
@@ -84,6 +87,7 @@ self.addEventListener('message', (event) => {
   Custom caching behavior.
   --------------------------------------------------------------------------------
  */
+  
   function isImageFile(url) {
     return (
       url.pathname.endsWith('.png') || 
@@ -145,7 +149,7 @@ registerRoute(
     cacheName: 'cdn-responses',
     plugins: [
       new CacheableResponsePlugin({statuses: [0, 200]}),
-      new ExpirationPlugin({maxEntries: 1000}),
+      new ExpirationPlugin({maxEntries: 500}),
     ],
   }),
 );
@@ -181,9 +185,9 @@ registerRoute(
 // invoke each image api and call the imagePreFetcher.
 // this should result in all static images getting cached 
 // via a registerRoute below on the CDN responses.
-wpPrefetch(URL_API_SPECIALTIES);    // do me first!!!
-wpPrefetch(URL_API_CLIENTS);
-wpPrefetch(URL_API_EDUCATION);
-wpPrefetch(URL_API_PORTFOLIO);
-wpPrefetch(URL_API_PROJECTS);
-wpPrefetch(URL_API_RECOMMENDATIONS);
+//wpPrefetch(URL_API_SPECIALTIES);    // do me first!!!
+//wpPrefetch(URL_API_CLIENTS);
+//wpPrefetch(URL_API_EDUCATION);
+//wpPrefetch(URL_API_PORTFOLIO);
+//wpPrefetch(URL_API_PROJECTS);
+//wpPrefetch(URL_API_RECOMMENDATIONS);
