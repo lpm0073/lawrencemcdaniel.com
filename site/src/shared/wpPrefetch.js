@@ -8,7 +8,7 @@
 // example url: https://api.lawrencemcdaniel//wp-json/wp/v2/posts?categories=43&_embed&per_page=100
 // example imageUrl: https://cdn.lawrencemcdaniel.com/wp-content/uploads/2021/02/12213439/swagger_logo.png
 //
-import { CORSOrigins } from './urls';
+import { precacheAndRoute } from 'workbox-precaching';
 import { wpGetFeaturedImage } from './wpGetFeaturedImage';
 
 export const wpPrefetch = (url) => {
@@ -32,21 +32,28 @@ export const wpPrefetch = (url) => {
     .then(response => response.json())
     .then(arr => {
   
+      var urls = [];
+
       arr.forEach((post) => {
+        // see https://developers.google.com/web/tools/workbox/modules/workbox-precaching#explanation_of_the_precache_list
         const imageUrl = wpGetFeaturedImage(post);
+
         if (imageUrl) {
-          fetch(imageUrl, {
-            mode: 'no-cors',
-            headers: { 'Access-Control-Allow-Origin': CORSOrigins },
-          })
-          .then(response => {
-            //console.log("prefetched: ", imageUrl);
-          }, error => {
-              console.log("precache error: ", imageUrl, error.message);
-          })
+          const precacheDict = {
+            "url": imageUrl,
+            "revision": post.modified
+          }
+  
+          if (imageUrl) {
+            urls.push(precacheDict);
+          }
         }
   
       });
+
+      // Google Workbox - precache these urls.
+      console.log("precaching: ", urls);
+      precacheAndRoute(urls);
       
     });
   }
