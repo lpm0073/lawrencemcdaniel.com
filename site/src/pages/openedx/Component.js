@@ -13,7 +13,6 @@ import { URL_SITE } from '../../shared/urls';
 import './styles.css';
 
 import Accordion from 'react-bootstrap/Accordion';
-import Card from 'react-bootstrap/Card';
 
 
 const Openedx = (props) => {

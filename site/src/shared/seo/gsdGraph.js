@@ -1,4 +1,4 @@
-import {datePublished, dateModified, baseUrl, nameLawrenceMcDaniel, basePageTitle} from './gsdCommon';
+import {datePublished, dateModified, baseUrl, nameLawrenceMcDaniel} from './gsdCommon';
 
 const defaultPageDescription = (webpageDescription) => {
 
