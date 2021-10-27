@@ -7,8 +7,8 @@ import LogoCube from '../../components/logoCube/Component';
 import FullStackDeveloper from '../../components/FullStackDeveloper';
 import { gsdGraph } from '../../shared/seo/gsdGraph';
 import { gsdPersonLawrenceMcDaniel } from '../../shared/seo/gsdPersonLawrence';
-import {basePageTitle, baseTitle} from '../../shared/seo/gsdCommon';
-import {Helmet} from "react-helmet";
+import { basePageTitle } from '../../shared/seo/gsdCommon';
+import { Helmet } from "react-helmet";
 import { URL_SITE } from '../../shared/urls';
 
 import './styles.css';
