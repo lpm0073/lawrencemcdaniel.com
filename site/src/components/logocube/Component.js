@@ -156,21 +156,26 @@ const CubeSide = (props) => {
 
     return(
         <React.Fragment >
-            <div key={divId}
-                 className={clsId}>
-                <div>
-                    <Online>
+            <Online>
+                <div key={divId}
+                    className={clsId}>
+                    <div>
                         <div key={divId+"-logo"} className="logo" 
                             style={divStyle}>
                         </div>
-                    </Online>
-                    <Offline>
+                    </div>
+                </div>
+            </Online>
+            <Offline>
+                <div key={divId}
+                    className={clsId + " offline"}>
+                    <div>
                         <div key={divId+"-logo"} className="logo offline" 
                             style={divStyle}>
                         </div>
-                    </Offline>
+                    </div>
                 </div>
-            </div>
+            </Offline>
         </React.Fragment>
     );
 }
