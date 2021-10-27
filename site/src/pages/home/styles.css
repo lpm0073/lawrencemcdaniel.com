@@ -57,7 +57,9 @@
     margin-right: 5px;
 }
 
-
+.offline {
+    color:tomato;
+}
 /*-------------- Responsive Styling -----------------------*/
 
 /********** Large devices only **********/

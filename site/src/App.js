@@ -4,6 +4,8 @@ import { BrowserRouter } from 'react-router-dom';
 import { Provider } from 'react-redux';
 import { ConfigureStore } from './redux/configureStore';
 import {Helmet} from "react-helmet";
+import { Offline, Online } from "react-detect-offline";
+
 import { nameLawrenceMcDaniel, basePageTitle } from './shared/seo/gsdCommon';
 import { URL_SITE, URL_CDN } from './shared/urls';
 import './App.css';
@@ -26,8 +28,9 @@ class App extends Component {
 
               <link rel="apple-touch-icon" href={URL_SITE + "/logo192.png"} />
               <link rel="manifest" href="/manifest.json" />
+              <Online><link rel="shortcut icon" href="/favicon.jpg" type="image/vnd.microsoft.icon"/></Online>
+              <Offline><link rel="shortcut icon" href="/favicon-offline.jpg" type="image/vnd.microsoft.icon"/></Offline>
 
-              <link rel="shortcut icon" href="/favicon.jpg" type="image/vnd.microsoft.icon"/>    
               <meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1" />
               <meta name="theme-color" content="#f1f1f1" />
 

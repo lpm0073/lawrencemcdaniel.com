@@ -74,7 +74,7 @@ class Home extends Component {
                     <div className="row mx-0 react-banner">
                         <div className="col-12">
                             <div className="text-right mr-3 mb-1">
-                            <Offline>Check your internet connection. Meanwhile, enjoy viewing offline content!</Offline>
+                                <Offline><div className="offline"><span className="fa fa-stop-circle"></span> Check your internet connection.</div></Offline>
                             </div>
                             <div className="text-right mr-3 mb-2">
                                 <img className="react-logo" src="/assets/images/react-logo-300x261.png" alt="ReactJS logo" />
