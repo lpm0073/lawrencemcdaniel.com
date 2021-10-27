@@ -3,9 +3,6 @@ import { connect } from 'react-redux';
 import { bindActionCreators } from 'redux';
 import * as Actions from '../../redux/ActionCreators';
 
-import { Fade } from 'react-animation-components';
-import { Offline } from "react-detect-offline";
-
 import LogoCube from '../../components/logoCube/Component';
 import FullStackDeveloper from '../../components/FullStackDeveloper';
 import { gsdGraph } from '../../shared/seo/gsdGraph';
@@ -59,17 +56,6 @@ class Home extends Component {
                                 </div>
                             </div>
                         </div>                    
-                    </div>
-                    <div className="row mx-0 react-banner">
-                        <div className="col-12">
-                            <div className="text-right mr-3 mb-1">
-                                <Offline><div key="1" className="offline-alert"><span className="fa fa-stop-circle"></span> Check your internet connection.</div></Offline>
-                            </div>
-                            <div className="text-right mr-3 mb-2">
-                                <img key="1" className="react-logo" src="/assets/images/react-logo-300x261.png" alt="ReactJS logo" />
-                                Progressive Web App Built with ReactJS, Redux and Workbox. <a className="mx-1 learn-more-link" href="/reactjs" target="_self">Learn more</a>
-                            </div>
-                        </div>
                     </div>
                 </React.Fragment>
 
