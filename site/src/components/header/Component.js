@@ -66,28 +66,37 @@ export class Header extends Component {
                             <NavLink onClick={this.toggleNavItem} className="nav-link" to='/about'>About</NavLink>
                         </NavItem>
                         <NavItem>
-                            <NavLink onClick={this.toggleNavItem} className="nav-link"  to='/specialties'>Specialties</NavLink>
-                        </NavItem>
-                        <NavItem>
-                            <NavLink onClick={this.toggleNavItem} className="nav-link"  to='/portfolio'>Portfolio</NavLink>
-                        </NavItem>
-                        <NavItem>
-                            <NavLink onClick={this.toggleNavItem} className="nav-link"  to='/skills'>Skills</NavLink>
-                        </NavItem>
-                        <NavItem>
-                            <NavLink onClick={this.toggleNavItem} className="nav-link"  to='/education'>Education</NavLink>
-                        </NavItem>
-                        <NavItem>
                             <NavLink onClick={this.toggleNavItem} className="nav-link"  to='/clients'>Clients</NavLink>
                         </NavItem>
                         <UncontrolledDropdown nav inNavbar className="hide-medium">
-                            <DropdownToggle nav caret>Code Samples</DropdownToggle>
+                            <DropdownToggle nav caret className="">Skills</DropdownToggle>
+                            <DropdownMenu className="bg-dark">
+                                <DropdownItem>
+                                    <NavLink className="nav-link p-0 m-0"  to='/openedx'>Open edX</NavLink>
+                                </DropdownItem>
+                                <DropdownItem>
+                                    <NavLink className="nav-link p-0 m-0"  to='/specialties'>Competencies</NavLink>
+                                </DropdownItem>
+                                <DropdownItem>
+                                    <NavLink className="nav-link p-0 m-0"  to='/skills'>Technologies</NavLink>
+                                </DropdownItem>
+                                <DropdownItem>
+                                    <NavLink className="nav-link p-0 m-0"  to='/education'>Training</NavLink>
+                                </DropdownItem>
+                                <DropdownItem>
+                                    <NavLink onClick={this.toggleNavItem} className="nav-link p-0 m-0"  to='/portfolio'>Portfolio</NavLink>
+                                </DropdownItem>
+                            </DropdownMenu>
+                        </UncontrolledDropdown>
+
+                        <UncontrolledDropdown nav inNavbar className="hide-medium">
+                            <DropdownToggle nav caret>Code</DropdownToggle>
                             <DropdownMenu >
                                 <DropdownItem>
                                     <a className="" href='https://github.com/lpm0073' target="_blank" rel="noopener noreferrer">Me on Github</a>
                                 </DropdownItem>
                                 <DropdownItem>
-                                    <a className="" href='/openedx' target="_self">Open edX</a>
+                                    <a className="" href='https://blog.lawrencemcdaniel.com/' target="_blank" rel="noopener noreferrer">My Blog</a>
                                 </DropdownItem>
                                 <DropdownItem>
                                     <a className="" href='/reactjs' target="_self">ReactJS</a>
@@ -120,9 +129,6 @@ export class Header extends Component {
                                 </DropdownItem>
                             </DropdownMenu>
                         </UncontrolledDropdown>
-                        <NavItem>
-                            <a className="nav-link" href='https://blog.lawrencemcdaniel.com/' target="_self" rel="noopener noreferrer">Blog</a>
-                        </NavItem>
                         <NavItem>
                             <NavLink onClick={this.toggleNavItem} className="nav-link" to='/contact'>Contact</NavLink>
                         </NavItem>

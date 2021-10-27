@@ -7,3 +7,11 @@
     background-color: black;
     padding-left: 15px;
 }
+
+.nav-link:focus, 
+.nav-link:hover, 
+.nav-item, 
+.dropdown-item,
+.dropdown-menu {
+    background-color: black !important;
+}
