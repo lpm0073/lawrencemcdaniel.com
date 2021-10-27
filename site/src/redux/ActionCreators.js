@@ -78,7 +78,7 @@ export const fetchSpecialties = () => (dispatch) => {
     .then(response => response.json())
     .then(specialties => dispatch(addSpecialties(specialties)))
     .then(specialties => {
-        //imagePreFetcher(specialties.payload, 0, "Specialities");
+        imagePreFetcher(specialties.payload, 0, "Specialities");
         imagePreFetcher([
             'https://cdn.lawrencemcdaniel.com/wp-content/uploads/2020/06/05201305/Lawrence21.jpg'
         ], 5, "Site Static")
@@ -122,7 +122,7 @@ export const fetchPortfolio = () => (dispatch) => {
         })
     .then(response => response.json())
     .then(portfolio => dispatch(addPortfolio(portfolio)))
-    //.then(portfolio => imagePreFetcher(portfolio.payload, 10, "Portfolio"))
+    .then(portfolio => imagePreFetcher(portfolio.payload, 10, "Portfolio"))
     .catch(error => dispatch(portfolioFailed(error.message)));
 
 }
@@ -162,7 +162,7 @@ export const fetchEducation = () => (dispatch) => {
         })
     .then(response => response.json())
     .then(education => dispatch(addEducation(education)))
-    //.then(education => imagePreFetcher(education.payload, 10, "Education"))
+    .then(education => imagePreFetcher(education.payload, 10, "Education"))
     .catch(error => dispatch(educationFailed(error.message)));
 
 }
@@ -284,7 +284,7 @@ export const fetchClients = () => (dispatch) => {
         })
     .then(response => response.json())
     .then(clients => dispatch(addClients(clients)))
-    //.then(clients => imagePreFetcher(clients.payload, 15, "Clients"))
+    .then(clients => imagePreFetcher(clients.payload, 15, "Clients"))
     .catch(error => dispatch(clientsFailed(error.message)));
 
 }
