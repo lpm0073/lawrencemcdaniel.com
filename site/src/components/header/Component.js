@@ -1,7 +1,9 @@
 import React, { Component } from 'react';
+import { Offline } from "react-detect-offline";
 import { Navbar, Nav, NavbarToggler, Collapse, NavItem,
     UncontrolledDropdown, DropdownMenu, DropdownToggle, DropdownItem} from 'reactstrap';
 import { NavLink } from 'react-router-dom';
+
 import './styles.css';
 
 export class Header extends Component {
@@ -50,6 +52,9 @@ export class Header extends Component {
     render() {
         return(
         <header key="app-header" >
+            <div className="text-center mr-3 mb-1">
+                <Offline><div key="1" className="offline-alert"><span className="fa fa-stop-circle"></span> Check your internet connection.</div></Offline>
+            </div>
             <Navbar className="navbar-dark app-navbar" dark expand="md" fixed="top">
                 <NavbarToggler onClick={this.toggleNav} />
                 <Collapse isOpen={this.state.isNavOpen} navbar>
