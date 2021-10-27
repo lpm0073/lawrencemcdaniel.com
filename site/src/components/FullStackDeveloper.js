@@ -1,10 +1,8 @@
 import React from 'react';
-import { Fade } from 'react-animation-components';
 import {baseTitle} from '../shared/seo/gsdCommon';
 
 const FullStackDeveloper = (props) => {
 
-    console.log(props.cls);
     const thisClassName = props.cls;
 
     return ( 
