@@ -4,7 +4,7 @@ import { Helmet } from "react-helmet";
 import { Offline, Online } from "react-detect-offline";
 
 import Routes from './components/Routes';
-import Header from './components/header/Component';
+import { Header } from './components/header/Component';
 import Footer from './components/footer/Component';
 
 import { nameLawrenceMcDaniel, basePageTitle } from './shared/seo/gsdCommon';
