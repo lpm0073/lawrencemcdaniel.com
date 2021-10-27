@@ -134,6 +134,7 @@ import React, { Component } from 'react';
 import { connect } from 'react-redux';
 import { bindActionCreators } from 'redux';
 import * as Actions from '../../redux/ActionCreators';
+import { Online, Offline } from 'react-detect-offline';
 
 import { shuffleArray } from '../../shared/shuffle';
 import './styles.css';
@@ -158,9 +159,16 @@ const CubeSide = (props) => {
             <div key={divId}
                  className={clsId}>
                 <div>
-                    <div key={divId+"-logo"} className="logo" 
-                        style={divStyle}>
-                    </div>
+                    <Online>
+                        <div key={divId+"-logo"} className="logo" 
+                            style={divStyle}>
+                        </div>
+                    </Online>
+                    <Offline>
+                        <div key={divId+"-logo"} className="logo offline" 
+                            style={divStyle}>
+                        </div>
+                    </Offline>
                 </div>
             </div>
         </React.Fragment>

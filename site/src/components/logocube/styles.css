@@ -35,7 +35,6 @@
     -webkit-animation: spin 5s infinite linear;
 }
 
-
 .d3-side {
   margin: 0;
   width: var(--width);
@@ -44,7 +43,6 @@
   cursor: pointer;
   background-image: url("data:image/svg+xml;base64,PHN2ZyB4bWxucz0iaHR0cDovL3d3dy53My5vcmcvMjAwMC9zdmciIHdpZHRoPSI1MCIgaGVpZ2h0PSI1MCI+CjxyZWN0IGZpbGw9InJnYmEoMjU1LDI1NSwyNTUsMC4yKSIgc3Ryb2tlPSJub25lIiB4PSIwIiB5PSIwIiB3aWR0aD0iMjUiIGhlaWdodD0iMjUiPjwvcmVjdD4Kd2lkdGg9JzUwJyBoZWlnaHQ9JzUwJyZndDsKPHJlY3QgZmlsbD0icmdiYSgyNTUsMjU1LDI1NSwwLjIpIiBzdHJva2U9Im5vbmUiIHg9IjI1IiB5PSIyNSIgd2lkdGg9IjI1IiBoZWlnaHQ9IjI1Ij48L3JlY3Q+Cjwvc3ZnPg==");
   background-color: rgba(255, 255, 255, .5);
-
 }
 
 .d3-side > * {

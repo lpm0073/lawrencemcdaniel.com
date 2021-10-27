@@ -4,7 +4,7 @@ import { bindActionCreators } from 'redux';
 import * as Actions from '../../redux/ActionCreators';
 
 import { Fade } from 'react-animation-components';
-import { Offline } from "react-detect-offline";
+import { Offline, Online } from "react-detect-offline";
 import LogoCube from '../../components/logoCube/Component';
 import { gsdGraph } from '../../shared/seo/gsdGraph';
 import { gsdPersonLawrenceMcDaniel } from '../../shared/seo/gsdPersonLawrence';
@@ -57,9 +57,11 @@ class Home extends Component {
                                             <div className="">
                                                 <p className="jumbotron-subtitle mb-0">{baseTitle}</p>
                                                 <p className="lead mt-0 mb-0 hide-medium">
-                                                    <span className="open-edx-consultant-bookends" role="img" aria-label="Close">⇥📙📚 </span>
+                                                    <Online><span className="open-edx-consultant-bookends" role="img" aria-label="Close">⇥📙📚 </span></Online>
+                                                    <Offline><span className="open-edx-consultant-bookends offline" role="img" aria-label="Close">⇥📙📚 </span></Offline>
                                                     <a href="/openedx"><span className="open-edx-consultant">Open edX® Consultant</span></a>
-                                                    <span className="open-edx-consultant-bookends" role="img" aria-label="Close"> 📚📘⇤</span>
+                                                    <Online><span className="open-edx-consultant-bookends" role="img" aria-label="Close"> 📚📘⇤</span></Online>
+                                                    <Offline><span className="open-edx-consultant-bookends offline" role="img" aria-label="Close"> 📚📘⇤</span></Offline>
                                                 </p>
                                             </div>
                                         </Fade>
@@ -74,10 +76,11 @@ class Home extends Component {
                     <div className="row mx-0 react-banner">
                         <div className="col-12">
                             <div className="text-right mr-3 mb-1">
-                                <Offline><div className="offline"><span className="fa fa-stop-circle"></span> Check your internet connection.</div></Offline>
+                                <Offline><div className="offline-alert"><span className="fa fa-stop-circle"></span> Check your internet connection.</div></Offline>
                             </div>
                             <div className="text-right mr-3 mb-2">
-                                <img className="react-logo" src="/assets/images/react-logo-300x261.png" alt="ReactJS logo" />
+                                <Online><img className="react-logo" src="/assets/images/react-logo-300x261.png" alt="ReactJS logo" /></Online>
+                                <Offline><img className="react-logo offline" src="/assets/images/react-logo-300x261.png" alt="ReactJS logo" /></Offline>
                                 Progressive Web App Built with ReactJS, Redux and Workbox. <a className="mx-1 learn-more-link" href="/reactjs" target="_self">Learn more</a>
                             </div>
                         </div>
