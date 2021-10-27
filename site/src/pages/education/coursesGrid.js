@@ -32,7 +32,7 @@ class CoursesGrid extends Component {
                   const item_url = wpGetFeaturedImage(education_item, null); 
                   const background_url = "url('" + item_url + "')";
                   const item_style = {
-                    "background-image": background_url
+                    "backgroundImage": background_url
                   }
                   return (
                     <div className="col-lg-3 col-md-4 col-sm-6 m-0 px-0 py-1" key={indx}>

@@ -4,7 +4,7 @@ import { Navbar, Nav, NavbarToggler, Collapse, NavItem,
 import { NavLink } from 'react-router-dom';
 import './styles.css';
 
-class Header extends Component {
+export class Header extends Component {
 
     constructor(props) {
         super(props);
@@ -129,5 +129,3 @@ class Header extends Component {
         );
     }
 }
-
-export default Header;

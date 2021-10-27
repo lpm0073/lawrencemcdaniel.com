@@ -2,7 +2,7 @@ import React from 'react';
 import { resumeUrl } from '../../shared/urls';
 import './styles.css';
 
-function Footer(props) {
+export default function Footer(props) {
 
     var d = new Date();
     const curr_year = d.getFullYear();
@@ -34,5 +34,3 @@ function Footer(props) {
         </React.Fragment>
     );
 }
-
-export default Footer;

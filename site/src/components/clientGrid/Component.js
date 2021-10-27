@@ -21,7 +21,7 @@ const ClientCard = (props) => {
   var item_url = wpGetFeaturedImage(props.client, null);
   const background_url = "url('" + item_url + "')";
   const item_style = {
-    "background-image": background_url
+    "backgroundImage": background_url
   };
   const transform = {
     exitTransform: 'scale(0.5) translateY(-50%)'
@@ -65,7 +65,7 @@ class ClientGrid extends Component {
                 <div className="row my-2 mx-0 px-0 text-center">
                   {itemList.map((client, indx) => {
                     return(
-                      <ClientCard isSet={this.props.clientGrid.isSet} client={client} indx={indx} />
+                      <ClientCard isSet={this.props.clientGrid.isSet} client={client} indx={indx} key={indx} />
                     );
                   })}
                 </div>
