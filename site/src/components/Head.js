@@ -1,6 +1,5 @@
 import React from 'react';
 import { Helmet } from "react-helmet";
-import { Offline, Online } from "react-detect-offline";
 
 import { nameLawrenceMcDaniel, basePageTitle } from '../shared/seo/gsdCommon';
 import { URL_SITE, URL_CDN } from '../shared/urls';
@@ -10,14 +9,13 @@ export default function Head(props) {
 
     return ( 
       <React.Fragment>
-          <Online><link rel="shortcut icon" href="/favicon.jpg" type="image/vnd.microsoft.icon"/></Online>
-          <Offline><link rel="shortcut icon" href="/favicon-offline.jpg" type="image/vnd.microsoft.icon"/></Offline>
           <Helmet>
             <title>{basePageTitle}</title>
             <meta name="author" content={nameLawrenceMcDaniel} />
             <link rel="canonical" href={URL_SITE + "/"} />
             <meta name="description" content="Full Stack Web Developer and Open edX® Consultant specializing in Python, Django, ReactJS, Redux, AngularJS, and AWS." />
             <meta name="keywords"  content="Lawrence McDaniel, open edx consultant, open edx service provider, Open edX, web developer, freelancer, full stack developer, full stack web developer, web developer, Python, Django, React, ReactJS, Redux, Wordpress, AWS, Boto3, Angular, AngularJS" />
+            <link rel="shortcut icon" href="/favicon.jpg" type="image/vnd.microsoft.icon"/>
 
             <link rel="apple-touch-icon" href={URL_SITE + "/logo192.png"} />
             <link rel="manifest" href="/manifest.json" />

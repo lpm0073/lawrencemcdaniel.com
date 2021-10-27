@@ -5,7 +5,6 @@ mcdaniel oct-2021: also see https://blog.bitsrc.io/using-service-workers-with-re
  */
 import React from 'react';
 import ReactDOM from 'react-dom';
-import App from './App';
 
 import { Provider } from 'react-redux';
 import { ConfigureStore } from './redux/configureStore';
@@ -13,17 +12,26 @@ import { ConfigureStore } from './redux/configureStore';
 import * as serviceWorkerRegistration from './serviceWorkerRegistration';
 import reportWebVitals from './reportWebVitals';
 
+import { Online, Offline } from 'react-detect-offline';
+
 import 'bootstrap/dist/css/bootstrap.min.css';
 import 'font-awesome/css/font-awesome.min.css';
 import 'bootstrap-social/bootstrap-social.css';
 import './index.css';
+
+import App from './App';
 
 const store = ConfigureStore();
 
 ReactDOM.render(
   <React.StrictMode>
     <Provider store={store}>
-      <App />
+      <Online>
+        <App />
+      </Online>
+      <Offline>
+        <App className="offline" />
+      </Offline>
     </Provider>
   </React.StrictMode>,
   document.getElementById('root')

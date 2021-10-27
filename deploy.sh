@@ -38,6 +38,4 @@ aws s3 cp s3://reactjs.lawrencemcdaniel.com/sitemap.xml s3://reactjs.lawrencemcd
 aws s3 cp s3://reactjs.lawrencemcdaniel.com/manifest.json s3://reactjs.lawrencemcdaniel.com/manifest.json --metadata-directive REPLACE --cache-control max-age=0,no-cache,no-store,must-revalidate --content-type text/json --acl public-read
 
 # invalidate the Cloudfront cache
-aws cloudfront create-invalidation \
-              --distribution-id E2364TSMHRWAWL \
-              --paths "/*" "/index.html" "/sitemap.xml" "/manifest.json" "/service-worker.js"
+aws cloudfront create-invalidation --distribution-id E2364TSMHRWAWL --paths "/*" "/index.html" "/sitemap.xml" "/manifest.json" "/service-worker.js"

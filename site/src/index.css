@@ -11,8 +11,8 @@ body {
 }
 
 .offline {
-    filter: grayscale(100%);
-  }
+    filter: grayscale(100%) !important;
+}
   
 /* Page Insights recommendation for font awesome */
 @font-face {
