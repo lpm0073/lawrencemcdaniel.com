@@ -37,7 +37,7 @@ class Contact extends Component {
                             <div className="row mt-3"></div>
                             <div className="">
                                 <a target="_blank" href="https://goo.gl/maps/WJy25bNGit2L8Nzz8" rel="noopener noreferrer">
-                                    <i class="fa fa-map-marker fa-3x"></i>
+                                    <i className="fa fa-map-marker fa-3x"></i>
                                     <address className="m-b-4">
                                     Lawrence McDaniel, {baseTitle}<br />
                                     210 Broadway, Suite 200<br />
@@ -50,9 +50,9 @@ class Contact extends Component {
                                 <p>Skype: mcdaniel0073</p>
 
                                 <div className="contact-social-buttons m-4">
-                                    <a className="m-1" target="_blank" href="https://linkedin.com/in/lawrencemcdaniel" rel="noopener noreferrer"><i class="fa fa-linkedin-square fa-3x"></i></a>
-                                    <a className="m-1" target="_blank" href="https://www.facebook.com/lawrence.p.mcdaniel" rel="noopener noreferrer"><i class="fa fa-facebook-square fa-3x"></i></a>
-                                    <a className="m-1" target="_blank" href="https://github.com/lpm0073" rel="noopener noreferrer"><i class="fa fa-github-square fa-3x"></i></a>
+                                    <a className="m-1" target="_blank" href="https://linkedin.com/in/lawrencemcdaniel" rel="noopener noreferrer"><i className="fa fa-linkedin-square fa-3x"></i></a>
+                                    <a className="m-1" target="_blank" href="https://www.facebook.com/lawrence.p.mcdaniel" rel="noopener noreferrer"><i className="fa fa-facebook-square fa-3x"></i></a>
+                                    <a className="m-1" target="_blank" href="https://github.com/lpm0073" rel="noopener noreferrer"><i className="fa fa-github-square fa-3x"></i></a>
                                 </div>
                                 <a className="m-4 btn btn-danger" role="button" target="_blank" href={resumeUrl} rel="noopener noreferrer">
                                     <i className="fa fa-download"></i> Download Resume
