@@ -81,7 +81,7 @@ export const fetchSpecialties = () => (dispatch) => {
         imagePreFetcher(specialties.payload, 0, "Specialities");
         imagePreFetcher([
             'https://cdn.lawrencemcdaniel.com/wp-content/uploads/2020/06/05201305/Lawrence21.jpg'
-        ], 5, "Site Static")
+        ], 5, "Site Static");
         })
     .catch(error => dispatch(specialtiesFailed(error.message)));
 
@@ -203,6 +203,7 @@ export const fetchRecommendations = () => (dispatch) => {
         })
     .then(response => response.json())
     .then(recommendations => dispatch(addRecommendations(recommendations)))
+    .then(recommendations => imagePreFetcher(recommendations.payload, 10, "Recommendations"))
     .catch(error => dispatch(recommendationsFailed(error.message)));
 
 }
@@ -243,6 +244,7 @@ export const fetchProjectImages = () => (dispatch) => {
         })
     .then(response => response.json())
     .then(images => dispatch(addProjectImages(images)))
+    .then(images => imagePreFetcher(images.payload, 10, "Projects"))
     .catch(error => dispatch(projectImagesFailed(error.message)));
 
 }
@@ -284,7 +286,12 @@ export const fetchClients = () => (dispatch) => {
         })
     .then(response => response.json())
     .then(clients => dispatch(addClients(clients)))
-    .then(clients => imagePreFetcher(clients.payload, 15, "Clients"))
+    .then(clients => {
+        imagePreFetcher(clients.payload, 15, "Clients");
+        imagePreFetcher([
+            'https://cdn.lawrencemcdaniel.com/wp-content/uploads/2020/06/05201857/Lawrence6.jpg'
+        ], 5, "Site Static");
+    })
     .catch(error => dispatch(clientsFailed(error.message)));
 
 }
