@@ -13,7 +13,7 @@
 .jumbotron {
     margin:0px auto;
     color:floralwhite;
-    height: calc(100vh - 65px - 75px - 23px); /* full height less header/footer heights */
+    height: calc(100vh - 65px - 75px - 20px); /* full height less header/footer heights */
     border-radius: 0 !important;
 
 }
