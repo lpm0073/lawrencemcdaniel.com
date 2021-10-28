@@ -66,7 +66,7 @@ class App extends Component {
     }
   }
 
-  // Workbox handler for service worker update success event
+  // Workbox handler for service worker update success handler
   onServiceWorkerUpdateSuccess() {
     console.log("onServiceWorkerUpdateSuccess()")
     if (this.state.isSet) {
@@ -85,17 +85,15 @@ class App extends Component {
   AppUpdateToast_OKHandler() {
     console.log("AppUpdateToast_OKHandler()");
 
-    const { waitingWorker } = this.state
-    const { newVersionAvailable } = this.state
-
-    if (waitingWorker && newVersionAvailable) {
-      console("launching update process ...")
+    if (this.state.waitingWorker && this.state.newVersionAvailable) {
+      console.log("launching update process ...")
 
       // force the update to install now.
       waitingWorker.postMessage({ type: 'SKIP_WAITING' })
       
       // browser refresh
       window.location.reload()
+      console.log("launching update process ...")
     } else {
       console.log("Warning: AppUpdateToast_OKHandler() was called but there is no waitingWorker.")
     }

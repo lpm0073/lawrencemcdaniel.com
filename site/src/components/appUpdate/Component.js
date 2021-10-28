@@ -39,25 +39,6 @@ export function AppUpdateToast(props) {
       </React.Fragment> 
     );
 }
-
-export function _AppUpdateSuccessAlert(props) { 
-  console.log("AppUpdateSuccessAlert()");
-  const handler = props.handler;
-  let isOpen = true;
-
-  setTimeout(() => {
-    isOpen = false;
-  }, 10);
-
-  return (
-    <React.Fragment>
-      <Alert isOpen={isOpen} fade={true} className="position-absolute top-50 start-50 translate-middle bg-info">
-        App updated successfully.
-      </Alert>
-    </React.Fragment>
-  );
-}
-
 class AppUpdateSuccessAlert extends React.Component {
   constructor(props) {
     super(props);
@@ -72,8 +53,10 @@ class AppUpdateSuccessAlert extends React.Component {
     this.setState({
       visible:true
     }, ()=>{window.setTimeout(()=>{
-        this.setState({visible:false})
-      },1500)
+        this.setState({
+          visible:false
+        })
+      },1500);
     });
 
   }
