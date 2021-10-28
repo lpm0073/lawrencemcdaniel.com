@@ -3,7 +3,7 @@ import {Alert, Toast, ToastHeader, ToastBody, Button} from 'reactstrap';
 
 import './styles.css';
 
-const ALERT_VISIBILITY_SECONDS = 3.0;
+const ALERT_VISIBILITY_SECONDS = 5.0;
 
 class AppUpdateSuccessAlert extends React.Component {
   constructor(props) {
@@ -31,7 +31,7 @@ class AppUpdateSuccessAlert extends React.Component {
   render() { 
     return(
       <React.Fragment>
-      <Alert isOpen={this.state.visible} fade={true} className="position-absolute top-100 start-100 translate-middle bg-dark">
+      <Alert isOpen={this.state.visible} fade={true} className="position-absolute top-100 start-100 translate-middle border border-light secondary alert">
         {this.state.msg}
       </Alert>
     </React.Fragment>

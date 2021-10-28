@@ -10,7 +10,7 @@
 // To learn more about the benefits of this model and instructions on how to
 // opt-in, read https://cra.link/PWA
 const DEBUG = false;
-const AUTOMATIC_UPDATE_CHECK_INTERVAL = 5;
+const AUTOMATIC_UPDATE_CHECK_INTERVAL = 2;
 
 const isLocalhost = Boolean(
   window.location.hostname === 'localhost' ||
