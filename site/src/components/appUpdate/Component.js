@@ -16,7 +16,6 @@ class AppUpdateAlert extends React.Component {
   }
 
   componentDidMount() {
-    console.log("AppUpdateAlert.componentDidMount()")
     this.setState({
       visible:true
     }, ()=>{window.setTimeout(()=>{
@@ -42,12 +41,10 @@ class AppUpdateAlert extends React.Component {
 }
 
 export function AppUpdateToast(props) { 
-    console.log("AppUpdateToast()");
     const handler = props.handler;
     let isOpen = true;
     
     function toastDismiss() {
-      console.log("toastDismiss()")
       isOpen = false;
       return;
     }

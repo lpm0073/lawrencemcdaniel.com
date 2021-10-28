@@ -1,6 +1,7 @@
 /*
 
- see https://dev.to/daniellycosta/showing-new-version-available-notification-on-create-react-app-pwas-3jc9#snackbar-provider
+ see: https://dev.to/daniellycosta/showing-new-version-available-notification-on-create-react-app-pwas-3jc9#snackbar-provider
+ see: https://developers.google.com/web/fundamentals/primers/service-workers/lifecycle
 
  */
 import React, { Component } from 'react';
@@ -31,6 +32,7 @@ class App extends Component {
     };
 
     // Workbox handlers
+    //
     this.resetWorkUpdateState = this.resetWorkUpdateState.bind(this);
     this.onServiceWorkerUpdate = this.onServiceWorkerUpdate.bind(this);
     this.onServiceWorkerUpdateSuccess = this.onServiceWorkerUpdateSuccess.bind(this);
@@ -74,7 +76,7 @@ class App extends Component {
     if (DEBUG) console.log("onServiceWorkerUpdateSuccess()")
     if (this.state.isSet) {
       this.setState({ 
-        newWorker: null,
+        newWorker: registration,
         newVersionAvailable: false,
         newVersionInstalledSuccessfully: true
       });
@@ -123,9 +125,6 @@ class App extends Component {
 
     // migrated from index.js
     // register the current service worker. 
-    // Do this once and only once. hence, placing thi sin the constructor.
-    //
-    // see: https://developers.google.com/web/fundamentals/primers/service-workers/lifecycle
     if (process.env.NODE_ENV === 'production') {
 
       serviceWorkerRegistration.register({ 

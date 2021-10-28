@@ -10,7 +10,7 @@
 // To learn more about the benefits of this model and instructions on how to
 // opt-in, read https://cra.link/PWA
 const DEBUG = false;
-const AUTOMATIC_UPDATE_CHECK_INTERVAL = 2;
+const AUTOMATIC_UPDATE_CHECK_INTERVAL = 15;
 
 const isLocalhost = Boolean(
   window.location.hostname === 'localhost' ||
@@ -54,6 +54,21 @@ export function register(config) {
   }
 }
 
+function checkUpdates(registration) {
+
+  if (registration && registration.update) {
+    registration.update();
+    console.log("service worker automatically checked for updates.");
+  } else {
+    console.log("Warning: checkUpdates() ran but registration has no update() function: ", registration);
+  }
+
+  setTimeout(function() {
+    checkUpdates(registration);
+  }, 1000 * 60 * AUTOMATIC_UPDATE_CHECK_INTERVAL);   
+
+}
+
 function registerValidSW(swUrl, config) {
   navigator.serviceWorker
     .register(swUrl)
@@ -66,11 +81,8 @@ function registerValidSW(swUrl, config) {
       // ========================================================================
       if (DEBUG) console.log("service worker is registered.");
 
-      // automatically update the service worker once an hour
-      setTimeout(function() {
-        console.log("service worker automatically checked for updates.")
-          registration.update();
-      }, 1000 * 60 * AUTOMATIC_UPDATE_CHECK_INTERVAL); 
+      // initiate periodic update checks.
+      checkUpdates(registration);
 
       const newInstalling = registration.installing; // the installing worker, or undefined
       const newWaiting = registration.waiting; // the waiting worker, or undefined
