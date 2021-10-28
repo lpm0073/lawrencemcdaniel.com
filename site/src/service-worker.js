@@ -35,6 +35,7 @@ import {
     URL_API_CLIENTS
 } from './shared/urls';
 
+const CACHE_VERSION = "v1";
 
 // ----------------------------------------
 // create-react-app generated Workbox code
@@ -99,6 +100,9 @@ self.addEventListener('message', (event) => {
       );
   }
   
+  function versioned_cached(name) {
+    return name + "-" + CACHE_VERSION;
+  }
   
 // Cache the app manifest
 //
@@ -107,7 +111,7 @@ self.addEventListener('message', (event) => {
 registerRoute(
   ({url}) => url.origin === URL_SITE + '/manifest.json',
   new StaleWhileRevalidate({
-    cacheName: 'manifest',
+    cacheName: versioned_cached('manifest'),
     plugins: [
       new ExpirationPlugin({}),
     ],
@@ -122,7 +126,7 @@ registerRoute(
 registerRoute(
   ({url}) => url.origin === URL_API,
   new StaleWhileRevalidate({
-    cacheName: 'api-responses',
+    cacheName: versioned_cached('api-responses'),
     plugins: [
       new ExpirationPlugin({}),
     ],
@@ -146,7 +150,7 @@ registerRoute(
 registerRoute(
   ({url}) => url.origin === URL_CDN,
   new CacheFirst({
-    cacheName: 'cdn-responses',
+    cacheName: versioned_cached('cdn-responses'),
     plugins: [
       new CacheableResponsePlugin({statuses: [0, 200]}),
       new ExpirationPlugin({maxEntries: 500}),
@@ -160,7 +164,7 @@ registerRoute(
   // Add in any other file extensions or routing criteria as needed.
   ({ url }) => url.origin === self.location.origin && isImageFile(url),
   new StaleWhileRevalidate({
-    cacheName: 'static-images',
+    cacheName: versioned_cached('static-images'),
     plugins: [
       new ExpirationPlugin({}),
     ],
@@ -173,7 +177,7 @@ registerRoute(
   ({url}) => url.origin === 'https://fonts.googleapis.com' ||
               url.origin === 'https://fonts.gstatic.com',
   new StaleWhileRevalidate({
-    cacheName: 'google-fonts',
+    cacheName: versioned_cached('google-fonts'),
     plugins: [
       new ExpirationPlugin({maxEntries: 20}),
     ],
