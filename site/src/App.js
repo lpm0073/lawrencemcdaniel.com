@@ -15,16 +15,18 @@ import Head from './components/Head';
 import AppUpdateSuccessAlert, {AppUpdateToast} from './components/appUpdate/Component';
 import './App.css';
 
+const DEBUG = false;
 class App extends Component {
   constructor(props) {
     super(props);
 
     this.state = {
-      isSet: false,                           // true if componentDidMount
-      customClass: props.cls,                 // expecting "online" or "offline"
-      waitingWorker: null,                    // the service worker that is waiting to be updated
-      newVersionAvailable: false,             // is there an update?
-      newVersionInstalledSuccessfully: false  // app update was successfully installed
+      isSet: false,                            // true if componentDidMount
+      customClass: props.cls,                  // expecting "online" or "offline"
+      newWorker: null,                         // the service worker that is waiting to be updated
+      newVersionAvailable: false,              // is there an update?
+      newVersionInstalledSuccessfully: false,  // app update was successfully installed
+      appUpdateMessage: ""
     };
 
     // Workbox handlers
@@ -43,37 +45,40 @@ class App extends Component {
      ------------------------------------------ */
 
   resetWorkUpdateState() {
-
+    if (DEBUG) console.log("resetWorkUpdateState()")
     this.setState({ 
-      waitingWorker: null,
+      newWorker: null,
       newVersionAvailable: false,
-      newVersionInstalledSuccessfully: false
+      newVersionInstalledSuccessfully: false,
+      appUpdateMessage: ""
     });
 
   }
 
-     // Workbox service worker registration update handler
+  // Workbox service worker registration update handler
   onServiceWorkerUpdate(registration) {
     if (this.state.isSet && registration) {
-      console.log("onServiceWorkerUpdate()")
+      if (DEBUG) console.log("onServiceWorkerUpdate()");
       this.setState({
-        waitingWorker: registration.waiting,
+        newWorker: registration.waiting,
         newVersionAvailable: true,
-        newVersionInstalledSuccessfully: false
-      })
+        newVersionInstalledSuccessfully: false,
+        appUpdateMessage: "New content is available and will be used when all tabs for this page are closed"
+      });
     } else {
-      console.log("Warning: onServiceWorkerUpdate() was called without a registration object or component not mounted.")
+      console.log("Warning: onServiceWorkerUpdate() was called without a registration object or component not mounted.");
     }
   }
 
   // Workbox handler for service worker update success handler
-  onServiceWorkerUpdateSuccess() {
-    console.log("onServiceWorkerUpdateSuccess()")
+  onServiceWorkerUpdateSuccess(registration) {
+    if (DEBUG) console.log("onServiceWorkerUpdateSuccess()")
     if (this.state.isSet) {
       this.setState({ 
-        waitingWorker: null,
+        newWorker: null,
         newVersionAvailable: false,
-        newVersionInstalledSuccessfully: true
+        newVersionInstalledSuccessfully: true,
+        appUpdateMessage: "This app has successfully updated itself in the background. Content is cached for offline use."
       });
     } 
   }
@@ -83,19 +88,21 @@ class App extends Component {
      ------------------------------------------ */
 
   AppUpdateToast_OKHandler() {
-    console.log("AppUpdateToast_OKHandler()");
+    if (DEBUG) console.log("AppUpdateToast_OKHandler()");
+    const { newWorker } = this.state;
 
-    if (this.state.waitingWorker && this.state.newVersionAvailable) {
-      console.log("launching update process ...")
+    if (newWorker && this.state.newVersionAvailable) {
+      if (DEBUG) console.log("sending SKIP_WAITING to service worker ...");
 
       // force the update to install now.
-      waitingWorker.postMessage({ type: 'SKIP_WAITING' })
+      newWorker.postMessage({ type: 'SKIP_WAITING' })
       
       // browser refresh
       window.location.reload()
-      console.log("launching update process ...")
+      if (DEBUG) console.log("launching update process ...");
+
     } else {
-      console.log("Warning: AppUpdateToast_OKHandler() was called but there is no waitingWorker.")
+      if (DEBUG) console.log("Warning: AppUpdateToast_OKHandler() was called but there is no newWorker.");
     }
 
     this.setState({
@@ -108,6 +115,9 @@ class App extends Component {
     React Component life cycle
     ------------------------------------------ */
   componentDidMount() {
+    const d = new Date();
+    let text = d.toString();
+    if (DEBUG) console.log("App.componentDidMount()", text);
 
     this.setState({
       isSet: true
@@ -116,18 +126,23 @@ class App extends Component {
     // migrated from index.js
     // register the current service worker. 
     // Do this once and only once. hence, placing thi sin the constructor.
+    //
+    // see: https://developers.google.com/web/fundamentals/primers/service-workers/lifecycle
     if (process.env.NODE_ENV === 'production') {
 
       serviceWorkerRegistration.register({ 
         onUpdate: this.onServiceWorkerUpdate,
         onSuccess: this.onServiceWorkerUpdateSuccess
       });
-      console.log("serviceWorkerRegistration.register() invoked.")
+      if (DEBUG) console.log("serviceWorkerRegistration.register() invoked.")
     }
 
   }
   componentDidUpdate() {
-    
+    const d = new Date();
+    let text = d.toString();
+    if (DEBUG) console.log("App.componentDidUpdate()", text);
+
     // success alert has not controls, no handler
     // so we need to disable it ourselves.
     if (this.state.newVersionInstalledSuccessfully) {
@@ -145,8 +160,8 @@ class App extends Component {
         <React.Fragment>
             {context.state.isSet &&
               <React.Fragment>
-                {context.state.newVersionAvailable && <AppUpdateToast handler={context.AppUpdateToast_OKHandler} /> }
-                {context.state.newVersionInstalledSuccessfully && <AppUpdateSuccessAlert /> }
+                {context.state.newVersionAvailable && <AppUpdateSuccessAlert msg={context.state.appUpdateMessage} /> }
+                {context.state.newVersionInstalledSuccessfully && <AppUpdateSuccessAlert msg={context.state.appUpdateMessage} /> }
               </React.Fragment>
             }
         </React.Fragment>
