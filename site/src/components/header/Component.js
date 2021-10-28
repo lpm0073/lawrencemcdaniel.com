@@ -52,9 +52,9 @@ export class Header extends Component {
     render() {
         return(
         <header key="app-header" >
-            <Offline>
+            <Offline key="header-offline-alert">
                 <div className="text-center mb-1 mt-1">
-                    <div key="1" className="offline-alert"><span className="fa fa-exclamation-triangle"></span> Check your Internet connection.</div>
+                    <div className="offline-alert"><span className="fa fa-exclamation-triangle"></span> Check your Internet connection.</div>
                 </div>
             </Offline>
             <Navbar className="navbar-dark app-navbar" dark expand="md" fixed="top">
