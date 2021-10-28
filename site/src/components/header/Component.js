@@ -74,8 +74,26 @@ export class Header extends Component {
                             <DropdownToggle nav caret className="">Skills</DropdownToggle>
                             <DropdownMenu className="bg-dark">
                                 <DropdownItem>
-                                    <NavLink className="nav-link p-0 m-0"  to='/openedx'>Open edX</NavLink>
+                                    <NavLink className="nav-link p-0 m-0"  to='/openedx'>
+                                        <img key="menu-edx-image" className="react-logo" src="/assets/images/edx-logo.png" alt="ReactJS logo" />
+                                        Open edX
+                                    </NavLink>
                                 </DropdownItem>
+                                <DropdownItem>
+                                    <NavLink className="nav-link p-0 m-0"  to='/reactjs'>
+                                        <img key="menu-react-image" className="react-logo" src="/assets/images/react-logo-300x261.png" alt="ReactJS logo" />
+                                        ReactJS
+                                    </NavLink>
+                                </DropdownItem>
+                                <DropdownItem>
+                                        <a className="" href='https://horrors.lawrencemcdaniel.com/' target="_blank" rel="noopener noreferrer">
+                                            <img key="menu-react-image" className="react-logo" src="/assets/images/angular-logo.png" alt="ReactJS logo" />
+                                            Angular
+                                        </a>
+                                </DropdownItem>
+
+                                <DropdownItem divider className="color-light" />
+
                                 <DropdownItem>
                                     <NavLink className="nav-link p-0 m-0"  to='/specialties'>Competencies</NavLink>
                                 </DropdownItem>
@@ -99,15 +117,6 @@ export class Header extends Component {
                                 </DropdownItem>
                                 <DropdownItem>
                                     <a className="" href='https://blog.lawrencemcdaniel.com/' target="_blank" rel="noopener noreferrer">My Blog</a>
-                                </DropdownItem>
-                                <DropdownItem>
-                                    <a className="" href='/reactjs' target="_self">ReactJS</a>
-                                </DropdownItem>
-                                <DropdownItem>
-                                    <a className="" href='https://horrors.lawrencemcdaniel.com/' target="_blank" rel="noopener noreferrer">Angular</a>
-                                </DropdownItem>
-                                <DropdownItem>
-                                    <a className="" href='https://blog.lawrencemcdaniel.com/comprehensive-django-setup-guide-part-i/' target="_blank" rel="noopener noreferrer">Django</a>
                                 </DropdownItem>
                                 <DropdownItem>
                                     <a className="" href='https://api.lawrencemcdaniel.com/' target="_blank" rel="noopener noreferrer">REST api</a>
