@@ -52,9 +52,11 @@ export class Header extends Component {
     render() {
         return(
         <header key="app-header" >
-            <div className="text-center mr-3 mb-1">
-                <Offline><div key="1" className="offline-alert"><span className="fa fa-exclamation-triangle"></span> Check your Internet connection.</div></Offline>
-            </div>
+            <Offline>
+                <div className="text-center mb-1 mt-1">
+                    <div key="1" className="offline-alert"><span className="fa fa-exclamation-triangle"></span> Check your Internet connection.</div>
+                </div>
+            </Offline>
             <Navbar className="navbar-dark app-navbar" dark expand="md" fixed="top">
                 <NavbarToggler onClick={this.toggleNav} />
                 <Collapse isOpen={this.state.isNavOpen} navbar>
