@@ -12,10 +12,12 @@ import Routes from './components/Routes';
 import { Header } from './components/header/Component';
 import Footer from './components/footer/Component';
 import Head from './components/Head';
-import AppUpdateSuccessAlert, {AppUpdateToast} from './components/appUpdate/Component';
+import AppUpdateAlert from './components/appUpdate/Component';
 import './App.css';
 
 const DEBUG = false;
+const NEW_CONTENT_MESSAGE = "New content is available and will be used when all tabs for this page are closed.";
+const SUCCESSFUL_UPDATE_MESSAGE = "This app has successfully updated itself in the background. Content is cached for offline use.";
 class App extends Component {
   constructor(props) {
     super(props);
@@ -25,8 +27,7 @@ class App extends Component {
       customClass: props.cls,                  // expecting "online" or "offline"
       newWorker: null,                         // the service worker that is waiting to be updated
       newVersionAvailable: false,              // is there an update?
-      newVersionInstalledSuccessfully: false,  // app update was successfully installed
-      appUpdateMessage: ""
+      newVersionInstalledSuccessfully: false  // app update was successfully installed
     };
 
     // Workbox handlers
@@ -49,8 +50,7 @@ class App extends Component {
     this.setState({ 
       newWorker: null,
       newVersionAvailable: false,
-      newVersionInstalledSuccessfully: false,
-      appUpdateMessage: ""
+      newVersionInstalledSuccessfully: false
     });
 
   }
@@ -62,8 +62,7 @@ class App extends Component {
       this.setState({
         newWorker: registration.waiting,
         newVersionAvailable: true,
-        newVersionInstalledSuccessfully: false,
-        appUpdateMessage: "New content is available and will be used when all tabs for this page are closed"
+        newVersionInstalledSuccessfully: false
       });
     } else {
       console.log("Warning: onServiceWorkerUpdate() was called without a registration object or component not mounted.");
@@ -77,8 +76,7 @@ class App extends Component {
       this.setState({ 
         newWorker: null,
         newVersionAvailable: false,
-        newVersionInstalledSuccessfully: true,
-        appUpdateMessage: "This app has successfully updated itself in the background. Content is cached for offline use."
+        newVersionInstalledSuccessfully: true
       });
     } 
   }
@@ -160,8 +158,8 @@ class App extends Component {
         <React.Fragment>
             {context.state.isSet &&
               <React.Fragment>
-                {context.state.newVersionAvailable && <AppUpdateSuccessAlert msg={context.state.appUpdateMessage} /> }
-                {context.state.newVersionInstalledSuccessfully && <AppUpdateSuccessAlert msg={context.state.appUpdateMessage} /> }
+                {context.state.newVersionAvailable && <AppUpdateAlert msg={NEW_CONTENT_MESSAGE} /> }
+                {context.state.newVersionInstalledSuccessfully && <AppUpdateAlert msg={SUCCESSFUL_UPDATE_MESSAGE} /> }
               </React.Fragment>
             }
         </React.Fragment>

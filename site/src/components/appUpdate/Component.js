@@ -5,7 +5,7 @@ import './styles.css';
 
 const ALERT_VISIBILITY_SECONDS = 5.0;
 
-class AppUpdateSuccessAlert extends React.Component {
+class AppUpdateAlert extends React.Component {
   constructor(props) {
     super(props);
 
@@ -16,7 +16,7 @@ class AppUpdateSuccessAlert extends React.Component {
   }
 
   componentDidMount() {
-    console.log("AppUpdateSuccessAlert.componentDidMount()")
+    console.log("AppUpdateAlert.componentDidMount()")
     this.setState({
       visible:true
     }, ()=>{window.setTimeout(()=>{
@@ -31,9 +31,11 @@ class AppUpdateSuccessAlert extends React.Component {
   render() { 
     return(
       <React.Fragment>
-      <Alert isOpen={this.state.visible} fade={true} className="position-absolute top-100 start-100 translate-middle border border-light secondary alert">
-        {this.state.msg}
-      </Alert>
+        <div className="fixed-top m-0 p-5 text-right">
+          <Alert isOpen={this.state.visible} fade={true} className="border border-light alert alert-warning text-center">
+            {this.state.msg}
+          </Alert>
+        </div>
     </React.Fragment>
   );
   }
@@ -72,4 +74,4 @@ export function AppUpdateToast(props) {
     );
 }
 
-export default AppUpdateSuccessAlert;
+export default AppUpdateAlert;
