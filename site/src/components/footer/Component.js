@@ -1,6 +1,5 @@
 import React from 'react';
 
-import { resumeUrl } from '../../shared/urls';
 import './styles.css';
 
 export default function Footer(props) {
