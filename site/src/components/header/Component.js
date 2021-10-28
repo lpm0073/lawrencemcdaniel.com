@@ -75,7 +75,7 @@ export class Header extends Component {
                             <DropdownMenu className="bg-dark">
                                 <DropdownItem>
                                     <NavLink className="nav-link p-0 m-0"  to='/openedx'>
-                                        <img key="menu-edx-image" className="react-logo" src="/assets/images/edx-logo.png" alt="ReactJS logo" />
+                                        <img key="menu-edx-image" className="react-logo" src="/assets/images/edx-logo.png" alt="Open edX logo" />
                                         Open edX
                                     </NavLink>
                                 </DropdownItem>
@@ -86,11 +86,17 @@ export class Header extends Component {
                                     </NavLink>
                                 </DropdownItem>
                                 <DropdownItem>
-                                        <a className="" href='https://horrors.lawrencemcdaniel.com/' target="_blank" rel="noopener noreferrer">
-                                            <img key="menu-react-image" className="react-logo" src="/assets/images/angular-logo.png" alt="ReactJS logo" />
-                                            Angular
-                                        </a>
+                                    <a className="" href='https://horrors.lawrencemcdaniel.com/' target="_blank" rel="noopener noreferrer">
+                                        <img key="menu-angular-image" className="react-logo" src="/assets/images/angular-logo.png" alt="ReactJS logo" />
+                                        Angular
+                                    </a>
                                 </DropdownItem>
+                                <DropdownItem>
+                                    <NavLink className="nav-link p-0 m-0"  to='/machine-learning/'>
+                                        Machine Learning
+                                    </NavLink>
+                                </DropdownItem>
+
 
                                 <DropdownItem divider className="color-light" />
 
@@ -123,9 +129,6 @@ export class Header extends Component {
                                 </DropdownItem>
                                 <DropdownItem>
                                     <a className="" href='https://blog.lawrencemcdaniel.com/category/aws/' target="_blank" rel="noopener noreferrer">Dev Ops</a>
-                                </DropdownItem>
-                                <DropdownItem>
-                                    <a className="" href='/machine-learning/' target="_self" rel="noopener noreferrer">Machine Learning</a>
                                 </DropdownItem>
                                 <DropdownItem divider />
 
