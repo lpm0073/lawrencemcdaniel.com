@@ -3,6 +3,42 @@ import {Alert, Toast, ToastHeader, ToastBody, Button} from 'reactstrap';
 
 import './styles.css';
 
+const ALERT_VISIBILITY_SECONDS = 3.0;
+
+class AppUpdateSuccessAlert extends React.Component {
+  constructor(props) {
+    super(props);
+
+    this.state={
+      visible : false,
+      msg: props.msg
+    }
+  }
+
+  componentDidMount() {
+    console.log("AppUpdateSuccessAlert.componentDidMount()")
+    this.setState({
+      visible:true
+    }, ()=>{window.setTimeout(()=>{
+        this.setState({
+          visible:false
+        })
+      }, 1000 * ALERT_VISIBILITY_SECONDS);
+    });
+
+  }
+
+  render() { 
+    return(
+      <React.Fragment>
+      <Alert isOpen={this.state.visible} fade={true} className="position-absolute top-100 start-100 translate-middle bg-dark">
+        {this.state.msg}
+      </Alert>
+    </React.Fragment>
+  );
+  }
+}
+
 export function AppUpdateToast(props) { 
     console.log("AppUpdateToast()");
     const handler = props.handler;
@@ -21,55 +57,19 @@ export function AppUpdateToast(props) {
 
     return (
       <React.Fragment>
-        <Toast isOpen={isOpen} className="position-absolute top-50 start-50 translate-middle border border-light bg-info">
-            <ToastHeader className="">An update is available</ToastHeader>
+        <Toast isOpen={isOpen} className="position-absolute bottom-0 end-0 translate-middle border border-light bg-info">
+            <ToastHeader className="">An update to this web app is available</ToastHeader>
             <ToastBody>
             New content is available and will be used when all tabs for this page
             are closed.
             <hr />
             <div className="col text-center">
-              <Button
-                  color="primary"
-                  onClick={ok_handler}
-                >Upgrade Now</Button>
+              <Button color="primary" onClick={ok_handler}>Ok</Button>
             </div>
-            
             </ToastBody>
         </Toast>
       </React.Fragment> 
     );
-}
-class AppUpdateSuccessAlert extends React.Component {
-  constructor(props) {
-    super(props);
-
-    this.state={
-      visible : false
-    }
-  }
-
-  componentDidMount() {
-
-    this.setState({
-      visible:true
-    }, ()=>{window.setTimeout(()=>{
-        this.setState({
-          visible:false
-        })
-      },1500);
-    });
-
-  }
-
-  render() { 
-    return(
-      <React.Fragment>
-      <Alert isOpen={this.state.visible} fade={true} className="position-absolute top-50 start-50 translate-middle bg-info">
-        App updated successfully.
-      </Alert>
-    </React.Fragment>
-  );
-  }
 }
 
 export default AppUpdateSuccessAlert;
