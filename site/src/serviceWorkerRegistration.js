@@ -9,6 +9,8 @@
 
 // To learn more about the benefits of this model and instructions on how to
 // opt-in, read https://cra.link/PWA
+const DEBUG = false;
+const AUTOMATIC_UPDATE_CHECK_INTERVAL = 5;
 
 const isLocalhost = Boolean(
   window.location.hostname === 'localhost' ||
@@ -56,6 +58,48 @@ function registerValidSW(swUrl, config) {
   navigator.serviceWorker
     .register(swUrl)
     .then((registration) => {
+
+
+      // ========================================================================
+      // lawrence oct-2021
+      // my behavioral mods
+      // ========================================================================
+      if (DEBUG) console.log("service worker is registered.");
+
+      // automatically update the service worker once an hour
+      setTimeout(function() {
+        console.log("service worker automatically checked for updates.")
+          registration.update();
+      }, 1000 * 60 * AUTOMATIC_UPDATE_CHECK_INTERVAL); 
+
+      const newInstalling = registration.installing; // the installing worker, or undefined
+      const newWaiting = registration.waiting; // the waiting worker, or undefined
+      const activeWorker = registration.active; // the active worker, or undefined
+      
+      if (newInstalling) console.log("newInstalling created");
+      if (newWaiting) console.log("newWaiting created");
+      if (activeWorker) console.log("activeWorker found");
+      
+      registration.addEventListener('updatefound', () => {
+        // A wild service worker has appeared in registration.installing!
+        const newWorker = registration.installing;
+
+        if (DEBUG) console.log("updatefound event listener fired. state: ", newWorker.state);
+
+        // "installing" - the install event has fired, but not yet complete
+        // "installed"  - install complete
+        // "activating" - the activate event has fired, but not yet complete
+        // "activated"  - fully active
+        // "redundant"  - discarded. Either failed install, or it's been
+        //                replaced by a newer version
+    
+        newWorker.addEventListener('statechange', () => {
+          // newWorker.state has changed
+          if (DEBUG) console.log("newWorker.state changed to: ", newWorker.state);
+        });
+      });
+      // ========================================================================
+
       registration.onupdatefound = () => {
         const installingWorker = registration.installing;
         if (installingWorker == null) {
