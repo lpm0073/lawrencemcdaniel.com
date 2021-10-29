@@ -1,11 +1,18 @@
 import React, { Component} from 'react';
-import RenderPageTitle from '../../components/pagetitle/pageTitleComponent';
-import {resumeUrl} from '../../shared/urls';
+
 import {Helmet} from "react-helmet";
+import { Tab, Tabs, TabList, TabPanel } from 'react-tabs';
+import 'react-tabs/style/react-tabs.css';
+
+import RenderPageTitle from '../../components/pagetitle/pageTitleComponent';
+
+import { URL_SITE } from '../../shared/urls';
+import { resumeUrl } from '../../shared/urls';
+
+// SEO
 import { gsdGraph } from '../../shared/seo/gsdGraph';
 import { gsdPersonLawrenceMcDaniel } from '../../shared/seo/gsdPersonLawrence';
-import {baseTitle} from '../../shared/seo/gsdCommon';
-import { URL_SITE } from '../../shared/urls';
+import { baseTitle } from '../../shared/seo/gsdCommon';
 
 import './styles.css';
 
@@ -31,9 +38,9 @@ class Contact extends Component {
                 <div key="contact-page" className="site-page contact-page">
                     <RenderPageTitle theme="light" icon="fa-phone" title="LETS" boxed_title="TALK" />
 
-                    <div className="row text-center mt-md-5">
+                    <div className="row text-center ">
                         <div className="col-md-1"></div>
-                        <div className="col-md-6 contact-data mt-md-5 pt-md-5">
+                        <div className="col-md-5 contact-data">
                             <div className="row mt-3"></div>
                             <div className="">
                                 <a target="_blank" href="https://goo.gl/maps/WJy25bNGit2L8Nzz8" rel="noopener noreferrer">
@@ -60,29 +67,35 @@ class Contact extends Component {
                             </div>
                         </div>
                         <div className="col-md-4 m-4">
-                            <div className="row qr-code-container mb-5">
+                            <div className="row qr-code-container m-2 p-2">
                                 <div className="col-md-1"></div>
                                 <div className="col-md-10">
-                                    <div>
-                                        <h4>
-                                            <span className="col-md-2 mr-2 whatsapp-logo image-container"></span>
-                                            <span className="col-md-10 p-0">Whatsapp QR Code</span>
-                                        </h4>
-                                    </div>
-                                    <div className="col-md-12 whatsapp-qr-code square image-container"></div>
-                                </div>
-                                <div className="col-md-1"></div>
-                            </div>
-                            <div className="row qr-code-container mb-sm-5 pb-sm-5">
-                                <div className="col-md-1"></div>
-                                <div className="col-md-10">
-                                    <div>
-                                        <h4>
-                                            <span className="col-md-2 mr-2 linkedin-logo image-container"></span>
-                                            <span className="col-md-10 p-0">LinkedIn QR Code</span>
-                                        </h4>
-                                    </div>
-                                    <div className="col-md-12 linkedin-qr-code square image-container"></div>
+                                    <Tabs>
+                                        <TabList>
+                                        <Tab>Whatsapp</Tab>
+                                        <Tab>LinkedIn</Tab>
+                                        </TabList>
+
+                                        <TabPanel>
+                                            <div>
+                                                <h4>
+                                                    <span className="col-md-2 mr-2 whatsapp-logo image-container"></span>
+                                                    <span className="col-md-10 p-0">Whatsapp QR Code</span>
+                                                </h4>
+                                            </div>
+                                            <div className="col-md-12 whatsapp-qr-code square image-container"></div>
+
+                                        </TabPanel>
+                                        <TabPanel>
+                                            <div>
+                                                <h4>
+                                                    <span className="col-md-2 mr-2 linkedin-logo image-container"></span>
+                                                    <span className="col-md-10 p-0">LinkedIn QR Code</span>
+                                                </h4>
+                                            </div>
+                                            <div className="col-md-12 linkedin-qr-code square image-container"></div>
+                                        </TabPanel>
+                                    </Tabs>
                                 </div>
                                 <div className="col-md-1"></div>
                             </div>
