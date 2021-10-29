@@ -19,59 +19,71 @@ import './App.css';
 
 const NEW_CONTENT_MESSAGE = "New content is available and will be used when all tabs for this page are closed.";
 const SUCCESSFUL_UPDATE_MESSAGE = "This app has successfully updated itself in the background. Content is cached for offline use.";
+
 class App extends Component {
 
   constructor(props) {
     super(props);
 
     this.state = {
-      isSet: false,                            // true if componentDidMount
-      customClass: props.cls,                  // expecting "online" or "offline"
-      newWorker: null,                         // the service worker that is waiting to be updated
-      newVersionAvailable: false,              // is there an update?
-      newVersionInstalledSuccessfully: false  // app update was successfully installed
+      isSet: false,                            // True once componentDidMount runs
+      customClass: props.cls,                  // Expects "online" or "offline"
+
+      // service worker state management
+      // -----------------------------------------------------------------------------------------
+      newServiceWorker: null,                   // The service worker that is waiting to be updated
+
+      newServiceWorkerVersionAvailable: false,  // Set to True to trigger a Bootstrap alert.
+                                                // Set from a Workbox callback 
+                                                // after a new service worker has 
+                                                // downloaded and if ready to install.
+
+      newServiceWorkerInstalledSuccessfully: false    // Set to True to trigger a Bootstrap alert.
+                                                      // Set from a Workbox callback after
+                                                      // service worker was successfully installed.
+      // -----------------------------------------------------------------------------------------
     };
 
     // Workbox handlers
-    this.resetWorkerState = this.resetWorkerState.bind(this);
+    this.resetServiceWorkerState = this.resetServiceWorkerState.bind(this);
     this.onServiceWorkerUpdate = this.onServiceWorkerUpdate.bind(this);
     this.onServiceWorkerUpdateSuccess = this.onServiceWorkerUpdateSuccess.bind(this);
 
   }
 
   /* ------------------------------------------
-     Workbox Service Worker event handlers
+     Workbox Service Worker state management and event handling
      ------------------------------------------ */
 
-  resetWorkerState() {
+  // Callback for AppUpdateAlert component
+  resetServiceWorkerState() {
     this.setState({ 
-      newWorker: null,
-      newVersionAvailable: false,
-      newVersionInstalledSuccessfully: false
+      newServiceWorker: null,
+      newServiceWorkerVersionAvailable: false,
+      newServiceWorkerInstalledSuccessfully: false
     });
   }
 
-  // Workbox service worker registration update handler
+  // Workbox callback for "service worker update ready" event
   onServiceWorkerUpdate(registration) {
     if (this.state.isSet && registration) {
       this.setState({
-        newWorker: registration.waiting,
-        newVersionAvailable: true,
-        newVersionInstalledSuccessfully: false
+        newServiceWorker: registration.waiting,
+        newServiceWorkerVersionAvailable: true,
+        newServiceWorkerInstalledSuccessfully: false
       });
     } else {
-      console.log("Warning: onServiceWorkerUpdate() was called without a registration object or component not mounted.");
+      console.log("Warning: onServiceWorkerUpdate() was called without a Workbox registration object, or, component was not yet mounted.");
     }
   }
 
-  // Workbox handler for service worker update success handler
+  // Workbox callback for "service worker installation success" event
   onServiceWorkerUpdateSuccess(registration) {
-
     if (this.state.isSet) {
       this.setState({ 
-        newWorker: registration,
-        newVersionAvailable: false,
-        newVersionInstalledSuccessfully: true
+        newServiceWorker: registration,
+        newServiceWorkerVersionAvailable: false,
+        newServiceWorkerInstalledSuccessfully: true
       });
     } 
   }
@@ -81,13 +93,13 @@ class App extends Component {
     ------------------------------------------ */
   componentDidMount() {
 
-    this.resetWorkerState();
+    this.resetServiceWorkerState();
     this.setState({
       isSet: true
     });
 
-    // migrated from index.js
-    // register the current service worker. 
+    // Note: this was migrated from index.js.
+    // Calling this multiple times is benign.
     if (process.env.NODE_ENV === 'production') {
 
       serviceWorkerRegistration.register({ 
@@ -99,15 +111,6 @@ class App extends Component {
 
   }
   
-  componentDidUpdate() {
-
-    // success alert has no controls, no handler
-    // so we need to disable it ourselves.
-    if (this.state.newVersionInstalledSuccessfully) {
-      this.resetWorkerState()
-    }
-  }
-
   render() {
 
     // UI widgets for service worker app update announcement and installation result.
@@ -118,8 +121,15 @@ class App extends Component {
         <React.Fragment>
             {context.state.isSet &&
               <React.Fragment>
-                {context.state.newVersionAvailable && <AppUpdateAlert msg={NEW_CONTENT_MESSAGE} /> }
-                {context.state.newVersionInstalledSuccessfully && <AppUpdateAlert msg={SUCCESSFUL_UPDATE_MESSAGE} /> }
+                {context.state.newServiceWorkerVersionAvailable && 
+                        <AppUpdateAlert 
+                          msg={NEW_CONTENT_MESSAGE} 
+                          callback={this.resetServiceWorkerState} /> }
+
+                {context.state.newServiceWorkerInstalledSuccessfully && 
+                        <AppUpdateAlert 
+                          msg={SUCCESSFUL_UPDATE_MESSAGE} 
+                          callback={this.resetServiceWorkerState} /> }
               </React.Fragment>
             }
         </React.Fragment>

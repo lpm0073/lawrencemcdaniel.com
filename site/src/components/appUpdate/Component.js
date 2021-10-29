@@ -13,6 +13,9 @@ class AppUpdateAlert extends React.Component {
       visible : false,
       msg: props.msg
     }
+
+    this.callback = props.callback.bind(this);
+
   }
 
   componentDidMount() {
@@ -21,7 +24,8 @@ class AppUpdateAlert extends React.Component {
     }, ()=>{window.setTimeout(()=>{
         this.setState({
           visible:false
-        })
+        });
+        this.callback();
       }, 1000 * ALERT_VISIBILITY_SECONDS);
     });
 
