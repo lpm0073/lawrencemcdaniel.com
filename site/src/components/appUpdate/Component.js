@@ -1,5 +1,5 @@
 import React from 'react'; 
-import {Alert, Toast, ToastHeader, ToastBody, Button} from 'reactstrap';
+import { Alert } from 'reactstrap';
 
 import './styles.css';
 
@@ -40,35 +40,5 @@ class AppUpdateAlert extends React.Component {
   }
 }
 
-export function AppUpdateToast(props) { 
-    const handler = props.handler;
-    let isOpen = true;
-    
-    function toastDismiss() {
-      isOpen = false;
-      return;
-    }
-
-    function ok_handler() {
-      toastDismiss();
-      handler();
-    }
-
-    return (
-      <React.Fragment>
-        <Toast isOpen={isOpen} className="position-absolute bottom-0 end-0 translate-middle border border-light bg-info">
-            <ToastHeader className="">An update to this web app is available</ToastHeader>
-            <ToastBody>
-            New content is available and will be used when all tabs for this page
-            are closed.
-            <hr />
-            <div className="col text-center">
-              <Button color="primary" onClick={ok_handler}>Ok</Button>
-            </div>
-            </ToastBody>
-        </Toast>
-      </React.Fragment> 
-    );
-}
 
 export default AppUpdateAlert;
