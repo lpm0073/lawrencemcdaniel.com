@@ -9,17 +9,19 @@ import { BrowserRouter } from 'react-router-dom';
 
 import * as serviceWorkerRegistration from './serviceWorkerRegistration';
 
-import Routes from './components/Routes';
-import { Header } from './components/header/Component';
-import Footer from './components/footer/Component';
 import Head from './components/Head';
+import { Header } from './components/header/Component';
 import AppUpdateAlert from './components/appUpdate/Component';
+import Routes from './components/Routes';
+import Footer from './components/footer/Component';
+
 import './App.css';
 
 const DEBUG = false;
 const NEW_CONTENT_MESSAGE = "New content is available and will be used when all tabs for this page are closed.";
 const SUCCESSFUL_UPDATE_MESSAGE = "This app has successfully updated itself in the background. Content is cached for offline use.";
 class App extends Component {
+
   constructor(props) {
     super(props);
 
@@ -32,23 +34,21 @@ class App extends Component {
     };
 
     // Workbox handlers
-    //
-    this.resetWorkUpdateState = this.resetWorkUpdateState.bind(this);
+    this.resetWorkerState = this.resetWorkerState.bind(this);
     this.onServiceWorkerUpdate = this.onServiceWorkerUpdate.bind(this);
     this.onServiceWorkerUpdateSuccess = this.onServiceWorkerUpdateSuccess.bind(this);
 
     // App handlers
     this.AppUpdateToast_OKHandler = this.AppUpdateToast_OKHandler.bind(this);
 
-    this.resetWorkUpdateState();
   }
 
   /* ------------------------------------------
      Workbox Service Worker event handlers
      ------------------------------------------ */
 
-  resetWorkUpdateState() {
-    if (DEBUG) console.log("resetWorkUpdateState()")
+  resetWorkerState() {
+    if (DEBUG) console.log("resetWorkerState()")
     this.setState({ 
       newWorker: null,
       newVersionAvailable: false,
@@ -119,6 +119,7 @@ class App extends Component {
     let text = d.toString();
     if (DEBUG) console.log("App.componentDidMount()", text);
 
+    this.resetWorkerState();
     this.setState({
       isSet: true
     });
@@ -135,6 +136,7 @@ class App extends Component {
     }
 
   }
+  
   componentDidUpdate() {
     const d = new Date();
     let text = d.toString();
@@ -143,7 +145,7 @@ class App extends Component {
     // success alert has not controls, no handler
     // so we need to disable it ourselves.
     if (this.state.newVersionInstalledSuccessfully) {
-      this.resetWorkUpdateState()
+      this.resetWorkerState()
     }
   }
 

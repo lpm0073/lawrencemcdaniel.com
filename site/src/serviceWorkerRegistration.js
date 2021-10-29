@@ -54,6 +54,10 @@ export function register(config) {
   }
 }
 
+/*
+  mcdaniel oct-2021
+  periodically poll for updates to the service worker
+ */
 function checkUpdates(registration) {
 
   if (registration && registration.update) {
