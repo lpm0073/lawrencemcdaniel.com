@@ -9,8 +9,9 @@
 
 // To learn more about the benefits of this model and instructions on how to
 // opt-in, read https://cra.link/PWA
-const DEBUG = false;
+const DEBUG = true;
 const AUTOMATIC_UPDATE_CHECK_INTERVAL = 15;
+
 
 const isLocalhost = Boolean(
   window.location.hostname === 'localhost' ||
@@ -100,8 +101,10 @@ function registerValidSW(swUrl, config) {
         // A wild service worker has appeared in registration.installing!
         const newWorker = registration.installing;
 
-        if (DEBUG) console.log("updatefound event listener fired. state: ", newWorker.state);
+        if (DEBUG) console.log("updatefound event listener fired. newWorker state is: ", newWorker.state);
 
+        // Possible states:
+        // -----------------
         // "installing" - the install event has fired, but not yet complete
         // "installed"  - install complete
         // "activating" - the activate event has fired, but not yet complete
@@ -109,9 +112,13 @@ function registerValidSW(swUrl, config) {
         // "redundant"  - discarded. Either failed install, or it's been
         //                replaced by a newer version
     
+        // add an `onActivate` event, then look for a callback.
         newWorker.addEventListener('statechange', () => {
-          // newWorker.state has changed
           if (DEBUG) console.log("newWorker.state changed to: ", newWorker.state);
+          if (newWorker.state === 'activated' && config && config.onActivate) {
+            if (DEBUG) console.log("invoking the onActivate callback.");
+            config.onActivate(registration);
+          }
         });
       });
       // ========================================================================

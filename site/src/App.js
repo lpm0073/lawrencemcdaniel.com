@@ -72,7 +72,7 @@ class App extends Component {
     // that the update exists, was downloaded in the background
     // and is ready to install.
     if (this.state.updatedSW && this.state.isSWUpdateAvailable) {
-      this.updatedSW.postMessage({
+      this.state.updatedSW.postMessage({
         type: 'SKIP_WAITING'
       });
     }
@@ -126,7 +126,8 @@ class App extends Component {
 
       serviceWorkerRegistration.register({ 
         onUpdate: this.onSWUpdateAvailable,
-        onSuccess: this.onSWInstallSuccess
+        onSuccess: this.onSWInstallSuccess,
+        onActivate: this.onSWInstallSuccess
       });
 
     }
@@ -137,22 +138,22 @@ class App extends Component {
 
     // service worker app update alerts.
     function AppUpdateAlerts(props) {
-      const context = props.context;
+      const parent = props.parent;
       
       return(
         <React.Fragment>
-            {context.state.isSet &&
+            {parent.state.isSet &&
               <React.Fragment>
-                {context.state.isSWUpdateAvailable && 
+                {parent.state.isSWUpdateAvailable && 
                         <AppUpdateAlert 
                           msg={UPDATE_AVAILABLE_MESSAGE} 
-                          callback={this.resetSWNotificationStates} /> 
+                          callback={parent.resetSWNotificationStates} /> 
                 }
 
-                {context.state.wasSWInstalledSuccessfully && 
+                {parent.state.wasSWInstalledSuccessfully && 
                         <AppUpdateAlert 
                           msg={SUCCESSFUL_INSTALL_MESSAGE} 
-                          callback={this.resetSWNotificationStates} /> 
+                          callback={parent.resetSWNotificationStates} /> 
                 }
               </React.Fragment>
             }
@@ -167,7 +168,7 @@ class App extends Component {
         <BrowserRouter>
           <div className={"container-fluid p-0 " + this.state.customClass}>
             <Header />
-            <AppUpdateAlerts context={this}/>
+            <AppUpdateAlerts parent={this}/>
             <Routes />
             <Footer />
           </div>
