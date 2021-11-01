@@ -42,7 +42,7 @@ export function register(config) {
         // Add some additional logging to localhost, pointing developers to the
         // service worker/PWA documentation.
         navigator.serviceWorker.ready.then(() => {
-          console.log(
+          if (DEBUG) console.log(
             'This web app is being served cache-first by a service ' +
               'worker. To learn more, visit https://cra.link/PWA'
           );
@@ -63,7 +63,7 @@ function checkUpdates(registration) {
 
   if (registration && registration.update) {
     registration.update();
-    console.log("service worker automatically checked for updates.");
+    if (DEBUG) console.log("service worker automatically checked for updates.");
   } else {
     console.log("Warning: checkUpdates() ran but registration has no update() function: ", registration);
   }
@@ -93,9 +93,9 @@ function registerValidSW(swUrl, config) {
       const newWaiting = registration.waiting; // the waiting worker, or undefined
       const activeWorker = registration.active; // the active worker, or undefined
       
-      if (newInstalling) console.log("newInstalling created");
-      if (newWaiting) console.log("newWaiting created");
-      if (activeWorker) console.log("activeWorker found");
+      if (newInstalling && DEBUG) console.log("newInstalling created");
+      if (newWaiting && DEBUG) console.log("newWaiting created");
+      if (activeWorker && DEBUG) console.log("activeWorker found");
       
       registration.addEventListener('updatefound', () => {
         // A wild service worker has appeared in registration.installing!
@@ -134,7 +134,7 @@ function registerValidSW(swUrl, config) {
               // At this point, the updated precached content has been fetched,
               // but the previous service worker will still serve the older
               // content until all client tabs are closed.
-              console.log(
+              if (DEBUG) console.log(
                 'New content is available and will be used when all ' +
                   'tabs for this page are closed. See https://cra.link/PWA.'
               );
@@ -147,7 +147,7 @@ function registerValidSW(swUrl, config) {
               // At this point, everything has been precached.
               // It's the perfect time to display a
               // "Content is cached for offline use." message.
-              console.log('Content is cached for offline use.');
+              if (DEBUG) console.log('Content is cached for offline use.');
 
               // Execute callback
               if (config && config.onSuccess) {
