@@ -1,3 +1,5 @@
+export const DEBUG = false;
+
 export const baseUrl = 'http://localhost:3001/';
 
 export const protocol = "https";

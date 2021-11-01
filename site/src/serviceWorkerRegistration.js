@@ -10,8 +10,7 @@
 // To learn more about the benefits of this model and instructions on how to
 // opt-in, read https://cra.link/PWA
 import { serviceWorkerRegistrationEnhancements } from "./serviceWorkerRegistrationEnhancements";
-
-const DEBUG = true;
+import { DEBUG } from "./shared/constants";
 
 const isLocalhost = Boolean(
   window.location.hostname === 'localhost' ||
@@ -43,7 +42,7 @@ export function register(config) {
         // service worker/PWA documentation.
         navigator.serviceWorker.ready.then(() => {
           if (DEBUG) console.log(
-            'This web app is being served cache-first by a service ' +
+            'serviceWorkerRegistration.js - This web app is being served cache-first by a service ' +
               'worker. To learn more, visit https://cra.link/PWA'
           );
         });
@@ -78,7 +77,7 @@ function registerValidSW(swUrl, config) {
               // but the previous service worker will still serve the older
               // content until all client tabs are closed.
               if (DEBUG) console.log(
-                'New content is available and will be used when all ' +
+                'serviceWorkerRegistration.js - New content is available and will be used when all ' +
                   'tabs for this page are closed. See https://cra.link/PWA.'
               );
 
@@ -90,7 +89,7 @@ function registerValidSW(swUrl, config) {
               // At this point, everything has been precached.
               // It's the perfect time to display a
               // "Content is cached for offline use." message.
-              if (DEBUG) console.log('Content is cached for offline use.');
+              if (DEBUG) console.log('serviceWorkerRegistration.js - Content is cached for offline use.');
 
               // Execute callback
               if (config && config.onSuccess) {

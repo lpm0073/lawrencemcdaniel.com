@@ -1,5 +1,10 @@
+// Lawrence McDaniel
+// Nov-2021
+//
+// Enhancements to the default behavior of serviceWorkerRegistration.js
+// that is installed by `create-react-app my-app --template cra-template-pwa-typescript`
+import { DEBUG } from "./shared/constants";
 
-const DEBUG = true;
 const AUTOMATIC_UPDATE_CHECK_INTERVAL = 15;   // expressed in minutes
 
 // periodically poll for updates to the service worker

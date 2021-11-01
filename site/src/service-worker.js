@@ -18,7 +18,7 @@ import { CacheFirst } from 'workbox-strategies';
 import { registerRoute } from 'workbox-routing';
 import { StaleWhileRevalidate } from 'workbox-strategies';
 //-----------------------------------------------
-
+import { DEBUG } from './shared/constants';
 import { wpPrefetch } from './shared/wpPrefetch';
 import {
     URL_CDN,              // AWS Cloudfront distribution: https://cdn.lawrencemcdaniel.com
@@ -78,7 +78,7 @@ registerRoute(
 // registration.waiting.postMessage({type: 'SKIP_WAITING'})
 self.addEventListener('message', (event) => {
   if (event.data && event.data.type === 'SKIP_WAITING') {
-    console.log("SKIP_WAITING message received.");
+    if (DEBUG) console.log("service-worker.js - SKIP_WAITING message received.");
     self.skipWaiting();
   }
 });

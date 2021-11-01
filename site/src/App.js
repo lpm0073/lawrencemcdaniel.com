@@ -11,6 +11,8 @@ import { BrowserRouter } from 'react-router-dom';
 
 import * as serviceWorkerRegistration from './serviceWorkerRegistration';
 
+import { DEBUG } from './shared/constants';
+
 // the components that draw the app
 import Routes from './components/Routes';
 import Head from './components/Head';
@@ -66,6 +68,8 @@ class App extends Component {
   // Callback for our AppUpdateAlert component.
   resetSWNotificationStates() {
 
+    if (DEBUG) console.log("App.resetSWNotificationStates()");
+
     // this covers the intended use case
     // of allowing a server worker update to proceed
     // automatically, once the user has been made aware
@@ -87,6 +91,7 @@ class App extends Component {
 
   // Workbox callback for "service worker update ready" event
   onSWUpdateAvailable(registration) {
+    if (DEBUG) console.log("App.onSWUpdateAvailable()");
     if (this.state.isSet && registration) {
       this.setState({
         updatedSW: registration.waiting,
@@ -100,6 +105,7 @@ class App extends Component {
 
   // Workbox callback for "service worker installation success" event
   onSWInstallSuccess(registration) {
+    if (DEBUG) console.log("App.onSWInstallSuccess()");
     if (this.state.isSet) {
       this.setState({ 
         updatedSW: registration,
@@ -113,6 +119,7 @@ class App extends Component {
   // ------------ React Component life cycle ------------
   // ----------------------------------------------------
   componentDidMount() {
+    if (DEBUG) console.log("App.componentDidMount()");
 
     this.resetSWNotificationStates();
     this.setState({
@@ -135,6 +142,7 @@ class App extends Component {
   }
   
   render() {
+    if (DEBUG) console.log("App.render()");
 
     // service worker app update alerts.
     function AppUpdateAlerts(props) {
