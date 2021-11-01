@@ -127,7 +127,7 @@ class App extends Component {
       serviceWorkerRegistration.register({ 
         onUpdate: this.onSWUpdateAvailable,
         onSuccess: this.onSWInstallSuccess,
-        onActivate: this.onSWInstallSuccess
+        onActivate: this.onSWInstallSuccess   // a custom event that I added to Workbox
       });
 
     }

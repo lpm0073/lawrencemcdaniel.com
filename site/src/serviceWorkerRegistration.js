@@ -9,9 +9,9 @@
 
 // To learn more about the benefits of this model and instructions on how to
 // opt-in, read https://cra.link/PWA
-const DEBUG = true;
-const AUTOMATIC_UPDATE_CHECK_INTERVAL = 15;
+import { serviceWorkerRegistrationEnhancements } from "./serviceWorkerRegistrationEnhancements";
 
+const DEBUG = true;
 
 const isLocalhost = Boolean(
   window.location.hostname === 'localhost' ||
@@ -55,73 +55,16 @@ export function register(config) {
   }
 }
 
-/*
-  mcdaniel oct-2021
-  periodically poll for updates to the service worker
- */
-function checkUpdates(registration) {
-
-  if (registration && registration.update) {
-    registration.update();
-    if (DEBUG) console.log("service worker automatically checked for updates.");
-  } else {
-    console.log("Warning: checkUpdates() ran but registration has no update() function: ", registration);
-  }
-
-  setTimeout(function() {
-    checkUpdates(registration);
-  }, 1000 * 60 * AUTOMATIC_UPDATE_CHECK_INTERVAL);   
-
-}
-
 function registerValidSW(swUrl, config) {
   navigator.serviceWorker
     .register(swUrl)
     .then((registration) => {
 
-
-      // ========================================================================
-      // lawrence oct-2021
-      // my behavioral mods
-      // ========================================================================
-      if (DEBUG) console.log("service worker is registered.");
-
-      // initiate periodic update checks.
-      checkUpdates(registration);
-
-      const newInstalling = registration.installing; // the installing worker, or undefined
-      const newWaiting = registration.waiting; // the waiting worker, or undefined
-      const activeWorker = registration.active; // the active worker, or undefined
-      
-      if (newInstalling && DEBUG) console.log("newInstalling created");
-      if (newWaiting && DEBUG) console.log("newWaiting created");
-      if (activeWorker && DEBUG) console.log("activeWorker found");
-      
-      registration.addEventListener('updatefound', () => {
-        // A wild service worker has appeared in registration.installing!
-        const newWorker = registration.installing;
-
-        if (DEBUG) console.log("updatefound event listener fired. newWorker state is: ", newWorker.state);
-
-        // Possible states:
-        // -----------------
-        // "installing" - the install event has fired, but not yet complete
-        // "installed"  - install complete
-        // "activating" - the activate event has fired, but not yet complete
-        // "activated"  - fully active
-        // "redundant"  - discarded. Either failed install, or it's been
-        //                replaced by a newer version
-    
-        // add an `onActivate` event, then look for a callback.
-        newWorker.addEventListener('statechange', () => {
-          if (DEBUG) console.log("newWorker.state changed to: ", newWorker.state);
-          if (newWorker.state === 'activated' && config && config.onActivate) {
-            if (DEBUG) console.log("invoking the onActivate callback.");
-            config.onActivate(registration);
-          }
-        });
-      });
-      // ========================================================================
+      // -----------------------------
+      // my additional functionality
+      // -----------------------------
+      serviceWorkerRegistrationEnhancements(config, registration);
+      // -----------------------------
 
       registration.onupdatefound = () => {
         const installingWorker = registration.installing;
