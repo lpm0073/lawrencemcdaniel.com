@@ -10,6 +10,7 @@ body {
     /* padding-top: 59px; */
 }
 
+.online {}
 .offline {
     filter: grayscale(100%);
 }

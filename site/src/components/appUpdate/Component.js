@@ -14,10 +14,18 @@ class AppUpdateAlert extends React.Component {
       msg: props.msg
     }
 
-    this.callback = props.callback.bind(this);
+    // Bind the callback so we can execute
+    // it from anywhere inside this class, and
+    // so that garbage collection knows to
+    // leave it alone while we're running.
+    if (props.callback) this.callback = props.callback.bind(this);
 
   }
 
+  // make ourself `visible` so that the Bootstrap alert
+  // renders to the screen. Also set a Timeout to automatically 
+  // fire after X seconds to automatically disappear the
+  // the alert as well as to execute the callback function.
   componentDidMount() {
     this.setState({
       visible:true
@@ -25,7 +33,7 @@ class AppUpdateAlert extends React.Component {
         this.setState({
           visible:false
         });
-        this.callback();
+        if (this.callback) this.callback();
       }, 1000 * ALERT_VISIBILITY_SECONDS);
     });
 
