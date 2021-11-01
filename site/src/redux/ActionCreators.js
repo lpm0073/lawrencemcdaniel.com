@@ -7,7 +7,7 @@ import {
     URL_API_RECOMMENDATIONS, 
     URL_API_PROJECTS, 
     URL_API_CLIENTS 
-} from '../shared/urls';
+} from '../shared/constants';
 
 
 

@@ -2,7 +2,7 @@ import React from 'react';
 import { Helmet } from "react-helmet";
 
 import { nameLawrenceMcDaniel, basePageTitle } from '../shared/seo/gsdCommon';
-import { URL_SITE, URL_CDN } from '../shared/urls';
+import { URL_SITE, URL_CDN } from '../shared/constants';
 
 
 export default function Head(props) {

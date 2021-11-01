@@ -1,4 +1,4 @@
-import { URL_SITE } from "../urls";
+import { URL_SITE } from "../constants";
 const d = new Date();
 const imageObject = (url, height, width) => {
 

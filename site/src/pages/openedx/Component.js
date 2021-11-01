@@ -9,7 +9,7 @@ import { gsdGraph } from '../../shared/seo/gsdGraph';
 import { nameLawrenceMcDaniel} from '../../shared/seo/gsdCommon';
 import { gsdArticle } from '../../shared/seo/gsdArticle';
 import { gsdPersonLawrenceMcDaniel } from '../../shared/seo/gsdPersonLawrence';
-import { URL_SITE } from '../../shared/urls';
+import { URL_SITE } from '../../shared/constants';
 import './styles.css';
 
 import Accordion from 'react-bootstrap/Accordion';

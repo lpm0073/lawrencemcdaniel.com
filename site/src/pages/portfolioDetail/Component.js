@@ -5,7 +5,7 @@ import ProjectCarousel from './projectCarousel';
 import {Helmet} from "react-helmet";
 import { gsdGraph } from '../../shared/seo/gsdGraph';
 import { gsdPersonLawrenceMcDaniel } from '../../shared/seo/gsdPersonLawrence';
-import { URL_SITE } from '../../shared/urls';
+import { URL_SITE } from '../../shared/constants';
 import './styles.css';
 
 

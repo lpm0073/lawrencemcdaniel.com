@@ -6,7 +6,7 @@ import { gsdGraph } from '../../shared/seo/gsdGraph';
 import { gsdPersonLawrenceMcDaniel } from '../../shared/seo/gsdPersonLawrence';
 import { gsdArticle } from '../../shared/seo/gsdArticle';
 import {baseTitle} from '../../shared/seo/gsdCommon';
-import { URL_SITE } from '../../shared/urls';
+import { URL_SITE } from '../../shared/constants';
 
 import './styles.css';
 

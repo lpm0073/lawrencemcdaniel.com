@@ -11,7 +11,7 @@ import { Fade } from 'react-animation-components';
 import {Helmet} from "react-helmet";
 import { gsdGraph } from '../../shared/seo/gsdGraph';
 import { gsdPersonLawrenceMcDaniel, personExtraData } from '../../shared/seo/gsdPersonLawrence';
-import { URL_SITE } from '../../shared/urls';
+import { URL_SITE } from '../../shared/constants';
 
 import './styles.css';
 

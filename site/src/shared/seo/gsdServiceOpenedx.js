@@ -1,7 +1,7 @@
 import {convertToSlug} from '../slug';
 import { brandLawrenceMcDaniel } from './gsdCommon';
 import {datePublished, hourlyRate, nameLawrenceMcDaniel} from './gsdCommon';
-import { URL_SITE } from '../urls';
+import { URL_SITE } from '../constants';
 
 const itemOffer = (name, description="") => {
 

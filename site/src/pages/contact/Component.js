@@ -6,8 +6,8 @@ import 'react-tabs/style/react-tabs.css';
 
 import RenderPageTitle from '../../components/pagetitle/pageTitleComponent';
 
-import { URL_SITE } from '../../shared/urls';
-import { resumeUrl } from '../../shared/urls';
+import { URL_SITE } from '../../shared/constants';
+import { resumeUrl } from '../../shared/constants';
 
 // SEO
 import { gsdGraph } from '../../shared/seo/gsdGraph';

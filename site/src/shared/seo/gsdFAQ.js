@@ -1,5 +1,5 @@
 import {datePublished, dateModified, lastReviewed} from './gsdCommon';
-import { URL_SITE } from '../urls';
+import { URL_SITE } from '../constants';
 
 const question = (q, a) => {
 

@@ -6,7 +6,7 @@ import {Helmet} from "react-helmet";
 import { gsdPersonLawrenceMcDaniel } from '../../shared/seo/gsdPersonLawrence';
 import { gsdKnowsAbout } from '../../shared/seo/gsdKnowsAbout';
 import { gsdGraph } from '../../shared/seo/gsdGraph';
-import { URL_SITE } from '../../shared/urls';
+import { URL_SITE } from '../../shared/constants';
 import './styles.css';
 
 

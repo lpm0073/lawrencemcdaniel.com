@@ -1,7 +1,7 @@
 import { baseUrl, sameAs, imagesLawrenceMcDaniel, brandLawrenceMcDaniel, nameLawrenceMcDaniel, lastReviewed, baseTitle} from './gsdCommon';
 import {gsdQualifications} from './gsdQualifications';
 import {hourlyRate} from './gsdCommon';
-import { URL_SITE } from '../urls';
+import { URL_SITE } from '../constants';
 
 
 export const hasOccupation = {

@@ -4,10 +4,10 @@ import RenderPageTitle from '../../components/pagetitle/pageTitleComponent';
 import { LinkedinBadge } from '../../components/linkedinBadge/Component';
 import {Helmet} from "react-helmet";
 
-import { resumeUrl } from '../../shared/urls';
+import { resumeUrl } from '../../shared/constants';
 import { gsdGraph } from '../../shared/seo/gsdGraph';
 import { gsdPersonLawrenceMcDaniel, personExtraData } from '../../shared/seo/gsdPersonLawrence';
-import { URL_SITE } from '../../shared/urls';
+import { URL_SITE } from '../../shared/constants';
 
 import './styles.css';
 
