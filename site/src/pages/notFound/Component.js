@@ -6,7 +6,8 @@ import { Modal, ModalHeader } from "reactstrap";
 
 import {Helmet} from "react-helmet";
 import Loading from '../../components/Loading';
-import MatrixRainingLetters from '../../components/matrixRainingLetters/matrixRainingLetters';
+//import MatrixRainingLetters from '../../components/matrixRainingLetters/matrixRainingLetters';
+import { MatrixRainingLetters } from 'react-mrl';
 import { URL_SITE } from '../../shared/constants';
 import './styles.css';
 
