@@ -18,6 +18,12 @@ git clone https://github.com/lpm0073/lawrencemcdaniel.com.git
 ./deploy.sh
 ```
 
+## Update all Node dependencies
+´´´bash
+cd site
+npm i npm-check-updates
+ncu -u
+´´´
 ## Resources
 - API: https://api.lawrencemcdaniel.com/
 - CDN: https://cdn.lawrencemcdaniel.com/

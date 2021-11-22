@@ -14,7 +14,7 @@ import * as serviceWorkerRegistration from './serviceWorkerRegistration';
 import { DEBUG } from './shared/constants';
 
 // the components that draw the app
-import Routes from './components/Routes';
+import SiteRoutes from './components/Routes';
 import Head from './components/Head';
 import { Header } from './components/header/Component';
 import Footer from './components/footer/Component';
@@ -134,13 +134,13 @@ class App extends Component {
       serviceWorkerRegistration.register({ 
         onUpdate: this.onSWUpdateAvailable,
         onSuccess: this.onSWInstallSuccess,
-        onActivate: this.onSWInstallSuccess   // a custom event that I added to Workbox
+        onActivated: this.onSWInstallSuccess   // an event handler that we'll have to setup manually
       });
 
     }
 
   }
-  
+
   render() {
     if (DEBUG) console.log("App.render()");
 
@@ -177,7 +177,7 @@ class App extends Component {
           <div className={"container-fluid p-0 " + this.state.customClass}>
             <Header />
             <AppUpdateAlerts parent={this}/>
-            <Routes />
+            <SiteRoutes />
             <Footer />
           </div>
         </BrowserRouter>

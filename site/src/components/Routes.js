@@ -1,6 +1,5 @@
 import React, { Component } from 'react';
-import { Switch, Route, Redirect } from 'react-router-dom';
-import { withRouter } from 'react-router-dom';
+import { Routes, Route, Navigate } from 'react-router-dom';
 
 // Redux
 import { connect } from 'react-redux';
@@ -39,7 +38,7 @@ const mapDispatchToProps = (dispatch) => ({
 });
 
 
-class Routes extends Component {
+class SiteRoutes extends Component {
   
   componentDidMount() {
     this.props.fetchSpecialties();
@@ -52,7 +51,7 @@ class Routes extends Component {
 
   shouldComponentUpdate(nextProps, nextState) {
     /* pare down updates on pages with entry animations */
-    const path = this.props.location.pathname;
+    const path = window.location.pathname;
     if (path === "/home"  || path === "/" ) {
       if (!this.props.homePage.isSet) {
           return true;
@@ -75,7 +74,6 @@ class Routes extends Component {
 }
 
   render() {
-
     const PortfolioWithSlug = ({match}) => {
 
       return(
@@ -91,35 +89,33 @@ class Routes extends Component {
 
     return(
         <React.Fragment>
-          <Switch>
-            <Route exact path="/" component={Home} />
-            <Route exact path="/contact" component={Contact} />
-            <Route exact path="/qr" component={QR} />
-            <Route exact path="/about" component={About} />
-            <Route exact path="/openedx" component={Openedx} />
-            <Route exact path="/machine-learning" component={MachineLearning} />
-            <Route exact path="/bio" component={Bio} />
-            <Route exact path="/full-bio">
-              {<Redirect to="/bio" />}
-            </Route>            
-            <Route exact path="/specialties" component={() => <Specialties specialties={this.props.specialties} />} />
-            <Route exact path="/portfolio" component={() => <Portfolio portfolio={this.props.portfolio} />} />
-            <Route path="/portfolio/:portfolioId" component={PortfolioWithSlug} />
-            <Route exact path="/education" component={() => <Education education={this.props.education} />} />
-            <Route exact path="/skills" component={Skills} />
-            <Route exact path="/reactjs" component={ReactPage} />
-            <Route exact path="/clients" component={() => <Clients 
-                                                              recommendations={this.props.recommendations}
-                                                              clients={this.props.clients}
-                                                             />} />
-            <Route exact path="/home">
-              {<Redirect to="/" />}
-            </Route>            
-            <Route path="*" component={PageNotFound} />
-          </Switch>
+          <Routes>
+            <Route exact path="/" element={<Home />} />
+            <Route exact path="/contact" element={<Contact />} />
+            <Route exact path="/qr" element={<QR />} />
+            <Route exact path="/about" element={<About />} />
+            <Route exact path="/openedx" element={<Openedx />} />
+            <Route exact path="/machine-learning" element={<MachineLearning />} />
+            <Route exact path="/bio" element={<Bio />} />
+            <Route exact path="/full-bio" element={<Navigate to="/bio" />} />
+            <Route exact path="/specialties" element={<Specialties specialties={this.props.specialties} />} />
+            <Route exact path="/portfolio" element={<Portfolio portfolio={this.props.portfolio} />} />
+            <Route path="/portfolio/:portfolioId" element={<PortfolioWithSlug />} />
+            <Route exact path="/education" element={<Education education={this.props.education} />} />
+            <Route exact path="/skills" element={<Skills />} />
+            <Route exact path="/reactjs" element={<ReactPage />} />
+            <Route exact path="/clients" element={<Clients 
+                                                    recommendations={this.props.recommendations}
+                                                    clients={this.props.clients}
+                                                  />} />
+            <Route exact path="/home" element={<Navigate to="/" />} />
+              
+            <Route path="*" element={<PageNotFound />} />
+          </Routes>
         </React.Fragment>
     );
   }
 }
 
-export default withRouter(connect(mapStateToProps, mapDispatchToProps)(Routes));
+//export default withRouter(connect(mapStateToProps, mapDispatchToProps)(SiteRoutes));
+export default connect(mapStateToProps, mapDispatchToProps)(SiteRoutes);
