@@ -65,13 +65,25 @@ export function serviceWorkerRegistrationEnhancements(config, registration) {
         // add a `statechange` listener to the new service worker
         // object. We want to catch a possible state change to
         // `activated`, and if we catch this then we'll look for
-        // and execute the `onActivate` event handler.
+        // and execute the `onActivated` event handler.
         newWorker.addEventListener('statechange', () => {
             if (DEBUG) console.log("newWorker.state changed to: ", newWorker.state);
-            if (newWorker.state === 'activated' && config && config.onActivate) {
-                if (DEBUG) console.log("invoking the onActivate callback.");
-                config.onActivate(registration);
+            if (newWorker.state === 'activated' && config && config.onActivated) {
+                if (DEBUG) console.log("invoking the onActivated callback.");
+                config.onActivated(registration);
             }
         });
     });
+
+    // a potentially better way to handle the activated might be 
+    // https://developer.mozilla.org/en-US/docs/Web/API/ServiceWorkerGlobalScope/activate_event
+    /*
+    registration.addEventListener('activate', function(event) {
+        event.waitUntil(() => {
+            if (config && config.onActivated) {
+                config.onActivated(registration);
+            }
+        });
+    });
+    */
 }

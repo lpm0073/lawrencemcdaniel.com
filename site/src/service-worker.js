@@ -74,6 +74,18 @@ registerRoute(
 );
 
 
+// A potentially better way to skipwaiting would be as follows
+// https://developer.mozilla.org/en-US/docs/Web/API/ServiceWorkerGlobalScope/skipWaiting
+/*
+self.addEventListener('install', function(event) {
+    event.waitUntil(() => {
+      console.log("the installation has finished.");
+      self.skipWaiting();
+    }
+  );
+});
+*/
+
 // This allows the web app to trigger skipWaiting via
 // registration.waiting.postMessage({type: 'SKIP_WAITING'})
 self.addEventListener('message', (event) => {
