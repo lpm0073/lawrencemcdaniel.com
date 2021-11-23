@@ -50,9 +50,9 @@ class MRLPage extends Component {
               <React.Fragment>
                   <Helmet>
                     <link rel="canonical" href={URL_SITE + "/react-mrl/"} />
-                    <meta name="description" content="React Matrix Raining Letters" />
-                    <meta property="og:description" content="React Matrix Raining Letters" />
-                    <meta name="keywords"  content="Lawrence McDaniel, Matrix Raining Letters, NPM, React, ReactJS" />
+                    <meta name="description" content="Matrix digital rain for React" />
+                    <meta property="og:description" content="Matrix digital rain for React" />
+                    <meta name="keywords"  content="Lawrence McDaniel, Matrix Digital Rain, NPM, React, ReactJS" />
                   </Helmet>
                   <div className="matrixPage m-0 p-0">
                       {this.state.isMounted ? (
@@ -67,7 +67,7 @@ class MRLPage extends Component {
                                     fade={true}
                                     size='lg'
                                 >
-                                    <ModalHeader>React Matrix Raining Letters</ModalHeader>
+                                    <ModalHeader>Matrix Digital Rain for React</ModalHeader>
                                     <p>npm i react-mrl</p>
                                     <p><a href="https://www.npmjs.com/package/react-mrl" target="_blank">https://www.npmjs.com/package/react-mrl</a></p>
                                 </Modal>
