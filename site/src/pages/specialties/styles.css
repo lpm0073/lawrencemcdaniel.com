@@ -1,101 +1,90 @@
 .carousel-class {
-
 }
 
 .specialties-page {
-    background-image:url(https://cdn.lawrencemcdaniel.com/wp-content/uploads/2020/06/05201305/Lawrence21.jpg);
-    background-repeat:repeat; 
-    background-size:cover; 
-    background-position:top center;
-    background-attachment: fixed;
+  background-image: url(https://cdn.lawrencemcdaniel.com/wp-content/uploads/2020/06/05201305/Lawrence21.jpg);
+  background-repeat: repeat;
+  background-size: cover;
+  background-position: top center;
+  background-attachment: fixed;
 }
 
 /* ----------  Banner - Begin  ---------- */
 
 .specialties-banner {
-    background-color: rgba(255, 255, 255, .8);
+  background-color: rgba(255, 255, 255, 0.8);
 }
 .specialties-banner h4 {
-    color: black;
-    font-size: initial;
+  color: black;
+  font-size: initial;
 }
 .specialties-banner i {
-    margin-top: 5px;
-    padding:10px;
-    color:#838590;
+  margin-top: 5px;
+  padding: 10px;
+  color: #838590;
 }
 
 .specialties-banner-icon {
-    color: #666666;
-    height: 80px;
-    text-align: center;
-    border: 1px solid #666666;
+  color: #666666;
+  height: 80px;
+  text-align: center;
+  border: 1px solid #666666;
 }
 .specialties-banner-text {
-    font-size: smaller;
+  font-size: smaller;
 }
 /* ----------  Banner - End  ---------- */
 
 /* ----------  Carousel  ---------- */
 #specialties-carousel {
-    visibility: hidden;
+  visibility: hidden;
 }
 
 #specialties-carousel .specialty-item {
-    height: 100px;
-    width: 250px;
-    background-size: contain;
-    background-repeat: no-repeat;
-    background-position: center;
-    margin-left: auto;
-    margin-right: auto;
-    text-align: center;
+  height: 100px;
+  width: 250px;
+  background-size: contain;
+  background-repeat: no-repeat;
+  background-position: center;
+  margin-left: auto;
+  margin-right: auto;
+  text-align: center;
 }
-
 
 /* ----------  Code Samples CTA  ---------- */
 .specialties-code-samples {
-    background-color: rgba(255, 255, 255, .8);
-    border-radius: 5px;
-    color: black;
+  background-color: rgba(255, 255, 255, 0.8);
+  border-radius: 5px;
+  color: black;
 }
 .specialties-code-samples a {
-    margin-top: 18px;    
+  margin-top: 18px;
 }
-
 
 /*-------------- Responsive Styling -----------------------*/
 
 /********** Large devices only **********/
 @media (min-width: 1200px) {
-
-    #specialties-carousel {
-        visibility: visible !important;
-    }
+  #specialties-carousel {
+    visibility: visible !important;
+  }
 }
 
 /********** Medium devices only **********/
 @media (min-width: 992px) and (max-width: 1199px) {
-
-   #specialties-carousel {
-       visibility: visible !important;
-   }
-
-
+  #specialties-carousel {
+    visibility: visible !important;
+  }
 }
 
 /********** Small devices only **********/
 @media (min-width: 768px) and (max-width: 991px) {
-
 }
 
 /********** Extra small devices only **********/
 @media (max-width: 767px) {
-
 }
 
 /********** Super extra small devices Only :-) (e.g., iPhone 4) **********/
 @media (max-width: 479px) {
-
 }
-

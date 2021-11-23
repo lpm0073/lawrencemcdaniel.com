@@ -8,32 +8,32 @@
 // service worker, and the Workbox build step will be skipped.
 
 //-----------------------------------------------
-// Google Workbox 
+// Google Workbox
 //-----------------------------------------------
-import { clientsClaim } from 'workbox-core';
-import { ExpirationPlugin } from 'workbox-expiration';
-import { precacheAndRoute, createHandlerBoundToURL } from 'workbox-precaching';
-import { CacheableResponsePlugin } from 'workbox-cacheable-response';
-import { CacheFirst } from 'workbox-strategies';
-import { registerRoute } from 'workbox-routing';
-import { StaleWhileRevalidate } from 'workbox-strategies';
+import { clientsClaim } from "workbox-core";
+import { ExpirationPlugin } from "workbox-expiration";
+import { precacheAndRoute, createHandlerBoundToURL } from "workbox-precaching";
+import { CacheableResponsePlugin } from "workbox-cacheable-response";
+import { CacheFirst } from "workbox-strategies";
+import { registerRoute } from "workbox-routing";
+import { StaleWhileRevalidate } from "workbox-strategies";
 //-----------------------------------------------
-import { DEBUG } from './shared/constants';
-import { wpPrefetch } from './shared/wpPrefetch';
+import { DEBUG } from "./shared/constants";
+import { wpPrefetch } from "./shared/wpPrefetch";
 import {
-    URL_CDN,              // AWS Cloudfront distribution: https://cdn.lawrencemcdaniel.com
-    URL_API,              // Wordpress REST apis: https://api.lawrencemcdaniel.com
-    URL_SITE,             // This site: https://lawrencemcdaniel.com
+  URL_CDN, // AWS Cloudfront distribution: https://cdn.lawrencemcdaniel.com
+  URL_API, // Wordpress REST apis: https://api.lawrencemcdaniel.com
+  URL_SITE, // This site: https://lawrencemcdaniel.com
 
-    // Wordpress REST apis
-    // -------------------
-    URL_API_SPECIALTIES,
-    URL_API_PORTFOLIO,
-    URL_API_EDUCATION,
-    URL_API_RECOMMENDATIONS,
-    URL_API_PROJECTS, 
-    URL_API_CLIENTS
-} from './shared/constants';
+  // Wordpress REST apis
+  // -------------------
+  URL_API_SPECIALTIES,
+  URL_API_PORTFOLIO,
+  URL_API_EDUCATION,
+  URL_API_RECOMMENDATIONS,
+  URL_API_PROJECTS,
+  URL_API_CLIENTS,
+} from "./shared/constants";
 
 const CACHE_VERSION = "v1";
 
@@ -51,16 +51,16 @@ precacheAndRoute(self.__WB_MANIFEST);
 // Set up App Shell-style routing, so that all navigation requests
 // are fulfilled with your index.html shell. Learn more at
 // https://developers.google.com/web/fundamentals/architecture/app-shell
-const fileExtensionRegexp = new RegExp('/[^/?]+\\.[^/]+$');
+const fileExtensionRegexp = new RegExp("/[^/?]+\\.[^/]+$");
 registerRoute(
   // Return false to exempt requests from being fulfilled by index.html.
   ({ request, url }) => {
     // If this isn't a navigation, skip.
-    if (request.mode !== 'navigate') {
+    if (request.mode !== "navigate") {
       return false;
     } // If this is a URL that starts with /_, skip.
 
-    if (url.pathname.startsWith('/_')) {
+    if (url.pathname.startsWith("/_")) {
       return false;
     } // If this looks like a URL for a resource, because it contains // a file extension, skip.
 
@@ -70,9 +70,8 @@ registerRoute(
 
     return true;
   },
-  createHandlerBoundToURL(process.env.PUBLIC_URL + '/index.html')
+  createHandlerBoundToURL(process.env.PUBLIC_URL + "/index.html")
 );
-
 
 // A potentially better way to skipwaiting would be as follows
 // https://developer.mozilla.org/en-US/docs/Web/API/ServiceWorkerGlobalScope/skipWaiting
@@ -88,9 +87,10 @@ self.addEventListener('install', function(event) {
 
 // This allows the web app to trigger skipWaiting via
 // registration.waiting.postMessage({type: 'SKIP_WAITING'})
-self.addEventListener('message', (event) => {
-  if (event.data && event.data.type === 'SKIP_WAITING') {
-    if (DEBUG) console.log("service-worker.js - SKIP_WAITING message received.");
+self.addEventListener("message", (event) => {
+  if (event.data && event.data.type === "SKIP_WAITING") {
+    if (DEBUG)
+      console.log("service-worker.js - SKIP_WAITING message received.");
     self.skipWaiting();
   }
 });
@@ -101,49 +101,45 @@ self.addEventListener('message', (event) => {
   Custom caching behavior.
   --------------------------------------------------------------------------------
  */
-  
-  function isImageFile(url) {
-    return (
-      url.pathname.endsWith('.png') || 
-      url.pathname.endsWith('.jpg') || 
-      url.pathname.endsWith('.jpeg') || 
-      url.pathname.endsWith('.gif') || 
-      url.pathname.endsWith('.tif') || 
-      url.pathname.endsWith('.svg')
-      );
-  }
-  
-  function versioned_cached(name) {
-    return name + "-" + CACHE_VERSION;
-  }
-  
+
+function isImageFile(url) {
+  return (
+    url.pathname.endsWith(".png") ||
+    url.pathname.endsWith(".jpg") ||
+    url.pathname.endsWith(".jpeg") ||
+    url.pathname.endsWith(".gif") ||
+    url.pathname.endsWith(".tif") ||
+    url.pathname.endsWith(".svg")
+  );
+}
+
+function versioned_cached(name) {
+  return name + "-" + CACHE_VERSION;
+}
+
 // Cache the app manifest
 //
 // no max, no expiration.
 // docs: https://developers.google.com/web/tools/workbox/reference-docs/latest/module-workbox-strategies.StaleWhileRevalidate
 registerRoute(
-  ({url}) => url.origin === URL_SITE + '/manifest.json',
+  ({ url }) => url.origin === URL_SITE + "/manifest.json",
   new StaleWhileRevalidate({
-    cacheName: versioned_cached('manifest'),
-    plugins: [
-      new ExpirationPlugin({}),
-    ],
-  }),
+    cacheName: versioned_cached("manifest"),
+    plugins: [new ExpirationPlugin({})],
+  })
 );
-  
+
 // Cache api responses with a stale-while-revalidate strategy
 // these are small, as they're only the json response objects.
 //
 // no max, no expiration.
 // docs: https://developers.google.com/web/tools/workbox/reference-docs/latest/module-workbox-strategies.StaleWhileRevalidate
 registerRoute(
-  ({url}) => url.origin === URL_API,
+  ({ url }) => url.origin === URL_API,
   new StaleWhileRevalidate({
-    cacheName: versioned_cached('api-responses'),
-    plugins: [
-      new ExpirationPlugin({}),
-    ],
-  }),
+    cacheName: versioned_cached("api-responses"),
+    plugins: [new ExpirationPlugin({})],
+  })
 );
 
 // Cache cdn content with a CacheFirst strategy
@@ -158,17 +154,17 @@ registerRoute(
 // the image objects referenced in the api-responses above.
 //
 // docs: https://developers.google.com/web/tools/workbox/reference-docs/latest/module-workbox-strategies.CacheFirst
-// A cache first strategy is useful for assets that have been revisioned, 
+// A cache first strategy is useful for assets that have been revisioned,
 // such as URLs like /styles/example.a8f5f1.css, since they can be cached for long periods of time.
 registerRoute(
-  ({url}) => url.origin === URL_CDN,
+  ({ url }) => url.origin === URL_CDN,
   new CacheFirst({
-    cacheName: versioned_cached('cdn-responses'),
+    cacheName: versioned_cached("cdn-responses"),
     plugins: [
-      new CacheableResponsePlugin({statuses: [0, 200]}),
-      new ExpirationPlugin({maxEntries: 500}),
+      new CacheableResponsePlugin({ statuses: [0, 200] }),
+      new ExpirationPlugin({ maxEntries: 500 }),
     ],
-  }),
+  })
 );
 
 // Images that are statically served from the React build itself.
@@ -177,30 +173,27 @@ registerRoute(
   // Add in any other file extensions or routing criteria as needed.
   ({ url }) => url.origin === self.location.origin && isImageFile(url),
   new StaleWhileRevalidate({
-    cacheName: versioned_cached('static-images'),
-    plugins: [
-      new ExpirationPlugin({}),
-    ],
+    cacheName: versioned_cached("static-images"),
+    plugins: [new ExpirationPlugin({})],
   })
 );
 
 // Cache Google Fonts with a stale-while-revalidate strategy, with
 // a maximum number of entries.
 registerRoute(
-  ({url}) => url.origin === 'https://fonts.googleapis.com' ||
-              url.origin === 'https://fonts.gstatic.com',
+  ({ url }) =>
+    url.origin === "https://fonts.googleapis.com" ||
+    url.origin === "https://fonts.gstatic.com",
   new StaleWhileRevalidate({
-    cacheName: versioned_cached('google-fonts'),
-    plugins: [
-      new ExpirationPlugin({maxEntries: 20}),
-    ],
-  }),
+    cacheName: versioned_cached("google-fonts"),
+    plugins: [new ExpirationPlugin({ maxEntries: 20 })],
+  })
 );
 
 // CDN IMAGE PRECACHING.
 // ---------------------
 // invoke each image api and call the imagePreFetcher.
-// this should result in all static images getting cached 
+// this should result in all static images getting cached
 // via a registerRoute below on the CDN responses.
 //wpPrefetch(URL_API_SPECIALTIES);    // do me first!!!
 //wpPrefetch(URL_API_CLIENTS);

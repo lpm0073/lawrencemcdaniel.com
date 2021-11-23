@@ -1,56 +1,54 @@
 .about-page {
-    background-color: white;
+  background-color: white;
 }
-
 
 .about-tile {
-    border: 1px solid #999999;
-    word-wrap: break-word;
+  border: 1px solid #999999;
+  word-wrap: break-word;
 }
 .about-tile-icon {
-    margin-top: 10px;
-    margin-bottom: 15px;
-    color: #666;
+  margin-top: 10px;
+  margin-bottom: 15px;
+  color: #666;
 }
 
 .about-signature {
-    width: 136px;
-    height: 43px;
+  width: 136px;
+  height: 43px;
 }
 
 .about-tile-value {
-    font-size: 2.5em;
-    color: #666;
-    font-weight: 900;
+  font-size: 2.5em;
+  color: #666;
+  font-weight: 900;
 }
 
 .about-tile-text {
-    font-size: .9em;
-    padding: 5px;
-    height: 50px;
+  font-size: 0.9em;
+  padding: 5px;
+  height: 50px;
 }
 
-
 .about-page-enter {
-    opacity: 0.01;
-    transform: translateX(-100%);
+  opacity: 0.01;
+  transform: translateX(-100%);
 }
 
 .about-page-enter-active {
-    opacity: 1;
-    transform: translateX(0%);
-    transition: all 300ms ease-in;
+  opacity: 1;
+  transform: translateX(0%);
+  transition: all 300ms ease-in;
 }
 
 .about-page-exit {
-    opacity: 1;
-    transform: translateX(0%);
+  opacity: 1;
+  transform: translateX(0%);
 }
 
 .about-page-exit-active {
-    opacity: 0.01;
-    transform: translateX(100%);
-    transition: all 300ms ease-in-out;
+  opacity: 0.01;
+  transform: translateX(100%);
+  transition: all 300ms ease-in-out;
 }
 
 .column-3 {
@@ -58,5 +56,4 @@
 .about-tiles {
 }
 .column-3-text {
-
 }

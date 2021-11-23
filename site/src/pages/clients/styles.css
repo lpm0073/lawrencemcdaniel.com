@@ -1,82 +1,75 @@
 .red-border {
-    border: 1px solid red;
-    
+  border: 1px solid red;
 }
 .recommendations-page {
-    color:floralwhite;
-    background-image:url(https://cdn.lawrencemcdaniel.com/wp-content/uploads/2020/06/05201857/Lawrence6.jpg);
-    background-color: #333;
-    background-repeat:repeat; 
-    background-size:cover; 
-    background-position:top center;
-    background-attachment: fixed;
+  color: floralwhite;
+  background-image: url(https://cdn.lawrencemcdaniel.com/wp-content/uploads/2020/06/05201857/Lawrence6.jpg);
+  background-color: #333;
+  background-repeat: repeat;
+  background-size: cover;
+  background-position: top center;
+  background-attachment: fixed;
 }
 
-
 #recommendation-carousel {
-    background-color: white;
-    font-weight: bold;
-    border-radius: 5px;
+  background-color: white;
+  font-weight: bold;
+  border-radius: 5px;
 }
 
 .recommendation-pic {
-    width: 75px;
-    border-radius: 50%;
-    background-color: #555;
+  width: 75px;
+  border-radius: 50%;
+  background-color: #555;
 }
 
 .recommendation-name,
 .recommendation-title {
-    color: rgba(0,0,0,.9);
+  color: rgba(0, 0, 0, 0.9);
 }
 
 .recommendation-name {
-
-
 }
 .recommendation-title {
-    font-weight: normal;
-    font-size: smaller;
+  font-weight: normal;
+  font-size: smaller;
 }
 
 .recommendation-date,
 .recommendation-relationship {
-    color: rgba(0,0,0,.6);
-    font-weight: normal;
-    font-size: x-small;
-    line-height: 1;
+  color: rgba(0, 0, 0, 0.6);
+  font-weight: normal;
+  font-size: x-small;
+  line-height: 1;
 }
 
 .recommendation-description {
-    color: rgba(0,0,0,.9);
-    font-weight: 400;
-    line-height: 1.5;
-    max-height: 150px;
-    overflow: scroll;
+  color: rgba(0, 0, 0, 0.9);
+  font-weight: 400;
+  line-height: 1.5;
+  max-height: 150px;
+  overflow: scroll;
 }
-
-
 
 /* ----------  Client Carousel  ---------- */
 #clients-carousel {
-    border-radius: 5px;
+  border-radius: 5px;
 }
 
 #clients-carousel .client-item {
-    background-color: white;
-    border-radius: 3px;
+  background-color: white;
+  border-radius: 3px;
 }
 #clients-carousel .client-image {
-    height: 100px;
-    width: 250px;
-    background-repeat: no-repeat;
-    background-position: center;
-    background-size: contain;
-    margin-left: auto;
-    margin-right: auto;
+  height: 100px;
+  width: 250px;
+  background-repeat: no-repeat;
+  background-position: center;
+  background-size: contain;
+  margin-left: auto;
+  margin-right: auto;
 }
 
-
 .react-multiple-carousel__arrow {
-    visibility: hidden;
+  visibility: hidden;
 }

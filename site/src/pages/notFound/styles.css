@@ -1,23 +1,22 @@
 .matrixPage {
-    max-width: unset !important;
-    background-color: black !important;
-    margin-left: auto;
-    margin-right: auto;
-    padding-top: 59px;
+  max-width: unset !important;
+  background-color: black !important;
+  margin-left: auto;
+  margin-right: auto;
+  padding-top: 59px;
 }
 
 div.modal-content {
-    border-style: solid;
-    border-color: white;
-    background-color: transparent;
-    color: white;
-    text-align: center;
+  border-style: solid;
+  border-color: white;
+  background-color: transparent;
+  color: white;
+  text-align: center;
 }
 
 .modal-title {
-    width: 100%;
+  width: 100%;
 }
-
 
 /*-------------- Responsive Styling -----------------------
 
@@ -31,68 +30,50 @@ xl = Extra large ≥1200px. Max container width 1140px.
 
 /********** Extra large devices only **********/
 @media (min-width: 1200px) {
-
-    .modal-title {
-        font-size: 6em;
-        font-weight: 800;
-    }
-    
+  .modal-title {
+    font-size: 6em;
+    font-weight: 800;
+  }
 }
 
 /********** Large devices only **********/
 @media (min-width: 992px) and (max-width: 1199px) {
-
-    .modal-title {
-        font-size: 5em;
-        font-weight: 600;
-    }
-
+  .modal-title {
+    font-size: 5em;
+    font-weight: 600;
+  }
 }
 
 /********** Medium devices only **********/
 @media (min-width: 768px) and (max-width: 991px) {
-
-    .modal-title {
-        font-size: 5em;
-        font-weight: 600;
-    }
-
-
+  .modal-title {
+    font-size: 5em;
+    font-weight: 600;
+  }
 }
 
 /********** Small devices only **********/
 @media (min-width: 576) and (max-width: 767px) {
-
-    .modal-title {
-        font-size: 4em;
-        font-weight: 600;
-    }
-
-
+  .modal-title {
+    font-size: 4em;
+    font-weight: 600;
+  }
 }
 
 /********** Extra small devices only **********/
 @media (min-width: 480px) and (max-width: 575px) {
-
-
 }
 /********** Super extra small devices Only :-) (e.g., iPhone 4) **********/
 @media (max-width: 479px) {
-
-    .modal-title {
-        font-size: 2em;
-        font-weight: 600;
-    }
-
+  .modal-title {
+    font-size: 2em;
+    font-weight: 600;
+  }
 }
 
 /*  ------------ MCDANIEL ------------------ */
 @media (max-width: 991px) {
-
-
 }
 
 @media (max-width: 767px) {
-
-
 }

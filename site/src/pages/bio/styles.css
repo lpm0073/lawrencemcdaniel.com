@@ -1,13 +1,12 @@
 .bio-page {
-    background-color: white;
+  background-color: white;
 }
 
 .bio-resume-button {
-    color:#000000; 
-    background-color: #ffffff; 
-    border: 2px solid #474d5d;
+  color: #000000;
+  background-color: #ffffff;
+  border: 2px solid #474d5d;
 }
 .bio-resume-button a {
-    color:#000000; 
+  color: #000000;
 }
-

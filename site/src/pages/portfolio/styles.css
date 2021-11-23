@@ -1,36 +1,35 @@
 .portfolio-page {
-    color:floralwhite;
-    background-color: #474D5D;
+  color: floralwhite;
+  background-color: #474d5d;
 }
 
 .portfolio-item-image {
-    height: 190px;
-    background-position: center;
-    background-size: cover;
-    background-repeat: no-repeat;
-    background-color: #555;
+  height: 190px;
+  background-position: center;
+  background-size: cover;
+  background-repeat: no-repeat;
+  background-color: #555;
 }
 
-
 .portfolio-item-overlay {
-    position: absolute;
-    bottom: 0;
-    left: 0;
-    right: 0;
-    overflow: hidden;
-    width: 0;
-    height: 100%;
-    transition: .5s ease;
+  position: absolute;
+  bottom: 0;
+  left: 0;
+  right: 0;
+  overflow: hidden;
+  width: 0;
+  height: 100%;
+  transition: 0.5s ease;
 
-    color: white;
-    background-color: #FF6A5E;
-    font-size: 1.5em;
-    padding-top: 20%;
+  color: white;
+  background-color: #ff6a5e;
+  font-size: 1.5em;
+  padding-top: 20%;
 }
 
 .portfolio-item:hover .portfolio-item-overlay {
-    width: 100%;
-    /*
+  width: 100%;
+  /*
     box-shadow: 0 1px 4px 1px #aaa;
     */
 }
