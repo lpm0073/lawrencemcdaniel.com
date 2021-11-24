@@ -7,7 +7,7 @@ import { Modal, ModalHeader } from "reactstrap";
 import { Helmet } from "react-helmet";
 import Loading from "../../components/Loading";
 //import MatrixRainingLetters from '../../components/matrixRainingLetters/matrixRainingLetters';
-import { MatrixRainingLetters } from "react-mrl";
+import { MatrixRainingLetters } from "react-mdr";
 import { URL_SITE } from "../../shared/constants";
 import "./styles.css";
 
@@ -46,7 +46,7 @@ class MRLPage extends Component {
         ) : (
           <React.Fragment>
             <Helmet>
-              <link rel="canonical" href={URL_SITE + "/react-mrl/"} />
+              <link rel="canonical" href={URL_SITE + "/react-mdr/"} />
               <meta
                 name="description"
                 content="Matrix digital rain for React"
@@ -74,13 +74,13 @@ class MRLPage extends Component {
                       size="lg"
                     >
                       <ModalHeader>Matrix Digital Rain for React</ModalHeader>
-                      <p>npm i react-mrl</p>
+                      <p>npm i react-mdr</p>
                       <p>
                         <a
-                          href="https://www.npmjs.com/package/react-mrl"
+                          href="https://www.npmjs.com/package/react-mdr"
                           target="_blank"
                         >
-                          https://www.npmjs.com/package/react-mrl
+                          https://www.npmjs.com/package/react-mdr
                         </a>
                       </p>
                     </Modal>

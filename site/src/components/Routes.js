@@ -28,7 +28,7 @@ import MachineLearning from "../pages/machineLearning/Component";
 import ReactPage from "../pages/react/Component";
 import Openedx from "../pages/openedx/Component";
 import PageNotFound from "../pages/notFound/Component";
-import MRLPage from "../pages/mrl/Component";
+import MRLPage from "../pages/mdr/Component";
 
 const mapStateToProps = (state) => ({
   ...state,
@@ -139,7 +139,7 @@ class SiteRoutes extends Component {
           />
           <Route exact path="/skills" element={<Skills />} />
           <Route exact path="/reactjs" element={<ReactPage />} />
-          <Route exact path="/react-mrl" element={<MRLPage />} />
+          <Route exact path="/react-mdr" element={<MRLPage />} />
           <Route
             exact
             path="/clients"
