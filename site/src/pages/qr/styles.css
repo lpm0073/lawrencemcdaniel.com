@@ -1,41 +1,39 @@
-
 .qr-page {
-    background-color: white;
+  background-color: white;
 }
 
 .qr-page a:not(.btn-danger),
 h4 a {
-    color: #333;
+  color: #333;
 }
 
 h4 a {
-    text-decoration: underline;
+  text-decoration: underline;
 }
 
 .contact-data h4 {
-    font-size: smaller;
+  font-size: smaller;
 }
 
 .image-container {
-    background-repeat:no-repeat; 
-    background-size:contain; 
-    background-position:center center;
-    max-width: 500px;
-    margin: auto;
+  background-repeat: no-repeat;
+  background-size: contain;
+  background-position: center center;
+  max-width: 500px;
+  margin: auto;
 }
 
 .lawrencemcdaniel-qr-code {
-    background-image:url(https://cdn.lawrencemcdaniel.com/wp-content/uploads/2021/09/30222018/lawrencemcdaniel-qr-code.png);
+  background-image: url(https://cdn.lawrencemcdaniel.com/wp-content/uploads/2021/09/30222018/lawrencemcdaniel-qr-code.png);
 }
 
 .lawrencemcdaniel-logo {
-    background-image:url(https://cdn.lawrencemcdaniel.com/wp-content/uploads/2016/09/22195707/favicon.jpg);
-    max-width: 125px;
+  background-image: url(https://cdn.lawrencemcdaniel.com/wp-content/uploads/2016/09/22195707/favicon.jpg);
+  max-width: 125px;
 }
 
 .square {
-    width: 100%;
-    height: 0;
-    padding-top: 100%;
-  }
-
+  width: 100%;
+  height: 0;
+  padding-top: 100%;
+}

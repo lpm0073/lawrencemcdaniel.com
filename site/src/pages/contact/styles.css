@@ -1,31 +1,29 @@
-
 .contact-page {
-    background-color: white;
+  background-color: white;
 }
 
 .contact-page a:not(.btn-danger),
 h4 a {
-    color: #333;
+  color: #333;
 }
 
 h4 a {
-    text-decoration: underline;
+  text-decoration: underline;
 }
 
 .contact-data .contact-social-buttons {
-
 }
 
 .contact-data h4 {
-    font-size: smaller;
+  font-size: smaller;
 }
 
 .image-container {
-    background-repeat:no-repeat; 
-    background-size:contain; 
-    background-position:center center;
-    max-width: 500px;
-    margin: auto;
+  background-repeat: no-repeat;
+  background-size: contain;
+  background-position: center center;
+  max-width: 500px;
+  margin: auto;
 }
 
 .whatsapp-qr-code {
@@ -37,22 +35,21 @@ h4 a {
 }
 
 .linkedin-qr-code {
-    background-image:url(https://cdn.lawrencemcdaniel.com/wp-content/uploads/2021/09/30174919/linkedin-qr-code.png);
+  background-image: url(https://cdn.lawrencemcdaniel.com/wp-content/uploads/2021/09/30174919/linkedin-qr-code.png);
 }
 
 .linkedin-logo {
-    background-image:url(https://cdn.lawrencemcdaniel.com/wp-content/uploads/2021/09/30180629/linkedin-logo.png);
-    max-width: 125px;
+  background-image: url(https://cdn.lawrencemcdaniel.com/wp-content/uploads/2021/09/30180629/linkedin-logo.png);
+  max-width: 125px;
 }
 
 .whatsapp-logo {
-    background-image:url(https://cdn.lawrencemcdaniel.com/wp-content/uploads/2021/09/30182902/whatsapp-logo.png);
-    max-width: 125px;
+  background-image: url(https://cdn.lawrencemcdaniel.com/wp-content/uploads/2021/09/30182902/whatsapp-logo.png);
+  max-width: 125px;
 }
 
 .square {
-    width: 100%;
-    height: 0;
-    padding-top: 100%;
-  }
-
+  width: 100%;
+  height: 0;
+  padding-top: 100%;
+}

@@ -130,266 +130,323 @@
     if the cube has already been rendered. More: https://medium.com/the-web-tub/managing-your-react-state-with-redux-affab72de4b1
 
 */
-import React, { Component } from 'react';
-import { connect } from 'react-redux';
-import { bindActionCreators } from 'redux';
-import * as Actions from '../../redux/ActionCreators';
+import React, { Component } from "react";
+import { connect } from "react-redux";
+import { bindActionCreators } from "redux";
+import * as Actions from "../../redux/ActionCreators";
 
-import { shuffleArray } from '../../shared/shuffle';
-import './styles.css';
+import { shuffleArray } from "../../shared/shuffle";
+import "./styles.css";
 
-const mapStateToProps = state => ({
-      ...state
+const mapStateToProps = (state) => ({
+  ...state,
 });
 const mapDispatchToProps = (dispatch) => ({
-    actions: bindActionCreators(Actions, dispatch)
+  actions: bindActionCreators(Actions, dispatch),
 });
 
 const CubeSide = (props) => {
+  const clsId = "d3-side " + props.side + " " + props.classes;
+  const divId = "cube-" + props.side + "-logo-div";
+  const divStyle = {
+    backgroundImage: "url('" + props.url + "')",
+  };
 
-    const clsId = "d3-side " + props.side + " " + props.classes;
-    const divId = "cube-" + props.side + "-logo-div";
-    const divStyle = {
-        backgroundImage: "url('" + props.url + "')"
-      }
-
-    return(
-        <React.Fragment >
-            <div key={divId}
-                className={clsId}>
-                <div>
-                    <div key={divId+"-logo"} className="logo" 
-                        style={divStyle}>
-                    </div>
-                </div>
-            </div>
-        </React.Fragment>
-    );
-}
+  return (
+    <React.Fragment>
+      <div key={divId} className={clsId}>
+        <div>
+          <div key={divId + "-logo"} className="logo" style={divStyle}></div>
+        </div>
+      </div>
+    </React.Fragment>
+  );
+};
 
 class LogoCube extends Component {
+  constructor(props) {
+    super(props);
 
-    constructor(props) {
-        super(props);
+    this.getElapsedTime = this.getElapsedTime.bind(this);
+    this.getBackgroundUrl = this.getBackgroundUrl.bind(this);
+    this.setBackgroundUrl = this.setBackgroundUrl.bind(this);
+    this.getRandomSide = this.getRandomSide.bind(this);
+    this.getRandomLogo = this.getRandomLogo.bind(this);
+    this.getSerializedLogo = this.getSerializedLogo.bind(this);
+    this.isLogoCollision = this.isLogoCollision.bind(this);
+    this.repaint = this.repaint.bind(this);
 
-        this.getElapsedTime = this.getElapsedTime.bind(this);
-        this.getBackgroundUrl = this.getBackgroundUrl.bind(this);
-        this.setBackgroundUrl = this.setBackgroundUrl.bind(this);
-        this.getRandomSide = this.getRandomSide.bind(this);
-        this.getRandomLogo = this.getRandomLogo.bind(this);
-        this.getSerializedLogo = this.getSerializedLogo.bind(this);
-        this.isLogoCollision = this.isLogoCollision.bind(this);
-        this.repaint = this.repaint.bind(this);
+    /* check for component state in Redux store */
+    if (this.props.logoCube.isSet) {
+      this.state = this.props.logoCube.state;
+    } else {
+      const d = new Date();
 
-        /* check for component state in Redux store */
-        if (this.props.logoCube.isSet) {
-            this.state = this.props.logoCube.state;
-        } else {
-            const d = new Date();
+      /* grab a locally-stored set of six logos for initializing the cube sides */
+      const initialLogos = this.getInitialCubeLogos();
 
-            /* grab a locally-stored set of six logos for initializing the cube sides */
-            const initialLogos = this.getInitialCubeLogos();
-    
-            this.state = {
+      this.state = {
+        /* delay threads, to prevent the component from re-rendering if we're in mid-animation */
+        repaintDelay: null,
 
-                /* delay threads, to prevent the component from re-rendering if we're in mid-animation */
-                repaintDelay: null,
-    
-                /* the current logo image URL for each of the 6 logos */
-                cubeTopBackgroundUrl: this.getSerializedLogo(initialLogos, 0),
-                cubeBottomBackgroundUrl: this.getSerializedLogo(initialLogos, 1),
-                cubeLeftBackgroundUrl: this.getSerializedLogo(initialLogos, 2),
-                cubeRightBackgroundUrl: this.getSerializedLogo(initialLogos, 3),
-                cubeFrontBackgroundUrl: this.getSerializedLogo(initialLogos, 4),
-                cubeBackBackgroundUrl: this.getSerializedLogo(initialLogos, 5),
-    
-                /* time stamps to track elapsed time of each logo image */
-                constructed: d,
-                cubeTop: d,
-                cubeBottom: d,
-                cubeLeft: d,
-                cubeRight: d,
-                cubeFront: d,
-                cubeBack: d    
-              };
-        }
+        /* the current logo image URL for each of the 6 logos */
+        cubeTopBackgroundUrl: this.getSerializedLogo(initialLogos, 0),
+        cubeBottomBackgroundUrl: this.getSerializedLogo(initialLogos, 1),
+        cubeLeftBackgroundUrl: this.getSerializedLogo(initialLogos, 2),
+        cubeRightBackgroundUrl: this.getSerializedLogo(initialLogos, 3),
+        cubeFrontBackgroundUrl: this.getSerializedLogo(initialLogos, 4),
+        cubeBackBackgroundUrl: this.getSerializedLogo(initialLogos, 5),
+
+        /* time stamps to track elapsed time of each logo image */
+        constructed: d,
+        cubeTop: d,
+        cubeBottom: d,
+        cubeLeft: d,
+        cubeRight: d,
+        cubeFront: d,
+        cubeBack: d,
+      };
     }
+  }
 
-    componentDidMount() {
-        /*  we nest repaint() inside of a timer so that we have a means
+  componentDidMount() {
+    /*  we nest repaint() inside of a timer so that we have a means
             of killing the thread in cases where the component 
             quickly unmounts.
         */
 
-        const self = this;
-        const myTimeout = setTimeout(function() {
-            self.repaint();
-        }, 100);    
-        this.setState({
-            repaintDelay: myTimeout
-        });
+    const self = this;
+    const myTimeout = setTimeout(function () {
+      self.repaint();
+    }, 100);
+    this.setState({
+      repaintDelay: myTimeout,
+    });
+  }
 
-    }
-
-    componentWillUnmount() {
-        /* kill any pending background threads that were
+  componentWillUnmount() {
+    /* kill any pending background threads that were
         invoked in componentDidMount(). */
-        clearTimeout(this.state.repaintDelay);
-        clearTimeout(this.state.fetchDelay);
+    clearTimeout(this.state.repaintDelay);
+    clearTimeout(this.state.fetchDelay);
 
-        /* send component state to Redux store */
-        const state = this.state;
-        this.props.actions.setLogoState({state});
+    /* send component state to Redux store */
+    const state = this.state;
+    this.props.actions.setLogoState({ state });
+  }
+
+  render() {
+    const sideClass = !this.props.logoCube.isSet ? "grow-side" : "";
+    const capClass = !this.props.logoCube.isSet ? "fade-in" : "";
+
+    return (
+      <div key="logo-cube" className="d3-container mt-0">
+        <div className="d3-cube mt-5">
+          <CubeSide
+            side="top"
+            url={this.getBackgroundUrl("top")}
+            classes={capClass}
+          />
+          <CubeSide
+            side="bottom"
+            url={this.getBackgroundUrl("bottom")}
+            classes={capClass}
+          />
+          <CubeSide
+            side="front"
+            url={this.getBackgroundUrl("front")}
+            classes={sideClass}
+          />
+          <CubeSide
+            side="back"
+            url={this.getBackgroundUrl("back")}
+            classes={sideClass}
+          />
+          <CubeSide
+            side="right"
+            url={this.getBackgroundUrl("right")}
+            classes={sideClass}
+          />
+          <CubeSide
+            side="left"
+            url={this.getBackgroundUrl("left")}
+            classes={sideClass}
+          />
+        </div>
+      </div>
+    );
+  }
+
+  repaint() {
+    /* place a random logo on a random side at a random point in time. */
+    if (!this.props.specialties.isLoading) {
+      const side = this.getRandomSide();
+      const logos =
+        side === "front"
+          ? this.props.specialties.featured_logos
+          : this.props.specialties.logos;
+      const logo = this.getRandomLogo(logos);
+      const elapsed = this.getElapsedTime(side);
+      if (side != null && elapsed > 2000) {
+        this.setBackgroundUrl(side, logo);
+      }
     }
-    
-    render() {
-        const sideClass = !this.props.logoCube.isSet ? "grow-side": "" ;
-        const capClass = !this.props.logoCube.isSet ? "fade-in": "" ;
 
-        return(
-            <div key="logo-cube" className="d3-container mt-0">
-                <div className="d3-cube mt-5">
-                    <CubeSide side="top" url={this.getBackgroundUrl("top")} classes={capClass} />
-                    <CubeSide side="bottom" url={this.getBackgroundUrl("bottom")} classes={capClass} />
-                    <CubeSide side="front" url={this.getBackgroundUrl("front")} classes={sideClass} />
-                    <CubeSide side="back" url={this.getBackgroundUrl("back")} classes={sideClass} />
-                    <CubeSide side="right" url={this.getBackgroundUrl("right")} classes={sideClass} />
-                    <CubeSide side="left" url={this.getBackgroundUrl("left")} classes={sideClass} />
-                </div>
-            </div>
-        );
-    }
+    const self = this;
+    setTimeout(function () {
+      self.repaint();
+    }, 750 * Math.random());
+  }
 
-    repaint() {
-        /* place a random logo on a random side at a random point in time. */
-        if (!this.props.specialties.isLoading) {
-
-            const side = this.getRandomSide();
-            const logos = (side === "front") ? this.props.specialties.featured_logos: this.props.specialties.logos;
-            const logo = this.getRandomLogo(logos);
-            const elapsed = this.getElapsedTime(side);
-            if (side != null && elapsed > 2000) {
-                this.setBackgroundUrl(side, logo);
-            }
-
-        }
-    
-        const self = this;
-        setTimeout(function() {
-            self.repaint();
-        }, 750 * Math.random());   
-      
-    }
-
-    /* ---------------------------------------------------------------
+  /* ---------------------------------------------------------------
         Hereon, the drudgerous grind of working with a six-sided object.  
      * --------------------------------------------------------------- */
-    getBackgroundUrl(side) {
-        let retval;
-        switch(side) {
-            case "top": retval = this.state.cubeTopBackgroundUrl; break;
-            case "bottom": retval =  this.state.cubeBottomBackgroundUrl; break;
-            case "left": retval =  this.state.cubeLeftBackgroundUrl; break;
-            case "right": retval =  this.state.cubeRightBackgroundUrl; break;
-            case "front": retval =  this.state.cubeFrontBackgroundUrl; break;
-            case "back": retval =  this.state.cubeBackBackgroundUrl; break;
-            default: retval = null; break;
-        }
-        return retval;
+  getBackgroundUrl(side) {
+    let retval;
+    switch (side) {
+      case "top":
+        retval = this.state.cubeTopBackgroundUrl;
+        break;
+      case "bottom":
+        retval = this.state.cubeBottomBackgroundUrl;
+        break;
+      case "left":
+        retval = this.state.cubeLeftBackgroundUrl;
+        break;
+      case "right":
+        retval = this.state.cubeRightBackgroundUrl;
+        break;
+      case "front":
+        retval = this.state.cubeFrontBackgroundUrl;
+        break;
+      case "back":
+        retval = this.state.cubeBackBackgroundUrl;
+        break;
+      default:
+        retval = null;
+        break;
     }
+    return retval;
+  }
 
-    setBackgroundUrl(side, url) {
-        const d = new Date();
+  setBackgroundUrl(side, url) {
+    const d = new Date();
 
-        let state;
-        switch(side) {
-            case "top": state = {cubeTopBackgroundUrl: url, cubeTop: d}; break;
-            case "bottom": state = {cubeBottomBackgroundUrl: url, cubeBottom: d}; break;
-            case "left": state = {cubeLeftBackgroundUrl: url, cubeLeft: d}; break;
-            case "right": state = {cubeRightBackgroundUrl: url, cubeRight: d}; break;
-            case "front": state = {cubeFrontBackgroundUrl: url, cubeFront: d}; break;
-            case "back": state = {cubeBackBackgroundUrl: url, cubeBack: d}; break;
-            default: state = {}; break;
-        }
-        this.setState(state);
+    let state;
+    switch (side) {
+      case "top":
+        state = { cubeTopBackgroundUrl: url, cubeTop: d };
+        break;
+      case "bottom":
+        state = { cubeBottomBackgroundUrl: url, cubeBottom: d };
+        break;
+      case "left":
+        state = { cubeLeftBackgroundUrl: url, cubeLeft: d };
+        break;
+      case "right":
+        state = { cubeRightBackgroundUrl: url, cubeRight: d };
+        break;
+      case "front":
+        state = { cubeFrontBackgroundUrl: url, cubeFront: d };
+        break;
+      case "back":
+        state = { cubeBackBackgroundUrl: url, cubeBack: d };
+        break;
+      default:
+        state = {};
+        break;
     }
+    this.setState(state);
+  }
 
-    getElapsedTime(side) {
-        const d = new Date();
-        switch(side) {
-            case "top": return d - this.state.cubeTop;
-            case "bottom": return d - this.state.cubeBottom;
-            case "left": return d - this.state.cubeLeft;
-            case "right": return d - this.state.cubeRight;
-            case "front": return d - this.state.cubeFront;
-            case "back": return d - this.state.cubeBack;
-            default: return d - this.state.constructed;
-        }
+  getElapsedTime(side) {
+    const d = new Date();
+    switch (side) {
+      case "top":
+        return d - this.state.cubeTop;
+      case "bottom":
+        return d - this.state.cubeBottom;
+      case "left":
+        return d - this.state.cubeLeft;
+      case "right":
+        return d - this.state.cubeRight;
+      case "front":
+        return d - this.state.cubeFront;
+      case "back":
+        return d - this.state.cubeBack;
+      default:
+        return d - this.state.constructed;
     }
-      
-    getSerializedLogo(logos, i) {
-        /* this handles the hopefully-rare case
+  }
+
+  getSerializedLogo(logos, i) {
+    /* this handles the hopefully-rare case
         where I might stupidly neglect to have 6 more
         featured logos in the Wordpress api. */
 
-        if (logos === null) return 0;
+    if (logos === null) return 0;
 
-        if (i < logos.length) {
-            return logos[i];
-        }
+    if (i < logos.length) {
+      return logos[i];
     }
+  }
 
-    isLogoCollision(logo) {
-
-        switch (logo) {
-            case this.state.cubeTopBackgroundUrl:
-            case this.state.cubeBottomBackgroundUrl:
-            case this.state.cubeBackBackgroundUrl:
-            case this.state.cubeFrontBackgroundUrl:
-            case this.state.cubeLeftBackgroundUrl:
-            case this.state.cubeRightBackgroundUrl:
-                return true;
-            default:
-                return false;
-        }
-
+  isLogoCollision(logo) {
+    switch (logo) {
+      case this.state.cubeTopBackgroundUrl:
+      case this.state.cubeBottomBackgroundUrl:
+      case this.state.cubeBackBackgroundUrl:
+      case this.state.cubeFrontBackgroundUrl:
+      case this.state.cubeLeftBackgroundUrl:
+      case this.state.cubeRightBackgroundUrl:
+        return true;
+      default:
+        return false;
     }
+  }
 
-    getRandomLogo(logos) {
-        if (logos === null) return null;
+  getRandomLogo(logos) {
+    if (logos === null) return null;
 
-        var logo, i = 0;
-        do {
-            logo = logos[Math.floor(Math.random() * logos.length)];
-            i++;
-        } while (this.isLogoCollision(logo) && (i <= logos.length))
-        return logo;
+    var logo,
+      i = 0;
+    do {
+      logo = logos[Math.floor(Math.random() * logos.length)];
+      i++;
+    } while (this.isLogoCollision(logo) && i <= logos.length);
+    return logo;
+  }
+
+  getRandomSide() {
+    const side = Math.floor(Math.random() * 6);
+    switch (side) {
+      case 0:
+        return "top";
+      case 1:
+        return "bottom";
+      case 2:
+        return "left";
+      case 3:
+        return "right";
+      case 4:
+        return "front";
+      case 5:
+        return "back";
+      default:
+        return null;
     }
+  }
 
-    getRandomSide() {
-        const side = Math.floor(Math.random() * 6);
-        switch(side) {
-            case 0: return "top";
-            case 1: return "bottom";
-            case 2: return "left";
-            case 3: return "right";
-            case 4: return "front";
-            case 5: return "back";
-            default: return null;
-        }
-    }
-
-    getInitialCubeLogos() {
-        return shuffleArray([
-            'assets/images/amazon-web-services.png',
-            'assets/images/django-logo-300x137.png',
-            'assets/images/open-edx.png',
-            'assets/images/react-logo-300x261.png',
-            'assets/images/Redux_Logo-300x80.png',
-            'assets/images/wordpress-100x161.png'
-        ]);
-    }
+  getInitialCubeLogos() {
+    return shuffleArray([
+      "assets/images/amazon-web-services.png",
+      "assets/images/django-logo-300x137.png",
+      "assets/images/open-edx.png",
+      "assets/images/react-logo-300x261.png",
+      "assets/images/Redux_Logo-300x80.png",
+      "assets/images/wordpress-100x161.png",
+    ]);
+  }
 } /* LogoCube component */
 
 export default connect(mapStateToProps, mapDispatchToProps)(LogoCube);
-

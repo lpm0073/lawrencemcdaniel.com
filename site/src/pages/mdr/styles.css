@@ -14,6 +14,13 @@ div.modal-content {
   text-align: center;
 }
 
+div.modal-content a {
+  background-color: transparent;
+  color: white;
+  text-align: center;
+  font-weight: 200;
+}
+
 .modal-title {
   width: 100%;
 }
@@ -31,7 +38,7 @@ xl = Extra large ≥1200px. Max container width 1140px.
 /********** Extra large devices only **********/
 @media (min-width: 1200px) {
   .modal-title {
-    font-size: 6em;
+    font-size: 3em;
     font-weight: 800;
   }
 }
@@ -39,7 +46,7 @@ xl = Extra large ≥1200px. Max container width 1140px.
 /********** Large devices only **********/
 @media (min-width: 992px) and (max-width: 1199px) {
   .modal-title {
-    font-size: 5em;
+    font-size: 3em;
     font-weight: 600;
   }
 }
@@ -47,7 +54,7 @@ xl = Extra large ≥1200px. Max container width 1140px.
 /********** Medium devices only **********/
 @media (min-width: 768px) and (max-width: 991px) {
   .modal-title {
-    font-size: 5em;
+    font-size: 3em;
     font-weight: 600;
   }
 }
@@ -55,7 +62,7 @@ xl = Extra large ≥1200px. Max container width 1140px.
 /********** Small devices only **********/
 @media (min-width: 576) and (max-width: 767px) {
   .modal-title {
-    font-size: 4em;
+    font-size: 2em;
     font-weight: 600;
   }
 }

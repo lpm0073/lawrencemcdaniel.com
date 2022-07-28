@@ -1,106 +1,96 @@
 .dark-background {
-    background-color: black;
+  background-color: black;
 }
 
 .open-edx-consultant {
-    color: #999 !important;
+  color: #999 !important;
 }
 
 .learn-more-link {
-    text-decoration: underline;
+  text-decoration: underline;
 }
 
 .jumbotron {
-    margin:0px auto;
-    color:floralwhite;
-    height: calc(100vh - 65px - 55px); /* full height less header/footer heights */
-    border-radius: 0 !important;
-
+  margin: 0px auto;
+  color: floralwhite;
+  height: calc(
+    100vh - 65px - 55px
+  ); /* full height less header/footer heights */
+  border-radius: 0 !important;
 }
 
 .super-bold {
-    font-size: 67px;
-    letter-spacing: -2px;
-    font-weight: 900;
+  font-size: 67px;
+  letter-spacing: -2px;
+  font-weight: 900;
 }
 
 .jumbotron-spacer {
-    margin-top: 10vh;
+  margin-top: 10vh;
 }
 
 .jumbotron-subtitle {
-    font-size: 32px;
-    font-weight: 500;
+  font-size: 32px;
+  font-weight: 500;
 }
 
 .width-50 {
-    width: 50% !important;
+  width: 50% !important;
 }
 
 .pre-wrap {
-    white-space: pre-wrap;
+  white-space: pre-wrap;
 }
 
-
 .react-banner {
-    background-color: black;
-    color: white;
-    font-size: small;
-    text-align: right;
+  background-color: black;
+  color: white;
+  font-size: small;
+  text-align: right;
 }
 
 .react-banner a {
-    color: white;
+  color: white;
 }
 .react-logo {
-    width: 15px;
-    margin-right: 5px;
+  width: 15px;
+  margin-right: 5px;
 }
 
 .offline-alert {
-    color:tomato;
-    filter: none !important;
+  color: tomato;
+  filter: none !important;
 }
 /*-------------- Responsive Styling -----------------------*/
 
 /********** Large devices only **********/
 @media (min-width: 1200px) {
-
 }
 
 /********** Medium devices only **********/
 @media (min-width: 992px) and (max-width: 1199px) {
-
-
-
 }
 
 /********** Small devices only **********/
 @media (min-width: 768px) and (max-width: 991px) {
-
-    .jumbotron-spacer {
-        margin-top: 0 !important;
-    }
-    
+  .jumbotron-spacer {
+    margin-top: 0 !important;
+  }
 }
 
 /********** Extra small devices only **********/
 @media (max-width: 767px) {
+  .super-bold,
+  .jumbotron-subtitle {
+    font-size: 24px !important;
+    letter-spacing: initial !important;
+    font-weight: initial !important;
+  }
 
-    .super-bold,
-    .jumbotron-subtitle {
-        font-size: 24px !important;
-        letter-spacing: initial !important;
-        font-weight: initial !important;
-    }
-
-    .jumbotron-spacer {
-        margin-top: 0 !important;
-    }
-
+  .jumbotron-spacer {
+    margin-top: 0 !important;
+  }
 }
 /********** Super extra small devices Only :-) (e.g., iPhone 4) **********/
 @media (max-width: 479px) {
-
 }
-

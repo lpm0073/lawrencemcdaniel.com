@@ -1,62 +1,61 @@
-
 .skills-page {
-    background-color: white;
+  background-color: white;
 }
 
 .skill-column {
-    color: #666;
+  color: #666;
 }
 
 .skill-column .skill-pct {
 }
 
 .skill-column .skill-pct-text {
-    font-size: 1.75em;
-    top: 30px;
-    left: 0;
-    width: 100%;
-    margin-left: auto;
-    margin-right: auto;
+  font-size: 1.75em;
+  top: 30px;
+  left: 0;
+  width: 100%;
+  margin-left: auto;
+  margin-right: auto;
 }
 .skill-column .skill-pct canvas {
-    width: 100px;
-    height: 100px;    
+  width: 100px;
+  height: 100px;
 }
 
 .skill-column .skill-title {
-    font-size: 1.25em;
-    height: 50px;
+  font-size: 1.25em;
+  height: 50px;
 }
 
 .skill-column .skill-description {
-    font-weight: 300;
-    font-size: .9em;
-    height: 150px;
+  font-weight: 300;
+  font-size: 0.9em;
+  height: 150px;
 }
 
 .skill-column .skill-icon {
-    width: 50%;
-    margin-left: auto;
-    margin-right: auto;
-    border: 2px solid#666;
+  width: 50%;
+  margin-left: auto;
+  margin-right: auto;
+  border: 2px solid#666;
 }
 
 .skill-bar {
-    color: white;
-    font-weight: bold;
-    height: 35px;
-    background-color:#666;
+  color: white;
+  font-weight: bold;
+  height: 35px;
+  background-color: #666;
 }
 
 .skill-bar canvas {
-    width: 100%;
-    height: 100%;
+  width: 100%;
+  height: 100%;
 }
 .skill-bar-text {
 }
 
 .right-rounded {
-    border-top-right-radius: 5px;
-    border-bottom-right-radius: 5px;
-    overflow: hidden;
+  border-top-right-radius: 5px;
+  border-bottom-right-radius: 5px;
+  overflow: hidden;
 }

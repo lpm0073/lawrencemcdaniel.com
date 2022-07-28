@@ -1,44 +1,43 @@
-
 .LI-badge-container,
 .LI-badge-container a {
-    color: white;
+  color: white;
 }
 
 .LI-badge-container ul {
-    list-style-type: none;
-   }
+  list-style-type: none;
+}
 
 .LI-badge-container {
-    background-color: #313336;
-    color: white;
+  background-color: #313336;
+  color: white;
 }
 
 .LI-profile-pic-container {
-    background-image: url(https://cdn.lawrencemcdaniel.com/wp-content/uploads/2020/06/05215543/linkedin-background.jpg);
+  background-image: url(https://cdn.lawrencemcdaniel.com/wp-content/uploads/2020/06/05215543/linkedin-background.jpg);
 }
 
 .LI-img-wrapper {
-    position: relative;
-    height: 75px;
+  position: relative;
+  height: 75px;
 }
-
 
 .LI-img-wrapper img {
-    border: 3px solid #313336;
-    border-radius: 50%;
-    width: 45%;
+  border: 3px solid #313336;
+  border-radius: 50%;
+  width: 45%;
 
-    position: absolute;
-    left: 27%;
-    bottom: -70%;
-
+  position: absolute;
+  left: 27%;
+  bottom: -70%;
 }
-
 
 .LI-name {
-    font-size: x-large;
+  font-size: x-large;
 }
 
-.btn-primary, .btn-primary:hover, .btn-primary:active, .btn-primary:visited {
-    background-color: #008AD0 !important;
+.btn-primary,
+.btn-primary:hover,
+.btn-primary:active,
+.btn-primary:visited {
+  background-color: #008ad0 !important;
 }

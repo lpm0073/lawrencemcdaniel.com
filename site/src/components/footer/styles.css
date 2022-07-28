@@ -1,52 +1,40 @@
-
 .footer {
-    background-color: black;
-    color: white;
-    margin:0px auto;
-    padding: 20px 0 0 0;
-    font-family: 'Courier New', Courier, monospace;
+  background-color: black;
+  color: white;
+  margin: 0px auto;
+  padding: 20px 0 0 0;
+  font-family: "Courier New", Courier, monospace;
 }
 .footer {
-    font-size: small;
+  font-size: small;
 }
 
 .footer a {
-    color: white;
+  color: white;
 }
-
 
 .edx-links {
-    color: white;
-    font-style: normal;
+  color: white;
+  font-style: normal;
 }
-
 
 /*-------------- Responsive Styling -----------------------*/
 
 /********** Large devices only **********/
 @media (min-width: 1200px) {
-
 }
 
 /********** Medium devices only **********/
 @media (min-width: 992px) and (max-width: 1199px) {
-
-
-
 }
 
 /********** Small devices only **********/
 @media (min-width: 768px) and (max-width: 991px) {
-
 }
 
 /********** Extra small devices only **********/
 @media (max-width: 767px) {
-
-
 }
 /********** Super extra small devices Only :-) (e.g., iPhone 4) **********/
 @media (max-width: 479px) {
-
 }
-

@@ -13,26 +13,25 @@
   background-size: contain;
 }
 
-
 /* --------------------------------------------------------------------------- */
 
 .d3-container {
-    width: var(--width);
-    height: var(--width);
-    margin: 50px auto 50px auto;
-    position: relative;
-    perspective: 5000px;
-    -webkit-perspective: 5000px;
+  width: var(--width);
+  height: var(--width);
+  margin: 50px auto 50px auto;
+  position: relative;
+  perspective: 5000px;
+  -webkit-perspective: 5000px;
 }
 
 .d3-cube {
   position: absolute;
-    width: 100%;
-    height: 100%;
-    transform-style: preserve-3d;
-    -webkit-transform-style: preserve-3d;
-    animation: spin 5s infinite linear;
-    -webkit-animation: spin 5s infinite linear;
+  width: 100%;
+  height: 100%;
+  transform-style: preserve-3d;
+  -webkit-transform-style: preserve-3d;
+  animation: spin 5s infinite linear;
+  -webkit-animation: spin 5s infinite linear;
 }
 
 .d3-side {
@@ -42,7 +41,7 @@
   position: absolute;
   cursor: pointer;
   background-image: url("data:image/svg+xml;base64,PHN2ZyB4bWxucz0iaHR0cDovL3d3dy53My5vcmcvMjAwMC9zdmciIHdpZHRoPSI1MCIgaGVpZ2h0PSI1MCI+CjxyZWN0IGZpbGw9InJnYmEoMjU1LDI1NSwyNTUsMC4yKSIgc3Ryb2tlPSJub25lIiB4PSIwIiB5PSIwIiB3aWR0aD0iMjUiIGhlaWdodD0iMjUiPjwvcmVjdD4Kd2lkdGg9JzUwJyBoZWlnaHQ9JzUwJyZndDsKPHJlY3QgZmlsbD0icmdiYSgyNTUsMjU1LDI1NSwwLjIpIiBzdHJva2U9Im5vbmUiIHg9IjI1IiB5PSIyNSIgd2lkdGg9IjI1IiBoZWlnaHQ9IjI1Ij48L3JlY3Q+Cjwvc3ZnPg==");
-  background-color: rgba(255, 255, 255, .5);
+  background-color: rgba(255, 255, 255, 0.5);
 }
 
 .d3-side > * {
@@ -69,7 +68,8 @@
 }
 
 .back {
-  transform: rotateX(168deg) rotateY(-45deg) rotateZ(180deg) translateZ(var(--axis));
+  transform: rotateX(168deg) rotateY(-45deg) rotateZ(180deg)
+    translateZ(var(--axis));
   animation: fade 5s infinite linear -3.75s;
   -webkit-animation: fade 5s infinite linear -3.75s;
 }
@@ -78,7 +78,6 @@
   transform: rotateX(-12deg) rotateY(135deg) translateZ(var(--axis));
   animation: fade 5s infinite linear;
   -webkit-animation: fade 5s infinite linear;
-
 }
 
 .left {
@@ -97,51 +96,75 @@
 /* --------------------------------------------------------------------------- */
 
 .front > div {
-  background-color: rgba(44,155,222,0.5);
+  background-color: rgba(44, 155, 222, 0.5);
 }
 
 .back > div {
-  background-color: rgba(43,236,136,0.5);
+  background-color: rgba(43, 236, 136, 0.5);
 }
 
 .right > div {
-  background-color: rgba(153,242,87,0.5);
+  background-color: rgba(153, 242, 87, 0.5);
 }
 
 .left > div {
-  background-color: rgba(255,135,58,0.5);
+  background-color: rgba(255, 135, 58, 0.5);
 }
 
 .top > div {
-  background-color: rgba(239,67,148,0.5);
+  background-color: rgba(239, 67, 148, 0.5);
 }
 
 .bottom > div {
-  background-color: rgba(115,63,172,0.5);
+  background-color: rgba(115, 63, 172, 0.5);
 }
 
 @keyframes fade {
-  from { opacity: 1; }
-  12.5% { opacity: 0.5; }
-  62.5% { opacity: 0.5; }
-  75% { opacity: 1; }
+  from {
+    opacity: 1;
+  }
+  12.5% {
+    opacity: 0.5;
+  }
+  62.5% {
+    opacity: 0.5;
+  }
+  75% {
+    opacity: 1;
+  }
 }
 
 @-webkit-keyframes fade {
-  from { opacity: 1; }
-  12.5% { opacity: 0.5; }
-  62.5% { opacity: 0.5; }
-  75% { opacity: 1; }
+  from {
+    opacity: 1;
+  }
+  12.5% {
+    opacity: 0.5;
+  }
+  62.5% {
+    opacity: 0.5;
+  }
+  75% {
+    opacity: 1;
+  }
 }
 
 @keyframes spin {
-  from { transform: rotateY(0deg); }
-  to { transform: rotateY(360deg); }
+  from {
+    transform: rotateY(0deg);
+  }
+  to {
+    transform: rotateY(360deg);
+  }
 }
 
 @-webkit-keyframes spin {
-  from { -webkit-transform: rotateY(0deg); }
-  to { -webkit-transform: rotateY(360deg); }
+  from {
+    -webkit-transform: rotateY(0deg);
+  }
+  to {
+    -webkit-transform: rotateY(360deg);
+  }
 }
 
 .grow-side {
@@ -150,8 +173,12 @@
 }
 
 @keyframes grow-side {
-  from { height: 0; }
-  to { height: var(--width); }
+  from {
+    height: 0;
+  }
+  to {
+    height: var(--width);
+  }
 }
 
 .fade-in {
@@ -160,7 +187,13 @@
 }
 
 @keyframes fade-in {
-  0% { opacity: 0 }
-  99% { opacity: 0; }
-  100% { opacity: 1; }
+  0% {
+    opacity: 0;
+  }
+  99% {
+    opacity: 0;
+  }
+  100% {
+    opacity: 1;
+  }
 }
