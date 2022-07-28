@@ -74,6 +74,7 @@ class Contact extends Component {
                                         <TabList>
                                         <Tab>Whatsapp</Tab>
                                         <Tab>LinkedIn</Tab>
+                                        <Tab>Venmo</Tab>
                                         </TabList>
 
                                         <TabPanel>
@@ -94,6 +95,15 @@ class Contact extends Component {
                                                 </h4>
                                             </div>
                                             <div className="col-md-12 linkedin-qr-code square image-container"></div>
+                                        </TabPanel>
+                                        <TabPanel>
+                                            <div>
+                                                <h4>
+                                                    <span className="col-md-2 mr-2 venmo-logo image-container"></span>
+                                                    <span className="col-md-10 p-0">Venmo QR Code</span>
+                                                </h4>
+                                            </div>
+                                            <div className="col-md-12 venmo-qr-code square image-container"></div>
                                         </TabPanel>
                                     </Tabs>
                                 </div>

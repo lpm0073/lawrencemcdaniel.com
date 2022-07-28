@@ -28,8 +28,12 @@ h4 a {
     margin: auto;
 }
 
-    .whatsapp-qr-code {
+.whatsapp-qr-code {
     background-image:url(https://cdn.lawrencemcdaniel.com/wp-content/uploads/2020/10/28130958/whatsapp-qr-code.png);
+}
+
+.venmo-qr-code {
+    background-image:url(https://cdn.lawrencemcdaniel.com/wp-content/uploads/2022/07/27232736/qr-code-venmo.jpg);
 }
 
 .linkedin-qr-code {
