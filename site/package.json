@@ -911,7 +911,6 @@
     "regjsparser": "^0.1.5",
     "remove-trailing-separator": "^1.1.0",
     "repeating": "^2.0.1",
-    "react-router-dom": "^6.0.2",
     "repeat-string": "^1.6.1",
     "requires-port": "^1.0.0",
     "require-directory": "^2.1.1",
