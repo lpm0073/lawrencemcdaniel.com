@@ -5,6 +5,7 @@ import "./styles.css";
 export default function Footer(props) {
   var d = new Date();
   const curr_year = d.getFullYear();
+  const REACT_VERSION = React.version;
 
   return (
     <React.Fragment>
@@ -19,7 +20,7 @@ export default function Footer(props) {
                   src="/assets/images/react-logo-300x261.png"
                   alt="ReactJS logo"
                 />
-                Progressive Web App Built with ReactJS, Redux and Workbox.{" "}
+                Progressive Web App Built with ReactJS {REACT_VERSION}, Redux and Workbox.{" "}
                 <a
                   className="mx-1 learn-more-link"
                   href="/reactjs"

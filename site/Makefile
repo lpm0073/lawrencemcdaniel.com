@@ -11,7 +11,7 @@ update:
 build:
 	yarn build
 
-server:
+serve:
 	yarn start
 
 release:
