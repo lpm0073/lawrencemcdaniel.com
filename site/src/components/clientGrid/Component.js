@@ -6,7 +6,7 @@ import * as Actions from "../../redux/ActionCreators";
 import "react-multi-carousel/lib/styles.css";
 import Loading from "../Loading";
 import { wpGetFeaturedImage } from "../../shared/wpGetFeaturedImage";
-import { FadeTransform } from "react-animation-components";
+//import { FadeTransform } from "react-animation-components";
 
 const mapStateToProps = (state) => ({
   ...state,
@@ -29,9 +29,9 @@ const ClientCard = (props) => {
     <div className="col-lg-4 col-md-6 col-sm-12" key={props.indx}>
       <div className="client-item my-2 px-0 py-1">
         {!props.isSet ? (
-          <FadeTransform in transformProps={transform}>
+          //<FadeTransform in transformProps={transform}>
             <div className="client-image" style={item_style} />
-          </FadeTransform>
+          //</FadeTransform>
         ) : (
           <div className="client-image" style={item_style} />
         )}

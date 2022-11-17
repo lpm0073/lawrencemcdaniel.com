@@ -4,8 +4,8 @@ import { bindActionCreators } from "redux";
 import * as Actions from "../../redux/ActionCreators";
 
 import Loading from "../../components/Loading";
-import { Fade } from "react-animation-components";
 import { wpGetFeaturedImage } from "../../shared/wpGetFeaturedImage";
+//import { Fade } from "react-animation-components";
 
 const mapStateToProps = (state) => ({
   ...state,
@@ -39,12 +39,14 @@ class CoursesGrid extends Component {
                     key={indx}
                   >
                     {!this.props.coursesGrid.isSet && (
-                      <Fade in delay={0} duration={400}>
-                        <div
-                          className="education-item mx-1 infinite"
-                          style={item_style}
-                        ></div>
-                      </Fade>
+                      //<Fade in delay={0} duration={400}>
+                        <React.Fragment>
+                          <div
+                            className="education-item mx-1 infinite"
+                            style={item_style}
+                          ></div>
+                        </React.Fragment>
+                      //</Fade>
                     )}
                     {this.props.coursesGrid.isSet && (
                       <div

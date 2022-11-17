@@ -79,15 +79,33 @@ export class Header extends Component {
                   Home
                 </NavLink>
               </NavItem>
-              <NavItem>
-                <NavLink
-                  onClick={this.toggleNavItem}
-                  className="nav-link"
-                  to="/about"
-                >
-                  About
-                </NavLink>
-              </NavItem>
+              <UncontrolledDropdown nav inNavbar className="hide-medium">
+                <DropdownToggle nav caret className="">
+                    About
+                </DropdownToggle>
+                <DropdownMenu className="bg-dark">
+                  <DropdownItem>
+                    <NavLink className="nav-link p-0 m-0" to="/about">
+                      Bio
+                    </NavLink>
+                  </DropdownItem>
+                  <DropdownItem>
+                    <NavLink className="nav-link p-0 m-0" to="/education">
+                      Education
+                    </NavLink>
+                  </DropdownItem>
+                  <DropdownItem>
+                    <NavLink className="nav-link p-0 m-0" to="/skills">
+                      Technologies
+                    </NavLink>
+                  </DropdownItem>
+                  <DropdownItem>
+                    <NavLink className="nav-link p-0 m-0" to="/specialties">
+                      Competencies
+                    </NavLink>
+                  </DropdownItem>
+                </DropdownMenu>
+              </UncontrolledDropdown>
               <NavItem>
                 <NavLink
                   onClick={this.toggleNavItem}
@@ -145,34 +163,7 @@ export class Header extends Component {
                       className="nav-link p-0 m-0"
                       to="/machine-learning/"
                     >
-                      Machine Learning
-                    </NavLink>
-                  </DropdownItem>
-
-                  <DropdownItem divider className="color-light" />
-
-                  <DropdownItem>
-                    <NavLink className="nav-link p-0 m-0" to="/specialties">
-                      Competencies
-                    </NavLink>
-                  </DropdownItem>
-                  <DropdownItem>
-                    <NavLink className="nav-link p-0 m-0" to="/skills">
-                      Technologies
-                    </NavLink>
-                  </DropdownItem>
-                  <DropdownItem>
-                    <NavLink className="nav-link p-0 m-0" to="/education">
-                      Training
-                    </NavLink>
-                  </DropdownItem>
-                  <DropdownItem>
-                    <NavLink
-                      onClick={this.toggleNavItem}
-                      className="nav-link p-0 m-0"
-                      to="/portfolio"
-                    >
-                      Portfolio
+                      Machine Learning + AI
                     </NavLink>
                   </DropdownItem>
                 </DropdownMenu>

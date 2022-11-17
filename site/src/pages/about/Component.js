@@ -7,7 +7,6 @@ import { Media } from "reactstrap";
 import RenderPageTitle from "../../components/pagetitle/pageTitleComponent";
 import { LinkedinBadge } from "../../components/linkedinBadge/Component";
 import AboutTile from "./tileComponent";
-import { Fade } from "react-animation-components";
 import { Helmet } from "react-helmet";
 import { gsdGraph } from "../../shared/seo/gsdGraph";
 import {
@@ -17,6 +16,9 @@ import {
 import { URL_SITE } from "../../shared/constants";
 
 import "./styles.css";
+
+//import { Fade } from "react-animation-components";
+
 
 const mapStateToProps = (state) => ({
   ...state,
@@ -126,10 +128,12 @@ class About extends Component {
             <div className="column-3 col-lg-4 col-md-6 col-sm-12 p-3">
               {this.props.aboutPage.isSet && <RightColumn />}
               {!this.props.aboutPage.isSet && (
-                <Fade in delay={0} duration={400}>
+                //<Fade in delay={0} duration={400}>
+                <React.Fragment>
                   {" "}
                   <RightColumn />{" "}
-                </Fade>
+                </React.Fragment>
+                //</Fade>
               )}
             </div>
           </div>
