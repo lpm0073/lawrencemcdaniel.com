@@ -287,7 +287,7 @@ class LogoCube extends Component {
           : this.props.specialties.logos;
       const logo = this.getRandomLogo(logos);
       const elapsed = this.getElapsedTime(side);
-      if (side != null && elapsed > 2000) {
+      if (side != null && elapsed > 4000) {
         this.setBackgroundUrl(side, logo);
       }
     }
