@@ -2,16 +2,17 @@
 # upload to AWS S3
 # https://s3.console.aws.amazon.com/s3/buckets/reactjs.lawrencemcdaniel.com
 # -------------------------------------------------------------------------
+sitemap:
+	npm run sitemap
+
 update:
-	cd /Users/mcdaniel/github/lpm0073/lawrencemcdaniel.com/site
 	npm update -g
-	#npm run sitemap
-	cd /Users/mcdaniel/github/lpm0073/lawrencemcdaniel.com/
 
 build:
-	cd /Users/mcdaniel/github/lpm0073/lawrencemcdaniel.com/site
 	yarn build
-	cd /Users/mcdaniel/github/lpm0073/lawrencemcdaniel.com/
+
+server:
+	yarn start
 
 release:
 	#---------------------------------------------------------
@@ -24,7 +25,6 @@ release:
 	#             2. Upload to AWS S3
 	#             3. Invalidate all items in the AWS Cloudfront CDN.
 	#---------------------------------------------------------
-	cd /Users/mcdaniel/github/lpm0073/lawrencemcdaniel.com/site
 	yarn build
 	cd /Users/mcdaniel/github/lpm0073/lawrencemcdaniel.com/
 
@@ -46,3 +46,5 @@ release:
 
 	# invalidate the Cloudfront cache
 	aws cloudfront create-invalidation --distribution-id E2364TSMHRWAWL --paths "/*" "/index.html" "/sitemap.xml" "/manifest.json" "/service-worker.js"
+	cd /Users/mcdaniel/github/lpm0073/lawrencemcdaniel.com/site
+	
