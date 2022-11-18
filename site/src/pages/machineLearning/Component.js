@@ -67,10 +67,12 @@ const MachineLearning = (props) => {
         />
         <div className="row mt-5 pl-2">
           <div className="column-left col-lg-4 col-md-6 col-sm-12 hide-medium">
-            <img
-              src="https://cdn.lawrencemcdaniel.com/wp-content/uploads/2020/06/05220017/lawrence-mcdaniel-portrait.jpg"
-              alt="Lawrence McDaniel"
-            />
+            <a href="https://www.linkedin.com/in/lawrencemcdaniel/">
+              <img
+                src="https://cdn.lawrencemcdaniel.com/wp-content/uploads/2020/06/05220017/lawrence-mcdaniel-portrait.jpg"
+                alt="Lawrence McDaniel"
+              />
+            </a>
             <div className="name-block mt-1 text-center">
               <h4 className="my-0">Lawrence McDaniel</h4>
               <h5 className="my-0">{baseTitle}</h5>
