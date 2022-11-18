@@ -98,6 +98,13 @@ const MachineLearning = (props) => {
                       halfway decent software engineer then the sky is the limit
                       in terms of what you can do.
                     </p>
+                    <a href="https://eportfolio.mygreatlearning.com/lawrence-mcdaniel">
+                      <img 
+                        src="https://cdn.lawrencemcdaniel.com/wp-content/uploads/2022/11/18001140/mit-idss-combined-logo.png"
+                        alt="MIT Institute For Data, Systems, and Society"
+                        width="100%"
+                      />
+                    </a>
                   </div>
                 </div>
               </div>
