@@ -8,7 +8,7 @@ export default (
     <Route path="/qr" />
     <Route path="/about" />
     <Route path="/openedx" />
-    <Route path="/machine-learning" />
+    <Route path="/data-science" />
     <Route path="/bio" />
     <Route path="/specialties" />
     <Route path="/portfolio" />

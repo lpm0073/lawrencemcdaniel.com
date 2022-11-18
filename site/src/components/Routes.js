@@ -24,7 +24,7 @@ import PortfolioDetail from "../pages/portfolioDetail/Component";
 import Education from "../pages/education/Component";
 import Skills from "../pages/skills/Component";
 import Clients from "../pages/clients/Component";
-import MachineLearning from "../pages/machineLearning/Component";
+import Datascience from "../pages/dataScience/Component";
 import ReactPage from "../pages/react/Component";
 import Openedx from "../pages/openedx/Component";
 import PageNotFound from "../pages/notFound/Component";
@@ -115,7 +115,7 @@ class SiteRoutes extends Component {
           <Route exact path="/qr" element={<QR />} />
           <Route exact path="/about" element={<About />} />
           <Route exact path="/openedx" element={<Openedx />} />
-          <Route exact path="/machine-learning" element={<MachineLearning />} />
+          <Route exact path="/data-science" element={<Datascience />} />
           <Route exact path="/bio" element={<Bio />} />
           <Route exact path="/full-bio" element={<Navigate to="/bio" />} />
           <Route

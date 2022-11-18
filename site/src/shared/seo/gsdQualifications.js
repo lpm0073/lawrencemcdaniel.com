@@ -109,9 +109,9 @@ export const gsdQualifications = [
     "2017-09-01"
   ),
   course(
-    "Machine Learning",
-    "Machine Learning Certification",
-    "https://www.coursera.org/learn/machine-learning/home/welcome",
+    "Data Science",
+    "Data Science Certification",
+    "https://www.coursera.org/learn/data-science/home/welcome",
     "Stanford University",
     "https://www.stanford.edu/",
     "2016-21-31"

@@ -83,7 +83,7 @@ const Skills = (props) => {
           <SkillColumn
             key="6"
             pct="100"
-            title="Machine Learning"
+            title="Data Science"
             icon="fa-magic"
             description="Applied Linear Algebra, AI and Neural Networks designs and coding using Octave and Python scikit-learn and NumPy"
           />

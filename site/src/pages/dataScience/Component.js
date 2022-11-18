@@ -1,6 +1,6 @@
 import React from "react";
 import RenderPageTitle from "../../components/pagetitle/pageTitleComponent";
-import SpecialtiesBanner from "./machinelearningBanner";
+import SpecialtiesBanner from "./datascienceBanner";
 import { Helmet } from "react-helmet";
 import { gsdGraph } from "../../shared/seo/gsdGraph";
 import { gsdPersonLawrenceMcDaniel } from "../../shared/seo/gsdPersonLawrence";
@@ -10,14 +10,14 @@ import { URL_SITE } from "../../shared/constants";
 
 import "./styles.css";
 
-const MachineLearning = (props) => {
+const Datascience = (props) => {
   /* Google Structured Data */
-  const slug = "machine-learning";
-  const webpageName = "Machine Learning";
+  const slug = "data-science";
+  const webpageName = "Data Science";
   const webpageDescription =
-    "Machine learning and algorithms expert with experience using regression, nueral networks, support vector machines, anomoly detection, recommender systems, and unsupervised learning";
+    "Data science, machine learning, and AI algorithms expert with experience using regression, nueral networks, support vector machines, anomoly detection, recommender systems, and unsupervised learning";
   const primaryImageUrl =
-    "https://cdn.lawrencemcdaniel.com/wp-content/uploads/2020/06/05220349/machine-learning-certificate.jpg";
+    "https://cdn.lawrencemcdaniel.com/wp-content/uploads/2020/06/05220349/data-science-certificate.jpg";
   const pageType = "BlogPosting";
   const relatedLink = "";
   const graphExtraData = [
@@ -28,7 +28,7 @@ const MachineLearning = (props) => {
   return (
     <React.Fragment>
       <Helmet>
-        <link rel="canonical" href={URL_SITE + "/machine-learning/"} />
+        <link rel="canonical" href={URL_SITE + "/data-science/"} />
         <meta
           name="description"
           content="Machine learning and algorithms expert with experience using regression, nueral networks, support vector machines, anomoly detection, recommender systems, and unsupervised learning"
@@ -56,14 +56,14 @@ const MachineLearning = (props) => {
         </script>
       </Helmet>
       <div
-        key="machine-learning-page"
-        className="site-page machine-learning-page"
+        key="data-science-page"
+        className="site-page data-science-page"
       >
         <RenderPageTitle
           theme="light"
           icon="fa-magic"
-          title="MACHINE"
-          boxed_title="LEARNING"
+          title="DATA"
+          boxed_title="SCIENCE"
         />
         <div className="row mt-5 pl-2">
           <div className="column-left col-lg-4 col-md-6 col-sm-12 hide-medium">
@@ -236,4 +236,4 @@ const MachineLearning = (props) => {
   );
 };
 
-export default MachineLearning;
+export default Datascience;

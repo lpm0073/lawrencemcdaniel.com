@@ -109,7 +109,7 @@ class About extends Component {
                       frequent blogger
                     </a>
                     , currently interested in{" "}
-                    <a href="/machine-learning/">machine learning</a>, AI and
+                    <a href="/data-science/">data science, machine learning, AI</a> and
                     quantum computing.
                   </p>
                 </div>

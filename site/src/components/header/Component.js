@@ -132,14 +132,14 @@ export class Header extends Component {
                     </NavLink>
                   </DropdownItem>
                   <DropdownItem>
-                    <NavLink className="nav-link p-0 m-0" to="/machine-learning">
+                    <NavLink className="nav-link p-0 m-0" to="/data-science">
                       <img
                         key="menu-ml-image"
                         className="react-logo"
-                        src="/assets/images/machine-learning-icon.png"
+                        src="/assets/images/data-science-icon.png"
                         alt="ML logo"
                       />
-                      Machine Learning + AI
+                      Data Science
                     </NavLink>
                   </DropdownItem>
                   <DropdownItem>

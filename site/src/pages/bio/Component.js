@@ -81,8 +81,8 @@ const Bio = (props) => {
                 others.
               </p>
               <p>
-                He has expertise in financial modeling and forecasting systems,
-                analytics, machine learning, big data, web, mobile, database
+                He has expertise in data science, financial modeling and forecasting systems,
+                analytics, machine learning, AI, big data, web, mobile, database
                 technology, and Amazon Web Services (AWS) cloud infrastructure.
                 He has 20+ years experience designing high performance,
                 always-up transactional database systems using MySQL, MSSQL
