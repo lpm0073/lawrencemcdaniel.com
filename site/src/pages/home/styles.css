@@ -5,9 +5,25 @@
 .open-edx-consultant {
   color: #999 !important;
 }
+.open-edx-consultant:hover {
+  color: lightgray !important;
+}
 
 .learn-more-link {
   text-decoration: underline;
+}
+
+.data-science-link {
+  text-decoration: none;
+  color: #999;
+}
+.data-science-link:hover {
+  text-decoration: none;
+  color: lightgray;
+}
+.data-science-link h2 {
+  font-style: italic;
+  font-weight: 100 !important;
 }
 
 .jumbotron {

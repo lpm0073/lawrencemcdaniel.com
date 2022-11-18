@@ -69,6 +69,13 @@ class Home extends Component {
                 <LogoCube />
               </div>
             </div>
+            <div className="row mt-5 text-center hide-medium">
+              <div className="col-12 mt-5">
+                <a className="data-science-link" href="/data-science">
+                  <h2>Data Scientist</h2>
+                </a>
+              </div>
+            </div>
           </div>
         </div>
       </React.Fragment>
