@@ -23,15 +23,9 @@ class MRLPage extends Component {
 
   componentDidMount() {
     document.body.classList.add("matrixPage");
-    let t = this;
     this.setState({
       isMounted: true,
     });
-    const myTimeout = setTimeout(function () {
-      t.setState({
-        isOpen: false,
-      });
-    }, 7000);
   }
 
   componentWillUnmount() {
@@ -79,6 +73,7 @@ class MRLPage extends Component {
                         <a
                           href="https://www.npmjs.com/package/react-mdr"
                           target="_blank"
+                          rel="noreferrer"
                         >
                           https://www.npmjs.com/package/react-mdr
                         </a>

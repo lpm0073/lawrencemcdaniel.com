@@ -154,6 +154,12 @@ const Datascience = (props) => {
             </div>
           </div>
         </div>
+        <div className="row mx-3 my-0 p-3">
+          <div className="col-lg-6 col-md-12 mb-1 pe-1"><img src="https://cdn.lawrencemcdaniel.com/wp-content/uploads/2022/11/18143957/wharton-people-analytics-certificate.png" width="100%" alt="Wharton People Analytics Certificate" /></div>
+          <div className="col-lg-6 col-md-12 mb-1 pe-1"><img src="https://cdn.lawrencemcdaniel.com/wp-content/uploads/2022/11/18143951/wharton-operations-analytics-certificate.png" width="100%" alt="Wharton Operations Analytics Certificate" /></div>
+          <div className="col-lg-6 col-md-12 mb-1 pe-1"><img src="https://cdn.lawrencemcdaniel.com/wp-content/uploads/2022/11/18143946/wharton-customer-analytics-certificate.png" width="100%" alt="Wharton Customer Analytics Certificate" /></div>
+          <div className="col-lg-6 col-md-12 mb-1 pe-1"><img src="https://cdn.lawrencemcdaniel.com/wp-content/uploads/2022/11/18143939/wharton-accounting-analytics-certificate.png" width="100%" alt="Wharton Accounting Analytics Certificate" /></div>
+        </div>
         <SpecialtiesBanner />
         <div className="row mx-5">
           <div className="col">
