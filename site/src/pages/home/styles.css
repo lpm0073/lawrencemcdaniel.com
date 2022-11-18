@@ -2,28 +2,31 @@
   background-color: black;
 }
 
-.open-edx-consultant {
-  color: #999 !important;
+.title-spacer {
+  height: 67px;
 }
-.open-edx-consultant:hover {
+
+.job-title a {
+  text-decoration: none;
+}
+
+
+.job-title h2 {
+  color: #999;
+  height: 30px;
+  vertical-align: text-bottom !important;
+  font-weight: 100 !important;
+  font-family: "Courier New", Courier, monospace;
+  font-size:large;
+  border-bottom: dashed .25px #999;
+}
+.job-title h2:hover {
   color: lightgray !important;
+  border-bottom-color: lightgray;
 }
 
 .learn-more-link {
   text-decoration: underline;
-}
-
-.data-science-link {
-  text-decoration: none;
-  color: #999;
-}
-.data-science-link:hover {
-  text-decoration: none;
-  color: lightgray;
-}
-.data-science-link h2 {
-  font-style: italic;
-  font-weight: 100 !important;
 }
 
 .jumbotron {
@@ -76,6 +79,11 @@
 .offline-alert {
   color: tomato;
   filter: none !important;
+}
+
+.copyright {
+  vertical-align: super;
+  font-size:small;
 }
 /*-------------- Responsive Styling -----------------------*/
 
