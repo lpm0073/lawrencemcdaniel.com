@@ -117,7 +117,7 @@ const MachineLearning = (props) => {
                   </div>
                 </div>
               </div>
-              <div className="column-right col-lg-6 col-md-12">
+              <div className="column-right col-lg-6 col-md-12 pe-5">
                 <a href="https://www.coursera.org/account/accomplishments/verify/2MVW9YRMFYC9?utm_source=link&utm_campaign=copybutton_certificate&utm_product=course">
                   <img
                     src="https://cdn.lawrencemcdaniel.com/wp-content/uploads/2020/06/05220349/machine-learning-certificate.jpg"
@@ -133,7 +133,7 @@ const MachineLearning = (props) => {
             </div>
             <div className="row ml-0 mr-0 pr-2">
               <div className="col-12 mt-3">
-                <p className="text-justify">
+                <p className="text-justify pe-3">
                   Fortunately some of the greatest minds on earth, like{" "}
                   <a
                     href="http://www.andrewng.org"
