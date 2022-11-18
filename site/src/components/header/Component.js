@@ -132,6 +132,17 @@ export class Header extends Component {
                     </NavLink>
                   </DropdownItem>
                   <DropdownItem>
+                    <NavLink className="nav-link p-0 m-0" to="/machine-learning">
+                      <img
+                        key="menu-ml-image"
+                        className="react-logo"
+                        src="/assets/images/machine-learning-icon.png"
+                        alt="ML logo"
+                      />
+                      Machine Learning + AI
+                    </NavLink>
+                  </DropdownItem>
+                  <DropdownItem>
                     <NavLink className="nav-link p-0 m-0" to="/reactjs">
                       <img
                         key="menu-react-image"
@@ -157,14 +168,6 @@ export class Header extends Component {
                       />
                       Angular
                     </a>
-                  </DropdownItem>
-                  <DropdownItem>
-                    <NavLink
-                      className="nav-link p-0 m-0"
-                      to="/machine-learning/"
-                    >
-                      Machine Learning + AI
-                    </NavLink>
                   </DropdownItem>
                 </DropdownMenu>
               </UncontrolledDropdown>
