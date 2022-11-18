@@ -40,8 +40,8 @@ const Skills = (props) => {
         <RenderPageTitle
           theme="light"
           icon="fa-book"
-          title="HARD"
-          boxed_title="SKILLS"
+          title="FULL"
+          boxed_title="STACK"
         />
 
         <div className="row mt-5 mb-5 ml-0 mr-0">
