@@ -105,6 +105,13 @@ const MachineLearning = (props) => {
                         width="100%"
                       />
                     </a>
+                    <a href="https://eportfolio.mygreatlearning.com/lawrence-mcdaniel">
+                      <img 
+                        src="https://cdn.lawrencemcdaniel.com/wp-content/uploads/2022/11/18003538/mit-idss-course.png"
+                        alt="MIT Institute For Data, Systems, and Society"
+                        width="100%"
+                      />
+                    </a>
                   </div>
                 </div>
               </div>
