@@ -1,6 +1,7 @@
 import React from "react";
 import RenderPageTitle from "../../components/pagetitle/pageTitleComponent";
 import SpecialtiesBanner from "./datascienceBanner";
+import WhartonCertificate from "./WhartonCertificate";
 import { Helmet } from "react-helmet";
 import { gsdGraph } from "../../shared/seo/gsdGraph";
 import { gsdPersonLawrenceMcDaniel } from "../../shared/seo/gsdPersonLawrence";
@@ -155,26 +156,26 @@ const Datascience = (props) => {
           </div>
         </div>
         <div className="row mx-3 my-0 p-0">
-            <div className="col-lg-6 col-md-12 mb-1 pe-1">
-              <a href="https://www.coursera.org/account/accomplishments/certificate/KZN42KMZ4HHJ">
-                <img src="https://cdn.lawrencemcdaniel.com/wp-content/uploads/2022/11/18143957/wharton-people-analytics-certificate.png" width="100%" alt="Wharton People Analytics Certificate" />
-              </a>
-            </div>
-            <div className="col-lg-6 col-md-12 mb-1 pe-1">
-              <a href="https://www.coursera.org/account/accomplishments/certificate/7NSB8MFBWCT8">
-                <img src="https://cdn.lawrencemcdaniel.com/wp-content/uploads/2022/11/18143951/wharton-operations-analytics-certificate.png" width="100%" alt="Wharton Operations Analytics Certificate" />
-              </a>
-            </div>
-            <div className="col-lg-6 col-md-12 mb-1 pe-1">
-              <a href="https://www.coursera.org/account/accomplishments/certificate/4YXEDYZJXQUD">
-                <img src="https://cdn.lawrencemcdaniel.com/wp-content/uploads/2022/11/18143946/wharton-customer-analytics-certificate.png" width="100%" alt="Wharton Customer Analytics Certificate" />
-              </a>
-            </div>
-            <div className="col-lg-6 col-md-12 mb-1 pe-1">
-              <a href="https://www.coursera.org/account/accomplishments/certificate/EB4FBYKJ2956">
-                <img src="https://cdn.lawrencemcdaniel.com/wp-content/uploads/2022/11/18143939/wharton-accounting-analytics-certificate.png" width="100%" alt="Wharton Accounting Analytics Certificate" />
-              </a>
-            </div>
+          <WhartonCertificate 
+              idx="1" 
+              href="https://www.coursera.org/account/accomplishments/certificate/KZN42KMZ4HHJ"
+              src="https://cdn.lawrencemcdaniel.com/wp-content/uploads/2022/11/18143957/wharton-people-analytics-certificate.png" 
+            />
+          <WhartonCertificate 
+              idx="2" 
+              href="https://www.coursera.org/account/accomplishments/certificate/7NSB8MFBWCT8"
+              src="https://cdn.lawrencemcdaniel.com/wp-content/uploads/2022/11/18143951/wharton-operations-analytics-certificate.png"
+            />
+          <WhartonCertificate 
+              idx="3" 
+              href="https://www.coursera.org/account/accomplishments/certificate/4YXEDYZJXQUD"
+              src="https://cdn.lawrencemcdaniel.com/wp-content/uploads/2022/11/18143946/wharton-customer-analytics-certificate.png"
+            />
+          <WhartonCertificate 
+              idx="4" 
+              href="https://www.coursera.org/account/accomplishments/certificate/EB4FBYKJ2956"
+              src="https://cdn.lawrencemcdaniel.com/wp-content/uploads/2022/11/18143939/wharton-accounting-analytics-certificate.png"
+            />
         </div>
         <SpecialtiesBanner />
         <div className="row mx-5">
