@@ -7,8 +7,6 @@ import React from "react";
 // Rings, RotatingLines, RotatingSquare, RotatingTriangles, TailSpin, ThreeCircles, 
 // ThreeDots, Triangle, Vortex, Watch
 import { ThreeDots } from "react-loader-spinner";
-// mcdaniel: deprecated?
-//import "react-loader-spinner/dist/loader/css/react-spinner-loader.css";
 
 const Loading = () => {
   return (
