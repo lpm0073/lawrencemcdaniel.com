@@ -1,7 +1,7 @@
-import * as ActionTypes from "./ActionTypes";
+import * as ActionTypes from './ActionTypes'
 
-import { wpGetFeaturedImage } from "../shared/wpGetFeaturedImage";
-import { shuffleArray } from "../shared/shuffle";
+import { wpGetFeaturedImage } from '../shared/wpGetFeaturedImage'
+import { shuffleArray } from '../shared/shuffle'
 
 export const Specialties = (
   state = {
@@ -14,12 +14,12 @@ export const Specialties = (
   action
 ) => {
   function extractUrls() {
-    const posts = action.payload;
+    const posts = action.payload
     const logos = shuffleArray(
       posts.map((post, indx) => {
-        return wpGetFeaturedImage(post, "medium");
+        return wpGetFeaturedImage(post, 'medium')
       })
-    );
+    )
 
     const featured_logos = shuffleArray(
       posts
@@ -27,25 +27,25 @@ export const Specialties = (
           for (var i = 0; i < post.categories.length; i++) {
             if (post.categories[i] === 48) {
               /* featured technology */
-              return true;
+              return true
             }
           }
-          return false;
+          return false
         })
         .map((featuredPost, indx) => {
-          return wpGetFeaturedImage(featuredPost, "medium");
+          return wpGetFeaturedImage(featuredPost, 'medium')
         })
-    );
+    )
 
     return {
       logos: logos,
       featured_logos: featured_logos,
-    };
+    }
   }
 
   switch (action.type) {
     case ActionTypes.ADD_SPECIALTIES:
-      const parsed_urls = extractUrls();
+      const parsed_urls = extractUrls()
       return {
         ...state,
         isLoading: false,
@@ -53,7 +53,7 @@ export const Specialties = (
         logos: parsed_urls.logos,
         featured_logos: parsed_urls.featured_logos,
         items: action.payload,
-      };
+      }
 
     case ActionTypes.SPECIALTIES_LOADING:
       return {
@@ -63,7 +63,7 @@ export const Specialties = (
         logos: [],
         featured_logos: [],
         items: [],
-      };
+      }
 
     case ActionTypes.SPECIALTIES_FAILED:
       return {
@@ -73,9 +73,9 @@ export const Specialties = (
         logos: [],
         featured_logos: [],
         items: [],
-      };
+      }
 
     default:
-      return state;
+      return state
   }
-};
+}

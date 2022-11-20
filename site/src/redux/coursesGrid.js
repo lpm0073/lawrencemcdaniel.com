@@ -1,4 +1,4 @@
-import * as ActionTypes from "./ActionTypes";
+import * as ActionTypes from './ActionTypes'
 
 export const CoursesGridRedux = (
   state = {
@@ -8,9 +8,9 @@ export const CoursesGridRedux = (
 ) => {
   switch (action.type) {
     case ActionTypes.SET_COURSESGRID_STATE:
-      return { ...state, isSet: true };
+      return { ...state, isSet: true }
 
     default:
-      return state;
+      return state
   }
-};
+}

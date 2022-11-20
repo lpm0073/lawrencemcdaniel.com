@@ -1,4 +1,4 @@
-import * as ActionTypes from "./ActionTypes";
+import * as ActionTypes from './ActionTypes'
 
 export const Portfolio = (
   state = {
@@ -15,10 +15,10 @@ export const Portfolio = (
         isLoading: false,
         errMess: null,
         projects: action.payload,
-      };
+      }
 
     case ActionTypes.PORTFOLIO_LOADING:
-      return { ...state, isLoading: true, errMess: null, projects: [] };
+      return { ...state, isLoading: true, errMess: null, projects: [] }
 
     case ActionTypes.PORTFOLIO_FAILED:
       return {
@@ -26,9 +26,9 @@ export const Portfolio = (
         isLoading: false,
         errMess: action.payload,
         projects: [],
-      };
+      }
 
     default:
-      return state;
+      return state
   }
-};
+}

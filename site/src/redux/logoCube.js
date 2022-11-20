@@ -1,4 +1,4 @@
-import * as ActionTypes from "./ActionTypes";
+import * as ActionTypes from './ActionTypes'
 
 export const LogoCube = (
   state = {
@@ -9,9 +9,9 @@ export const LogoCube = (
 ) => {
   switch (action.type) {
     case ActionTypes.SET_LOGOCUBE_STATE:
-      return { ...state, isSet: true, state: action.state };
+      return { ...state, isSet: true, state: action.state }
 
     default:
-      return state;
+      return state
   }
-};
+}

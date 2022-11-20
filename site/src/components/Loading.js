@@ -1,12 +1,12 @@
-import React from "react";
+import React from 'react'
 
-// options: 
-// Audio, BallTriangle, Bars, Blocks, Circles, CirclesWithBar, ColorRing, Comment, 
-// Discuss, Dna, FallingLines, FidgetSpinner, Grid, Hearts, InfinitySpin, LineWave, 
-// MagnifyingGlass, MutatingDots, Oval, ProgressBar, Puff, Radio, RevolvingDot, 
-// Rings, RotatingLines, RotatingSquare, RotatingTriangles, TailSpin, ThreeCircles, 
+// options:
+// Audio, BallTriangle, Bars, Blocks, Circles, CirclesWithBar, ColorRing, Comment,
+// Discuss, Dna, FallingLines, FidgetSpinner, Grid, Hearts, InfinitySpin, LineWave,
+// MagnifyingGlass, MutatingDots, Oval, ProgressBar, Puff, Radio, RevolvingDot,
+// Rings, RotatingLines, RotatingSquare, RotatingTriangles, TailSpin, ThreeCircles,
 // ThreeDots, Triangle, Vortex, Watch
-import { ThreeDots } from "react-loader-spinner";
+import { ThreeDots } from 'react-loader-spinner'
 
 const Loading = () => {
   return (
@@ -19,7 +19,7 @@ const Loading = () => {
         timeout={3000}
       />
     </div>
-  );
-};
+  )
+}
 
-export default Loading;
+export default Loading

@@ -1,4 +1,4 @@
-import * as ActionTypes from "./ActionTypes";
+import * as ActionTypes from './ActionTypes'
 
 export const ClientGridRedux = (
   state = {
@@ -8,9 +8,9 @@ export const ClientGridRedux = (
 ) => {
   switch (action.type) {
     case ActionTypes.SET_CLIENTGRID_STATE:
-      return { ...state, isSet: true };
+      return { ...state, isSet: true }
 
     default:
-      return state;
+      return state
   }
-};
+}

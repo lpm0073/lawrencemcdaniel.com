@@ -1,4 +1,4 @@
-import * as ActionTypes from "./ActionTypes";
+import * as ActionTypes from './ActionTypes'
 
 export const Project = (
   state = {
@@ -15,10 +15,10 @@ export const Project = (
         isLoading: false,
         errMess: null,
         images: action.payload,
-      };
+      }
 
     case ActionTypes.PROJECT_IMAGES_LOADING:
-      return { ...state, isLoading: true, errMess: null, images: [] };
+      return { ...state, isLoading: true, errMess: null, images: [] }
 
     case ActionTypes.PROJECT_IMAGES_FAILED:
       return {
@@ -26,9 +26,9 @@ export const Project = (
         isLoading: false,
         errMess: action.payload,
         images: [],
-      };
+      }
 
     default:
-      return state;
+      return state
   }
-};
+}

@@ -1,4 +1,4 @@
-import * as ActionTypes from "./ActionTypes";
+import * as ActionTypes from './ActionTypes'
 
 export const Recommendations = (
   state = {
@@ -15,15 +15,15 @@ export const Recommendations = (
         isLoading: false,
         errMess: null,
         items: action.payload,
-      };
+      }
 
     case ActionTypes.RECOMMENDATIONS_LOADING:
-      return { ...state, isLoading: true, errMess: null, items: [] };
+      return { ...state, isLoading: true, errMess: null, items: [] }
 
     case ActionTypes.RECOMMENDATIONS_FAILED:
-      return { ...state, isLoading: false, errMess: action.payload, items: [] };
+      return { ...state, isLoading: false, errMess: action.payload, items: [] }
 
     default:
-      return state;
+      return state
   }
-};
+}

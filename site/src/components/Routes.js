@@ -1,8 +1,8 @@
-import React, { Component } from "react";
-import { Routes, Route, Navigate } from "react-router-dom";
+import React, { Component } from 'react'
+import { Routes, Route, Navigate } from 'react-router-dom'
 
 // Redux
-import { connect } from "react-redux";
+import { connect } from 'react-redux'
 import {
   fetchSpecialties,
   fetchPortfolio,
@@ -10,83 +10,83 @@ import {
   fetchRecommendations,
   fetchProjectImages,
   fetchClients,
-} from "../redux/ActionCreators";
+} from '../redux/ActionCreators'
 
 // Pages
-import Home from "../pages/home/Component";
-import Contact from "../pages/contact/Component";
-import QR from "../pages/qr/Component";
-import About from "../pages/about/Component";
-import Bio from "../pages/bio/Component";
-import Specialties from "../pages/specialties/Component";
-import Portfolio from "../pages/portfolio/Component";
-import PortfolioDetail from "../pages/portfolioDetail/Component";
-import Education from "../pages/education/Component";
-import Skills from "../pages/skills/Component";
-import Clients from "../pages/clients/Component";
-import Datascience from "../pages/dataScience/Component";
-import ReactPage from "../pages/react/Component";
-import Openedx from "../pages/openedx/Component";
-import PageNotFound from "../pages/notFound/Component";
-import MRLPage from "../pages/mdr/Component";
+import Home from '../pages/home/Component'
+import Contact from '../pages/contact/Component'
+import QR from '../pages/qr/Component'
+import About from '../pages/about/Component'
+import Bio from '../pages/bio/Component'
+import Specialties from '../pages/specialties/Component'
+import Portfolio from '../pages/portfolio/Component'
+import PortfolioDetail from '../pages/portfolioDetail/Component'
+import Education from '../pages/education/Component'
+import Skills from '../pages/skills/Component'
+import Clients from '../pages/clients/Component'
+import Datascience from '../pages/dataScience/Component'
+import ReactPage from '../pages/react/Component'
+import Openedx from '../pages/openedx/Component'
+import PageNotFound from '../pages/notFound/Component'
+import MRLPage from '../pages/mdr/Component'
 
 const mapStateToProps = (state) => ({
   ...state,
-});
+})
 
 const mapDispatchToProps = (dispatch) => ({
   fetchSpecialties: () => {
-    dispatch(fetchSpecialties());
+    dispatch(fetchSpecialties())
   },
   fetchPortfolio: () => {
-    dispatch(fetchPortfolio());
+    dispatch(fetchPortfolio())
   },
   fetchEducation: () => {
-    dispatch(fetchEducation());
+    dispatch(fetchEducation())
   },
   fetchRecommendations: () => {
-    dispatch(fetchRecommendations());
+    dispatch(fetchRecommendations())
   },
   fetchProjectImages: () => {
-    dispatch(fetchProjectImages());
+    dispatch(fetchProjectImages())
   },
   fetchClients: () => {
-    dispatch(fetchClients());
+    dispatch(fetchClients())
   },
-});
+})
 
 class SiteRoutes extends Component {
   componentDidMount() {
-    this.props.fetchSpecialties();
-    this.props.fetchPortfolio();
-    this.props.fetchEducation();
-    this.props.fetchRecommendations();
-    this.props.fetchProjectImages();
-    this.props.fetchClients();
+    this.props.fetchSpecialties()
+    this.props.fetchPortfolio()
+    this.props.fetchEducation()
+    this.props.fetchRecommendations()
+    this.props.fetchProjectImages()
+    this.props.fetchClients()
   }
 
   shouldComponentUpdate(nextProps, nextState) {
     /* pare down updates on pages with entry animations */
-    const path = window.location.pathname;
-    if (path === "/home" || path === "/") {
+    const path = window.location.pathname
+    if (path === '/home' || path === '/') {
       if (!this.props.homePage.isSet) {
-        return true;
+        return true
       }
-      return false;
+      return false
     }
-    if (path === "/clients") {
+    if (path === '/clients') {
       if (!this.props.clientGrid.isSet) {
-        return true;
+        return true
       }
-      return false;
+      return false
     }
-    if (path === "/education") {
+    if (path === '/education') {
       if (!this.props.coursesGrid.isSet) {
-        return true;
+        return true
       }
-      return false;
+      return false
     }
-    return true;
+    return true
   }
 
   render() {
@@ -104,8 +104,8 @@ class SiteRoutes extends Component {
           imagesLoading={this.props.project.isLoading}
           imagesError={this.props.project.errMess}
         />
-      );
-    };
+      )
+    }
 
     return (
       <React.Fragment>
@@ -128,10 +128,7 @@ class SiteRoutes extends Component {
             path="/portfolio"
             element={<Portfolio portfolio={this.props.portfolio} />}
           />
-          <Route
-            path="/portfolio/:portfolioId"
-            element={<PortfolioWithSlug />}
-          />
+          <Route path="/portfolio/:portfolioId" element={<PortfolioWithSlug />} />
           <Route
             exact
             path="/education"
@@ -155,9 +152,9 @@ class SiteRoutes extends Component {
           <Route path="*" element={<PageNotFound />} />
         </Routes>
       </React.Fragment>
-    );
+    )
   }
 }
 
 //export default withRouter(connect(mapStateToProps, mapDispatchToProps)(SiteRoutes));
-export default connect(mapStateToProps, mapDispatchToProps)(SiteRoutes);
+export default connect(mapStateToProps, mapDispatchToProps)(SiteRoutes)

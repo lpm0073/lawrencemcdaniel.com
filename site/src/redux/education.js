@@ -1,4 +1,4 @@
-import * as ActionTypes from "./ActionTypes";
+import * as ActionTypes from './ActionTypes'
 
 export const Education = (
   state = {
@@ -15,10 +15,10 @@ export const Education = (
         isLoading: false,
         errMess: null,
         courses: action.payload,
-      };
+      }
 
     case ActionTypes.EDUCATION_LOADING:
-      return { ...state, isLoading: true, errMess: null, courses: [] };
+      return { ...state, isLoading: true, errMess: null, courses: [] }
 
     case ActionTypes.EDUCATION_FAILED:
       return {
@@ -26,9 +26,9 @@ export const Education = (
         isLoading: false,
         errMess: action.payload,
         courses: [],
-      };
+      }
 
     default:
-      return state;
+      return state
   }
-};
+}
