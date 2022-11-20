@@ -1,5 +1,5 @@
-import React from "react";
-import "./styles.css";
+import React from 'react'
+import './styles.css'
 
 export const LinkedinBadge = () => {
   return (
@@ -26,7 +26,7 @@ export const LinkedinBadge = () => {
           <div className="LI-title">
             <span role="img" aria-label="Close">
               📡
-            </span>{" "}
+            </span>{' '}
             Full Stack Developer
           </div>
         </div>
@@ -57,5 +57,5 @@ export const LinkedinBadge = () => {
         </div>
       </div>
     </div>
-  );
-};
+  )
+}

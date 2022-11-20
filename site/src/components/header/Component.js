@@ -1,5 +1,5 @@
-import React, { Component } from "react";
-import { Offline } from "react-detect-offline";
+import React, { Component } from 'react'
+import { Offline } from 'react-detect-offline'
 import {
   Navbar,
   Nav,
@@ -10,36 +10,36 @@ import {
   DropdownMenu,
   DropdownToggle,
   DropdownItem,
-} from "reactstrap";
-import { NavLink } from "react-router-dom";
+} from 'reactstrap'
+import { NavLink } from 'react-router-dom'
 
-import "./styles.css";
+import './styles.css'
 
 export class Header extends Component {
   constructor(props) {
-    super(props);
+    super(props)
 
     this.state = {
       isNavOpen: false,
       isModalOpen: false,
-    };
+    }
 
-    this.toggleNav = this.toggleNav.bind(this);
-    this.toggleNavItem = this.toggleNavItem.bind(this);
-    this.getWindowDimensions = this.getWindowDimensions.bind(this);
+    this.toggleNav = this.toggleNav.bind(this)
+    this.toggleNavItem = this.toggleNavItem.bind(this)
+    this.getWindowDimensions = this.getWindowDimensions.bind(this)
   }
 
   toggleNav() {
     this.setState({
       isNavOpen: !this.state.isNavOpen,
-    });
+    })
   }
   getWindowDimensions() {
-    const { innerWidth: width, innerHeight: height } = window;
+    const { innerWidth: width, innerHeight: height } = window
     return {
       width,
       height,
-    };
+    }
   }
 
   toggleNavItem() {
@@ -47,11 +47,11 @@ export class Header extends Component {
     // for the hamburger menu items.
     //
     // md = Medium ≥768px. Max container width 720px.
-    const windowSize = this.getWindowDimensions();
+    const windowSize = this.getWindowDimensions()
     if (windowSize.width < 768) {
       this.setState({
         isNavOpen: !this.state.isNavOpen,
-      });
+      })
     }
   }
 
@@ -61,8 +61,8 @@ export class Header extends Component {
         <Offline key="header-offline-alert">
           <div className="text-center mb-1 mt-1">
             <div className="offline-alert">
-              <span className="fa fa-exclamation-triangle"></span> Check your
-              Internet connection.
+              <span className="fa fa-exclamation-triangle"></span> Check your Internet
+              connection.
             </div>
           </div>
         </Offline>
@@ -71,17 +71,13 @@ export class Header extends Component {
           <Collapse isOpen={this.state.isNavOpen} navbar>
             <Nav navbar>
               <NavItem>
-                <NavLink
-                  onClick={this.toggleNavItem}
-                  className="nav-link"
-                  to="/"
-                >
+                <NavLink onClick={this.toggleNavItem} className="nav-link" to="/">
                   Home
                 </NavLink>
               </NavItem>
               <UncontrolledDropdown nav inNavbar className="hide-medium">
                 <DropdownToggle nav caret className="">
-                    About
+                  About
                 </DropdownToggle>
                 <DropdownMenu className="bg-dark">
                   <DropdownItem>
@@ -107,11 +103,7 @@ export class Header extends Component {
                 </DropdownMenu>
               </UncontrolledDropdown>
               <NavItem>
-                <NavLink
-                  onClick={this.toggleNavItem}
-                  className="nav-link"
-                  to="/clients"
-                >
+                <NavLink onClick={this.toggleNavItem} className="nav-link" to="/clients">
                   Clients
                 </NavLink>
               </NavItem>
@@ -252,11 +244,7 @@ export class Header extends Component {
                 </DropdownMenu>
               </UncontrolledDropdown>
               <NavItem>
-                <NavLink
-                  onClick={this.toggleNavItem}
-                  className="nav-link"
-                  to="/contact"
-                >
+                <NavLink onClick={this.toggleNavItem} className="nav-link" to="/contact">
                   Contact
                 </NavLink>
               </NavItem>
@@ -264,6 +252,6 @@ export class Header extends Component {
           </Collapse>
         </Navbar>
       </header>
-    );
+    )
   }
 }

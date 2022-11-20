@@ -1,24 +1,24 @@
-import React from "react";
-import { Alert } from "reactstrap";
+import React from 'react'
+import { Alert } from 'reactstrap'
 
-import "./styles.css";
+import './styles.css'
 
-const ALERT_VISIBILITY_SECONDS = 5.0;
+const ALERT_VISIBILITY_SECONDS = 5.0
 
 class AppUpdateAlert extends React.Component {
   constructor(props) {
-    super(props);
+    super(props)
 
     this.state = {
       visible: false,
       msg: props.msg,
-    };
+    }
 
     // Bind the callback so we can execute
     // it from anywhere inside this class, and
     // so that garbage collection knows to
     // leave it alone while we're running.
-    if (props.callback) this.callback = props.callback.bind(this);
+    if (props.callback) this.callback = props.callback.bind(this)
   }
 
   // make ourself `visible` so that the Bootstrap alert
@@ -34,11 +34,11 @@ class AppUpdateAlert extends React.Component {
         window.setTimeout(() => {
           this.setState({
             visible: false,
-          });
-          if (this.callback) this.callback();
-        }, 1000 * ALERT_VISIBILITY_SECONDS);
+          })
+          if (this.callback) this.callback()
+        }, 1000 * ALERT_VISIBILITY_SECONDS)
       }
-    );
+    )
   }
 
   render() {
@@ -54,8 +54,8 @@ class AppUpdateAlert extends React.Component {
           </Alert>
         </div>
       </React.Fragment>
-    );
+    )
   }
 }
 
-export default AppUpdateAlert;
+export default AppUpdateAlert

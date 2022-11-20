@@ -1,11 +1,11 @@
-import React from "react";
+import React from 'react'
 
-import "./styles.css";
+import './styles.css'
 
 export default function Footer(props) {
-  var d = new Date();
-  const curr_year = d.getFullYear();
-  const REACT_VERSION = React.version;
+  var d = new Date()
+  const curr_year = d.getFullYear()
+  const REACT_VERSION = React.version
 
   return (
     <React.Fragment>
@@ -20,12 +20,8 @@ export default function Footer(props) {
                   src="/assets/images/react-logo-300x261.png"
                   alt="ReactJS logo"
                 />
-                Progressive Web App Built with ReactJS {REACT_VERSION}, Redux and Workbox.{" "}
-                <a
-                  className="mx-1 learn-more-link"
-                  href="/reactjs"
-                  target="_self"
-                >
+                Progressive Web App Built with ReactJS {REACT_VERSION}, Redux and Workbox.{' '}
+                <a className="mx-1 learn-more-link" href="/reactjs" target="_self">
                   Learn more
                 </a>
               </div>
@@ -36,8 +32,8 @@ export default function Footer(props) {
               <p className="mb-1">
                 © Copyright 2015 - {curr_year}.
                 <span className="hide-medium">
-                  {" "}
-                  edX and{" "}
+                  {' '}
+                  edX and{' '}
                   <a
                     className="mx-1 "
                     href="https://open.edx.org/"
@@ -45,8 +41,8 @@ export default function Footer(props) {
                     rel="noopener noreferrer"
                   >
                     <span className="edx-links">Open edX</span>
-                  </a>{" "}
-                  are registered trademarks of{" "}
+                  </a>{' '}
+                  are registered trademarks of{' '}
                   <a
                     className="mx-1"
                     href="https://www.edx.org/"
@@ -54,7 +50,7 @@ export default function Footer(props) {
                     rel="noopener noreferrer"
                   >
                     <span className="edx-links">edX Inc.</span>
-                  </a>{" "}
+                  </a>{' '}
                   All Rights Reserved.
                 </span>
               </p>
@@ -63,5 +59,5 @@ export default function Footer(props) {
         </div>
       </footer>
     </React.Fragment>
-  );
+  )
 }
