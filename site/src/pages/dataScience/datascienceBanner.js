@@ -1,8 +1,8 @@
-import React from "react";
-import Loading from "../../components/Loading";
+import React from 'react'
+import Loading from '../../components/Loading'
 
 const SpecialtyColumn = (props) => {
-  const iconClass = "fa fa-3x " + props.icon;
+  const iconClass = 'fa fa-3x ' + props.icon
 
   return (
     <React.Fragment>
@@ -20,8 +20,8 @@ const SpecialtyColumn = (props) => {
         </div>
       </div>
     </React.Fragment>
-  );
-};
+  )
+}
 
 const SpecialtiesBanner = (props) => {
   return (
@@ -50,7 +50,7 @@ const SpecialtiesBanner = (props) => {
         </div>
       )}
     </React.Fragment>
-  );
-};
+  )
+}
 
-export default SpecialtiesBanner;
+export default SpecialtiesBanner

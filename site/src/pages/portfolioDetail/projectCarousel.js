@@ -1,7 +1,7 @@
-import React, { Component } from "react";
-import Carousel from "react-multi-carousel";
-import "react-multi-carousel/lib/styles.css";
-import Loading from "../../components/Loading";
+import React, { Component } from 'react'
+import Carousel from 'react-multi-carousel'
+import 'react-multi-carousel/lib/styles.css'
+import Loading from '../../components/Loading'
 
 const responsive = {
   superLargeDesktop: {
@@ -20,11 +20,11 @@ const responsive = {
     breakpoint: { max: 464, min: 0 },
     items: 1,
   },
-};
+}
 
 class ProjectCarousel extends Component {
   render() {
-    const itemList = this.props.images;
+    const itemList = this.props.images
     return (
       <div>
         {this.props.isLoading ? (
@@ -53,20 +53,16 @@ class ProjectCarousel extends Component {
               {itemList.map((url, indx) => {
                 return (
                   <div className="item col-8 text-left mt-5 px-5" key={indx}>
-                    <img
-                      className="project_image mb-5 p-2"
-                      src={url}
-                      alt={"alt text"}
-                    />
+                    <img className="project_image mb-5 p-2" src={url} alt={'alt text'} />
                   </div>
-                );
+                )
               })}
             </Carousel>
           </div>
         )}
       </div>
-    );
+    )
   }
 }
 
-export default ProjectCarousel;
+export default ProjectCarousel

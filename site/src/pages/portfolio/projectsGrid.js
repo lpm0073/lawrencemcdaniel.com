@@ -1,26 +1,24 @@
-import React, { Component } from "react";
-import { Link } from "react-router-dom";
-import Loading from "../../components/Loading";
-import { wpGetFeaturedImage } from "../../shared/wpGetFeaturedImage";
+import React, { Component } from 'react'
+import { Link } from 'react-router-dom'
+import Loading from '../../components/Loading'
+import { wpGetFeaturedImage } from '../../shared/wpGetFeaturedImage'
 
 class ProjectsGrid extends Component {
   render() {
     function RenderProjectItem({ project }) {
-      const item_url = wpGetFeaturedImage(project, null);
-      const background_url = "url('" + item_url + "')";
+      const item_url = wpGetFeaturedImage(project, null)
+      const background_url = "url('" + item_url + "')"
       const item_style = {
         backgroundImage: background_url,
-      };
+      }
       return (
         <Link to={`/portfolio/${project.slug}`}>
           <div className="portfolio-item p-1">
             <div className="portfolio-item-image" style={item_style}></div>
-            <div className="portfolio-item-overlay">
-              {project.title.rendered}
-            </div>
+            <div className="portfolio-item-overlay">{project.title.rendered}</div>
           </div>
         </Link>
-      );
+      )
     }
     return (
       <div key="projects-grid">
@@ -37,14 +35,14 @@ class ProjectsGrid extends Component {
                   >
                     <RenderProjectItem project={portfolio_item} />
                   </div>
-                );
+                )
               })}
             </div>
           </div>
         )}
       </div>
-    );
+    )
   }
 }
 
-export default ProjectsGrid;
+export default ProjectsGrid

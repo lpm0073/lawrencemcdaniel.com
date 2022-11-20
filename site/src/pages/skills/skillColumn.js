@@ -1,18 +1,18 @@
-import React from "react";
-import { useRef } from "react";
-import { useEffect } from "react";
-import drawCircle from "./drawCircle";
+import React from 'react'
+import { useRef } from 'react'
+import { useEffect } from 'react'
+import drawCircle from './drawCircle'
 
 /*
  Canvas animated drawing in React: http://www.petecorey.com/blog/2019/08/19/animating-a-canvas-with-react-hooks/
  */
 
 const SkillColumn = (props) => {
-  const thisClassName = "fa p-3 " + props.icon + " fa-2x";
-  const ref = useRef();
-  const keyName = "skill-column-" + props.key;
+  const thisClassName = 'fa p-3 ' + props.icon + ' fa-2x'
+  const ref = useRef()
+  const keyName = 'skill-column-' + props.key
 
-  useEffect(() => drawCircle(ref));
+  useEffect(() => drawCircle(ref))
 
   return (
     <React.Fragment>
@@ -30,7 +30,7 @@ const SkillColumn = (props) => {
         </div>
       </div>
     </React.Fragment>
-  );
-};
+  )
+}
 
-export default SkillColumn;
+export default SkillColumn

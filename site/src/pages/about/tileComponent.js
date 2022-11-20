@@ -1,8 +1,8 @@
-import React from "react";
+import React from 'react'
 
 const AboutTile = (props) => {
-  const thisClassName = "fa " + props.icon + " fa-2x about-tile-icon";
-  const keyName = "tile-component-" + props.icon;
+  const thisClassName = 'fa ' + props.icon + ' fa-2x about-tile-icon'
+  const keyName = 'tile-component-' + props.icon
   return (
     <div key={keyName} className="col-md-6 col-sm-12 p-0 text-center noselect">
       <div className="m-1">
@@ -13,7 +13,7 @@ const AboutTile = (props) => {
         </div>
       </div>
     </div>
-  );
-};
+  )
+}
 
-export default AboutTile;
+export default AboutTile

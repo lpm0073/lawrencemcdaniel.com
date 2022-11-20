@@ -1,9 +1,9 @@
-import React, { Component } from "react";
-import Carousel from "react-multi-carousel";
-import "react-multi-carousel/lib/styles.css";
-import Loading from "../../components/Loading";
-import { wpGetFeaturedImage } from "../../shared/wpGetFeaturedImage";
-import { shuffleArray } from "../../shared/shuffle";
+import React, { Component } from 'react'
+import Carousel from 'react-multi-carousel'
+import 'react-multi-carousel/lib/styles.css'
+import Loading from '../../components/Loading'
+import { wpGetFeaturedImage } from '../../shared/wpGetFeaturedImage'
+import { shuffleArray } from '../../shared/shuffle'
 
 const responsive = {
   superLargeDesktop: {
@@ -22,11 +22,11 @@ const responsive = {
     breakpoint: { max: 464, min: 0 },
     items: 1,
   },
-};
+}
 
 class TechnologyCarousel extends Component {
   render() {
-    const itemList = shuffleArray(this.props.specialties.items);
+    const itemList = shuffleArray(this.props.specialties.items)
     return (
       <div className="">
         {this.props.isLoading ? (
@@ -58,26 +58,22 @@ class TechnologyCarousel extends Component {
               transitionDuration={3000}
             >
               {itemList.map((specialty, indx) => {
-                var item_url = wpGetFeaturedImage(specialty, null);
-                const background_url = "url('" + item_url + "')";
+                var item_url = wpGetFeaturedImage(specialty, null)
+                const background_url = "url('" + item_url + "')"
                 const item_style = {
                   backgroundImage: background_url,
-                };
+                }
 
                 return (
-                  <div
-                    className="specialty-item"
-                    key={indx}
-                    style={item_style}
-                  ></div>
-                );
+                  <div className="specialty-item" key={indx} style={item_style}></div>
+                )
               })}
             </Carousel>
           </div>
         )}
       </div>
-    );
+    )
   }
 }
 
-export default TechnologyCarousel;
+export default TechnologyCarousel

@@ -1,9 +1,9 @@
-import React, { Component } from "react";
-import Carousel from "react-multi-carousel";
-import "react-multi-carousel/lib/styles.css";
-import Loading from "../../components/Loading";
-import { wpGetFeaturedImage } from "../../shared/wpGetFeaturedImage";
-import { shuffleArray } from "../../shared/shuffle";
+import React, { Component } from 'react'
+import Carousel from 'react-multi-carousel'
+import 'react-multi-carousel/lib/styles.css'
+import Loading from '../../components/Loading'
+import { wpGetFeaturedImage } from '../../shared/wpGetFeaturedImage'
+import { shuffleArray } from '../../shared/shuffle'
 
 const responsive = {
   superLargeDesktop: {
@@ -22,11 +22,11 @@ const responsive = {
     breakpoint: { max: 464, min: 0 },
     items: 1,
   },
-};
+}
 
 class ClientCarousel extends Component {
   render() {
-    const itemList = shuffleArray(this.props.clients.logos);
+    const itemList = shuffleArray(this.props.clients.logos)
     return (
       <div key="client-carousel">
         {this.props.isLoading ? (
@@ -58,22 +58,20 @@ class ClientCarousel extends Component {
               transitionDuration={5000}
             >
               {itemList.map((client, indx) => {
-                var item_url = wpGetFeaturedImage(client, null);
-                const background_url = "url('" + item_url + "')";
+                var item_url = wpGetFeaturedImage(client, null)
+                const background_url = "url('" + item_url + "')"
                 const item_style = {
                   backgroundImage: background_url,
-                };
+                }
 
-                return (
-                  <div className="client-item" key={indx} style={item_style} />
-                );
+                return <div className="client-item" key={indx} style={item_style} />
               })}
             </Carousel>
           </div>
         )}
       </div>
-    );
+    )
   }
 }
 
-export default ClientCarousel;
+export default ClientCarousel

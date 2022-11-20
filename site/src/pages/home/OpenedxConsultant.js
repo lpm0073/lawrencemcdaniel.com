@@ -1,4 +1,4 @@
-import React from "react";
+import React from 'react'
 
 const OpenedxConsultant = (props) => {
   return (
@@ -6,27 +6,21 @@ const OpenedxConsultant = (props) => {
       <div key="2" className="job-title lead mb-0 mt-5 col-4 ps-4 pe-4">
         <a href="/openedx">
           <h2>
-            <span
-              className="open-edx-consultant-bookends"
-              role="img"
-              aria-label="Close"
-            >
-              ⇥📙📚{" "}
+            <span className="open-edx-consultant-bookends" role="img" aria-label="Close">
+              ⇥📙📚{' '}
             </span>
-              <span>Open edX<span className="copyright">®</span> Consultant</span>
-            <span
-              className="open-edx-consultant-bookends"
-              role="img"
-              aria-label="Close"
-            >
-              {" "}
+            <span>
+              Open edX<span className="copyright">®</span> Consultant
+            </span>
+            <span className="open-edx-consultant-bookends" role="img" aria-label="Close">
+              {' '}
               📚📘⇤
             </span>
           </h2>
         </a>
       </div>
     </React.Fragment>
-  );
-};
+  )
+}
 
-export default OpenedxConsultant;
+export default OpenedxConsultant

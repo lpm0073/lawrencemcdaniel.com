@@ -1,32 +1,32 @@
-import React from "react";
-import RenderPageTitle from "../../components/pagetitle/pageTitleComponent";
-import CoursesGrid from "./coursesGrid";
-import { Helmet } from "react-helmet";
-import { gsdPersonLawrenceMcDaniel } from "../../shared/seo/gsdPersonLawrence";
-import { hasOccupation } from "../../shared/seo/gsdPersonLawrence";
-import { gsdGraph } from "../../shared/seo/gsdGraph";
-import { URL_SITE } from "../../shared/constants";
-import "./styles.css";
+import React from 'react'
+import RenderPageTitle from '../../components/pagetitle/pageTitleComponent'
+import CoursesGrid from './coursesGrid'
+import { Helmet } from 'react-helmet'
+import { gsdPersonLawrenceMcDaniel } from '../../shared/seo/gsdPersonLawrence'
+import { hasOccupation } from '../../shared/seo/gsdPersonLawrence'
+import { gsdGraph } from '../../shared/seo/gsdGraph'
+import { URL_SITE } from '../../shared/constants'
+import './styles.css'
 
 const Education = (props) => {
   /* Google Structured Data */
   const person = {
     ...gsdPersonLawrenceMcDaniel,
     ...{ hasOccupation: hasOccupation },
-  };
-  const slug = "education";
-  const webpageName = "Eduction";
+  }
+  const slug = 'education'
+  const webpageName = 'Eduction'
   const webpageDescription =
-    "Lawrence McDaniel educational background and courses completed.";
-  const primaryImageUrl = "";
-  const pageType = "";
-  const relatedLink = "";
-  const graphExtraData = [person];
+    'Lawrence McDaniel educational background and courses completed.'
+  const primaryImageUrl = ''
+  const pageType = ''
+  const relatedLink = ''
+  const graphExtraData = [person]
 
   return (
     <React.Fragment>
       <Helmet>
-        <link rel="canonical" href={URL_SITE + "education/"} />
+        <link rel="canonical" href={URL_SITE + 'education/'} />
         <script type="application/ld+json">
           {JSON.stringify(
             gsdGraph(
@@ -53,7 +53,7 @@ const Education = (props) => {
         </div>
       </div>
     </React.Fragment>
-  );
-};
+  )
+}
 
-export default Education;
+export default Education

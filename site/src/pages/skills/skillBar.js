@@ -1,12 +1,12 @@
-import React from "react";
-import { useRef } from "react";
-import { useEffect } from "react";
-import drawBar from "./drawBar";
+import React from 'react'
+import { useRef } from 'react'
+import { useEffect } from 'react'
+import drawBar from './drawBar'
 
 const SkillBar = (props) => {
-  const ref = useRef();
-  const keyName = "skill-bar-" + props.key;
-  useEffect(() => drawBar(ref));
+  const ref = useRef()
+  const keyName = 'skill-bar-' + props.key
+  useEffect(() => drawBar(ref))
 
   return (
     <React.Fragment>
@@ -17,7 +17,7 @@ const SkillBar = (props) => {
         </div>
       </div>
     </React.Fragment>
-  );
-};
+  )
+}
 
-export default SkillBar;
+export default SkillBar

@@ -1,26 +1,26 @@
-import React from "react";
-import RenderPageTitle from "../../components/pagetitle/pageTitleComponent";
-import ProjectsGrid from "./projectsGrid";
-import { gsdGraph } from "../../shared/seo/gsdGraph";
-import { Helmet } from "react-helmet";
-import { gsdPersonLawrenceMcDaniel } from "../../shared/seo/gsdPersonLawrence";
-import { URL_SITE } from "../../shared/constants";
-import "./styles.css";
+import React from 'react'
+import RenderPageTitle from '../../components/pagetitle/pageTitleComponent'
+import ProjectsGrid from './projectsGrid'
+import { gsdGraph } from '../../shared/seo/gsdGraph'
+import { Helmet } from 'react-helmet'
+import { gsdPersonLawrenceMcDaniel } from '../../shared/seo/gsdPersonLawrence'
+import { URL_SITE } from '../../shared/constants'
+import './styles.css'
 
 const Portfolio = (props) => {
   /* Google Structured Data */
-  const slug = "portfolio";
-  const webpageName = "Portfolio";
-  const webpageDescription = "Lawrence McDaniel's portfolio.";
-  const primaryImageUrl = "";
-  const pageType = "";
-  const relatedLink = "";
-  const graphExtraData = [gsdPersonLawrenceMcDaniel];
+  const slug = 'portfolio'
+  const webpageName = 'Portfolio'
+  const webpageDescription = "Lawrence McDaniel's portfolio."
+  const primaryImageUrl = ''
+  const pageType = ''
+  const relatedLink = ''
+  const graphExtraData = [gsdPersonLawrenceMcDaniel]
 
   return (
     <React.Fragment>
       <Helmet>
-        <link rel="canonical" href={URL_SITE + "/portfolio/"} />
+        <link rel="canonical" href={URL_SITE + '/portfolio/'} />
         <script type="application/ld+json">
           {JSON.stringify(
             gsdGraph(
@@ -49,7 +49,7 @@ const Portfolio = (props) => {
         </div>
       </div>
     </React.Fragment>
-  );
-};
+  )
+}
 
-export default Portfolio;
+export default Portfolio

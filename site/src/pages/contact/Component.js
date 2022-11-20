@@ -1,36 +1,36 @@
-import React, { Component } from "react";
+import React, { Component } from 'react'
 
-import { Helmet } from "react-helmet";
-import { Tab, Tabs, TabList, TabPanel } from "react-tabs";
-import "react-tabs/style/react-tabs.css";
+import { Helmet } from 'react-helmet'
+import { Tab, Tabs, TabList, TabPanel } from 'react-tabs'
+import 'react-tabs/style/react-tabs.css'
 
-import RenderPageTitle from "../../components/pagetitle/pageTitleComponent";
+import RenderPageTitle from '../../components/pagetitle/pageTitleComponent'
 
-import { URL_SITE } from "../../shared/constants";
-import { resumeUrl } from "../../shared/constants";
+import { URL_SITE } from '../../shared/constants'
+import { resumeUrl } from '../../shared/constants'
 
 // SEO
-import { gsdGraph } from "../../shared/seo/gsdGraph";
-import { gsdPersonLawrenceMcDaniel } from "../../shared/seo/gsdPersonLawrence";
-import { baseTitle } from "../../shared/seo/gsdCommon";
+import { gsdGraph } from '../../shared/seo/gsdGraph'
+import { gsdPersonLawrenceMcDaniel } from '../../shared/seo/gsdPersonLawrence'
+import { baseTitle } from '../../shared/seo/gsdCommon'
 
-import "./styles.css";
+import './styles.css'
 
 class Contact extends Component {
   render() {
     /* Google Structured Data */
-    const slug = "contact";
-    const webpageName = "Contact";
-    const webpageDescription = "Lawrence McDaniel contact information.";
-    const primaryImageUrl = "";
-    const pageType = "ContactPage";
-    const relatedLink = "";
-    const graphExtraData = [gsdPersonLawrenceMcDaniel];
+    const slug = 'contact'
+    const webpageName = 'Contact'
+    const webpageDescription = 'Lawrence McDaniel contact information.'
+    const primaryImageUrl = ''
+    const pageType = 'ContactPage'
+    const relatedLink = ''
+    const graphExtraData = [gsdPersonLawrenceMcDaniel]
 
     return (
       <React.Fragment>
         <Helmet>
-          <link rel="canonical" href={URL_SITE + "/contact/"} />
+          <link rel="canonical" href={URL_SITE + '/contact/'} />
           <script type="application/ld+json">
             {JSON.stringify(
               gsdGraph(
@@ -75,15 +75,11 @@ class Contact extends Component {
                   </address>
                 </a>
                 <h6 className="mb-4">
-                  Email:{" "}
-                  <a href="mailto:lpm0073@gmail.com">lpm0073@gmail.com</a>
+                  Email: <a href="mailto:lpm0073@gmail.com">lpm0073@gmail.com</a>
                 </h6>
                 <p className="mb-0">
-                  Phone:{" "}
-                  <a
-                    className="mt-4 contact-phone-link"
-                    href="tel:+16178346172"
-                  >
+                  Phone:{' '}
+                  <a className="mt-4 contact-phone-link" href="tel:+16178346172">
                     +1 (617) 834-6172
                   </a>
                 </p>
@@ -141,9 +137,7 @@ class Contact extends Component {
                       <div>
                         <h4>
                           <span className="col-md-2 mr-2 whatsapp-logo image-container"></span>
-                          <span className="col-md-10 p-0">
-                            Whatsapp QR Code
-                          </span>
+                          <span className="col-md-10 p-0">Whatsapp QR Code</span>
                         </h4>
                       </div>
                       <div className="col-md-12 whatsapp-qr-code square image-container"></div>
@@ -152,22 +146,20 @@ class Contact extends Component {
                       <div>
                         <h4>
                           <span className="col-md-2 mr-2 linkedin-logo image-container"></span>
-                          <span className="col-md-10 p-0">
-                            LinkedIn QR Code
-                          </span>
+                          <span className="col-md-10 p-0">LinkedIn QR Code</span>
                         </h4>
                       </div>
                       <div className="col-md-12 linkedin-qr-code square image-container"></div>
                     </TabPanel>
                     <TabPanel>
                       <div>
-                          <h4>
-                              <span className="col-md-2 mr-2 venmo-logo image-container"></span>
-                              <span className="col-md-10 p-0">Venmo QR Code</span>
-                          </h4>
+                        <h4>
+                          <span className="col-md-2 mr-2 venmo-logo image-container"></span>
+                          <span className="col-md-10 p-0">Venmo QR Code</span>
+                        </h4>
                       </div>
                       <div className="col-md-12 venmo-qr-code square image-container"></div>
-                  </TabPanel>
+                    </TabPanel>
                   </Tabs>
                 </div>
                 <div className="col-md-1"></div>
@@ -177,8 +169,8 @@ class Contact extends Component {
           </div>
         </div>
       </React.Fragment>
-    );
+    )
   }
 }
 
-export default Contact;
+export default Contact

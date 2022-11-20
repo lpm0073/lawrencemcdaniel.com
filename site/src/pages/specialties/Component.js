@@ -1,32 +1,32 @@
-import React from "react";
-import RenderPageTitle from "../../components/pagetitle/pageTitleComponent";
-import SpecialtiesBanner from "./specialtiesBanner";
-import TechnologyCarousel from "./technologyCarousel";
-import { Helmet } from "react-helmet";
-import { gsdPersonLawrenceMcDaniel } from "../../shared/seo/gsdPersonLawrence";
-import { gsdKnowsAbout } from "../../shared/seo/gsdKnowsAbout";
-import { gsdGraph } from "../../shared/seo/gsdGraph";
-import { URL_SITE } from "../../shared/constants";
-import "./styles.css";
+import React from 'react'
+import RenderPageTitle from '../../components/pagetitle/pageTitleComponent'
+import SpecialtiesBanner from './specialtiesBanner'
+import TechnologyCarousel from './technologyCarousel'
+import { Helmet } from 'react-helmet'
+import { gsdPersonLawrenceMcDaniel } from '../../shared/seo/gsdPersonLawrence'
+import { gsdKnowsAbout } from '../../shared/seo/gsdKnowsAbout'
+import { gsdGraph } from '../../shared/seo/gsdGraph'
+import { URL_SITE } from '../../shared/constants'
+import './styles.css'
 
 const Specialties = (props) => {
   /* Google Structured Data */
   const person = {
     ...gsdPersonLawrenceMcDaniel,
     ...{ knowsAbout: gsdKnowsAbout(props) },
-  };
-  const slug = "specialties";
-  const webpageName = "Specialties";
-  const webpageDescription = "Lawrence McDaniel's technical skills";
-  const primaryImageUrl = "";
-  const pageType = "";
-  const relatedLink = "";
-  const graphExtraData = [person];
+  }
+  const slug = 'specialties'
+  const webpageName = 'Specialties'
+  const webpageDescription = "Lawrence McDaniel's technical skills"
+  const primaryImageUrl = ''
+  const pageType = ''
+  const relatedLink = ''
+  const graphExtraData = [person]
 
   return (
     <React.Fragment>
       <Helmet>
-        <link rel="canonical" href={URL_SITE + "/specialties/"} />
+        <link rel="canonical" href={URL_SITE + '/specialties/'} />
         <script type="application/ld+json">
           {JSON.stringify(
             gsdGraph(
@@ -57,9 +57,8 @@ const Specialties = (props) => {
               <div>
                 <h2>Want to see code samples?</h2>
                 <h6>
-                  I'm constantly experimenting with new GitHub libraries and
-                  coding techniques. Click here to see some of my all-time
-                  favorites.
+                  I'm constantly experimenting with new GitHub libraries and coding
+                  techniques. Click here to see some of my all-time favorites.
                 </h6>
               </div>
             </div>
@@ -79,7 +78,7 @@ const Specialties = (props) => {
         </div>
       </div>
     </React.Fragment>
-  );
-};
+  )
+}
 
-export default Specialties;
+export default Specialties

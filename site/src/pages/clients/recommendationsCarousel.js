@@ -1,10 +1,10 @@
-import React, { Component } from "react";
-import Loading from "../../components/Loading";
-import Carousel from "react-multi-carousel";
-import "react-multi-carousel/lib/styles.css";
-import Moment from "moment";
-import { wpGetFeaturedImage } from "../../shared/wpGetFeaturedImage";
-import { shuffleArray } from "../../shared/shuffle";
+import React, { Component } from 'react'
+import Loading from '../../components/Loading'
+import Carousel from 'react-multi-carousel'
+import 'react-multi-carousel/lib/styles.css'
+import Moment from 'moment'
+import { wpGetFeaturedImage } from '../../shared/wpGetFeaturedImage'
+import { shuffleArray } from '../../shared/shuffle'
 
 const responsive = {
   superLargeDesktop: {
@@ -23,11 +23,11 @@ const responsive = {
     breakpoint: { max: 464, min: 0 },
     items: 1,
   },
-};
+}
 
 class RecommendationsCarousel extends Component {
   render() {
-    const recommendationsList = shuffleArray(this.props.recommendations.items);
+    const recommendationsList = shuffleArray(this.props.recommendations.items)
 
     return (
       <div key="recommendations-carousel" className="hide-small">
@@ -61,19 +61,19 @@ class RecommendationsCarousel extends Component {
               transitionDuration={2000}
             >
               {recommendationsList.map((recommendation, indx) => {
-                const rawContent = recommendation.content.rendered;
+                const rawContent = recommendation.content.rendered
 
-                var parser = new DOMParser();
-                var doc = parser.parseFromString(rawContent, "text/html");
+                var parser = new DOMParser()
+                var doc = parser.parseFromString(rawContent, 'text/html')
 
-                var title = doc.querySelector(".title").innerHTML;
-                var relationship = doc.querySelector(".relationship").innerHTML;
-                var description = doc.querySelector(".description").innerHTML;
+                var title = doc.querySelector('.title').innerHTML
+                var relationship = doc.querySelector('.relationship').innerHTML
+                var description = doc.querySelector('.description').innerHTML
 
-                Moment.locale("en");
+                Moment.locale('en')
 
                 function unescapedString(str) {
-                  return { __html: str };
+                  return { __html: str }
                 }
 
                 return (
@@ -83,10 +83,7 @@ class RecommendationsCarousel extends Component {
                         <div className="col-md-3 ">
                           <img
                             className="recommendation-pic mt-1"
-                            src={wpGetFeaturedImage(
-                              recommendation,
-                              "thumbnail"
-                            )}
+                            src={wpGetFeaturedImage(recommendation, 'thumbnail')}
                             alt={recommendation.slug}
                           />
                         </div>
@@ -103,13 +100,11 @@ class RecommendationsCarousel extends Component {
                           />
                           <div className="">
                             <span className="recommendation-date">
-                              {Moment(recommendation.date).format("MMM-YYYY")},{" "}
+                              {Moment(recommendation.date).format('MMM-YYYY')},{' '}
                             </span>
                             <span
                               className="recommendation-relationship"
-                              dangerouslySetInnerHTML={unescapedString(
-                                relationship
-                              )}
+                              dangerouslySetInnerHTML={unescapedString(relationship)}
                             />
                           </div>
                         </div>
@@ -119,19 +114,19 @@ class RecommendationsCarousel extends Component {
                       <div
                         className="recommendation-description"
                         dangerouslySetInnerHTML={unescapedString(
-                          "&quot;" + description + "&quot;"
+                          '&quot;' + description + '&quot;'
                         )}
                       />
                     </div>
                   </div>
-                );
+                )
               })}
             </Carousel>
           </div>
         )}
       </div>
-    );
+    )
   }
 }
 
-export default RecommendationsCarousel;
+export default RecommendationsCarousel

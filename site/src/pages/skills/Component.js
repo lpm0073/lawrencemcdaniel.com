@@ -1,27 +1,27 @@
-import React from "react";
-import RenderPageTitle from "../../components/pagetitle/pageTitleComponent";
-import SkillColumn from "./skillColumn";
-import SkillBar from "./skillBar";
-import { Helmet } from "react-helmet";
-import { gsdPersonLawrenceMcDaniel } from "../../shared/seo/gsdPersonLawrence";
-import { gsdGraph } from "../../shared/seo/gsdGraph";
-import { URL_SITE } from "../../shared/constants";
-import "./styles.css";
+import React from 'react'
+import RenderPageTitle from '../../components/pagetitle/pageTitleComponent'
+import SkillColumn from './skillColumn'
+import SkillBar from './skillBar'
+import { Helmet } from 'react-helmet'
+import { gsdPersonLawrenceMcDaniel } from '../../shared/seo/gsdPersonLawrence'
+import { gsdGraph } from '../../shared/seo/gsdGraph'
+import { URL_SITE } from '../../shared/constants'
+import './styles.css'
 
 const Skills = (props) => {
   /* Google Structured Data */
-  const slug = "skills";
-  const webpageName = "Skills";
-  const webpageDescription = "Lawrence McDaniel's technology skills.";
-  const primaryImageUrl = "";
-  const pageType = "";
-  const relatedLink = "";
-  const graphExtraData = [gsdPersonLawrenceMcDaniel];
+  const slug = 'skills'
+  const webpageName = 'Skills'
+  const webpageDescription = "Lawrence McDaniel's technology skills."
+  const primaryImageUrl = ''
+  const pageType = ''
+  const relatedLink = ''
+  const graphExtraData = [gsdPersonLawrenceMcDaniel]
 
   return (
     <React.Fragment>
       <Helmet>
-        <link rel="canonical" href={URL_SITE + "/skills/"} />
+        <link rel="canonical" href={URL_SITE + '/skills/'} />
         <script type="application/ld+json">
           {JSON.stringify(
             gsdGraph(
@@ -37,12 +37,7 @@ const Skills = (props) => {
         </script>
       </Helmet>
       <div key="skills-page" className="site-page skills-page">
-        <RenderPageTitle
-          theme="light"
-          icon="fa-book"
-          title="FULL"
-          boxed_title="STACK"
-        />
+        <RenderPageTitle theme="light" icon="fa-book" title="FULL" boxed_title="STACK" />
 
         <div className="row mt-5 mb-5 ml-0 mr-0">
           <SkillColumn
@@ -96,11 +91,7 @@ const Skills = (props) => {
               pct="100"
               description="Django, React, Redux, Angular, Ionic, WordPress"
             />
-            <SkillBar
-              key="2"
-              pct="100"
-              description="Bootstrap, D3, Underscore.js"
-            />
+            <SkillBar key="2" pct="100" description="Bootstrap, D3, Underscore.js" />
             <SkillBar
               key="3"
               pct="100"
@@ -133,7 +124,7 @@ const Skills = (props) => {
         </div>
       </div>
     </React.Fragment>
-  );
-};
+  )
+}
 
-export default Skills;
+export default Skills

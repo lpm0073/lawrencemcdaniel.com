@@ -1,35 +1,35 @@
 /*
     To do: add modal with title: https://reactstrap.github.io/components/modals/
  */
-import React, { Component } from "react";
-import { Modal, ModalHeader } from "reactstrap";
+import React, { Component } from 'react'
+import { Modal, ModalHeader } from 'reactstrap'
 
-import { Helmet } from "react-helmet";
-import Loading from "../../components/Loading";
+import { Helmet } from 'react-helmet'
+import Loading from '../../components/Loading'
 //import MatrixRainingLetters from '../../components/matrixRainingLetters/matrixRainingLetters';
-import { MatrixRainingLetters } from "react-mdr";
-import { URL_SITE } from "../../shared/constants";
-import "./styles.css";
+import { MatrixRainingLetters } from 'react-mdr'
+import { URL_SITE } from '../../shared/constants'
+import './styles.css'
 
 class PageNotFound extends Component {
   constructor(props) {
-    super(props);
+    super(props)
 
     this.state = {
       isMounted: false,
-    };
+    }
   }
 
   componentDidMount() {
-    document.body.classList.add("matrixPage");
-    console.log("mounted.");
+    document.body.classList.add('matrixPage')
+    console.log('mounted.')
     this.setState({
       isMounted: true,
-    });
+    })
   }
 
   componentWillUnmount() {
-    document.body.classList.remove("matrixPage");
+    document.body.classList.remove('matrixPage')
   }
 
   render() {
@@ -40,7 +40,7 @@ class PageNotFound extends Component {
         ) : (
           <React.Fragment>
             <Helmet>
-              <link rel="canonical" href={URL_SITE + "/matrix/"} />
+              <link rel="canonical" href={URL_SITE + '/matrix/'} />
             </Helmet>
             <div className="matrixPage m-0 p-0">
               {this.state.isMounted ? (
@@ -66,8 +66,8 @@ class PageNotFound extends Component {
           </React.Fragment>
         )}
       </React.Fragment>
-    );
+    )
   }
 }
 
-export default PageNotFound;
+export default PageNotFound

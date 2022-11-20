@@ -1,35 +1,35 @@
 /*
     To do: add modal with title: https://reactstrap.github.io/components/modals/
  */
-import React, { Component } from "react";
-import { Modal, ModalHeader } from "reactstrap";
+import React, { Component } from 'react'
+import { Modal, ModalHeader } from 'reactstrap'
 
-import { Helmet } from "react-helmet";
-import Loading from "../../components/Loading";
+import { Helmet } from 'react-helmet'
+import Loading from '../../components/Loading'
 //import MatrixRainingLetters from '../../components/matrixRainingLetters/matrixRainingLetters';
-import { MatrixRainingLetters } from "react-mdr";
-import { URL_SITE } from "../../shared/constants";
-import "./styles.css";
+import { MatrixRainingLetters } from 'react-mdr'
+import { URL_SITE } from '../../shared/constants'
+import './styles.css'
 
 class MRLPage extends Component {
   constructor(props) {
-    super(props);
+    super(props)
 
     this.state = {
       isMounted: false,
       isOpen: true,
-    };
+    }
   }
 
   componentDidMount() {
-    document.body.classList.add("matrixPage");
+    document.body.classList.add('matrixPage')
     this.setState({
       isMounted: true,
-    });
+    })
   }
 
   componentWillUnmount() {
-    document.body.classList.remove("matrixPage");
+    document.body.classList.remove('matrixPage')
   }
 
   render() {
@@ -40,15 +40,9 @@ class MRLPage extends Component {
         ) : (
           <React.Fragment>
             <Helmet>
-              <link rel="canonical" href={URL_SITE + "/react-mdr/"} />
-              <meta
-                name="description"
-                content="Matrix digital rain for React"
-              />
-              <meta
-                property="og:description"
-                content="Matrix digital rain for React"
-              />
+              <link rel="canonical" href={URL_SITE + '/react-mdr/'} />
+              <meta name="description" content="Matrix digital rain for React" />
+              <meta property="og:description" content="Matrix digital rain for React" />
               <meta
                 name="keywords"
                 content="Lawrence McDaniel, Matrix Digital Rain, NPM, React, ReactJS"
@@ -88,8 +82,8 @@ class MRLPage extends Component {
           </React.Fragment>
         )}
       </React.Fragment>
-    );
+    )
   }
 }
 
-export default MRLPage;
+export default MRLPage

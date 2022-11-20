@@ -1,29 +1,29 @@
-import React from "react";
-import RenderPageTitle from "../../components/pagetitle/pageTitleComponent";
-import RecommendationsCarousel from "./recommendationsCarousel";
-import ClientGrid from "../../components/clientGrid/Component";
-import { Helmet } from "react-helmet";
-import { gsdGraph } from "../../shared/seo/gsdGraph";
-import { gsdPersonLawrenceMcDaniel } from "../../shared/seo/gsdPersonLawrence";
-import { URL_SITE } from "../../shared/constants";
+import React from 'react'
+import RenderPageTitle from '../../components/pagetitle/pageTitleComponent'
+import RecommendationsCarousel from './recommendationsCarousel'
+import ClientGrid from '../../components/clientGrid/Component'
+import { Helmet } from 'react-helmet'
+import { gsdGraph } from '../../shared/seo/gsdGraph'
+import { gsdPersonLawrenceMcDaniel } from '../../shared/seo/gsdPersonLawrence'
+import { URL_SITE } from '../../shared/constants'
 
-import "./styles.css";
+import './styles.css'
 
 const Clients = (props) => {
   /* Google Structured Data */
-  const slug = "clients";
-  const webpageName = "Clients";
+  const slug = 'clients'
+  const webpageName = 'Clients'
   const webpageDescription =
-    "Lawrence McDaniel client list for my Full Stack Developer practice.";
-  const primaryImageUrl = "";
-  const pageType = "";
-  const relatedLink = "";
-  const graphExtraData = [gsdPersonLawrenceMcDaniel];
+    'Lawrence McDaniel client list for my Full Stack Developer practice.'
+  const primaryImageUrl = ''
+  const pageType = ''
+  const relatedLink = ''
+  const graphExtraData = [gsdPersonLawrenceMcDaniel]
 
   return (
     <React.Fragment>
       <Helmet>
-        <link rel="canonical" href={URL_SITE + "/clients/"} />
+        <link rel="canonical" href={URL_SITE + '/clients/'} />
         <script type="application/ld+json">
           {JSON.stringify(
             gsdGraph(
@@ -51,7 +51,7 @@ const Clients = (props) => {
         </div>
       </div>
     </React.Fragment>
-  );
-};
+  )
+}
 
-export default Clients;
+export default Clients
