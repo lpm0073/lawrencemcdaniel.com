@@ -6,24 +6,22 @@ My personal web site, developed with ReactJS/Redux.
 ```bash
 # Setup dev environment
 git clone https://github.com/lpm0073/lawrencemcdaniel.com.git
-./site/yarn install
+make update
 
 # Develop
-./site/yarn start
+make serve
 
 # Buid:
-./site/yarn build
+make build
 
 # Deploy:
-./deploy.sh
+make release
 ```
 
-## Update all Node dependencies
-´´´bash
-cd site
-npm i npm-check-updates
-ncu -u
-´´´
+## Linting
+
+work in progress: https://dev.to/eclecticcoding/linting-in-react-5c17
+
 ## Resources
 - API: https://api.lawrencemcdaniel.com/
 - CDN: https://cdn.lawrencemcdaniel.com/
