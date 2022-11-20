@@ -43,13 +43,24 @@
     "build": "react-scripts build",
     "test": "react-scripts test",
     "eject": "react-scripts eject",
-    "sitemap": "babel-node ./src/components/sitemap/generator.js"
+    "sitemap": "babel-node ./src/components/sitemap/generator.js",
+    "lint:fix": "eslint src/**/*.js --fix",
+    "lint": "eslint src/**/*.js",
+    "prettify": "prettier src/**/*.js --write"
   },
   "eslintConfig": {
     "extends": [
       "react-app",
-      "react-app/jest"
+      "react-app/jest",
+      "plugin:prettier/recommended"
     ]
+  },
+  "prettier": {
+    "printWidth": 90,
+    "bracketSpacing": true,
+    "trailingComma": "es5",
+    "semi": false,
+    "singleQuote": true
   },
   "browserslist": {
     "production": [
@@ -67,7 +78,20 @@
     "@testing-library/jest-dom": "latest",
     "@testing-library/react": "latest",
     "babel-cli": "^6.26.0",
-    "babel-register": "^6.26.0"
+    "babel-register": "^6.26.0",
+    "eslint-config-prettier": "^8.5.0",
+    "eslint-plugin-prettier": "^4.2.1",
+    "husky": "^8.0.2",
+    "lint-staged": "^13.0.3",
+    "prettier": "^2.7.1"
+  },
+  "husky": {
+    "hooks": {
+      "pre-commit": "lint-staged"
+    }
+  },
+  "lint-staged": {
+    "*.js": "npm run lint:fix"
   },
   "main": "index.js",
   "license": "MIT",
