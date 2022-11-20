@@ -3,26 +3,26 @@ https://blog.bitsrc.io/lazy-loading-react-components-with-react-lazy-and-suspens
 
 mcdaniel oct-2021: also see https://blog.bitsrc.io/using-service-workers-with-react-27a4c5e2d1a9
  */
-import React from "react";
-import { createRoot } from 'react-dom/client';
+import React from 'react'
+import { createRoot } from 'react-dom/client'
 
-import { Provider } from "react-redux";
-import { ConfigureStore } from "./redux/configureStore";
+import { Provider } from 'react-redux'
+import { ConfigureStore } from './redux/configureStore'
 
 //import reportWebVitals from './reportWebVitals';
 
-import { Online, Offline } from "react-detect-offline";
+import { Online, Offline } from 'react-detect-offline'
 
-import "bootstrap/dist/css/bootstrap.min.css";
-import "font-awesome/css/font-awesome.min.css";
-import "bootstrap-social/bootstrap-social.css";
-import "./index.css";
+import 'bootstrap/dist/css/bootstrap.min.css'
+import 'font-awesome/css/font-awesome.min.css'
+import 'bootstrap-social/bootstrap-social.css'
+import './index.css'
 
-import App from "./App";
+import App from './App'
 
-const store = ConfigureStore();
-const container = document.getElementById("root");
-const root = createRoot(container);
+const store = ConfigureStore()
+const container = document.getElementById('root')
+const root = createRoot(container)
 
 root.render(
   <React.StrictMode>
@@ -36,7 +36,7 @@ root.render(
     </Provider>
   </React.StrictMode>,
   container
-);
+)
 
 // If you want to start measuring performance in your app, pass a function
 // to log results (for example: reportWebVitals(console.log))

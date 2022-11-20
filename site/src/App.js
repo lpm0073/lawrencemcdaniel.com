@@ -6,32 +6,32 @@
  Note: "SW" = Service Worker.
 
  */
-import React, { Component } from "react";
-import { BrowserRouter } from "react-router-dom";
+import React, { Component } from 'react'
+import { BrowserRouter } from 'react-router-dom'
 
-import * as serviceWorkerRegistration from "./serviceWorkerRegistration";
+import * as serviceWorkerRegistration from './serviceWorkerRegistration'
 
-import { DEBUG } from "./shared/constants";
+import { DEBUG } from './shared/constants'
 
 // the components that draw the app
-import SiteRoutes from "./components/Routes";
-import Head from "./components/Head";
-import { Header } from "./components/header/Component";
-import Footer from "./components/footer/Component";
+import SiteRoutes from './components/Routes'
+import Head from './components/Head'
+import { Header } from './components/header/Component'
+import Footer from './components/footer/Component'
 
 // UI stuff for service worker notifications
-import AppUpdateAlert from "./components/appUpdate/Component";
+import AppUpdateAlert from './components/appUpdate/Component'
 
-import "./App.css";
+import './App.css'
 
 const UPDATE_AVAILABLE_MESSAGE =
-  "New content is available and will be automatically installed momentarily.";
+  'New content is available and will be automatically installed momentarily.'
 const SUCCESSFUL_INSTALL_MESSAGE =
-  "This app has successfully updated itself in the background. Content is cached for offline use.";
+  'This app has successfully updated itself in the background. Content is cached for offline use.'
 
 class App extends Component {
   constructor(props) {
-    super(props);
+    super(props)
 
     this.state = {
       isSet: false, // True once componentDidMount runs
@@ -50,15 +50,15 @@ class App extends Component {
       // Set from a Workbox callback after
       // service worker was successfully installed.
       // -----------------------------------------------------------------------------------------
-    };
+    }
 
     // Workbox and React component callbacks.
     // We want these bound to this class so that garbage collection
     // never eliminates them while a Workbox event handler might
     // call one of them.
-    this.resetSWNotificationStates = this.resetSWNotificationStates.bind(this);
-    this.onSWUpdateAvailable = this.onSWUpdateAvailable.bind(this);
-    this.onSWInstallSuccess = this.onSWInstallSuccess.bind(this);
+    this.resetSWNotificationStates = this.resetSWNotificationStates.bind(this)
+    this.onSWUpdateAvailable = this.onSWUpdateAvailable.bind(this)
+    this.onSWInstallSuccess = this.onSWInstallSuccess.bind(this)
   }
 
   // ---------------------------------------------------------------------------
@@ -67,7 +67,7 @@ class App extends Component {
 
   // Callback for our AppUpdateAlert component.
   resetSWNotificationStates() {
-    if (DEBUG) console.log("App.resetSWNotificationStates()");
+    if (DEBUG) console.log('App.resetSWNotificationStates()')
 
     // this covers the intended use case
     // of allowing a server worker update to proceed
@@ -76,8 +76,8 @@ class App extends Component {
     // and is ready to install.
     if (this.state.updatedSW && this.state.isSWUpdateAvailable) {
       this.state.updatedSW.postMessage({
-        type: "SKIP_WAITING",
-      });
+        type: 'SKIP_WAITING',
+      })
     }
 
     // reset the service worker states
@@ -85,34 +85,34 @@ class App extends Component {
       updatedSW: null,
       isSWUpdateAvailable: false,
       wasSWInstalledSuccessfully: false,
-    });
+    })
   }
 
   // Workbox callback for "service worker update ready" event
   onSWUpdateAvailable(registration) {
-    if (DEBUG) console.log("App.onSWUpdateAvailable()");
+    if (DEBUG) console.log('App.onSWUpdateAvailable()')
     if (this.state.isSet && registration) {
       this.setState({
         updatedSW: registration.waiting,
         isSWUpdateAvailable: true,
         wasSWInstalledSuccessfully: false,
-      });
+      })
     } else {
       console.log(
-        "Warning: onSWUpdateAvailable() was called without a Workbox registration object, or, component was not yet mounted."
-      );
+        'Warning: onSWUpdateAvailable() was called without a Workbox registration object, or, component was not yet mounted.'
+      )
     }
   }
 
   // Workbox callback for "service worker installation success" event
   onSWInstallSuccess(registration) {
-    if (DEBUG) console.log("App.onSWInstallSuccess()");
+    if (DEBUG) console.log('App.onSWInstallSuccess()')
     if (this.state.isSet) {
       this.setState({
         updatedSW: registration,
         isSWUpdateAvailable: false,
         wasSWInstalledSuccessfully: true,
-      });
+      })
     }
   }
 
@@ -120,31 +120,31 @@ class App extends Component {
   // ------------ React Component life cycle ------------
   // ----------------------------------------------------
   componentDidMount() {
-    if (DEBUG) console.log("App.componentDidMount()");
+    if (DEBUG) console.log('App.componentDidMount()')
 
-    this.resetSWNotificationStates();
+    this.resetSWNotificationStates()
     this.setState({
       isSet: true,
-    });
+    })
 
     // Note: I relocated this snippet from index.js
     // in order to add Workbox's two event handlers
     // for onUpdate and onSuccess.
-    if (process.env.NODE_ENV === "production") {
+    if (process.env.NODE_ENV === 'production') {
       serviceWorkerRegistration.register({
         onUpdate: this.onSWUpdateAvailable,
         onSuccess: this.onSWInstallSuccess,
         onActivated: this.onSWInstallSuccess, // an event handler that we'll have to setup manually
-      });
+      })
     }
   }
 
   render() {
-    if (DEBUG) console.log("App.render()");
+    if (DEBUG) console.log('App.render()')
 
     // service worker app update alerts.
     function AppUpdateAlerts(props) {
-      const parent = props.parent;
+      const parent = props.parent
 
       return (
         <React.Fragment>
@@ -166,7 +166,7 @@ class App extends Component {
             </React.Fragment>
           )}
         </React.Fragment>
-      );
+      )
     }
 
     // render the app!
@@ -174,7 +174,7 @@ class App extends Component {
       <React.Fragment>
         <Head />
         <BrowserRouter>
-          <div className={"container-fluid p-0 " + this.state.customClass}>
+          <div className={'container-fluid p-0 ' + this.state.customClass}>
             <Header />
             <AppUpdateAlerts parent={this} />
             <SiteRoutes />
@@ -182,8 +182,8 @@ class App extends Component {
           </div>
         </BrowserRouter>
       </React.Fragment>
-    );
+    )
   }
 }
 
-export default App;
+export default App
