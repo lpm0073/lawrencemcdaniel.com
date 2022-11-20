@@ -5,13 +5,15 @@
 sitemap:
 	npm run ./site/sitemap
 
+install:
+	npm install --legacy-peer-deps ./site/
+	
 update:
-	cd ./site
+	npm install -g npm
 	npm install -g npm-check-updates
-	ncu -u
+	ncu --upgrade --packageFile ./site/package.json
 	npm update -g
-	npm install
-	cd ..
+	npm install ./site/
 
 build:
 	yarn --cwd ./site/ build
