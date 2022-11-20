@@ -171,7 +171,7 @@ const Datascience = (props) => {
         <SpecialtiesBanner />
         <div className="row mx-5">
           <div className="col">
-            <table class="table table-borderless">
+            <table className="table table-borderless">
               <tbody>
                 <tr>
                   <td className="text-right">
