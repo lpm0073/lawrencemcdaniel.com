@@ -6,7 +6,12 @@ sitemap:
 	npm run ./site/sitemap
 
 update:
+	cd ./site
+	npm install -g npm-check-updates
+	ncu -u
 	npm update -g
+	npm install
+	cd ..
 
 build:
 	yarn --cwd ./site/ build

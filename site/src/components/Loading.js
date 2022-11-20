@@ -1,11 +1,19 @@
 import React from "react";
-import Loader from "react-loader-spinner";
-import "react-loader-spinner/dist/loader/css/react-spinner-loader.css";
+
+// options: 
+// Audio, BallTriangle, Bars, Blocks, Circles, CirclesWithBar, ColorRing, Comment, 
+// Discuss, Dna, FallingLines, FidgetSpinner, Grid, Hearts, InfinitySpin, LineWave, 
+// MagnifyingGlass, MutatingDots, Oval, ProgressBar, Puff, Radio, RevolvingDot, 
+// Rings, RotatingLines, RotatingSquare, RotatingTriangles, TailSpin, ThreeCircles, 
+// ThreeDots, Triangle, Vortex, Watch
+import { ThreeDots } from "react-loader-spinner";
+// mcdaniel: deprecated?
+//import "react-loader-spinner/dist/loader/css/react-spinner-loader.css";
 
 const Loading = () => {
   return (
     <div className="col-12 text-center">
-      <Loader
+      <ThreeDots
         type="ThreeDots"
         color="#038fc5"
         height={100}
