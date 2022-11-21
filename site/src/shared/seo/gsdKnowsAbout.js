@@ -2,8 +2,8 @@
    List of technologies from Logocube. 
    Appended to Organization object for Skills and Specialties pages.
  */
-import { wpGetFeaturedImage } from "../wpGetFeaturedImage";
-import { datePublished, nameLawrenceMcDaniel } from "./gsdCommon";
+import { wpGetFeaturedImage } from '../wpGetFeaturedImage'
+import { datePublished, nameLawrenceMcDaniel } from './gsdCommon'
 
 export const gsdKnowsAbout = (props) => {
   if (
@@ -12,19 +12,19 @@ export const gsdKnowsAbout = (props) => {
     !props.specialties ||
     props.specialties.items.length === 0
   )
-    return [];
+    return []
 
-  const itemList = props.specialties.items;
+  const itemList = props.specialties.items
   const retVal = itemList.map((specialty, indx) => {
-    const applicationCategory = specialty.acf.applicationCategory;
-    const operatingSystem = specialty.acf.operatingSystem;
-    const url = specialty.acf.url;
-    const appName = specialty.title.rendered;
-    const about = specialty.title.rendered;
-    const thumbnailUrl = wpGetFeaturedImage(specialty, null);
+    const applicationCategory = specialty.acf.applicationCategory
+    const operatingSystem = specialty.acf.operatingSystem
+    const url = specialty.acf.url
+    const appName = specialty.title.rendered
+    const about = specialty.title.rendered
+    const thumbnailUrl = wpGetFeaturedImage(specialty, null)
 
     return {
-      "@type": "SoftwareApplication",
+      '@type': 'SoftwareApplication',
       applicationCategory: applicationCategory,
       operatingSystem: operatingSystem,
       thumbnailUrl: thumbnailUrl,
@@ -32,16 +32,16 @@ export const gsdKnowsAbout = (props) => {
       url: url,
       name: appName,
       sameAs: url,
-      "@id": url + "/#software-app-id",
+      '@id': url + '/#software-app-id',
       review: [
         {
-          "@type": "Review",
+          '@type': 'Review',
           author: nameLawrenceMcDaniel,
           datePublished: datePublished,
-          name: "Review by Lawrence",
-          reviewBody: "My self review of this product.",
+          name: 'Review by Lawrence',
+          reviewBody: 'My self review of this product.',
           reviewRating: {
-            "@type": "Rating",
+            '@type': 'Rating',
             bestRating: 10,
             ratingValue: 10,
             worstRating: 1,
@@ -49,7 +49,7 @@ export const gsdKnowsAbout = (props) => {
         },
       ],
       aggregateRating: {
-        "@type": "AggregateRating",
+        '@type': 'AggregateRating',
         ratingValue: 10,
         reviewCount: 1,
         bestRating: 10,
@@ -57,11 +57,11 @@ export const gsdKnowsAbout = (props) => {
       },
       about: about,
       offers: {
-        "@type": "Offer",
+        '@type': 'Offer',
         price: 1.0,
-        priceCurrency: "USD",
+        priceCurrency: 'USD',
       },
-    };
-  });
-  return retVal;
-};
+    }
+  })
+  return retVal
+}
