@@ -92,14 +92,14 @@ const Datascience = (props) => {
                       disciplines and you also are a halfway decent software engineer then
                       the sky is the limit in terms of what you can do.
                     </p>
-                    <a href="https://eportfolio.mygreatlearning.com/lawrence-mcdaniel">
+                    <a href="https://verify.mygreatlearning.com/OHMJTCTD">
                       <img
                         src="https://cdn.lawrencemcdaniel.com/wp-content/uploads/2022/11/18001140/mit-idss-combined-logo.png"
                         alt="MIT Institute For Data, Systems, and Society"
                         width="100%"
                       />
                     </a>
-                    <a href="https://eportfolio.mygreatlearning.com/lawrence-mcdaniel">
+                    <a href="https://verify.mygreatlearning.com/OHMJTCTD">
                       <img
                         src="https://cdn.lawrencemcdaniel.com/wp-content/uploads/2022/11/18003538/mit-idss-course.png"
                         alt="MIT Institute For Data, Systems, and Society"

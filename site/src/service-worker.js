@@ -194,9 +194,9 @@ registerRoute(
 // invoke each image api and call the imagePreFetcher.
 // this should result in all static images getting cached
 // via a registerRoute below on the CDN responses.
-wpPrefetch(URL_API_SPECIALTIES);    // do me first!!!
-wpPrefetch(URL_API_CLIENTS);
-wpPrefetch(URL_API_EDUCATION);
-wpPrefetch(URL_API_PORTFOLIO);
-wpPrefetch(URL_API_PROJECTS);
-wpPrefetch(URL_API_RECOMMENDATIONS);
+//wpPrefetch(URL_API_SPECIALTIES)    // do me first!!!
+//wpPrefetch(URL_API_CLIENTS)
+//wpPrefetch(URL_API_EDUCATION)
+//wpPrefetch(URL_API_PORTFOLIO)
+//wpPrefetch(URL_API_PROJECTS)
+//wpPrefetch(URL_API_RECOMMENDATIONS)
