@@ -25,6 +25,7 @@ import Education from '../pages/education/Component'
 import Skills from '../pages/skills/Component'
 import Clients from '../pages/clients/Component'
 import Datascience from '../pages/dataScience/Component'
+import ImageTaggerPage from '../pages/imageTagging/Component'
 import ReactPage from '../pages/react/Component'
 import Openedx from '../pages/openedx/Component'
 import PageNotFound from '../pages/notFound/Component'
@@ -116,6 +117,7 @@ class SiteRoutes extends Component {
           <Route exact path="/about" element={<About />} />
           <Route exact path="/openedx" element={<Openedx />} />
           <Route exact path="/data-science" element={<Datascience />} />
+          <Route exact path="/image-tagger" element={<ImageTaggerPage />} />
           <Route exact path="/bio" element={<Bio />} />
           <Route exact path="/full-bio" element={<Navigate to="/bio" />} />
           <Route
