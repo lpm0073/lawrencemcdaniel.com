@@ -4,7 +4,6 @@ import { Helmet } from 'react-helmet'
 
 import RenderPageTitle from '../../components/pagetitle/pageTitleComponent'
 import { LinkedinBadge } from '../../components/linkedinBadge/Component'
-import { resumeUrl } from '../../shared/constants'
 import { gsdGraph } from '../../shared/seo/gsdGraph'
 import { gsdPersonLawrenceMcDaniel } from '../../shared/seo/gsdPersonLawrence'
 import { gsdArticle } from '../../shared/seo/gsdArticle'
@@ -75,35 +74,25 @@ const ImageTaggerPage = (props) => {
                   href=""
                   rel="noopener noreferrer"
                 >
-                  Browse file
+                  Browse files
                 </a>
                 <div className="mb-5"></div>
               </div>
             </div>
           </div>
         </div>
-        <div className="row mt-lg-5 meta-tags ms-0 me-0">
-          <div className="row">
-            <div className="col-lg-4 hide-medium p-0">
-              <div className="text-center meta-tags-objects">
-                <p className="meta-header m-1">Meta Objects</p>
+        <div className="row ms-0 me-0 hide-medium">
+          <div className="mt-lg-3 meta-tags ms-0 me-0">
+            <div className="row">
+              <div className="col-lg-4 p-0 meta-tags-column meta-tags-column-objects">
+                <div className="text-center meta-tags-objects">
+                  <p className="meta-header m-1">Image Meta Objects</p>
+                </div>
               </div>
-            </div>
-            <div className="col-lg-8 col-md-12 p-0">
-              <div className="text-center meta-tags-attributes">
-                <p className="meta-header m-1">Attributes</p>
-              </div>
-            </div>
-          </div>
-          <div className="row">
-            <div className="col-lg-4 hide-medium p-0">
-              <div className="text-center meta-tags-objects">
-                <p className="meta-header m-1">Meta Object - 1</p>
-              </div>
-            </div>
-            <div className="col-lg-8 col-md-12 p-0">
-              <div className="text-center meta-tags-attributes">
-                <p className="meta-header m-1">Attribute-1</p>
+              <div className="col-lg-8 col-md-12 p-0 meta-tags-column meta-tags-column-attributes">
+                <div className="text-center meta-tags-attributes">
+                  <p className="meta-header m-1">Attributes</p>
+                </div>
               </div>
             </div>
           </div>

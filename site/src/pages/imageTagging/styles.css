@@ -11,17 +11,29 @@
 
 .meta-tags {
   border: 3px solid #333;
-  background-color: whitesmoke;
+  background-color: #1e1e1e;
+  color: lightgrey
+}
+
+.meta-tags-column {
+  height: 500px;
+}
+
+.meta-tags-column-objects {
+  border-right: .5px solid darkgray;
+}
+.meta-tags-column-attributes {
+
 }
 
 .meta-tags-objects {
-  border: .5px solid darkgray;
-
+  border-right: .5px solid darkgray;
+  border-bottom: .5px solid darkgray;
 }
 .meta-tags-attributes {
-  border: .5px solid darkgray;
-
+  border-bottom: .5px solid darkgray;
 }
+
 .meta-header {
 
 }
