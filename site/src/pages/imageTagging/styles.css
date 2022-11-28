@@ -3,14 +3,21 @@
 }
 
 .drag-drop-zone {
-  border: 2px dashed darkgreen;
+  border: 1px dashed darkgreen;
   border-radius: 10px;
-  background-color: whitesmoke;
+  background-color: #f1f1f1;
   height: 375px;
+  transition: all 250ms ease-in-out;
+}
+.drag-drop-zone:hover {
+  border-color: #333;
+  border-style: solid;
+  background-color: #e1e1e1;
 }
 
+
 .meta-tags {
-  border: 3px solid #333;
+  border: 2px solid #333;
   background-color: #1e1e1e;
   color: lightgrey
 }
