@@ -11,7 +11,7 @@ export const URL_SITE = protocol + '://' + domainName
 export const URL_API = protocol + '://api.' + domainName
 export const URL_CDN = protocol + '://cdn.' + domainName
 
-export const resumeUrl = URL_CDN + '/doc/Resume-Lawrence-McDaniel-202006.pdf'
+export const resumeUrl = URL_CDN + '/doc/Resume-Lawrence-McDaniel-202211b.pdf'
 export const backendUrl = URL_API + '/wp-json/wp/v2/'
 
 // Wordpress API Content URL end points
