@@ -64,7 +64,7 @@ const ImageTaggerPage = (props) => {
             <div className="text-justify">
               <div className="mt-1 ms-5 me-0 p-5 text-center drag-drop-zone">
                 <div className="mt-5"></div>
-                <i className="fa fa-github-square fa-3x"></i>
+                <i className="fa fa-image fa-4x"></i>
                 <p className="m-1">Drag & Drop file here</p>
                 <p className="m-1 mb-3">or</p>
                 <a
