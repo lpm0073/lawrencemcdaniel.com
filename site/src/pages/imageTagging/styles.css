@@ -1,3 +1,8 @@
 .image-tagging-page {
   background-color: white;
 }
+
+.drag-drop-zone {
+  border: 3px dashed darkgreen;
+  background-color: whitesmoke;
+}

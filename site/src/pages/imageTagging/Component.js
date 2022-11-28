@@ -1,8 +1,9 @@
 import React from 'react'
 
+import { Helmet } from 'react-helmet'
+
 import RenderPageTitle from '../../components/pagetitle/pageTitleComponent'
 import { LinkedinBadge } from '../../components/linkedinBadge/Component'
-import { Helmet } from 'react-helmet'
 import { resumeUrl } from '../../shared/constants'
 import { gsdGraph } from '../../shared/seo/gsdGraph'
 import { gsdPersonLawrenceMcDaniel } from '../../shared/seo/gsdPersonLawrence'
@@ -71,7 +72,20 @@ const ImageTaggerPage = (props) => {
           </div>
           <div className="col-lg-8 col-md-12">
             <div className="text-justify">
-              <p className="">Hi mom!</p>
+              <div className="p-5 text-center drag-drop-zone">
+                <i className="fa fa-github-square fa-3x"></i>
+                <p>Drag&Drop file here</p>
+                <p>or</p>
+                <a
+                  className="btn btn-secondary btn-lg"
+                  role="button"
+                  target="_blank"
+                  href=""
+                  rel="noopener noreferrer"
+                >
+                  Browse file
+                </a>
+              </div>
             </div>
           </div>
         </div>
