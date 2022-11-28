@@ -3,6 +3,24 @@
 }
 
 .drag-drop-zone {
-  border: 3px dashed darkgreen;
+  border: 2px dashed darkgreen;
+  border-radius: 10px;
   background-color: whitesmoke;
+}
+
+.meta-tags {
+  border: 3px solid #333;
+  background-color: whitesmoke;
+}
+
+.meta-tags-objects {
+  border: .5px solid darkgray;
+
+}
+.meta-tags-attributes {
+  border: .5px solid darkgray;
+
+}
+.meta-header {
+
 }

@@ -117,7 +117,7 @@ class SiteRoutes extends Component {
           <Route exact path="/about" element={<About />} />
           <Route exact path="/openedx" element={<Openedx />} />
           <Route exact path="/data-science" element={<Datascience />} />
-          <Route exact path="/image-tagger" element={<ImageTaggerPage />} />
+          <Route exact path="/image-tagging" element={<ImageTaggerPage />} />
           <Route exact path="/bio" element={<Bio />} />
           <Route exact path="/full-bio" element={<Navigate to="/bio" />} />
           <Route

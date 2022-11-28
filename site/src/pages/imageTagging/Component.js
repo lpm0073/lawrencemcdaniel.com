@@ -25,7 +25,7 @@ const ImageTaggerPage = (props) => {
   return (
     <React.Fragment>
       <Helmet>
-        <link rel="canonical" href={URL_SITE + '/reactjs/'} />
+        <link rel="canonical" href={URL_SITE + '/image-tagging/'} />
         <meta
           name="description"
           content="Full Stack Web Developer with extensive experience using ReactJS and Redux. Follow links to the GitHub repository for this site."
@@ -59,20 +59,12 @@ const ImageTaggerPage = (props) => {
           <div className="col-lg-3 hide-medium">
             <div className="text-center">
               <LinkedinBadge />
-              <a
-                className="mt-4 btn btn-danger"
-                role="button"
-                target="_blank"
-                href={resumeUrl}
-                rel="noopener noreferrer"
-              >
-                <i className="fa fa-download"></i> Download Resume
-              </a>
             </div>
           </div>
           <div className="col-lg-8 col-md-12">
             <div className="text-justify">
               <div className="p-5 text-center drag-drop-zone">
+                <div className="mt-5"></div>
                 <i className="fa fa-github-square fa-3x"></i>
                 <p>Drag&Drop file here</p>
                 <p>or</p>
@@ -85,12 +77,36 @@ const ImageTaggerPage = (props) => {
                 >
                   Browse file
                 </a>
+                <div className="mb-5"></div>
               </div>
             </div>
           </div>
         </div>
-        <div className="aws-diagram hide-medium row mt-lg-5 pl-2 ml-0 mr-0">
-          <p>Hello world</p>
+        <div className="row mt-lg-5 meta-tags ms-0 me-0">
+          <div className="row">
+            <div className="col-lg-4 hide-medium p-0">
+              <div className="text-center meta-tags-objects">
+                <p className="meta-header m-1">Meta Objects</p>
+              </div>
+            </div>
+            <div className="col-lg-8 col-md-12 p-0">
+              <div className="text-center meta-tags-attributes">
+                <p className="meta-header m-1">Attributes</p>
+              </div>
+            </div>
+          </div>
+          <div className="row">
+            <div className="col-lg-4 hide-medium p-0">
+              <div className="text-center meta-tags-objects">
+                <p className="meta-header m-1">Meta Object - 1</p>
+              </div>
+            </div>
+            <div className="col-lg-8 col-md-12 p-0">
+              <div className="text-center meta-tags-attributes">
+                <p className="meta-header m-1">Attribute-1</p>
+              </div>
+            </div>
+          </div>
         </div>
       </div>
     </React.Fragment>
