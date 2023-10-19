@@ -124,6 +124,22 @@ export class Header extends Component {
                     </NavLink>
                   </DropdownItem>
                   <DropdownItem>
+                    <a
+                      className=""
+                      href="https://openai.lawrencemcdaniel.com/"
+                      target="_blank"
+                      rel="noopener noreferrer"
+                    >
+                      <img
+                        key="menu-openai-image"
+                        className="react-logo"
+                        src="/assets/images/openai-logo.png"
+                        alt="ReactJS logo"
+                      />
+                      OpenAI
+                    </a>
+                  </DropdownItem>
+                  <DropdownItem>
                     <NavLink className="nav-link p-0 m-0" to="/data-science">
                       <img
                         key="menu-ml-image"
