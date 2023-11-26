@@ -3,7 +3,7 @@ import { connect } from 'react-redux'
 import { bindActionCreators } from 'redux'
 import * as Actions from '../../redux/ActionCreators'
 
-import LogoCube from '../../components/logoCube/Component'
+import LogoCube from '../../components/logocube/Component'
 import OpenedxConsultant from './OpenedxConsultant'
 import JobTitle from './JobTitle'
 import { gsdGraph } from '../../shared/seo/gsdGraph'
