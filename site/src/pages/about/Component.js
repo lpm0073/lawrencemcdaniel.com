@@ -32,6 +32,10 @@ class About extends Component {
   }
 
   render() {
+    var d = new Date()
+    const years_traveling = d.getFullYear() - 1992
+    const years_living_abroad = d.getFullYear() - 1992 - 2 - 2 - 3 - 1
+
     /* Google Structured Data */
     const slug = 'about'
     const webpageName = 'About'
@@ -73,26 +77,34 @@ class About extends Component {
                 </h4>
                 <div className="text-justify">
                   <p>
-                    I’m an enthusiastic <a href="/education">lifelong learner</a>, a{' '}
+                    I’m an enthusiastic lifelong <a href="/education">learner</a>, a{' '}
                     <a href="data-science">data scientist</a> and a full stack developer.
                     I teach{' '}
-                    <a href="https://extendedlearning.ubc.ca/courses/cloud-technology-infrastructure-strategy/mg102">
+                    <a
+                      href="https://extendedlearning.ubc.ca/courses/cloud-technology-infrastructure-strategy/mg102"
+                      target="_blank"
+                      rel="noopener noreferrer"
+                    >
                       cloud computing
                     </a>{' '}
                     and{' '}
-                    <a href="https://extendedlearning.ubc.ca/courses/artificial-intelligence-cloud-technology-implementation/mg202">
+                    <a
+                      href="https://extendedlearning.ubc.ca/courses/artificial-intelligence-cloud-technology-implementation/mg202"
+                      target="_blank"
+                      rel="noopener noreferrer"
+                    >
                       AI
                     </a>{' '}
                     at{' '}
                     <a href="https://extendedlearning.ubc.ca/about-us/our-instructors/lawrence-mcdaniel">
                       University of British Columbia
                     </a>
-                    , and I{' '}
-                    <a href="https://blog.lawrencemcdaniel.com/">publish articles</a> and{' '}
+                    , and I publish{' '}
+                    <a href="https://blog.lawrencemcdaniel.com/">articles</a> and{' '}
                     <a href="https://www.youtube.com/@FullStackWithLawrence">videos</a> on
                     a variety of technology topics. I am a veteran of multiple startups
                     and early-stage ventures with dozens of successful product launches
-                    and one NASDAQ IPO. I advocate for{' '}
+                    and one NASDAQ IPO under my belt. I advocate for{' '}
                     <a href="https://en.wikipedia.org/wiki/Open_source">open source</a>,
                     try to keep things{' '}
                     <a href="https://en.wikipedia.org/wiki/Don%27t_repeat_yourself">
@@ -100,6 +112,12 @@ class About extends Component {
                     </a>{' '}
                     and well-documented and when possible I adhere to the principals of{' '}
                     <a href="https://12factor.net/">12-factor</a> development.
+                  </p>
+                  <p>
+                    I've lived abroad for {years_living_abroad} of the last{' '}
+                    {years_traveling} years in Mexico, Western Europe and SE Asia. Prior
+                    to that I earned a B.S. from University of North Texas with majors in
+                    Computer Science and Mathematics and minors in Physics and English.
                   </p>
                 </div>
                 <div className="hide-medium">
@@ -135,9 +153,7 @@ const RightColumn = () => {
   var d = new Date()
   const years_experience = d.getFullYear() - 1992 - 11 - 1 - 2
   const years_opensource = d.getFullYear() - 2010
-  const years_biking = d.getFullYear() - 1999
-  const years_traveling = d.getFullYear() - 1992
-  const years_living_abroad = d.getFullYear() - 1992 - 2 - 2 - 3 - 1
+  const years_biking = d.getFullYear() - 1990 - 5
 
   return (
     <div>
@@ -148,12 +164,6 @@ const RightColumn = () => {
         <AboutTile icon="fa-taxi" value={years_biking} text="Years bicycle commuting" />
       </div>
       <div className="column-3-text text-justify mt-1 pt-1">
-        <p>
-          I lived abroad for {years_living_abroad} of the last {years_traveling} years, in
-          Mexico, Western Europe and SE Asia. Prior to that I earned a B.S. from
-          University of North Texas with majors in Computer Science and Mathematics and
-          minors in Physics and English.
-        </p>
         <p>
           <strong>
             Read my{' '}
