@@ -46,15 +46,18 @@ jobs:
           node-version: "20.9.0"
 
       - name: Install npm dev dependencies
+        shell: bash
         run: npm install
         working-directory: ./site
 
       - name: Update .pre-commit-config.yaml
+        shell: bash
         run: |
-          pre-commit autoupdate
+          npx pre-commit autoupdate
 
       - name: Check for unstaged changes
         id: check_changes
+        shell: bash
         run: |
           if [[ -n "$(git status --porcelain .pre-commit-config.yaml)" ]]; then
             echo "::set-output name=changes::true"
