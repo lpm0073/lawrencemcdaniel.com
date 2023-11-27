@@ -1,5 +1,5 @@
 /*
-   List of technologies from Logocube. 
+   List of technologies from Logocube.
    Appended to Organization object for Skills and Specialties pages.
  */
 import { wpGetFeaturedImage } from '../wpGetFeaturedImage'

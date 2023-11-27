@@ -5,9 +5,10 @@
 sitemap:
 	npm run ./site/sitemap
 
-install:
-	npm install --legacy-peer-deps ./site/
-	
+
+init:
+	cd ./site/ && npm install --legacy-peer-deps && npm init @eslint/config
+
 update:
 	npm install -g npm
 	npm install -g npm-check-updates
@@ -19,7 +20,7 @@ build:
 	yarn --cwd ./site/ build
 
 serve:
-	yarn --cwd ./site/ start 
+	yarn --cwd ./site/ start
 
 release:
 	#---------------------------------------------------------
@@ -27,7 +28,7 @@ release:
 	#             app to AWS S3 bucket.
 	#
 	#             https://gist.github.com/kellyrmilligan/e242d3dc743105fe91a83cc933ee1314
-	# 
+	#
 	#             1. Build the React application
 	#             2. Upload to AWS S3
 	#             3. Invalidate all items in the AWS Cloudfront CDN.
@@ -52,4 +53,3 @@ release:
 
 	# invalidate the Cloudfront cache
 	aws cloudfront create-invalidation --distribution-id E2364TSMHRWAWL --paths "/*" "/index.html" "/sitemap.xml" "/manifest.json" "/service-worker.js"
-	

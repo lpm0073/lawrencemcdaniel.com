@@ -10,15 +10,14 @@
   text-decoration: none;
 }
 
-
 .job-title h2 {
   color: #999;
   height: 30px;
   vertical-align: text-bottom !important;
   font-weight: 100 !important;
-  font-family: "Courier New", Courier, monospace;
-  font-size:large;
-  border-bottom: dashed .25px #999;
+  font-family: 'Courier New', Courier, monospace;
+  font-size: large;
+  border-bottom: dashed 0.25px #999;
 }
 .job-title h2:hover {
   color: lightgray !important;
@@ -32,9 +31,7 @@
 .jumbotron {
   margin: 0px auto;
   color: floralwhite;
-  height: calc(
-    100vh - 65px - 55px
-  ); /* full height less header/footer heights */
+  height: calc(100vh - 65px - 55px); /* full height less header/footer heights */
   border-radius: 0 !important;
 }
 
@@ -83,7 +80,7 @@
 
 .copyright {
   vertical-align: super;
-  font-size:small;
+  font-size: small;
 }
 /*-------------- Responsive Styling -----------------------*/
 

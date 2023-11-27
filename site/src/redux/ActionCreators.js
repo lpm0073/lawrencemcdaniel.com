@@ -9,7 +9,7 @@ import {
   URL_API_CLIENTS,
 } from '../shared/constants'
 
-/*  ----------------------------------- 
+/*  -----------------------------------
     methods to track whether page entry animations
     have rendered.
     -----------------------------------  */
@@ -44,7 +44,7 @@ export const setLogoState = ({ state }) => {
   }
 }
 
-/*  ----------------------------------- 
+/*  -----------------------------------
     methods to fetch data from api / cdn
     -----------------------------------  */
 

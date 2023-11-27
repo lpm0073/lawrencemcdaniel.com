@@ -106,7 +106,7 @@ const ReactPage = (props) => {
                 <hr />
                 <p>
                   I like ReactJS. I've been working with Angular since 2018 and by
-                  comparision I find React more intuitive and more performant.
+                  comparison I find React more intuitive and more performant.
                   Additionally, the ReactJS community is large and growing, which results
                   in more searchable online help content and more and better tooling.
                 </p>
