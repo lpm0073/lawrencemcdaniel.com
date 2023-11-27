@@ -4,8 +4,8 @@
 # Version Bump and Merge Workflow
 #
 # Calculate the next version in the main branch. Compares the raw value of
-# __version__.py to the calculated value in setup.py. If they are different,
-# it will update __version__.py and push the changes to the main branch.
+# version.js to the calculated value in setup.py. If they are different,
+# it will update version.js and push the changes to the main branch.
 #------------------------------------------------------------------------------
 name: Semantic Version Bump (main)
 
@@ -41,7 +41,7 @@ jobs:
 
       - name: Get current version
         #  step 1
-        # the current version persisted to __version__.py
+        # the current version persisted to version.js
         id: current_version
         shell: bash
         run: |
@@ -84,9 +84,9 @@ jobs:
         id: another_null_step
         run: echo "i ensure that CURRENT_VERSION, NEXT_VERSION and VERSION_CHANGED are set."
 
-      - name: Update __version__.py
+      - name: Update version.js
         # step 4
-        # if VERSION_CHANGED is true, update __version__.py and push the changes to the
+        # if VERSION_CHANGED is true, update version.js and push the changes to the
         # main branch.
         if: env.VERSION_CHANGED == 'true'
         id: update_version
