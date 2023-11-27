@@ -1,17 +1,17 @@
 /*
     Renders a spinning cube that shows random collections of logos that randomly
-    update at random intervals. Logos are provided by a REST api that is 
+    update at random intervals. Logos are provided by a REST api that is
     managed by Redux.
-    
+
     Logos API: https://api.lawrencemcdaniel.com/wp-json/wp/v2/posts?categories=43&_embed&per_page=100
 
-    The cube, which is pure CSS and HTML, was scaffolded from a D3 example that I liked, created by Noah Veltman. 
-    Ironically, the D3 source code itself wasn't useful. I encountered a variety of challenges with using D3.js for this component. 
-    Though all of these challenges were solvable, in the end it was most practical to leave the DOM manipulations to ReactJS. 
+    The cube, which is pure CSS and HTML, was scaffolded from a D3 example that I liked, created by Noah Veltman.
+    Ironically, the D3 source code itself wasn't useful. I encountered a variety of challenges with using D3.js for this component.
+    Though all of these challenges were solvable, in the end it was most practical to leave the DOM manipulations to ReactJS.
     You can review the GitHub commit history of this file to see the early versions of this component implemented with D3.js
 
-    Noah's original cube: https://bl.ocks.org/veltman/4c989172ac2f820b0b7267c53cb96975 
-    
+    Noah's original cube: https://bl.ocks.org/veltman/4c989172ac2f820b0b7267c53cb96975
+
 
     The component life cycle is as follows:
     =================================================
@@ -24,7 +24,7 @@
 
     II. Update infinitely:
     Randomly show lots of other logos. The longer the site visitor stares at this logo cube
-    the better, because it buys time for the image pre-fetcher to download more 
+    the better, because it buys time for the image pre-fetcher to download more
     site content in the background. Don't be impressed however, I stole this idea from nytimes.com
 
 
@@ -34,20 +34,20 @@
     The logo cube is supposed to be a creative way of showcasing my most important
     (self-proclaimed) technology skills to site visitors. Most visitors however,
     will only see the cube for a couple of seconds and then move on to some other page.
-    Thus, a random selection of logos works at cross purposes to this design objective since 
+    Thus, a random selection of logos works at cross purposes to this design objective since
     most of the logos pertain to lesser-known supporting technologies.
 
     solution: I created a 2nd api feed consisting of six "featured" logos.
     I initialize the cube with the featured logos, and then hold these
     logos in place for 5 seconds before initiating the random logo replacements.
-    
+
     B. Disappointing logo shuffle.
     It bothered me that sometimes all six cube sides would display only
     the logos of unimpressive technologies for an extended period of time.
-    I found myself staring at the cube anxiously waiting for a "good" 
+    I found myself staring at the cube anxiously waiting for a "good"
     logo to appear.
 
-    solution: 
+    solution:
     I reserve one of the six cube sides for exclusively displaying
     one of the six featured logos.
 
@@ -58,26 +58,26 @@
     of the nature of this problem: https://en.wikipedia.org/wiki/Wagon-wheel_effect
 
     solution:
-    First, i tinkered with the opacity of the cube sides so that the side that is supposed to be in front is brighter, 
+    First, i tinkered with the opacity of the cube sides so that the side that is supposed to be in front is brighter,
     and the reverse side is darker. Secondly, adding the cube rendering helped a lot because the cube begins
     as a 2-dimensional spinning square, which afterwards grows to become a cube. The 2D spinning image is easier for your
     visual cortex to process, and the growth animation provides a way for your mind to bootstrap and retain what's
     happening on-screen.
 
-    D. Screen flicker. 
-    React mounts/unmounts components multiple times, often for 
+    D. Screen flicker.
+    React mounts/unmounts components multiple times, often for
     reasons that are external to the component. React also calls render()
-    several times during normal component initialization. Both of these are 
+    several times during normal component initialization. Both of these are
     problems for CSS animations because these end up getting killed in mid-animation and
     restarted multiple times (ie screen flicker), which looks terrible.
 
     solution: I fixed the screen flicker with a few different kinds of timers
     that are intended to delay rendering the cube (and thus initiating the CSS
-    animations) until React has had enough time to get the home screen 
+    animations) until React has had enough time to get the home screen
     completely setup.
 
-    E. Erratic Logo updates. 
-    Logos change at random intervals. However, it looks bad if a logo is replaced too quickly. 
+    E. Erratic Logo updates.
+    Logos change at random intervals. However, it looks bad if a logo is replaced too quickly.
 
     solution: I added 6 timers to track the elapsed lifetime of each logo,
     and then I only replace a logo if its been visible for a minimum
@@ -90,16 +90,16 @@
     resulting in several painter() threads co-existing, which causes
     the cube to update multitudes more frequently than I wanted.
 
-    solution: I fixed the threading issue by keeping track of, and explicitly killing 
+    solution: I fixed the threading issue by keeping track of, and explicitly killing
     all background threads that I create.
 
     G. Slow loading logos.
     The cube itself is rendered purely in CSS and so always renders smoothly, but it
     depends on a collection of around 75 logo images provided by the
     REST api via Redux. On a slow internet connection you could see each new logo
-    downloading on the cube side, which looked terrible. 
+    downloading on the cube side, which looked terrible.
 
-    solution: 
+    solution:
     a.) i setup an image pre-fetcher inside of Redux, not just for
     this logo cube but for the hundreds of other images on this site as
     well.
@@ -119,11 +119,11 @@
     solution: i added some "no collision" logic to prevent the random logo
     selector from choosing any logos that are currently being displayed.
 
-    I. React Insomnia. 
+    I. React Insomnia.
     Every time the cube rendered, React would behave as if the site visitor had just
-    arrived to the site, even when this was not the case. For example, if a user lands 
+    arrived to the site, even when this was not the case. For example, if a user lands
     on the home page then they would see the glory of the Logo Cube. But if they navigated
-    to another page and later returned to the home page then they'd see then entire 
+    to another page and later returned to the home page then they'd see then entire
     construction of the cube, and the same 6 initialization logos.
 
     solution: i push the component state to Redux, and disable the initial rendering animations
@@ -211,7 +211,7 @@ class LogoCube extends Component {
 
   componentDidMount() {
     /*  we nest repaint() inside of a timer so that we have a means
-            of killing the thread in cases where the component 
+            of killing the thread in cases where the component
             quickly unmounts.
         */
 
@@ -287,7 +287,7 @@ class LogoCube extends Component {
   }
 
   /* ---------------------------------------------------------------
-        Hereon, the drudgerous grind of working with a six-sided object.  
+        Hereon, the drudgerous grind of working with a six-sided object.
      * --------------------------------------------------------------- */
   getBackgroundUrl(side) {
     let retval

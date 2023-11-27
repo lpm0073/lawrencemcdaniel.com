@@ -12,10 +12,13 @@ function checkUpdates(registration) {
   if (registration && registration.update) {
     if (DEBUG) console.log('service worker automatically checking for updates.')
     registration.update()
-    setTimeout(function () {
-      // queue up the next update check
-      checkUpdates(registration)
-    }, 1000 * 60 * AUTOMATIC_UPDATE_CHECK_INTERVAL)
+    setTimeout(
+      function () {
+        // queue up the next update check
+        checkUpdates(registration)
+      },
+      1000 * 60 * AUTOMATIC_UPDATE_CHECK_INTERVAL
+    )
   } else {
     console.log(
       'Warning: checkUpdates() ran but registration has no update() function: ',

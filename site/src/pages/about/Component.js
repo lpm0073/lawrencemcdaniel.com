@@ -73,28 +73,33 @@ class About extends Component {
                 </h4>
                 <div className="text-justify">
                   <p>
-                    I’m an American full stack developer with significant experience with
-                    classic backend stacks and front-end frameworks including{' '}
-                    <a href="https://www.djangoproject.com/">Django</a>,{' '}
-                    <a href="https://reactjs.org/">React</a>,{' '}
-                    <a href="https://angular.io/">Angular</a>, and{' '}
-                    <a href="https://wordpress.com/">WordPress</a>. I also work
-                    extensively with the <a href="https://open.edx.org/">Open edX®</a>{' '}
-                    learning management system. I am a veteran of multiple startups and
-                    early-stage ventures with dozens of successful product launches in
-                    multiple industries and markets around the world. I advocate for{' '}
+                    I’m an enthusiastic <a href="/education">lifelong learner</a>, a{' '}
+                    <a href="data-science">data scientist</a> and a full stack developer.
+                    I teach{' '}
+                    <a href="https://extendedlearning.ubc.ca/courses/cloud-technology-infrastructure-strategy/mg102">
+                      cloud computing
+                    </a>{' '}
+                    and{' '}
+                    <a href="https://extendedlearning.ubc.ca/courses/artificial-intelligence-cloud-technology-implementation/mg202">
+                      AI
+                    </a>{' '}
+                    at{' '}
+                    <a href="https://extendedlearning.ubc.ca/about-us/our-instructors/lawrence-mcdaniel">
+                      University of British Columbia
+                    </a>
+                    , and I{' '}
+                    <a href="https://blog.lawrencemcdaniel.com/">publish articles</a> and{' '}
+                    <a href="https://www.youtube.com/@FullStackWithLawrence">videos</a> on
+                    a variety of technology topics. I am a veteran of multiple startups
+                    and early-stage ventures with dozens of successful product launches
+                    and one NASDAQ IPO. I advocate for{' '}
                     <a href="https://en.wikipedia.org/wiki/Open_source">open source</a>,
                     try to keep things{' '}
                     <a href="https://en.wikipedia.org/wiki/Don%27t_repeat_yourself">
                       DRY
                     </a>{' '}
                     and well-documented and when possible I adhere to the principals of{' '}
-                    <a href="https://12factor.net/">12-factor</a> development. I’m a
-                    passionate learner and{' '}
-                    <a href="https://blog.lawrencemcdaniel.com">frequent blogger</a>,
-                    currently interested in{' '}
-                    <a href="/data-science/">data science, machine learning, AI</a> and
-                    quantum computing.
+                    <a href="https://12factor.net/">12-factor</a> development.
                   </p>
                 </div>
                 <div className="hide-medium">
@@ -131,6 +136,8 @@ const RightColumn = () => {
   const years_experience = d.getFullYear() - 1992 - 11 - 1 - 2
   const years_opensource = d.getFullYear() - 2010
   const years_biking = d.getFullYear() - 1999
+  const years_traveling = d.getFullYear() - 1992
+  const years_living_abroad = d.getFullYear() - 1992 - 2 - 2 - 3 - 1
 
   return (
     <div>
@@ -142,9 +149,10 @@ const RightColumn = () => {
       </div>
       <div className="column-3-text text-justify mt-1 pt-1">
         <p>
-          I lived abroad for 25 of the last 30 years, in Mexico, Western Europe and SE
-          Asia. Prior to that I earned a B.S. from University of North Texas with majors
-          in Computer Science and Mathematics and minors in Physics and English.
+          I lived abroad for {years_living_abroad} of the last {years_traveling} years, in
+          Mexico, Western Europe and SE Asia. Prior to that I earned a B.S. from
+          University of North Texas with majors in Computer Science and Mathematics and
+          minors in Physics and English.
         </p>
         <p>
           <strong>

@@ -16,7 +16,7 @@ const Datascience = (props) => {
   const slug = 'data-science'
   const webpageName = 'Data Science'
   const webpageDescription =
-    'Data science, machine learning, and AI algorithms expert with experience using regression, nueral networks, support vector machines, anomoly detection, recommender systems, and unsupervised learning'
+    'Data science, machine learning, and AI algorithms expert with experience using regression, neural networks, support vector machines, anomaly detection, recommender systems, and unsupervised learning'
   const primaryImageUrl =
     'https://cdn.lawrencemcdaniel.com/wp-content/uploads/2020/06/05220349/data-science-certificate.jpg'
   const pageType = 'BlogPosting'
@@ -29,15 +29,15 @@ const Datascience = (props) => {
         <link rel="canonical" href={URL_SITE + '/data-science/'} />
         <meta
           name="description"
-          content="Machine learning and algorithms expert with experience using regression, nueral networks, support vector machines, anomoly detection, recommender systems, and unsupervised learning"
+          content="Machine learning and algorithms expert with experience using regression, neural networks, support vector machines, anomaly detection, recommender systems, and unsupervised learning"
         />
         <meta
           property="og:description"
-          content="Machine learning and algorithms expert with experience using regression, nueral networks, support vector machines, anomoly detection, recommender systems, and unsupervised learning"
+          content="Machine learning and algorithms expert with experience using regression, neural networks, support vector machines, anomaly detection, recommender systems, and unsupervised learning"
         />
         <meta
           name="keywords"
-          content="Lawrence McDaniel, machine learning, algorithms, regression, nueral networks, support vector machines, anomoly detection, recommender systems, unsupervised learning"
+          content="Lawrence McDaniel, machine learning, algorithms, regression, neural networks, support vector machines, anomaly detection, recommender systems, unsupervised learning"
         />
         <script type="application/ld+json">
           {JSON.stringify(

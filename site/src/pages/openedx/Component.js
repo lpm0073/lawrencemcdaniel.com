@@ -178,7 +178,7 @@ const Openedx = (props) => {
               <h4>Production Installation & Configuration of Open edX®</h4>
               <p>
                 You should consider hiring a professional to install your Open edX®
-                plaform for you, if your budget permits. I have performed dozens of
+                platform for you, if your budget permits. I have performed dozens of
                 production installations for clients since 2016 on cloud platforms
                 including AWS and Digital Ocean as well as specialized regional cloud
                 providers across Asia and Afrika. I publish technical articles that fully
@@ -212,12 +212,12 @@ const Openedx = (props) => {
               <p>
                 I am an expert in configuring the Open edX platform for a variety of
                 common use cases including multi-language and e-commerce enabled platforms
-                of widely varying scale. Open edX® is a mature and stable platform that is
-                also highly configurable. Many customization requests can be implemented
-                via the platform's many configuration parameters. However, configuring the
-                Open edX® platform is a knowledge and experience-intensive endeavor.
-                Properly managing your configuration is also something of a trade craft
-                which you can read more about, here,{' '}
+                of widely varying scale. Open edX® is a mature and stable platform that
+                is also highly configurable. Many customization requests can be
+                implemented via the platform's many configuration parameters. However,
+                configuring the Open edX® platform is a knowledge and
+                experience-intensive endeavor. Properly managing your configuration is
+                also something of a trade craft which you can read more about, here,{' '}
                 <a
                   href="https://blog.lawrencemcdaniel.com/open-edx-configuration-management-tutorial/"
                   target="_blank"
@@ -271,8 +271,8 @@ const Openedx = (props) => {
               </p>
               <h4>Administration & Devops</h4>
               <p>
-                I provide front-line support for all versions of the Open edX® platform to
-                clients around the world. I also provide technical training to
+                I provide front-line support for all versions of the Open edX® platform
+                to clients around the world. I also provide technical training to
                 organizations' inhouse IT teams in order to help them prepare for common
                 production live support situations.
               </p>
@@ -312,7 +312,7 @@ const Openedx = (props) => {
                       party libraries, is free to download and free to use. edX releases a
                       major update to the software around once per year. The software is
                       controlled by edX but maintained by a consortium of community users
-                      consting mostly the engineering team at edX itself along with
+                      consisting mostly the engineering team at edX itself along with
                       contributions from member universities around the world. This group
                       does not charge fees for access to their regular software updates.
                       Your only costs will be external consulting costs, if any, for the
@@ -409,7 +409,7 @@ const Openedx = (props) => {
                 </Accordion.Item>
                 <Accordion.Item eventKey="3">
                   <Accordion.Header>
-                    Should we run our own installation or use one of the recomended
+                    Should we run our own installation or use one of the recommended
                     Application Service Providers?
                   </Accordion.Header>
                   <Accordion.Body>
@@ -488,12 +488,12 @@ const Openedx = (props) => {
                       party authentication protocols including SAML, oAuth and LTI. In
                       simplest cases such as "Login with Facebook" and "Login with Google"
                       for example, you can get things working in less than an hour using
-                      nothin more than the yml configuration files for the LMS and CMS.
+                      nothing more than the yml configuration files for the LMS and CMS.
                       However, educational institutions frequently required far deeper
-                      levels of integration such as Grade Synching and User Profile
-                      Synching to name two common examples which, while entirely
-                      technically feasible, usually require thorough exploration with a
-                      trained professional from the Open edX community.
+                      levels of integration such as Grade Syncing and User Profile Syncing
+                      to name two common examples which, while entirely technically
+                      feasible, usually require thorough exploration with a trained
+                      professional from the Open edX community.
                     </p>
                   </Accordion.Body>
                 </Accordion.Item>

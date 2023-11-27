@@ -15,11 +15,10 @@
   background-color: #e1e1e1;
 }
 
-
 .meta-tags {
   border: 2px solid #333;
   background-color: #1e1e1e;
-  color: lightgrey
+  color: lightgrey;
 }
 
 .meta-tags-column {
@@ -27,20 +26,18 @@
 }
 
 .meta-tags-column-objects {
-  border-right: .5px solid darkgray;
+  border-right: 0.5px solid darkgray;
 }
 .meta-tags-column-attributes {
-
 }
 
 .meta-tags-objects {
-  border-right: .5px solid darkgray;
-  border-bottom: .5px solid darkgray;
+  border-right: 0.5px solid darkgray;
+  border-bottom: 0.5px solid darkgray;
 }
 .meta-tags-attributes {
-  border-bottom: .5px solid darkgray;
+  border-bottom: 0.5px solid darkgray;
 }
 
 .meta-header {
-
 }

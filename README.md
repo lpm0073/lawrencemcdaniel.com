@@ -3,6 +3,7 @@
 My personal web site, developed with ReactJS/Redux.
 
 ## Installation
+
 ```bash
 # Setup dev environment
 git clone https://github.com/lpm0073/lawrencemcdaniel.com.git
@@ -11,7 +12,7 @@ make update
 # Develop
 make serve
 
-# Buid:
+# Build:
 make build
 
 # Deploy:
@@ -23,6 +24,7 @@ make release
 work in progress: https://dev.to/eclecticcoding/linting-in-react-5c17
 
 ## Resources
+
 - API: https://api.lawrencemcdaniel.com/
 - CDN: https://cdn.lawrencemcdaniel.com/
 - [Create React App](https://github.com/facebook/create-react-app)
@@ -30,6 +32,7 @@ work in progress: https://dev.to/eclecticcoding/linting-in-react-5c17
 - Configure Cloudfront: https://stackoverflow.com/questions/46497969/cloudfront-returns-403-forbidden-when-refreshing-page
 
 ## React Bootstrat
+
 https://react-bootstrap.github.io/components/
 
 ## Available Scripts
@@ -37,9 +40,12 @@ https://react-bootstrap.github.io/components/
 In the project directory, you can run:
 
 ### `cd ./site && ncu --upgrade && npm install`
+
 Check for node package upgrades, updates package-lock.json, updates packages.
+
 ### `./deploy.sh`
-Executes yarn sitemap + yarn build, pushes to S3 and sets no-cache headers as necesary for 
+
+Executes yarn sitemap + yarn build, pushes to S3 and sets no-cache headers as necessary for
 cache busting purposes.
 
 ### `yarn start`
@@ -66,6 +72,7 @@ Your app is ready to be deployed!
 See the section about [deployment](https://facebook.github.io/create-react-app/docs/deployment) for more information.
 
 ### `yarn sitemap`
+
 Builds sitemap.xml based on configuration in src/components/sitemap/
 
 ### `yarn eject`

@@ -22,7 +22,7 @@ export const gsdFAQ = {
     url: 'https://cdn-blog.lawrencemcdaniel.com/wp-content/uploads/2017/10/22125438/edx-install-banner.jpg',
     height: 374,
     width: 196,
-    caption: 'Open edX Instllation Banner',
+    caption: 'Open edX Installation Banner',
   },
   lastReviewed: lastReviewed,
   dateModified: dateModified,
@@ -47,14 +47,14 @@ export const gsdFAQ = {
   mainEntity: [
     question(
       'How much does Open edX cost?',
-      "<p>The Open edX software, inclusive of all system software and third party libraries, is free to download and free to use. edX releases a major update to the software around once per year. The software is controlled by edX but maintained by a consortium of community users consting mostly the engineering team at edX itself along with contributions from member universities around the world. This group does not charge fees for access to their regular software updates. Your only costs will be external consulting costs, if any, for the installation and configuration, and recurring cloud computing costs. My blog article, '<a href='https://blog.lawrencemcdaniel.com/how-much-does-open-edx-cost/' target='_blank'>How Much Does Open edX Cost?</a>' includes summaries of itemized projects costs that have been voluntarily submitted by user in the Open edX community over the last few years.</p>"
+      "<p>The Open edX software, inclusive of all system software and third party libraries, is free to download and free to use. edX releases a major update to the software around once per year. The software is controlled by edX but maintained by a consortium of community users consisting mostly the engineering team at edX itself along with contributions from member universities around the world. This group does not charge fees for access to their regular software updates. Your only costs will be external consulting costs, if any, for the installation and configuration, and recurring cloud computing costs. My blog article, '<a href='https://blog.lawrencemcdaniel.com/how-much-does-open-edx-cost/' target='_blank'>How Much Does Open edX Cost?</a>' includes summaries of itemized projects costs that have been voluntarily submitted by user in the Open edX community over the last few years.</p>"
     ),
     question(
       'Are there any consulting firms who specialize in Open edX?',
       "<p>Yes, there are several. The best place to start looking is the official <a href='https://open.edx.org/marketplace-category/service-partners/' target='_blank' rel='noopener noreferrer'>Open edX Service Providers Marketplace</a> managed by edX, Inc. In addition, I have worked with or collaborated with several for whom I can vouch, including (in no particular order)</p><ul> <li><a href='https://www.edunext.co/' target='_blank' rel='noopener noreferrer'>eduNEXT</a></li><li><a href='https://www.appsembler.com/' target='_blank' rel='noopener noreferrer'>appsembler</a></li><li><a href='https://opencraft.com/' target='_blank' rel='noopener noreferrer'>OpenCraft</a></li><li><a href='https://raccoongang.com/' target='_blank' rel='noopener noreferrer'>Raccoon Gang</a></li><li><a href='https://abc-ld.org/' target='_blank' rel='noopener noreferrer'>ABC MOOCs</a></li></ul> <p>I am also included in the marketplace, however, edX charges me a fee if you contact from their site, so it'll be cheaper for you and me if you contact me via email at <a href='mailto:lpm0073@gmail.com'>lpm0073@gmail.com</a></p>"
     ),
     question(
-      'Should we run our own installation or use one of the recomended Application Service Providers?',
+      'Should we run our own installation or use one of the recommended Application Service Providers?',
       "<p>The answer depends a host of factors, but there are some generalizations on which you can safely rely.</p><ul> <li>Use a platform provider if you're just getting started and you lack technical support and your budget permits. All Open edX providers will leave you in complete control of your data, so you'll always have the option of migrating the platform to your own private installation at a later date.</li><li>Start with Tutor if you're just evaluating the platform and you're on a tight budget, as this is the easiest to get up and running quickly.</li><li>Consider creating your own native build if <ul> <li>you're a startup and you are actively deciding on the feature set you want to offer customers.</li><li>you have a team in place who is competent in supporting enterprise Django platforms.</li><li>you intend to customize the software.</li><li>you do not need customizations, and, your user base will be small.</li></ul> </li></ul>"
     ),
     question(
@@ -63,7 +63,7 @@ export const gsdFAQ = {
     ),
     question(
       'Does Open edX integrate with the single sign-on system at my school?',
-      "<p>Open edX is designed to 'easily' integrate with a variety of third party authentication protocols including SAML, oAuth and LTI. In simplest cases such as 'Login with Facebook' and 'Login with Google' for example, you can get things working in less than an hour using nothin more than the yml configuration files for the LMS and CMS. However, educational institutions frequently required far deeper levels of integration such as Grade Synching and User Profile Synching to name two common examples which, while entirely technically feasible, usually require thorough exploration with a trained professional from the Open edX community.</p>"
+      "<p>Open edX is designed to 'easily' integrate with a variety of third party authentication protocols including SAML, oAuth and LTI. In simplest cases such as 'Login with Facebook' and 'Login with Google' for example, you can get things working in less than an hour using nothing more than the yml configuration files for the LMS and CMS. However, educational institutions frequently required far deeper levels of integration such as Grade Syncing and User Profile Syncing to name two common examples which, while entirely technically feasible, usually require thorough exploration with a trained professional from the Open edX community.</p>"
     ),
     question(
       'How do we backup and restore our data?',
