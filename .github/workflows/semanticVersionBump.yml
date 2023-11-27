@@ -4,8 +4,8 @@
 # Version Bump Workflow for Python package openai_utils
 #
 # Calculate the version of the 'next' branch based on semantic-release rules.
-# Compares the existing value of __version__.py to the calculated value.
-# If they are different, it will update __version__.py and push the changes
+# Compares the existing value of version.js to the calculated value.
+# If they are different, it will update version.js and push the changes
 # to the main branch.
 #------------------------------------------------------------------------------
 name: Semantic Version Bump (next)
@@ -21,8 +21,8 @@ jobs:
   bump-version-next:
     runs-on: ubuntu-latest
     env:
-      VERSION_FILE: __version__.py
-      PACKAGE_PATH: ${{ github.workspace }}/api/terraform/python/layer_genai/openai_utils/
+      VERSION_FILE: version.js
+      PACKAGE_PATH: ${{ github.workspace }}/site/src/shared/
 
     steps:
       - uses: actions/checkout@v4
@@ -48,7 +48,7 @@ jobs:
 
       - name: Get current version
         #  step 1
-        # the current version persisted to __version__.py
+        # the current version persisted to version.js
         id: current_version
         shell: bash
         run: |
@@ -96,18 +96,18 @@ jobs:
         id: null_step3
         run: echo "i ensure that CURRENT_VERSION, NEXT_VERSION and VERSION_CHANGED are set."
 
-      - name: Update __version__.py
+      - name: Update version.js
         # step 4
-        # if VERSION_CHANGED is true, update __version__.py and push the changes to the
+        # if VERSION_CHANGED is true, update version.js and push the changes to the
         # branch that triggered this workflow.
         if: env.VERSION_CHANGED == 'true'
         id: update_version
         run: |
-          echo "__version__ = '${{ env.NEXT_VERSION }}'" > ${{ env.VERSION_FILE }}
+          echo "export const VERSION = '${{ env.NEXT_VERSION }}'" > ${{ env.VERSION_FILE }}
           git config --local user.email "action@github.com"
           git config --local user.name "GitHub Action"
           git add ${{ env.VERSION_FILE }}
-          git commit -m "chore: [gh] Update __version__.py to ${{ env.NEXT_VERSION }} [skip ci]"
+          git commit -m "chore: [gh] Update version.js to ${{ env.NEXT_VERSION }} [skip ci]"
           git push https://${{ secrets.PAT }}@github.com/${{ github.repository }}.git HEAD:${{ github.ref }}
         env:
           VERSION_FILE: ${{ env.PACKAGE_PATH }}${{ env.VERSION_FILE }}
