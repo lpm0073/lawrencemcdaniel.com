@@ -67,6 +67,7 @@ const ImageTaggerPage = (props) => {
                 <i className="fa fa-image fa-4x"></i>
                 <p className="m-1">Drag & Drop file here</p>
                 <p className="m-1 mb-3">or</p>
+                {/* eslint-disable-next-line jsx-a11y/anchor-is-valid */}
                 <a
                   className="btn btn-secondary btn-lg"
                   role="button"
