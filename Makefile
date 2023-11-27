@@ -7,7 +7,7 @@ sitemap:
 
 
 init:
-	cd ./site/ && npm install --legacy-peer-deps && npm init @eslint/config
+	cd ./site/ && npm install && npm init @eslint/config
 
 update:
 	npm install -g npm
