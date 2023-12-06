@@ -81,7 +81,7 @@
     "@testing-library/react": "latest",
     "babel-cli": "^6.26.0",
     "babel-register": "^6.26.0",
-    "eslint-config-prettier": "^9.0.0",
+    "eslint-config-prettier": "^9.1.0",
     "eslint-plugin-prettier": "^5.0.1",
     "husky": "^8.0.3",
     "lint-staged": "^15.2.0",
