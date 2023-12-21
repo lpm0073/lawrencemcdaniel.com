@@ -20,7 +20,7 @@
     "react-detect-offline": "^2.4.5",
     "react-dom": "^18.2.0",
     "react-helmet": "^6.1.0",
-    "react-loader-spinner": "^6.1.0",
+    "react-loader-spinner": "^6.1.4",
     "react-mdr": "^0.1.5",
     "react-multi-carousel": "^2.8.4",
     "react-redux": "^9.0.4",
