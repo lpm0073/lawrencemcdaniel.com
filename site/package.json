@@ -23,7 +23,7 @@
     "react-loader-spinner": "^6.1.6",
     "react-mdr": "^0.1.5",
     "react-multi-carousel": "^2.8.4",
-    "react-redux": "^9.0.4",
+    "react-redux": "^9.1.2",
     "react-router": "^6.22.3",
     "react-router-dom": "^6.21.1",
     "react-scripts": "^5.0.1",
