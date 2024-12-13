@@ -1,4 +1,5 @@
 import React from 'react'
+import PropTypes from 'prop-types'
 import RenderPageTitle from '../../components/pagetitle/pageTitleComponent'
 import ProjectsGrid from './projectsGrid'
 import { gsdGraph } from '../../shared/seo/gsdGraph'
@@ -50,6 +51,10 @@ const Portfolio = (props) => {
       </div>
     </React.Fragment>
   )
+}
+
+Portfolio.propTypes = {
+  portfolio: PropTypes.array.isRequired,
 }
 
 export default Portfolio

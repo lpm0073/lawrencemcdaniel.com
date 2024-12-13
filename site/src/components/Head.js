@@ -4,6 +4,7 @@ import { Helmet } from 'react-helmet'
 import { nameLawrenceMcDaniel, basePageTitle } from '../shared/seo/gsdCommon'
 import { URL_SITE, URL_CDN } from '../shared/constants'
 
+/* eslint-disable no-unused-vars */
 export default function Head(props) {
   return (
     <React.Fragment>
@@ -50,7 +51,7 @@ export default function Head(props) {
         <meta name="twitter:title" content={basePageTitle} />
         <meta name="twitter:image" content={URL_CDN + '/social-1200x675.jpg'} />
         <meta name="twitter:description" content={basePageTitle} />
-        <meta itemprop="image" content={URL_CDN + '/social-1200x630.jpg'} />
+        <meta itemProp="image" content={URL_CDN + '/social-1200x630.jpg'} />
       </Helmet>
     </React.Fragment>
   )

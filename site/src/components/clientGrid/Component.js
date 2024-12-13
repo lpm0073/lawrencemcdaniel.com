@@ -1,4 +1,5 @@
 import React, { Component } from 'react'
+import PropTypes from 'prop-types'
 import { connect } from 'react-redux'
 import { bindActionCreators } from 'redux'
 import * as Actions from '../../redux/ActionCreators'
@@ -72,6 +73,26 @@ class ClientGrid extends Component {
       </div>
     )
   }
+}
+
+ClientGrid.propTypes = {
+  actions: PropTypes.shape({
+    setClientGrid: PropTypes.func.isRequired,
+  }).isRequired,
+  clients: PropTypes.shape({
+    logos: PropTypes.arrayOf(PropTypes.object).isRequired,
+  }).isRequired,
+  filter: PropTypes.string,
+  isLoading: PropTypes.bool,
+  clientGrid: PropTypes.shape({
+    isSet: PropTypes.bool,
+  }).isRequired,
+}
+
+ClientCard.propTypes = {
+  client: PropTypes.object.isRequired,
+  indx: PropTypes.number.isRequired,
+  isSet: PropTypes.bool.isRequired,
 }
 
 export default connect(mapStateToProps, mapDispatchToProps)(ClientGrid)

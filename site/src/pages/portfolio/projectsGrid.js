@@ -1,25 +1,26 @@
 import React, { Component } from 'react'
+import PropTypes from 'prop-types'
 import { Link } from 'react-router-dom'
 import Loading from '../../components/Loading'
 import { wpGetFeaturedImage } from '../../shared/wpGetFeaturedImage'
 
+function RenderProjectItem({ project }) {
+  const item_url = wpGetFeaturedImage(project, null)
+  const background_url = "url('" + item_url + "')"
+  const item_style = {
+    backgroundImage: background_url,
+  }
+  return (
+    <Link to={`/portfolio/${project.slug}`}>
+      <div className="portfolio-item p-1">
+        <div className="portfolio-item-image" style={item_style}></div>
+        <div className="portfolio-item-overlay">{project.title.rendered}</div>
+      </div>
+    </Link>
+  )
+}
 class ProjectsGrid extends Component {
   render() {
-    function RenderProjectItem({ project }) {
-      const item_url = wpGetFeaturedImage(project, null)
-      const background_url = "url('" + item_url + "')"
-      const item_style = {
-        backgroundImage: background_url,
-      }
-      return (
-        <Link to={`/portfolio/${project.slug}`}>
-          <div className="portfolio-item p-1">
-            <div className="portfolio-item-image" style={item_style}></div>
-            <div className="portfolio-item-overlay">{project.title.rendered}</div>
-          </div>
-        </Link>
-      )
-    }
     return (
       <div key="projects-grid">
         {this.props.isLoading ? (
@@ -43,6 +44,25 @@ class ProjectsGrid extends Component {
       </div>
     )
   }
+}
+RenderProjectItem.propTypes = {
+  project: PropTypes.shape({
+    slug: PropTypes.string.isRequired,
+    title: PropTypes.shape({
+      rendered: PropTypes.string.isRequired,
+    }).isRequired,
+  }).isRequired,
+}
+
+ProjectsGrid.propTypes = {
+  isLoading: PropTypes.bool.isRequired,
+  portfolio: PropTypes.shape({
+    projects: PropTypes.arrayOf(
+      PropTypes.shape({
+        id: PropTypes.number.isRequired,
+      })
+    ).isRequired,
+  }).isRequired,
 }
 
 export default ProjectsGrid

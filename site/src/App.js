@@ -8,6 +8,7 @@
  */
 import React, { Component } from 'react'
 import { BrowserRouter } from 'react-router-dom'
+import PropTypes from 'prop-types'
 
 import * as serviceWorkerRegistration from './serviceWorkerRegistration'
 
@@ -184,6 +185,10 @@ class App extends Component {
       </React.Fragment>
     )
   }
+}
+
+App.propTypes = {
+  cls: PropTypes.string.isRequired,
 }
 
 export default App

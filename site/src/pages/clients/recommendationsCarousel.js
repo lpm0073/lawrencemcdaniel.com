@@ -1,4 +1,5 @@
 import React, { Component } from 'react'
+import PropTypes from 'prop-types'
 import Loading from '../../components/Loading'
 import Carousel from 'react-multi-carousel'
 import 'react-multi-carousel/lib/styles.css'
@@ -127,6 +128,13 @@ class RecommendationsCarousel extends Component {
       </div>
     )
   }
+}
+
+RecommendationsCarousel.propTypes = {
+  recommendations: PropTypes.shape({
+    items: PropTypes.arrayOf(PropTypes.object).isRequired,
+  }).isRequired,
+  isLoading: PropTypes.bool.isRequired,
 }
 
 export default RecommendationsCarousel

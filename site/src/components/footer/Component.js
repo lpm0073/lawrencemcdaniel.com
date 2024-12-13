@@ -1,10 +1,13 @@
 import React from 'react'
 
+/* eslint-disable no-unused-vars */
+import PropTypes from 'prop-types'
+
 import './styles.css'
 
-export default function Footer(props) {
-  var d = new Date()
-  const curr_year = d.getFullYear()
+/* eslint-disable no-unused-vars */
+const Footer = (props) => {
+  const curr_year = new Date().getFullYear()
   const REACT_VERSION = React.version
 
   return (
@@ -61,3 +64,9 @@ export default function Footer(props) {
     </React.Fragment>
   )
 }
+
+Footer.propTypes = {
+  // Define prop types if needed
+}
+
+export default Footer

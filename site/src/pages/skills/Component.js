@@ -8,6 +8,7 @@ import { gsdGraph } from '../../shared/seo/gsdGraph'
 import { URL_SITE } from '../../shared/constants'
 import './styles.css'
 
+/* eslint-disable no-unused-vars */
 const Skills = (props) => {
   /* Google Structured Data */
   const slug = 'skills'
@@ -42,6 +43,7 @@ const Skills = (props) => {
         <div className="row mt-5 mb-5 ml-0 mr-0">
           <SkillColumn
             key="1"
+            id="1"
             pct="100"
             title="Web"
             icon="fa-code"
@@ -49,6 +51,7 @@ const Skills = (props) => {
           />
           <SkillColumn
             key="2"
+            id="2"
             pct="100"
             title="Mobile & IoT"
             icon="fa-mobile"
@@ -56,6 +59,7 @@ const Skills = (props) => {
           />
           <SkillColumn
             key="3"
+            id="3"
             pct="100"
             title="Cloud"
             icon="fa-cloud"
@@ -63,6 +67,7 @@ const Skills = (props) => {
           />
           <SkillColumn
             key="4"
+            id="4"
             pct="100"
             title="Data"
             icon="fa-database"
@@ -70,6 +75,7 @@ const Skills = (props) => {
           />
           <SkillColumn
             key="5"
+            id="5"
             pct="100"
             title="DevOps"
             icon="fa-server"
@@ -77,6 +83,7 @@ const Skills = (props) => {
           />
           <SkillColumn
             key="6"
+            id="6"
             pct="100"
             title="Data Science"
             icon="fa-magic"

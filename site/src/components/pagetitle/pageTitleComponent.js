@@ -1,4 +1,5 @@
 import React from 'react'
+import PropTypes from 'prop-types'
 import { Helmet } from 'react-helmet'
 import { titleCase } from '../../shared/titleCase'
 import { nameLawrenceMcDaniel } from '../../shared/seo/gsdCommon'
@@ -32,6 +33,13 @@ const RenderPageTitle = (props) => {
       </div>
     </React.Fragment>
   )
+}
+
+RenderPageTitle.propTypes = {
+  icon: PropTypes.string.isRequired,
+  theme: PropTypes.string.isRequired,
+  title: PropTypes.string.isRequired,
+  boxed_title: PropTypes.string.isRequired,
 }
 
 export default RenderPageTitle

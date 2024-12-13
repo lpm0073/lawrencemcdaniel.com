@@ -1,4 +1,5 @@
 import React from 'react'
+import PropTypes from 'prop-types'
 import { Alert } from 'reactstrap'
 
 import './styles.css'
@@ -56,6 +57,11 @@ class AppUpdateAlert extends React.Component {
       </React.Fragment>
     )
   }
+}
+
+AppUpdateAlert.propTypes = {
+  msg: PropTypes.string.isRequired,
+  callback: PropTypes.func,
 }
 
 export default AppUpdateAlert

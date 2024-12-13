@@ -5,6 +5,7 @@
 import { wpGetFeaturedImage } from '../wpGetFeaturedImage'
 import { datePublished, nameLawrenceMcDaniel } from './gsdCommon'
 
+/* eslint-disable no-unused-vars */
 export const gsdKnowsAbout = (props) => {
   if (
     !props ||

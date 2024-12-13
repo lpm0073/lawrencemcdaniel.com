@@ -1,5 +1,6 @@
 import React, { Component } from 'react'
 import { Routes, Route, Navigate } from 'react-router-dom'
+import PropTypes from 'prop-types'
 
 // Redux
 import { connect } from 'react-redux'
@@ -66,6 +67,7 @@ class SiteRoutes extends Component {
     this.props.fetchClients()
   }
 
+  /* eslint-disable no-unused-vars */
   shouldComponentUpdate(nextProps, nextState) {
     /* pare down updates on pages with entry animations */
     const path = window.location.pathname
@@ -156,6 +158,42 @@ class SiteRoutes extends Component {
       </React.Fragment>
     )
   }
+}
+
+SiteRoutes.propTypes = {
+  fetchSpecialties: PropTypes.func,
+  fetchPortfolio: PropTypes.func,
+  fetchEducation: PropTypes.func,
+  fetchRecommendations: PropTypes.func,
+  fetchProjectImages: PropTypes.func,
+  fetchClients: PropTypes.func,
+  homePage: PropTypes.shape({
+    isSet: PropTypes.bool,
+  }),
+  clientGrid: PropTypes.shape({
+    isSet: PropTypes.bool,
+  }),
+  coursesGrid: PropTypes.shape({
+    isSet: PropTypes.bool,
+  }),
+  match: PropTypes.shape({
+    params: PropTypes.shape({
+      portfolioId: PropTypes.string,
+    }),
+  }),
+  portfolio: PropTypes.shape({
+    projects: PropTypes.arrayOf(PropTypes.object),
+    isLoading: PropTypes.bool,
+    errMess: PropTypes.string,
+  }),
+  project: PropTypes.shape({
+    isLoading: PropTypes.bool,
+    errMess: PropTypes.string,
+  }),
+  specialties: PropTypes.array,
+  education: PropTypes.array,
+  recommendations: PropTypes.array,
+  clients: PropTypes.array,
 }
 
 //export default withRouter(connect(mapStateToProps, mapDispatchToProps)(SiteRoutes));

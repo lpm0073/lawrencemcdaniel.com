@@ -1,4 +1,5 @@
 import React, { Component } from 'react'
+import PropTypes from 'prop-types'
 import { connect } from 'react-redux'
 import { bindActionCreators } from 'redux'
 import * as Actions from '../../redux/ActionCreators'
@@ -79,6 +80,12 @@ class Home extends Component {
       </React.Fragment>
     )
   }
+}
+
+Home.propTypes = {
+  actions: PropTypes.shape({
+    setHomePage: PropTypes.func.isRequired,
+  }).isRequired,
 }
 
 export default connect(mapStateToProps, mapDispatchToProps)(Home)

@@ -1,4 +1,5 @@
 import React from 'react'
+import PropTypes from 'prop-types'
 import RenderPageTitle from '../../components/pagetitle/pageTitleComponent'
 import { LinkedinBadge } from '../../components/linkedinBadge/Component'
 import ClientGrid from '../../components/clientGrid/Component'
@@ -14,6 +15,7 @@ import './styles.css'
 
 import Accordion from 'react-bootstrap/Accordion'
 
+/* eslint-disable react/no-unescaped-entities */
 const Openedx = (props) => {
   /* Google Structured Data */
   const slug = 'openedx'
@@ -626,6 +628,10 @@ const Openedx = (props) => {
       </div>
     </div>
   )
+}
+
+Openedx.propTypes = {
+  clients: PropTypes.array.isRequired,
 }
 
 export default Openedx

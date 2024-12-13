@@ -1,4 +1,5 @@
 import React from 'react'
+import PropTypes from 'prop-types'
 import { useRef } from 'react'
 import { useEffect } from 'react'
 import drawBar from './drawBar'
@@ -18,6 +19,11 @@ const SkillBar = (props) => {
       </div>
     </React.Fragment>
   )
+}
+
+SkillBar.propTypes = {
+  key: PropTypes.string.isRequired,
+  description: PropTypes.string.isRequired,
 }
 
 export default SkillBar

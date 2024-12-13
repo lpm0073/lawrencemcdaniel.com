@@ -1,5 +1,6 @@
 import React from 'react'
 
+/* eslint-disable no-unused-vars */
 const OpenedxConsultant = (props) => {
   return (
     <React.Fragment>

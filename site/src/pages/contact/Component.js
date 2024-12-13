@@ -67,11 +67,11 @@ class Contact extends Component {
                   <address className="m-b-4">
                     Lawrence McDaniel, {baseTitle}
                     <br />
-                    210 Broadway, Suite 200
+                    Colonia Doctores
                     <br />
-                    Cambridge, MA 02139
+                    Ciudad de México, CDMX 06720
                     <br />
-                    USA
+                    México
                   </address>
                 </a>
                 <h6 className="mb-4">

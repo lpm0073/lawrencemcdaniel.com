@@ -1,4 +1,5 @@
 import React, { Component } from 'react'
+import PropTypes from 'prop-types'
 import { connect } from 'react-redux'
 import { bindActionCreators } from 'redux'
 import * as Actions from '../../redux/ActionCreators'
@@ -114,7 +115,7 @@ class About extends Component {
                     <a href="https://12factor.net/">12-factor</a> development.
                   </p>
                   <p>
-                    I've lived abroad for {years_living_abroad} of the last{' '}
+                    I`&apos;`ve lived abroad for {years_living_abroad} of the last{' '}
                     {years_traveling} years in Mexico, Western Europe and SE Asia. Prior
                     to that I earned a B.S. from University of North Texas with majors in
                     Computer Science and Mathematics and minors in Physics and English.
@@ -177,4 +178,14 @@ const RightColumn = () => {
     </div>
   )
 }
+
+About.propTypes = {
+  actions: PropTypes.shape({
+    setAboutPage: PropTypes.func.isRequired,
+  }).isRequired,
+  aboutPage: PropTypes.shape({
+    isSet: PropTypes.bool.isRequired,
+  }).isRequired,
+}
+
 export default connect(mapStateToProps, mapDispatchToProps)(About)

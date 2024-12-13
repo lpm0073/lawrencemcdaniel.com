@@ -1,4 +1,5 @@
 import React from 'react'
+import PropTypes from 'prop-types'
 import Loading from '../../components/Loading'
 
 const SpecialtyColumn = (props) => {
@@ -51,6 +52,16 @@ const SpecialtiesBanner = (props) => {
       )}
     </React.Fragment>
   )
+}
+
+SpecialtiesBanner.propTypes = {
+  isLoading: PropTypes.bool.isRequired,
+}
+
+SpecialtyColumn.propTypes = {
+  icon: PropTypes.string.isRequired,
+  title: PropTypes.string.isRequired,
+  description: PropTypes.string.isRequired,
 }
 
 export default SpecialtiesBanner

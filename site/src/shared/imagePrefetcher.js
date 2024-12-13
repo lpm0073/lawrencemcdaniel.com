@@ -1,5 +1,6 @@
 import { wpGetFeaturedImage } from './wpGetFeaturedImage'
 
+/* eslint-disable no-unused-vars */
 export const imagePreFetcher = (arr, delay, desc) => {
   setTimeout(
     function () {

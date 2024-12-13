@@ -1,4 +1,5 @@
 import React, { Component } from 'react'
+import PropTypes from 'prop-types'
 import { connect } from 'react-redux'
 import { bindActionCreators } from 'redux'
 import * as Actions from '../../redux/ActionCreators'
@@ -60,6 +61,19 @@ class CoursesGrid extends Component {
       </div>
     )
   }
+}
+
+CoursesGrid.propTypes = {
+  actions: PropTypes.shape({
+    setCoursesGrid: PropTypes.func.isRequired,
+  }).isRequired,
+  isLoading: PropTypes.bool.isRequired,
+  education: PropTypes.shape({
+    courses: PropTypes.arrayOf(PropTypes.object).isRequired,
+  }).isRequired,
+  coursesGrid: PropTypes.shape({
+    isSet: PropTypes.bool.isRequired,
+  }).isRequired,
 }
 
 export default connect(mapStateToProps, mapDispatchToProps)(CoursesGrid)

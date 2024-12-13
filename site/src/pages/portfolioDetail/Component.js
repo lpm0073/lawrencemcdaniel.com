@@ -1,4 +1,5 @@
 import React from 'react'
+import PropTypes from 'prop-types'
 import RenderPageTitle from '../../components/pagetitle/pageTitleComponent'
 import Loading from '../../components/Loading'
 import ProjectCarousel from './projectCarousel'
@@ -7,6 +8,27 @@ import { gsdGraph } from '../../shared/seo/gsdGraph'
 import { gsdPersonLawrenceMcDaniel } from '../../shared/seo/gsdPersonLawrence'
 import { URL_SITE } from '../../shared/constants'
 import './styles.css'
+
+function toJSON(str) {
+  try {
+    // remove curly quotes
+    str = str.replace(/[\u2018\u2019]/g, "'").replace(/[\u201C\u201D]/g, '"')
+
+    // replace <br> with actual carriage return
+    /* eslint-disable no-useless-escape */
+    str = str.replace(/<br\s*[\/]?>/gi, '\n')
+    return JSON.parse(str)
+  } catch (e) {
+    console.log('toJSON() - error:', e)
+    return null
+  }
+}
+function innerHTML(selector) {
+  if (selector) {
+    return selector.innerHTML
+  }
+  return null
+}
 
 const PortfolioDetail = (props) => {
   /* Google Structured Data */
@@ -35,27 +57,6 @@ const PortfolioDetail = (props) => {
       </div>
     )
   } else if (props.post != null) {
-    function innerHTML(selector) {
-      if (selector) {
-        return selector.innerHTML
-      }
-      return null
-    }
-
-    function toJSON(str) {
-      try {
-        // remove curly quotes
-        str = str.replace(/[\u2018\u2019]/g, "'").replace(/[\u201C\u201D]/g, '"')
-
-        // replace <br> with actual carriage return
-        str = str.replace(/<br\s*[\/]?>/gi, '\n')
-        return JSON.parse(str)
-      } catch (e) {
-        console.log('toJSON() - error:', e)
-        return null
-      }
-    }
-
     var parser = new DOMParser()
     var doc = parser.parseFromString(props.post.content.rendered, 'text/html')
     var raw = innerHTML(doc.querySelector('p'))
@@ -104,6 +105,17 @@ const PortfolioDetail = (props) => {
       </React.Fragment>
     )
   }
+}
+
+PortfolioDetail.propTypes = {
+  postLoading: PropTypes.bool.isRequired,
+  postErrMess: PropTypes.string,
+  errMess: PropTypes.string,
+  post: PropTypes.shape({
+    content: PropTypes.shape({
+      rendered: PropTypes.string.isRequired,
+    }).isRequired,
+  }).isRequired,
 }
 
 export default PortfolioDetail

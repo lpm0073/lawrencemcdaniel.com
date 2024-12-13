@@ -1,4 +1,5 @@
-import { createStore, combineReducers, applyMiddleware } from 'redux'
+import { configureStore } from '@reduxjs/toolkit'
+import { combineReducers } from 'redux'
 import { Specialties } from './specialties'
 import { Portfolio } from './portfolio'
 import { Education } from './education'
@@ -11,26 +12,26 @@ import { ClientGridRedux } from './clientGrid'
 import { CoursesGridRedux } from './coursesGrid'
 import { HomePageRedux } from './homePage.js'
 
-import thunk from 'redux-thunk'
-import logger from 'redux-thunk'
+import { thunk } from 'redux-thunk'
+import logger from 'redux-logger'
+
+const rootReducer = combineReducers({
+  specialties: Specialties,
+  portfolio: Portfolio,
+  education: Education,
+  recommendations: Recommendations,
+  project: Project,
+  clients: Clients,
+  logoCube: LogoCube,
+  aboutPage: AboutPageRedux,
+  clientGrid: ClientGridRedux,
+  coursesGrid: CoursesGridRedux,
+  homePage: HomePageRedux,
+})
 
 export const ConfigureStore = () => {
-  const store = createStore(
-    combineReducers({
-      specialties: Specialties,
-      portfolio: Portfolio,
-      education: Education,
-      recommendations: Recommendations,
-      project: Project,
-      clients: Clients,
-      logoCube: LogoCube,
-      aboutPage: AboutPageRedux,
-      clientGrid: ClientGridRedux,
-      coursesGrid: CoursesGridRedux,
-      homePage: HomePageRedux,
-    }),
-    applyMiddleware(thunk, logger)
-  )
-
-  return store
+  return configureStore({
+    reducer: rootReducer,
+    middleware: (getDefaultMiddleware) => getDefaultMiddleware().concat(thunk, logger),
+  })
 }

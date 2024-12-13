@@ -1,4 +1,6 @@
 import React, { Component } from 'react'
+import PropTypes from 'prop-types'
+
 import Carousel from 'react-multi-carousel'
 import 'react-multi-carousel/lib/styles.css'
 import Loading from '../../components/Loading'
@@ -74,6 +76,17 @@ class TechnologyCarousel extends Component {
       </div>
     )
   }
+}
+
+TechnologyCarousel.propTypes = {
+  isLoading: PropTypes.bool.isRequired,
+  specialties: PropTypes.shape({
+    items: PropTypes.arrayOf(
+      PropTypes.shape({
+        id: PropTypes.number.isRequired,
+      })
+    ).isRequired,
+  }).isRequired,
 }
 
 export default TechnologyCarousel

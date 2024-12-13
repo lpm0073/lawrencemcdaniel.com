@@ -131,6 +131,7 @@
 
 */
 import React, { Component } from 'react'
+import PropTypes from 'prop-types'
 import { connect } from 'react-redux'
 import { bindActionCreators } from 'redux'
 import * as Actions from '../../redux/ActionCreators'
@@ -180,7 +181,7 @@ class LogoCube extends Component {
     if (this.props.logoCube.isSet) {
       this.state = this.props.logoCube.state
     } else {
-      const d = new Date()
+      const d = new Date().toISOString()
 
       /* grab a locally-stored set of six logos for initializing the cube sides */
       const initialLogos = this.getInitialCubeLogos()
@@ -351,19 +352,19 @@ class LogoCube extends Component {
     const d = new Date()
     switch (side) {
       case 'top':
-        return d - this.state.cubeTop
+        return d - new Date(this.state.cubeTop)
       case 'bottom':
-        return d - this.state.cubeBottom
+        return d - new Date(this.state.cubeBottom)
       case 'left':
-        return d - this.state.cubeLeft
+        return d - new Date(this.state.cubeLeft)
       case 'right':
-        return d - this.state.cubeRight
+        return d - new Date(this.state.cubeRight)
       case 'front':
-        return d - this.state.cubeFront
+        return d - new Date(this.state.cubeFront)
       case 'back':
-        return d - this.state.cubeBack
+        return d - new Date(this.state.cubeBack)
       default:
-        return d - this.state.constructed
+        return d - new Date(this.state.constructed)
     }
   }
 
@@ -436,5 +437,29 @@ class LogoCube extends Component {
     ])
   }
 } /* LogoCube component */
+
+CubeSide.propTypes = {
+  side: PropTypes.string.isRequired,
+  classes: PropTypes.string.isRequired,
+  url: PropTypes.string.isRequired,
+}
+
+LogoCube.propTypes = {
+  side: PropTypes.string,
+  classes: PropTypes.string,
+  url: PropTypes.string,
+  logoCube: PropTypes.shape({
+    isSet: PropTypes.bool,
+    state: PropTypes.object,
+  }),
+  actions: PropTypes.shape({
+    setLogoState: PropTypes.func,
+  }),
+  specialties: PropTypes.shape({
+    isLoading: PropTypes.bool,
+    featured_logos: PropTypes.array,
+    logos: PropTypes.array,
+  }),
+}
 
 export default connect(mapStateToProps, mapDispatchToProps)(LogoCube)

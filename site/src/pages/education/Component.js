@@ -1,4 +1,5 @@
 import React from 'react'
+import PropTypes from 'prop-types'
 import RenderPageTitle from '../../components/pagetitle/pageTitleComponent'
 import CoursesGrid from './coursesGrid'
 import { Helmet } from 'react-helmet'
@@ -54,6 +55,10 @@ const Education = (props) => {
       </div>
     </React.Fragment>
   )
+}
+
+Education.propTypes = {
+  education: PropTypes.arrayOf(PropTypes.object).isRequired,
 }
 
 export default Education

@@ -3,6 +3,7 @@
  */
 import React, { Component } from 'react'
 import { Modal, ModalHeader } from 'reactstrap'
+import PropTypes from 'prop-types'
 
 import { Helmet } from 'react-helmet'
 import Loading from '../../components/Loading'
@@ -68,6 +69,10 @@ class PageNotFound extends Component {
       </React.Fragment>
     )
   }
+}
+
+PageNotFound.propTypes = {
+  isLoading: PropTypes.bool.isRequired,
 }
 
 export default PageNotFound

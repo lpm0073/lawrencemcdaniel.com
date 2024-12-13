@@ -10,6 +10,8 @@ import { gsdArticle } from '../../shared/seo/gsdArticle'
 import { URL_SITE } from '../../shared/constants'
 import './styles.css'
 
+/* eslint-disable react/no-unescaped-entities */
+/* eslint-disable no-unused-vars */
 const ReactPage = (props) => {
   /* Google Structured Data */
   const slug = 'reactjs'

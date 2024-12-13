@@ -1,4 +1,6 @@
 import React from 'react'
+import PropTypes from 'prop-types'
+
 import RenderPageTitle from '../../components/pagetitle/pageTitleComponent'
 import RecommendationsCarousel from './recommendationsCarousel'
 import ClientGrid from '../../components/clientGrid/Component'
@@ -52,6 +54,11 @@ const Clients = (props) => {
       </div>
     </React.Fragment>
   )
+}
+
+Clients.propTypes = {
+  recommendations: PropTypes.arrayOf(PropTypes.object).isRequired,
+  clients: PropTypes.arrayOf(PropTypes.object).isRequired,
 }
 
 export default Clients

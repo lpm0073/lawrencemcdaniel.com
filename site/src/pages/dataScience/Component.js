@@ -11,6 +11,7 @@ import { URL_SITE } from '../../shared/constants'
 
 import './styles.css'
 
+/* eslint-disable no-unused-vars */
 const Datascience = (props) => {
   /* Google Structured Data */
   const slug = 'data-science'

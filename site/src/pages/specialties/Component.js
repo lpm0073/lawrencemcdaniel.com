@@ -1,4 +1,5 @@
 import React from 'react'
+import PropTypes from 'prop-types'
 import RenderPageTitle from '../../components/pagetitle/pageTitleComponent'
 import SpecialtiesBanner from './specialtiesBanner'
 import TechnologyCarousel from './technologyCarousel'
@@ -57,7 +58,7 @@ const Specialties = (props) => {
               <div>
                 <h2>Want to see code samples?</h2>
                 <h6>
-                  I'm constantly experimenting with new GitHub libraries and coding
+                  I`&apos;`m constantly experimenting with new GitHub libraries and coding
                   techniques. Click here to see some of my all-time favorites.
                 </h6>
               </div>
@@ -79,6 +80,10 @@ const Specialties = (props) => {
       </div>
     </React.Fragment>
   )
+}
+
+Specialties.propTypes = {
+  specialties: PropTypes.array.isRequired,
 }
 
 export default Specialties

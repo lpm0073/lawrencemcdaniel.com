@@ -3,6 +3,7 @@ import * as ActionTypes from './ActionTypes'
 import { wpGetFeaturedImage } from '../shared/wpGetFeaturedImage'
 import { shuffleArray } from '../shared/shuffle'
 
+/* eslint-disable no-unused-vars */
 export const Specialties = (
   state = {
     isLoading: true,
@@ -44,7 +45,7 @@ export const Specialties = (
   }
 
   switch (action.type) {
-    case ActionTypes.ADD_SPECIALTIES:
+    case ActionTypes.ADD_SPECIALTIES: {
       const parsed_urls = extractUrls()
       return {
         ...state,
@@ -54,6 +55,7 @@ export const Specialties = (
         featured_logos: parsed_urls.featured_logos,
         items: action.payload,
       }
+    }
 
     case ActionTypes.SPECIALTIES_LOADING:
       return {

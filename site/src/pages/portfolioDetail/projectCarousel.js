@@ -1,4 +1,5 @@
 import React, { Component } from 'react'
+import PropTypes from 'prop-types'
 import Carousel from 'react-multi-carousel'
 import 'react-multi-carousel/lib/styles.css'
 import Loading from '../../components/Loading'
@@ -63,6 +64,11 @@ class ProjectCarousel extends Component {
       </div>
     )
   }
+}
+
+ProjectCarousel.propTypes = {
+  images: PropTypes.arrayOf(PropTypes.string).isRequired,
+  isLoading: PropTypes.bool.isRequired,
 }
 
 export default ProjectCarousel

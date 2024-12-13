@@ -1,4 +1,5 @@
 import React from 'react'
+import PropTypes from 'prop-types'
 
 const AboutTile = (props) => {
   const thisClassName = 'fa ' + props.icon + ' fa-2x about-tile-icon'
@@ -14,6 +15,12 @@ const AboutTile = (props) => {
       </div>
     </div>
   )
+}
+
+AboutTile.propTypes = {
+  icon: PropTypes.string.isRequired,
+  value: PropTypes.oneOfType([PropTypes.string, PropTypes.number]).isRequired,
+  text: PropTypes.string.isRequired,
 }
 
 export default AboutTile

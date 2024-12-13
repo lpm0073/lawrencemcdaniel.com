@@ -1,4 +1,5 @@
 import React from 'react'
+import PropTypes from 'prop-types'
 
 const WhartonCertificate = (props) => {
   const thisClassName = props.cls + ' col-lg-6 col-md-12 mb-1 pe-1'
@@ -18,6 +19,13 @@ const WhartonCertificate = (props) => {
       </div>
     </React.Fragment>
   )
+}
+
+WhartonCertificate.propTypes = {
+  cls: PropTypes.string.isRequired,
+  src: PropTypes.string.isRequired,
+  href: PropTypes.string.isRequired,
+  idx: PropTypes.number.isRequired,
 }
 
 export default WhartonCertificate

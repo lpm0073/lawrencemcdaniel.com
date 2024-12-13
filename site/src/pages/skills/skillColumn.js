@@ -1,4 +1,5 @@
 import React from 'react'
+import PropTypes from 'prop-types'
 import { useRef } from 'react'
 import { useEffect } from 'react'
 import drawCircle from './drawCircle'
@@ -10,7 +11,7 @@ import drawCircle from './drawCircle'
 const SkillColumn = (props) => {
   const thisClassName = 'fa p-3 ' + props.icon + ' fa-2x'
   const ref = useRef()
-  const keyName = 'skill-column-' + props.key
+  const keyName = 'skill-column-' + props.id
 
   useEffect(() => drawCircle(ref))
 
@@ -31,6 +32,14 @@ const SkillColumn = (props) => {
       </div>
     </React.Fragment>
   )
+}
+
+SkillColumn.propTypes = {
+  id: PropTypes.string.isRequired,
+  pct: PropTypes.string.isRequired,
+  title: PropTypes.string.isRequired,
+  icon: PropTypes.string.isRequired,
+  description: PropTypes.string.isRequired,
 }
 
 export default SkillColumn
