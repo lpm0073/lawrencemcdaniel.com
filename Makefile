@@ -3,8 +3,7 @@
 # https://s3.console.aws.amazon.com/s3/buckets/reactjs.lawrencemcdaniel.com
 # -------------------------------------------------------------------------
 sitemap:
-	npm run ./site/sitemap
-
+	npm run sitemap
 
 init:
 	rm -rf .git/hooks/pre-commit .git/hooks/pre-commit.legacy
@@ -15,11 +14,10 @@ init:
 	pre-commit install
 
 update:
-	npm install -g npm
-	npm install -g npm-check-updates
-	ncu --upgrade --packageFile ./site/package.json
-	npm update -g
-	npm install ./site/
+	yarn global add npm-check-updates
+	ncu --upgrade --packageFile ./package.json
+	yarn global upgrade
+	yarn install
 
 build:
 	yarn build

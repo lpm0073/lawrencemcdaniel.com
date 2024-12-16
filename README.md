@@ -39,7 +39,7 @@ https://react-bootstrap.github.io/components/
 
 In the project directory, you can run:
 
-### `cd ./site && ncu --upgrade && npm install`
+### `ncu --upgrade && npm install`
 
 Check for node package upgrades, updates package-lock.json, updates packages.
 

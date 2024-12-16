@@ -44,7 +44,7 @@ jobs:
 
       - name: Install npm dev dependencies
         run: npm install
-        working-directory: ./site
+        working-directory: ./
 
       - name: Get current version
         #  step 1
@@ -52,7 +52,7 @@ jobs:
         id: current_version
         shell: bash
         run: |
-          echo "CURRENT_VERSION=$(node -p "require('./site/src/shared/version.js').VERSION")" >> $GITHUB_ENV
+          echo "CURRENT_VERSION=$(node -p "require('./src/shared/version.js').VERSION")" >> $GITHUB_ENV
         env:
           GITHUB_TOKEN: ${{ secrets.PAT }}
 

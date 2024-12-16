@@ -78,7 +78,7 @@ jobs:
       - name: Install npm dev dependencies
         shell: bash
         run: npm install
-        working-directory: ./site
+        working-directory: ./
 
       - name: Update .pre-commit-config.yaml
         shell: bash

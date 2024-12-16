@@ -37,7 +37,7 @@ jobs:
 
       - name: Install npm dev dependencies
         run: npm install
-        working-directory: ./site
+        working-directory: ./
 
       - name: Get current version
         #  step 1
@@ -45,7 +45,7 @@ jobs:
         id: current_version
         shell: bash
         run: |
-          echo "CURRENT_VERSION=$(node -p "require('./site/src/shared/version.js').VERSION")" >> $GITHUB_ENV
+          echo "CURRENT_VERSION=$(node -p "require('./src/shared/version.js').VERSION")" >> $GITHUB_ENV
         env:
           GITHUB_TOKEN: ${{ secrets.PAT }}
 
@@ -56,7 +56,7 @@ jobs:
         id: next_version
         shell: bash
         run: |
-          echo "NEXT_VERSION=$(node -e 'const getSemanticVersion = require(\"./site/src/shared/getSemanticVersion.js\"); console.log(getSemanticVersion())')" >> $GITHUB_ENV
+          echo "NEXT_VERSION=$(node -e 'const getSemanticVersion = require(\"./src/shared/getSemanticVersion.js\"); console.log(getSemanticVersion())')" >> $GITHUB_ENV
         env:
           GITHUB_TOKEN: ${{ secrets.PAT }}
 
@@ -91,10 +91,10 @@ jobs:
         if: env.VERSION_CHANGED == 'true'
         id: update_version
         run: |
-          echo "export const VERSION = '${{ env.NEXT_VERSION }}'" > ./site/src/shared/version.js
+          echo "export const VERSION = '${{ env.NEXT_VERSION }}'" > ./src/shared/version.js
           git config --local user.email "action@github.com"
           git config --local user.name "GitHub Action"
-          git add ./site/src/shared/version.js
+          git add ./src/shared/version.js
           git commit -m "chore: [gh] Update version.js to ${{ env.NEXT_VERSION }} [skip ci]"
           git push https://${{ secrets.PAT }}@github.com/${{ github.repository }}.git HEAD:${{ github.ref }}
         env:
