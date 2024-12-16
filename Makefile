@@ -38,12 +38,12 @@ release:
 	#             2. Upload to AWS S3
 	#             3. Invalidate all items in the AWS Cloudfront CDN.
 	#---------------------------------------------------------
-	yarn  --cwd ./site/ build
+	yarn build
 
 	# ------------------------
 	# add all built files to the S3 bucket.
 	# ------------------------
-	aws s3 sync ./site/build/ s3://reactjs.lawrencemcdaniel.com \
+	aws s3 sync ./build/ s3://reactjs.lawrencemcdaniel.com \
 				--acl public-read \
 				--delete --cache-control max-age=31536000,public \
 				--expires '31 Dec 2050 00:00:01 GMT'

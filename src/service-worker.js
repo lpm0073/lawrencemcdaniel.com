@@ -19,6 +19,7 @@ import { CacheFirst } from 'workbox-strategies'
 import { registerRoute } from 'workbox-routing'
 import { StaleWhileRevalidate } from 'workbox-strategies'
 //-----------------------------------------------
+import packageJson from '../package.json'
 import { DEBUG } from './shared/constants'
 import { wpPrefetch } from './shared/wpPrefetch'
 import {
@@ -36,7 +37,8 @@ import {
   URL_API_CLIENTS,
 } from './shared/constants'
 
-const CACHE_VERSION = 'v1'
+const CACHE_VERSION = packageJson.version
+if (DEBUG) console.log('service-worker.js - CACHE_VERSION: ', CACHE_VERSION)
 
 // ----------------------------------------
 // create-react-app generated Workbox code
