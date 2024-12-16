@@ -1,4 +1,4 @@
-import { VERSION } from './version.js'
+import packageJson from '../../package.json'
 
 /**
  * Return the semantic version number.
@@ -18,7 +18,7 @@ import { VERSION } from './version.js'
  * - npm does not allow semantic version numbers to contain a 'next' suffix.
  */
 export function getSemanticVersion() {
-  let version = VERSION
+  let version = packageJson.version
   version = version.replace(/-next\.\d+/g, '')
   return version.replace(/-next-major\.\d+/g, '')
 }
