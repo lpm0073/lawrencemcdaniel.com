@@ -1,3 +1,10 @@
+## [1.0.6](https://github.com/lpm0073/lawrencemcdaniel.com/compare/v1.0.5...v1.0.6) (2024-12-16)
+
+
+### Bug Fixes
+
+* disable redux-logger in production. log service-worker fetch errors to console ([b4668d1](https://github.com/lpm0073/lawrencemcdaniel.com/commit/b4668d1e948d3a5b95f48c187bd62fd8ed588b6a))
+
 ## [1.0.5](https://github.com/lpm0073/lawrencemcdaniel.com/compare/v1.0.4...v1.0.5) (2024-12-16)
 
 
