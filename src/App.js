@@ -19,6 +19,7 @@ import SiteRoutes from './components/Routes'
 import Head from './components/Head'
 import { Header } from './components/header/Component'
 import Footer from './components/footer/Component'
+import { setCookie } from './components/cookieSetter'
 
 // UI stuff for service worker notifications
 import AppUpdateAlert from './components/appUpdate/Component'
@@ -126,6 +127,12 @@ class App extends Component {
     this.resetSWNotificationStates()
     this.setState({
       isSet: true,
+    })
+
+    // Ensure all cookies have the SameSite and Secure attributes
+    document.cookie.split(';').forEach((cookie) => {
+      const [name, value] = cookie.split('=')
+      setCookie(name.trim(), value, { sameSite: 'None', secure: true })
     })
 
     // Note: I relocated this snippet from index.js
