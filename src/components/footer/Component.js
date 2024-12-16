@@ -4,11 +4,15 @@ import React from 'react'
 import PropTypes from 'prop-types'
 
 import './styles.css'
+import packageJson from '../../../package.json'
 
 /* eslint-disable no-unused-vars */
 const Footer = (props) => {
   const curr_year = new Date().getFullYear()
   const REACT_VERSION = React.version
+  const APP_VERSION = packageJson.version
+  const REDUX_VERSION = packageJson.dependencies.redux.replace(/[^0-9.]/g, '')
+  const WORKBOX_CORE = packageJson.dependencies['workbox-core'].replace(/[^0-9.]/g, '')
 
   return (
     <React.Fragment>
@@ -23,7 +27,8 @@ const Footer = (props) => {
                   src="/assets/images/react-logo-300x261.png"
                   alt="ReactJS logo"
                 />
-                Progressive Web App Built with ReactJS {REACT_VERSION}, Redux and Workbox.{' '}
+                Version {APP_VERSION}. Progressive Web App built with ReactJS{' '}
+                {REACT_VERSION}, Redux {REDUX_VERSION} and Workbox {WORKBOX_CORE}.{' '}
                 <a className="mx-1 learn-more-link" href="/reactjs" target="_self">
                   Learn more
                 </a>
