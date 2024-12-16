@@ -37,11 +37,19 @@ import {
 } from './shared/constants'
 
 async function getCacheVersion() {
-  const response = await fetch(
-    'https://raw.githubusercontent.com/lpm0073/lawrencemcdaniel.com/main/package.json'
-  )
-  const packageJson = await response.json()
-  return packageJson.version
+  try {
+    const response = await fetch(
+      'https://raw.githubusercontent.com/lpm0073/lawrencemcdaniel.com/main/package.json'
+    )
+    if (!response.ok) {
+      throw new Error(`service-worker.js Fetching package.json from GitHub returned a non-200 response: ${response.statusText}`);
+    }
+    const packageJson = await response.json()
+    return packageJson.version
+  } catch (error) {
+    console.error('service-worker.js Failed to fetch package.json:', error.message, error);
+    throw error;
+  }
 }
 
 (async () => {
