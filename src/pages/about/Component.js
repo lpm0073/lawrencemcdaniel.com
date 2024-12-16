@@ -86,7 +86,17 @@ class About extends Component {
                       Querium Corporation
                     </a>
                     , an edtech company specializing in Artificial Intelligence and Cloud
-                    Computing for educational institutions. I’m an enthusiastic lifelong{' '}
+                    Computing for educational institutions. I am principal author and lead
+                    product engineer of{' '}
+                    <a
+                      href="https://smarter.sh"
+                      target="_blank"
+                      rel="noopener noreferrer"
+                    >
+                      Smarter by Querium™
+                    </a>{' '}
+                    , an instructional web platform for teaching generative AI to
+                    non-programmers. I’m an enthusiastic lifelong{' '}
                     <a href="/education">learner</a>, a{' '}
                     <a href="data-science">data scientist</a>, a full stack developer and
                     a{' '}
@@ -123,17 +133,8 @@ class About extends Component {
                     and I publish{' '}
                     <a href="https://blog.lawrencemcdaniel.com/">articles</a> and{' '}
                     <a href="https://www.youtube.com/@FullStackWithLawrence">videos</a> on
-                    a variety of technology topics. In 2024 I authored{' '}
-                    <a
-                      href="https://smarter.sh"
-                      target="_blank"
-                      rel="noopener noreferrer"
-                    >
-                      Smarter
-                    </a>{' '}
-                    , an instructional web platform for teaching generative AI to
-                    non-programmers. The previous year I authored and am the principal
-                    maintainer of{' '}
+                    a variety of technology topics. In 2023 I authored and am the
+                    principal maintainer of{' '}
                     <a
                       href="https://blog.lawrencemcdaniel.com/introducing-cookiecutter-open-edx/"
                       target="_blank"
