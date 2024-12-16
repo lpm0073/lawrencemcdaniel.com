@@ -1,5 +1,6 @@
 import React, { Component } from 'react'
 import { Offline } from 'react-detect-offline'
+import 'wicg-inert'
 import {
   Navbar,
   Nav,
@@ -79,7 +80,7 @@ export class Header extends Component {
                 <DropdownToggle nav caret className="">
                   About
                 </DropdownToggle>
-                <DropdownMenu className="bg-dark">
+                <DropdownMenu className="bg-dark" inert>
                   <DropdownItem>
                     <NavLink className="nav-link p-0 m-0" to="/about">
                       Bio
