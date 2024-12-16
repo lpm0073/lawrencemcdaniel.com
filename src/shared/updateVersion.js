@@ -1,5 +1,6 @@
 /*
   This script is invoked from GitHub Actions and is used to update the version of the package.json file.
+  called as: `node ./src/shared/updateVersion.js ${{ env.NEXT_VERSION }}`
 */
 const fs = require('fs')
 const path = require('path')
@@ -8,7 +9,7 @@ const semver = require('semver')
 const packageJsonPath = path.resolve(__dirname, '../../package.json')
 const packageJson = JSON.parse(fs.readFileSync(packageJsonPath, 'utf8'))
 
-const newVersion = process.env.NEXT_VERSION
+const newVersion = process.argv[2]
 
 if (!newVersion) {
   console.log('NEXT_VERSION is not defined. Skipping version update.')

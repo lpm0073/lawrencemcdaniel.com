@@ -103,7 +103,7 @@ jobs:
         if: env.VERSION_CHANGED == 'true'
         id: update_version
         run: |
-          node ./src/shared/updateVersion.js
+          node ./src/shared/updateVersion.js ${{ env.NEXT_VERSION }}
           git config --local user.email "action@github.com"
           git config --local user.name "GitHub Action"
           git add package.json
