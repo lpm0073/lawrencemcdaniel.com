@@ -1,6 +1,7 @@
 import React, { Component } from 'react'
 import Carousel from 'react-multi-carousel'
 import 'react-multi-carousel/lib/styles.css'
+import PropTypes from 'prop-types'
 import Loading from '../../components/Loading'
 import { wpGetFeaturedImage } from '../../shared/wpGetFeaturedImage'
 import { shuffleArray } from '../../shared/shuffle'
@@ -72,6 +73,13 @@ class ClientCarousel extends Component {
       </div>
     )
   }
+}
+
+ClientCarousel.propTypes = {
+  clients: PropTypes.shape({
+    logos: PropTypes.arrayOf(PropTypes.object).isRequired,
+  }).isRequired,
+  isLoading: PropTypes.bool.isRequired,
 }
 
 export default ClientCarousel

@@ -7,7 +7,12 @@ sitemap:
 
 
 init:
-	cd ./site/ && npm install && npm init @eslint/config
+	rm -rf .git/hooks/pre-commit .git/hooks/pre-commit.legacy
+	yarn remove pre-commit
+	rm -rf node_modules yarn.lock
+	yarn cache clean
+	yarn install --force
+	pre-commit install
 
 update:
 	npm install -g npm
@@ -17,10 +22,10 @@ update:
 	npm install ./site/
 
 build:
-	yarn --cwd ./site/ build
+	yarn build
 
 serve:
-	yarn --cwd ./site/ start
+	yarn start
 
 release:
 	#---------------------------------------------------------

@@ -1,6 +1,7 @@
 import { brandLawrenceMcDaniel, imagesLawrenceMcDaniel, basePageTitle } from './gsdCommon'
 import { URL_SITE } from '../urls'
 /* DEPRECATE???? */
+/* eslint-disable-next-line no-unused-vars */
 export const gsdLocalBusinessLawrenceMcDaniel = (includeExtraData = false) => {
   var retVal = {
     '@type': 'LocalBusiness',
