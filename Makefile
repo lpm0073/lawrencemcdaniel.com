@@ -17,7 +17,7 @@ update:
 	yarn global add npm-check-updates
 	ncu --upgrade --packageFile ./package.json
 	yarn global upgrade
-	yarn install
+	yarn install --force
 
 build:
 	yarn build

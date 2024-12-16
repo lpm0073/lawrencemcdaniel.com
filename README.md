@@ -39,13 +39,13 @@ https://react-bootstrap.github.io/components/
 
 In the project directory, you can run:
 
-### `ncu --upgrade && npm install`
+### `ncu --upgrade && yarn install --force`
 
 Check for node package upgrades, updates package-lock.json, updates packages.
 
 ### `./deploy.sh`
 
-Executes yarn sitemap + yarn build, pushes to S3 and sets no-cache headers as necessary for
+Executes yarn sitemap + yarn build, pushes to S3 and yarn install-cache headers as necessary for
 cache busting purposes.
 
 ### `yarn start`

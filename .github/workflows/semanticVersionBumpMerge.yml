@@ -36,7 +36,7 @@ jobs:
           node-version: '20.9.0'
 
       - name: Install npm dev dependencies
-        run: npm install
+        run: yarn install --force
         working-directory: ./
 
       - name: Get current version

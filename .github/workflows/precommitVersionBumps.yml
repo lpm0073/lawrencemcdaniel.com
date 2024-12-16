@@ -75,9 +75,9 @@ jobs:
         with:
           node-version: '20.9.0'
 
-      - name: Install npm dev dependencies
+      - name: Install dev dependencies
         shell: bash
-        run: npm install
+        run: yarn install --force
         working-directory: ./
 
       - name: Update .pre-commit-config.yaml
