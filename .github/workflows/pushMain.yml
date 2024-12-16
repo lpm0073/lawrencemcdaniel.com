@@ -77,5 +77,5 @@ jobs:
       - name: Push updates to branch for major version
         id: push_major
         if: steps.semantic.outputs.new_release_published == 'true'
-        run: "git push https://x-access-token:${{ env.GITHUB_TOKEN }}@github.com/${GITHUB_REPOSITORY}.git HEAD:refs/heads/v${{steps.semantic.outputs.new_release_major_version}}"
+        run: 'git push https://x-access-token:${{ env.GITHUB_TOKEN }}@github.com/${GITHUB_REPOSITORY}.git HEAD:refs/heads/v${{steps.semantic.outputs.new_release_major_version}}'
         shell: bash

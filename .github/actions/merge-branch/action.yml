@@ -4,30 +4,30 @@
 #------------------------------------------------------------------------------
 name: Merge
 branding:
-  icon: "git-pull-request"
-  color: "orange"
+  icon: 'git-pull-request'
+  color: 'orange'
 inputs:
   github-token:
-    description: "The GitHub token to use for authentication"
+    description: 'The GitHub token to use for authentication'
     required: true
     type: string
   source-branch:
-    description: "The branch to merge from"
+    description: 'The branch to merge from'
     required: false
     type: string
-    default: "main"
+    default: 'main'
   target-branch:
-    description: "The branch to merge to"
+    description: 'The branch to merge to'
     required: true
     type: string
 
   python-version:
-    description: "The version of Python to use, such as 3.11.0"
+    description: 'The version of Python to use, such as 3.11.0'
     required: true
     type: string
 
 runs:
-  using: "composite"
+  using: 'composite'
   steps:
     - name: Checkout code
       id: checkout

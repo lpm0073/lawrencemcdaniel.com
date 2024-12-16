@@ -40,11 +40,11 @@ jobs:
       - name: Setup Node.js environment
         uses: actions/setup-node@v4
         with:
-          node-version: "20.9.0"
+          node-version: '22.12.0'
 
       - name: Install npm dev dependencies
-        run: npm install
-        working-directory: ./site
+        run: yarn install --force
+        working-directory: ./
 
       - name: Get current version
         #  step 1
@@ -52,7 +52,7 @@ jobs:
         id: current_version
         shell: bash
         run: |
-          echo "CURRENT_VERSION=$(node -p "require('./site/src/shared/version.js').VERSION")" >> $GITHUB_ENV
+          echo "CURRENT_VERSION=$(node -p "require('./package.json').version")" >> $GITHUB_ENV
         env:
           GITHUB_TOKEN: ${{ secrets.PAT }}
 
@@ -103,11 +103,11 @@ jobs:
         if: env.VERSION_CHANGED == 'true'
         id: update_version
         run: |
-          echo "export const VERSION = '${{ env.NEXT_VERSION }}'" > ${{ env.VERSION_FILE }}
+          node ./src/shared/updateVersion.js ${{ env.NEXT_VERSION }}
           git config --local user.email "action@github.com"
           git config --local user.name "GitHub Action"
-          git add ${{ env.VERSION_FILE }}
-          git commit -m "chore: [gh] Update version.js to ${{ env.NEXT_VERSION }} [skip ci]"
+          git add package.json
+          git commit -m "chore: [gh] Update package.json version to ${{ env.NEXT_VERSION }} [skip ci]"
           git push https://${{ secrets.PAT }}@github.com/${{ github.repository }}.git HEAD:${{ github.ref }}
         env:
           VERSION_FILE: ${{ env.PACKAGE_PATH }}${{ env.VERSION_FILE }}

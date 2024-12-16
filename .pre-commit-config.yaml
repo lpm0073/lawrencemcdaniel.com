@@ -1,12 +1,17 @@
 default_language_version:
-  # default language version for each language
-  python: python3.11
+  node: 23.3.0
+
 repos:
+  - repo: https://github.com/pre-commit/mirrors-eslint
+    rev: v8.32.0
+    hooks:
+      - id: eslint
+        args: ['--ext', '.js,.jsx,.ts,.tsx']
   - repo: https://github.com/codespell-project/codespell
     rev: v2.2.6
     hooks:
       - id: codespell
-        args: ["--ignore-words=codespell.txt"]
+        args: ['--ignore-words=codespell.txt', '--skip=yarn.lock']
         exclude: '\.svg$'
   - repo: local
     hooks:
@@ -20,18 +25,17 @@ repos:
     rev: v3.1.0
     hooks:
       - id: prettier
+        args: ['--write', '.']
   - repo: https://github.com/pre-commit/pre-commit-hooks
     rev: v4.5.0
     hooks:
       # See https://pre-commit.com/hooks.html for more hooks
       #- id: check-added-large-files
       - id: fix-byte-order-marker
-      - id: fix-encoding-pragma
       - id: check-case-conflict
       - id: check-json
       - id: check-merge-conflict
       - id: check-symlinks
-      - id: check-toml
       - id: check-xml
       - id: check-yaml
       - id: destroyed-symlinks
@@ -40,7 +44,6 @@ repos:
       - id: end-of-file-fixer
       - id: forbid-new-submodules
       - id: trailing-whitespace
-      - id: check-case-conflict
       - id: check-merge-conflict
       - id: debug-statements
   - repo: https://github.com/alessandrojcm/commitlint-pre-commit-hook
@@ -48,14 +51,14 @@ repos:
     hooks:
       - id: commitlint
         stages: [commit-msg]
-        additional_dependencies: ["@commitlint/config-angular"]
+        additional_dependencies: ['@commitlint/config-angular']
 ci:
   # for more information, see https://pre-commit.ci
   autofix_commit_msg: |
     [pre-commit.ci] auto fixes from pre-commit.com hooks
   autofix_prs: true
-  autoupdate_branch: ""
-  autoupdate_commit_msg: "[pre-commit.ci] pre-commit autoupdate"
+  autoupdate_branch: ''
+  autoupdate_commit_msg: '[pre-commit.ci] pre-commit autoupdate'
   autoupdate_schedule: weekly
   skip: [shellcheck, markdown-link-check, commitlint]
   submodules: false

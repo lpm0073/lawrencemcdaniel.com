@@ -3,24 +3,27 @@
 # https://s3.console.aws.amazon.com/s3/buckets/reactjs.lawrencemcdaniel.com
 # -------------------------------------------------------------------------
 sitemap:
-	npm run ./site/sitemap
-
+	npm run sitemap
 
 init:
-	cd ./site/ && npm install && npm init @eslint/config
+	rm -rf .git/hooks/pre-commit .git/hooks/pre-commit.legacy
+	yarn remove pre-commit
+	rm -rf node_modules yarn.lock
+	yarn cache clean
+	yarn install --force
+	pre-commit install
 
 update:
-	npm install -g npm
-	npm install -g npm-check-updates
-	ncu --upgrade --packageFile ./site/package.json
-	npm update -g
-	npm install ./site/
+	yarn global add npm-check-updates
+	ncu --upgrade --packageFile ./package.json
+	yarn global upgrade
+	yarn install --force
 
 build:
-	yarn --cwd ./site/ build
+	yarn build
 
 serve:
-	yarn --cwd ./site/ start
+	yarn start
 
 release:
 	#---------------------------------------------------------
@@ -33,12 +36,12 @@ release:
 	#             2. Upload to AWS S3
 	#             3. Invalidate all items in the AWS Cloudfront CDN.
 	#---------------------------------------------------------
-	yarn  --cwd ./site/ build
+	yarn build
 
 	# ------------------------
 	# add all built files to the S3 bucket.
 	# ------------------------
-	aws s3 sync ./site/build/ s3://reactjs.lawrencemcdaniel.com \
+	aws s3 sync ./build/ s3://reactjs.lawrencemcdaniel.com \
 				--acl public-read \
 				--delete --cache-control max-age=31536000,public \
 				--expires '31 Dec 2050 00:00:01 GMT'

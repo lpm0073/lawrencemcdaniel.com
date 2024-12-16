@@ -1,0 +1,120 @@
+.dark-background {
+  background-color: black;
+}
+
+.title-spacer {
+  height: 67px;
+}
+
+.job-title a {
+  text-decoration: none;
+}
+
+.job-title h2 {
+  color: #999;
+  height: 50px;
+  vertical-align: text-bottom !important;
+  font-weight: 100 !important;
+  font-family: 'Courier New', Courier, monospace;
+  font-size: large;
+  border-top: dashed 0.25px #999;
+  border-bottom: dashed 0.25px #999;
+  padding-top: 15px;
+  padding-bottom: 15px;
+}
+.job-title h2:hover {
+  color: lightgray !important;
+  border-bottom-color: lightgray;
+}
+
+.learn-more-link {
+  text-decoration: underline;
+}
+
+.jumbotron {
+  margin: 0px auto;
+  color: floralwhite;
+  height: calc(100vh - 65px - 55px); /* full height less header/footer heights */
+  border-radius: 0 !important;
+}
+
+.super-bold {
+  font-size: 67px;
+  letter-spacing: -2px;
+  font-weight: 900;
+}
+
+.jumbotron-spacer {
+  margin-top: 10vh;
+}
+
+.jumbotron-subtitle {
+  font-size: 32px;
+  font-weight: 500;
+}
+
+.width-50 {
+  width: 50% !important;
+}
+
+.pre-wrap {
+  white-space: pre-wrap;
+}
+
+.react-banner {
+  background-color: black;
+  color: white;
+  font-size: x-small;
+  text-align: right;
+}
+
+.react-banner a {
+  color: white;
+}
+.react-logo {
+  width: 15px;
+  margin-right: 5px;
+}
+
+.offline-alert {
+  color: tomato;
+  filter: none !important;
+}
+
+.copyright {
+  vertical-align: super;
+  font-size: small;
+}
+/*-------------- Responsive Styling -----------------------*/
+
+/********** Large devices only **********/
+@media (min-width: 1200px) {
+}
+
+/********** Medium devices only **********/
+@media (min-width: 992px) and (max-width: 1199px) {
+}
+
+/********** Small devices only **********/
+@media (min-width: 768px) and (max-width: 991px) {
+  .jumbotron-spacer {
+    margin-top: 0 !important;
+  }
+}
+
+/********** Extra small devices only **********/
+@media (max-width: 767px) {
+  .super-bold,
+  .jumbotron-subtitle {
+    font-size: 24px !important;
+    letter-spacing: initial !important;
+    font-weight: initial !important;
+  }
+
+  .jumbotron-spacer {
+    margin-top: 0 !important;
+  }
+}
+/********** Super extra small devices Only :-) (e.g., iPhone 4) **********/
+@media (max-width: 479px) {
+}

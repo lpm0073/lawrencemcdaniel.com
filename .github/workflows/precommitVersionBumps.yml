@@ -14,7 +14,7 @@ name: pre-commit Version Bumps
 
 on:
   schedule:
-    - cron: "0 0 * * 3"
+    - cron: '0 0 * * 3'
   workflow_dispatch:
 
 jobs:
@@ -51,7 +51,7 @@ jobs:
       - name: Set up Python
         uses: actions/setup-python@v5
         with:
-          python-version: "3.11"
+          python-version: '3.11'
 
       - name: locate site-packages path
         shell: bash
@@ -73,12 +73,12 @@ jobs:
       - name: Setup Node.js environment
         uses: actions/setup-node@v4
         with:
-          node-version: "20.9.0"
+          node-version: '20.9.0'
 
-      - name: Install npm dev dependencies
+      - name: Install dev dependencies
         shell: bash
-        run: npm install
-        working-directory: ./site
+        run: yarn install --force
+        working-directory: ./
 
       - name: Update .pre-commit-config.yaml
         shell: bash
