@@ -319,7 +319,7 @@ class LogoCube extends Component {
   }
 
   setBackgroundUrl(side, url) {
-    const d = new Date()
+    const d = new Date().toISOString()
 
     let state
     switch (side) {
