@@ -57,7 +57,7 @@ const Footer = (props) => {
                     target="_blank"
                     rel="noopener noreferrer"
                   >
-                    <span className="edx-links">edX Inc.</span>
+                    <span className="edx-links">edX, LLC</span>
                   </a>{' '}
                   All Rights Reserved.
                 </span>
