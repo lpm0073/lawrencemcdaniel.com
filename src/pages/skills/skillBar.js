@@ -6,7 +6,7 @@ import drawBar from './drawBar'
 
 const SkillBar = (props) => {
   const ref = useRef()
-  const keyName = 'skill-bar-' + props.key
+  const keyName = 'skill-bar-' + props.id
   useEffect(() => drawBar(ref))
 
   return (
@@ -23,6 +23,7 @@ const SkillBar = (props) => {
 
 SkillBar.propTypes = {
   key: PropTypes.string.isRequired,
+  id: PropTypes.string.isRequired,
   description: PropTypes.string.isRequired,
 }
 

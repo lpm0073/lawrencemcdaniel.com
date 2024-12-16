@@ -95,35 +95,46 @@ const Skills = (props) => {
           <div className="col-lg-6 col-md-12">
             <SkillBar
               key="1"
+              id="1"
               pct="100"
               description="Django, React, Redux, Angular, Ionic, WordPress"
             />
-            <SkillBar key="2" pct="100" description="Bootstrap, D3, Underscore.js" />
+            <SkillBar
+              key="2"
+              id="2"
+              pct="100"
+              description="Bootstrap, D3, Underscore.js"
+            />
             <SkillBar
               key="3"
+              id="3"
               pct="100"
               description="MySQL, MongoDB, Hadoop, MS-SQL, Transact-SQL "
             />
             <SkillBar
               key="4"
+              id="4"
               pct="90"
               description="AWS, Boto3, Linux, Bash, Ansible, Jenkins, Chef, Puppet"
             />
           </div>
           <div className="col-lg-6 col-md-12">
-            <SkillBar key="5" pct="100" description="Open edX® Platform" />
+            <SkillBar key="5" id="5" pct="100" description="Open edX® Platform" />
             <SkillBar
               key="6"
+              id="6"
               pct="100"
               description="Javascript, Python, PHP, VBA, VB .Net, ANSI C, C++"
             />
             <SkillBar
               key="7"
+              id="7"
               pct="100"
               description="Octave, MatLab, MS Excel, MS Excel VBA"
             />
             <SkillBar
               key="8"
+              id="8"
               pct="100"
               description="English (Native) / Spanish (professional proficiency)"
             />
