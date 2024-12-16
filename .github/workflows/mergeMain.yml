@@ -1,0 +1,82 @@
+---
+#------------------------------------------------------------------------------
+# Lawrence McDaniel - https://lawrencemcdaniel.com
+# Version Bump and Merge Workflow
+#
+# Calculate the next version in the main branch. Compares the raw value of
+# version.js to the calculated value in setup.py. If they are different,
+# it will update version.js and push the changes to the main branch.
+#------------------------------------------------------------------------------
+name: Merge Main
+
+on:
+  push:
+    branches:
+      - main
+
+jobs:
+  set-version-main:
+    runs-on: ubuntu-latest
+    steps:
+      - uses: actions/checkout@v4
+        with:
+          persist-credentials: false
+
+      - name: Cache NPM dependencies
+        uses: actions/cache@v4
+        with:
+          path: ~/.npm
+          key: ${{ runner.os }}-node-${{ hashFiles('**/package-lock.json') }}
+          restore-keys: |
+            ${{ runner.os }}-node
+
+      - name: Setup Node.js environment
+        uses: actions/setup-node@v4
+        with:
+          node-version: '22.12.0'
+
+      - name: Install npm dev dependencies
+        run: yarn install --force
+        working-directory: ./
+
+      - name: Get current version
+        id: current_version
+        shell: bash
+        run: |
+          echo "CURRENT_VERSION=$(node -p "require('./package.json').version")" >> $GITHUB_ENV
+        env:
+          GITHUB_TOKEN: ${{ secrets.PAT }}
+
+      - name: Get latest GitHub release version
+        id: latest_release
+        run: |
+          LATEST_RELEASE=$(curl -s https://api.github.com/repos/${{ github.repository }}/releases/latest | jq -r .tag_name)
+          echo "LATEST_RELEASE=${LATEST_RELEASE}" >> $GITHUB_ENV
+
+      - name: Check if new release is needed
+        id: check_release
+        run: |
+          if [ "$(semver compare $CURRENT_VERSION $LATEST_RELEASE)" -gt 0 ]; then
+            echo "NEW_RELEASE=true" >> $GITHUB_ENV
+          else
+            echo "NEW_RELEASE=false" >> $GITHUB_ENV
+          fi
+        env:
+          CURRENT_VERSION: ${{ env.CURRENT_VERSION }}
+          LATEST_RELEASE: ${{ env.LATEST_RELEASE }}
+
+      - name: Create GitHub release
+        if: env.NEW_RELEASE == 'true'
+        id: create_release
+        uses: cycjimmy/semantic-release-action@v4
+        with:
+          branches: main
+          extra_plugins: |
+            @semantic-release/git
+            @semantic-release/changelog
+        env:
+          GITHUB_TOKEN: ${{ secrets.PAT }}
+          GIT_COMMITTER_NAME: github-actions[bot]
+          GIT_COMMITTER_EMAIL: github-actions[bot]@users.noreply.github.com
+          GIT_AUTHOR_NAME: github-actions[bot]
+          GIT_AUTHOR_EMAIL: github-actions[bot]@users.noreply.github.com
