@@ -98,10 +98,10 @@ const Bio = (props) => {
                 25 years of international experience with an emphasis on technology and
                 US-Mexico trade. He has extensive startup, fund raising, business
                 development and M&amp;A experience with alternative investment and
-                disruptive FinTech, edTech and IoT ventures. He is a mentor at{' '}
+                disruptive FinTech, edTech and IoT ventures. He has mentored at{' '}
                 <a href="http://www.startupmexico.com/">Startup Mexico</a> and{' '}
                 <a href="http://angelventures.vc/">Angel Ventures</a> in Mexico City, and
-                sits on the boards of <a href="http://edmex.org/">edMex</a> and{' '}
+                sat on the boards of <a href="http://edmex.org/">edMex</a> and{' '}
                 <a href="http://m-arca.org/">M-Arca</a> Foundation.
               </p>
               <p>

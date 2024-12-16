@@ -10,7 +10,7 @@ export const LinkedinBadge = () => {
             <div className="LI-img-wrapper">
               <img
                 className="LI-profile-pic"
-                src="https://cdn.lawrencemcdaniel.com/wp-content/uploads/2020/05/15213432/linkedin-profile-pic.jpeg"
+                src="https://cdn.lawrencemcdaniel.com/wp-content/uploads/2024/12/16192734/linkedin-profile-pic.jpeg"
                 alt="Lawrence McDaniel"
                 loading="lazy"
               />

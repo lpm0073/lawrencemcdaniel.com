@@ -4,7 +4,6 @@ import { connect } from 'react-redux'
 import { bindActionCreators } from 'redux'
 import * as Actions from '../../redux/ActionCreators'
 
-import { Media } from 'reactstrap'
 import RenderPageTitle from '../../components/pagetitle/pageTitleComponent'
 import { LinkedinBadge } from '../../components/linkedinBadge/Component'
 import AboutTile from './tileComponent'
@@ -78,9 +77,30 @@ class About extends Component {
                 </h4>
                 <div className="text-justify">
                   <p>
-                    I’m an enthusiastic lifelong <a href="/education">learner</a>, a{' '}
-                    <a href="data-science">data scientist</a> and a full stack developer.
-                    I teach{' '}
+                    I am the Chief Technology Officer of{' '}
+                    <a
+                      href="https://www.querium.com/"
+                      target="_blank"
+                      rel="noopener noreferrer"
+                    >
+                      Querium Corporation
+                    </a>
+                    , an edtech company specializing in Artificial Intelligence and Cloud
+                    Computing for educational institutions. I’m an enthusiastic lifelong{' '}
+                    <a href="/education">learner</a>, a{' '}
+                    <a href="data-science">data scientist</a>, a full stack developer and
+                    a{' '}
+                    <a
+                      href="https://photography.lawrencemcdaniel.com/"
+                      target="_blank"
+                      rel="noopener noreferrer"
+                    >
+                      photography enthusiast
+                    </a>{' '}
+                    .
+                  </p>
+                  <p>
+                    I also teach{' '}
                     <a
                       href="https://extendedlearning.ubc.ca/courses/cloud-technology-infrastructure-strategy/mg102"
                       target="_blank"
@@ -99,13 +119,50 @@ class About extends Component {
                     at{' '}
                     <a href="https://extendedlearning.ubc.ca/about-us/our-instructors/lawrence-mcdaniel">
                       University of British Columbia
-                    </a>
-                    , and I publish{' '}
+                    </a>{' '}
+                    and I publish{' '}
                     <a href="https://blog.lawrencemcdaniel.com/">articles</a> and{' '}
                     <a href="https://www.youtube.com/@FullStackWithLawrence">videos</a> on
-                    a variety of technology topics. I am a veteran of multiple startups
-                    and early-stage ventures with dozens of successful product launches
-                    and one NASDAQ IPO under my belt. I advocate for{' '}
+                    a variety of technology topics. In 2024 I authored{' '}
+                    <a
+                      href="https://smarter.sh"
+                      target="_blank"
+                      rel="noopener noreferrer"
+                    >
+                      Smarter
+                    </a>{' '}
+                    , an instructional web platform for teaching generative AI to
+                    non-programmers. The previous year I authored and am the principal
+                    maintainer of{' '}
+                    <a
+                      href="https://blog.lawrencemcdaniel.com/introducing-cookiecutter-open-edx/"
+                      target="_blank"
+                      rel="noopener noreferrer"
+                    >
+                      openedx-actions
+                    </a>
+                    , an open source set of CI-CD tools for managing{' '}
+                    <a
+                      href="https://openedx.org/"
+                      target="_blank"
+                      rel="noopener noreferrer"
+                    >
+                      Open edX
+                    </a>{' '}
+                    platforms at scale on{' '}
+                    <a
+                      href="https://kubernetes.io/"
+                      target="_blank"
+                      rel="noopener noreferrer"
+                    >
+                      Kubernetes
+                    </a>
+                    .
+                  </p>
+                  <p>
+                    I am a veteran of the hedge fund industry and multiple startups and
+                    early-stage ventures with dozens of successful product launches and
+                    one NASDAQ IPO under my belt. I advocate for{' '}
                     <a href="https://en.wikipedia.org/wiki/Open_source">open source</a>,
                     try to keep things{' '}
                     <a href="https://en.wikipedia.org/wiki/Don%27t_repeat_yourself">
@@ -115,21 +172,11 @@ class About extends Component {
                     <a href="https://12factor.net/">12-factor</a> development.
                   </p>
                   <p>
-                    I`&apos;`ve lived abroad for {years_living_abroad} of the last{' '}
+                    I&apos;ve lived abroad for {years_living_abroad} of the last{' '}
                     {years_traveling} years in Mexico, Western Europe and SE Asia. Prior
                     to that I earned a B.S. from University of North Texas with majors in
                     Computer Science and Mathematics and minors in Physics and English.
                   </p>
-                </div>
-                <div className="hide-medium">
-                  <Media left middle>
-                    <Media
-                      object
-                      src="https://cdn.lawrencemcdaniel.com/wp-content/uploads/2014/09/lawrence-signature.png"
-                      alt="lawrence-signature"
-                      className="about-signature"
-                    />
-                  </Media>
                 </div>
               </div>
             </div>

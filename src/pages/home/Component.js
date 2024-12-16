@@ -70,10 +70,17 @@ class Home extends Component {
                 <LogoCube />
               </div>
             </div>
-            <div className="row mt-5 text-center hide-medium">
+            <div className="row mt-5 text-center justify-content-center hide-medium">
               <JobTitle idx="1" href="/skills" title={baseTitle} />
               <OpenedxConsultant />
               <JobTitle idx="3" href="/data-science" title="Data Scientist" />
+            </div>
+            <div className="row mt-5 text-center justify-content-center hide-medium">
+              <JobTitle
+                idx="4"
+                href="https://photography.lawrencemcdaniel.com/"
+                title="Photographer"
+              />
             </div>
           </div>
         </div>
