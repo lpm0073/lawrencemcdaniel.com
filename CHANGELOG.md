@@ -1,3 +1,10 @@
+## [1.0.5](https://github.com/lpm0073/lawrencemcdaniel.com/compare/v1.0.4...v1.0.5) (2024-12-16)
+
+
+### Bug Fixes
+
+* experimental automated github release ([d312e9e](https://github.com/lpm0073/lawrencemcdaniel.com/commit/d312e9ece4aa2ba1e6429c85297c8c61ecf53388))
+
 ## [1.0.2](https://github.com/lpm0073/lawrencemcdaniel.com/compare/v1.0.1...v1.0.2) (2023-11-29)
 
 ### Bug Fixes
