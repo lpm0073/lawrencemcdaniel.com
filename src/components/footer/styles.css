@@ -14,8 +14,8 @@
 }
 
 .edx-links {
-  color: white;
-  font-style: normal;
+  color: white !important;
+  font-style: normal !important;
 }
 
 /*-------------- Responsive Styling -----------------------*/

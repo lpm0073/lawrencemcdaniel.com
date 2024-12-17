@@ -29,10 +29,25 @@ const Footer = (props) => {
                 />
                 Version {APP_VERSION}. Progressive Web App built with ReactJS{' '}
                 {REACT_VERSION}, Redux {REDUX_VERSION} and Workbox {WORKBOX_CORE}.{' '}
+              </div>
+            </div>
+          </div>
+          <div className="row justify-content-center mb-0">
+            <div className="col-auto mb-0">
+              <p className="mb-1">
+                Source code:{' '}
+                <a
+                  className="edx-links"
+                  href="https://github.com/lpm0073/lawrencemcdaniel.com/"
+                  target="_blank"
+                  rel="noopener noreferrer"
+                >
+                  https://github.com/lpm0073/lawrencemcdaniel.com/
+                </a>{' '}
                 <a className="mx-1 learn-more-link" href="/reactjs" target="_self">
                   Learn more
                 </a>
-              </div>
+              </p>
             </div>
           </div>
           <div className="row justify-content-center mb-0">
@@ -57,7 +72,7 @@ const Footer = (props) => {
                     target="_blank"
                     rel="noopener noreferrer"
                   >
-                    <span className="edx-links">edX Inc.</span>
+                    <span className="edx-links">edX, LLC</span>
                   </a>{' '}
                   All Rights Reserved.
                 </span>
