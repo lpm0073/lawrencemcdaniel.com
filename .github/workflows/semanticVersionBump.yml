@@ -22,7 +22,7 @@ jobs:
     runs-on: ubuntu-latest
     env:
       VERSION_FILE: version.js
-      PACKAGE_PATH: ${{ github.workspace }}/site/src/shared/
+      PACKAGE_PATH: ${{ github.workspace }}/src/shared/
 
     steps:
       - uses: actions/checkout@v4
