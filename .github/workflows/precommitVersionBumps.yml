@@ -50,6 +50,22 @@ jobs:
         run: yarn install --force
         working-directory: ./
 
+      - name: Install Husky
+        shell: bash
+        run: npx husky install
+
+      - name: Add pre-commit hook
+        shell: bash
+        run: npx husky add .husky/pre-commit "yarn lint-staged"
+
+      - name: Run pre-commit hook
+        shell: bash
+        run: yarn lint-staged
+
+      - name: Install pre-commit
+        shell: bash
+        run: yarn global add pre-commit
+
       - name: Update .pre-commit-config.yaml
         shell: bash
         run: |
