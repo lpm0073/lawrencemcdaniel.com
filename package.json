@@ -41,17 +41,18 @@
     "workbox-expiration": "^7.3.0",
     "workbox-precaching": "^7.3.0",
     "workbox-routing": "^7.3.0",
-    "workbox-strategies": "^7.3.0"
+    "workbox-strategies": "^7.3.0",
+    "@testing-library/dom": "latest"
   },
   "scripts": {
     "start": "react-scripts start",
     "build": "react-scripts build",
-    "test": "react-scripts test",
     "eject": "react-scripts eject",
     "sitemap": "babel-node ./src/components/sitemap/generator.js",
     "lint:fix": "eslint src/**/*.js --fix",
     "lint": "eslint src/**/*.js",
-    "prettify": "prettier src/**/*.js --write"
+    "prettify": "prettier src/**/*.js --write",
+    "prepare": "husky"
   },
   "eslintConfig": {
     "extends": [
@@ -100,7 +101,6 @@
   },
   "husky": {
     "hooks": {
-      "pre-commit": "lint-staged"
     }
   },
   "lint-staged": {
