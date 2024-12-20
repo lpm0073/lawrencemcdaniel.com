@@ -21,6 +21,7 @@ const Footer = (props) => {
           <div className="row mx-0 react-banner hide-small">
             <div className="col-12">
               <div className="text-center mr-3 mb-0">
+              © Copyright 2015 - {curr_year}.{' '}
                 <img
                   key="1"
                   className="react-logo"
@@ -29,6 +30,10 @@ const Footer = (props) => {
                 />
                 Version {APP_VERSION}. Progressive Web App built with ReactJS{' '}
                 {REACT_VERSION}, Redux {REDUX_VERSION} and Workbox {WORKBOX_CORE}.{' '}
+                {' '}
+                <a className="mx-1 learn-more-link" href="/reactjs" target="_self">
+                  Learn more
+                </a>
               </div>
             </div>
           </div>
@@ -43,39 +48,7 @@ const Footer = (props) => {
                   rel="noopener noreferrer"
                 >
                   https://github.com/lpm0073/lawrencemcdaniel.com/
-                </a>{' '}
-                <a className="mx-1 learn-more-link" href="/reactjs" target="_self">
-                  Learn more
                 </a>
-              </p>
-            </div>
-          </div>
-          <div className="row justify-content-center mb-0">
-            <div className="col-auto mb-0">
-              <p className="mb-1">
-                © Copyright 2015 - {curr_year}.
-                <span className="hide-medium">
-                  {' '}
-                  edX and{' '}
-                  <a
-                    className="mx-1 "
-                    href="https://open.edx.org/"
-                    target="_blank"
-                    rel="noopener noreferrer"
-                  >
-                    <span className="edx-links">Open edX</span>
-                  </a>{' '}
-                  are registered trademarks of{' '}
-                  <a
-                    className="mx-1"
-                    href="https://www.edx.org/"
-                    target="_blank"
-                    rel="noopener noreferrer"
-                  >
-                    <span className="edx-links">edX, LLC</span>
-                  </a>{' '}
-                  All Rights Reserved.
-                </span>
               </p>
             </div>
           </div>
