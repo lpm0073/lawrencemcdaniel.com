@@ -36,6 +36,7 @@ release:
 	#             2. Upload to AWS S3
 	#             3. Invalidate all items in the AWS Cloudfront CDN.
 	#---------------------------------------------------------
+	export AWS_PROFILE=lawrence
 	yarn build
 
 	# ------------------------
