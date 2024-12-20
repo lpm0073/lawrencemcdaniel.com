@@ -75,12 +75,27 @@ class Home extends Component {
             <div className="row mt-5 text-center justify-content-center hide-medium">
               <JobTitle idx="1" target="_self" href="/skills" title={baseTitle} />
               <OpenedxConsultant />
-              <JobTitle idx="3" target="_self" href="/data-science" title="Data Scientist" />
+              <JobTitle
+                idx="3"
+                target="_self"
+                href="/data-science"
+                title="Data Scientist"
+              />
             </div>
             <div className="row mt-0 mb-0 pt-0 pb-0 text-center justify-content-center hide-medium">
-              <JobTitle idx="4" target="_blank" href="https://blog.lawrencemcdaniel.com/" title="Blogger" />
+              <JobTitle
+                idx="4"
+                target="_blank"
+                href="https://blog.lawrencemcdaniel.com/"
+                title="Blogger"
+              />
               <OnlineInstructor />
-              <JobTitle idx="6" target="_blank" href="https://www.youtube.com/@FullStackWithLawrence/" title="YouTuber" />
+              <JobTitle
+                idx="6"
+                target="_blank"
+                href="https://www.youtube.com/@FullStackWithLawrence/"
+                title="YouTuber"
+              />
             </div>
             <div className="row mt-0 mb-0 pt-0 pb-0 text-center justify-content-center hide-medium">
               <Photographer />

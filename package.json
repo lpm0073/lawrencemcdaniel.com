@@ -100,11 +100,13 @@
     "semver": "^7.6.3"
   },
   "husky": {
-    "hooks": {
-    }
+    "hooks": {}
   },
   "lint-staged": {
-    "*.js": "npm run lint:fix"
+    "*.js": [
+      "eslint --fix",
+      "prettier --write"
+    ]
   },
   "main": "index.js",
   "license": "MIT",

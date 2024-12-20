@@ -32,35 +32,15 @@ jobs:
           git checkout next
           git pull origin next
 
-      - name: Cache NPM dependencies
-        uses: actions/cache@v4
-        with:
-          path: ~/.npm
-          key: ${{ runner.os }}-node-${{ hashFiles('**/package-lock.json') }}
-          restore-keys: |
-            ${{ runner.os }}-node
-
       - name: Setup Node.js environment
         uses: actions/setup-node@v4
         with:
-          node-version: '18.x'
+          node-version: '23.x'
 
-      - name: Install dev dependencies
+      - name: Preconfigure the pre-commit hook
         shell: bash
-        run: yarn install --frozen-lockfile
-        working-directory: ./
-
-      - name: Run prepare script to install Husky
-        shell: bash
-        run: yarn run prepare
-
-      - name: Add pre-commit hook
-        shell: bash
-        run: npx husky add .husky/pre-commit "yarn lint-staged"
-
-      - name: Run pre-commit hook
-        shell: bash
-        run: yarn lint-staged
+        run: |
+          npx husky add .husky/pre-commit "npx prettier --write ."
 
       - name: Install pre-commit
         shell: bash

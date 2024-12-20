@@ -6,7 +6,7 @@ module.exports = {
   },
   moduleFileExtensions: ['js', 'jsx', 'json', 'node'],
   transform: {
-    '^.+\\.(js|jsx)$': 'babel-jest'
+    '^.+\\.(js|jsx)$': 'babel-jest',
   },
   // ...existing code...
-};
+}
