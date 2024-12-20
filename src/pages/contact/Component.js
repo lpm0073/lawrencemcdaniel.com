@@ -56,7 +56,7 @@ class Contact extends Component {
           <div className="row text-center ">
             <div className="col-md-1"></div>
             <div className="col-md-5 contact-data">
-              <div className="row mt-3"></div>
+              <div className="row mt-4"></div>
               <div className="">
                 <a
                   target="_blank"
