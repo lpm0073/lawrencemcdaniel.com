@@ -21,26 +21,22 @@ const Footer = (props) => {
           <div className="row mx-0 react-banner hide-small">
             <div className="col-12">
               <div className="text-center mr-3 mb-0">
-                © Copyright 2015 - {curr_year}.{' '}
-                Progressive web app version {APP_VERSION} built with
-                {' '}
+                © Copyright 2015 - {curr_year}. Progressive web app version {APP_VERSION}{' '}
+                built with{' '}
                 <img
                   key="1"
                   className="react-logo"
                   src="/assets/images/react-logo-300x261.png"
                   alt="ReactJS logo"
                 />
-                ReactJS{' '}
-                {REACT_VERSION},
-                {' '}
+                ReactJS {REACT_VERSION},{' '}
                 <img
                   key="1"
                   className="react-logo"
                   src="/assets/images/redux-logo.svg"
                   alt="ReactJS logo"
                 />
-                Redux {REDUX_VERSION} and
-                {' '}
+                Redux {REDUX_VERSION} and{' '}
                 <img
                   key="1"
                   className="react-logo"
