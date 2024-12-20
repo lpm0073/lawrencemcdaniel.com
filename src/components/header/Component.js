@@ -188,23 +188,44 @@ export class Header extends Component {
                   <DropdownItem>
                     <a
                       className=""
-                      href="https://github.com/lpm0073"
+                      href="https://github.com/fullStackWithLawrence/"
                       target="_blank"
                       rel="noopener noreferrer"
                     >
-                      Me on Github
+                      AI / ML
                     </a>
                   </DropdownItem>
                   <DropdownItem>
                     <a
                       className=""
-                      href="https://blog.lawrencemcdaniel.com/"
+                      href="https://github.com/smarter-sh/"
                       target="_blank"
                       rel="noopener noreferrer"
                     >
-                      My Blog
+                      project::Smarter
                     </a>
                   </DropdownItem>
+                  <DropdownItem>
+                    <a
+                      className=""
+                      href="https://github.com/openedx-actions/"
+                      target="_blank"
+                      rel="noopener noreferrer"
+                    >
+                      Open edX Actions
+                    </a>
+                  </DropdownItem>
+                  <DropdownItem>
+                    <a
+                      className=""
+                      href="https://github.com/cookiecutter-openedx/"
+                      target="_blank"
+                      rel="noopener noreferrer"
+                    >
+                      Open edX CookieCutter
+                    </a>
+                  </DropdownItem>
+                  <DropdownItem divider />
                   <DropdownItem>
                     <a
                       className=""
@@ -215,18 +236,6 @@ export class Header extends Component {
                       REST api
                     </a>
                   </DropdownItem>
-                  <DropdownItem>
-                    <a
-                      className=""
-                      href="https://blog.lawrencemcdaniel.com/category/aws/"
-                      target="_blank"
-                      rel="noopener noreferrer"
-                    >
-                      Dev Ops
-                    </a>
-                  </DropdownItem>
-                  <DropdownItem divider />
-
                   <DropdownItem>
                     <a
                       className=""
@@ -245,16 +254,6 @@ export class Header extends Component {
                       rel="noopener noreferrer"
                     >
                       E-commerce
-                    </a>
-                  </DropdownItem>
-                  <DropdownItem>
-                    <a
-                      className=""
-                      href="https://webdev-class.lawrencemcdaniel.com/"
-                      target="_blank"
-                      rel="noopener noreferrer"
-                    >
-                      Bootstrap
                     </a>
                   </DropdownItem>
                 </DropdownMenu>
