@@ -50,7 +50,7 @@ const Footer = (props) => {
               </div>
             </div>
           </div>
-          <div className="row justify-content-center mb-0">
+          <div className="row justify-content-center mb-0 hide-small">
             <div className="col-auto mb-0">
               <p className="mb-1">
                 Source code:{' '}
