@@ -1,3 +1,12 @@
+## [1.0.7](https://github.com/lpm0073/lawrencemcdaniel.com/compare/v1.0.6...v1.0.7) (2024-12-20)
+
+
+### Bug Fixes
+
+* add more landing page links ([faa650b](https://github.com/lpm0073/lawrencemcdaniel.com/commit/faa650bea37165eb71de222046ba9d053f566ece))
+* add more landing page links ([cffb428](https://github.com/lpm0073/lawrencemcdaniel.com/commit/cffb428c1120612ac8b09cf1ec621589ae95821d))
+* update Code menu ([a7f20a6](https://github.com/lpm0073/lawrencemcdaniel.com/commit/a7f20a63fb198b63321fbf2bf63630b12813870f))
+
 ## [1.0.6](https://github.com/lpm0073/lawrencemcdaniel.com/compare/v1.0.5...v1.0.6) (2024-12-16)
 
 ### Bug Fixes
