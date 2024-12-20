@@ -21,7 +21,7 @@ const Footer = (props) => {
           <div className="row mx-0 react-banner hide-small">
             <div className="col-12">
               <div className="text-center mr-3 mb-0">
-              © Copyright 2015 - {curr_year}.{' '}
+                © Copyright 2015 - {curr_year}.{' '}
                 <img
                   key="1"
                   className="react-logo"
@@ -30,7 +30,6 @@ const Footer = (props) => {
                 />
                 Version {APP_VERSION}. Progressive Web App built with ReactJS{' '}
                 {REACT_VERSION}, Redux {REDUX_VERSION} and Workbox {WORKBOX_CORE}.{' '}
-                {' '}
                 <a className="mx-1 learn-more-link" href="/reactjs" target="_self">
                   Learn more
                 </a>
