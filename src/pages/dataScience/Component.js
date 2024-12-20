@@ -117,7 +117,7 @@ const Datascience = (props) => {
                     alt="Machine Learning Certification"
                   />
                   <img
-                    className="mt-3"
+                    className="mt-4"
                     src="https://cdn.lawrencemcdaniel.com/wp-content/uploads/2016/12/22195700/machine-learning-grade.png"
                     alt="Machine Learning Grade Received"
                   />
@@ -125,7 +125,7 @@ const Datascience = (props) => {
               </div>
             </div>
             <div className="row ml-0 mr-0 pr-2">
-              <div className="col-12 mt-3">
+              <div className="col-12 mt-4">
                 <p className="text-justify pe-3">
                   Fortunately some of the greatest minds on earth, like{' '}
                   <a

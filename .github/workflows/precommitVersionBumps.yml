@@ -32,23 +32,19 @@ jobs:
           git checkout next
           git pull origin next
 
-      - name: Cache NPM dependencies
-        uses: actions/cache@v4
-        with:
-          path: ~/.npm
-          key: ${{ runner.os }}-node-${{ hashFiles('**/package-lock.json') }}
-          restore-keys: |
-            ${{ runner.os }}-node
-
       - name: Setup Node.js environment
         uses: actions/setup-node@v4
         with:
-          node-version: '22.12.0'
+          node-version: '23.x'
 
-      - name: Install dev dependencies
+      - name: Preconfigure the pre-commit hook
         shell: bash
-        run: yarn install --force
-        working-directory: ./
+        run: |
+          npx husky add .husky/pre-commit "npx prettier --write ."
+
+      - name: Install pre-commit
+        shell: bash
+        run: yarn global add pre-commit
 
       - name: Update .pre-commit-config.yaml
         shell: bash

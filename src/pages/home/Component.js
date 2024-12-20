@@ -6,6 +6,8 @@ import * as Actions from '../../redux/ActionCreators'
 
 import LogoCube from '../../components/logocube/Component'
 import OpenedxConsultant from './OpenedxConsultant'
+import Photographer from './Photographer'
+import OnlineInstructor from './Instructor'
 import JobTitle from './JobTitle'
 import { gsdGraph } from '../../shared/seo/gsdGraph'
 import { gsdPersonLawrenceMcDaniel } from '../../shared/seo/gsdPersonLawrence'
@@ -71,16 +73,32 @@ class Home extends Component {
               </div>
             </div>
             <div className="row mt-5 text-center justify-content-center hide-medium">
-              <JobTitle idx="1" href="/skills" title={baseTitle} />
+              <JobTitle idx="1" target="_self" href="/skills" title={baseTitle} />
               <OpenedxConsultant />
-              <JobTitle idx="3" href="/data-science" title="Data Scientist" />
+              <JobTitle
+                idx="3"
+                target="_self"
+                href="/data-science"
+                title="Data Scientist"
+              />
             </div>
-            <div className="row mt-5 text-center justify-content-center hide-medium">
+            <div className="row mt-0 mb-0 pt-0 pb-0 text-center justify-content-center hide-medium">
               <JobTitle
                 idx="4"
-                href="https://photography.lawrencemcdaniel.com/"
-                title="Photographer"
+                target="_blank"
+                href="https://blog.lawrencemcdaniel.com/"
+                title="Blogger"
               />
+              <OnlineInstructor />
+              <JobTitle
+                idx="6"
+                target="_blank"
+                href="https://www.youtube.com/@FullStackWithLawrence/"
+                title="YouTuber"
+              />
+            </div>
+            <div className="row mt-0 mb-0 pt-0 pb-0 text-center justify-content-center hide-medium">
+              <Photographer />
             </div>
           </div>
         </div>
