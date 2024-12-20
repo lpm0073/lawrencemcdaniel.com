@@ -1,3 +1,10 @@
+.digital-creator {
+  font-size: 1.5em;
+  font-weight: 100;
+  color: #999;
+  font-family: 'Courier New', Courier, monospace;
+}
+
 .dark-background {
   background-color: black;
 }

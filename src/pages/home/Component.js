@@ -67,6 +67,7 @@ class Home extends Component {
                 <h1 className="display-4">
                   <span className="px-3 super-bold pre-wrap">Lawrence McDaniel</span>
                 </h1>
+                <p className="digital-creator">digital creator</p>
               </div>
               <div className="col-lg-6 pt-5 col-md-12">
                 <LogoCube />
