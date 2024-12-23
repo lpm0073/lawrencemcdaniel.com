@@ -9,11 +9,7 @@ import './styles.css'
 const Copyright = (props) => {
   const curr_year = new Date().getFullYear()
 
-  return (
-    <React.Fragment>
-      © Copyright 2015 - {curr_year}.
-    </React.Fragment>
-  )
+  return <React.Fragment>© Copyright 2015 - {curr_year}.</React.Fragment>
 }
 
 Copyright.propTypes = {

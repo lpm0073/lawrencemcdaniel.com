@@ -11,7 +11,6 @@ import SourceCode from './sourceCodeComponent'
 
 /* eslint-disable no-unused-vars */
 const Footer = (props) => {
-
   return (
     <React.Fragment>
       <footer key="app-footer">
@@ -19,7 +18,9 @@ const Footer = (props) => {
           <div className="row mx-0 react-banner hide-small">
             <div className="col-12">
               <div className="text-center mr-3 mb-0">
-                <Copyright /><BlankSpace /><VersionInfo />
+                <Copyright />
+                <BlankSpace />
+                <VersionInfo />
               </div>
             </div>
           </div>

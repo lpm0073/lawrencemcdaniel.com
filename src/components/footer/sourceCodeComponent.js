@@ -8,7 +8,6 @@ import BlankSpace from '../blankSpace/Component'
 
 /* eslint-disable no-unused-vars */
 const SourceCode = (props) => {
-
   return (
     <React.Fragment>
       Source code:
