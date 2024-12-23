@@ -1,5 +1,6 @@
 import React from 'react'
 import './styles.css'
+import BlankSpace from '../blankSpace/Component'
 
 export const LinkedinBadge = () => {
   return (
@@ -26,7 +27,7 @@ export const LinkedinBadge = () => {
           <div className="LI-title">
             <span role="img" aria-label="Close">
               📡
-            </span>{' '}
+            </span><BlankSpace />
             Full Stack Developer
           </div>
         </div>

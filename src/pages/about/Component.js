@@ -4,6 +4,7 @@ import { connect } from 'react-redux'
 import { bindActionCreators } from 'redux'
 import * as Actions from '../../redux/ActionCreators'
 
+import BlankSpace from '../../components/blankSpace/Component'
 import RenderPageTitle from '../../components/pagetitle/pageTitleComponent'
 import { LinkedinBadge } from '../../components/linkedinBadge/Component'
 import AboutTile from './tileComponent'
@@ -77,7 +78,7 @@ class About extends Component {
                 </h4>
                 <div className="text-justify">
                   <p>
-                    I am the Chief Technology Officer of{' '}
+                    I am the Chief Technology Officer of<BlankSpace />
                     <a
                       href="https://www.querium.com/"
                       target="_blank"
@@ -87,54 +88,54 @@ class About extends Component {
                     </a>
                     , an edtech company specializing in Artificial Intelligence and Cloud
                     Computing for educational institutions. I am principal author and lead
-                    product engineer of{' '}
+                    product engineer of<BlankSpace />
                     <a
                       href="https://smarter.sh"
                       target="_blank"
                       rel="noopener noreferrer"
                     >
                       Smarter by Querium™
-                    </a>{' '}
+                    </a><BlankSpace />
                     , an instructional web platform for teaching generative AI to
-                    non-programmers. I’m an enthusiastic lifelong{' '}
-                    <a href="/education">learner</a>, a{' '}
+                    non-programmers. I’m an enthusiastic lifelong<BlankSpace />
+                    <a href="/education">learner</a>, a<BlankSpace />
                     <a href="data-science">data scientist</a>, a full stack developer and
-                    a{' '}
+                    a<BlankSpace />
                     <a
                       href="https://photography.lawrencemcdaniel.com/"
                       target="_blank"
                       rel="noopener noreferrer"
                     >
                       photography enthusiast
-                    </a>{' '}
+                    </a><BlankSpace />
                     .
                   </p>
                   <p>
-                    I also teach{' '}
+                    I also teach<BlankSpace />
                     <a
                       href="https://extendedlearning.ubc.ca/courses/cloud-technology-infrastructure-strategy/mg102"
                       target="_blank"
                       rel="noopener noreferrer"
                     >
                       cloud computing
-                    </a>{' '}
-                    and{' '}
+                    </a><BlankSpace />
+                    and<BlankSpace />
                     <a
                       href="https://extendedlearning.ubc.ca/courses/artificial-intelligence-cloud-technology-implementation/mg202"
                       target="_blank"
                       rel="noopener noreferrer"
                     >
                       AI
-                    </a>{' '}
-                    at{' '}
+                    </a><BlankSpace />
+                    at<BlankSpace />
                     <a href="https://extendedlearning.ubc.ca/about-us/our-instructors/lawrence-mcdaniel">
                       University of British Columbia
-                    </a>{' '}
-                    and I publish{' '}
-                    <a href="https://blog.lawrencemcdaniel.com/">articles</a> and{' '}
+                    </a><BlankSpace />
+                    and I publish<BlankSpace />
+                    <a href="https://blog.lawrencemcdaniel.com/">articles</a> and<BlankSpace />
                     <a href="https://www.youtube.com/@FullStackWithLawrence">videos</a> on
                     a variety of technology topics. In 2023 I authored and am the
-                    principal maintainer of{' '}
+                    principal maintainer of<BlankSpace />
                     <a
                       href="https://blog.lawrencemcdaniel.com/introducing-cookiecutter-open-edx/"
                       target="_blank"
@@ -142,15 +143,15 @@ class About extends Component {
                     >
                       openedx-actions
                     </a>
-                    , an open source set of CI-CD tools for managing{' '}
+                    , an open source set of CI-CD tools for managing<BlankSpace />
                     <a
                       href="https://openedx.org/"
                       target="_blank"
                       rel="noopener noreferrer"
                     >
                       Open edX
-                    </a>{' '}
-                    platforms at scale on{' '}
+                    </a><BlankSpace />
+                    platforms at scale on<BlankSpace />
                     <a
                       href="https://kubernetes.io/"
                       target="_blank"
@@ -163,17 +164,17 @@ class About extends Component {
                   <p>
                     I am a veteran of the hedge fund industry and multiple startups and
                     early-stage ventures with dozens of successful product launches and
-                    one NASDAQ IPO under my belt. I advocate for{' '}
+                    one NASDAQ IPO under my belt. I advocate for<BlankSpace />
                     <a href="https://en.wikipedia.org/wiki/Open_source">open source</a>,
-                    try to keep things{' '}
+                    try to keep things<BlankSpace />
                     <a href="https://en.wikipedia.org/wiki/Don%27t_repeat_yourself">
                       DRY
-                    </a>{' '}
-                    and well-documented and when possible I adhere to the principals of{' '}
+                    </a><BlankSpace />
+                    and well-documented and when possible I adhere to the principals of<BlankSpace />
                     <a href="https://12factor.net/">12-factor</a> development.
                   </p>
                   <p>
-                    I&apos;ve lived abroad for {years_living_abroad} of the last{' '}
+                    I&apos;ve lived abroad for {years_living_abroad} of the last<BlankSpace />
                     {years_traveling} years in Mexico, Western Europe and SE Asia. Prior
                     to that I earned a B.S. from University of North Texas with majors in
                     Computer Science and Mathematics and minors in Physics and English.
@@ -186,8 +187,8 @@ class About extends Component {
               {!this.props.aboutPage.isSet && (
                 //<Fade in delay={0} duration={400}>
                 <React.Fragment>
-                  {' '}
-                  <RightColumn />{' '}
+                  <BlankSpace />
+                  <RightColumn /><BlankSpace />
                 </React.Fragment>
                 //</Fade>
               )}
@@ -215,7 +216,7 @@ const RightColumn = () => {
       <div className="column-3-text text-justify mt-1 pt-1">
         <p>
           <strong>
-            Read my{' '}
+            Read my<BlankSpace />
             <a href="/bio/">
               <span>full bio here</span>
             </a>

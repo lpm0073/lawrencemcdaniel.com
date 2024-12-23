@@ -4,6 +4,7 @@ import React from 'react'
 import PropTypes from 'prop-types'
 
 import './styles.css'
+import BlankSpace from '../blankSpace/Component'
 import packageJson from '../../../package.json'
 
 /* eslint-disable no-unused-vars */
@@ -21,29 +22,29 @@ const Footer = (props) => {
           <div className="row mx-0 react-banner hide-small">
             <div className="col-12">
               <div className="text-center mr-3 mb-0">
-                © Copyright 2015 - {curr_year}. Progressive web app version {APP_VERSION}{' '}
-                built with{' '}
+                © Copyright 2015 - {curr_year}. Progressive web app version {APP_VERSION}<BlankSpace />
+                built with<BlankSpace />
                 <img
                   key="1"
                   className="react-logo"
                   src="/assets/images/react-logo-300x261.png"
                   alt="ReactJS logo"
                 />
-                ReactJS {REACT_VERSION},{' '}
+                ReactJS {REACT_VERSION},<BlankSpace />
                 <img
                   key="1"
                   className="react-logo"
                   src="/assets/images/redux-logo.svg"
                   alt="ReactJS logo"
                 />
-                Redux {REDUX_VERSION} and{' '}
+                Redux {REDUX_VERSION} and<BlankSpace />
                 <img
                   key="1"
                   className="react-logo"
                   src="/assets/images/workbox-logo.svg"
                   alt="ReactJS logo"
                 />
-                Workbox {WORKBOX_CORE}{' '}
+                Workbox {WORKBOX_CORE}<BlankSpace />
                 <a className="mx-1 learn-more-link" href="/reactjs" target="_self">
                   Learn more
                 </a>
@@ -53,7 +54,7 @@ const Footer = (props) => {
           <div className="row justify-content-center mb-0 hide-small">
             <div className="col-auto mb-0">
               <p className="mb-1">
-                Source code:{' '}
+                Source code:<BlankSpace />
                 <a
                   className="edx-links"
                   href="https://github.com/lpm0073/lawrencemcdaniel.com/"
