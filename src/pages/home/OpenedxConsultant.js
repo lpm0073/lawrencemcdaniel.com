@@ -1,4 +1,5 @@
 import React from 'react'
+import BlankSpace from '../../components/blankSpace/Component'
 
 /* eslint-disable no-unused-vars */
 const OpenedxConsultant = (props) => {
@@ -8,13 +9,14 @@ const OpenedxConsultant = (props) => {
         <a href="/openedx">
           <h2>
             <span className="open-edx-consultant-bookends" role="img" aria-label="Close">
-              ⇥📙📚{' '}
+              ⇥📙📚
+              <BlankSpace />
             </span>
             <span>
               Open edX<span className="copyright">®</span> Consultant
             </span>
             <span className="open-edx-consultant-bookends" role="img" aria-label="Close">
-              {' '}
+              <BlankSpace />
               📚📘⇤
             </span>
           </h2>

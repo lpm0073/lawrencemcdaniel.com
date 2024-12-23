@@ -5,6 +5,7 @@ import { Tab, Tabs, TabList, TabPanel } from 'react-tabs'
 import 'react-tabs/style/react-tabs.css'
 
 import RenderPageTitle from '../../components/pagetitle/pageTitleComponent'
+import BlankSpace from '../../components/blankSpace/Component'
 
 import { URL_SITE } from '../../shared/constants'
 import { resumeUrl } from '../../shared/constants'
@@ -78,7 +79,8 @@ class Contact extends Component {
                   Email: <a href="mailto:lpm0073@gmail.com">lpm0073@gmail.com</a>
                 </h6>
                 <p className="mb-0">
-                  Phone:{' '}
+                  Phone:
+                  <BlankSpace />
                   <a className="mt-4 contact-phone-link" href="tel:+16178346172">
                     +1 (617) 834-6172
                   </a>

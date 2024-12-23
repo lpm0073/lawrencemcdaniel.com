@@ -1,6 +1,7 @@
 import React, { Component } from 'react'
 import PropTypes from 'prop-types'
 import Loading from '../../components/Loading'
+import BlankSpace from '../../components/blankSpace/Component'
 import Carousel from 'react-multi-carousel'
 import 'react-multi-carousel/lib/styles.css'
 import Moment from 'moment'
@@ -101,7 +102,8 @@ class RecommendationsCarousel extends Component {
                           />
                           <div className="">
                             <span className="recommendation-date">
-                              {Moment(recommendation.date).format('MMM-YYYY')},{' '}
+                              {Moment(recommendation.date).format('MMM-YYYY')},
+                              <BlankSpace />
                             </span>
                             <span
                               className="recommendation-relationship"

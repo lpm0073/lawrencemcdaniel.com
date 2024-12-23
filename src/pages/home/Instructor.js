@@ -1,4 +1,5 @@
 import React from 'react'
+import BlankSpace from '../../components/blankSpace/Component'
 
 /* eslint-disable no-unused-vars */
 const OnlineInstructor = (props) => {
@@ -12,11 +13,12 @@ const OnlineInstructor = (props) => {
         >
           <h2>
             <span className="" role="img" aria-label="Close">
-              🎓{' '}
+              🎓
+              <BlankSpace />
             </span>
             <span>Online Instructor</span>
             <span className="" role="img" aria-label="Close">
-              {' '}
+              <BlankSpace />
               🎓
             </span>
           </h2>
