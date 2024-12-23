@@ -21,14 +21,14 @@ const VersionInfo = (props) => {
       built with
       <BlankSpace />
       <img
-        key="1"
+        key="version-info-1"
         className="react-logo"
         src="/assets/images/react-logo-300x261.png"
         alt="ReactJS logo"
       />
       ReactJS {REACT_VERSION},<BlankSpace />
       <img
-        key="1"
+        key="version-info-2"
         className="react-logo"
         src="/assets/images/redux-logo.svg"
         alt="ReactJS logo"
@@ -36,7 +36,7 @@ const VersionInfo = (props) => {
       Redux {REDUX_VERSION} and
       <BlankSpace />
       <img
-        key="1"
+        key="version-info-3"
         className="react-logo"
         src="/assets/images/workbox-logo.svg"
         alt="ReactJS logo"
