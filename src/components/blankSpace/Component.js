@@ -7,12 +7,7 @@ import './styles.css'
 
 /* eslint-disable no-unused-vars */
 const BlankSpace = (props) => {
-
-  return (
-    <React.Fragment>
-      {' '}
-    </React.Fragment>
-  )
+  return <React.Fragment> </React.Fragment>
 }
 
 BlankSpace.propTypes = {

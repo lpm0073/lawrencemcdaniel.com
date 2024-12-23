@@ -13,7 +13,8 @@ const Photographer = (props) => {
         >
           <h2>
             <span className="" role="img" aria-label="Close">
-              📸<BlankSpace />
+              📸
+              <BlankSpace />
             </span>
             <span>Photographer</span>
             <span className="" role="img" aria-label="Close">

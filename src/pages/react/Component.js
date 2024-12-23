@@ -82,7 +82,8 @@ const ReactPage = (props) => {
                   rel="noopener noreferrer"
                 >
                   ReactJS/Redux
-                </a><BlankSpace />
+                </a>
+                <BlankSpace />
                 front end and a backend powered by a<BlankSpace />
                 <a
                   href="https://api.lawrencemcdaniel.com/"
@@ -94,14 +95,16 @@ const ReactPage = (props) => {
                 . I originally built this site in 2016 with Wordpress when I was first
                 getting started with web development. I liked the appearance of the
                 original site, so the new React version is nearly identical. I developed
-                the current ReactJS version in mid-2020 immediately after taking an online<BlankSpace />
+                the current ReactJS version in mid-2020 immediately after taking an online
+                <BlankSpace />
                 <a
                   href="https://www.coursera.org/learn/front-end-react/home/welcome"
                   target="_blank"
                   rel="noopener noreferrer"
                 >
                   ReactJS course
-                </a><BlankSpace />
+                </a>
+                <BlankSpace />
                 on Coursera.com. This site was my first foray into creating a fully-blown
                 ReactJS/Redux web application.
               </p>
@@ -117,7 +120,8 @@ const ReactPage = (props) => {
               </div>
               <p>
                 <span className="react-page-leader">Front End</span>: The front end stack
-                is<BlankSpace />
+                is
+                <BlankSpace />
                 <a href="https://reactjs.org/" target="_blank" rel="noopener noreferrer">
                   ReactJS/Redux
                 </a>
@@ -128,9 +132,11 @@ const ReactPage = (props) => {
                   rel="noopener noreferrer"
                 >
                   Bootstrap
-                </a><BlankSpace />
+                </a>
+                <BlankSpace />
                 and minimal custom JS and CSS. The graphics all come from the free version
-                of<BlankSpace />
+                of
+                <BlankSpace />
                 <a
                   href="https://fontawesome.com/"
                   target="_blank"
@@ -142,7 +148,8 @@ const ReactPage = (props) => {
                 professionally-designed third-party theme, and I wanted to see if I could
                 duplicate it using open source tools. I encountered a variety of design
                 and technical challenges with the home page, which you can read more about
-                in this blog post,<BlankSpace />
+                in this blog post,
+                <BlankSpace />
                 <a
                   href="https://blog.lawrencemcdaniel.com/animations-in-reactjs/"
                   target="_blank"
@@ -153,7 +160,8 @@ const ReactPage = (props) => {
                 .
               </p>
               <p>
-                Source code:<BlankSpace />
+                Source code:
+                <BlankSpace />
                 <a
                   href="https://github.com/lpm0073/lawrencemcdaniel.com"
                   target="_blank"
@@ -164,14 +172,16 @@ const ReactPage = (props) => {
               </p>
               <p>
                 I designed and coded the logo cube animation on the home page and then
-                later wrote<BlankSpace />
+                later wrote
+                <BlankSpace />
                 <a
                   href="https://blog.lawrencemcdaniel.com/animations-in-reactjs/"
                   target="_blank"
                   rel="noopener noreferrer"
                 >
                   this blog article
-                </a><BlankSpace />
+                </a>
+                <BlankSpace />
                 that discusses my design considerations and some of the unique challenges
                 I encountered along the way, and their solutions.
               </p>
@@ -193,7 +203,8 @@ const ReactPage = (props) => {
                 robust (and free).
               </p>
               <p>
-                Backend API URL:<BlankSpace />
+                Backend API URL:
+                <BlankSpace />
                 <a
                   href="https://api.lawrencemcdaniel.com"
                   target="_blank"
@@ -214,7 +225,8 @@ const ReactPage = (props) => {
               <p>
                 Part of this is made possible simply because the World Wide Web Consortium
                 implemented a set of standards for implementing a local browser
-                javascript-based<BlankSpace />
+                javascript-based
+                <BlankSpace />
                 <a
                   href="https://developers.google.com/web/fundamentals/primers/service-workers"
                   target="_blank"
@@ -226,7 +238,8 @@ const ReactPage = (props) => {
                 separate from a web page, opening the door to features that don't need a
                 web page or user interaction. They manage the client side of synchronizing
                 web apps; topics like precaching, runtime caching, request routing, and
-                background code and static asset synronization. I'm using<BlankSpace />
+                background code and static asset synronization. I'm using
+                <BlankSpace />
                 <a
                   href="https://developers.google.com/web/tools/workbox"
                   target="_blank"
@@ -301,7 +314,8 @@ const ReactPage = (props) => {
                 money if you're on a limited budget.
               </p>
               <p>
-                CDN:<BlankSpace />
+                CDN:
+                <BlankSpace />
                 <a
                   href="https://cdn.lawrencemcdaniel.com"
                   target="_blank"

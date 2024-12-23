@@ -9,7 +9,8 @@ const OpenedxConsultant = (props) => {
         <a href="/openedx">
           <h2>
             <span className="open-edx-consultant-bookends" role="img" aria-label="Close">
-              ⇥📙📚<BlankSpace />
+              ⇥📙📚
+              <BlankSpace />
             </span>
             <span>
               Open edX<span className="copyright">®</span> Consultant

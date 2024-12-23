@@ -27,7 +27,8 @@ export const LinkedinBadge = () => {
           <div className="LI-title">
             <span role="img" aria-label="Close">
               📡
-            </span><BlankSpace />
+            </span>
+            <BlankSpace />
             Full Stack Developer
           </div>
         </div>

@@ -128,14 +128,16 @@ const Datascience = (props) => {
             <div className="row ml-0 mr-0 pr-2">
               <div className="col-12 mt-4">
                 <p className="text-justify pe-3">
-                  Fortunately some of the greatest minds on earth, like<BlankSpace />
+                  Fortunately some of the greatest minds on earth, like
+                  <BlankSpace />
                   <a
                     href="http://www.andrewng.org"
                     target="_blank"
                     rel="noopener noreferrer"
                   >
                     Dr. Andrew Ng
-                  </a><BlankSpace />
+                  </a>
+                  <BlankSpace />
                   at Stanford University for example, have paved the way for engineers
                   like me to implement incredible machine learning and artificial
                   intelligence systems that leverage big data sets to attack problem

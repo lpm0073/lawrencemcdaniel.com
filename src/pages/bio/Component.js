@@ -99,10 +99,13 @@ const Bio = (props) => {
                 25 years of international experience with an emphasis on technology and
                 US-Mexico trade. He has extensive startup, fund raising, business
                 development and M&amp;A experience with alternative investment and
-                disruptive FinTech, edTech and IoT ventures. He has mentored at<BlankSpace />
-                <a href="http://www.startupmexico.com/">Startup Mexico</a> and<BlankSpace />
+                disruptive FinTech, edTech and IoT ventures. He has mentored at
+                <BlankSpace />
+                <a href="http://www.startupmexico.com/">Startup Mexico</a> and
+                <BlankSpace />
                 <a href="http://angelventures.vc/">Angel Ventures</a> in Mexico City, and
-                sat on the boards of <a href="http://edmex.org/">edMex</a> and<BlankSpace />
+                sat on the boards of <a href="http://edmex.org/">edMex</a> and
+                <BlankSpace />
                 <a href="http://m-arca.org/">M-Arca</a> Foundation.
               </p>
               <p>
@@ -118,14 +121,16 @@ const Bio = (props) => {
                 math lab, a calculus paper grader and substitute lecturer for the math
                 department and as a lab assistant for the physics department. Immediately
                 after graduating college he helped launch one the first indoor rock
-                climbing gyms,<BlankSpace />
+                climbing gyms,
+                <BlankSpace />
                 <a
                   href="http://www.summitgyms.com/"
                   target="_blank"
                   rel="noopener noreferrer"
                 >
                   Exposure Indoor Rock Climbing
-                </a><BlankSpace />
+                </a>
+                <BlankSpace />
                 gym in Carrollton, Texas, while simultaneously covering progress of NAFTA
                 negotiations for a Dallas-based family office.
               </p>

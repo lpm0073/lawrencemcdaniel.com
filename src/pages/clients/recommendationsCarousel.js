@@ -102,7 +102,8 @@ class RecommendationsCarousel extends Component {
                           />
                           <div className="">
                             <span className="recommendation-date">
-                              {Moment(recommendation.date).format('MMM-YYYY')},<BlankSpace />
+                              {Moment(recommendation.date).format('MMM-YYYY')},
+                              <BlankSpace />
                             </span>
                             <span
                               className="recommendation-relationship"

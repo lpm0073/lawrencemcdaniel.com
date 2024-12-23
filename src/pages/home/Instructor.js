@@ -13,7 +13,8 @@ const OnlineInstructor = (props) => {
         >
           <h2>
             <span className="" role="img" aria-label="Close">
-              🎓<BlankSpace />
+              🎓
+              <BlankSpace />
             </span>
             <span>Online Instructor</span>
             <span className="" role="img" aria-label="Close">

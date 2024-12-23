@@ -98,20 +98,24 @@ const Openedx = (props) => {
           <div className="col-lg-9 col-md-12">
             <div className="text-justify ml-lg-0 mr-lg-5 mx-2">
               <p>
-                I am a 20-year veteran web developer specializing in the<BlankSpace />
+                I am a 20-year veteran web developer specializing in the
+                <BlankSpace />
                 <a href="https://open.edx.org/" target="_blank" rel="noopener noreferrer">
                   Open edX® platform
                 </a>
-                . Thousands of organizations around the world have used my<BlankSpace />
+                . Thousands of organizations around the world have used my
+                <BlankSpace />
                 <a
                   href="https://blog.lawrencemcdaniel.com/category/open-edx/"
                   target="_blank"
                   rel="noopener noreferrer"
                 >
                   Open edX® blog articles
-                </a><BlankSpace />
+                </a>
+                <BlankSpace />
                 to turn their online education vision into reality. In fact, my how-to
-                guides and tutorials on<BlankSpace />
+                guides and tutorials on
+                <BlankSpace />
                 <a
                   href="https://blog.lawrencemcdaniel.com/open-edx-installation/"
                   target="_blank"
@@ -135,14 +139,16 @@ const Openedx = (props) => {
                 >
                   custom theming
                 </a>
-                , and<BlankSpace />
+                , and
+                <BlankSpace />
                 <a
                   href="https://blog.lawrencemcdaniel.com/open-edx-configuration-tutorial/"
                   target="_blank"
                   rel="noopener noreferrer"
                 >
                   configuration
-                </a><BlankSpace />
+                </a>
+                <BlankSpace />
                 have been viewed more than fifty thousand times.
               </p>
               <p>
@@ -151,7 +157,8 @@ const Openedx = (props) => {
                 be the most economical option in many cases. I provide personalized
                 service and fast response to clients located around the world. All of my
                 customers have my personal mobile phone number and can reach me any time
-                by <a href="/contact">voice, whatsapp or email</a>. My<BlankSpace />
+                by <a href="/contact">voice, whatsapp or email</a>. My
+                <BlankSpace />
                 <a href="/portfolio">Portfolio</a>,<BlankSpace />
                 <a href="/clients">Client List and Recommendations</a> are all available
                 on this site.
@@ -186,7 +193,8 @@ const Openedx = (props) => {
                 including AWS and Digital Ocean as well as specialized regional cloud
                 providers across Asia and Afrika. I publish technical articles that fully
                 describe all of my methods for preparing your Open edX® platform for
-                production use, including<BlankSpace />
+                production use, including
+                <BlankSpace />
                 <a
                   href="https://blog.lawrencemcdaniel.com/open-edx-complete-backup-solution/"
                   target="_blank"
@@ -194,7 +202,8 @@ const Openedx = (props) => {
                 >
                   off-site data backup
                 </a>
-                , setting up<BlankSpace />
+                , setting up
+                <BlankSpace />
                 <a
                   href="https://blog.lawrencemcdaniel.com/open-edx-setup-smtp-email/"
                   target="_blank"
@@ -202,7 +211,8 @@ const Openedx = (props) => {
                 >
                   SMTP email
                 </a>
-                , adding<BlankSpace />
+                , adding
+                <BlankSpace />
                 <a
                   href="https://blog.lawrencemcdaniel.com/open-edx-ssl-encryption/"
                   target="_blank"
@@ -220,7 +230,8 @@ const Openedx = (props) => {
                 implemented via the platform's many configuration parameters. However,
                 configuring the Open edX® platform is a knowledge and
                 experience-intensive endeavor. Properly managing your configuration is
-                also something of a trade craft which you can read more about, here,<BlankSpace />
+                also something of a trade craft which you can read more about, here,
+                <BlankSpace />
                 <a
                   href="https://blog.lawrencemcdaniel.com/open-edx-configuration-management-tutorial/"
                   target="_blank"
@@ -236,15 +247,18 @@ const Openedx = (props) => {
                 theming solution for your organization, I have also worked with many
                 organizations around the world to train their inhouse graphic and web
                 designers on how to re-style the look & feel of the platform as well as
-                how to add custom content. You can read more, here,<BlankSpace />
+                how to add custom content. You can read more, here,
+                <BlankSpace />
                 <a
                   href="https://blog.lawrencemcdaniel.com/open-edx-custom-theming-tutorial/"
                   target="_blank"
                   rel="noopener noreferrer"
                 >
                   Open edX Custom Theming Tutorial
-                </a><BlankSpace />
-                and here,<BlankSpace />
+                </a>
+                <BlankSpace />
+                and here,
+                <BlankSpace />
                 <a
                   href="https://blog.lawrencemcdaniel.com/styling-open-edx-tips-and-tricks/"
                   target="_blank"
@@ -257,13 +271,15 @@ const Openedx = (props) => {
               <p>
                 I work with clients around the globe to ensure that their users'
                 experiences are performant and reliable. Open edX® is massively scalable,
-                as you can see from the site <a href="https://www.edx.org/">edx.org</a><BlankSpace />
+                as you can see from the site <a href="https://www.edx.org/">edx.org</a>
+                <BlankSpace />
                 which is one of the largest MOOCs in the world and which runs on exactly
                 the same software and is supported by the same team. The Open edX®
                 platform leverages considerable open source community know-how and best
                 practices in order to maximize its configurability and scalability. Mind
                 you however, scaling is a highly technical topic, and even more so in the
-                case of a complex platform like Open edX®. You can read more, here,<BlankSpace />
+                case of a complex platform like Open edX®. You can read more, here,
+                <BlankSpace />
                 <a
                   href="https://blog.lawrencemcdaniel.com/scaling-open-edx/"
                   target="_blank"
@@ -342,14 +358,16 @@ const Openedx = (props) => {
                     <div>
                       <p>
                         Yes, there are several. The best place to start looking is the
-                        official<BlankSpace />
+                        official
+                        <BlankSpace />
                         <a
                           href="https://open.edx.org/marketplace-category/service-partners/"
                           target="_blank"
                           rel="noopener noreferrer"
                         >
                           Open edX Service Providers Marketplace
-                        </a><BlankSpace />
+                        </a>
+                        <BlankSpace />
                         managed by edX, Inc. In addition, I have worked with or
                         collaborated with several for whom I can vouch, including (in no
                         particular order)
@@ -404,7 +422,8 @@ const Openedx = (props) => {
                       <p>
                         I am also included in the marketplace, however, edX charges me a
                         fee if you contact from their site, so it'll be cheaper for you
-                        and me if you contact me via email at<BlankSpace />
+                        and me if you contact me via email at
+                        <BlankSpace />
                         <a href="mailto:lpm0073@gmail.com">lpm0073@gmail.com</a>
                       </p>
                     </div>
@@ -467,14 +486,16 @@ const Openedx = (props) => {
                       for no more than a few dozen users. For any other size rollout I
                       generally use t2.xlarge servers (4-processor with 16gb of RAM) in
                       conjunction with the platform scaling principals that I outline in
-                      my blog article,<BlankSpace />
+                      my blog article,
+                      <BlankSpace />
                       <a
                         href="https://blog.lawrencemcdaniel.com/scaling-open-edx/"
                         target="_blank"
                         rel="noopener noreferrer"
                       >
                         "Scaling Open edX".
-                      </a><BlankSpace />
+                      </a>
+                      <BlankSpace />
                       The Open edX platform is infinitely scalable, as you can plainly see
                       from the flagship site edx.org. However, scaling is a complex topic
                       -- you've been warned.
@@ -507,14 +528,16 @@ const Openedx = (props) => {
                   <Accordion.Body>
                     <p>
                       Open edX stores its data in multiple formats including MySQL,
-                      mongoDB and the Ubuntu file system. You can read my blog article,<BlankSpace />
+                      mongoDB and the Ubuntu file system. You can read my blog article,
+                      <BlankSpace />
                       <a
                         href="https://blog.lawrencemcdaniel.com/open-edx-complete-backup-solution/"
                         target="_blank"
                         rel="noopener noreferrer"
                       >
                         "Open edX Complete Backup Solution"
-                      </a><BlankSpace />
+                      </a>
+                      <BlankSpace />
                       to get a better sense of what's involved in backing up the data.
                     </p>
                   </Accordion.Body>
@@ -562,7 +585,8 @@ const Openedx = (props) => {
                       You should almost always use the most recent named release; the rare
                       exception being that your organization is desperately awaiting the
                       release of a new feature. edX publishes their "named releases" here,
-                      at<BlankSpace />
+                      at
+                      <BlankSpace />
                       <a
                         href="https://edx.readthedocs.io/projects/edx-developer-docs/en/latest/named_releases.html"
                         target="_blank"
