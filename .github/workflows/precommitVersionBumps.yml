@@ -40,7 +40,8 @@ jobs:
       - name: Preconfigure the pre-commit hook
         shell: bash
         run: |
-          npx husky add .husky/pre-commit "npx prettier --write ."
+          npx husky install
+          npx husky set .husky/pre-commit "npx prettier --write ."
 
       - name: Install pre-commit
         shell: bash
