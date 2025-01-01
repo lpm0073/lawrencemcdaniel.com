@@ -93,7 +93,7 @@
     "eslint-plugin-jsx-a11y": "^6.10.2",
     "eslint-plugin-prettier": "^5.2.1",
     "husky": "^9.1.7",
-    "lint-staged": "^15.2.11",
+    "lint-staged": "^15.3.0",
     "pre-commit": "^1.2.2",
     "prettier": "^3.4.2",
     "semantic-release": "24.2.0",
