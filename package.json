@@ -10,7 +10,7 @@
     "babel-register": "^6.26.0",
     "bootstrap": "^5.3.3",
     "bootstrap-social": "^5.1.1",
-    "caniuse-lite": "^1.0.30001688",
+    "caniuse-lite": "^1.0.30001696",
     "chokidar": "^4.0.2",
     "eslint-config-react-app": "^7.0.1",
     "font-awesome": "^4.7.0",
