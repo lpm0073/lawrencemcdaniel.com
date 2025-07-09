@@ -37,12 +37,6 @@ jobs:
         with:
           node-version: '23.x'
 
-      - name: Preconfigure the pre-commit hook
-        shell: bash
-        run: |
-          npx husky install
-          npx husky set .husky/pre-commit "npx prettier --write ."
-
       - name: Install pre-commit
         shell: bash
         run: yarn global add pre-commit
