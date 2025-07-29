@@ -9,6 +9,7 @@ import { gsdArticle } from '../../shared/seo/gsdArticle'
 import { baseTitle } from '../../shared/seo/gsdCommon'
 import { URL_SITE } from '../../shared/constants'
 import BlankSpace from '../../components/blankSpace/Component'
+import CodeSamplesTable from '../../components/codeSamples/Component'
 
 import './styles.css'
 
@@ -245,6 +246,12 @@ const Datascience = (props) => {
                 </tr>
               </tbody>
             </table>
+          </div>
+        </div>
+        <div className="row mx-5">
+          <div className="col">
+            <h3 className="ml-auto text-center pl-2 mx-5 mt-5">Code Samples</h3>
+            <CodeSamplesTable category="data-science" />
           </div>
         </div>
       </div>

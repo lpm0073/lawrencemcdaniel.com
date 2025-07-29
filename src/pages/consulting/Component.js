@@ -4,7 +4,7 @@ import { LinkedinBadge } from '../../components/linkedinBadge/Component'
 import { Helmet } from 'react-helmet'
 import { URL_SITE } from '../../shared/constants'
 import BlankSpace from '../../components/blankSpace/Component'
-import CodeSamplesTable from './CodeSamples'
+import CodeSamplesTable from '../../components/codeSamples/Component'
 import './styles.css'
 
 const ConsultingServices = () => (
