@@ -2,6 +2,8 @@
 # upload to AWS S3
 # https://s3.console.aws.amazon.com/s3/buckets/reactjs.lawrencemcdaniel.com
 # -------------------------------------------------------------------------
+.PHONY: sitemap init update build serve release
+
 sitemap:
 	npm run sitemap
 

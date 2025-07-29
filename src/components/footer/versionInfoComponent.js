@@ -16,7 +16,7 @@ const VersionInfo = (props) => {
 
   return (
     <React.Fragment>
-      Progressive web app version {APP_VERSION}
+      v{APP_VERSION}
       <BlankSpace />
       built with
       <BlankSpace />

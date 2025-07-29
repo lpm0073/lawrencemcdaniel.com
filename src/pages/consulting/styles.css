@@ -1,0 +1,37 @@
+.consulting-page {
+  background-color: white;
+}
+
+.code-samples {
+  margin-top: 2rem;
+  padding: 3rem;
+
+}
+
+.consulting-list-item-title {
+  color: darkslategray;
+  font-weight: bold;
+}
+
+.consulting-services-list {
+  list-style-type: none;
+  padding-left: 0;
+}
+
+.consulting-services-list li {
+  margin-bottom: 1rem;
+}
+
+.code-sample-category {
+  font-size: 1.1em;
+}
+
+.copyright {
+  vertical-align: super;
+  font-size: small;
+}
+
+.consulting-services {
+    padding-right: 3rem;
+    text-align: justify;
+}
