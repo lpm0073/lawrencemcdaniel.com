@@ -1,7 +1,7 @@
 import React from 'react'
 import RenderPageTitle from '../../components/pagetitle/pageTitleComponent'
+import CodeSamplesTable from '../../components/codeSamples/Component'
 import SkillColumn from './skillColumn'
-import SkillBar from './skillBar'
 import { Helmet } from 'react-helmet'
 import { gsdPersonLawrenceMcDaniel } from '../../shared/seo/gsdPersonLawrence'
 import { gsdGraph } from '../../shared/seo/gsdGraph'
@@ -38,25 +38,9 @@ const Skills = (props) => {
         </script>
       </Helmet>
       <div key="skills-page" className="site-page skills-page">
-        <RenderPageTitle theme="light" icon="fa-book" title="FULL" boxed_title="STACK" />
+        <RenderPageTitle theme="light" icon="fa-book" title="FULL STACK" boxed_title="DEVELOPER" />
 
-        <div className="row mt-5 mb-5 ml-0 mr-0">
-          <SkillColumn
-            key="1"
-            id="1"
-            pct="100"
-            title="Web"
-            icon="fa-code"
-            description="Complete professional web sites and web apps using Django, ReactJS, Redux, Angular, and WordPress"
-          />
-          <SkillColumn
-            key="2"
-            id="2"
-            pct="100"
-            title="Mobile & IoT"
-            icon="fa-mobile"
-            description="Turnkey hybrid mobile apps with Ionic-Cordova. Complete IoT designs with Android-DragonBoard"
-          />
+        <div className="row mt-5 mb-5 ml-0 mr-0 justify-content-center">
           <SkillColumn
             key="3"
             id="3"
@@ -89,57 +73,27 @@ const Skills = (props) => {
             icon="fa-magic"
             description="Applied Linear Algebra, AI and Neural Networks designs and coding using Octave and Python scikit-learn and NumPy"
           />
+          <SkillColumn
+            key="1"
+            id="1"
+            pct="100"
+            title="Web"
+            icon="fa-code"
+            description="Complete professional web sites and web apps using Django, ReactJS, Redux, Angular, and WordPress"
+          />
         </div>
 
-        <div className="row mt-5 mb-5">
-          <div className="col-lg-6 col-md-12">
-            <SkillBar
-              key="1"
-              id="1"
-              pct="100"
-              description="Django, React, Redux, Angular, Ionic, WordPress"
-            />
-            <SkillBar
-              key="2"
-              id="2"
-              pct="100"
-              description="Bootstrap, D3, Underscore.js"
-            />
-            <SkillBar
-              key="3"
-              id="3"
-              pct="100"
-              description="MySQL, MongoDB, Hadoop, MS-SQL, Transact-SQL "
-            />
-            <SkillBar
-              key="4"
-              id="4"
-              pct="90"
-              description="AWS, Boto3, Linux, Bash, Ansible, Jenkins, Chef, Puppet"
-            />
-          </div>
-          <div className="col-lg-6 col-md-12">
-            <SkillBar key="5" id="5" pct="100" description="Open edX® Platform" />
-            <SkillBar
-              key="6"
-              id="6"
-              pct="100"
-              description="Javascript, Python, PHP, VBA, VB .Net, ANSI C, C++"
-            />
-            <SkillBar
-              key="7"
-              id="7"
-              pct="100"
-              description="Octave, MatLab, MS Excel, MS Excel VBA"
-            />
-            <SkillBar
-              key="8"
-              id="8"
-              pct="100"
-              description="English (Native) / Spanish (professional proficiency)"
-            />
+
+        <div className="row mx-5">
+          <div className="col">
+            <h3 className="ml-auto text-center pl-2 mx-5 mt-5">Code Samples</h3>
+            <p className="text-center">
+              Hire me! I can help you with your next project, more details <a href="/consulting">here</a>.
+            </p>
+            <CodeSamplesTable />
           </div>
         </div>
+
       </div>
     </React.Fragment>
   )

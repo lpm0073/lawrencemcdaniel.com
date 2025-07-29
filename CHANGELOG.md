@@ -1,3 +1,10 @@
+# [1.2.0](https://github.com/lpm0073/lawrencemcdaniel.com/compare/v1.1.0...v1.2.0) (2025-07-29)
+
+
+### Features
+
+* create Consulting Services page content ([b705015](https://github.com/lpm0073/lawrencemcdaniel.com/commit/b7050157b38fe3409811b639f97818e56cf05818))
+
 # [1.1.0](https://github.com/lpm0073/lawrencemcdaniel.com/compare/v1.0.7...v1.1.0) (2025-07-28)
 
 
