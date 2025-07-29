@@ -13,7 +13,7 @@ const Consultant = (props) => {
               <BlankSpace />
             </span>
             <span>
-              Consultanting
+              Consultant
             </span>
             <span className="consultant-bookends" role="img" aria-label="Close">
               <BlankSpace />

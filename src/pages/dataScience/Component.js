@@ -85,7 +85,9 @@ const Datascience = (props) => {
                   </h4>
                   <div className="text-justify">
                     <p>
-                      Hi, I’m Lawrence McDaniel and I’m a technology freelancer. The rapid
+                      Hi, I’m Lawrence McDaniel and I am a data scientist and online instructor
+                      at University of British Columbia specializing in Artificial Intelligence and
+                      cloud computing. The rapid
                       evolution of IT infrastructure cloud services combined with the
                       sudden and staggering accumulation of electronic data has catalyzed
                       an explosion of applied science and innovation for many ideas that

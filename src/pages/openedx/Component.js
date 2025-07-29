@@ -153,9 +153,7 @@ const Openedx = (props) => {
                 have been viewed more than fifty thousand times.
               </p>
               <p>
-                Based in North America, I split my time between Cambridge, Massachusetts
-                and Mexico City. As a freelancer with a low-overhead lifestyle I tend to
-                be the most economical option in many cases. I provide personalized
+                I am based in Mexico City. I provide personalized
                 service and fast response to clients located around the world. All of my
                 customers have my personal mobile phone number and can reach me any time
                 by <a href="/contact">voice, whatsapp or email</a>. My
