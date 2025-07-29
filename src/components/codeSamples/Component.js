@@ -17,6 +17,15 @@ const codeSamples = [
         LangChain, PDF Loader, Pinecone, Retrieval Augmented Generation (RAG).`,
       },
       {
+        name: 'aws-openai',
+        url: 'https://github.com/FullStackWithLawrence/aws-openai',
+        description: `A React + AWS Serverless full stack implementation of the example applications found in
+        the official OpenAI API documentation. See this <a href='https://github.com/FullStackWithLawrence/aws-openai/blob/main/doc/README.md' rel='noopener noreferrer' target='_blank'>system architecture</a> diagram for details.
+        This is an instructional tool for the YouTube channel "Full Stack With Lawrence" and for
+        University of British Columbia course, "Artificial Intelligence Cloud Technology Implementation".
+        This project leverages Terraform, AWS Lambda, API Gateway, DynamoDB, S3, IAM, CloudWatch, and the OpenAI API Python PyPi library.`,
+      },
+      {
         name: 'azureml-example',
         url: 'https://github.com/FullStackWithLawrence/azureml-example',
         description: `How to use the Microsoft Azure Machine Learning SDK for Python command line, and for Jupyter Notebooks. Demonstrates basic usage of Azure Machine Learning's Automated ML service. Implements the following:
