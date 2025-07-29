@@ -9,6 +9,7 @@ import { gsdArticle } from '../../shared/seo/gsdArticle'
 import { baseTitle } from '../../shared/seo/gsdCommon'
 import { URL_SITE } from '../../shared/constants'
 import BlankSpace from '../../components/blankSpace/Component'
+import CodeSamplesTable from '../../components/codeSamples/Component'
 
 import './styles.css'
 
@@ -84,7 +85,9 @@ const Datascience = (props) => {
                   </h4>
                   <div className="text-justify">
                     <p>
-                      Hi, I’m Lawrence McDaniel and I’m a technology freelancer. The rapid
+                      Hi, I’m Lawrence McDaniel and I am a data scientist and online instructor
+                      at University of British Columbia specializing in Artificial Intelligence and
+                      cloud computing. The rapid
                       evolution of IT infrastructure cloud services combined with the
                       sudden and staggering accumulation of electronic data has catalyzed
                       an explosion of applied science and innovation for many ideas that
@@ -245,6 +248,12 @@ const Datascience = (props) => {
                 </tr>
               </tbody>
             </table>
+          </div>
+        </div>
+        <div className="row mx-5">
+          <div className="col">
+            <h3 className="ml-auto text-center pl-2 mx-5 mt-5">Code Samples</h3>
+            <CodeSamplesTable category="data-science" />
           </div>
         </div>
       </div>

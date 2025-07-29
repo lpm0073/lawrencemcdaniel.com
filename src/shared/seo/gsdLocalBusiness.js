@@ -19,10 +19,10 @@ export const gsdLocalBusinessLawrenceMcDaniel = (includeExtraData = false) => {
     address: [
       {
         '@type': 'PostalAddress',
-        addressLocality: 'Colonia Hipodromo Condesa',
+        addressLocality: 'Colonia Doctores',
         addressRegion: 'CDMX',
-        postalCode: '06100',
-        streetAddress: 'Avenida Amsterdam 240, Piso 4',
+        postalCode: '06720',
+        streetAddress: 'Doctor Carmona y Valle 122B',
         addressCountry: 'Mexico',
       },
       {

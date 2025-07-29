@@ -2,6 +2,7 @@ import React from 'react'
 import PropTypes from 'prop-types'
 import RenderPageTitle from '../../components/pagetitle/pageTitleComponent'
 import { LinkedinBadge } from '../../components/linkedinBadge/Component'
+import CodeSamplesTable from '../../components/codeSamples/Component'
 import ClientGrid from '../../components/clientGrid/Component'
 import BlankSpace from '../../components/blankSpace/Component'
 import { Helmet } from 'react-helmet'
@@ -152,9 +153,7 @@ const Openedx = (props) => {
                 have been viewed more than fifty thousand times.
               </p>
               <p>
-                Based in North America, I split my time between Cambridge, Massachusetts
-                and Mexico City. As a freelancer with a low-overhead lifestyle I tend to
-                be the most economical option in many cases. I provide personalized
+                I am based in Mexico City. I provide personalized
                 service and fast response to clients located around the world. All of my
                 customers have my personal mobile phone number and can reach me any time
                 by <a href="/contact">voice, whatsapp or email</a>. My
@@ -317,6 +316,10 @@ const Openedx = (props) => {
           <div className="hide-medium">
             <h3 className="ml-auto text-center pl-2 mx-5">Open edX® Client List</h3>
             <ClientGrid clients={props.clients} filter="edx" />
+          </div>
+          <div className='hide-medium'>
+            <h3 className="ml-auto text-center pl-2 mx-5">Open edX® Code Samples</h3>
+            <CodeSamplesTable category='openedx' />
           </div>
           <div className="col-lg-12 col-md-12">
             <div className="text-justify mx-lg-5 mx-2">
