@@ -2,20 +2,20 @@ import React from 'react'
 import BlankSpace from '../../components/blankSpace/Component'
 
 /* eslint-disable no-unused-vars */
-const OpenedxConsultant = (props) => {
+const Consultant = (props) => {
   return (
     <React.Fragment>
       <div key="2" className="job-title lead mb-0 mt-4 col-4 ps-4 pe-4">
-        <a href="/openedx">
+        <a href="/consulting">
           <h2>
-            <span className="open-edx-consultant-bookends" role="img" aria-label="Close">
+            <span className="consultant-bookends" role="img" aria-label="Close">
               ⇥📙📚
               <BlankSpace />
             </span>
             <span>
-              Open edX<span className="copyright">®</span> Consultant
+              Consultanting
             </span>
-            <span className="open-edx-consultant-bookends" role="img" aria-label="Close">
+            <span className="consultant-bookends" role="img" aria-label="Close">
               <BlankSpace />
               📚📘⇤
             </span>
@@ -26,4 +26,4 @@ const OpenedxConsultant = (props) => {
   )
 }
 
-export default OpenedxConsultant
+export default Consultant

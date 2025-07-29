@@ -5,7 +5,7 @@ import { bindActionCreators } from 'redux'
 import * as Actions from '../../redux/ActionCreators'
 
 import LogoCube from '../../components/logocube/Component'
-import OpenedxConsultant from './OpenedxConsultant'
+import Consultant from './Consultant'
 import Photographer from './Photographer'
 import OnlineInstructor from './Instructor'
 import JobTitle from './JobTitle'
@@ -75,7 +75,7 @@ class Home extends Component {
             </div>
             <div className="row mt-5 text-center justify-content-center hide-medium">
               <JobTitle idx="1" target="_self" href="/skills" title={baseTitle} />
-              <OpenedxConsultant />
+              <Consultant />
               <JobTitle
                 idx="3"
                 target="_self"
