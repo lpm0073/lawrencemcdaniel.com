@@ -1,3 +1,24 @@
+# [1.3.0](https://github.com/lpm0073/lawrencemcdaniel.com/compare/v1.2.0...v1.3.0) (2025-07-29)
+
+
+### Features
+
+* prep v1.10 ([5140f1a](https://github.com/lpm0073/lawrencemcdaniel.com/commit/5140f1a36fc32a23a2050110355a21e8e7a96153))
+
+# [1.2.0](https://github.com/lpm0073/lawrencemcdaniel.com/compare/v1.1.0...v1.2.0) (2025-07-29)
+
+
+### Features
+
+* create Consulting Services page content ([b705015](https://github.com/lpm0073/lawrencemcdaniel.com/commit/b7050157b38fe3409811b639f97818e56cf05818))
+
+# [1.1.0](https://github.com/lpm0073/lawrencemcdaniel.com/compare/v1.0.7...v1.1.0) (2025-07-28)
+
+
+### Features
+
+* new page 'Data Science Consulting' ([57952cf](https://github.com/lpm0073/lawrencemcdaniel.com/commit/57952cfcb3fd774cb4e4c72742053f348c1a8835))
+
 ## [1.0.7](https://github.com/lpm0073/lawrencemcdaniel.com/compare/v1.0.6...v1.0.7) (2024-12-20)
 
 ### Bug Fixes

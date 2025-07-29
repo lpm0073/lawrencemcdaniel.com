@@ -15,6 +15,7 @@ import {
 
 // Pages
 import Home from '../pages/home/Component'
+import Consulting from '../pages/consulting/Component'
 import Contact from '../pages/contact/Component'
 import QR from '../pages/qr/Component'
 import About from '../pages/about/Component'
@@ -114,6 +115,7 @@ class SiteRoutes extends Component {
       <React.Fragment>
         <Routes>
           <Route exact path="/" element={<Home />} />
+          <Route exact path="/consulting" element={<Consulting />} />
           <Route exact path="/contact" element={<Contact />} />
           <Route exact path="/qr" element={<QR />} />
           <Route exact path="/about" element={<About />} />
@@ -191,6 +193,7 @@ SiteRoutes.propTypes = {
     errMess: PropTypes.string,
   }),
   specialties: PropTypes.array,
+  consulting: PropTypes.array,
   education: PropTypes.array,
   recommendations: PropTypes.array,
   clients: PropTypes.array,

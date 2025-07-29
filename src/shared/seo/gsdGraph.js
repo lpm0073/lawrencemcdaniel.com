@@ -1,8 +1,8 @@
 import { datePublished, dateModified, baseUrl, nameLawrenceMcDaniel } from './gsdCommon'
 
-const defaultPageDescription = (webpageDescription) => {
+export const defaultPageDescription = (webpageDescription) => {
   if (webpageDescription !== '') return webpageDescription
-  return 'Full Stack Web Developer and Open edX® Consultant specializing in Python, Django, ReactJS, Redux, AngularJS, and AWS.'
+  return 'Data Scientist, Full Stack Web Developer, Open edX® Consultant, and digital content creator specializing in Python, ReactJS, Kubernetes, Terraform, AWS and Azure.'
 }
 
 const brandLogo = {

@@ -14,4 +14,10 @@ BlankSpace.propTypes = {
   // Define prop types if needed
 }
 
+export const CarriageReturnLineFeed = () => {
+  return (
+    <React.Fragment><br /></React.Fragment>
+  )
+}
+
 export default BlankSpace

@@ -11,6 +11,8 @@ import { gsdQualifications } from './gsdQualifications'
 import { hourlyRate } from './gsdCommon'
 import { URL_SITE } from '../constants'
 
+const aboutMe = 'I am an American data scientist, full stack developer and digital content creator with significant experience with classic backend stacks and cloud infrastructure including Django, React, Terraform, AWS and Azure. I work extensively with the Open edX® learning management system. I am a veteran of multiple startups and early-stage ventures with dozens of successful product launches in multiple industries and markets around the world. I advocate for open source, try to keep things DRY and well-documented and when possible I adhere to the principals of 12-factor development. I’m a passionate learner and frequent blogger, currently interested in data science, machine learning and AI.'
+
 export const hasOccupation = {
   '@type': 'Occupation',
   additionalType: 'https://www.wikidata.org/wiki/Q96072517',
@@ -20,8 +22,7 @@ export const hasOccupation = {
     '@id': URL_SITE + '/',
     lastReviewed: lastReviewed,
   },
-  description:
-    'I’m an American full stack developer with significant experience with classic backend stacks and front-end frameworks including Django, React, Angular, and WordPress. I also work extensively with the Open edX® learning management system. I am a veteran of multiple startups and early-stage ventures with dozens of successful product launches in multiple industries and markets around the world. I advocate for open source, try to keep things DRY and well-documented and when possible I adhere to the principals of 12-factor development. I’m a passionate learner and frequent blogger, currently interested in data science, machine learning, AI and quantum computing.',
+  description: aboutMe,
   estimatedSalary: {
     '@type': 'MonetaryAmountDistribution',
     name: 'base',
@@ -100,6 +101,7 @@ export const personExtraData = {
     subjectOf('https://opensource.com/article/18/6/getting-started-open-edx'),
     subjectOf('https://open.edx.org/marketplace/lawrence-mcdaniel/'),
     subjectOf('https://openedx2018.sched.com/lpm0073'),
+    subjectOf('https://extendedlearning.ubc.ca/about/our-instructors?field_course_program_areas_target_id_verf=All&field_instr_first_name=Lawrence&field_instr_last_name=McDaniel'),
     subjectOf('http://geek.ly/lmcdaniel'),
   ],
   knowsLanguage: [
@@ -118,8 +120,7 @@ export const gsdPersonLawrenceMcDaniel = {
   '@type': ['Person', 'Organization'],
   '@id': URL_SITE + '/#me',
   name: nameLawrenceMcDaniel,
-  description:
-    'Lawrence is a full stack developer and freelance Open edX Consultant / Open edX Service Provider specializing in Python/Django, ReactJS, Angular, Ionic, Wordpress and Amazon Web Services. He lives in Cambridge, Massachusetts. More info here: lawrencemcdaniel.com/bio',
+  description: aboutMe,
   jobTitle: baseTitle,
   sameAs: sameAs,
   logo: {

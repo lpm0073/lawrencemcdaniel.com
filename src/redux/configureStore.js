@@ -12,7 +12,7 @@ import { ClientGridRedux } from './clientGrid'
 import { CoursesGridRedux } from './coursesGrid'
 import { HomePageRedux } from './homePage.js'
 
-import { thunk } from 'redux-thunk'
+//import { thunk } from 'redux-thunk'
 import logger from 'redux-logger'
 
 const rootReducer = combineReducers({
@@ -31,7 +31,7 @@ const rootReducer = combineReducers({
 
 export const ConfigureStore = () => {
   const middleware = (getDefaultMiddleware) => {
-    const middlewares = getDefaultMiddleware().concat(thunk)
+    const middlewares = getDefaultMiddleware()
     if (process.env.NODE_ENV === 'development') {
       middlewares.push(logger)
     }
