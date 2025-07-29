@@ -7,7 +7,6 @@ import BlankSpace from '../blankSpace/Component'
 import './styles.css'
 import Copyright from './copyrightComponent'
 import VersionInfo from './versionInfoComponent'
-import SourceCode from './sourceCodeComponent'
 
 /* eslint-disable no-unused-vars */
 const Footer = (props) => {
@@ -22,13 +21,6 @@ const Footer = (props) => {
                 <BlankSpace />
                 <VersionInfo />
               </div>
-            </div>
-          </div>
-          <div className="row justify-content-center mb-0 hide-small">
-            <div className="col-auto mb-0">
-              <p className="mb-1">
-                <SourceCode />
-              </p>
             </div>
           </div>
         </div>

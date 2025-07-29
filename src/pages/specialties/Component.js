@@ -67,7 +67,7 @@ const Specialties = (props) => {
               <a
                 className="btn btn-danger"
                 role="button"
-                href="http://horrors.lawrencemcdaniel.com/"
+                href="consulting/"
                 title="AngularJS Code Samples"
                 target="_blank"
                 rel="noopener noreferrer"

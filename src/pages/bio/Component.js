@@ -21,8 +21,16 @@ const Bio = (props) => {
   const slug = 'bio'
   const webpageName = 'Bio'
   const webpageDescription =
-    'Lawrence McDaniel is a freelance full-stack web developer and business analyst. He has a BS in computer science and mathematics with minors in physics and English from University of North Texas. He was an early employee at three startups that were later acquired by Goldman Sachs, IBM and Deutsche Bank respectively, and has participated in a successful NASDAQ IPO. He has worked as a freelance technology consultant since 1999 and has advised dozens of startups as well as banks, hedge funds and real estate investment funds from around the world including Morgan Stanley, Fortress Investment Group, IBM Seterus, and others.'
-  const primaryImageUrl = ''
+    `Lawrence McDaniel is a data scientist, full-stack developer and digital content creator. He
+    has a BS in computer science and mathematics with minors in physics and English from
+    University of North Texas. He was an early employee at three startups that were later acquired
+    by Goldman Sachs, IBM and Deutsche Bank respectively, and has participated in a
+    successful NASDAQ IPO. He developed a successful black box trading system for one of
+    the world's largest hedge funds, and retired from the hedge fund industry in 2005
+    at the age of 39. Nowadays he advises clients on cloud computing and
+    artificial intelligence projects, and teaches online courses at
+    University of British Columbia.`
+  const primaryImageUrl = 'https://cdn.lawrencemcdaniel.com/lawrencemcdaniel-headshot-square.jpeg'
   const pageType = ''
   const relatedLink = ''
   const graphExtraData = [{ ...gsdPersonLawrenceMcDaniel, ...personExtraData }]
@@ -69,21 +77,11 @@ const Bio = (props) => {
           </div>
           <div className="col-lg-8 col-md-12 ml-5">
             <div className="text-justify">
-              <p>
-                Lawrence McDaniel is a freelance full-stack web developer and business
-                analyst. He has a BS in computer science and mathematics with minors in
-                physics and English from University of North Texas. He was an early
-                employee at three startups that were later acquired by Goldman Sachs, IBM
-                and Deutsche Bank respectively, and has participated in a successful
-                NASDAQ IPO. He has worked as a freelance technology consultant since 1999
-                and has advised dozens of startups as well as banks, hedge funds and real
-                estate investment funds from around the world including Morgan Stanley,
-                Fortress Investment Group, IBM Seterus, and others.
-              </p>
+              <p>{webpageDescription}</p>
               <p>
                 He has expertise in data science, financial modeling and forecasting
-                systems, analytics, machine learning, AI, big data, web, mobile, database
-                technology, and Amazon Web Services (AWS) cloud infrastructure. He has 20+
+                systems, analytics, machine learning, AI, big data, web, database
+                technology, and Amazon Web Services (AWS) and Microsoft Azure cloud infrastructure. He has 20+
                 years experience designing high performance, always-up transactional
                 database systems using MySQL, MSSQL Server, Aurora and MongoDB. He also
                 has years of expertise designing high availability, horizontally scalable
