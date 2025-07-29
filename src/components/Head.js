@@ -34,25 +34,25 @@ export default function Head(props) {
 
         <meta
           property="og:description"
-          content="Freelance full stack web developer and Open edX® Consultant specializing in Python, Django, ReactJS, Redux, AngularJS, Wordpress, and AWS."
+          content="Lawrence McDaniel is a data scientist, full stack developer, digital content creator, and Open edX® Consultant specializing in Python, ReactJS, Terraform, AWS, Azure, and Kubernetes."
         />
         <meta property="og:title" content={basePageTitle} />
         <meta property="og:author" content={nameLawrenceMcDaniel} />
         <meta property="og:type" content="website" />
         <meta property="og:url" content={URL_SITE} />
         <meta property="og:site_name" content={basePageTitle} />
-        <meta property="og:image" content={URL_CDN + '/social-1200x630.jpg'} />
+        <meta property="og:image" content={URL_CDN + '/lawrencemcdaniel-headshot-square.jpeg'} />
         <meta property="og:image:alt" content="Lawrence McDaniel Banner" />
-        <meta property="og:image:width" content="1200" />
-        <meta property="og:image:height" content="630" />
+        <meta property="og:image:width" content="1849" />
+        <meta property="og:image:height" content="1848" />
 
         <meta name="twitter:card" content="summary_large_image" />
         <meta name="twitter:site" content="@LorenzoDPolanco" />
         <meta name="twitter:domain" content="lawrencemcdaniel.com" />
         <meta name="twitter:title" content={basePageTitle} />
-        <meta name="twitter:image" content={URL_CDN + '/social-1200x675.jpg'} />
+        <meta name="twitter:image" content={URL_CDN + '/lawrencemcdaniel-headshot-square.jpeg'} />
         <meta name="twitter:description" content={basePageTitle} />
-        <meta itemProp="image" content={URL_CDN + '/social-1200x630.jpg'} />
+        <meta itemProp="image" content={URL_CDN + '/lawrencemcdaniel-headshot-square.jpeg'} />
       </Helmet>
     </React.Fragment>
   )

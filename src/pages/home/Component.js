@@ -95,14 +95,6 @@ class Home extends Component {
                 title="Blogger"
               />
               <OnlineInstructor />
-              <JobTitle
-                idx="6"
-                target="_blank"
-                href="https://www.youtube.com/@FullStackWithLawrence/"
-                title="YouTuber"
-              />
-            </div>
-            <div className="row mt-0 mb-0 pt-0 pb-0 text-center justify-content-center hide-medium">
               <Photographer />
             </div>
           </div>
