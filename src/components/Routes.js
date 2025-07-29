@@ -193,6 +193,7 @@ SiteRoutes.propTypes = {
     errMess: PropTypes.string,
   }),
   specialties: PropTypes.array,
+  consulting: PropTypes.array,
   education: PropTypes.array,
   recommendations: PropTypes.array,
   clients: PropTypes.array,

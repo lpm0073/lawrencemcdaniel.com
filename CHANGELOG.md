@@ -1,3 +1,10 @@
+# [1.3.0](https://github.com/lpm0073/lawrencemcdaniel.com/compare/v1.2.0...v1.3.0) (2025-07-29)
+
+
+### Features
+
+* prep v1.10 ([5140f1a](https://github.com/lpm0073/lawrencemcdaniel.com/commit/5140f1a36fc32a23a2050110355a21e8e7a96153))
+
 # [1.2.0](https://github.com/lpm0073/lawrencemcdaniel.com/compare/v1.1.0...v1.2.0) (2025-07-29)
 
 

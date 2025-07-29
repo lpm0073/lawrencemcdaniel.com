@@ -3,6 +3,7 @@ import { Helmet } from 'react-helmet'
 
 import { nameLawrenceMcDaniel, basePageTitle } from '../shared/seo/gsdCommon'
 import { URL_SITE, URL_CDN } from '../shared/constants'
+import { defaultPageDescription } from '../shared/seo/gsdGraph'
 
 /* eslint-disable no-unused-vars */
 export default function Head(props) {
@@ -14,11 +15,11 @@ export default function Head(props) {
         <link rel="canonical" href={URL_SITE + '/'} />
         <meta
           name="description"
-          content="Full Stack Web Developer and Open edX® Consultant specializing in Python, Django, ReactJS, Redux, AngularJS, and AWS."
+          content={defaultPageDescription}
         />
         <meta
           name="keywords"
-          content="Lawrence McDaniel, open edx consultant, open edx service provider, Open edX, web developer, freelancer, full stack developer, full stack web developer, web developer, Python, Django, React, ReactJS, Redux, Wordpress, AWS, Boto3, Angular, AngularJS"
+          content="Lawrence McDaniel, data scientist, open edx consultant, full stack developer, Cloud computing consultant, Python, ReactJS, Terraform, AWS, Azure, Kubernetes, digital content creator"
         />
         <link rel="shortcut icon" href="/favicon.jpg" type="image/vnd.microsoft.icon" />
 

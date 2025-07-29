@@ -11,10 +11,10 @@ import OnlineInstructor from './Instructor'
 import JobTitle from './JobTitle'
 import { gsdGraph } from '../../shared/seo/gsdGraph'
 import { gsdPersonLawrenceMcDaniel } from '../../shared/seo/gsdPersonLawrence'
+import { hasOccupation } from '../../shared/seo/gsdPersonLawrence'
 import { basePageTitle } from '../../shared/seo/gsdCommon'
 import { Helmet } from 'react-helmet'
 import { URL_SITE } from '../../shared/constants'
-import { baseTitle } from '../../shared/seo/gsdCommon'
 
 import './styles.css'
 
@@ -32,14 +32,18 @@ class Home extends Component {
 
   render() {
     /* Google Structured Data */
+    const person = {
+      ...gsdPersonLawrenceMcDaniel,
+      ...{ hasOccupation: hasOccupation },
+    }
     const slug = 'home'
     const webpageName = basePageTitle
     const webpageDescription =
-      'Full Stack Web Developer and Open edX® Consultant specializing in Python, Django, ReactJS, Redux, AngularJS, and AWS.'
+      'Data Scientist, Full Stack Developer, online instructor, and Open edX® Consultant specializing in Python, ReactJS, Kubernetes, Terraform, AWS, and Azure.'
     const primaryImageUrl = ''
     const pageType = ''
     const relatedLink = ''
-    const graphExtraData = [gsdPersonLawrenceMcDaniel]
+    const graphExtraData = [person]
 
     return (
       <React.Fragment>
@@ -74,7 +78,7 @@ class Home extends Component {
               </div>
             </div>
             <div className="row mt-5 text-center justify-content-center hide-medium">
-              <JobTitle idx="1" target="_self" href="/skills" title={baseTitle} />
+              <JobTitle idx="1" target="_self" href="/skills" title="Full Stack Developer" />
               <Consultant />
               <JobTitle
                 idx="3"
