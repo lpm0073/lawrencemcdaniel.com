@@ -4,7 +4,8 @@ export const baseUrl = 'http://localhost:3001/'
 
 export const protocol = 'https'
 export const domainName = 'lawrencemcdaniel.com'
-export const DEFAULT_IMAGE = 'https://cdn.lawrencemcdaniel.com/lawrencemcdaniel-headshot-square.jpeg'
+export const DEFAULT_IMAGE =
+  'https://cdn.lawrencemcdaniel.com/lawrencemcdaniel-headshot-square.jpeg'
 export const CORSOrigins = '*.' + domainName
 
 export const URL_SITE = protocol + '://' + domainName
