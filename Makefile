@@ -5,7 +5,7 @@
 .PHONY: sitemap init update build serve release
 
 sitemap:
-	npm run sitemap
+	yarn run sitemap
 
 init:
 	rm -rf .git/hooks/pre-commit .git/hooks/pre-commit.legacy
@@ -21,7 +21,7 @@ update:
 	yarn global upgrade
 	yarn install --force
 
-build:
+build: sitemap
 	yarn build
 
 serve:

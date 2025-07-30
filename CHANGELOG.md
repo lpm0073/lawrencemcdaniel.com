@@ -1,3 +1,10 @@
+## [1.3.3](https://github.com/lpm0073/lawrencemcdaniel.com/compare/v1.3.2...v1.3.3) (2025-07-30)
+
+
+### Bug Fixes
+
+* SEO structured data ([b029483](https://github.com/lpm0073/lawrencemcdaniel.com/commit/b0294835efd708d809cceca2a3c7186ea49c9aa2))
+
 ## [1.3.2](https://github.com/lpm0073/lawrencemcdaniel.com/compare/v1.3.1...v1.3.2) (2025-07-30)
 
 
