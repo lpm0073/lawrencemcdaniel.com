@@ -79,7 +79,7 @@ class Home extends Component {
               </div>
             </div>
             <div className="row mt-0 mb-0 pt-0 pb-0 text-center justify-content-center hide-medium">
-              <JobTitle idx="1" target="_self" href="/skills" title="Full Stack Developer" />
+              <JobTitle idx="1" target="_self" href="/full-stack-developer" title="Full Stack Developer" />
               <Consultant />
               <JobTitle
                 idx="3"

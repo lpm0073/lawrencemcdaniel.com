@@ -24,7 +24,7 @@ import Specialties from '../pages/specialties/Component'
 import Portfolio from '../pages/portfolio/Component'
 import PortfolioDetail from '../pages/portfolioDetail/Component'
 import Education from '../pages/education/Component'
-import Skills from '../pages/skills/Component'
+import Fullstack from '../pages/fullstack/Component'
 import Clients from '../pages/clients/Component'
 import Datascience from '../pages/dataScience/Component'
 import ImageTaggerPage from '../pages/imageTagging/Component'
@@ -91,6 +91,12 @@ class SiteRoutes extends Component {
       }
       return false
     }
+    if (path === '/full-stack-developer') {
+      if (!this.props.coursesGrid.isSet) {
+        return true
+      }
+      return false
+    }
     return true
   }
 
@@ -141,7 +147,7 @@ class SiteRoutes extends Component {
             path="/education"
             element={<Education education={this.props.education} />}
           />
-          <Route exact path="/skills" element={<Skills />} />
+          <Route exact path="/full-stack-developer" element={<Fullstack />} />
           <Route exact path="/reactjs" element={<ReactPage />} />
           <Route exact path="/react-mdr" element={<MRLPage />} />
           <Route

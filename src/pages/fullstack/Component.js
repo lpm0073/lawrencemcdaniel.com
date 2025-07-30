@@ -9,11 +9,11 @@ import { URL_SITE } from '../../shared/constants'
 import './styles.css'
 
 /* eslint-disable no-unused-vars */
-const Skills = (props) => {
+const Fullstack = (props) => {
   /* Google Structured Data */
-  const slug = 'skills'
-  const webpageName = 'Skills'
-  const webpageDescription = "Lawrence McDaniel's technology skills."
+  const slug = 'full-stack-developer'
+  const webpageName = 'Full Stack Developer | Lawrence McDaniel'
+  const webpageDescription = "Full Stack Developer."
   const primaryImageUrl = ''
   const pageType = ''
   const relatedLink = ''
@@ -22,7 +22,7 @@ const Skills = (props) => {
   return (
     <React.Fragment>
       <Helmet>
-        <link rel="canonical" href={URL_SITE + '/skills'} />
+        <link rel="canonical" href={URL_SITE + '/full-stack-developer'} />
         <script type="application/ld+json">
           {JSON.stringify(
             gsdGraph(
@@ -45,41 +45,41 @@ const Skills = (props) => {
             key="3"
             id="3"
             pct="100"
-            title="Cloud"
-            icon="fa-cloud"
-            description="Server migrations, and consultation on cloud infrastructure planning to minimize costs while maximizing security and performance."
+            title="Frontend"
+            icon="fa-html5"
+            description="Proficient in HTML, CSS, and JavaScript frameworks including React and Angular."
           />
           <SkillColumn
             key="4"
             id="4"
             pct="100"
-            title="Data"
-            icon="fa-database"
-            description="OLTP and BI designs & programming for MySQL and MS-SQL Server. High-availability designs for MongoDB, and MapReduce problems on Hadoop"
+            title="Backend"
+            icon="fa-server"
+            description="Experienced in AWS, Azure, Terraform, Python, Django, Pandas, NumPy, Scikit-learn, and more."
           />
           <SkillColumn
             key="5"
             id="5"
             pct="100"
-            title="DevOps"
-            icon="fa-server"
-            description="Create and maintain continuous integration strategies using GitHub, AWS Boto3, Jenkins, Chef, Puppet or Ansible."
+            title="Database"
+            icon="fa-database"
+            description="MySQL, MongoDB, Redis, Elasticsearch, and wrangling dirty data with Python."
           />
           <SkillColumn
             key="6"
             id="6"
             pct="100"
-            title="Data Science"
-            icon="fa-magic"
-            description="Applied Linear Algebra, AI and Neural Networks designs and coding using Octave and Python scikit-learn and NumPy"
+            title="DevOps"
+            icon="fa-gears"
+            description="Experience with Docker, Kubernetes, CI/CD pipelines, and cloud services."
           />
           <SkillColumn
             key="1"
             id="1"
             pct="100"
-            title="Web"
-            icon="fa-code"
-            description="Complete professional web sites and web apps using Django, ReactJS, Redux, Angular, and WordPress"
+            title="APIs"
+            icon="fa-plug"
+            description="Django REST Framework, AWS Api Gateway, GraphQL, and integrating third-party services."
           />
         </div>
 
@@ -99,4 +99,4 @@ const Skills = (props) => {
   )
 }
 
-export default Skills
+export default Fullstack

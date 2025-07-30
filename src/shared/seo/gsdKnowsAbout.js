@@ -1,6 +1,6 @@
 /*
    List of technologies from Logocube.
-   Appended to Organization object for Skills and Specialties pages.
+   Appended to Organization object for Fullstack and Specialties pages.
  */
 import { wpGetFeaturedImage } from '../wpGetFeaturedImage'
 import { datePublished, nameLawrenceMcDaniel } from './gsdCommon'
