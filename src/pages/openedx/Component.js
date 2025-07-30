@@ -43,7 +43,7 @@ const Openedx = (props) => {
 
         <meta
           name="description"
-          content="Lawrence McDaniel - Open edX consultant.Free initial consultation. Turnkey installation, configuration, theming, customization, systems integration, LTI integration, custom oAuth, and support of the Open edX® Learning Management System."
+          content="Lawrence McDaniel - Open edX consultant. Free initial consultation. Turnkey installation, configuration, theming, customization, systems integration, LTI integration, custom oAuth, and support of the Open edX® Learning Management System."
         />
         <meta
           name="keywords"
