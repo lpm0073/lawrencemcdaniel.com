@@ -9,7 +9,7 @@
     "@testing-library/dom": "latest",
     "bootstrap": "^5.3.7",
     "bootstrap-social": "^5.1.1",
-    "caniuse-lite": "^1.0.30001727",
+    "caniuse-lite": "^1.0.30001731",
     "chokidar": "^4.0.3",
     "eslint-config-react-app": "^7.0.1",
     "font-awesome": "^4.7.0",
@@ -43,6 +43,7 @@
     "workbox-strategies": "^7.3.0"
   },
   "scripts": {
+    "audit": "yarn audit",
     "start": "react-scripts start",
     "build": "react-scripts build",
     "eject": "react-scripts eject",
@@ -95,14 +96,19 @@
     "semver": "^7.7.2",
     "sitemap": "^8.0.0"
   },
-  "husky": {
-    "hooks": {}
-  },
   "lint-staged": {
     "*.js": [
       "eslint --fix",
       "prettier --write"
     ]
+  },
+  "husky": {
+    "hooks": {
+      "pre-commit": "lint-staged"
+    }
+  },
+  "engines": {
+    "node": ">=18.0.0"
   },
   "main": "index.js",
   "license": "MIT",
