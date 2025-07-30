@@ -3,11 +3,30 @@ import { brandLawrenceMcDaniel } from './gsdCommon'
 import { datePublished, hourlyRate, nameLawrenceMcDaniel } from './gsdCommon'
 import { URL_SITE } from '../constants'
 
-const itemOffer = (name, description = '') => {
+const fullstackItemOffer = (name, description = '') => {
+  return {
+    '@type': 'Offer',
+    '@id': URL_SITE + '/full-stack-developer/#' + convertToSlug(name),
+    price: hourlyRate,
+    priceCurrency: 'USD',
+    priceSpecification: 'HOUR',
+    availability: 'InStock',
+    priceValidUntil: '2050-12-31',
+    itemOffered: {
+      '@type': 'Service',
+      additionalType: 'https://www.wikidata.org/wiki/Q96072517',
+      name: name,
+      description: description,
+    },
+    url: URL_SITE + '/full-stack-developer',
+  }
+}
+
+const openedxItemOffer = (name, description = '') => {
   return {
     '@type': 'Offer',
     '@id': URL_SITE + '/openedx/#' + convertToSlug(name),
-    price: hourlyRate,
+    price: 90.00,
     priceCurrency: 'USD',
     priceSpecification: 'HOUR',
     availability: 'InStock',
@@ -84,7 +103,7 @@ export const gsdServiceOpenedX = {
       bestRating: '10',
       worstRating: '1',
     },
-    offers: [itemOffer('Full Stack Development')],
+    offers: [fullstackItemOffer('Full Stack Development')],
   },
   name: 'Open edX® Consulting Services',
   brand: brandLawrenceMcDaniel,
@@ -129,33 +148,33 @@ export const gsdServiceOpenedX = {
         '@type': 'OfferCatalog',
         name: 'Open edX Administration & Devops',
         itemListElement: [
-          itemOffer('Open edX Front-line support'),
-          itemOffer('Open edX Site monitoring & maintenance'),
-          itemOffer('Open edX Routine software upgrades'),
+          openedxItemOffer('Open edX Front-line support'),
+          openedxItemOffer('Open edX Site monitoring & maintenance'),
+          openedxItemOffer('Open edX Routine software upgrades'),
         ],
       },
       {
         '@type': 'OfferCatalog',
         name: 'Open edX Consulting Services',
         itemListElement: [
-          itemOffer(
+          openedxItemOffer(
             'Open edX Installation & configuration',
             "I have performed dozens of production installations for clients since 2016 on cloud platforms including AWS and Digital Ocean as well as specialized regional cloud providers across Asia and Afrika. I publish technical articles that fully describe all of my methods for preparing your Open edX® platform for production use, including off-site data backup, setting up SMTP email, adding SSL certificates, and taking care of SEO. I am an expert in configuring the Open edX platform for a variety of common use cases including multi-language and e-commerce enabled platforms of widely varying scale. Open edX® is a mature and stable platform that is also highly configurable. Many customization requests can be implemented via the platform's many configuration parameters. However, configuring the Open edX® platform is a knowledge and experience-intensive endeavor. Properly managing your configuration is also something of a trade craft which you can read more about, here, Open edX Configuration Management Tutorial."
           ),
-          itemOffer(
+          openedxItemOffer(
             'Open edX Custom theming',
             'You can customize the appearance of your Open edX® platform by creating and implementing a custom theme. In addition to creating a turn-key custom theming solution for your organization, I have also worked with many organizations around the world to train their inhouse graphic and web designers on how to re-style the look & feel of the platform as well as how to add custom content.'
           ),
-          itemOffer(
+          openedxItemOffer(
             'Open edX Scaling & Capacity Planning',
             "I work with clients around the globe to ensure that their users' experiences are performant and reliable. Open edX® is massively scalable, as you can see from the site edx.org which is one of the largest MOOCs in the world and which runs on exactly the same software and is supported by the same team. The Open edX® platform leverages considerable open source community know-how and best practices in order to maximize its configurability and scalability. Mind you however, scaling is a highly technical topic, and even more so in the case of a complex platform like Open edX®."
           ),
-          itemOffer(
+          openedxItemOffer(
             'Open edX Custom programming',
             "Most clients never require any custom programming. The Open edX® platform is highly configurable, and, it is extensible via its pluggable XBlock architecture. In the vast majority of cases, my clients find the custom features they require from existing XBlocks which I can typically install for them in only a few hours. If you're one of the exceptions to his rule however then let's talk. I have an extensive portfolio of low-level programming projects using Python-Django and ReactJS."
           ),
-          itemOffer('Open edX Site Migration'),
-          itemOffer(
+          openedxItemOffer('Open edX Site Migration'),
+          openedxItemOffer(
             'Open edX Advisory & Training',
             'I advise project teams around the world, providing expert advise on technical best practices, project and risk management, and relevant context about technical strategies within the Open edX® platform.'
           ),

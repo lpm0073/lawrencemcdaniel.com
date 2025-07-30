@@ -16,7 +16,7 @@ const Education = (props) => {
     ...{ hasOccupation: hasOccupation },
   }
   const slug = 'education'
-  const webpageName = 'Eduction'
+  const webpageName = 'Education'
   const webpageDescription =
     'Lawrence McDaniel educational background and courses completed.'
   const primaryImageUrl = ''
@@ -28,6 +28,7 @@ const Education = (props) => {
     <React.Fragment>
       <Helmet>
         <link rel="canonical" href={URL_SITE + '/education'} />
+        <meta name="description" content="Lawrence McDaniel - Education" />
         <script type="application/ld+json">
           {JSON.stringify(
             gsdGraph(

@@ -42,6 +42,7 @@ class PageNotFound extends Component {
           <React.Fragment>
             <Helmet>
               <link rel="canonical" href={URL_SITE + '/matrix'} />
+              <meta name="description" content="Lawrence McDaniel - Page Not Found" />
             </Helmet>
             <div className="matrixPage m-0 p-0">
               {this.state.isMounted ? (

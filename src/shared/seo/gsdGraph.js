@@ -35,12 +35,13 @@ const webSite = () => {
     name: nameLawrenceMcDaniel,
     description: 'Personal Web Site & Portfoio',
     publisher: {
-      '@id': baseUrl + '#me',
+      '@id': baseUrl + '/#me',
     },
     inLanguage: 'en-US',
   }
 }
 
+const ensureTrailingSlash = (str) => (str.endsWith('/') ? str : str + '/')
 const webPage = (
   pageType,
   slug,
@@ -49,10 +50,12 @@ const webPage = (
   relatedLink,
   primaryImageUrl
 ) => {
+  const slugWithSlash = slug ? ensureTrailingSlash(slug) : ''
+  const baseUrlWithSlash = ensureTrailingSlash(baseUrl)
   var retVal = {
     '@type': pageTypes(pageType),
-    '@id': baseUrl + '/' + slug + '/#webpage',
-    url: baseUrl + '/' + slug + '/',
+    '@id': baseUrlWithSlash + slugWithSlash + '#webpage',
+    url: baseUrlWithSlash + slugWithSlash,
     name: webpageName,
     isPartOf: {
       '@id': baseUrl + '/#website',
@@ -61,18 +64,18 @@ const webPage = (
     dateModified: dateModified,
     description: webpageDescription,
     breadcrumb: {
-      '@id': baseUrl + '/' + slug + '/#breadcrumb',
+      '@id': baseUrlWithSlash + slugWithSlash + '#breadcrumb',
     },
     inLanguage: 'en-US',
     potentialAction: [
       {
         '@type': 'ReadAction',
-        target: [baseUrl + '/' + slug + '/'],
+        target: [baseUrlWithSlash + slugWithSlash],
       },
     ],
   }
   if (relatedLink !== '') retVal.relatedLink = relatedLink
-  if (primaryImageUrl !== '') retVal.primaryImageUrl = pageImage(primaryImageUrl)
+  if (primaryImageUrl !== '') retVal.image = pageImage(primaryImageUrl)
   if (pageType === 'BlogPosting') {
     retVal.headline = webpageName
     retVal.image = primaryImageUrl
@@ -81,8 +84,10 @@ const webPage = (
 }
 
 const listItem = (position, slug, itemName, pageType = 'WebPage', pageImage) => {
-  var listItemUrl = baseUrl + '/' + slug + '/'
-  if (slug === '') listItemUrl = baseUrl + '/'
+  const slugWithSlash = slug ? ensureTrailingSlash(slug) : ''
+  const baseUrlWithSlash = ensureTrailingSlash(baseUrl)
+  var listItemUrl = baseUrlWithSlash + slugWithSlash
+  if (slug === '') listItemUrl = baseUrlWithSlash
 
   var item = {
     '@type': pageType,
@@ -103,13 +108,15 @@ const listItem = (position, slug, itemName, pageType = 'WebPage', pageImage) => 
 }
 
 const breadcrumbList = (slug, webpageName, pageType, pageImage) => {
+  const slugWithSlash = slug ? ensureTrailingSlash(slug) : ''
+  const baseUrlWithSlash = ensureTrailingSlash(baseUrl)
   var itemListElement = [listItem(1, '')]
   if (slug !== '')
     itemListElement.push(listItem(2, slug, pageName(webpageName), pageType, pageImage))
 
   return {
     '@type': 'BreadcrumbList',
-    '@id': baseUrl + '/' + slug + '/#breadcrumb',
+    '@id': baseUrlWithSlash + slugWithSlash + '#breadcrumb',
     itemListElement: itemListElement,
     name: 'Breadcrumb-' + slug,
   }

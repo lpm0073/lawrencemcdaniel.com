@@ -28,7 +28,7 @@ const ImageTaggerPage = (props) => {
         <link rel="canonical" href={URL_SITE + '/image-tagging'} />
         <meta
           name="description"
-          content="Full Stack Web Developer with extensive experience using ReactJS and Redux. Follow links to the GitHub repository for this site."
+          content="Data Scientist and Full Stack Web Developer with extensive experience using ReactJS and Redux. Follow links to the GitHub repository for this site."
         />
         <meta
           property="og:description"

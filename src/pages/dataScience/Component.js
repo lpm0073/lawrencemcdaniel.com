@@ -32,11 +32,11 @@ const Datascience = (props) => {
         <link rel="canonical" href={URL_SITE + '/data-science'} />
         <meta
           name="description"
-          content="Machine learning and algorithms expert with experience using regression, neural networks, support vector machines, anomaly detection, recommender systems, and unsupervised learning"
+          content="Data Scientist - Machine learning and algorithms expert with experience using regression, neural networks, support vector machines, anomaly detection, recommender systems, and unsupervised learning"
         />
         <meta
           property="og:description"
-          content="Machine learning and algorithms expert with experience using regression, neural networks, support vector machines, anomaly detection, recommender systems, and unsupervised learning"
+          content="Data Scientist - Machine learning and algorithms expert with experience using regression, neural networks, support vector machines, anomaly detection, recommender systems, and unsupervised learning"
         />
         <meta
           name="keywords"

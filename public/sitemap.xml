@@ -10,7 +10,7 @@
   <loc>https://lawrencemcdaniel.com/contact</loc>
   <lastmod>2025-07-30</lastmod>
   <changefreq>monthly</changefreq>
-  <priority>1.0</priority>
+  <priority>0.90</priority>
 </url>
 <url>
   <loc>https://lawrencemcdaniel.com/consulting</loc>
@@ -22,7 +22,7 @@
   <loc>https://lawrencemcdaniel.com/qr</loc>
   <lastmod>2025-07-30</lastmod>
   <changefreq>monthly</changefreq>
-  <priority>1.00</priority>
+  <priority>0.50</priority>
 </url>
 <url>
   <loc>https://lawrencemcdaniel.com/about</loc>

@@ -32,6 +32,7 @@ class Contact extends Component {
       <React.Fragment>
         <Helmet>
           <link rel="canonical" href={URL_SITE + '/contact'} />
+          <meta name="description" content="Lawrence McDaniel - Contact Information" />
           <script type="application/ld+json">
             {JSON.stringify(
               gsdGraph(

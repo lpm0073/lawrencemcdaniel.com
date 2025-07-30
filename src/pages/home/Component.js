@@ -14,7 +14,7 @@ import { gsdPersonLawrenceMcDaniel } from '../../shared/seo/gsdPersonLawrence'
 import { hasOccupation } from '../../shared/seo/gsdPersonLawrence'
 import { basePageTitle } from '../../shared/seo/gsdCommon'
 import { Helmet } from 'react-helmet'
-import { URL_SITE } from '../../shared/constants'
+import { URL_SITE, DEFAULT_IMAGE } from '../../shared/constants'
 
 import './styles.css'
 
@@ -49,6 +49,7 @@ class Home extends Component {
       <React.Fragment>
         <Helmet>
           <link rel="canonical" href={URL_SITE} />
+          <meta name="description" content="Lawrence McDaniel - Data Scientist, Full Stack Developer, online instructor, and Open edX® Consultant" />
           <script type="application/ld+json">
             {JSON.stringify(
               gsdGraph(
@@ -67,8 +68,7 @@ class Home extends Component {
           <div className="h-100">
             <div className="row pt-1 m-0 mr-0 px-0 jumbotron-spacer">
               <div className="col-lg-6 pt-5 col-md-12 text-center noselect ">
-                {/* <div className="title-spacer"></div> */}
-                <img src="https://cdn.lawrencemcdaniel.com/lawrencemcdaniel-headshot-square.jpeg" alt="Lawrence McDaniel headshot" className="head-shot hide-medium img-fluid w-50 rounded mx-auto d-block " />
+                <img src={DEFAULT_IMAGE} alt="Lawrence McDaniel headshot" className="head-shot hide-medium img-fluid w-50 rounded mx-auto d-block " />
                 <h1 className="pt-2 mb-0 lawrence-mcdaniel">
                   <span className="pre-wrap">Lawrence McDaniel</span>
                 </h1>

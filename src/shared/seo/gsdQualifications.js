@@ -5,30 +5,43 @@
 
 const course = (courseName, description, url, providerName, providerUrl, dateCreated) => {
   return {
-    '@type': 'Course',
+    '@type': 'EducationalOccupationalCredential',
+    "credentialCategory": "certificate",
     name: courseName,
     description: description,
     url: url,
-    provider: {
+    recognizedBy: {
       '@type': 'Organization',
       name: providerName,
       sameAs: providerUrl,
     },
-    educationalCredentialAwarded: 'Verified Certificate',
     dateCreated: dateCreated,
   }
 }
 
 export const gsdQualifications = [
-  {
-    '@type': 'EducationalOccupationalCredential',
-    name: 'University of North Texas',
-    url: 'https://www.unt.edu/',
-    educationalLevel: 'Bachelors or equivalent',
-    description:
-      'Bachelor of Science in Computer Science and Mathematics, Minors in Physics and English.',
-    dateCreated: '1992-08-01',
+    {
+      '@type': 'EducationalOccupationalCredential',
+      name: 'Bachelor of Science in Computer Science and Mathematics',
+      description: 'Bachelor of Science in Computer Science and Mathematics, Minors in Physics and English.',
+      credentialCategory: 'degree',
+      educationalLevel: 'Bachelors or equivalent',
+      url: 'https://www.unt.edu/',
+      recognizedBy: {
+        '@type': 'CollegeOrUniversity',
+        name: 'University of North Texas',
+        sameAs: 'https://www.unt.edu/',
+      },
+      dateCreated: '1992-08-01',
   },
+  course(
+    'Data Science & Machine Learning: Making Data-Driven Decisions',
+    'Data Science & Machine Learning: Making Data-Driven Decisions',
+    'https://www.mygreatlearning.com/certificate/OHMJTCTD',
+    'Massachusetts Institute of Technology',
+    'https://www.mit.edu/',
+    '2022-11-01'
+  ),
   course(
     'Web App Development With AngularJS',
     'Web App Development With AngularJS',
@@ -107,7 +120,7 @@ export const gsdQualifications = [
     'https://www.coursera.org/learn/data-science/home/welcome',
     'Stanford University',
     'https://www.stanford.edu/',
-    '2016-21-31'
+    '2016-12-31'
   ),
   course(
     'CS193P Developing Applications in iOS',
