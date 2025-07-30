@@ -75,22 +75,22 @@ export class Header extends Component {
                   Home
                 </NavLink>
               </NavItem>
-              <NavItem>
+              <NavItem className="hide-medium">
                 <NavLink onClick={this.toggleNavItem} className="nav-link" to="/about">
                   About
                 </NavLink>
               </NavItem>
-              <NavItem>
+              <NavItem className="hide-medium">
                 <NavLink onClick={this.toggleNavItem} className="nav-link" to="/education">
                   Education
                 </NavLink>
               </NavItem>
-              <NavItem>
+              <NavItem className="hide-medium">
                 <NavLink onClick={this.toggleNavItem} className="nav-link" to="/consulting">
                   Consulting
                 </NavLink>
               </NavItem>
-              <NavItem>
+              <NavItem className="hide-medium">
                 <NavLink onClick={this.toggleNavItem} className="nav-link" to="/clients">
                   Clients
                 </NavLink>

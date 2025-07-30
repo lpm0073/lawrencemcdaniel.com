@@ -13,10 +13,7 @@ export default function Head(props) {
         <title>{basePageTitle}</title>
         <meta name="author" content={nameLawrenceMcDaniel} />
         <link rel="canonical" href={URL_SITE + '/'} />
-        <meta
-          name="description"
-          content={defaultPageDescription()}
-        />
+        <meta name="description" content={defaultPageDescription()} />
         <meta
           name="keywords"
           content="Lawrence McDaniel, data scientist, open edx consultant, full stack developer, Cloud computing consultant, Python, ReactJS, Terraform, AWS, Azure, Kubernetes, digital content creator"
@@ -41,7 +38,10 @@ export default function Head(props) {
         <meta property="og:type" content="website" />
         <meta property="og:url" content={URL_SITE} />
         <meta property="og:site_name" content={basePageTitle} />
-        <meta property="og:image" content={URL_CDN + '/lawrencemcdaniel-headshot-square.jpeg'} />
+        <meta
+          property="og:image"
+          content={URL_CDN + '/lawrencemcdaniel-headshot-square.jpeg'}
+        />
         <meta property="og:image:alt" content="Lawrence McDaniel Banner" />
         <meta property="og:image:width" content="1849" />
         <meta property="og:image:height" content="1848" />
@@ -50,9 +50,15 @@ export default function Head(props) {
         <meta name="twitter:site" content="@LorenzoDPolanco" />
         <meta name="twitter:domain" content="lawrencemcdaniel.com" />
         <meta name="twitter:title" content={basePageTitle} />
-        <meta name="twitter:image" content={URL_CDN + '/lawrencemcdaniel-headshot-square.jpeg'} />
+        <meta
+          name="twitter:image"
+          content={URL_CDN + '/lawrencemcdaniel-headshot-square.jpeg'}
+        />
         <meta name="twitter:description" content={basePageTitle} />
-        <meta itemProp="image" content={URL_CDN + '/lawrencemcdaniel-headshot-square.jpeg'} />
+        <meta
+          itemProp="image"
+          content={URL_CDN + '/lawrencemcdaniel-headshot-square.jpeg'}
+        />
       </Helmet>
     </React.Fragment>
   )

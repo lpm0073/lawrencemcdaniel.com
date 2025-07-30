@@ -49,7 +49,7 @@ class Home extends Component {
       <React.Fragment>
         <Helmet>
           <link rel="canonical" href={URL_SITE} />
-          <meta name="description" content="Lawrence McDaniel - Data Scientist, Full Stack Developer, online instructor, and Open edX® Consultant" />
+          <meta name="description" content="Data scientist, full stack developer, online instructor, Open edX® consultant, amateur photographer" />
           <script type="application/ld+json">
             {JSON.stringify(
               gsdGraph(
