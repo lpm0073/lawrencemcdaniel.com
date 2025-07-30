@@ -50,7 +50,7 @@ class About extends Component {
     return (
       <React.Fragment>
         <Helmet>
-          <link rel="canonical" href={URL_SITE + '/about/'} />
+          <link rel="canonical" href={URL_SITE + '/about'} />
           <script type="application/ld+json">
             {JSON.stringify(
               gsdGraph(

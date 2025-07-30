@@ -25,7 +25,7 @@ const ImageTaggerPage = (props) => {
   return (
     <React.Fragment>
       <Helmet>
-        <link rel="canonical" href={URL_SITE + '/image-tagging/'} />
+        <link rel="canonical" href={URL_SITE + '/image-tagging'} />
         <meta
           name="description"
           content="Full Stack Web Developer with extensive experience using ReactJS and Redux. Follow links to the GitHub repository for this site."

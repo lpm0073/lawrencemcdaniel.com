@@ -1,17 +1,87 @@
 <?xml version="1.0" encoding="UTF-8"?>
 <urlset xmlns="http://www.sitemaps.org/schemas/sitemap/0.9" xmlns:news="http://www.google.com/schemas/sitemap-news/0.9" xmlns:xhtml="http://www.w3.org/1999/xhtml" xmlns:mobile="http://www.google.com/schemas/sitemap-mobile/1.0" xmlns:image="http://www.google.com/schemas/sitemap-image/1.1" xmlns:video="http://www.google.com/schemas/sitemap-video/1.1">
-<url> <loc>https://lawrencemcdaniel.com/</loc> </url>
-<url> <loc>https://lawrencemcdaniel.com/home</loc> </url>
-<url> <loc>https://lawrencemcdaniel.com/contact</loc> </url>
-<url> <loc>https://lawrencemcdaniel.com/qr</loc> </url>
-<url> <loc>https://lawrencemcdaniel.com/about</loc> </url>
-<url> <loc>https://lawrencemcdaniel.com/openedx</loc> </url>
-<url> <loc>https://lawrencemcdaniel.com/data-science</loc> </url>
-<url> <loc>https://lawrencemcdaniel.com/bio</loc> </url>
-<url> <loc>https://lawrencemcdaniel.com/specialties</loc> </url>
-<url> <loc>https://lawrencemcdaniel.com/education</loc> </url>
-<url> <loc>https://lawrencemcdaniel.com/skills</loc> </url>
-<url> <loc>https://lawrencemcdaniel.com/react-mdr</loc> </url>
-<url> <loc>https://lawrencemcdaniel.com/reactjs</loc> </url>
-<url> <loc>https://lawrencemcdaniel.com/clients</loc> </url>
+<url>
+  <loc>https://lawrencemcdaniel.com</loc>
+  <lastmod>2025-07-30</lastmod>
+  <changefreq>monthly</changefreq>
+  <priority>1.0</priority>
+</url>
+<url>
+  <loc>https://lawrencemcdaniel.com/contact</loc>
+  <lastmod>2025-07-30</lastmod>
+  <changefreq>monthly</changefreq>
+  <priority>1.0</priority>
+</url>
+<url>
+  <loc>https://lawrencemcdaniel.com/consulting</loc>
+  <lastmod>2025-07-30</lastmod>
+  <changefreq>monthly</changefreq>
+  <priority>0.75</priority>
+</url>
+<url>
+  <loc>https://lawrencemcdaniel.com/qr</loc>
+  <lastmod>2025-07-30</lastmod>
+  <changefreq>monthly</changefreq>
+  <priority>1.00</priority>
+</url>
+<url>
+  <loc>https://lawrencemcdaniel.com/about</loc>
+  <lastmod>2025-07-30</lastmod>
+  <changefreq>monthly</changefreq>
+  <priority>0.75</priority>
+</url>
+<url>
+  <loc>https://lawrencemcdaniel.com/openedx</loc>
+  <lastmod>2025-07-30</lastmod>
+  <changefreq>monthly</changefreq>
+  <priority>0.75</priority>
+</url>
+<url>
+  <loc>https://lawrencemcdaniel.com/data-science</loc>
+  <lastmod>2025-07-30</lastmod>
+  <changefreq>monthly</changefreq>
+  <priority>0.75</priority>
+</url>
+<url>
+  <loc>https://lawrencemcdaniel.com/bio</loc>
+  <lastmod>2025-07-30</lastmod>
+  <changefreq>monthly</changefreq>
+  <priority>0.75</priority>
+</url>
+<url>
+  <loc>https://lawrencemcdaniel.com/specialties</loc>
+  <lastmod>2025-07-30</lastmod>
+  <changefreq>monthly</changefreq>
+  <priority>0.75</priority>
+</url>
+<url>
+  <loc>https://lawrencemcdaniel.com/education</loc>
+  <lastmod>2025-07-30</lastmod>
+  <changefreq>monthly</changefreq>
+  <priority>0.75</priority>
+</url>
+<url>
+  <loc>https://lawrencemcdaniel.com/skills</loc>
+  <lastmod>2025-07-30</lastmod>
+  <changefreq>monthly</changefreq>
+  <priority>0.75</priority>
+</url>
+<url>
+  <loc>https://lawrencemcdaniel.com/react-mdr</loc>
+  <lastmod>2025-07-30</lastmod>
+  <changefreq>monthly</changefreq>
+  <priority>0.25</priority>
+</url>
+<url>
+  <loc>https://lawrencemcdaniel.com/reactjs</loc>
+  <lastmod>2025-07-30</lastmod>
+  <changefreq>monthly</changefreq>
+  <priority>0.5</priority>
+</url>
+<url>
+  <loc>https://lawrencemcdaniel.com/clients</loc>
+  <lastmod>2025-07-30</lastmod>
+  <changefreq>monthly</changefreq>
+  <priority>0.75</priority>
+</url>
 </urlset>

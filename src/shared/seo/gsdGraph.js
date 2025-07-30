@@ -103,8 +103,8 @@ const listItem = (position, slug, itemName, pageType = 'WebPage', pageImage) => 
 }
 
 const breadcrumbList = (slug, webpageName, pageType, pageImage) => {
-  var itemListElement = [listItem(1, 'home', 'Home')]
-  if (slug !== 'home')
+  var itemListElement = [listItem(1, '')]
+  if (slug !== '')
     itemListElement.push(listItem(2, slug, pageName(webpageName), pageType, pageImage))
 
   return {

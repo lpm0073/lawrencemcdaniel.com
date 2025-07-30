@@ -2,7 +2,7 @@ import React from 'react'
 import PropTypes from 'prop-types'
 
 const JobTitle = (props) => {
-  const thisClassName = props.cls + ' job-title lead mb-0 mt-4 col-4 ps-5 pe-5'
+  const thisClassName = props.cls + ' job-title lead mb-0 mt-4 col-4 ps-4 pe-4'
   const thisHref = props.href
   const thisTitle = props.title
   const thisTarget = props.target

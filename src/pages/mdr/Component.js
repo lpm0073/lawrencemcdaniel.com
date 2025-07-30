@@ -41,7 +41,7 @@ class MRLPage extends Component {
         ) : (
           <React.Fragment>
             <Helmet>
-              <link rel="canonical" href={URL_SITE + '/react-mdr/'} />
+              <link rel="canonical" href={URL_SITE + '/react-mdr'} />
               <meta name="description" content="Matrix digital rain for React" />
               <meta property="og:description" content="Matrix digital rain for React" />
               <meta

@@ -3,7 +3,7 @@ import { Route } from 'react-router'
 
 export default (
   <Route>
-    <Route path="/home" />
+    <Route path="/" />
     <Route path="/contact" />
     <Route path="/consulting" />
     <Route path="/qr" />
