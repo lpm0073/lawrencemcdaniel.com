@@ -14,7 +14,7 @@ export default (
     <Route path="/specialties" />
     <Route path="/portfolio" />
     <Route path="/education" />
-    <Route path="/skills" />
+    <Route path="/full-stack-developer" />
     <Route path="/reactjs" />
     <Route path="/clients" />
   </Route>

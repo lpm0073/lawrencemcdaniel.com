@@ -112,6 +112,17 @@ export class Header extends Component {
                     </NavLink>
                   </DropdownItem>
                   <DropdownItem>
+                    <NavLink className="nav-link p-0 m-0" to="/full-stack-developer">
+                      <img
+                        key="menu-ml-image"
+                        className="react-logo"
+                        src="/assets/images/pancakes.png"
+                        alt="ML logo"
+                      />
+                      Full Stack
+                    </NavLink>
+                  </DropdownItem>
+                  <DropdownItem>
                     <NavLink className="nav-link p-0 m-0" to="/openedx">
                       <img
                         key="menu-edx-image"
@@ -131,11 +142,6 @@ export class Header extends Component {
                         alt="ReactJS logo"
                       />
                       ReactJS
-                    </NavLink>
-                  </DropdownItem>
-                  <DropdownItem>
-                    <NavLink className="nav-link p-0 m-0" to="/skills">
-                      Technologies
                     </NavLink>
                   </DropdownItem>
                   <DropdownItem>

@@ -13,7 +13,9 @@ const SkillColumn = (props) => {
   const ref = useRef()
   const keyName = 'skill-column-' + props.id
 
-  useEffect(() => drawCircle(ref))
+  useEffect(() => {
+    drawCircle(ref)
+  }, [])
 
   return (
     <React.Fragment>

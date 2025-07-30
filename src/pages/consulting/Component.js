@@ -17,7 +17,7 @@ const ConsultingServices = () => (
     <ul className="consulting-services-list">
       <li>
         <span className="consulting-list-item-title">Data Science</span> I help companies prepare data sets, and setup training, testing, evaluation,
-        deployment and monitoring of AI, machine learning and forecasting models; both on premise as well as on popular platforms like AWS, Azure and Google Cloud.
+        deployment and monitoring of AI, machine learning and forecasting models; both on premise as well as on popular platforms like AWS, Azure and Google Cloud. <a href="/data-science">Learn more</a>
       </li>
       <li>
         <span className="consulting-list-item-title">Training</span> I provide live and studio
@@ -25,16 +25,19 @@ const ConsultingServices = () => (
         techniques.
       </li>
       <li>
+        <span className="consulting-list-item-title">Full Stack development</span> I build complete solutions, from front-end web applications to back-end services, command-line interfaces and automated workflows. <a href="/full-stack-developer">Learn more</a>
+      </li>
+      <li>
         <span className="consulting-list-item-title">Cloud Computing</span> I specialize in cloud native technologies
         like Docker, Kubernetes, Terraform and GitHub for designing, implementing and managing scalable
-        and secure cloud infrastructure.
+        and secure cloud infrastructure. <a href="/full-stack-developer">Learn more</a>
       </li>
       <li>
         <span className="consulting-list-item-title">Dev Ops</span> I help teams work more efficiently
         by implementing best practices for software development, deployment, and maintenance,
         including CI/CD pipelines, automated testing, and infrastructure as code. I
         practice what I preach. I am the principal maintainer of more than 4 dozen open
-        source projects (see below).
+        source projects (see below). <a href="/full-stack-developer">Learn more</a>
       </li>
       <li>
         <span className="consulting-list-item-title">
