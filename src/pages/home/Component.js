@@ -36,7 +36,7 @@ class Home extends Component {
       ...gsdPersonLawrenceMcDaniel,
       ...{ hasOccupation: hasOccupation },
     }
-    const slug = 'home'
+    const slug = ''
     const webpageName = basePageTitle
     const webpageDescription =
       'Data Scientist, Full Stack Developer, online instructor, and Open edX® Consultant specializing in Python, ReactJS, Kubernetes, Terraform, AWS, and Azure.'
@@ -48,7 +48,7 @@ class Home extends Component {
     return (
       <React.Fragment>
         <Helmet>
-          <link rel="canonical" href={URL_SITE + '/home/'} />
+          <link rel="canonical" href={URL_SITE} />
           <script type="application/ld+json">
             {JSON.stringify(
               gsdGraph(
@@ -65,11 +65,12 @@ class Home extends Component {
         </Helmet>
         <div key="home-page" className="jumbotron dark-background">
           <div className="h-100">
-            <div className="row pt-5 m-0 mr-0 px-0 jumbotron-spacer">
+            <div className="row pt-1 m-0 mr-0 px-0 jumbotron-spacer">
               <div className="col-lg-6 pt-5 col-md-12 text-center noselect ">
-                <div className="title-spacer"></div>
-                <h1 className="display-4">
-                  <span className="px-3 super-bold pre-wrap">Lawrence McDaniel</span>
+                {/* <div className="title-spacer"></div> */}
+                <img src="https://cdn.lawrencemcdaniel.com/lawrencemcdaniel-headshot-square.jpeg" alt="Lawrence McDaniel headshot" className="head-shot hide-medium img-fluid w-50 rounded mx-auto d-block " />
+                <h1 className="pt-2 mb-0 lawrence-mcdaniel">
+                  <span className="pre-wrap">Lawrence McDaniel</span>
                 </h1>
                 <p className="digital-creator">digital creator</p>
               </div>
@@ -77,7 +78,7 @@ class Home extends Component {
                 <LogoCube />
               </div>
             </div>
-            <div className="row mt-5 text-center justify-content-center hide-medium">
+            <div className="row mt-0 mb-0 pt-0 pb-0 text-center justify-content-center hide-medium">
               <JobTitle idx="1" target="_self" href="/skills" title="Full Stack Developer" />
               <Consultant />
               <JobTitle

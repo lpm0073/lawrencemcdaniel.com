@@ -27,7 +27,7 @@ const ReactPage = (props) => {
   return (
     <React.Fragment>
       <Helmet>
-        <link rel="canonical" href={URL_SITE + '/reactjs/'} />
+        <link rel="canonical" href={URL_SITE + '/reactjs'} />
         <meta
           name="description"
           content="Full Stack Web Developer with extensive experience using ReactJS and Redux. Follow links to the GitHub repository for this site."

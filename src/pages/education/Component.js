@@ -27,7 +27,7 @@ const Education = (props) => {
   return (
     <React.Fragment>
       <Helmet>
-        <link rel="canonical" href={URL_SITE + 'education/'} />
+        <link rel="canonical" href={URL_SITE + '/education'} />
         <script type="application/ld+json">
           {JSON.stringify(
             gsdGraph(

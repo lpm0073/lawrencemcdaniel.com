@@ -29,7 +29,7 @@ const Datascience = (props) => {
   return (
     <React.Fragment>
       <Helmet>
-        <link rel="canonical" href={URL_SITE + '/data-science/'} />
+        <link rel="canonical" href={URL_SITE + '/data-science'} />
         <meta
           name="description"
           content="Machine learning and algorithms expert with experience using regression, neural networks, support vector machines, anomaly detection, recommender systems, and unsupervised learning"

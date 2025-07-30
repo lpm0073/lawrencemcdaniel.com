@@ -25,7 +25,7 @@ const Clients = (props) => {
   return (
     <React.Fragment>
       <Helmet>
-        <link rel="canonical" href={URL_SITE + '/clients/'} />
+        <link rel="canonical" href={URL_SITE + '/clients'} />
         <script type="application/ld+json">
           {JSON.stringify(
             gsdGraph(

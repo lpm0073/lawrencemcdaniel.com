@@ -22,7 +22,7 @@ const Skills = (props) => {
   return (
     <React.Fragment>
       <Helmet>
-        <link rel="canonical" href={URL_SITE + '/skills/'} />
+        <link rel="canonical" href={URL_SITE + '/skills'} />
         <script type="application/ld+json">
           {JSON.stringify(
             gsdGraph(

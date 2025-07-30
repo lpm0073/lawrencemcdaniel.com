@@ -21,7 +21,7 @@ const Portfolio = (props) => {
   return (
     <React.Fragment>
       <Helmet>
-        <link rel="canonical" href={URL_SITE + '/portfolio/'} />
+        <link rel="canonical" href={URL_SITE + '/portfolio'} />
         <script type="application/ld+json">
           {JSON.stringify(
             gsdGraph(

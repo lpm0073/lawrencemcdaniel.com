@@ -51,7 +51,7 @@ const Consulting = () => {
     <div>
       <Helmet>
         <title>Advisory And Consulting</title>
-        <link rel="canonical" href={URL_SITE + '/data-science/'} />
+        <link rel="canonical" href={URL_SITE + '/consulting'} />
         <meta
           name="description"
           content="Consulting services and technical training in data science, AI/ML, Devops, and modern tech stack expertise."

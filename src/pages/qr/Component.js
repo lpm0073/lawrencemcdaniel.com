@@ -21,7 +21,7 @@ class QR extends Component {
     return (
       <React.Fragment>
         <Helmet>
-          <link rel="canonical" href={URL_SITE + '/qr/'} />
+          <link rel="canonical" href={URL_SITE + '/qr'} />
           <script type="application/ld+json">
             {JSON.stringify(
               gsdGraph(

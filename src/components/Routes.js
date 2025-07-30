@@ -73,6 +73,7 @@ class SiteRoutes extends Component {
     /* pare down updates on pages with entry animations */
     const path = window.location.pathname
     if (path === '/home' || path === '/') {
+      // i'm pretty sure this never gets called.
       if (!this.props.homePage.isSet) {
         return true
       }
@@ -153,8 +154,6 @@ class SiteRoutes extends Component {
               />
             }
           />
-          <Route exact path="/home" element={<Navigate to="/" />} />
-
           <Route path="*" element={<PageNotFound />} />
         </Routes>
       </React.Fragment>

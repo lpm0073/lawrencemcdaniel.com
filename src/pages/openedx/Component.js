@@ -39,7 +39,7 @@ const Openedx = (props) => {
     <div>
       <Helmet>
         <title>Open edX Consultant</title>
-        <link rel="canonical" href={URL_SITE + '/openedx/'} />
+        <link rel="canonical" href={URL_SITE + '/openedx'} />
 
         <meta
           name="description"
