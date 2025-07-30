@@ -1,3 +1,10 @@
+## [1.3.1](https://github.com/lpm0073/lawrencemcdaniel.com/compare/v1.3.0...v1.3.1) (2025-07-30)
+
+
+### Bug Fixes
+
+* canonical link trailing slashes and sitemap.xml ([b996145](https://github.com/lpm0073/lawrencemcdaniel.com/commit/b99614552572cf5910d76353af7c22d7f6df14da))
+
 # [1.3.0](https://github.com/lpm0073/lawrencemcdaniel.com/compare/v1.2.0...v1.3.0) (2025-07-29)
 
 
