@@ -75,33 +75,21 @@ export class Header extends Component {
                   Home
                 </NavLink>
               </NavItem>
-              <UncontrolledDropdown nav inNavbar className="hide-medium">
-                <DropdownToggle nav caret className="">
+              <NavItem>
+                <NavLink onClick={this.toggleNavItem} className="nav-link" to="/about">
                   About
-                </DropdownToggle>
-                <DropdownMenu className="bg-dark">
-                  <DropdownItem>
-                    <NavLink className="nav-link p-0 m-0" to="/about">
-                      Bio
-                    </NavLink>
-                  </DropdownItem>
-                  <DropdownItem>
-                    <NavLink className="nav-link p-0 m-0" to="/education">
-                      Education
-                    </NavLink>
-                  </DropdownItem>
-                  <DropdownItem>
-                    <NavLink className="nav-link p-0 m-0" to="/skills">
-                      Technologies
-                    </NavLink>
-                  </DropdownItem>
-                  <DropdownItem>
-                    <NavLink className="nav-link p-0 m-0" to="/specialties">
-                      Competencies
-                    </NavLink>
-                  </DropdownItem>
-                </DropdownMenu>
-              </UncontrolledDropdown>
+                </NavLink>
+              </NavItem>
+              <NavItem>
+                <NavLink onClick={this.toggleNavItem} className="nav-link" to="/education">
+                  Education
+                </NavLink>
+              </NavItem>
+              <NavItem>
+                <NavLink onClick={this.toggleNavItem} className="nav-link" to="/consulting">
+                  Consulting
+                </NavLink>
+              </NavItem>
               <NavItem>
                 <NavLink onClick={this.toggleNavItem} className="nav-link" to="/clients">
                   Clients
@@ -113,33 +101,6 @@ export class Header extends Component {
                 </DropdownToggle>
                 <DropdownMenu className="bg-dark">
                   <DropdownItem>
-                    <NavLink className="nav-link p-0 m-0" to="/openedx">
-                      <img
-                        key="menu-edx-image"
-                        className="react-logo"
-                        src="/assets/images/edx-logo.png"
-                        alt="Open edX logo"
-                      />
-                      Open edX
-                    </NavLink>
-                  </DropdownItem>
-                  <DropdownItem>
-                    <a
-                      className=""
-                      href="https://openai.lawrencemcdaniel.com/"
-                      target="_blank"
-                      rel="noopener noreferrer"
-                    >
-                      <img
-                        key="menu-openai-image"
-                        className="react-logo"
-                        src="/assets/images/openai-logo.png"
-                        alt="ReactJS logo"
-                      />
-                      OpenAI
-                    </a>
-                  </DropdownItem>
-                  <DropdownItem>
                     <NavLink className="nav-link p-0 m-0" to="/data-science">
                       <img
                         key="menu-ml-image"
@@ -148,6 +109,17 @@ export class Header extends Component {
                         alt="ML logo"
                       />
                       Data Science
+                    </NavLink>
+                  </DropdownItem>
+                  <DropdownItem>
+                    <NavLink className="nav-link p-0 m-0" to="/openedx">
+                      <img
+                        key="menu-edx-image"
+                        className="react-logo"
+                        src="/assets/images/edx-logo.png"
+                        alt="Open edX logo"
+                      />
+                      Open edX
                     </NavLink>
                   </DropdownItem>
                   <DropdownItem>
@@ -162,99 +134,14 @@ export class Header extends Component {
                     </NavLink>
                   </DropdownItem>
                   <DropdownItem>
-                    <a
-                      className=""
-                      href="https://horrors.lawrencemcdaniel.com/"
-                      target="_blank"
-                      rel="noopener noreferrer"
-                    >
-                      <img
-                        key="menu-angular-image"
-                        className="react-logo"
-                        src="/assets/images/angular-logo.png"
-                        alt="ReactJS logo"
-                      />
-                      Angular
-                    </a>
-                  </DropdownItem>
-                </DropdownMenu>
-              </UncontrolledDropdown>
-
-              <UncontrolledDropdown nav inNavbar className="hide-medium">
-                <DropdownToggle nav caret>
-                  Code
-                </DropdownToggle>
-                <DropdownMenu>
-                  <DropdownItem>
-                    <a
-                      className=""
-                      href="https://github.com/fullStackWithLawrence/"
-                      target="_blank"
-                      rel="noopener noreferrer"
-                    >
-                      AI / ML
-                    </a>
+                    <NavLink className="nav-link p-0 m-0" to="/skills">
+                      Technologies
+                    </NavLink>
                   </DropdownItem>
                   <DropdownItem>
-                    <a
-                      className=""
-                      href="https://github.com/smarter-sh/"
-                      target="_blank"
-                      rel="noopener noreferrer"
-                    >
-                      project::Smarter
-                    </a>
-                  </DropdownItem>
-                  <DropdownItem>
-                    <a
-                      className=""
-                      href="https://github.com/openedx-actions/"
-                      target="_blank"
-                      rel="noopener noreferrer"
-                    >
-                      Open edX Actions
-                    </a>
-                  </DropdownItem>
-                  <DropdownItem>
-                    <a
-                      className=""
-                      href="https://github.com/cookiecutter-openedx/"
-                      target="_blank"
-                      rel="noopener noreferrer"
-                    >
-                      Open edX CookieCutter
-                    </a>
-                  </DropdownItem>
-                  <DropdownItem divider />
-                  <DropdownItem>
-                    <a
-                      className=""
-                      href="https://api.lawrencemcdaniel.com/"
-                      target="_blank"
-                      rel="noopener noreferrer"
-                    >
-                      REST api
-                    </a>
-                  </DropdownItem>
-                  <DropdownItem>
-                    <a
-                      className=""
-                      href="https://www.freshfrommexico.com/"
-                      target="_blank"
-                      rel="noopener noreferrer"
-                    >
-                      Wordpress
-                    </a>
-                  </DropdownItem>
-                  <DropdownItem>
-                    <a
-                      className=""
-                      href="https://clients.lawrencemcdaniel.com/"
-                      target="_blank"
-                      rel="noopener noreferrer"
-                    >
-                      E-commerce
-                    </a>
+                    <NavLink className="nav-link p-0 m-0" to="/specialties">
+                      Competencies
+                    </NavLink>
                   </DropdownItem>
                 </DropdownMenu>
               </UncontrolledDropdown>

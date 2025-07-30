@@ -15,7 +15,7 @@ const imageObject = (url, height, width) => {
 
 export const baseUrl = URL_SITE
 export const nameLawrenceMcDaniel = 'Lawrence McDaniel'
-export const baseTitle = 'Data Scientist, Full Stack Developer, Digital content creator, Open edX® Consultant'
+export const baseTitle = 'Data Scientist'
 export const basePageTitle = nameLawrenceMcDaniel + ' - ' + baseTitle
 export const datePublished = '2026-07-29'
 export const dateModified = d.toISOString()
