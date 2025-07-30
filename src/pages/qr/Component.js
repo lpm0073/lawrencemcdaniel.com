@@ -22,6 +22,7 @@ class QR extends Component {
       <React.Fragment>
         <Helmet>
           <link rel="canonical" href={URL_SITE + '/qr'} />
+          <meta name="description" content="Lawrence McDaniel - Whatsapp QR Code" />
           <script type="application/ld+json">
             {JSON.stringify(
               gsdGraph(

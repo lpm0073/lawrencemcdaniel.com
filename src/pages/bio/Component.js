@@ -7,11 +7,8 @@ import { Helmet } from 'react-helmet'
 
 import { resumeUrl } from '../../shared/constants'
 import { gsdGraph } from '../../shared/seo/gsdGraph'
-import {
-  gsdPersonLawrenceMcDaniel,
-  personExtraData,
-} from '../../shared/seo/gsdPersonLawrence'
-import { URL_SITE } from '../../shared/constants'
+import { gsdPersonLawrenceMcDaniel } from '../../shared/seo/gsdPersonLawrence'
+import { URL_SITE, DEFAULT_IMAGE } from '../../shared/constants'
 
 import './styles.css'
 
@@ -30,15 +27,16 @@ const Bio = (props) => {
     at the age of 39. Nowadays he advises clients on cloud computing and
     artificial intelligence projects, and teaches online courses at
     University of British Columbia.`
-  const primaryImageUrl = 'https://cdn.lawrencemcdaniel.com/lawrencemcdaniel-headshot-square.jpeg'
+  const primaryImageUrl = DEFAULT_IMAGE
   const pageType = ''
   const relatedLink = ''
-  const graphExtraData = [{ ...gsdPersonLawrenceMcDaniel, ...personExtraData }]
+  const graphExtraData = [{ ...gsdPersonLawrenceMcDaniel }]
 
   return (
     <React.Fragment>
       <Helmet>
         <link rel="canonical" href={URL_SITE + '/bio'} />
+        <meta name="description" content="Lawrence McDaniel - Bio" />
         <script type="application/ld+json">
           {JSON.stringify(
             gsdGraph(

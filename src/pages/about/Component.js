@@ -10,10 +10,7 @@ import { LinkedinBadge } from '../../components/linkedinBadge/Component'
 import AboutTile from './tileComponent'
 import { Helmet } from 'react-helmet'
 import { gsdGraph } from '../../shared/seo/gsdGraph'
-import {
-  gsdPersonLawrenceMcDaniel,
-  personExtraData,
-} from '../../shared/seo/gsdPersonLawrence'
+import { gsdPersonLawrenceMcDaniel } from '../../shared/seo/gsdPersonLawrence'
 import { URL_SITE } from '../../shared/constants'
 
 import './styles.css'
@@ -45,12 +42,13 @@ class About extends Component {
     const primaryImageUrl = ''
     const pageType = 'AboutPage'
     const relatedLink = ''
-    const graphExtraData = [{ ...gsdPersonLawrenceMcDaniel, ...personExtraData }]
+    const graphExtraData = [{ ...gsdPersonLawrenceMcDaniel }]
 
     return (
       <React.Fragment>
         <Helmet>
           <link rel="canonical" href={URL_SITE + '/about'} />
+          <meta name="description" content="Lawrence McDaniel - About Me" />
           <script type="application/ld+json">
             {JSON.stringify(
               gsdGraph(

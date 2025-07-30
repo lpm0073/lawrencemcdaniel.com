@@ -15,7 +15,7 @@ export default function Head(props) {
         <link rel="canonical" href={URL_SITE + '/'} />
         <meta
           name="description"
-          content={defaultPageDescription}
+          content={defaultPageDescription()}
         />
         <meta
           name="keywords"

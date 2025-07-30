@@ -29,7 +29,7 @@ serve:
 
 release:
 	#---------------------------------------------------------
-	# usage:      deploy prouduction build of lawrencemcdaniel.com ReactJ
+	# usage:      deploy production build of lawrencemcdaniel.com ReactJ
 	#             app to AWS S3 bucket.
 	#
 	#             https://gist.github.com/kellyrmilligan/e242d3dc743105fe91a83cc933ee1314

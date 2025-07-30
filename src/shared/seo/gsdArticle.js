@@ -1,25 +1,28 @@
 import { baseUrl, datePublished, dateModified } from './gsdCommon'
 
+const ensureTrailingSlash = (str) => (str.endsWith('/') ? str : str + '/')
 export const gsdArticle = (slug, headline) => {
+    const baseUrlWithSlash = ensureTrailingSlash(baseUrl)
+    const slugWithSlash = ensureTrailingSlash(slug)
   return {
     '@type': 'Article',
-    '@id': baseUrl + '/' + slug + '/#article',
+    '@id': baseUrlWithSlash + slugWithSlash + '#article',
     isPartOf: {
-      '@id': baseUrl + '/' + slug + '/#webpage',
+      '@id': baseUrlWithSlash + slugWithSlash + '#webpage',
     },
     author: {
-      '@id': baseUrl + '/#me',
+      '@id': baseUrlWithSlash + '#me',
     },
     headline: headline,
     datePublished: datePublished,
     dateModified: dateModified,
     mainEntityOfPage: {
-      '@id': baseUrl + '/' + slug + '/#webpage',
+      '@id': baseUrlWithSlash + slugWithSlash + '#webpage',
     },
     commentCount: 0,
-    publisher: baseUrl + '/#me',
-    image: baseUrl + '/#logo',
-    articleSection: slug,
+    publisher: baseUrlWithSlash + '#me',
+    image: baseUrlWithSlash + '#logo',
+    articleSection: slugWithSlash,
     inLanguage: 'en-US',
   }
 }

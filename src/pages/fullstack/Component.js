@@ -23,6 +23,7 @@ const Fullstack = (props) => {
     <React.Fragment>
       <Helmet>
         <link rel="canonical" href={URL_SITE + '/full-stack-developer'} />
+        <meta name="description" content="Lawrence McDaniel - Full Stack Developer" />
         <script type="application/ld+json">
           {JSON.stringify(
             gsdGraph(

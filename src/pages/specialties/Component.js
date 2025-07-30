@@ -28,6 +28,7 @@ const Specialties = (props) => {
     <React.Fragment>
       <Helmet>
         <link rel="canonical" href={URL_SITE + '/specialties'} />
+        <meta name="description" content="Lawrence McDaniel - Professional Specialties" />
         <script type="application/ld+json">
           {JSON.stringify(
             gsdGraph(

@@ -1,17 +1,5 @@
-import { URL_SITE } from '../constants'
+import { URL_SITE, DEFAULT_IMAGE } from '../constants'
 const d = new Date()
-const imageObject = (url, height, width) => {
-  return {
-    '@type': 'ImageObject',
-    inLanguage: 'en-US',
-    '@id': url + '/#imageObject',
-    url: url,
-    width: width,
-    height: height,
-    name: nameLawrenceMcDaniel,
-    caption: nameLawrenceMcDaniel,
-  }
-}
 
 export const baseUrl = URL_SITE
 export const nameLawrenceMcDaniel = 'Lawrence McDaniel'
@@ -20,7 +8,23 @@ export const basePageTitle = nameLawrenceMcDaniel + ' - ' + baseTitle
 export const datePublished = '2026-07-29'
 export const dateModified = d.toISOString()
 export const lastReviewed = dateModified
-export const hourlyRate = 200.0
+export const hourlyRate = 125.0
+
+const imageObject = (url, height, width) => {
+  return {
+    '@type': 'ImageObject',
+    inLanguage: 'en-US',
+    '@id': url + '/#imageObject',
+    url: url,
+    contentUrl: url,
+    thumbnailUrl: url,
+    width: width,
+    height: height,
+    description: 'Image of ' + nameLawrenceMcDaniel,
+    name: nameLawrenceMcDaniel,
+    caption: nameLawrenceMcDaniel,
+  }
+}
 
 export const sameAs = [
   'https://blog.lawrencemcdaniel.com/',
@@ -47,9 +51,15 @@ export const brandLogo = {
   '@type': 'ImageObject',
   inLanguage: 'en-US',
   '@id': baseUrl + '/#logo',
-  url: 'https://cdn.lawrencemcdaniel.com/wp-content/uploads/2019/10/01135455/Lawrence1.jpg',
-  width: 500,
-  height: 381,
+  url: DEFAULT_IMAGE,
+  contentUrl: DEFAULT_IMAGE,
+  thumbnailUrl: DEFAULT_IMAGE,
+  width: 1849,
+  height: 1848,
+  representativeOfPage: true,
+  encodingFormat: 'image/jpeg',
+  description: 'Headshot of ' + nameLawrenceMcDaniel,
+  uploadDate: '2025-07-01',
   name: nameLawrenceMcDaniel,
   caption: nameLawrenceMcDaniel,
 }
