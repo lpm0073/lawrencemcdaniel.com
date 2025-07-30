@@ -1,9 +1,14 @@
 {
   "short_name": "Lawrence McDaniel",
-  "name": "Lawrence McDaniel - Full Stack Developer",
+  "name": "Lawrence McDaniel - Data Scientist",
   "icons": [
     {
       "src": "favicon.jpg",
+      "sizes": "64x64 32x32 24x24 16x16",
+      "type": "image/x-icon"
+    },
+    {
+      "src": "favicon-offline.jpg",
       "sizes": "64x64 32x32 24x24 16x16",
       "type": "image/x-icon"
     },
@@ -22,7 +27,11 @@
   "display": "standalone",
   "theme_color": "#000000",
   "background_color": "#000000",
-  "description": "Web portfolio for Lawrence McDaniel: I've built tons of stuff.",
+  "description": "Portfolio for Lawrence McDaniel: I've built tons of stuff.",
+  "orientation": "portrait",
+  "lang": "en",
+  "scope": "/",
+  "id": "/",
   "screenshots": [
     {
       "src": "/assets/images/screenshot1.png",
@@ -30,8 +39,8 @@
       "sizes": "726x518"
     },
     {
-      "src": "assets/images/screenshot2.jpg",
-      "type": "image/jpg",
+      "src": "/assets/images/screenshot2.jpg",
+      "type": "image/jpeg",
       "sizes": "726x518"
     }
   ]
