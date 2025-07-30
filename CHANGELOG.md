@@ -1,3 +1,10 @@
+## [1.3.2](https://github.com/lpm0073/lawrencemcdaniel.com/compare/v1.3.1...v1.3.2) (2025-07-30)
+
+
+### Bug Fixes
+
+* site menu ([6c1057e](https://github.com/lpm0073/lawrencemcdaniel.com/commit/6c1057e3cb835244bc7706481aaba4ac17c86e4f))
+
 ## [1.3.1](https://github.com/lpm0073/lawrencemcdaniel.com/compare/v1.3.0...v1.3.1) (2025-07-30)
 
 
