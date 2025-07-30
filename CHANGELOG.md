@@ -1,3 +1,10 @@
+## [1.3.4](https://github.com/lpm0073/lawrencemcdaniel.com/compare/v1.3.3...v1.3.4) (2025-07-30)
+
+
+### Bug Fixes
+
+* sitemap generator ([fc55e17](https://github.com/lpm0073/lawrencemcdaniel.com/commit/fc55e171711c62bc3b5f881324f214117dfa0ebc))
+
 ## [1.3.3](https://github.com/lpm0073/lawrencemcdaniel.com/compare/v1.3.2...v1.3.3) (2025-07-30)
 
 
