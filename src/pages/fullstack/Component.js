@@ -1,6 +1,8 @@
 import React from 'react'
+import PropTypes from 'prop-types'
 import RenderPageTitle from '../../components/pagetitle/pageTitleComponent'
 import CodeSamplesTable from '../../components/codeSamples/Component'
+import TechnologyCarousel from '../../components/technologyCarousel/Component'
 import SkillColumn from './skillColumn'
 import { Helmet } from 'react-helmet'
 import { gsdPersonLawrenceMcDaniel } from '../../shared/seo/gsdPersonLawrence'
@@ -84,6 +86,7 @@ const Fullstack = (props) => {
           />
         </div>
 
+        <TechnologyCarousel specialties={props.specialties} />
 
         <div className="row mx-5">
           <div className="col">
@@ -100,4 +103,7 @@ const Fullstack = (props) => {
   )
 }
 
+Fullstack.propTypes = {
+  specialties: PropTypes.array.isRequired,
+}
 export default Fullstack
