@@ -1,57 +1,77 @@
-// Image precache engine for Wordpress REST apis.
-//
-// expects a URL for a Wordpress REST api for
-// any kind of `Post` data. Calls an internal function wpGetFeaturedImage()
-// to extract the url of the featured image of the post, assumed to point to cdn.lawrencemcdaniel.com,
-// and fetches this file, assumed to be an image.
-//
-// example url: https://api.lawrencemcdaniel//wp-json/wp/v2/posts?categories=43&_embed&per_page=100
-// example imageUrl: https://cdn.lawrencemcdaniel.com/wp-content/uploads/2021/02/12213439/swagger_logo.png
-//
 import { precacheAndRoute } from 'workbox-precaching'
 import { wpGetFeaturedImage } from './wpGetFeaturedImage'
 
-export const wpPrefetch = (url) => {
-  //console.log("prefetching: ", url);
+export const wpPrefetch = async (url) => {
+  const apiCacheName = 'wp-api-apiCache'
+  const imageCacheName = 'wp-image-apiCache'
+  let response
 
-  fetch(url)
-    .then(
-      (response) => {
-        if (response.ok) {
-          return response
-        } else {
-          var error = new Error('Error ' + response.status + ': ' + response.statusText)
-          error.response = response
-          throw error
-        }
-      },
-      (error) => {
-        var errmess = new Error(error.message)
-        throw errmess
+  // 1. Check API response apiCache
+  const apiCache = await caches.open(apiCacheName)
+  response = await apiCache.match(url)
+
+  if (!response) {
+    try {
+      console.log("wpPrefetch() prefetching API json object: ", url)
+      response = await fetch(url)
+      if (response.ok) {
+        apiCache.put(url, response.clone())
+      } else {
+        console.error('wpPrefetch() API Error ' + response.status + ': ' + response.statusText)
+        return
       }
-    )
-    .then((response) => response.json())
-    .then((arr) => {
-      var urls = []
+    } catch (error) {
+      console.error('wpPrefetch() API Fetch error:', error)
+      return
+    }
+  } else {
+    console.log("wpPrefetch() API response json object is already cached: ", url)
+  }
 
-      arr.forEach((post) => {
-        // see https://developers.google.com/web/tools/workbox/modules/workbox-precaching#explanation_of_the_precache_list
-        const imageUrl = wpGetFeaturedImage(post)
+  // 2. Parse API response
+  let arr
+  try {
+    arr = await response.json()
+  } catch (error) {
+    console.error('wpPrefetch() JSON parse error:', error)
+    return
+  }
 
-        if (imageUrl) {
-          const precacheDict = {
-            url: imageUrl,
-            revision: post.modified,
-          }
+  // 3. Extract image URLs and prefetch/apiCache them
+  const imageCache = await caches.open(imageCacheName)
+  const urls = []
 
-          if (imageUrl) {
-            urls.push(precacheDict)
-          }
-        }
+  for (const post of arr) {
+    const imageUrl = wpGetFeaturedImage(post)
+    if (imageUrl) {
+      urls.push({
+        url: imageUrl,
+        revision: post.modified,
       })
 
-      // Google Workbox - precache these urls.
-      console.log('precaching: ', urls)
-      precacheAndRoute(urls)
-    })
+      // Check if image is cached
+      const cachedImage = await imageCache.match(imageUrl)
+      if (!cachedImage) {
+        try {
+          console.log("wpPrefetch() prefetching image: ", imageUrl)
+          const imageResponse = await fetch(imageUrl)
+          if (imageResponse.ok) {
+            imageCache.put(imageUrl, imageResponse.clone())
+          } else {
+            console.error('wpPrefetch() Image Error ' + imageResponse.status + ': ' + imageResponse.statusText)
+          }
+        } catch (error) {
+          console.error('wpPrefetch() Image Fetch error:', error)
+        }
+      } else {
+        console.log("wpPrefetch() image is already cached: ", imageUrl)
+      }
+    }
+  }
+
+  // 4. Precache with Workbox (optional, if you want Workbox to manage these)
+  if (urls.length > 0) {
+    console.log('wpPrefetch() precaching images with Workbox: ', urls)
+    precacheAndRoute(urls)
+  }
 }

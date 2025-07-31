@@ -136,7 +136,7 @@ import { connect } from 'react-redux'
 import { bindActionCreators } from 'redux'
 import * as Actions from '../../redux/ActionCreators'
 
-import { shuffleArray } from '../../shared/shuffle'
+import { getInitialLogos } from '../../shared/getInitialLogos'
 import './styles.css'
 
 const mapStateToProps = (state) => ({
@@ -184,7 +184,7 @@ class LogoCube extends Component {
       const d = new Date().toISOString()
 
       /* grab a locally-stored set of six logos for initializing the cube sides */
-      const initialLogos = this.getInitialCubeLogos()
+      const initialLogos = getInitialLogos()
 
       this.state = {
         /* delay threads, to prevent the component from re-rendering if we're in mid-animation */
@@ -426,16 +426,6 @@ class LogoCube extends Component {
     }
   }
 
-  getInitialCubeLogos() {
-    return shuffleArray([
-      'assets/images/amazon-web-services.png',
-      'assets/images/django-logo-300x137.png',
-      'assets/images/open-edx.png',
-      'assets/images/react-logo-300x261.png',
-      'assets/images/mit-idss-logo-230x141.jpg',
-      'assets/images/kubernetes-logo-513x261.png',
-    ])
-  }
 } /* LogoCube component */
 
 CubeSide.propTypes = {
