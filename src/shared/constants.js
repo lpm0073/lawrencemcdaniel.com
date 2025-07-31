@@ -24,3 +24,6 @@ export const URL_API_RECOMMENDATIONS =
 export const URL_API_PROJECTS =
   backendUrl + 'media?include=2324,2320,2319,2300,2295,2296,2297,2298,2299,2301,2302,2303'
 export const URL_API_CLIENTS = backendUrl + 'posts?categories=46&_embed&per_page=100'
+
+export const CACHE_NAME_API = 'wp-api-apiCache'
+export const CACHE_NAME_IMAGE = 'wp-image-apiCache'

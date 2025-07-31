@@ -48,7 +48,7 @@ async function getCacheVersion() {
     return packageJson.version
   } catch (error) {
     console.error('service-worker.js Failed to fetch package.json:', error.message, error);
-    throw error;
+    return '1.0.0' // Fallback version;
   }
 }
 

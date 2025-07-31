@@ -1,3 +1,10 @@
+## [1.3.5](https://github.com/lpm0073/lawrencemcdaniel.com/compare/v1.3.4...v1.3.5) (2025-07-31)
+
+
+### Bug Fixes
+
+* service worker image prefetching ([944f5f8](https://github.com/lpm0073/lawrencemcdaniel.com/commit/944f5f8ac76aae0d89c5cf7644f56007706a2184))
+
 ## [1.3.4](https://github.com/lpm0073/lawrencemcdaniel.com/compare/v1.3.3...v1.3.4) (2025-07-30)
 
 
