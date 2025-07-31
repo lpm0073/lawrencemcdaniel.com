@@ -1,3 +1,10 @@
+## [1.3.6](https://github.com/lpm0073/lawrencemcdaniel.com/compare/v1.3.5...v1.3.6) (2025-07-31)
+
+
+### Bug Fixes
+
+* image caching logic ([52a73a1](https://github.com/lpm0073/lawrencemcdaniel.com/commit/52a73a1ea924d436b60fca7c57675b6724182f8b))
+
 ## [1.3.5](https://github.com/lpm0073/lawrencemcdaniel.com/compare/v1.3.4...v1.3.5) (2025-07-31)
 
 
