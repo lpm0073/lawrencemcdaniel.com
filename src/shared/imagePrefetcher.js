@@ -1,5 +1,6 @@
 import { wpGetFeaturedImage } from './wpGetFeaturedImage'
 import { CACHE_NAME_IMAGE } from './constants'
+import { setCacheTimestamp, isCacheExpired } from './caching'
 
 /* eslint-disable no-unused-vars */
 export const imagePreFetcher = (arr, delay, desc) => {
@@ -9,7 +10,7 @@ export const imagePreFetcher = (arr, delay, desc) => {
       if (url) {
         caches.open(CACHE_NAME_IMAGE).then((cache) => {
           cache.match(url).then((response) => {
-            if (response) {
+            if (response && !isCacheExpired(url)) {
               response.blob().then((blob) => {
                 const objectURL = URL.createObjectURL(blob)
                 new Image().src = objectURL
@@ -20,6 +21,7 @@ export const imagePreFetcher = (arr, delay, desc) => {
                 .then((fetchResponse) => {
                   if (fetchResponse.ok) {
                     cache.put(url, fetchResponse.clone())
+                    setCacheTimestamp(url)
                     return fetchResponse.blob()
                   }
                   console.error(`Image fetch failed: ${desc} - ${url}`, fetchResponse.statusText)

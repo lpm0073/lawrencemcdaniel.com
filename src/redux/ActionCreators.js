@@ -9,6 +9,8 @@ import {
   URL_API_CLIENTS,
   CACHE_NAME_API
 } from '../shared/constants'
+import { setCacheTimestamp, isCacheExpired } from '../shared/caching'
+
 
 /*  -----------------------------------
     methods to track whether page entry animations
@@ -54,7 +56,7 @@ export const fetchSpecialties = () => (dispatch) => {
 
   caches.open(CACHE_NAME_API).then((cache) => {
     cache.match(URL_API_SPECIALTIES).then((cachedResponse) => {
-      if (cachedResponse) {
+      if (cachedResponse && !isCacheExpired(URL_API_SPECIALTIES)) {
         cachedResponse.json().then((specialties) => {
           dispatch(addSpecialties(specialties))
           imagePreFetcher(specialties, 0, 'Specialities')
@@ -73,6 +75,7 @@ export const fetchSpecialties = () => (dispatch) => {
             (response) => {
               if (response.ok) {
                 cache.put(URL_API_SPECIALTIES, response.clone())
+                setCacheTimestamp(URL_API_SPECIALTIES)
                 return response
               } else {
                 var error = new Error('Error ' + response.status + ': ' + response.statusText)
@@ -123,7 +126,7 @@ export const fetchPortfolio = () => (dispatch) => {
 
   caches.open(CACHE_NAME_API).then((cache) => {
     cache.match(URL_API_PORTFOLIO).then((cachedResponse) => {
-      if (cachedResponse) {
+      if (cachedResponse && !isCacheExpired(URL_API_PORTFOLIO)) {
         cachedResponse.json().then((portfolio) => {
           dispatch(addPortfolio(portfolio))
           imagePreFetcher(portfolio, 10, 'Portfolio')
@@ -135,6 +138,7 @@ export const fetchPortfolio = () => (dispatch) => {
             (response) => {
               if (response.ok) {
                 cache.put(URL_API_PORTFOLIO, response.clone())
+                setCacheTimestamp(URL_API_PORTFOLIO)
                 return response
               } else {
                 var error = new Error('Error ' + response.status + ': ' + response.statusText)
@@ -179,7 +183,7 @@ export const fetchEducation = () => (dispatch) => {
 
   caches.open(CACHE_NAME_API).then((cache) => {
     cache.match(URL_API_EDUCATION).then((cachedResponse) => {
-      if (cachedResponse) {
+      if (cachedResponse && !isCacheExpired(URL_API_EDUCATION)) {
         cachedResponse.json().then((education) => {
           dispatch(addEducation(education))
           imagePreFetcher(education, 10, 'Education')
@@ -189,6 +193,8 @@ export const fetchEducation = () => (dispatch) => {
         fetch(URL_API_EDUCATION)
           .then((response) => {
               if (response.ok) {
+                cache.put(URL_API_EDUCATION, response.clone())
+                setCacheTimestamp(URL_API_EDUCATION)
                 return response
               } else {
                 var error = new Error('Error ' + response.status + ': ' + response.statusText)
@@ -231,7 +237,7 @@ export const fetchRecommendations = () => (dispatch) => {
 
   caches.open(CACHE_NAME_API).then((cache) => {
     cache.match(URL_API_RECOMMENDATIONS).then((cachedResponse) => {
-      if (cachedResponse) {
+      if (cachedResponse && !isCacheExpired(URL_API_RECOMMENDATIONS)) {
         cachedResponse.json().then((recommendations) => {
           dispatch(addRecommendations(recommendations))
           imagePreFetcher(recommendations, 10, 'Recommendations')
@@ -242,6 +248,8 @@ export const fetchRecommendations = () => (dispatch) => {
           .then(
             (response) => {
               if (response.ok) {
+                cache.put(URL_API_RECOMMENDATIONS, response.clone())
+                setCacheTimestamp(URL_API_RECOMMENDATIONS)
                 return response
               } else {
                 var error = new Error('Error ' + response.status + ': ' + response.statusText)
@@ -286,7 +294,7 @@ export const fetchProjectImages = () => (dispatch) => {
 
   caches.open(CACHE_NAME_API).then((cache) => {
     cache.match(URL_API_PROJECTS).then((cachedResponse) => {
-      if (cachedResponse) {
+      if (cachedResponse && !isCacheExpired(URL_API_PROJECTS)) {
         cachedResponse.json().then((images) => {
           dispatch(addProjectImages(images))
           imagePreFetcher(images, 10, 'Projects')
@@ -297,6 +305,8 @@ export const fetchProjectImages = () => (dispatch) => {
         .then(
             (response) => {
               if (response.ok) {
+                cache.put(URL_API_PROJECTS, response.clone())
+                setCacheTimestamp(URL_API_PROJECTS)
                 return response
               } else {
                 var error = new Error('Error ' + response.status + ': ' + response.statusText)
@@ -339,7 +349,7 @@ export const fetchClients = () => (dispatch) => {
 
     caches.open(CACHE_NAME_API).then((cache) => {
     cache.match(URL_API_CLIENTS).then((cachedResponse) => {
-      if (cachedResponse) {
+      if (cachedResponse && !isCacheExpired(URL_API_CLIENTS)) {
         cachedResponse.json().then((clients) => {
           dispatch(addClients(clients))
           imagePreFetcher(clients, 15, 'Clients')
@@ -357,6 +367,8 @@ export const fetchClients = () => (dispatch) => {
         .then(
           (response) => {
             if (response.ok) {
+              cache.put(URL_API_CLIENTS, response.clone())
+              setCacheTimestamp(URL_API_CLIENTS)
               return response
             } else {
               var error = new Error('Error ' + response.status + ': ' + response.statusText)

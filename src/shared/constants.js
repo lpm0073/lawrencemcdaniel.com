@@ -27,3 +27,4 @@ export const URL_API_CLIENTS = backendUrl + 'posts?categories=46&_embed&per_page
 
 export const CACHE_NAME_API = 'wp-api-apiCache'
 export const CACHE_NAME_IMAGE = 'wp-image-apiCache'
+export const CACHE_EXPIRATION_MS = 24 * 60 * 60 * 1000 * 30 // 30 days
