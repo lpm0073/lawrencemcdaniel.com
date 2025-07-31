@@ -24,14 +24,26 @@ class TechnologyCarousel extends Component {
     }
   }
 
+  componentDidMount() {
+    const { specialties } = this.props
+    if (specialties && specialties.logos && specialties.logos.length > 0) {
+      this.setState({
+        shuffledLogos: [...specialties.logos].sort(() => Math.random() - 0.5),
+      })
+    }
+  }
+
   componentDidUpdate(prevProps) {
+    const prevLogos = prevProps.specialties && prevProps.specialties.logos
+    const currLogos = this.props.specialties && this.props.specialties.logos
+
     if (
-      prevProps.specialties.logos !== this.props.specialties.logos &&
-      this.props.specialties.logos &&
-      this.props.specialties.logos.length > 0
+      Array.isArray(currLogos) &&
+      currLogos.length > 0 &&
+      (prevLogos !== currLogos || JSON.stringify(prevLogos) !== JSON.stringify(currLogos))
     ) {
       this.setState({
-        shuffledLogos: [...this.props.specialties.logos].sort(() => Math.random() - 0.5),
+        shuffledLogos: [...currLogos].sort(() => Math.random() - 0.5),
       })
     }
   }
