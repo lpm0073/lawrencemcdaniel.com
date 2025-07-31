@@ -1,12 +1,8 @@
 export const shuffleArray = (array) => {
-  const n = array.length
-  var tmp = []
-  var j = 0
-  for (var i = 0; i < array.length; i++) {
-    while (tmp.includes(array[j])) {
-      j = Math.floor(Math.random() * n)
-    }
-    tmp.push(array[j])
+  const arr = array.slice() // make a shallow copy
+  for (let i = arr.length - 1; i > 0; i--) {
+    const j = Math.floor(Math.random() * (i + 1))
+    ;[arr[i], arr[j]] = [arr[j], arr[i]]
   }
-  return tmp
+  return arr
 }
