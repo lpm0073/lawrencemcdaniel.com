@@ -2,7 +2,7 @@ import React from 'react'
 import { Helmet } from 'react-helmet'
 
 import { nameLawrenceMcDaniel, basePageTitle } from '../shared/seo/gsdCommon'
-import { URL_SITE, URL_CDN } from '../shared/constants'
+import { URL_SITE, URL_CDN, DEFAULT_IMAGE } from '../shared/constants'
 import { defaultPageDescription } from '../shared/seo/gsdGraph'
 
 /* eslint-disable no-unused-vars */
@@ -34,6 +34,7 @@ export default function Head(props) {
           content="Lawrence McDaniel is a data scientist, full stack developer, digital content creator, and Open edX® Consultant specializing in Python, ReactJS, Terraform, AWS, Azure, and Kubernetes."
         />
         <meta property="og:title" content={basePageTitle} />
+        <meta property="og:image" content={DEFAULT_IMAGE} />
         <meta property="og:author" content={nameLawrenceMcDaniel} />
         <meta property="og:type" content="website" />
         <meta property="og:url" content={URL_SITE} />
@@ -55,6 +56,7 @@ export default function Head(props) {
           content={URL_CDN + '/lawrencemcdaniel-headshot-square.jpeg'}
         />
         <meta name="twitter:description" content={basePageTitle} />
+        <meta name="twitter:image:alt" content="Lawrence McDaniel headshot" />
         <meta
           itemProp="image"
           content={URL_CDN + '/lawrencemcdaniel-headshot-square.jpeg'}

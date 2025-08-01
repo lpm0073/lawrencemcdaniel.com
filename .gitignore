@@ -2,6 +2,7 @@
 
 yarn.lock
 passwords.js
+index.html
 
 # dependencies
 node_modules
