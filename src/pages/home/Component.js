@@ -12,6 +12,8 @@ import JobTitle from './JobTitle'
 import { gsdGraph } from '../../shared/seo/gsdGraph'
 import { gsdPersonLawrenceMcDaniel } from '../../shared/seo/gsdPersonLawrence'
 import { hasOccupation } from '../../shared/seo/gsdPersonLawrence'
+import { gsdSoftwareSourceCodeList } from '../../shared/seo/gsdSoftwareSourceCode'
+import { gsdVideoObjectList } from '../../shared/seo/gsdVideoObject'
 import { basePageTitle } from '../../shared/seo/gsdCommon'
 import { Helmet } from 'react-helmet'
 import { URL_SITE, DEFAULT_IMAGE } from '../../shared/constants'
@@ -43,7 +45,7 @@ class Home extends Component {
     const primaryImageUrl = ''
     const pageType = ''
     const relatedLink = ''
-    const graphExtraData = [person]
+    const graphExtraData = [person, ...gsdSoftwareSourceCodeList, ...gsdVideoObjectList]
 
     return (
       <React.Fragment>
