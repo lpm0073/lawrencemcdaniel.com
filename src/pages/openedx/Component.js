@@ -14,6 +14,7 @@ import { gsdGraph } from '../../shared/seo/gsdGraph'
 import { nameLawrenceMcDaniel } from '../../shared/seo/gsdCommon'
 import { gsdArticle } from '../../shared/seo/gsdArticle'
 import { gsdPersonLawrenceMcDaniel } from '../../shared/seo/gsdPersonLawrence'
+import { hasOccupation } from '../../shared/seo/gsdPersonLawrence'
 import { URL_SITE } from '../../shared/constants'
 import './styles.css'
 
@@ -28,10 +29,14 @@ const Openedx = (props) => {
     "I am a 20-year veteran web developer specializing in the <a href='https://open.edx.org/' target='_blank' rel='noopener noreferrer'>Open edX® platform</a>. Thousands of organizations around the world have used my <a href='https://blog.lawrencemcdaniel.com/category/open-edx/' target='_blank' rel='noopener noreferrer'>Open edX® blog articles</a> to turn their online education vision into reality. In fact, my how-to guides and tutorials on <a href='https://blog.lawrencemcdaniel.com/open-edx-installation/' target='_blank' rel='noopener noreferrer'>production installation</a>, <a href='https://blog.lawrencemcdaniel.com/scaling-open-edx/' target='_blank' rel='noopener noreferrer'>platform scaling</a>, <a href='https://blog.lawrencemcdaniel.com/open-edx-custom-theming-tutorial/' target='_blank' rel='noopener noreferrer'>custom theming</a>, and <a href='https://blog.lawrencemcdaniel.com/open-edx-configuration-tutorial/' target='_blank' rel='noopener noreferrer'>configuration</a> have been viewed more than fifty thousand times."
   const primaryImageUrl =
     'https://cdn.lawrencemcdaniel.com/wp-content/uploads/2021/02/19234328/open-edx-conference-2018.jpeg'
-  const pageType = 'BlogPosting'
+  const pageType = ''
   const relatedLink = ''
+  const person = {
+    ...gsdPersonLawrenceMcDaniel,
+    ...{ hasOccupation: hasOccupation },
+  }
   const graphExtraData = [
-    gsdPersonLawrenceMcDaniel,
+    person,
     gsdArticle(slug, headline),
     gsdServiceOpenedX,
     gsdFAQ,

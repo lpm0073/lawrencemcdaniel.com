@@ -7,7 +7,7 @@ import {
 } from './gsdCommon'
 import { gsdQualifications } from './gsdQualifications'
 import { hourlyRate } from './gsdCommon'
-import { URL_SITE, DEFAULT_IMAGE } from '../constants'
+import { URL_SITE, DEFAULT_IMAGE, WIKIDATA_DATA_SCIENTIST } from '../constants'
 
 const aboutMe = `American data scientist, full stack developer, online instructor and digital
 content creator. I work with AWS and Azure cloud infrastructure and I code in Python,
@@ -20,7 +20,7 @@ data science, machine learning and AI.`
 
 export const hasOccupation = {
   '@type': 'Occupation',
-  additionalType: 'https://www.wikidata.org/wiki/Q96072517',
+  additionalType: WIKIDATA_DATA_SCIENTIST,
   name: baseTitle,
   mainEntityOfPage: {
     '@type': 'WebPage',

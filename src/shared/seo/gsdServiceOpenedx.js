@@ -1,7 +1,7 @@
 import { convertToSlug } from '../slug'
 import { brandLawrenceMcDaniel } from './gsdCommon'
 import { datePublished, hourlyRate, nameLawrenceMcDaniel } from './gsdCommon'
-import { URL_SITE } from '../constants'
+import { URL_SITE, WIKIDATA_FULLSTACK } from '../constants'
 
 const fullstackItemOffer = (name, description = '') => {
   return {
@@ -14,7 +14,7 @@ const fullstackItemOffer = (name, description = '') => {
     priceValidUntil: '2050-12-31',
     itemOffered: {
       '@type': 'Service',
-      additionalType: 'https://www.wikidata.org/wiki/Q96072517',
+      additionalType: WIKIDATA_FULLSTACK,
       name: name,
       description: description,
     },
@@ -33,7 +33,7 @@ const openedxItemOffer = (name, description = '') => {
     priceValidUntil: '2050-12-31',
     itemOffered: {
       '@type': 'Service',
-      additionalType: 'https://www.wikidata.org/wiki/Q96072517',
+      additionalType: WIKIDATA_FULLSTACK,
       name: name,
       description: description,
     },

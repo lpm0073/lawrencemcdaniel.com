@@ -18,7 +18,7 @@ const ImageTaggerPage = (props) => {
   const webpageDescription = ''
   const primaryImageUrl =
     'https://cdn.lawrencemcdaniel.com/wp-content/uploads/2020/05/19131001/aws-react-hosting.png'
-  const pageType = 'BlogPosting'
+  const pageType = ''
   const relatedLink = ''
   const graphExtraData = [gsdPersonLawrenceMcDaniel, gsdArticle(slug, webpageDescription)]
 

@@ -7,6 +7,7 @@ import ClientGrid from '../../components/clientGrid/Component'
 import { Helmet } from 'react-helmet'
 import { gsdGraph } from '../../shared/seo/gsdGraph'
 import { gsdPersonLawrenceMcDaniel } from '../../shared/seo/gsdPersonLawrence'
+import { hasOccupation } from '../../shared/seo/gsdPersonLawrence'
 import { URL_SITE } from '../../shared/constants'
 
 import './styles.css'
@@ -20,7 +21,12 @@ const Clients = (props) => {
   const primaryImageUrl = ''
   const pageType = ''
   const relatedLink = ''
-  const graphExtraData = [gsdPersonLawrenceMcDaniel]
+  const person = {
+    ...gsdPersonLawrenceMcDaniel,
+    ...{ hasOccupation: hasOccupation },
+  }
+
+  const graphExtraData = [person]
 
   return (
     <React.Fragment>

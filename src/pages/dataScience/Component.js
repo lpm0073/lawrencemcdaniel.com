@@ -5,6 +5,7 @@ import WhartonCertificate from './WhartonCertificate'
 import { Helmet } from 'react-helmet'
 import { gsdGraph } from '../../shared/seo/gsdGraph'
 import { gsdPersonLawrenceMcDaniel } from '../../shared/seo/gsdPersonLawrence'
+import { hasOccupation } from '../../shared/seo/gsdPersonLawrence'
 import { gsdArticle } from '../../shared/seo/gsdArticle'
 import { baseTitle } from '../../shared/seo/gsdCommon'
 import { URL_SITE } from '../../shared/constants'
@@ -22,9 +23,13 @@ const Datascience = (props) => {
     'Data science, machine learning, and AI algorithms expert with experience using regression, neural networks, support vector machines, anomaly detection, recommender systems, and unsupervised learning'
   const primaryImageUrl =
     'https://cdn.lawrencemcdaniel.com/wp-content/uploads/2020/06/05220349/data-science-certificate.jpg'
-  const pageType = 'BlogPosting'
+  const pageType = ''
   const relatedLink = ''
-  const graphExtraData = [gsdPersonLawrenceMcDaniel, gsdArticle(slug, webpageName)]
+  const person = {
+    ...gsdPersonLawrenceMcDaniel,
+    ...{ hasOccupation: hasOccupation },
+  }
+  const graphExtraData = [person, gsdArticle(slug, webpageName)]
 
   return (
     <React.Fragment>
