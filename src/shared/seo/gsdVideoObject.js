@@ -1,9 +1,24 @@
+import { DEFAULT_IMAGE } from "../constants"
+
+const TIMEZONE = 'T00:00:00-06:00'
+
+function getToday() {
+  const d = new Date()
+  const yyyy = d.getFullYear()
+  const mm = String(d.getMonth() + 1).padStart(2, '0')
+  const dd = String(d.getDate()).padStart(2, '0')
+  return `${yyyy}-${mm}-${dd}`
+}
+
+
 export const gsdVideoObject = (url, name, description, uploadDate) => {
+  const validDate = uploadDate || getToday()
   return {
     '@type': 'VideoObject',
     name: name,
     description: description,
-    uploadDate: uploadDate,
+    uploadDate: validDate + TIMEZONE,
+    thumbnailUrl: DEFAULT_IMAGE,
     contentUrl: url,
     author: {
       '@type': 'Person',
