@@ -25,6 +25,7 @@ schema:
 	node src/shared/seo/schema.js
 
 build: sitemap
+	make schema
 	yarn build
 
 serve:
