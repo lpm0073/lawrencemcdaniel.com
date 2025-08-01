@@ -1,7 +1,7 @@
 import { convertToSlug } from '../slug'
 import { brandLawrenceMcDaniel } from './gsdCommon'
 import { datePublished, hourlyRate, nameLawrenceMcDaniel } from './gsdCommon'
-import { URL_SITE, WIKIDATA_FULLSTACK } from '../constants'
+import { URL_SITE, WIKIDATA_FULLSTACK, SCHEMA_PERSON_ID_ME } from '../constants'
 
 const fullstackItemOffer = (name, description = '') => {
   return {
@@ -60,7 +60,7 @@ export const gsdServiceOpenedX = {
   url: URL_SITE + '/openedx',
   areaServed: 'https://en.wikipedia.org/wiki/Americas',
   provider: {
-    '@id': URL_SITE + '/#me',
+    '@id': SCHEMA_PERSON_ID_ME,
   },
   serviceOutput: {
     '@type': 'Product',

@@ -1,4 +1,5 @@
 import { baseUrl, datePublished, dateModified } from './gsdCommon'
+import { SCHEMA_PERSON_ID_ME } from '../constants'
 
 const ensureTrailingSlash = (str) => (str.endsWith('/') ? str : str + '/')
 export const gsdArticle = (slug, headline) => {
@@ -11,7 +12,8 @@ export const gsdArticle = (slug, headline) => {
     //   '@id': baseUrlWithSlash + slugWithSlash + '#webpage',
     // },
     author: {
-      '@id': baseUrlWithSlash + '#me',
+      '@type': 'Person',
+      '@id': SCHEMA_PERSON_ID_ME,
     },
     headline: headline,
     datePublished: datePublished,
@@ -20,7 +22,10 @@ export const gsdArticle = (slug, headline) => {
       '@id': baseUrlWithSlash + slugWithSlash + '#webpage',
     },
     commentCount: 0,
-    publisher: baseUrlWithSlash + '#me',
+    publisher: {
+      '@type': 'Person',
+      '@id': SCHEMA_PERSON_ID_ME,
+    },
     // image: baseUrlWithSlash + '#logo',
     articleSection: slugWithSlash,
     inLanguage: 'en-US',

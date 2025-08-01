@@ -1,5 +1,5 @@
 import { brandLawrenceMcDaniel, imagesLawrenceMcDaniel, basePageTitle } from './gsdCommon'
-import { URL_SITE, WIKIDATA_DATA_SCIENTIST } from '../urls'
+import { URL_SITE, WIKIDATA_DATA_SCIENTIST, SCHEMA_PERSON_ID_ME } from '../urls'
 /* DEPRECATE???? */
 /* eslint-disable-next-line no-unused-vars */
 export const gsdLocalBusinessLawrenceMcDaniel = (includeExtraData = false) => {
@@ -13,7 +13,7 @@ export const gsdLocalBusinessLawrenceMcDaniel = (includeExtraData = false) => {
     priceRange: '$$',
     employee: [
       {
-        '@id': URL_SITE + '/#me',
+        '@id': SCHEMA_PERSON_ID_ME,
       },
     ],
     address: [

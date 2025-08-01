@@ -31,3 +31,5 @@ export const CACHE_EXPIRATION_MS = 24 * 60 * 60 * 1000 * 30 // 30 days
 
 export const WIKIDATA_FULLSTACK = 'https://www.wikidata.org/wiki/Q96072517'
 export const WIKIDATA_DATA_SCIENTIST = 'https://www.wikidata.org/wiki/Q29169143'
+
+export const SCHEMA_PERSON_ID_ME = URL_SITE + '/#me'

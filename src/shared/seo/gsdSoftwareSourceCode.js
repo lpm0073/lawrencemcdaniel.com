@@ -1,3 +1,4 @@
+import { SCHEMA_PERSON_ID_ME } from "../constants"
 
 export const gsdSoftwareSourceCode = (url, programming_language, description) => {
    // example: https://github.com/FullStackWithLawrence/openai-embeddings
@@ -8,10 +9,8 @@ export const gsdSoftwareSourceCode = (url, programming_language, description) =>
       name: name,
       codeRepository: url,
       author: {
-        '@type': 'Person',
-        name: 'Lawrence McDaniel',
-        url: 'https://lawrencemcdaniel.com/'
-      },
+            '@id': SCHEMA_PERSON_ID_ME,
+          },
       programmingLanguage: programming_language,
       description: description
     }

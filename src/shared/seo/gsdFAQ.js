@@ -1,5 +1,5 @@
 import { datePublished, dateModified, lastReviewed } from './gsdCommon'
-import { URL_SITE } from '../constants'
+import { URL_SITE, SCHEMA_PERSON_ID_ME } from '../constants'
 
 const question = (q, a) => {
   return {
@@ -30,18 +30,18 @@ export const gsdFAQ = {
   about: 'Open edX',
   author: {
     '@type': 'Person',
-    '@id': URL_SITE + '/#me',
+    '@id': SCHEMA_PERSON_ID_ME,
   },
   editor: {
     '@type': 'Person',
-    '@id': URL_SITE + '/#me',
+    '@id': SCHEMA_PERSON_ID_ME,
   },
   publisher: {
-    '@id': URL_SITE + '/#me',
+    '@id': SCHEMA_PERSON_ID_ME,
   },
   sdDatePublished: datePublished,
   sdPublisher: {
-    '@id': URL_SITE + '/#me',
+    '@id': SCHEMA_PERSON_ID_ME,
   },
   timeRequired: 'PT5M',
   keywords: 'open edx, saas, native build, installation, budget, cost',
