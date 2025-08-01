@@ -1,11 +1,11 @@
 import { brandLawrenceMcDaniel, imagesLawrenceMcDaniel, basePageTitle } from './gsdCommon'
-import { URL_SITE } from '../urls'
+import { URL_SITE, WIKIDATA_DATA_SCIENTIST } from '../urls'
 /* DEPRECATE???? */
 /* eslint-disable-next-line no-unused-vars */
 export const gsdLocalBusinessLawrenceMcDaniel = (includeExtraData = false) => {
   var retVal = {
     '@type': 'LocalBusiness',
-    additionalType: 'https://www.wikidata.org/wiki/Q96072517',
+    additionalType: WIKIDATA_DATA_SCIENTIST,
     image: imagesLawrenceMcDaniel,
     '@id': URL_SITE + '/#business',
     brand: brandLawrenceMcDaniel,

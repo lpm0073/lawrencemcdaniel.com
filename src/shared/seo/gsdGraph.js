@@ -10,7 +10,7 @@ const brandLogo = {
 }
 
 const pageTypes = (pageType) => {
-  if (pageType !== '') return ['WebPage', pageType]
+  if (pageType !== '') return pageType
   return 'WebPage'
 }
 
@@ -20,10 +20,7 @@ const pageName = (webpageName) => {
 
 const pageImage = (imageUrl) => {
   if (imageUrl !== '')
-    return {
-      '@type': 'ImageObject',
-      url: imageUrl,
-    }
+    return imageUrl
   return brandLogo
 }
 
@@ -102,6 +99,8 @@ const listItem = (position, slug, itemName, pageType = 'WebPage', pageImage) => 
   }
   return {
     '@type': 'ListItem',
+    name: itemName,
+    '@id': listItemUrl + '#listitem',
     position: position,
     item: item,
   }
@@ -110,15 +109,16 @@ const listItem = (position, slug, itemName, pageType = 'WebPage', pageImage) => 
 const breadcrumbList = (slug, webpageName, pageType, pageImage) => {
   const slugWithSlash = slug ? ensureTrailingSlash(slug) : ''
   const baseUrlWithSlash = ensureTrailingSlash(baseUrl)
-  var itemListElement = [listItem(1, '')]
+  const validPageType = pageType && pageType !== '' ? pageType : 'WebPage'
+  var itemListElement = [listItem(1, '', 'homepage', 'WebSite')]
   if (slug !== '')
-    itemListElement.push(listItem(2, slug, pageName(webpageName), pageType, pageImage))
+    itemListElement.push(listItem(2, slug, pageName(webpageName), validPageType, pageImage))
 
   return {
     '@type': 'BreadcrumbList',
     '@id': baseUrlWithSlash + slugWithSlash + '#breadcrumb',
     itemListElement: itemListElement,
-    name: 'Breadcrumb-' + slug,
+    name: slug,
   }
 }
 

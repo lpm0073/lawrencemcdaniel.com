@@ -7,9 +7,9 @@ export const gsdArticle = (slug, headline) => {
   return {
     '@type': 'Article',
     '@id': baseUrlWithSlash + slugWithSlash + '#article',
-    isPartOf: {
-      '@id': baseUrlWithSlash + slugWithSlash + '#webpage',
-    },
+    // isPartOf: {
+    //   '@id': baseUrlWithSlash + slugWithSlash + '#webpage',
+    // },
     author: {
       '@id': baseUrlWithSlash + '#me',
     },
@@ -21,7 +21,7 @@ export const gsdArticle = (slug, headline) => {
     },
     commentCount: 0,
     publisher: baseUrlWithSlash + '#me',
-    image: baseUrlWithSlash + '#logo',
+    // image: baseUrlWithSlash + '#logo',
     articleSection: slugWithSlash,
     inLanguage: 'en-US',
   }

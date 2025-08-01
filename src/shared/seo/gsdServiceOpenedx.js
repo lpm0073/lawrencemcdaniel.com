@@ -1,7 +1,7 @@
 import { convertToSlug } from '../slug'
 import { brandLawrenceMcDaniel } from './gsdCommon'
 import { datePublished, hourlyRate, nameLawrenceMcDaniel } from './gsdCommon'
-import { URL_SITE } from '../constants'
+import { URL_SITE, WIKIDATA_FULLSTACK } from '../constants'
 
 const fullstackItemOffer = (name, description = '') => {
   return {
@@ -14,7 +14,7 @@ const fullstackItemOffer = (name, description = '') => {
     priceValidUntil: '2050-12-31',
     itemOffered: {
       '@type': 'Service',
-      additionalType: 'https://www.wikidata.org/wiki/Q96072517',
+      additionalType: WIKIDATA_FULLSTACK,
       name: name,
       description: description,
     },
@@ -33,7 +33,7 @@ const openedxItemOffer = (name, description = '') => {
     priceValidUntil: '2050-12-31',
     itemOffered: {
       '@type': 'Service',
-      additionalType: 'https://www.wikidata.org/wiki/Q96072517',
+      additionalType: WIKIDATA_FULLSTACK,
       name: name,
       description: description,
     },
@@ -41,14 +41,14 @@ const openedxItemOffer = (name, description = '') => {
   }
 }
 
-const subjectOf = (url) => {
-  return {
-    '@type': 'Url',
-    '@id': url + '#tech-article',
-    url: url,
-    mainEntity: 'https://open.edx.org/',
-  }
-}
+// const subjectOf = (url) => {
+//   return {
+//     '@type': 'Url',
+//     '@id': url + '#tech-article',
+//     url: url,
+//     mainEntity: 'https://open.edx.org/',
+//   }
+// }
 
 export const gsdServiceOpenedX = {
   '@type': 'Service',
@@ -66,7 +66,6 @@ export const gsdServiceOpenedX = {
     '@type': 'Product',
     name: 'Open edX Platform',
     sku: 'openedx',
-    isbn: 'openedx',
     '@id': 'https://en.wikipedia.org/wiki/EdX#Open_edX_Platform',
     description:
       'Open edX platform is the open-source platform software developed by edX and made freely available to other institutions of higher learning that want to make similar offerings. On June 1, 2013, edX open sourced its entire platform.[20] The source code can be found on GitHub.',
@@ -122,24 +121,24 @@ export const gsdServiceOpenedX = {
   logo: {
     '@id': URL_SITE + '/#open-edx-logo.png',
   },
-  subjectOf: [
-    subjectOf(
-      'https://blog.lawrencemcdaniel.com/reset-the-mysql-root-password-in-open-edx/'
-    ),
-    subjectOf('https://blog.lawrencemcdaniel.com/scaling-open-edx/'),
-    subjectOf('https://blog.lawrencemcdaniel.com/scaling-memcached-for-open-edx/'),
-    subjectOf('https://blog.lawrencemcdaniel.com/scaling-mongodb-for-open-edx/'),
-    subjectOf('https://blog.lawrencemcdaniel.com/scaling-mysql-for-open-edx/'),
-    subjectOf(
-      'https://blog.lawrencemcdaniel.com/open-edx-configuration-management-tutorial/'
-    ),
-    subjectOf('https://blog.lawrencemcdaniel.com/open-edx-configuration-tutorial/'),
-    subjectOf('https://blog.lawrencemcdaniel.com/open-edx-installation/'),
-    subjectOf('https://blog.lawrencemcdaniel.com/open-edx-complete-backup-solution/'),
-    subjectOf(
-      'https://blog.lawrencemcdaniel.com/tutor-1-click-installer-open-edx-installation-guide/'
-    ),
-  ],
+  // subjectOf: [
+  //   subjectOf(
+  //     'https://blog.lawrencemcdaniel.com/reset-the-mysql-root-password-in-open-edx/'
+  //   ),
+  //   subjectOf('https://blog.lawrencemcdaniel.com/scaling-open-edx/'),
+  //   subjectOf('https://blog.lawrencemcdaniel.com/scaling-memcached-for-open-edx/'),
+  //   subjectOf('https://blog.lawrencemcdaniel.com/scaling-mongodb-for-open-edx/'),
+  //   subjectOf('https://blog.lawrencemcdaniel.com/scaling-mysql-for-open-edx/'),
+  //   subjectOf(
+  //     'https://blog.lawrencemcdaniel.com/open-edx-configuration-management-tutorial/'
+  //   ),
+  //   subjectOf('https://blog.lawrencemcdaniel.com/open-edx-configuration-tutorial/'),
+  //   subjectOf('https://blog.lawrencemcdaniel.com/open-edx-installation/'),
+  //   subjectOf('https://blog.lawrencemcdaniel.com/open-edx-complete-backup-solution/'),
+  //   subjectOf(
+  //     'https://blog.lawrencemcdaniel.com/tutor-1-click-installer-open-edx-installation-guide/'
+  //   ),
+  // ],
   hasOfferCatalog: {
     '@type': 'OfferCatalog',
     name: 'Open edX Support Services',

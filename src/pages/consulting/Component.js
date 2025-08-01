@@ -5,6 +5,11 @@ import { Helmet } from 'react-helmet'
 import { URL_SITE } from '../../shared/constants'
 import BlankSpace from '../../components/blankSpace/Component'
 import CodeSamplesTable from '../../components/codeSamples/Component'
+import { gsdServiceConsulting } from '../../shared/seo/gsdServiceConsulting'
+import { gsdGraph } from '../../shared/seo/gsdGraph'
+import { gsdPersonLawrenceMcDaniel } from '../../shared/seo/gsdPersonLawrence'
+import { hasOccupation } from '../../shared/seo/gsdPersonLawrence'
+
 import './styles.css'
 
 const ConsultingServices = () => (
@@ -49,6 +54,21 @@ const ConsultingServices = () => (
   </div>
 )
 
+const headline = 'Advisory and Consulting Services'
+const slug = 'consulting'
+const webpageDescription = 'Lawrence McDaniel - Advisory and Consulting Services'
+const primaryImageUrl = ''
+const pageType = ''
+const relatedLink = URL_SITE + '/consulting'
+const person = {
+  ...gsdPersonLawrenceMcDaniel,
+  ...{ hasOccupation: hasOccupation },
+}
+
+const graphExtraData = [
+  person,
+  gsdServiceConsulting,
+]
 const Consulting = () => {
   return (
     <div>
@@ -64,6 +84,19 @@ const Consulting = () => {
           name="keywords"
           content="data science, AI, machine learning, consulting, devops, python, react, aws, azure, terraform, django, lawrence mcdaniel"
         />
+        <script type="application/ld+json">
+          {JSON.stringify(
+            gsdGraph(
+              slug,
+              headline,
+              webpageDescription,
+              primaryImageUrl,
+              pageType,
+              relatedLink,
+              graphExtraData
+            )
+          )}
+        </script>
       </Helmet>
       <div className="site-page data-science-page">
         <RenderPageTitle

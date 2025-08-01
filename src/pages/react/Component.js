@@ -7,6 +7,7 @@ import { Helmet } from 'react-helmet'
 import { resumeUrl } from '../../shared/constants'
 import { gsdGraph } from '../../shared/seo/gsdGraph'
 import { gsdPersonLawrenceMcDaniel } from '../../shared/seo/gsdPersonLawrence'
+import { hasOccupation } from '../../shared/seo/gsdPersonLawrence'
 import { gsdArticle } from '../../shared/seo/gsdArticle'
 import { URL_SITE } from '../../shared/constants'
 import './styles.css'
@@ -20,9 +21,13 @@ const ReactPage = (props) => {
   const webpageDescription = ''
   const primaryImageUrl =
     'https://cdn.lawrencemcdaniel.com/wp-content/uploads/2020/05/19131001/aws-react-hosting.png'
-  const pageType = 'BlogPosting'
+  const pageType = ''
   const relatedLink = ''
-  const graphExtraData = [gsdPersonLawrenceMcDaniel, gsdArticle(slug, webpageDescription)]
+  const person = {
+    ...gsdPersonLawrenceMcDaniel,
+    ...{ hasOccupation: hasOccupation },
+  }
+  const graphExtraData = [person, gsdArticle(slug, webpageDescription)]
 
   return (
     <React.Fragment>
