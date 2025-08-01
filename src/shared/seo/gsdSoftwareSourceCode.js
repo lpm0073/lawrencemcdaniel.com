@@ -1,4 +1,4 @@
-import { SCHEMA_PERSON_ID_ME } from "../constants"
+import { SCHEMA_PERSON_ID_ME } from "../constants.js"
 
 export const gsdSoftwareSourceCode = (url, programming_language, description) => {
    // example: https://github.com/FullStackWithLawrence/openai-embeddings
