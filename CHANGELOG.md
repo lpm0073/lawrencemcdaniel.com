@@ -1,3 +1,11 @@
+## [1.3.8](https://github.com/lpm0073/lawrencemcdaniel.com/compare/v1.3.7...v1.3.8) (2025-08-01)
+
+
+### Bug Fixes
+
+* Service structured data ([8654f19](https://github.com/lpm0073/lawrencemcdaniel.com/commit/8654f19d27151bd8e7ce35215e88c4437bdf06b9))
+* structure data def errors - validator.schema.org ([8238cef](https://github.com/lpm0073/lawrencemcdaniel.com/commit/8238cef445104f25e20525c0c7ba71248e8fca5e))
+
 ## [1.3.7](https://github.com/lpm0073/lawrencemcdaniel.com/compare/v1.3.6...v1.3.7) (2025-07-31)
 
 
