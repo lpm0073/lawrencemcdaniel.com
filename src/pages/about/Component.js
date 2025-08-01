@@ -11,6 +11,8 @@ import AboutTile from './tileComponent'
 import { Helmet } from 'react-helmet'
 import { gsdGraph } from '../../shared/seo/gsdGraph'
 import { gsdPersonLawrenceMcDaniel } from '../../shared/seo/gsdPersonLawrence'
+import { gsdSoftwareSourceCodeList } from '../../shared/seo/gsdSoftwareSourceCode'
+import { gsdVideoObjectList } from '../../shared/seo/gsdVideoObject'
 import { URL_SITE } from '../../shared/constants'
 
 import './styles.css'
@@ -42,7 +44,7 @@ class About extends Component {
     const primaryImageUrl = ''
     const pageType = 'AboutPage'
     const relatedLink = ''
-    const graphExtraData = [{ ...gsdPersonLawrenceMcDaniel }]
+    const graphExtraData = [{ ...gsdPersonLawrenceMcDaniel }, gsdSoftwareSourceCodeList, gsdVideoObjectList]
 
     return (
       <React.Fragment>

@@ -7,6 +7,8 @@ import { gsdGraph } from '../../shared/seo/gsdGraph'
 import { gsdPersonLawrenceMcDaniel } from '../../shared/seo/gsdPersonLawrence'
 import { hasOccupation } from '../../shared/seo/gsdPersonLawrence'
 import { gsdArticle } from '../../shared/seo/gsdArticle'
+import { gsdSoftwareRepoList_FSWL, gsdSoftwareRepoList_Smarter } from '../../shared/seo/gsdSoftwareSourceCode'
+import { gsdVideoObjectList_FSWL } from '../../shared/seo/gsdVideoObject'
 import { baseTitle } from '../../shared/seo/gsdCommon'
 import { URL_SITE } from '../../shared/constants'
 import BlankSpace from '../../components/blankSpace/Component'
@@ -29,7 +31,7 @@ const Datascience = (props) => {
     ...gsdPersonLawrenceMcDaniel,
     ...{ hasOccupation: hasOccupation },
   }
-  const graphExtraData = [person, gsdArticle(slug, webpageName)]
+  const graphExtraData = [person, gsdArticle(slug, webpageName), gsdSoftwareRepoList_FSWL, gsdSoftwareRepoList_Smarter, gsdVideoObjectList_FSWL]
 
   return (
     <React.Fragment>
