@@ -7,7 +7,7 @@ import {
 } from './gsdCommon'
 import { gsdQualifications } from './gsdQualifications'
 import { hourlyRate } from './gsdCommon'
-import { URL_SITE, DEFAULT_IMAGE, WIKIDATA_DATA_SCIENTIST } from '../constants'
+import { URL_SITE, DEFAULT_IMAGE, WIKIDATA_DATA_SCIENTIST, SCHEMA_PERSON_ID_ME } from '../constants'
 
 const aboutMe = `American data scientist, full stack developer, online instructor and digital
 content creator. I work with AWS and Azure cloud infrastructure and I code in Python,
@@ -62,6 +62,7 @@ const subjectOf = (url) => {
 
 export const gsdPersonLawrenceMcDaniel = {
   '@type': 'Person',
+  '@id': SCHEMA_PERSON_ID_ME,
   name: nameLawrenceMcDaniel,
   description: aboutMe,
   jobTitle: baseTitle,

@@ -1,7 +1,7 @@
 import { convertToSlug } from '../slug'
 import { brandLawrenceMcDaniel } from './gsdCommon'
 import { hourlyRate } from './gsdCommon'
-import { URL_SITE, WIKIDATA_FULLSTACK, WIKIDATA_DATA_SCIENTIST } from '../constants'
+import { URL_SITE, WIKIDATA_FULLSTACK, WIKIDATA_DATA_SCIENTIST, SCHEMA_PERSON_ID_ME } from '../constants'
 
 const slug = 'consulting'
 
@@ -53,7 +53,7 @@ export const gsdServiceConsulting = {
   url: URL_SITE + '/' + slug,
   areaServed: 'https://en.wikipedia.org/wiki/Americas',
   provider: {
-    '@id': URL_SITE + '/#me',
+    '@id': SCHEMA_PERSON_ID_ME,
   },
   serviceOutput: {
     '@type': 'Product',
