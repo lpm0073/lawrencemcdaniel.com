@@ -8,6 +8,8 @@ import CodeSamplesTable from '../../components/codeSamples/Component'
 import { gsdServiceConsulting } from '../../shared/seo/gsdServiceConsulting'
 import { gsdGraph } from '../../shared/seo/gsdGraph'
 import { gsdPersonLawrenceMcDaniel } from '../../shared/seo/gsdPersonLawrence'
+import { gsdSoftwareSourceCodeList } from '../../shared/seo/gsdSoftwareSourceCode'
+import { gsdVideoObjectList } from '../../shared/seo/gsdVideoObject'
 import { hasOccupation } from '../../shared/seo/gsdPersonLawrence'
 
 import './styles.css'
@@ -68,6 +70,8 @@ const person = {
 const graphExtraData = [
   person,
   gsdServiceConsulting,
+  gsdSoftwareSourceCodeList,
+  gsdVideoObjectList,
 ]
 const Consulting = () => {
   return (

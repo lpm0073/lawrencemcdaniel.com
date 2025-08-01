@@ -11,6 +11,8 @@ import { gsdHowToInstallOpenEdx } from '../../shared/seo/gsdHowToInstall'
 import { gsdHowToScaleOpenEdx } from '../../shared/seo/gsdHowToScale'
 import { gsdFAQ } from '../../shared/seo/gsdFAQ'
 import { gsdGraph } from '../../shared/seo/gsdGraph'
+import { gsdSoftwareRepoList_CookieCutterOpenedx } from '../../shared/seo/gsdSoftwareSourceCode'
+import { gsdVideoObjectList_Openedx } from '../../shared/seo/gsdVideoObject'
 import { nameLawrenceMcDaniel } from '../../shared/seo/gsdCommon'
 import { gsdArticle } from '../../shared/seo/gsdArticle'
 import { gsdPersonLawrenceMcDaniel } from '../../shared/seo/gsdPersonLawrence'
@@ -42,6 +44,8 @@ const Openedx = (props) => {
     gsdFAQ,
     gsdHowToInstallOpenEdx,
     gsdHowToScaleOpenEdx,
+    gsdSoftwareRepoList_CookieCutterOpenedx,
+    gsdVideoObjectList_Openedx
   ]
 
   return (

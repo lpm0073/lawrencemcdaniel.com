@@ -1,3 +1,10 @@
+# [1.4.0](https://github.com/lpm0073/lawrencemcdaniel.com/compare/v1.3.8...v1.4.0) (2025-08-01)
+
+
+### Features
+
+* add VideoObject and SoftwareSourceCode ([72567b8](https://github.com/lpm0073/lawrencemcdaniel.com/commit/72567b832b6183bd00360fda8b5324abeedf3b9f))
+
 ## [1.3.8](https://github.com/lpm0073/lawrencemcdaniel.com/compare/v1.3.7...v1.3.8) (2025-08-01)
 
 

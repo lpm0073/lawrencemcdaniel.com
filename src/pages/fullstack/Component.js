@@ -6,6 +6,8 @@ import TechnologyCarousel from '../../components/technologyCarousel/Component'
 import SkillColumn from './skillColumn'
 import { Helmet } from 'react-helmet'
 import { gsdPersonLawrenceMcDaniel } from '../../shared/seo/gsdPersonLawrence'
+import { gsdSoftwareRepoList_FSWL, gsdSoftwareRepoList_Smarter } from '../../shared/seo/gsdSoftwareSourceCode'
+import { gsdVideoObjectList_FSWL } from '../../shared/seo/gsdVideoObject'
 import { gsdGraph } from '../../shared/seo/gsdGraph'
 import { URL_SITE } from '../../shared/constants'
 import './styles.css'
@@ -19,7 +21,7 @@ const Fullstack = (props) => {
   const primaryImageUrl = ''
   const pageType = ''
   const relatedLink = ''
-  const graphExtraData = [gsdPersonLawrenceMcDaniel]
+  const graphExtraData = [gsdPersonLawrenceMcDaniel, gsdSoftwareRepoList_FSWL, gsdSoftwareRepoList_Smarter, gsdVideoObjectList_FSWL]
 
   return (
     <React.Fragment>
