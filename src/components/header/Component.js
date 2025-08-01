@@ -144,13 +144,13 @@ export class Header extends Component {
                       ReactJS
                     </NavLink>
                   </DropdownItem>
-                  <DropdownItem>
-                    <NavLink className="nav-link p-0 m-0" to="/specialties">
-                      Competencies
-                    </NavLink>
-                  </DropdownItem>
                 </DropdownMenu>
               </UncontrolledDropdown>
+              <NavItem className="hide-medium">
+                <a className="nav-link" href="/schema.json" target="_self" rel="noopener noreferrer">
+                  Schema
+                </a>
+              </NavItem>
               <NavItem>
                 <NavLink onClick={this.toggleNavItem} className="nav-link" to="/contact">
                   Contact
