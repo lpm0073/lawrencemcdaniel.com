@@ -19,6 +19,11 @@ export const gsdSoftwareSourceCode = (url, programming_language, description) =>
 
 export const gsdSoftwareRepoList_FSWL = [
     gsdSoftwareSourceCode(
+      'https://github.com/lpm0073/lawrencemcdaniel.com',
+      'React',
+      'The source code for my personal website, https://lawrencemcdaniel.com. This is a React.js application that uses redux, react-router, and Workbox to provide a fast, responsive, and accessible user experience. The site is hosted on AWS Cloudfront and uses GitHub Actions for continuous integration and deployment.'
+    ),
+    gsdSoftwareSourceCode(
         'https://github.com/FullStackWithLawrence/openai-embeddings',
         'Python',
         'A Hybrid Search and Augmented Generation prompting solution using Python OpenAI API Embeddings persisted to a Pinecone vector database index and managed by LangChain.'
