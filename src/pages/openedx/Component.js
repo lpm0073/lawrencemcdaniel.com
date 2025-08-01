@@ -7,6 +7,8 @@ import ClientGrid from '../../components/clientGrid/Component'
 import BlankSpace from '../../components/blankSpace/Component'
 import { Helmet } from 'react-helmet'
 import { gsdServiceOpenedX } from '../../shared/seo/gsdServiceOpenedx'
+import { gsdHowToInstallOpenEdx } from '../../shared/seo/gsdHowToInstall'
+import { gsdHowToScaleOpenEdx } from '../../shared/seo/gsdHowToScale'
 import { gsdFAQ } from '../../shared/seo/gsdFAQ'
 import { gsdGraph } from '../../shared/seo/gsdGraph'
 import { nameLawrenceMcDaniel } from '../../shared/seo/gsdCommon'
@@ -33,6 +35,8 @@ const Openedx = (props) => {
     gsdArticle(slug, headline),
     gsdServiceOpenedX,
     gsdFAQ,
+    gsdHowToInstallOpenEdx,
+    gsdHowToScaleOpenEdx,
   ]
 
   return (

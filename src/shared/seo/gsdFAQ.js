@@ -29,9 +29,11 @@ export const gsdFAQ = {
   datePublished: datePublished,
   about: 'Open edX',
   author: {
+    '@type': 'Person',
     '@id': URL_SITE + '/#me',
   },
   editor: {
+    '@type': 'Person',
     '@id': URL_SITE + '/#me',
   },
   publisher: {

@@ -102,6 +102,8 @@ const listItem = (position, slug, itemName, pageType = 'WebPage', pageImage) => 
   }
   return {
     '@type': 'ListItem',
+    name: itemName,
+    '@id': listItemUrl + '#listitem',
     position: position,
     item: item,
   }
@@ -110,7 +112,7 @@ const listItem = (position, slug, itemName, pageType = 'WebPage', pageImage) => 
 const breadcrumbList = (slug, webpageName, pageType, pageImage) => {
   const slugWithSlash = slug ? ensureTrailingSlash(slug) : ''
   const baseUrlWithSlash = ensureTrailingSlash(baseUrl)
-  var itemListElement = [listItem(1, '')]
+  var itemListElement = [listItem(1, '', 'homepage', 'WebSite')]
   if (slug !== '')
     itemListElement.push(listItem(2, slug, pageName(webpageName), pageType, pageImage))
 
