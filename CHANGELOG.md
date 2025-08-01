@@ -1,3 +1,10 @@
+## [1.3.7](https://github.com/lpm0073/lawrencemcdaniel.com/compare/v1.3.6...v1.3.7) (2025-07-31)
+
+
+### Bug Fixes
+
+* add cache expiration logic ([d4956ef](https://github.com/lpm0073/lawrencemcdaniel.com/commit/d4956ef96cc630cf451a9f1cc90ea23fcd6173bd))
+
 ## [1.3.6](https://github.com/lpm0073/lawrencemcdaniel.com/compare/v1.3.5...v1.3.6) (2025-07-31)
 
 
