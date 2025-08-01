@@ -2,7 +2,7 @@
 # upload to AWS S3
 # https://s3.console.aws.amazon.com/s3/buckets/reactjs.lawrencemcdaniel.com
 # -------------------------------------------------------------------------
-.PHONY: sitemap init update build serve release
+.PHONY: sitemap init update schema build serve release
 
 sitemap:
 	yarn run sitemap
@@ -20,6 +20,9 @@ update:
 	ncu --upgrade --packageFile ./package.json
 	yarn global upgrade
 	yarn install --force
+
+schema:
+	node src/shared/seo/schema.js
 
 build: sitemap
 	yarn build

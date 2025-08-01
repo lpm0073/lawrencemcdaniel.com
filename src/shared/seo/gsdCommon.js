@@ -1,4 +1,4 @@
-import { URL_SITE, DEFAULT_IMAGE } from '../constants'
+import { URL_SITE, DEFAULT_IMAGE } from '../constants.js'
 const d = new Date()
 
 export const baseUrl = URL_SITE

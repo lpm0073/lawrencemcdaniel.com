@@ -4,10 +4,10 @@ import {
   nameLawrenceMcDaniel,
   lastReviewed,
   baseTitle,
-} from './gsdCommon'
-import { gsdQualifications } from './gsdQualifications'
-import { hourlyRate } from './gsdCommon'
-import { URL_SITE, DEFAULT_IMAGE, WIKIDATA_DATA_SCIENTIST, SCHEMA_PERSON_ID_ME } from '../constants'
+} from './gsdCommon.js'
+import { gsdQualifications } from './gsdQualifications.js'
+import { hourlyRate } from './gsdCommon.js'
+import { URL_SITE, DEFAULT_IMAGE, WIKIDATA_DATA_SCIENTIST, SCHEMA_PERSON_ID_ME } from '../constants.js'
 
 const aboutMe = `American data scientist, full stack developer, online instructor and digital
 content creator. I work with AWS and Azure cloud infrastructure and I code in Python,

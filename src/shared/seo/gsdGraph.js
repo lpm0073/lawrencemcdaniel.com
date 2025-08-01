@@ -1,5 +1,5 @@
-import { datePublished, dateModified, baseUrl, nameLawrenceMcDaniel } from './gsdCommon'
-import { SCHEMA_PERSON_ID_ME } from '../constants'
+import { datePublished, dateModified, baseUrl, nameLawrenceMcDaniel } from './gsdCommon.js'
+import { SCHEMA_PERSON_ID_ME } from '../constants.js'
 
 export const defaultPageDescription = (webpageDescription) => {
   if (webpageDescription !== '') return webpageDescription
