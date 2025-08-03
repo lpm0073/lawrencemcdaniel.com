@@ -4,7 +4,6 @@
   "description": "personal web site for Lawrence McDaniel",
   "private": true,
   "proxy": "https://api.linkedin.com",
-  "type": "module",
   "dependencies": {
     "@reduxjs/toolkit": "^2.8.2",
     "@testing-library/dom": "latest",

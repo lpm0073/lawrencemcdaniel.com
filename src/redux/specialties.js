@@ -4,7 +4,7 @@ import { wpGetFeaturedImage } from '../shared/wpGetFeaturedImage'
 import { shuffleArray } from '../shared/shuffle'
 
 /* eslint-disable no-unused-vars */
-export const Specialties = (
+export const SpecialtiesRedux = (
   state = {
     isLoading: true,
     errMess: null,

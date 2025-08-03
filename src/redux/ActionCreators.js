@@ -1,6 +1,7 @@
 import * as ActionTypes from './ActionTypes'
 import { imagePreFetcher } from '../shared/imagePrefetcher'
 import {
+  URL_API_REPOSITORIES,
   URL_API_SPECIALTIES,
   URL_API_PORTFOLIO,
   URL_API_EDUCATION,
@@ -50,6 +51,60 @@ export const setLogoState = ({ state }) => {
 /*  -----------------------------------
     methods to fetch data from api / cdn / cache
     -----------------------------------  */
+
+export const fetchRepositories = () => (dispatch) => {
+  dispatch(repositoriesLoading())
+
+  caches.open(CACHE_NAME_API).then((cache) => {
+    cache.match(URL_API_REPOSITORIES).then((cachedResponse) => {
+      if (cachedResponse && !isCacheExpired(URL_API_REPOSITORIES)) {
+        cachedResponse.json().then((repositories) => {
+          dispatch(addRepositories(repositories))
+        })
+      } else {
+        console.log('No cached GitHub repositories found, fetching ...')
+        fetch(URL_API_REPOSITORIES)
+          .then(
+            (response) => {
+              if (response.ok) {
+                cache.put(URL_API_REPOSITORIES, response.clone())
+                setCacheTimestamp(URL_API_REPOSITORIES)
+                return response
+              } else {
+                var error = new Error('Error ' + response.status + ': ' + response.statusText)
+                error.response = response
+                throw error
+              }
+            },
+            (error) => {
+              var errmess = new Error(error.message)
+              throw errmess
+            }
+          )
+          .then((response) => response.json())
+          .then((repositories) => {
+            dispatch(addRepositories(repositories))
+          })
+          .catch((error) => dispatch(repositoriesFailed(error.message)))
+      }
+    })
+  })
+}
+
+export const repositoriesLoading = () => ({
+  type: ActionTypes.REPOS_LOADING,
+})
+export const repositoriesFailed = (errmess) => ({
+  type: ActionTypes.REPOS_FAILED,
+  payload: errmess,
+})
+export const addRepositories = (repositories) => ({
+  type: ActionTypes.ADD_REPOS,
+  payload: repositories,
+})
+
+/* ----------------------------------- */
+
 
 export const fetchSpecialties = () => (dispatch) => {
   dispatch(specialtiesLoading(true))

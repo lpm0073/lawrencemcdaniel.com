@@ -1,31 +1,30 @@
 import * as ActionTypes from './ActionTypes'
 
-export const PortfolioRedux = (
+export const RepositoriesRedux = (
   state = {
     isLoading: true,
     errMess: null,
-    projects: [],
+    courses: [],
   },
   action
 ) => {
   switch (action.type) {
-    case ActionTypes.ADD_PORTFOLIO:
+    case ActionTypes.ADD_REPOS:
       return {
         ...state,
         isLoading: false,
         errMess: null,
-        projects: action.payload,
+        courses: action.payload,
       }
 
-    case ActionTypes.PORTFOLIO_LOADING:
-      return { ...state, isLoading: true, errMess: null, projects: [] }
-
-    case ActionTypes.PORTFOLIO_FAILED:
+    case ActionTypes.REPOS_LOADING:
+      return { ...state, isLoading: true, errMess: null, courses: [] }
+    case ActionTypes.REPOS_FAILED:
       return {
         ...state,
         isLoading: false,
         errMess: action.payload,
-        projects: [],
+        courses: [],
       }
 
     default:

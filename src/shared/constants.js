@@ -15,6 +15,8 @@ export const URL_CDN = protocol + '://cdn.' + domainName
 export const resumeUrl = URL_CDN + '/doc/Resume-Lawrence-McDaniel-202211b.pdf'
 export const backendUrl = URL_API + '/wp-json/wp/v2/'
 
+export const URL_API_REPOSITORIES = '/github.json'
+
 // Wordpress API Content URL end points
 export const URL_API_SPECIALTIES = backendUrl + 'posts?categories=43&_embed&per_page=100'
 export const URL_API_PORTFOLIO = backendUrl + 'posts?categories=47&_embed&per_page=100'
@@ -27,7 +29,7 @@ export const URL_API_CLIENTS = backendUrl + 'posts?categories=46&_embed&per_page
 
 export const CACHE_NAME_API = 'wp-api-apiCache'
 export const CACHE_NAME_IMAGE = 'wp-image-apiCache'
-export const CACHE_EXPIRATION_MS = 24 * 60 * 60 * 1000 * 30 // 30 days
+export const CACHE_EXPIRATION_MS = 24 * 60 * 60 * 1000 * 1 // 1 day
 
 export const WIKIDATA_FULLSTACK = 'https://www.wikidata.org/wiki/Q96072517'
 export const WIKIDATA_DATA_SCIENTIST = 'https://www.wikidata.org/wiki/Q29169143'

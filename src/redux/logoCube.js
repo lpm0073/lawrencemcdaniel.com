@@ -1,6 +1,6 @@
 import * as ActionTypes from './ActionTypes'
 
-export const LogoCube = (
+export const LogoCubeRedux = (
   state = {
     isSet: false,
     state: null,
