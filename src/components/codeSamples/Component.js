@@ -29,8 +29,7 @@ const CodeSamplesTable = ({ category }) => {
           >
             <thead className="thead-dark">
               <tr>
-                <th style={{ width: '25%' }}>Repository</th>
-                <th style={{ width: '40%' }}>Description</th>
+                <th style={{ width: '65%' }}>Repository</th>
                 <th style={{ width: '15%' }}>Languages</th>
                 <th style={{ width: '20%' }}>Stats</th>
               </tr>
@@ -38,21 +37,36 @@ const CodeSamplesTable = ({ category }) => {
             <tbody>
               {filteredRepositories.map((repo) => (
                 <tr key={repo.name}>
-                  <td>
-                    <a href={repo.html_url} target="_blank" rel="noopener noreferrer">
-                      <strong>{repo.name}</strong>
-                    </a>
-                    <div className="mt-1">
-                      {repo.topics.map((topic) => (
-                        <span key={topic} className="badge badge-secondary mr-1 mb-1">
-                          {topic}
-                        </span>
-                      ))}
-                    </div>
+                  <td className="align-top">
+                    <table className="mb-0">
+                      <tbody>
+                        <tr>
+                          <td>
+                            <a href={repo.html_url} target="_blank" rel="noopener noreferrer">
+                              <strong>{repo.name}</strong>
+                            </a>
+                          </td>
+                        </tr>
+                        <tr>
+                          <td>
+                            <div
+                            className="code-sample-readme align-top text-break ps-2"
+                              style={{
+                                height: '200px',
+                                maxHeight: '200px',
+                                overflowY: 'auto',
+                                overflowX: 'hidden'
+                              }}
+
+                            dangerouslySetInnerHTML={{
+                              __html: repo.readme?.content || '<em>No description available</em>'
+                            }} />
+                          </td>
+                        </tr>
+                      </tbody>
+                    </table>
+
                   </td>
-                  <td className="code-sample-readme text-break" dangerouslySetInnerHTML={{
-                    __html: repo.readme?.content || '<em>No description available</em>'
-                  }} />
                   <td>
                     {repo.languages.slice(0, 3).map((lang) => (
                       <div key={lang.name} className="mb-1">
@@ -63,13 +77,13 @@ const CodeSamplesTable = ({ category }) => {
                     ))}
                   </td>
                   <td>
-                    <table className="table table-sm mb-0">
+                    <table className="table-sm m-0 p-0 w-100 ">
                       <thead>
                         <tr>
-                          <th>⭐</th>
-                          <th>🍴</th>
-                          <th>👁</th>
-                          <th>🐛</th>
+                          <th className="w-25">⭐</th>
+                          <th className="w-25">🍴</th>
+                          <th className="w-25">👁</th>
+                          <th className="w-25">🐛</th>
                         </tr>
                       </thead>
                       <tbody>
