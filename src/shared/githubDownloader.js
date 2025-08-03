@@ -48,6 +48,11 @@ const __filename = fileURLToPath(import.meta.url)
 const __dirname = dirname(__filename)
 const outputPath = join(__dirname, '../../public/github.json')
 
+const URL_EXCLUSIONS = [
+  "https://github.com/FullStackWithLawrence/.github",
+  "https://github.com/smarter-sh/.github",
+  "https://github.com/cookiecutter-openedx/.github"
+]
 
 const GITHUB_ENTITIES = [
   "FullStackWithLawrence",
@@ -73,6 +78,20 @@ function githubApiHeaders() {
 // ----------------------------------------------------------------------------
 // Fetchers
 // ----------------------------------------------------------------------------
+function categories(org, topics) {
+  const retval = [];
+  if (!topics || topics.length === 0) return [];
+  if (topics.includes('python')) retval.push('Python');
+  if (topics.includes('data-science')) retval.push('Data Science');
+  if (org === 'smarter-sh') {
+    retval.push('full-stack');
+  }
+  if (topics.includes('react') || topics.includes('reactjs')) {
+    retval.push('react');
+  }
+  return retval.length > 0 ? retval : [];
+}
+
 function extractMainDescription(readmeContent) {
   if (!readmeContent) return null;
 
@@ -255,7 +274,7 @@ async function getRepoCommitInfo(repoUrl) {
       last_commit_date: lastCommitDate,
       total_commits: totalCommits,
       languages: languageInfo?.languages || [],
-      readme: readmeInfo
+      readme: readmeInfo,
     };
   } catch (error) {
     console.error(`Error fetching commit info for ${repoUrl}:`, error);
@@ -316,7 +335,8 @@ async function fetchSingleRepo(username, repoName) {
         open_issues: repo.open_issues,
         watchers: repo.watchers,
         stargazers_count: repo.stargazers_count,
-        topics: repo.topics || []
+        topics: repo.topics || [],
+        categories: categories(username, repo.topics),
       };
     } else {
       console.error(`Error fetching repo ${username}/${repoName}: ${response.statusText}`);
@@ -347,7 +367,8 @@ async function fetchGitHubOrg(entity) {
           open_issues: repo.open_issues,
           watchers: repo.watchers,
           stargazers_count: repo.stargazers_count,
-          topics: repo.topics || []
+          topics: repo.topics || [],
+          categories: categories(repo.owner.login, repo.topics || []),
         }));
       } else {
         console.error(`Error fetching repos for ${entity} (${type}): ${response.statusText}`);
@@ -389,15 +410,20 @@ const baseRepos = [
   ...(await fetchIndividualRepos())
 ];
 
+console.log(`Total repos before filtering: ${baseRepos.length}`);
+console.log('URLs being excluded:', URL_EXCLUSIONS);
+
 const repositories = await Promise.all(
-  baseRepos.map(async repo => {
+  baseRepos
+  .filter(repo => !URL_EXCLUSIONS.includes(repo.html_url))
+  .map(async repo => {
     const commitInfo = await getRepoCommitInfo(repo.html_url);
     return {
       ...repo,
       last_commit_date: commitInfo?.last_commit_date || null,
       total_commits: commitInfo?.total_commits || null,
       languages: commitInfo?.languages || [],
-      readme: commitInfo?.readme || null
+      readme: commitInfo?.readme || null,
     };
   })
 );

@@ -4,7 +4,7 @@ export const RepositoriesRedux = (
   state = {
     isLoading: true,
     errMess: null,
-    courses: [],
+    repos: [],
   },
   action
 ) => {
@@ -14,17 +14,17 @@ export const RepositoriesRedux = (
         ...state,
         isLoading: false,
         errMess: null,
-        courses: action.payload,
+        repos: action.payload,
       }
 
     case ActionTypes.REPOS_LOADING:
-      return { ...state, isLoading: true, errMess: null, courses: [] }
+      return { ...state, isLoading: true, errMess: null, repos: [] }
     case ActionTypes.REPOS_FAILED:
       return {
         ...state,
         isLoading: false,
         errMess: action.payload,
-        courses: [],
+        repos: [],
       }
 
     default:
