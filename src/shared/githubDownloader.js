@@ -69,6 +69,153 @@ function githubApiHeaders() {
     return headers;
 }
 
+// ----------------------------------------------------------------------------
+// Fetchers
+// ----------------------------------------------------------------------------
+function extractMainDescription(readmeContent) {
+  if (!readmeContent) return null;
+
+  const lines = readmeContent.split('\n');
+  let startIndex = -1;
+  let endIndex = lines.length;
+
+  // Find the first # heading
+  for (let i = 0; i < lines.length; i++) {
+    const line = lines[i].trim();
+    if (line.startsWith('# ')) {
+      startIndex = i + 1; // Start after the heading
+      break;
+    }
+  }
+
+  // If no # heading found, return null
+  if (startIndex === -1) return null;
+
+  // Find the next heading (##, ###, etc.) or end of content
+  for (let i = startIndex; i < lines.length; i++) {
+    const line = lines[i].trim();
+    // Look for any markdown heading that starts with ## or more
+    if (line.match(/^#{2,}\s/)) {
+      endIndex = i;
+      break;
+    }
+  }
+
+  // Join all content first, then clean as a single string
+  let content = lines.slice(startIndex, endIndex).join('\n');
+
+  // Remove all badge patterns - be more aggressive
+  // Remove complete badge patterns [![...](...)](/...)
+  content = content.replace(/\[\!\[[^\]]*\]\([^)]*\)\]\([^)]*\)/g, '');
+  // Remove image patterns ![...](...)
+  content = content.replace(/\!\[[^\]]*\]\([^)]*\)/g, '');
+  // Remove any remaining incomplete badge patterns
+  content = content.replace(/\[\!\[[^\]]*$/gm, ''); // incomplete at end of line
+  content = content.replace(/\[\!\[[^\]]*\n/g, ''); // incomplete spanning lines
+  content = content.replace(/^\]\([^)]*\)/gm, ''); // orphaned closing brackets
+  // Remove standalone URLs containing badge services
+  content = content.replace(/https?:\/\/[^\s]*(?:shields\.io|a11ybadges\.com|img\.shields\.io|badge\.svg|\/badge\?)[^\s]*/g, '');
+  // Remove markdown links containing badge services
+  content = content.replace(/\[[^\]]*\]\([^)]*(?:shields\.io|a11ybadges\.com|img\.shields\.io|badge\.svg|\/badge\?)[^)]*\)/g, '');
+  // Remove any remaining bracket artifacts
+  content = content.replace(/\[\]\(\)/g, '');
+  content = content.replace(/\[\]/g, '');
+  content = content.replace(/\(\)/g, '');
+  // Remove HTML line breaks
+  content = content.replace(/<br\s*\/?>/gi, '');
+
+  // Clean up whitespace and empty lines
+  const cleanedLines = content.split('\n')
+    .map(line => line.trim())
+    .filter(line => {
+      // Filter out empty lines and lines that are just badge remnants
+      if (line === '') return false;
+      // Filter out lines that look like incomplete badge syntax
+      if (line.match(/^\[\!\[/)) return false;
+      if (line.match(/^\]\(/)) return false;
+      if (line.match(/^[\[\]()!\s]*$/)) return false;
+      return true;
+    });
+
+  const finalContent = cleanedLines.join('\n').trim();
+  return finalContent || null;
+}
+
+async function getRepoReadme(username, repoName) {
+  const readmeUrl = `https://api.github.com/repos/${username}/${repoName}/readme`;
+
+  try {
+    const response = await fetch(readmeUrl, {
+      method: 'GET',
+      headers: githubApiHeaders(),
+    });
+
+    if (response.status === 404) {
+      return null; // No README found
+    }
+
+    if (!response.ok) {
+      console.error(`Failed to fetch README for ${username}/${repoName}:`, response.statusText);
+      return null;
+    }
+
+    const readmeData = await response.json();
+    const readmeContent = Buffer.from(readmeData.content, 'base64').toString('utf8');
+    const mainDescription = extractMainDescription(readmeContent);
+
+    return {
+      content: mainDescription || readmeContent,
+      name: readmeData.name,
+      path: readmeData.path,
+      sha: readmeData.sha,
+      size: readmeData.size,
+      download_url: readmeData.download_url
+    };
+  } catch (error) {
+    console.error(`Error fetching README for ${username}/${repoName}:`, error);
+    return null;
+  }
+}
+
+
+async function getRepoLanguages(username, repoName) {
+  const languagesUrl = `https://api.github.com/repos/${username}/${repoName}/languages`;
+
+  try {
+    const response = await fetch(languagesUrl, {
+      method: 'GET',
+      headers: githubApiHeaders(),
+    });
+
+    if (!response.ok) {
+      console.error(`Failed to fetch languages for ${username}/${repoName}:`, response.statusText);
+      return null;
+    }
+
+    const languages = await response.json();
+
+    // Calculate total bytes and percentages
+    const totalBytes = Object.values(languages).reduce((sum, bytes) => sum + bytes, 0);
+
+    // Convert to array with percentages, sorted by usage
+    const languageArray = Object.entries(languages)
+      .map(([language, bytes]) => ({
+        name: language,
+        bytes: bytes,
+        percentage: totalBytes > 0 ? ((bytes / totalBytes) * 100).toFixed(1) : 0
+      }))
+      .sort((a, b) => b.bytes - a.bytes);
+
+    return {
+      languages: languageArray,
+      primary_language: languageArray[0]?.name || null,
+      total_bytes: totalBytes
+    };
+  } catch (error) {
+    console.error(`Error fetching languages for ${username}/${repoName}:`, error);
+    return null;
+  }
+}
 
 async function getRepoCommitInfo(repoUrl) {
   // Example repoUrl: https://github.com/lpm0073/lawrencemcdaniel.com
@@ -100,10 +247,14 @@ async function getRepoCommitInfo(repoUrl) {
     const totalCommits = repo?.default_branch
       ? await getTotalCommits(username, repoName, repo.default_branch)
       : null;
+    const languageInfo = await getRepoLanguages(username, repoName);
+    const readmeInfo = await getRepoReadme(username, repoName);
 
     return {
       last_commit_date: lastCommitDate,
       total_commits: totalCommits,
+      languages: languageInfo?.languages || [],
+      readme: readmeInfo
     };
   } catch (error) {
     console.error(`Error fetching commit info for ${repoUrl}:`, error);
@@ -244,6 +395,8 @@ const repositories = await Promise.all(
       ...repo,
       last_commit_date: commitInfo?.last_commit_date || null,
       total_commits: commitInfo?.total_commits || null,
+      languages: commitInfo?.languages || [],
+      readme: commitInfo?.readme || null
     };
   })
 );
