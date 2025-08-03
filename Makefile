@@ -22,10 +22,14 @@ update:
 	yarn install --force
 
 schema:
-	node src/shared/seo/schema.js
+	node src/shared/seo/schemaDownloader.js
+
+github:
+	node src/shared/githubDownloader.js
 
 build: sitemap
 	make schema
+	make github
 	yarn build
 
 serve:
