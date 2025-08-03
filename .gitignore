@@ -4,6 +4,7 @@ yarn.lock
 passwords.js
 index.html
 public/schema.json
+public/github.json
 
 # dependencies
 node_modules
