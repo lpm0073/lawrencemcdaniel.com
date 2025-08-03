@@ -40,6 +40,7 @@ REST API Rate Limits:
 import { writeFileSync } from 'fs'
 import { fileURLToPath } from 'url'
 import { dirname, join } from 'path'
+import { marked } from 'marked';
 
 import { loadEnv } from './dotenv.js'
 
@@ -138,7 +139,7 @@ function extractMainDescription(readmeContent) {
     });
 
   const finalContent = cleanedLines.join('\n').trim();
-  return finalContent || null;
+  return finalContent ? marked(finalContent) : null;
 }
 
 async function getRepoReadme(username, repoName) {
