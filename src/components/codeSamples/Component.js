@@ -22,16 +22,14 @@ const CodeSamplesTable = ({ category }) => {
         <Loading />
       ) : (
         <div>
-          <h2 className="mt-4 mb-3">Code Samples - {category}</h2>
           <table
             className="table table-bordered table-striped table-fixed mt-4 w-100"
             id="code-samples-table"
           >
             <thead className="thead-dark">
               <tr>
-                <th style={{ width: '65%' }}>Repository</th>
-                <th style={{ width: '15%' }}>Languages</th>
-                <th style={{ width: '20%' }}>Stats</th>
+                <th style={{ width: '80%' }}>Repository</th>
+                <th style={{ width: '20%' }}></th>
               </tr>
             </thead>
             <tbody>
@@ -48,11 +46,10 @@ const CodeSamplesTable = ({ category }) => {
                           </td>
                         </tr>
                         <tr>
-                          <td>
+                          <td className="ps-3 pt-3">
                             <div
-                            className="code-sample-readme align-top text-break ps-2"
+                            className="code-sample-readme align-top text-break"
                               style={{
-                                height: '200px',
                                 maxHeight: '200px',
                                 overflowY: 'auto',
                                 overflowX: 'hidden'
@@ -63,42 +60,61 @@ const CodeSamplesTable = ({ category }) => {
                             }} />
                           </td>
                         </tr>
+                        {repo.topics && repo.topics.length > 0 && (
+                          <tr>
+                            <td className="ps-2 pt-2">
+                              <hr />
+                              <small className="text-muted">
+                                Topics: {repo.topics.join(', ')}
+                              </small>
+                            </td>
+                          </tr>
+                        )}
                       </tbody>
                     </table>
-
                   </td>
                   <td>
-                    {repo.languages.slice(0, 3).map((lang) => (
-                      <div key={lang.name} className="mb-1">
-                        <small>
-                          {lang.name} ({lang.percentage}%)
-                        </small>
-                      </div>
-                    ))}
-                  </td>
-                  <td>
-                    <table className="table-sm m-0 p-0 w-100 ">
+                    <table className="table-sm m-0 p-0 w-100 text-center small text-muted">
                       <thead>
                         <tr>
-                          <th className="w-25">⭐</th>
-                          <th className="w-25">🍴</th>
-                          <th className="w-25">👁</th>
-                          <th className="w-25">🐛</th>
+                          <th className="w-25 border">⭐</th>
+                          <th className="w-25 border">🍴</th>
+                          <th className="w-25 border">👁</th>
+                          <th className="w-25 border">🐛</th>
                         </tr>
                       </thead>
                       <tbody>
-                        <tr>
-                          <td>{repo.stargazers_count}</td>
-                          <td>{repo.forks}</td>
-                          <td>{repo.watchers}</td>
-                          <td>{repo.open_issues}</td>
+                        <tr className="">
+                          <td className="border">{repo.stargazers_count}</td>
+                          <td className="border">{repo.forks}</td>
+                          <td className="border">{repo.watchers}</td>
+                          <td className="border">{repo.open_issues}</td>
                         </tr>
                       </tbody>
                     </table>
                     <div className="mt-2">
-                      <small className="text-muted">
+                      <small className="text-muted text-end">
                         <div>Last commit: {new Date(repo.last_commit_date).toLocaleDateString('en-US', { month: 'short', year: 'numeric' })}</div>
-                        <div>Total commits: {repo.total_commits}</div>
+                        <div>Total commits: {repo.total_commits.toLocaleString()}</div>
+                      </small>
+                    </div>
+                    <hr />
+                    <div className="mt-2">
+                        <div className="mb-1 text-end text-muted">
+                          {/* <div><small>Top Languages</small></div> */}
+                          {(repo.languages || []).slice(0, 3).map((lang) => (
+                            <div key={lang.name} className="mb-1 text-end">
+                              <small key={lang.name} className="small">
+                                {lang.name} ({lang.percentage}%)
+                              </small>
+                            </div>
+                          ))}
+                        </div>
+                    </div>
+                    <hr />
+                    <div className="mt-2 text-end text-muted">
+                      <small className="small">
+                        {(repo.categories || []).slice(0, 3).join(', ')}
                       </small>
                     </div>
                   </td>
