@@ -2,10 +2,13 @@
 # upload to AWS S3
 # https://s3.console.aws.amazon.com/s3/buckets/reactjs.lawrencemcdaniel.com
 # -------------------------------------------------------------------------
-.PHONY: sitemap init update schema build serve release
+.PHONY: analyze sitemap init update schema build serve release
 
 sitemap:
 	yarn run sitemap
+
+analyze:
+	cloc . --exclude-ext=svg,zip --fullpath --not-match-d=smarter/smarter/static/assets/ --vcs=git
 
 init:
 	rm -rf .git/hooks/pre-commit .git/hooks/pre-commit.legacy
