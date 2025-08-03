@@ -60,20 +60,13 @@ const CodeSamplesTable = ({ category }) => {
                             }} />
                           </td>
                         </tr>
-                        {repo.topics && repo.topics.length > 0 && (
-                          <tr>
-                            <td className="ps-2 pt-2">
-                              <hr />
-                              <small className="text-muted">
-                                Topics: {repo.topics.join(', ')}
-                              </small>
-                            </td>
-                          </tr>
-                        )}
                       </tbody>
                     </table>
                   </td>
                   <td>
+                    <div className="mt-2 text-end text-muted mb-3">
+                      <strong>{(repo.categories || []).slice(0, 3).join(', ')}</strong>
+                    </div>
                     <table className="table-sm m-0 p-0 w-100 text-center small text-muted">
                       <thead>
                         <tr>
@@ -110,12 +103,6 @@ const CodeSamplesTable = ({ category }) => {
                             </div>
                           ))}
                         </div>
-                    </div>
-                    <hr />
-                    <div className="mt-2 text-end text-muted">
-                      <small className="small">
-                        {(repo.categories || []).slice(0, 3).join(', ')}
-                      </small>
                     </div>
                   </td>
                 </tr>
