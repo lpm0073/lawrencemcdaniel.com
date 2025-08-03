@@ -12,8 +12,21 @@
   vertical-align: super;
   font-size: small;
 }
+.code-sample-readme * {
+  word-wrap: break-word !important;
+  overflow-wrap: break-word !important;
+  word-break: break-all !important;
+  white-space: normal !important;
+  max-width: 100% !important;
+}
+.code-sample-readme pre,
+.code-sample-readme code {
+  white-space: pre-wrap !important;
+  word-break: break-all !important;
+  overflow-wrap: break-word !important;
+}
 
-.code-sample-readme {
+/* .code-sample-readme {
   max-width: 0;
   word-wrap: break-word !important;
   overflow-wrap: break-word !important;
@@ -22,17 +35,5 @@
   overflow: hidden;
 }
 
-.code-sample-readme * {
-  word-wrap: break-word !important;
-  overflow-wrap: break-word !important;
-  word-break: break-all !important;
-  white-space: normal !important;
-  max-width: 100% !important;
-}
 
-.code-sample-readme pre,
-.code-sample-readme code {
-  white-space: pre-wrap !important;
-  word-break: break-all !important;
-  overflow-wrap: break-word !important;
-}
+ */
