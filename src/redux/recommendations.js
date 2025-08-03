@@ -1,6 +1,6 @@
 import * as ActionTypes from './ActionTypes'
 
-export const Recommendations = (
+export const RecommendationsRedux = (
   state = {
     isLoading: true,
     errMess: null,

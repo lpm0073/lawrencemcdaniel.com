@@ -1,3 +1,8 @@
+// Github repositories
+export const ADD_REPOS = 'ADD_REPOS'
+export const REPOS_FAILED = 'REPOS_FAILED'
+export const REPOS_LOADING = 'REPOS_LOADING'
+
 // Logos on home page and Specialties page
 export const ADD_SPECIALTIES = 'ADD_SPECIALTIES'
 export const SPECIALTIES_FAILED = 'SPECIALTIES_FAILED'

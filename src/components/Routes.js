@@ -11,6 +11,7 @@ import {
   fetchRecommendations,
   fetchProjectImages,
   fetchClients,
+  fetchRepositories,
 } from '../redux/ActionCreators'
 
 // Pages
@@ -38,6 +39,9 @@ const mapStateToProps = (state) => ({
 })
 
 const mapDispatchToProps = (dispatch) => ({
+  fetchRepositories: () => {
+    dispatch(fetchRepositories())
+  },
   fetchSpecialties: () => {
     dispatch(fetchSpecialties())
   },
@@ -60,6 +64,7 @@ const mapDispatchToProps = (dispatch) => ({
 
 class SiteRoutes extends Component {
   componentDidMount() {
+    this.props.fetchRepositories()
     this.props.fetchSpecialties()
     this.props.fetchPortfolio()
     this.props.fetchEducation()
@@ -168,6 +173,7 @@ class SiteRoutes extends Component {
 }
 
 SiteRoutes.propTypes = {
+  fetchRepositories: PropTypes.func,
   fetchSpecialties: PropTypes.func,
   fetchPortfolio: PropTypes.func,
   fetchEducation: PropTypes.func,

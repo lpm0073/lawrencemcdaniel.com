@@ -1,6 +1,6 @@
 import * as ActionTypes from './ActionTypes'
 
-export const Project = (
+export const ProjectRedux = (
   state = {
     isLoading: true,
     errMess: null,

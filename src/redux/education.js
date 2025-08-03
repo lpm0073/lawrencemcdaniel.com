@@ -1,6 +1,6 @@
 import * as ActionTypes from './ActionTypes'
 
-export const Education = (
+export const EducationRedux = (
   state = {
     isLoading: true,
     errMess: null,
