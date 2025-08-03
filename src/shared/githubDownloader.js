@@ -51,7 +51,12 @@ const outputPath = join(__dirname, '../../public/github.json')
 const URL_EXCLUSIONS = [
   "https://github.com/FullStackWithLawrence/.github",
   "https://github.com/smarter-sh/.github",
-  "https://github.com/cookiecutter-openedx/.github"
+  "https://github.com/cookiecutter-openedx/.github",
+  "https://github.com/FullStackWithLawrence/ubc-bsd10-track-b",
+  "https://github.com/smarter-sh/homebrew-tap",
+  "https://github.com/smarter-sh/examples",
+  "https://github.com/cookiecutter-openedx/edx-ora2",
+  "https://github.com/cookiecutter-openedx/tutor-contrib-s3"
 ]
 
 const GITHUB_ENTITIES = [
@@ -84,10 +89,13 @@ function categories(org, topics) {
   if (topics.includes('python')) retval.push('Python');
   if (topics.includes('data-science')) retval.push('Data Science');
   if (org === 'smarter-sh') {
-    retval.push('full-stack');
+    retval.push('Full Stack');
   }
   if (topics.includes('react') || topics.includes('reactjs')) {
-    retval.push('react');
+    retval.push('React');
+  }
+  if (topics.includes('openedx')) {
+    retval.push('Open edX');
   }
   return retval.length > 0 ? retval : [];
 }
@@ -359,7 +367,7 @@ async function fetchGitHubOrg(entity) {
       if (response.ok) {
         const repos = await response.json();
         return repos.map(repo => ({
-          name: repo.name,
+          name: repo.owner.login + '/' + repo.name,
           html_url: repo.html_url,
           description: repo.description,
           visibility: repo.visibility,
