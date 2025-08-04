@@ -7,6 +7,21 @@ import Loading from '../../components/Loading'
 import './styles.css'
 
 function categoryLogoUrl(categoryCode, reduxSpecialties) {
+
+  // shortcuts
+  switch (categoryCode) {
+    case 'python':
+      return 'assets/images/python-logo.png'
+    case 'data-science':
+      return 'assets/images/data-science-icon.png'
+    case 'full-stack':
+      return 'assets/images/pancakes.png'
+    case 'react':
+      return 'assets/images/react-logo-300x261.png'
+    case 'openedx':
+      return 'assets/images/edx-logo.png'
+  }
+
   // reduxSpecialties.items[i].slug
   //reduxSpecialties.items[i]._embedded.wp:featuredmedia[0].source_url
   const specialty = reduxSpecialties.items.find((item) => item.slug === categoryCode)
@@ -18,21 +33,8 @@ function categoryLogoUrl(categoryCode, reduxSpecialties) {
   ) {
     return specialty._embedded['wp:featuredmedia'][0].source_url
   }
-  // Fallback to a default image if no specialty found
-  switch (categoryCode) {
-    case 'python':
-      return 'assets/images/python-logo.png'
-    case 'data-science':
-      return 'assets/images/data-science-icon.png'
-    case 'full-stack':
-      return 'assets/images/pancakes.png'
-    case 'react':
-      return 'assets/images/react-logo-300x261.png'
-    case 'openedx':
-      return 'assets/images/openedx-logo.png'
-    default:
-      return null
-  }
+
+  return null
 }
 
 function categoryIcon(categoryCode, reduxSpecialties) {
@@ -74,7 +76,7 @@ const CodeSamplesTable = ({ category }) => {
     .map((repo) => {
       // If category is specified, remove the corresponding entry so that it doesn't
       // redundantly appear in the table.
-      if (category && repo.categories && repo.categoryLabels) {
+      if (category && repo.categories) {
         const categoryIndex = repo.categories.indexOf(category)
         if (categoryIndex !== -1) {
           return {
@@ -158,9 +160,13 @@ const CodeSamplesTable = ({ category }) => {
                   </td>
                   <td>
                     <div className="mt-2 text-end text-muted mb-3">
-                      <strong>
-                        {(repo.categoryLabels || []).slice(0, 3).join(', ')}
-                      </strong>
+                      <div className="d-flex justify-content-end">
+                          {(repo.categoryIcons || []).slice(0, 3).map((icon, index) => (
+                          <span key={index} className="ms-2">
+                              {icon}
+                          </span>
+                          ))}
+                      </div>
                     </div>
                     <table className="table-sm m-0 p-0 w-100 text-center small text-muted">
                       <thead>
@@ -237,6 +243,7 @@ const repositoriesStateShape = PropTypes.shape({
       open_issues: PropTypes.number,
       categories: PropTypes.arrayOf(PropTypes.string),
       categoryLabels: PropTypes.arrayOf(PropTypes.string),
+      categoryIcons: PropTypes.arrayOf(PropTypes.element),
     })
   ).isRequired,
 })

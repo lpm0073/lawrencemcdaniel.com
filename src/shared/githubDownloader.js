@@ -84,20 +84,22 @@ function githubApiHeaders() {
 // Fetchers
 // ----------------------------------------------------------------------------
 function categories(org, topics) {
-  const retval = [];
+  const retval = new Set(); // Use Set to automatically handle duplicates
   if (!topics || topics.length === 0) return [];
-  if (topics.includes('python')) retval.push('python');
-  if (topics.includes('data-science')) retval.push('data-science');
+  if (topics.includes('python')) retval.add('python');
+  if (topics.includes('data-science')) retval.add('data-science');
+  if (topics.includes('full-stack')) retval.add('full-stack');
+  if (topics.includes('fullstack')) retval.add('full-stack');
   if (org === 'smarter-sh') {
-    retval.push('full-stack');
+    retval.add('full-stack');
   }
   if (topics.includes('react') || topics.includes('reactjs')) {
-    retval.push('react');
+    retval.add('react');
   }
   if (topics.includes('openedx')) {
-    retval.push('openedx');
+    retval.add('openedx');
   }
-  return retval.length > 0 ? retval : [];
+  return Array.from(retval); // Convert Set back to array
 }
 
 function extractMainDescription(readmeContent) {
