@@ -11,10 +11,25 @@ const CodeSamplesTable = ({ category }) => {
   const reduxRepositories = useSelector((state) => state.repositories)
 
   console.log('CodeSamplesTable repositories:', reduxRepositories)
-  const filteredRepositories = category
-    ? reduxRepositories.filter(redux => redux.repos.categories.includes(category))
+  const filteredRepositories = [...(category
+    ? reduxRepositories.repos.filter(redux => redux.categories.includes(category))
     : reduxRepositories.repos
-
+  )].sort((a, b) => {
+    // Primary sort: stargazers_count (descending)
+    if (b.stargazers_count !== a.stargazers_count) {
+      return b.stargazers_count - a.stargazers_count
+    }
+    // Secondary sort: watchers (descending)
+    if (b.watchers !== a.watchers) {
+      return b.watchers - a.watchers
+    }
+    // Tertiary sort: forks (descending)
+    if (b.forks !== a.forks) {
+      return b.forks - a.forks
+    }
+    // Final sort: total_commits (descending)
+    return b.total_commits - a.total_commits
+  })
 
   return (
     <div className="table-responsive">
