@@ -38,6 +38,18 @@ build: sitemap
 serve:
 	yarn start
 
+update-github:
+	#---------------------------------------------------------
+	# usage:      update the github.json file with the latest
+	#             data from the GitHub API.
+	#
+	#             This is used to display the latest GitHub
+	#             activity on the home page.
+	#---------------------------------------------------------
+	node src/shared/githubDownloader.js
+	aws s3 cp public/github.json s3://reactjs.lawrencemcdaniel.com/github.json --cache-control max-age=0,no-cache,no-store,must-revalidate --content-type text/json --acl public-read
+	aws cloudfront create-invalidation --distribution-id E2364TSMHRWAWL --paths "/github.json"
+
 release:
 	#---------------------------------------------------------
 	# usage:      deploy production build of lawrencemcdaniel.com ReactJ
