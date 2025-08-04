@@ -260,7 +260,7 @@ const Datascience = (props) => {
         <div className="row mx-5">
           <div className="col">
             <h3 className="ml-auto text-center pl-2 mx-5 mt-5">Code Samples</h3>
-            <CodeSamplesTable category="data-science" />
+            <CodeSamplesTable category="Data Science" />
           </div>
         </div>
       </div>
