@@ -37,7 +37,7 @@ REST API Rate Limits:
   per hour per repository for GitHub Enterprise Cloud accounts).
 */
 
-import { writeFileSync } from 'fs'
+import { read, writeFileSync } from 'fs'
 import { fileURLToPath } from 'url'
 import { dirname, join } from 'path'
 import { marked } from 'marked';
@@ -106,7 +106,97 @@ function categories(org, topics) {
   return Array.from(retval); // Convert Set back to array
 }
 
-function extractMainDescription(readmeContent) {
+function extractMainDescriptionRST(readmeContent) {
+  if (!readmeContent) return null;
+
+  const lines = readmeContent.split('\n');
+  let startIndex = -1;
+  let endIndex = lines.length;
+
+  // Find the first title (underlined with = or -)
+  for (let i = 0; i < lines.length - 1; i++) {
+    const line = lines[i].trim();
+    const nextLine = lines[i + 1].trim();
+
+    // Check if next line is an underline (===== or -----)
+    if (line && nextLine &&
+        (nextLine.match(/^={3,}$/) || nextLine.match(/^-{3,}$/)) &&
+        nextLine.length >= line.length) {
+      startIndex = i + 2; // Start after the title and underline
+      break;
+    }
+  }
+
+  // If no title found, return null
+  if (startIndex === -1) return null;
+
+  // Find the next section heading or end of content
+  for (let i = startIndex; i < lines.length - 1; i++) {
+    const line = lines[i].trim();
+    const nextLine = lines[i + 1].trim();
+
+    // Look for any section heading (underlined text)
+    if (line && nextLine &&
+        (nextLine.match(/^[=\-~^"'`#*+<>]{3,}$/) &&
+         nextLine.length >= line.length * 0.8)) { // Allow some flexibility
+      endIndex = i;
+      break;
+    }
+  }
+
+  // Join all content first, then clean as a single string
+  let content = lines.slice(startIndex, endIndex).join('\n');
+
+  // Remove RST directives and their multi-line attributes more aggressively
+  // Remove image/figure directives with all their indented attributes
+  content = content.replace(/\.\.\s+(image|figure)::[^\n]*(?:\n\s+:[^:\n]+:[^\n]*)*\n?/g, '');
+
+  // Remove raw HTML directives with content
+  content = content.replace(/\.\.\s+raw::\s+html[\s\S]*?(?=\n\n|\n(?!\s)|\n\.\.|$)/g, '');
+
+  // Remove external link definitions with all attributes
+  content = content.replace(/\.\.\s+_[^:]*:\s+[^\n]*(?:\n\s+:[^:\n]+:[^\n]*)*\n?/g, '');
+
+  // Remove substitution definitions with all attributes
+  content = content.replace(/\.\.\s+\|[^|]*\|\s+(image|figure)::[^\n]*(?:\n\s+:[^:\n]+:[^\n]*)*\n?/g, '');
+
+  // Remove badge URLs (standalone)
+  content = content.replace(/https?:\/\/[^\s]*(?:shields\.io|a11ybadges\.com|img\.shields\.io|badge\.svg|\/badge\?)[^\s]*/g, '');
+
+  // Remove inline markup for images and substitution references
+  content = content.replace(/\|[^|]*(?:badge|shield|build|status)[^|]*\|/gi, '');
+  content = content.replace(/\|[^|]*\|/g, '');
+
+  // Remove RST attribute lines (lines starting with :attribute:)
+  content = content.replace(/^\s*:[^:\n]+:[^\n]*$/gm, '');
+
+  // Remove lines with just | symbols
+  content = content.replace(/^\s*\|\s*$/gm, '');
+
+  // Clean up whitespace and empty lines
+  const cleanedLines = content.split('\n')
+    .map(line => line.trim())
+    .filter(line => {
+      // Filter out empty lines and directive remnants
+      if (line === '') return false;
+      // Filter out lines that look like RST directives
+      if (line.startsWith('..')) return false;
+      // Filter out lines with only punctuation (underlines, etc.)
+      if (line.match(/^[=\-~^"'`#*+<>\s|]*$/)) return false;
+      // Filter out RST attributes
+      if (line.match(/^:[^:]+:.*$/)) return false;
+      // Filter out substitution references
+      if (line.match(/^\|[^|]*\|$/)) return false;
+      // Filter out lines that are just links or URLs
+      if (line.match(/^https?:\/\//)) return false;
+      return true;
+    });
+
+  const finalContent = cleanedLines.join('\n').trim();
+  return finalContent ? marked(finalContent) : null;
+}
+
+function extractMainDescriptionMD(readmeContent) {
   if (!readmeContent) return null;
 
   const lines = readmeContent.split('\n');
@@ -125,53 +215,71 @@ function extractMainDescription(readmeContent) {
   // If no # heading found, return null
   if (startIndex === -1) return null;
 
-  // Find the next heading (##, ###, etc.) or end of content
+  // Find ANY subheading (##, ###, ####, etc.) or end of content
   for (let i = startIndex; i < lines.length; i++) {
     const line = lines[i].trim();
     // Look for any markdown heading that starts with ## or more
-    if (line.match(/^#{2,}\s/)) {
+    // Also look for setext-style headings (underlined with = or -)
+    if (line.match(/^#{2,}\s/) ||                           // ATX headings: ##, ###, etc.
+        line.match(/^={3,}$/) ||                            // Setext heading underline (===)
+        line.match(/^-{3,}$/) ||                            // Setext heading underline (---)
+        (i < lines.length - 1 &&
+         lines[i + 1].trim().match(/^[=-]{3,}$/))) {        // Next line is underline
       endIndex = i;
       break;
     }
   }
 
-  // Join all content first, then clean as a single string
-  let content = lines.slice(startIndex, endIndex).join('\n');
+  // Extract lines between headings
+  const extractedLines = lines.slice(startIndex, endIndex);
 
-  // Remove all badge patterns - be more aggressive
-  // Remove complete badge patterns [![...](...)](/...)
-  content = content.replace(/\[\!\[[^\]]*\]\([^)]*\)\]\([^)]*\)/g, '');
-  // Remove image patterns ![...](...)
-  content = content.replace(/\!\[[^\]]*\]\([^)]*\)/g, '');
-  // Remove any remaining incomplete badge patterns
-  content = content.replace(/\[\!\[[^\]]*$/gm, ''); // incomplete at end of line
-  content = content.replace(/\[\!\[[^\]]*\n/g, ''); // incomplete spanning lines
-  content = content.replace(/^\]\([^)]*\)/gm, ''); // orphaned closing brackets
-  // Remove standalone URLs containing badge services
-  content = content.replace(/https?:\/\/[^\s]*(?:shields\.io|a11ybadges\.com|img\.shields\.io|badge\.svg|\/badge\?)[^\s]*/g, '');
-  // Remove markdown links containing badge services
-  content = content.replace(/\[[^\]]*\]\([^)]*(?:shields\.io|a11ybadges\.com|img\.shields\.io|badge\.svg|\/badge\?)[^)]*\)/g, '');
-  // Remove any remaining bracket artifacts
+  // Filter out badge lines completely
+  const filteredLines = extractedLines.filter(line => {
+    const trimmed = line.trim();
+
+    // Keep empty lines for structure
+    if (!trimmed) return true;
+
+    // Remove any line that contains badge patterns
+    if (trimmed.includes('[![') || trimmed.includes('![')) return false;
+    if (trimmed.includes('shields.io') || trimmed.includes('a11ybadges.com') ||
+        trimmed.includes('img.shields.io') || trimmed.includes('badge.svg') ||
+        trimmed.includes('/badge?') || trimmed.includes('actions/workflows')) return false;
+    if (trimmed.includes('github.com') && trimmed.includes('/actions')) return false;
+
+    // Remove lines that are primarily markdown syntax
+    const markdownChars = (trimmed.match(/[\[\]()!]/g) || []).length;
+    if (markdownChars > 10 && markdownChars > trimmed.replace(/[\[\]()!\s]/g, '').length) return false;
+
+    return true;
+  });
+
+  // Join filtered lines
+  let content = filteredLines.join('\n');
+
+  // Remove HTML breaks
+  content = content.replace(/<br\s*\/?>/gi, '\n');
+
+  // Remove any remaining badge patterns that might have been split across operations
+  content = content.replace(/\[\!\[[^\]]*\]\([^)]*\)\]\([^)]*\)/gs, '');
+  content = content.replace(/\!\[[^\]]*\]\([^)]*\)/gs, '');
+  content = content.replace(/\[[^\]]*\]\([^)]*(?:shields\.io|a11ybadges\.com|img\.shields\.io|badge\.svg|\/badge\?|actions\/workflows)[^)]*\)/gs, '');
+
+  // Clean up artifacts
   content = content.replace(/\[\]\(\)/g, '');
   content = content.replace(/\[\]/g, '');
   content = content.replace(/\(\)/g, '');
-  // Remove HTML line breaks
-  content = content.replace(/<br\s*\/?>/gi, '');
 
-  // Clean up whitespace and empty lines
-  const cleanedLines = content.split('\n')
+  // Final cleanup - remove empty lines and trim
+  const finalLines = content.split('\n')
     .map(line => line.trim())
     .filter(line => {
-      // Filter out empty lines and lines that are just badge remnants
       if (line === '') return false;
-      // Filter out lines that look like incomplete badge syntax
-      if (line.match(/^\[\!\[/)) return false;
-      if (line.match(/^\]\(/)) return false;
       if (line.match(/^[\[\]()!\s]*$/)) return false;
       return true;
     });
 
-  const finalContent = cleanedLines.join('\n').trim();
+  const finalContent = finalLines.join('\n').trim();
   return finalContent ? marked(finalContent) : null;
 }
 
@@ -195,7 +303,31 @@ async function getRepoReadme(username, repoName) {
 
     const readmeData = await response.json();
     const readmeContent = Buffer.from(readmeData.content, 'base64').toString('utf8');
-    const mainDescription = extractMainDescription(readmeContent);
+
+    // Determine readme format from file extension
+    let readmeFormat = null;
+    if (readmeData) {
+      // example: https://raw.githubusercontent.com/smarter-sh/smarter/main/README.md?
+      const url = new URL(readmeData.download_url);
+      const fileName = url.pathname.toLowerCase();
+      if (fileName.endsWith('.md')) {
+        readmeFormat = 'md';
+      } else if (fileName.endsWith('.rst')) {
+        readmeFormat = 'rst';
+      } else {
+        readmeFormat = 'unknown'; // or leave as null if you prefer
+      }
+    }
+    let mainDescription = null;
+    if (readmeFormat === 'md') {
+      // Extract main description from Markdown
+      mainDescription = extractMainDescriptionMD(readmeContent);
+    } else if (readmeFormat === 'rst') {
+      // Extract main description from reStructuredText
+      mainDescription = extractMainDescriptionRST(readmeContent);
+    } else {
+      mainDescription = readmeContent; // Keep as is for unknown formats
+    }
 
     return {
       content: mainDescription || readmeContent,
@@ -203,7 +335,8 @@ async function getRepoReadme(username, repoName) {
       path: readmeData.path,
       sha: readmeData.sha,
       size: readmeData.size,
-      download_url: readmeData.download_url
+      downloadUrl: readmeData.download_url,
+      readmeFormat: readmeFormat || null,
     };
   } catch (error) {
     console.error(`Error fetching README for ${username}/${repoName}:`, error);
@@ -438,6 +571,7 @@ const repositories = await Promise.all(
   .filter(repo => !URL_EXCLUSIONS.includes(repo.html_url))
   .map(async repo => {
     const commitInfo = await getRepoCommitInfo(repo.html_url);
+
     return {
       ...repo,
       last_commit_date: commitInfo?.last_commit_date || null,
