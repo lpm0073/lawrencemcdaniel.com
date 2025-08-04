@@ -1,3 +1,10 @@
+## [1.4.2](https://github.com/lpm0073/lawrencemcdaniel.com/compare/v1.4.1...v1.4.2) (2025-08-04)
+
+
+### Bug Fixes
+
+* create custom README parsing logic for rst files ([4a72701](https://github.com/lpm0073/lawrencemcdaniel.com/commit/4a72701a90b879c26ba935eadb7ac3bf280fe7af))
+
 ## [1.4.1](https://github.com/lpm0073/lawrencemcdaniel.com/compare/v1.4.0...v1.4.1) (2025-08-04)
 
 
