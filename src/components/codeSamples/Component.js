@@ -10,11 +10,22 @@ import './styles.css'
 const CodeSamplesTable = ({ category }) => {
   const reduxRepositories = useSelector((state) => state.repositories)
 
-  console.log('CodeSamplesTable repositories:', reduxRepositories)
   const filteredRepositories = [...(category
     ? reduxRepositories.repos.filter(redux => redux.categories.includes(category))
     : reduxRepositories.repos
-  )].sort((a, b) => {
+  )].map(repo => {
+  // If category is specified, remove the corresponding categoryLabel
+  if (category && repo.categories && repo.categoryLabels) {
+    const categoryIndex = repo.categories.indexOf(category);
+    if (categoryIndex !== -1) {
+      return {
+        ...repo,
+        categoryLabels: repo.categoryLabels.filter((_, index) => index !== categoryIndex)
+      };
+    }
+  }
+  return repo;
+}).sort((a, b) => {
     // Primary sort: stargazers_count (descending)
     if (b.stargazers_count !== a.stargazers_count) {
       return b.stargazers_count - a.stargazers_count
@@ -80,7 +91,7 @@ const CodeSamplesTable = ({ category }) => {
                   </td>
                   <td>
                     <div className="mt-2 text-end text-muted mb-3">
-                      <strong>{(repo.categories || []).slice(0, 3).join(', ')}</strong>
+                      <strong>{(repo.categoryLabels || []).slice(0, 3).join(', ')}</strong>
                     </div>
                     <table className="table-sm m-0 p-0 w-100 text-center small text-muted">
                       <thead>
@@ -130,10 +141,6 @@ const CodeSamplesTable = ({ category }) => {
   )
 }
 
-CodeSamplesTable.propTypes = {
-  category: PropTypes.string,
-}
-
 const repositoriesStateShape = PropTypes.shape({
   isLoading: PropTypes.bool.isRequired,
   errMess: PropTypes.string,
@@ -154,6 +161,7 @@ const repositoriesStateShape = PropTypes.shape({
       watchers: PropTypes.number,
       open_issues: PropTypes.number,
       categories: PropTypes.arrayOf(PropTypes.string),
+      categoryLabels: PropTypes.arrayOf(PropTypes.string),
     })
   ).isRequired,
 })
