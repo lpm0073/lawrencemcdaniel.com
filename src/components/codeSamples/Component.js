@@ -6,41 +6,102 @@ import Loading from '../../components/Loading'
 
 import './styles.css'
 
+function categoryLogoUrl(categoryCode, reduxSpecialties) {
+  // reduxSpecialties.items[i].slug
+  //reduxSpecialties.items[i]._embedded.wp:featuredmedia[0].source_url
+  const specialty = reduxSpecialties.items.find((item) => item.slug === categoryCode)
+  if (
+    specialty &&
+    specialty._embedded &&
+    specialty._embedded['wp:featuredmedia'] &&
+    specialty._embedded['wp:featuredmedia'][0]
+  ) {
+    return specialty._embedded['wp:featuredmedia'][0].source_url
+  }
+  // Fallback to a default image if no specialty found
+  switch (categoryCode) {
+    case 'python':
+      return 'assets/images/python-logo.png'
+    case 'data-science':
+      return 'assets/images/data-science-icon.png'
+    case 'full-stack':
+      return 'assets/images/pancakes.png'
+    case 'react':
+      return 'assets/images/react-logo-300x261.png'
+    case 'openedx':
+      return 'assets/images/openedx-logo.png'
+    default:
+      return null
+  }
+}
+
+function categoryIcon(categoryCode, reduxSpecialties) {
+  return (
+    <img
+      src={categoryLogoUrl(categoryCode, reduxSpecialties)}
+      alt={categoryLabel(categoryCode)}
+      height="20"
+      style={{ objectFit: 'contain' }}
+    />
+  )
+}
+
+function categoryLabel(categoryCode) {
+  switch (categoryCode) {
+    case 'python':
+      return 'Python'
+    case 'data-science':
+      return 'Data Science'
+    case 'full-stack':
+      return 'Full Stack'
+    case 'react':
+      return 'React'
+    case 'openedx':
+      return 'Open edX'
+    default:
+      return null
+  }
+}
 
 const CodeSamplesTable = ({ category }) => {
   const reduxRepositories = useSelector((state) => state.repositories)
-
-  const filteredRepositories = [...(category
-    ? reduxRepositories.repos.filter(redux => redux.categories.includes(category))
-    : reduxRepositories.repos
-  )].map(repo => {
-  // If category is specified, remove the corresponding categoryLabel
-  if (category && repo.categories && repo.categoryLabels) {
-    const categoryIndex = repo.categories.indexOf(category);
-    if (categoryIndex !== -1) {
-      return {
-        ...repo,
-        categoryLabels: repo.categoryLabels.filter((_, index) => index !== categoryIndex)
-      };
-    }
-  }
-  return repo;
-}).sort((a, b) => {
-    // Primary sort: stargazers_count (descending)
-    if (b.stargazers_count !== a.stargazers_count) {
-      return b.stargazers_count - a.stargazers_count
-    }
-    // Secondary sort: watchers (descending)
-    if (b.watchers !== a.watchers) {
-      return b.watchers - a.watchers
-    }
-    // Tertiary sort: forks (descending)
-    if (b.forks !== a.forks) {
-      return b.forks - a.forks
-    }
-    // Final sort: total_commits (descending)
-    return b.total_commits - a.total_commits
-  })
+  const reduxSpecialties = useSelector((state) => state.specialties)
+  const filteredRepositories = [
+    ...(category
+      ? reduxRepositories.repos.filter((redux) => redux.categories.includes(category))
+      : reduxRepositories.repos),
+  ]
+    .map((repo) => {
+      // If category is specified, remove the corresponding entry so that it doesn't
+      // redundantly appear in the table.
+      if (category && repo.categories && repo.categoryLabels) {
+        const categoryIndex = repo.categories.indexOf(category)
+        if (categoryIndex !== -1) {
+          return {
+            ...repo,
+            categories: repo.categories.filter((_, index) => index !== categoryIndex),
+          }
+        }
+      }
+      return repo
+    })
+    .map((repo) => ({
+      ...repo,
+      categoryLabels: repo.categories.map(categoryLabel).filter(Boolean),
+      categoryIcons: repo.categories
+        .map((categoryCode) => categoryIcon(categoryCode, reduxSpecialties))
+        .filter(Boolean),
+    }))
+    .sort((a, b) => {
+      // Primary sort: combined engagement score (stargazers + watchers + forks) descending
+      const aEngagement = a.stargazers_count + a.watchers + a.forks
+      const bEngagement = b.stargazers_count + b.watchers + b.forks
+      if (bEngagement !== aEngagement) {
+        return bEngagement - aEngagement
+      }
+      // Secondary sort: total_commits (descending)
+      return b.total_commits - a.total_commits
+    })
 
   return (
     <div className="table-responsive">
@@ -66,7 +127,11 @@ const CodeSamplesTable = ({ category }) => {
                       <tbody>
                         <tr>
                           <td>
-                            <a href={repo.html_url} target="_blank" rel="noopener noreferrer">
+                            <a
+                              href={repo.html_url}
+                              target="_blank"
+                              rel="noopener noreferrer"
+                            >
                               <strong>{repo.name}</strong>
                             </a>
                           </td>
@@ -74,16 +139,18 @@ const CodeSamplesTable = ({ category }) => {
                         <tr>
                           <td className="ps-3 pt-3">
                             <div
-                            className="code-sample-readme align-top text-break"
+                              className="code-sample-readme align-top text-break"
                               style={{
                                 maxHeight: '200px',
                                 overflowY: 'auto',
-                                overflowX: 'hidden'
+                                overflowX: 'hidden',
                               }}
-
-                            dangerouslySetInnerHTML={{
-                              __html: repo.readme?.content || '<em>No description available</em>'
-                            }} />
+                              dangerouslySetInnerHTML={{
+                                __html:
+                                  repo.readme?.content ||
+                                  '<em>No description available</em>',
+                              }}
+                            />
                           </td>
                         </tr>
                       </tbody>
@@ -91,7 +158,9 @@ const CodeSamplesTable = ({ category }) => {
                   </td>
                   <td>
                     <div className="mt-2 text-end text-muted mb-3">
-                      <strong>{(repo.categoryLabels || []).slice(0, 3).join(', ')}</strong>
+                      <strong>
+                        {(repo.categoryLabels || []).slice(0, 3).join(', ')}
+                      </strong>
                     </div>
                     <table className="table-sm m-0 p-0 w-100 text-center small text-muted">
                       <thead>
@@ -113,22 +182,28 @@ const CodeSamplesTable = ({ category }) => {
                     </table>
                     <div className="mt-2">
                       <small className="text-muted text-end">
-                        <div>Last commit: {new Date(repo.last_commit_date).toLocaleDateString('en-US', { month: 'short', year: 'numeric' })}</div>
+                        <div>
+                          Last commit:{' '}
+                          {new Date(repo.last_commit_date).toLocaleDateString('en-US', {
+                            month: 'short',
+                            year: 'numeric',
+                          })}
+                        </div>
                         <div>Total commits: {repo.total_commits.toLocaleString()}</div>
                       </small>
                     </div>
                     <hr />
                     <div className="mt-2">
-                        <div className="mb-1 text-end text-muted">
-                          {/* <div><small>Top Languages</small></div> */}
-                          {(repo.languages || []).slice(0, 3).map((lang) => (
-                            <div key={lang.name} className="mb-1 text-end">
-                              <small key={lang.name} className="small">
-                                {lang.name} ({lang.percentage}%)
-                              </small>
-                            </div>
-                          ))}
-                        </div>
+                      <div className="mb-1 text-end text-muted">
+                        {/* <div><small>Top Languages</small></div> */}
+                        {(repo.languages || []).slice(0, 3).map((lang) => (
+                          <div key={lang.name} className="mb-1 text-end">
+                            <small key={lang.name} className="small">
+                              {lang.name} ({lang.percentage}%)
+                            </small>
+                          </div>
+                        ))}
+                      </div>
                     </div>
                   </td>
                 </tr>

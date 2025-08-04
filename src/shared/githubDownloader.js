@@ -83,23 +83,6 @@ function githubApiHeaders() {
 // ----------------------------------------------------------------------------
 // Fetchers
 // ----------------------------------------------------------------------------
-function categoryLabel(categoryCode) {
-  switch (categoryCode) {
-    case 'python':
-      return 'Python';
-    case 'data-science':
-      return 'Data Science';
-    case 'full-stack':
-      return 'Full Stack';
-    case 'react':
-      return 'React';
-    case 'openedx':
-      return 'Open edX';
-    default:
-      return null;
-  }
-}
-
 function categories(org, topics) {
   const retval = [];
   if (!topics || topics.length === 0) return [];
@@ -352,7 +335,6 @@ async function fetchSingleRepo(username, repoName) {
     if (response.ok) {
       const repo = await response.json();
       const categoriesList = categories(username, repo.topics || []);
-      const categoryLabels = categoriesList ? categoriesList.map(categoryLabel).filter(Boolean) : [];
       return {
         name: repo.name,
         html_url: repo.html_url,
@@ -364,7 +346,6 @@ async function fetchSingleRepo(username, repoName) {
         stargazers_count: repo.stargazers_count,
         topics: repo.topics || [],
         categories: categoriesList,
-        categoryLabels: categoryLabels,
       };
     } else {
       console.error(`Error fetching repo ${username}/${repoName}: ${response.statusText}`);
@@ -388,7 +369,6 @@ async function fetchGitHubOrg(entity) {
         const repos = await response.json();
         return repos.map(repo => {
           const categoriesList = categories(repo.owner.login, repo.topics || []);
-          const categoryLabels = categoriesList ? categoriesList.map(categoryLabel).filter(Boolean) : [];
 
           return {
             name: repo.owner.login + '/' + repo.name,
@@ -401,7 +381,6 @@ async function fetchGitHubOrg(entity) {
             stargazers_count: repo.stargazers_count,
             topics: repo.topics || [],
             categories: categoriesList,
-            categoryLabels: categoryLabels,
           };
         });
       } else {
