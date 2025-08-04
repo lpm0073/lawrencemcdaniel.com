@@ -7,17 +7,25 @@ import Loading from '../../components/Loading'
 import './styles.css'
 
 function categoryUrl(categoryCode) {
-    // anchor links to the specialties page
-    switch (categoryCode) {
-        case 'aws': return '/full-stack-developer'
-        case 'data-science': return '/data-science'
-        case 'full-stack': return '/full-stack-developer'
-        case 'openedx': return '/openedx'
-        case 'python': return '/full-stack-developer'
-        case 'react': return '/reactjs'
-        case 'terraform': return '/full-stack-developer'
-        default: return null
-    }
+  // anchor links to the specialties page
+  switch (categoryCode) {
+    case 'aws':
+      return '/full-stack-developer'
+    case 'data-science':
+      return '/data-science'
+    case 'full-stack':
+      return '/full-stack-developer'
+    case 'openedx':
+      return '/openedx'
+    case 'python':
+      return '/full-stack-developer'
+    case 'react':
+      return '/reactjs'
+    case 'terraform':
+      return '/full-stack-developer'
+    default:
+      return null
+  }
 }
 
 function categoryLogoUrl(categoryCode, reduxSpecialties) {
@@ -56,7 +64,6 @@ function categoryLogoUrl(categoryCode, reduxSpecialties) {
 }
 
 function categoryIcon(categoryCode, reduxSpecialties) {
-
   return (
     <a href={categoryUrl(categoryCode)}>
       <img
@@ -67,7 +74,6 @@ function categoryIcon(categoryCode, reduxSpecialties) {
       />
     </a>
   )
-
 }
 
 function categoryLabel(categoryCode) {
@@ -85,7 +91,7 @@ function categoryLabel(categoryCode) {
     case 'openedx':
       return 'Open edX'
     case 'terraform':
-        return 'Terraform'
+      return 'Terraform'
     default:
       return null
   }
@@ -155,6 +161,14 @@ const CodeSamplesTable = ({ category }) => {
                       <tbody>
                         <tr>
                           <td>
+                            {repo.private && (
+                              <img
+                                src="/assets/images/padlock.png"
+                                alt="Private repository"
+                                height="16"
+                                style={{ marginRight: '8px', verticalAlign: 'middle' }}
+                              />
+                            )}
                             <a
                               href={repo.html_url}
                               target="_blank"
@@ -187,11 +201,11 @@ const CodeSamplesTable = ({ category }) => {
                   <td>
                     <div className="mt-2 text-end text-muted mb-3">
                       <div className="d-flex justify-content-end">
-                          {(repo.categoryIcons || []).slice(0, 6).map((icon, index) => (
+                        {(repo.categoryIcons || []).slice(0, 6).map((icon, index) => (
                           <span key={index} className="ms-2">
-                              {icon}
+                            {icon}
                           </span>
-                          ))}
+                        ))}
                       </div>
                     </div>
                     <table className="table-sm m-0 p-0 w-100 text-center small text-muted">
@@ -255,6 +269,7 @@ const repositoriesStateShape = PropTypes.shape({
     PropTypes.shape({
       name: PropTypes.string.isRequired,
       html_url: PropTypes.string.isRequired,
+      private: PropTypes.bool,
       description: PropTypes.string,
       topics: PropTypes.arrayOf(PropTypes.string),
       languages: PropTypes.arrayOf(
