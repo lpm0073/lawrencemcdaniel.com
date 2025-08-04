@@ -12,7 +12,7 @@ export const URL_SITE = protocol + '://' + domainName
 export const URL_API = protocol + '://api.' + domainName
 export const URL_CDN = protocol + '://cdn.' + domainName
 
-export const resumeUrl = URL_CDN + '/doc/Resume-Lawrence-McDaniel-202211b.pdf'
+export const resumeUrl = URL_CDN + '/doc/lawrence-mcdaniel-resume-202509.pdf'
 export const backendUrl = URL_API + '/wp-json/wp/v2/'
 
 export const URL_API_REPOSITORIES = '/github.json'
