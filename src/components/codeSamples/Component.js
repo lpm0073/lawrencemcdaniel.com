@@ -6,6 +6,20 @@ import Loading from '../../components/Loading'
 
 import './styles.css'
 
+function categoryUrl(categoryCode) {
+    // anchor links to the specialties page
+    switch (categoryCode) {
+        case 'aws': return '/full-stack-developer'
+        case 'data-science': return '/data-science'
+        case 'full-stack': return '/full-stack-developer'
+        case 'openedx': return '/openedx'
+        case 'python': return '/full-stack-developer'
+        case 'react': return '/reactjs'
+        case 'terraform': return '/full-stack-developer'
+        default: return null
+    }
+}
+
 function categoryLogoUrl(categoryCode, reduxSpecialties) {
   // shortcuts
   switch (categoryCode) {
@@ -42,15 +56,18 @@ function categoryLogoUrl(categoryCode, reduxSpecialties) {
 }
 
 function categoryIcon(categoryCode, reduxSpecialties) {
-  console.log('categoryIcon() categoryCode', categoryCode)
+
   return (
-    <img
-      src={categoryLogoUrl(categoryCode, reduxSpecialties)}
-      alt={categoryLabel(categoryCode)}
-      height="20"
-      style={{ objectFit: 'contain' }}
-    />
+    <a href={categoryUrl(categoryCode)}>
+      <img
+        src={categoryLogoUrl(categoryCode, reduxSpecialties)}
+        alt={categoryLabel(categoryCode)}
+        height="20"
+        style={{ objectFit: 'contain' }}
+      />
+    </a>
   )
+
 }
 
 function categoryLabel(categoryCode) {
@@ -170,7 +187,7 @@ const CodeSamplesTable = ({ category }) => {
                   <td>
                     <div className="mt-2 text-end text-muted mb-3">
                       <div className="d-flex justify-content-end">
-                          {(repo.categoryIcons || []).slice(0, 3).map((icon, index) => (
+                          {(repo.categoryIcons || []).slice(0, 6).map((icon, index) => (
                           <span key={index} className="ms-2">
                               {icon}
                           </span>
