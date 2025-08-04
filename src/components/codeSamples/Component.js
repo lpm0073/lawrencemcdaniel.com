@@ -64,11 +64,13 @@ function categoryLogoUrl(categoryCode, reduxSpecialties) {
 }
 
 function categoryIcon(categoryCode, reduxSpecialties) {
+  const categoryLabelText = categoryLabel(categoryCode)
   return (
     <a href={categoryUrl(categoryCode)}>
       <img
         src={categoryLogoUrl(categoryCode, reduxSpecialties)}
-        alt={categoryLabel(categoryCode)}
+        alt={categoryLabelText}
+        title={`Click to view ${categoryLabelText} projects`}
         height="20"
         style={{ objectFit: 'contain' }}
       />
