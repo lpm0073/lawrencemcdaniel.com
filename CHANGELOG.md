@@ -1,3 +1,10 @@
+## [1.4.1](https://github.com/lpm0073/lawrencemcdaniel.com/compare/v1.4.0...v1.4.1) (2025-08-04)
+
+
+### Bug Fixes
+
+* switch to api driven github meta data ([28616d0](https://github.com/lpm0073/lawrencemcdaniel.com/commit/28616d0366db17993d7ea0c8504e3680328175c0))
+
 # [1.4.0](https://github.com/lpm0073/lawrencemcdaniel.com/compare/v1.3.8...v1.4.0) (2025-08-01)
 
 
