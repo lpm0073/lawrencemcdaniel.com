@@ -1,6 +1,6 @@
 {
   "name": "lawrencemcdaniel.com",
-  "version": "1.4.1",
+  "version": "1.4.2",
   "description": "personal web site for Lawrence McDaniel",
   "private": true,
   "proxy": "https://api.linkedin.com",
