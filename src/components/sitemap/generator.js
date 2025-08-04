@@ -22,8 +22,8 @@ const routes = [
 
 const priorities = {
   '/': 1.0,
-  '/contact': 0.9,
-  '/consulting': 0.75,
+  '/contact': 0.8,
+  '/consulting': 0.9,
   '/qr': 0.5,
   '/about': 0.75,
   '/openedx': 0.75,
