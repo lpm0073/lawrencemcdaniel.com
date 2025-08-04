@@ -83,19 +83,36 @@ function githubApiHeaders() {
 // ----------------------------------------------------------------------------
 // Fetchers
 // ----------------------------------------------------------------------------
+function categoryLabel(categoryCode) {
+  switch (categoryCode) {
+    case 'python':
+      return 'Python';
+    case 'data-science':
+      return 'Data Science';
+    case 'full-stack':
+      return 'Full Stack';
+    case 'react':
+      return 'React';
+    case 'openedx':
+      return 'Open edX';
+    default:
+      return null;
+  }
+}
+
 function categories(org, topics) {
   const retval = [];
   if (!topics || topics.length === 0) return [];
-  if (topics.includes('python')) retval.push('Python');
-  if (topics.includes('data-science')) retval.push('Data Science');
+  if (topics.includes('python')) retval.push('python');
+  if (topics.includes('data-science')) retval.push('data-science');
   if (org === 'smarter-sh') {
-    retval.push('Full Stack');
+    retval.push('full-stack');
   }
   if (topics.includes('react') || topics.includes('reactjs')) {
-    retval.push('React');
+    retval.push('react');
   }
   if (topics.includes('openedx')) {
-    retval.push('Open edX');
+    retval.push('openedx');
   }
   return retval.length > 0 ? retval : [];
 }
@@ -334,6 +351,8 @@ async function fetchSingleRepo(username, repoName) {
     });
     if (response.ok) {
       const repo = await response.json();
+      const categoriesList = categories(username, repo.topics || []);
+      const categoryLabels = categoriesList ? categoriesList.map(categoryLabel).filter(Boolean) : [];
       return {
         name: repo.name,
         html_url: repo.html_url,
@@ -344,7 +363,8 @@ async function fetchSingleRepo(username, repoName) {
         watchers: repo.watchers,
         stargazers_count: repo.stargazers_count,
         topics: repo.topics || [],
-        categories: categories(username, repo.topics),
+        categories: categoriesList,
+        categoryLabels: categoryLabels,
       };
     } else {
       console.error(`Error fetching repo ${username}/${repoName}: ${response.statusText}`);
@@ -366,19 +386,26 @@ async function fetchGitHubOrg(entity) {
       });
       if (response.ok) {
         const repos = await response.json();
-        return repos.map(repo => ({
-          name: repo.owner.login + '/' + repo.name,
-          html_url: repo.html_url,
-          description: repo.description,
-          visibility: repo.visibility,
-          forks: repo.forks,
-          open_issues: repo.open_issues,
-          watchers: repo.watchers,
-          stargazers_count: repo.stargazers_count,
-          topics: repo.topics || [],
-          categories: categories(repo.owner.login, repo.topics || []),
-        }));
+        return repos.map(repo => {
+          const categoriesList = categories(repo.owner.login, repo.topics || []);
+          const categoryLabels = categoriesList ? categoriesList.map(categoryLabel).filter(Boolean) : [];
+
+          return {
+            name: repo.owner.login + '/' + repo.name,
+            html_url: repo.html_url,
+            description: repo.description,
+            visibility: repo.visibility,
+            forks: repo.forks,
+            open_issues: repo.open_issues,
+            watchers: repo.watchers,
+            stargazers_count: repo.stargazers_count,
+            topics: repo.topics || [],
+            categories: categoriesList,
+            categoryLabels: categoryLabels,
+          };
+        });
       } else {
+
         console.error(`Error fetching repos for ${entity} (${type}): ${response.statusText}`);
       }
     } catch (error) {

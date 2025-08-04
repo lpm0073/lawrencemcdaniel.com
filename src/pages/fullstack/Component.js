@@ -96,7 +96,7 @@ const Fullstack = (props) => {
             <p className="text-center">
               Hire me! I can help you with your next project, more details <a href="/consulting">here</a>.
             </p>
-            <CodeSamplesTable category="Full Stack" />
+            <CodeSamplesTable category="full-stack" />
           </div>
         </div>
 
