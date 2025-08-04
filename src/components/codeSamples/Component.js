@@ -7,9 +7,10 @@ import Loading from '../../components/Loading'
 import './styles.css'
 
 function categoryLogoUrl(categoryCode, reduxSpecialties) {
-
   // shortcuts
   switch (categoryCode) {
+    case 'aws':
+      return 'assets/images/aws-logo.png'
     case 'python':
       return 'assets/images/python-logo.png'
     case 'data-science':
@@ -20,7 +21,10 @@ function categoryLogoUrl(categoryCode, reduxSpecialties) {
       return 'assets/images/react-logo-300x261.png'
     case 'openedx':
       return 'assets/images/edx-logo.png'
+    case 'terraform':
+      return 'assets/images/terraform-logo.png'
   }
+  console.error('categoryLogoUrl() unknown categoryCode', categoryCode)
 
   // reduxSpecialties.items[i].slug
   //reduxSpecialties.items[i]._embedded.wp:featuredmedia[0].source_url
@@ -38,6 +42,7 @@ function categoryLogoUrl(categoryCode, reduxSpecialties) {
 }
 
 function categoryIcon(categoryCode, reduxSpecialties) {
+  console.log('categoryIcon() categoryCode', categoryCode)
   return (
     <img
       src={categoryLogoUrl(categoryCode, reduxSpecialties)}
@@ -50,6 +55,8 @@ function categoryIcon(categoryCode, reduxSpecialties) {
 
 function categoryLabel(categoryCode) {
   switch (categoryCode) {
+    case 'aws':
+      return 'AWS'
     case 'python':
       return 'Python'
     case 'data-science':
@@ -60,6 +67,8 @@ function categoryLabel(categoryCode) {
       return 'React'
     case 'openedx':
       return 'Open edX'
+    case 'terraform':
+        return 'Terraform'
     default:
       return null
   }

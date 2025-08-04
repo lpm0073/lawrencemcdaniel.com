@@ -90,6 +90,10 @@ function categories(org, topics) {
   if (topics.includes('data-science')) retval.add('data-science');
   if (topics.includes('full-stack')) retval.add('full-stack');
   if (topics.includes('fullstack')) retval.add('full-stack');
+  if (topics.includes('terraform')) retval.add('terraform');
+  if (topics.includes('terraform')) retval.add('full-stack');
+  if (topics.includes('terraform')) retval.add('aws');
+  if (topics.includes('aws')) retval.add('aws');
   if (org === 'smarter-sh') {
     retval.add('full-stack');
   }

@@ -1,5 +1,5 @@
 import { wpGetFeaturedImage } from './wpGetFeaturedImage'
-import { CACHE_NAME_IMAGE } from './constants'
+import { CACHE_NAME_IMAGE, CACHE_EXPIRATION_IMAGES } from './constants'
 import { setCacheTimestamp, isCacheExpired } from './caching'
 
 /* eslint-disable no-unused-vars */
@@ -10,7 +10,7 @@ export const imagePreFetcher = (arr, delay, desc) => {
       if (url) {
         caches.open(CACHE_NAME_IMAGE).then((cache) => {
           cache.match(url).then((response) => {
-            if (response && !isCacheExpired(url)) {
+            if (response && !isCacheExpired(url, CACHE_EXPIRATION_IMAGES)) {
               response.blob().then((blob) => {
                 const objectURL = URL.createObjectURL(blob)
                 new Image().src = objectURL
