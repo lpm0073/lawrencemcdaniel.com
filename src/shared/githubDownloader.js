@@ -63,6 +63,7 @@ const GITHUB_ENTITIES = ['FullStackWithLawrence', 'smarter-sh', 'cookiecutter-op
 
 const INDIVIDUAL_REPOS = [
   { username: 'lpm0073', repoName: 'lawrencemcdaniel.com' },
+  { username: 'lpm0073', repoName: 'openedx_devops' },
   { username: 'Turn-The-Bus', repoName: 'turnthebus-edx-plugin' },
   { username: 'StepwiseMath', repoName: 'stepwise-edx-plugin' }
 ]
@@ -508,7 +509,7 @@ async function fetchSingleRepo(username, repoName) {
       const repo = await response.json()
       const categoriesList = categories(username, repo.topics || [])
       return {
-        name: repo.name,
+        name: username + '/' + repo.name,
         html_url: repo.html_url,
         private: repo.private,
         description: repo.description,
