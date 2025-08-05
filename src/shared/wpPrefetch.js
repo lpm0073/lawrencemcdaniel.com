@@ -1,6 +1,6 @@
 import { precacheAndRoute } from 'workbox-precaching'
 import { wpGetFeaturedImage } from './wpGetFeaturedImage'
-import { CACHE_NAME_API, CACHE_NAME_IMAGE } from './constants'
+import { CACHE_NAME_API, CACHE_NAME_CDN } from './constants'
 
 
 export const wpPrefetch = async (url) => {
@@ -24,8 +24,6 @@ export const wpPrefetch = async (url) => {
       console.error('wpPrefetch() API Fetch error:', error)
       return
     }
-  } else {
-    console.log("wpPrefetch() found cached API json response", url)
   }
 
   // 2. Parse API response
@@ -38,7 +36,7 @@ export const wpPrefetch = async (url) => {
   }
 
   // 3. Extract image URLs and prefetch/apiCache them
-  const imageCache = await caches.open(CACHE_NAME_IMAGE)
+  const imageCache = await caches.open(CACHE_NAME_CDN)
   const urls = []
 
   for (const post of arr) {
@@ -53,9 +51,9 @@ export const wpPrefetch = async (url) => {
       const cachedImage = await imageCache.match(imageUrl)
       if (!cachedImage) {
         try {
-          console.log("wpPrefetch() prefetching image: ", imageUrl)
           const imageResponse = await fetch(imageUrl)
           if (imageResponse.ok) {
+            console.log("wpPrefetch() caching image: ", imageUrl)
             imageCache.put(imageUrl, imageResponse.clone())
           } else {
             console.error('wpPrefetch() Image Error ' + imageResponse.status + ': ' + imageResponse.statusText)
@@ -63,15 +61,12 @@ export const wpPrefetch = async (url) => {
         } catch (error) {
           console.error('wpPrefetch() Image Fetch error:', error)
         }
-      } else {
-        console.log("wpPrefetch() found cached image: ", imageUrl)
       }
     }
   }
 
   // 4. Precache with Workbox (optional, if you want Workbox to manage these)
   if (urls.length > 0) {
-    console.log('wpPrefetch() precaching images with Workbox: ', urls)
     precacheAndRoute(urls)
   }
 }
