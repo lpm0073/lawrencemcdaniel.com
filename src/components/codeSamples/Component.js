@@ -7,7 +7,11 @@ import Loading from '../../components/Loading'
 import './styles.css'
 
 function categoryUrl(categoryCode) {
-  // anchor links to the specialties page
+  /*
+    anchor links to the specialties page. These are internal page
+    links to follow when an icon is clicked.
+    Part of repository metadata.
+  */
   switch (categoryCode) {
     case 'aws':
       return '/full-stack-developer'
@@ -29,7 +33,10 @@ function categoryUrl(categoryCode) {
 }
 
 function categoryLogoUrl(categoryCode, reduxSpecialties) {
-  // shortcuts
+  /*
+    returns the internal URL of the logo image for a given category code.
+    Part of repository metadata.
+   */
   switch (categoryCode) {
     case 'aws':
       return 'assets/images/aws-logo.png'
@@ -46,10 +53,10 @@ function categoryLogoUrl(categoryCode, reduxSpecialties) {
     case 'terraform':
       return 'assets/images/terraform-logo.png'
   }
-  console.error('categoryLogoUrl() unknown categoryCode', categoryCode)
+  console.warn('categoryLogoUrl() categoryCode is not locally served', categoryCode)
 
   // reduxSpecialties.items[i].slug
-  //reduxSpecialties.items[i]._embedded.wp:featuredmedia[0].source_url
+  // reduxSpecialties.items[i]._embedded.wp:featuredmedia[0].source_url
   const specialty = reduxSpecialties.items.find((item) => item.slug === categoryCode)
   if (
     specialty &&
@@ -59,11 +66,16 @@ function categoryLogoUrl(categoryCode, reduxSpecialties) {
   ) {
     return specialty._embedded['wp:featuredmedia'][0].source_url
   }
+  console.error('categoryLogoUrl() unknown categoryCode', categoryCode)
 
   return null
 }
 
 function categoryIcon(categoryCode, reduxSpecialties) {
+  /*
+    returns an <img> element for a given category code.
+    Part of repository metadata.
+   */
   const categoryLabelText = categoryLabel(categoryCode)
   return (
     <a href={categoryUrl(categoryCode)}>
@@ -79,6 +91,12 @@ function categoryIcon(categoryCode, reduxSpecialties) {
 }
 
 function categoryLabel(categoryCode) {
+  /*
+    Pretty label for a given category code, to be rendered to the browser
+    as text.
+
+    Part of repository metadata. Not currently used.
+   */
   switch (categoryCode) {
     case 'aws':
       return 'AWS'
@@ -100,6 +118,11 @@ function categoryLabel(categoryCode) {
 }
 
 const CodeCategories = ({ repo }) => {
+  /*
+    Renders up to six category icons for the given repository.
+    Part of repository metadata. Sourced from github.json.
+    This is the foundation for all icon, url and label logic above.
+   */
   return (
     <div className="mt-2 text-end text-muted mb-3">
       <div className="d-flex justify-content-end">
@@ -116,7 +139,11 @@ CodeCategories.propTypes = {
   repo: PropTypes.object.isRequired,
 }
 
-const CodePopularity = ({ repo }) => {
+const CodeEngagement = ({ repo }) => {
+  /*
+    Renders a table showing the popularity metrics for the given repository.
+    Part of repository metadata. Sourced from github.json.
+   */
   return (
     <table className="table-sm m-0 p-0 w-100 text-center small text-muted">
       <thead>
@@ -138,11 +165,15 @@ const CodePopularity = ({ repo }) => {
     </table>
   )
 }
-CodePopularity.propTypes = {
+CodeEngagement.propTypes = {
   repo: PropTypes.object.isRequired,
 }
 
 const CodeCommits = ({ repo }) => {
+  /*
+    Renders the last commit date and total commits for the given repository.
+    Part of repository metadata. Sourced from github.json.
+   */
   return (
     <div className="mt-2">
       <small className="text-muted text-end">
@@ -164,6 +195,10 @@ CodeCommits.propTypes = {
 }
 
 const CodeLanguages = ({ repo }) => {
+  /*
+    Renders a list of up to 3 programming languages used in the given repository.
+    Part of repository metadata. Sourced from github.json.
+   */
   return (
     <div className="mt-2">
       <div className="mb-1 text-end text-muted">
@@ -184,10 +219,14 @@ CodeLanguages.propTypes = {
 }
 
 const CodeMetadata = ({ repo }) => {
+  /*
+   Top-level component that renders metadata information for the given repository.
+   Only shown on medium and larger screens.
+   */
   return (
     <div>
       <CodeCategories repo={repo} />
-      <CodePopularity repo={repo} />
+      <CodeEngagement repo={repo} />
       <CodeCommits repo={repo} />
       <hr />
       <CodeLanguages repo={repo} />
@@ -199,6 +238,9 @@ CodeMetadata.propTypes = {
 }
 
 const CodeRepositoryLink = ({ repo }) => {
+  /*
+   Renders a link to the given repository, with a padlock icon if it's private.
+   */
   return (
     <div>
       {repo.private && (
@@ -220,6 +262,10 @@ CodeRepositoryLink.propTypes = {
 }
 
 const CodeDescription = ({ repo }) => {
+  /*
+    Renders the README content snippet for the given repository, or a placeholder if none exists.
+    README filtering logic is handled in shared/githubDownloader.js.
+   */
   return (
     <div
       className="code-sample-readme align-top text-break"
@@ -239,6 +285,9 @@ CodeDescription.propTypes = {
 }
 
 const CodeRepository = ({ repo }) => {
+  /*
+    Top-level component that renders the repository link and description.
+   */
   return (
     <table className="mb-0">
       <tbody>
@@ -261,6 +310,10 @@ CodeRepository.propTypes = {
 }
 
 const CodeSamplesTable = ({ category }) => {
+  /*
+   Main component.
+   Renders a table of code samples for the given category.
+   */
   const reduxRepositories = useSelector((state) => state.repositories)
   const reduxSpecialties = useSelector((state) => state.specialties)
   const filteredRepositories = [
