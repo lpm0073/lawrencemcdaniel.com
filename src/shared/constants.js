@@ -41,8 +41,9 @@ function versioned_cached(name) {
   return name + '-' + CACHE_VERSION
 }
 
-export const CACHE_EXPIRATION_IMAGES = (24 * 60 * 60 * 1000 * 30)  // 30 days
-export const CACHE_EXPIRATION_API = (1 * 60 * 60 * 1000 * 1)  // 1 hour
+export const CACHE_EXPIRATION_IMAGES = (24 * 60 * 60 * 30)  // 30 days
+export const CACHE_EXPIRATION_API = (1 * 60 * 60 * 1)  // 1 hour
+export const CACHE_EXPIRATION_APP = (24 * 60 * 60 * 7)  // 7 days
 export const CACHE_NAME_APP = versioned_cached('manifest')
 export const CACHE_NAME_API = versioned_cached('api-responses')
 export const CACHE_NAME_CDN = versioned_cached('cdn-responses')

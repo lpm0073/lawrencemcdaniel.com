@@ -19,11 +19,8 @@ import { CacheFirst } from 'workbox-strategies'
 import { registerRoute } from 'workbox-routing'
 import { StaleWhileRevalidate } from 'workbox-strategies'
 //-----------------------------------------------
-import { DEBUG, CACHE_EXPIRATION_IMAGES, CACHE_EXPIRATION_API, CACHE_NAME_APP, CACHE_NAME_API, CACHE_NAME_CDN, CACHE_NAME_STATIC_IMAGE } from './shared/constants'
 
-
-
-
+import { DEBUG, CACHE_EXPIRATION_IMAGES, CACHE_EXPIRATION_API, CACHE_EXPIRATION_APP, CACHE_NAME_APP, CACHE_NAME_API, CACHE_NAME_CDN, CACHE_NAME_STATIC_IMAGE } from './shared/constants'
 import { wpPrefetch } from './shared/wpPrefetch'
 import {
   URL_CDN, // AWS Cloudfront distribution: https://cdn.lawrencemcdaniel.com
@@ -60,21 +57,22 @@ function isImageFile(url) {
   )
 }
 
+// ------------------------- Cache Expiration Policies ------------------------
 const app_cache_expiration = new ExpirationPlugin({
   maxEntries: 100,           // Maximum number of entries to keep
-  maxAgeSeconds: 60 * 60 * 24 * 7,  // 7 days in seconds
+  maxAgeSeconds: CACHE_EXPIRATION_APP,
   purgeOnQuotaError: true,  // Delete cache if storage quota exceeded
 })
 
 const api_cache_expiration = new ExpirationPlugin({
   maxEntries: 100,           // Maximum number of entries to keep
-  maxAgeSeconds: CACHE_EXPIRATION_API / 1000,  // Convert ms to seconds
+  maxAgeSeconds: CACHE_EXPIRATION_API,
   purgeOnQuotaError: true,  // Delete cache if storage quota exceeded
 })
 
 const image_cache_expiration = new ExpirationPlugin({
   maxEntries: 1000,           // Maximum number of entries to keep
-  maxAgeSeconds: CACHE_EXPIRATION_IMAGES / 1000,  // Convert ms to seconds
+  maxAgeSeconds: CACHE_EXPIRATION_IMAGES,
   purgeOnQuotaError: true,  // Delete cache if storage quota exceeded
 })
 
@@ -195,5 +193,4 @@ self.addEventListener('message', (event) => {
   wpPrefetch(URL_API_RECOMMENDATIONS)
 }
 
-// Initialize the service worker
 initializeServiceWorker()
