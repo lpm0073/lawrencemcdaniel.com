@@ -29,6 +29,38 @@ export default function Head(props) {
         />
         <meta name="theme-color" content="#f1f1f1" />
 
+        {/* Additional SEO and Technical Meta Tags */}
+        <meta name="robots" content="index, follow" />
+        <meta name="language" content="English" />
+        <meta httpEquiv="Content-Language" content="en-us" />
+        <meta name="rating" content="General" />
+        <meta name="distribution" content="Global" />
+        <meta name="revisit-after" content="7 days" />
+
+        {/* Security Headers */}
+        <meta name="referrer" content="strict-origin-when-cross-origin" />
+
+        {/* Performance Hints */}
+        <link rel="dns-prefetch" href="//fonts.googleapis.com" />
+        <link rel="dns-prefetch" href="//cdnjs.cloudflare.com" />
+        <link rel="preconnect" href="https://fonts.gstatic.com" crossOrigin="" />
+
+        {/* Additional Structured Data */}
+        <meta name="geo.region" content="US" />
+        <meta name="geo.placename" content="United States" />
+
+        {/* Mobile App Tags */}
+        <meta name="mobile-web-app-capable" content="yes" />
+        <meta name="application-name" content={basePageTitle} />
+        <meta name="apple-mobile-web-app-capable" content="yes" />
+        <meta name="apple-mobile-web-app-status-bar-style" content="black-translucent" />
+        <meta name="apple-mobile-web-app-title" content={basePageTitle} />
+
+        {/* Microsoft Tiles */}
+        <meta name="msapplication-TileColor" content="#f1f1f1" />
+        <meta name="msapplication-config" content="/browserconfig.xml" />
+
+        {/* Facebook Open Graph Meta Tags */}
         <meta
           property="og:description"
           content="Lawrence McDaniel is a data scientist, full stack developer, digital content creator, and Open edX® Consultant specializing in Python, ReactJS, Terraform, AWS, Azure, and Kubernetes."
@@ -43,6 +75,7 @@ export default function Head(props) {
         <meta property="og:image:width" content="1849" />
         <meta property="og:image:height" content="1848" />
 
+        {/* Twitter Card Meta Tags */}
         <meta name="twitter:card" content="summary_large_image" />
         <meta name="twitter:site" content="@LorenzoDPolanco" />
         <meta name="twitter:domain" content="lawrencemcdaniel.com" />
