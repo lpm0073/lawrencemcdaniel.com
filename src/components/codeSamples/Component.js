@@ -379,7 +379,7 @@ const CodeSamplesTable = ({ category }) => {
    Renders a table of code samples for the given category.
    */
   const reduxRepositories = useSelector((state) => state.repositories)
-  const reduxSpecialties = useSelector((state) => state.specialties)
+  const reduxSpecialties = useSelector((state) => state.specialties)    // for future use.
   const filteredRepositories = [
     ...(category
       ? reduxRepositories.repos.filter((redux) => redux.categories.includes(category))
@@ -422,31 +422,29 @@ const CodeSamplesTable = ({ category }) => {
       {reduxRepositories.isLoading ? (
         <Loading />
       ) : (
-        <div>
-          <table
-            className="table table-bordered table-striped table-fixed mt-4 w-100"
-            id="code-samples-table"
-          >
-            <thead className="thead-dark">
-              <tr>
-                <th style={{ width: '80%' }}>Repository</th>
-                <th className="hide-medium" style={{ width: '20%' }}></th>
+        <table
+          className="table table-bordered table-striped table-fixed mt-4 w-100"
+          id="code-samples-table"
+        >
+          <thead className="thead-dark">
+            <tr>
+              <th style={{ width: '80%' }}>Repository</th>
+              <th className="hide-medium" style={{ width: '20%' }}></th>
+            </tr>
+          </thead>
+          <tbody>
+            {filteredRepositories.map((repo) => (
+              <tr key={repo.name}>
+                <td className="align-top">
+                  <CodeRepository repo={repo} />
+                </td>
+                <td className="hide-medium">
+                  <CodeMetadata repo={repo} />
+                </td>
               </tr>
-            </thead>
-            <tbody>
-              {filteredRepositories.map((repo) => (
-                <tr key={repo.name}>
-                  <td className="align-top">
-                    <CodeRepository repo={repo} />
-                  </td>
-                  <td className="hide-medium">
-                    <CodeMetadata repo={repo} />
-                  </td>
-                </tr>
-              ))}
-            </tbody>
-          </table>
-        </div>
+            ))}
+          </tbody>
+        </table>
       )}
     </div>
   )
