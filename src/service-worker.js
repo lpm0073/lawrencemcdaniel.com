@@ -19,7 +19,7 @@ import { CacheFirst } from 'workbox-strategies'
 import { registerRoute } from 'workbox-routing'
 import { StaleWhileRevalidate } from 'workbox-strategies'
 //-----------------------------------------------
-import { DEBUG } from './shared/constants'
+import { DEBUG, CACHE_EXPIRATION_IMAGES, CACHE_EXPIRATION_API } from './shared/constants'
 import { wpPrefetch } from './shared/wpPrefetch'
 import {
   URL_CDN, // AWS Cloudfront distribution: https://cdn.lawrencemcdaniel.com
@@ -35,6 +35,24 @@ import {
   URL_API_PROJECTS,
   URL_API_CLIENTS,
 } from './shared/constants'
+
+const app_expiration = new ExpirationPlugin({
+  maxEntries: 25,           // Maximum number of entries to keep
+  maxAgeSeconds: 60 * 60 * 24 * 7,  // 7 days in seconds
+  purgeOnQuotaError: true,  // Delete cache if storage quota exceeded
+})
+
+const api_expiration = new ExpirationPlugin({
+  maxEntries: 25,           // Maximum number of entries to keep
+  maxAgeSeconds: CACHE_EXPIRATION_API / 1000,  // Convert ms to seconds
+  purgeOnQuotaError: true,  // Delete cache if storage quota exceeded
+})
+
+const image_expiration = new ExpirationPlugin({
+  maxEntries: 1000,           // Maximum number of entries to keep
+  maxAgeSeconds: CACHE_EXPIRATION_IMAGES / 1000,  // Convert ms to seconds
+  purgeOnQuotaError: true,  // Delete cache if storage quota exceeded
+})
 
 // Initialize cache version synchronously with a default
 let CACHE_VERSION = '1.0.0'
@@ -58,10 +76,8 @@ async function getCacheVersion() {
 // Update cache version asynchronously after initial setup
 getCacheVersion().then(version => {
   CACHE_VERSION = version
-  if (DEBUG) console.log('service-worker.js - CACHE_VERSION updated to: ', CACHE_VERSION)
+  console.log('service-worker.js - CACHE_VERSION: ', CACHE_VERSION)
 })
-
-if (DEBUG) console.log('service-worker.js - Initial CACHE_VERSION: ', CACHE_VERSION)
 
 // ----------------------------------------
 // create-react-app generated Workbox code
@@ -116,13 +132,21 @@ self.addEventListener('message', (event) => {
   */
 
 function isImageFile(url) {
+  const urlObj = new URL(url)
+  const pathname = urlObj.pathname
+
   return (
-    url.pathname.endsWith('.png') ||
-    url.pathname.endsWith('.jpg') ||
-    url.pathname.endsWith('.jpeg') ||
-    url.pathname.endsWith('.gif') ||
-    url.pathname.endsWith('.tif') ||
-    url.pathname.endsWith('.svg')
+    pathname.endsWith('.png') ||
+    pathname.endsWith('.jpg') ||
+    pathname.endsWith('.jpeg') ||
+    pathname.endsWith('.gif') ||
+    pathname.endsWith('.tif') ||
+    pathname.endsWith('.tiff') ||
+    pathname.endsWith('.svg') ||
+    pathname.endsWith('.webp') ||
+    pathname.endsWith('.avif') ||
+    pathname.endsWith('.bmp') ||
+    pathname.endsWith('.ico')
   )
 }
 
@@ -132,10 +156,10 @@ function versioned_cached(name) {
 
 // Cache the app manifest
 registerRoute(
-  ({ url }) => url.origin === URL_SITE + '/manifest.json',
+  ({ url }) => url.href === `${URL_SITE}/manifest.json`,
   new StaleWhileRevalidate({
     cacheName: versioned_cached('manifest'),
-    plugins: [new ExpirationPlugin({})],
+    plugins: [app_expiration],
   })
 )
 
@@ -144,7 +168,7 @@ registerRoute(
   ({ url }) => url.origin === URL_API,
   new StaleWhileRevalidate({
     cacheName: versioned_cached('api-responses'),
-    plugins: [new ExpirationPlugin({})],
+    plugins: [api_expiration],
   })
 )
 
@@ -155,7 +179,7 @@ registerRoute(
     cacheName: versioned_cached('cdn-responses'),
     plugins: [
       new CacheableResponsePlugin({ statuses: [0, 200] }),
-      new ExpirationPlugin({ maxEntries: 500 }),
+      image_expiration,
     ],
   })
 )
@@ -165,7 +189,7 @@ registerRoute(
   ({ url }) => url.origin === self.location.origin && isImageFile(url),
   new StaleWhileRevalidate({
     cacheName: versioned_cached('static-images'),
-    plugins: [new ExpirationPlugin({})],
+    plugins: [image_expiration],
   })
 )
 
@@ -176,7 +200,7 @@ registerRoute(
     url.origin === 'https://fonts.gstatic.com',
   new StaleWhileRevalidate({
     cacheName: versioned_cached('google-fonts'),
-    plugins: [new ExpirationPlugin({ maxEntries: 20 })],
+    plugins: [app_expiration],
   })
 )
 
