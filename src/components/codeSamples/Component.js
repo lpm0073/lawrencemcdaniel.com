@@ -58,6 +58,7 @@ const repositoriesStateShape = PropTypes.shape({
   repos: PropTypes.arrayOf(repoStateShape.isRequired),
 })
 
+// ---------------------------- Helper Functions ------------------------------
 
 function categoryUrl(categoryCode) {
   /*
@@ -176,6 +177,8 @@ function categoryLabel(categoryCode) {
       return null
   }
 }
+
+// ---------------------------- Internal Components ------------------------------
 
 const CodeCategories = ({ repo }) => {
   /*
@@ -369,9 +372,10 @@ CodeRepository.propTypes = {
   repo: repoStateShape.isRequired,
 }
 
+// ------------------------------ Main Component ------------------------------
+
 const CodeSamplesTable = ({ category }) => {
   /*
-   Main component.
    Renders a table of code samples for the given category.
    */
   const reduxRepositories = useSelector((state) => state.repositories)
@@ -447,10 +451,9 @@ const CodeSamplesTable = ({ category }) => {
     </div>
   )
 }
-
-
 CodeSamplesTable.propTypes = {
   category: PropTypes.string,
 }
+
 export default CodeSamplesTable
 export { repoStateShape, repositoriesStateShape }
