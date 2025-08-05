@@ -43,8 +43,12 @@ const VersionInfo = (props) => {
       />
       Workbox {WORKBOX_CORE}
       <BlankSpace />
-      <a className="mx-1 learn-more-link" href="/reactjs" target="_self">
-        Learn more
+      <a className="mx-1 learn-more-link" href="https://github.com/lpm0073/lawrencemcdaniel.com" target="_blank" rel="noreferrer noopener">
+        source
+      </a>
+      <BlankSpace />
+      <a className="mx-1 learn-more-link" href="/schema.json" target="_self">
+        schema
       </a>
     </React.Fragment>
   )
