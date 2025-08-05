@@ -1,5 +1,6 @@
 import React from 'react'
 
+import CodeSamplesTable from '../../components/codeSamples/Component'
 import RenderPageTitle from '../../components/pagetitle/pageTitleComponent'
 import { LinkedinBadge } from '../../components/linkedinBadge/Component'
 import BlankSpace from '../../components/blankSpace/Component'
@@ -337,6 +338,12 @@ const ReactPage = (props) => {
             src="https://cdn.lawrencemcdaniel.com/wp-content/uploads/2020/05/19131001/aws-react-hosting.png"
             alt="AWS React Hosting Architecture"
           />
+        </div>
+        <div className="row mt-lg-5 pl-2">
+          <div className="col-lg-12">
+            <h3 className="ml-auto text-center pl-2 mx-5">Code Samples</h3>
+            <CodeSamplesTable category="react" />
+          </div>
         </div>
       </div>
     </React.Fragment>
