@@ -313,7 +313,7 @@ const CodeSamplesTable = ({ category }) => {
             <thead className="thead-dark">
               <tr>
                 <th style={{ width: '80%' }}>Repository</th>
-                <th style={{ width: '20%' }}></th>
+                <th className="hide-medium" style={{ width: '20%' }}></th>
               </tr>
             </thead>
             <tbody>
@@ -322,7 +322,7 @@ const CodeSamplesTable = ({ category }) => {
                   <td className="align-top">
                     <CodeRepository repo={repo} />
                   </td>
-                  <td>
+                  <td className="hide-medium">
                     <CodeMetadata repo={repo} />
                   </td>
                 </tr>

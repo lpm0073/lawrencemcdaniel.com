@@ -330,7 +330,7 @@ const Openedx = (props) => {
             <h3 className="ml-auto text-center pl-2 mx-5">Open edX® Client List</h3>
             <ClientGrid clients={props.clients} filter="edx" />
           </div>
-          <div className='hide-medium'>
+          <div>
             <h3 className="ml-auto text-center pl-2 mx-5">Open edX® Code Samples</h3>
             <CodeSamplesTable category='openedx' />
           </div>
