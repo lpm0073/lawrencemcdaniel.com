@@ -146,11 +146,6 @@ export class Header extends Component {
                   </DropdownItem>
                 </DropdownMenu>
               </UncontrolledDropdown>
-              <NavItem className="hide-medium">
-                <a className="nav-link" href="/schema.json" target="_self" rel="noopener noreferrer">
-                  Schema
-                </a>
-              </NavItem>
               <NavItem>
                 <NavLink onClick={this.toggleNavItem} className="nav-link" to="/contact">
                   Contact
