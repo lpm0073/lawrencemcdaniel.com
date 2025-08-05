@@ -22,20 +22,20 @@ const routes = [
 
 const priorities = {
   '/': 1.0,
-  '/contact': 0.8,
   '/consulting': 0.9,
+  '/openedx': 0.8,
+  '/data-science': 0.8,
+  '/full-stack-developer': 0.8,
+  '/reactjs': 0.8,
+  '/contact': 0.7,
+  '/about': 0.6,
+  '/bio': 0.6,
+  '/specialties': 0.6,
+  '/portfolio': 0.6,
+  '/education': 0.6,
+  '/clients': 0.6,
+  '/react-mdr': 0.5,
   '/qr': 0.5,
-  '/about': 0.75,
-  '/openedx': 0.75,
-  '/data-science': 0.75,
-  '/bio': 0.75,
-  '/specialties': 0.75,
-  '/portfolio': 0.75,
-  '/education': 0.75,
-  '/full-stack-developer': 0.75,
-  '/reactjs': 0.5,
-  '/react-mdr': 0.25,
-  '/clients': 0.75,
 }
 
 const lastmod = new Date().toISOString()
