@@ -1,3 +1,5 @@
+import packageJson from '../../package.json' with { type: "json" }
+
 export const DEBUG = false
 
 export const baseUrl = 'http://localhost:3001/'
@@ -27,12 +29,22 @@ export const URL_API_PROJECTS =
   backendUrl + 'media?include=2324,2320,2319,2300,2295,2296,2297,2298,2299,2301,2302,2303'
 export const URL_API_CLIENTS = backendUrl + 'posts?categories=46&_embed&per_page=100'
 
-export const CACHE_NAME_API = 'wp-api-apiCache'
-export const CACHE_NAME_IMAGE = 'wp-image-apiCache'
-export const CACHE_EXPIRATION_IMAGES = (24 * 60 * 60 * 1000 * 30)  // 30 days
-export const CACHE_EXPIRATION_API = (1 * 60 * 60 * 1000 * 1)  // 1 hour
 
 export const WIKIDATA_FULLSTACK = 'https://www.wikidata.org/wiki/Q96072517'
 export const WIKIDATA_DATA_SCIENTIST = 'https://www.wikidata.org/wiki/Q29169143'
 
 export const SCHEMA_PERSON_ID_ME = URL_SITE + '/#me'
+
+export const CACHE_VERSION = packageJson.version
+
+function versioned_cached(name) {
+  return name + '-' + CACHE_VERSION
+}
+
+export const CACHE_EXPIRATION_IMAGES = (24 * 60 * 60 * 1000 * 30)  // 30 days
+export const CACHE_EXPIRATION_API = (1 * 60 * 60 * 1000 * 1)  // 1 hour
+export const CACHE_NAME_APP = versioned_cached('manifest')
+export const CACHE_NAME_API = versioned_cached('api-responses')
+export const CACHE_NAME_CDN = versioned_cached('cdn-responses')
+export const CACHE_NAME_STATIC_IMAGE = versioned_cached('static-images')
+

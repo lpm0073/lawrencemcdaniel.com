@@ -33,6 +33,7 @@ github:
 build: sitemap
 	make schema
 	make github
+	cp package.json public/package.json
 	yarn build
 
 serve:

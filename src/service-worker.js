@@ -19,7 +19,11 @@ import { CacheFirst } from 'workbox-strategies'
 import { registerRoute } from 'workbox-routing'
 import { StaleWhileRevalidate } from 'workbox-strategies'
 //-----------------------------------------------
-import { DEBUG, CACHE_EXPIRATION_IMAGES, CACHE_EXPIRATION_API } from './shared/constants'
+import { DEBUG, CACHE_EXPIRATION_IMAGES, CACHE_EXPIRATION_API, CACHE_NAME_APP, CACHE_NAME_API, CACHE_NAME_CDN, CACHE_NAME_STATIC_IMAGE } from './shared/constants'
+
+
+
+
 import { wpPrefetch } from './shared/wpPrefetch'
 import {
   URL_CDN, // AWS Cloudfront distribution: https://cdn.lawrencemcdaniel.com
@@ -36,47 +40,42 @@ import {
   URL_API_CLIENTS,
 } from './shared/constants'
 
-const app_expiration = new ExpirationPlugin({
-  maxEntries: 25,           // Maximum number of entries to keep
+
+function isImageFile(url) {
+  const urlObj = new URL(url)
+  const pathname = urlObj.pathname
+
+  return (
+    pathname.endsWith('.png') ||
+    pathname.endsWith('.jpg') ||
+    pathname.endsWith('.jpeg') ||
+    pathname.endsWith('.gif') ||
+    pathname.endsWith('.tif') ||
+    pathname.endsWith('.tiff') ||
+    pathname.endsWith('.svg') ||
+    pathname.endsWith('.webp') ||
+    pathname.endsWith('.avif') ||
+    pathname.endsWith('.bmp') ||
+    pathname.endsWith('.ico')
+  )
+}
+
+const app_cache_expiration = new ExpirationPlugin({
+  maxEntries: 100,           // Maximum number of entries to keep
   maxAgeSeconds: 60 * 60 * 24 * 7,  // 7 days in seconds
   purgeOnQuotaError: true,  // Delete cache if storage quota exceeded
 })
 
-const api_expiration = new ExpirationPlugin({
-  maxEntries: 25,           // Maximum number of entries to keep
+const api_cache_expiration = new ExpirationPlugin({
+  maxEntries: 100,           // Maximum number of entries to keep
   maxAgeSeconds: CACHE_EXPIRATION_API / 1000,  // Convert ms to seconds
   purgeOnQuotaError: true,  // Delete cache if storage quota exceeded
 })
 
-const image_expiration = new ExpirationPlugin({
+const image_cache_expiration = new ExpirationPlugin({
   maxEntries: 1000,           // Maximum number of entries to keep
   maxAgeSeconds: CACHE_EXPIRATION_IMAGES / 1000,  // Convert ms to seconds
   purgeOnQuotaError: true,  // Delete cache if storage quota exceeded
-})
-
-// Initialize cache version synchronously with a default
-let CACHE_VERSION = '1.0.0'
-
-async function getCacheVersion() {
-  try {
-    const response = await fetch(
-      'https://raw.githubusercontent.com/lpm0073/lawrencemcdaniel.com/main/package.json'
-    )
-    if (!response.ok) {
-      throw new Error(`service-worker.js Fetching package.json from GitHub returned a non-200 response: ${response.statusText}`);
-    }
-    const packageJson = await response.json()
-    return packageJson.version
-  } catch (error) {
-    console.error('service-worker.js Failed to fetch package.json:', error.message, error);
-    return '1.0.0' // Fallback version;
-  }
-}
-
-// Update cache version asynchronously after initial setup
-getCacheVersion().then(version => {
-  CACHE_VERSION = version
-  console.log('service-worker.js - CACHE_VERSION: ', CACHE_VERSION)
 })
 
 // ----------------------------------------
@@ -128,88 +127,73 @@ self.addEventListener('message', (event) => {
   --------------------------------------------------------------------------------
   McDaniel Oct-2021
   Custom caching behavior.
+  Wait for cache version before registering routes.
   --------------------------------------------------------------------------------
   */
 
-function isImageFile(url) {
-  const urlObj = new URL(url)
-  const pathname = urlObj.pathname
 
-  return (
-    pathname.endsWith('.png') ||
-    pathname.endsWith('.jpg') ||
-    pathname.endsWith('.jpeg') ||
-    pathname.endsWith('.gif') ||
-    pathname.endsWith('.tif') ||
-    pathname.endsWith('.tiff') ||
-    pathname.endsWith('.svg') ||
-    pathname.endsWith('.webp') ||
-    pathname.endsWith('.avif') ||
-    pathname.endsWith('.bmp') ||
-    pathname.endsWith('.ico')
+  async function initializeServiceWorker() {
+
+  // Now register routes with the correct cache version
+
+  // Cache the app manifest
+  registerRoute(
+    ({ url }) => url.href === `${URL_SITE}/manifest.json`,
+    new StaleWhileRevalidate({
+      cacheName: CACHE_NAME_APP,
+      plugins: [app_cache_expiration],
+    })
   )
-}
 
-function versioned_cached(name) {
-  return name + '-' + CACHE_VERSION
-}
+  // Cache api responses with a stale-while-revalidate strategy
+  registerRoute(
+    ({ url }) => url.origin === URL_API,
+    new StaleWhileRevalidate({
+      cacheName: CACHE_NAME_API,
+      plugins: [api_cache_expiration],
+    })
+  )
 
-// Cache the app manifest
-registerRoute(
-  ({ url }) => url.href === `${URL_SITE}/manifest.json`,
-  new StaleWhileRevalidate({
-    cacheName: versioned_cached('manifest'),
-    plugins: [app_expiration],
-  })
-)
+  // Cache cdn content with a CacheFirst strategy
+  registerRoute(
+    ({ url }) => url.origin === URL_CDN,
+    new CacheFirst({
+      cacheName: CACHE_NAME_CDN,
+      plugins: [
+        new CacheableResponsePlugin({ statuses: [0, 200] }),
+        image_cache_expiration,
+      ],
+    })
+  )
 
-// Cache api responses with a stale-while-revalidate strategy
-registerRoute(
-  ({ url }) => url.origin === URL_API,
-  new StaleWhileRevalidate({
-    cacheName: versioned_cached('api-responses'),
-    plugins: [api_expiration],
-  })
-)
+  // Images that are statically served from the React build itself.
+  registerRoute(
+    ({ url }) => url.origin === self.location.origin && isImageFile(url),
+    new StaleWhileRevalidate({
+      cacheName: CACHE_NAME_STATIC_IMAGE,
+      plugins: [image_cache_expiration],
+    })
+  )
 
-// Cache cdn content with a CacheFirst strategy
-registerRoute(
-  ({ url }) => url.origin === URL_CDN,
-  new CacheFirst({
-    cacheName: versioned_cached('cdn-responses'),
-    plugins: [
-      new CacheableResponsePlugin({ statuses: [0, 200] }),
-      image_expiration,
-    ],
-  })
-)
+  // Cache Google Fonts with a stale-while-revalidate strategy
+  registerRoute(
+    ({ url }) =>
+      url.origin === 'https://fonts.googleapis.com' ||
+      url.origin === 'https://fonts.gstatic.com',
+    new StaleWhileRevalidate({
+      cacheName: CACHE_NAME_APP,
+      plugins: [app_cache_expiration],
+    })
+  )
 
-// Images that are statically served from the React build itself.
-registerRoute(
-  ({ url }) => url.origin === self.location.origin && isImageFile(url),
-  new StaleWhileRevalidate({
-    cacheName: versioned_cached('static-images'),
-    plugins: [image_expiration],
-  })
-)
-
-// Cache Google Fonts with a stale-while-revalidate strategy
-registerRoute(
-  ({ url }) =>
-    url.origin === 'https://fonts.googleapis.com' ||
-    url.origin === 'https://fonts.gstatic.com',
-  new StaleWhileRevalidate({
-    cacheName: versioned_cached('google-fonts'),
-    plugins: [app_expiration],
-  })
-)
-
-// CDN IMAGE PRECACHING - run after cache version is potentially updated
-getCacheVersion().then(() => {
+  // CDN IMAGE PRECACHING
   wpPrefetch(URL_API_SPECIALTIES) // do me first!!!
   wpPrefetch(URL_API_CLIENTS)
   wpPrefetch(URL_API_EDUCATION)
   wpPrefetch(URL_API_PORTFOLIO)
   wpPrefetch(URL_API_PROJECTS)
   wpPrefetch(URL_API_RECOMMENDATIONS)
-})
+}
+
+// Initialize the service worker
+initializeServiceWorker()
