@@ -63,11 +63,11 @@ export const fetchRepositories = () => (dispatch) => {
           dispatch(addRepositories(repositories))
         })
       } else {
-        console.log('No cached GitHub repositories found, fetching ...')
         fetch(URL_API_REPOSITORIES)
           .then(
             (response) => {
               if (response.ok) {
+                console.log('fetched repositories')
                 cache.put(URL_API_REPOSITORIES, response.clone())
                 setCacheTimestamp(URL_API_REPOSITORIES)
                 return response
@@ -125,11 +125,11 @@ export const fetchSpecialties = () => (dispatch) => {
           )
         })
       } else {
-        console.log('No cached specialties found, fetching from network...')
         fetch(URL_API_SPECIALTIES)
           .then(
             (response) => {
               if (response.ok) {
+                console.log('fetched specialties')
                 cache.put(URL_API_SPECIALTIES, response.clone())
                 setCacheTimestamp(URL_API_SPECIALTIES)
                 return response
@@ -188,11 +188,11 @@ export const fetchPortfolio = () => (dispatch) => {
           imagePreFetcher(portfolio, 10, 'Portfolio')
         })
       } else {
-        console.log('No cached portfolio found, fetching from network...')
         fetch(URL_API_PORTFOLIO)
           .then(
             (response) => {
               if (response.ok) {
+                console.log('fetched portfolio')
                 cache.put(URL_API_PORTFOLIO, response.clone())
                 setCacheTimestamp(URL_API_PORTFOLIO)
                 return response
@@ -245,10 +245,10 @@ export const fetchEducation = () => (dispatch) => {
           imagePreFetcher(education, 10, 'Education')
         })
         } else {
-        console.log('No cached education found, fetching from network...')
         fetch(URL_API_EDUCATION)
           .then((response) => {
               if (response.ok) {
+                console.log('fetched education')
                 cache.put(URL_API_EDUCATION, response.clone())
                 setCacheTimestamp(URL_API_EDUCATION, CACHE_EXPIRATION_API)
                 return response
@@ -299,11 +299,11 @@ export const fetchRecommendations = () => (dispatch) => {
           imagePreFetcher(recommendations, 10, 'Recommendations')
         })
       } else {
-        console.log('No cached recommendations found, fetching from network...')
         fetch(URL_API_RECOMMENDATIONS)
           .then(
             (response) => {
               if (response.ok) {
+                console.log('fetched recommendations')
                 cache.put(URL_API_RECOMMENDATIONS, response.clone())
                 setCacheTimestamp(URL_API_RECOMMENDATIONS)
                 return response
@@ -356,11 +356,11 @@ export const fetchProjectImages = () => (dispatch) => {
           imagePreFetcher(images, 10, 'Projects')
         })
       } else {
-        console.log('No cached project images found, fetching from network...')
         fetch(URL_API_PROJECTS)
         .then(
             (response) => {
               if (response.ok) {
+                console.log('fetched project images')
                 cache.put(URL_API_PROJECTS, response.clone())
                 setCacheTimestamp(URL_API_PROJECTS)
                 return response
@@ -418,11 +418,11 @@ export const fetchClients = () => (dispatch) => {
           )
         })
       } else {
-        console.log('No cached clients found, fetching from network...')
         fetch(URL_API_CLIENTS)
         .then(
           (response) => {
             if (response.ok) {
+              console.log('fetched clients')
               cache.put(URL_API_CLIENTS, response.clone())
               setCacheTimestamp(URL_API_CLIENTS)
               return response
