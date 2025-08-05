@@ -25,7 +25,7 @@ export const wpPrefetch = async (url) => {
       return
     }
   } else {
-    console.log("wpPrefetch() API response json object is already cached: ", url)
+    console.log("wpPrefetch() found cached API json response", url)
   }
 
   // 2. Parse API response
@@ -64,7 +64,7 @@ export const wpPrefetch = async (url) => {
           console.error('wpPrefetch() Image Fetch error:', error)
         }
       } else {
-        console.log("wpPrefetch() image is already cached: ", imageUrl)
+        console.log("wpPrefetch() found cached image: ", imageUrl)
       }
     }
   }
