@@ -39,10 +39,6 @@ export default function Head(props) {
         <meta property="og:type" content="website" />
         <meta property="og:url" content={URL_SITE} />
         <meta property="og:site_name" content={basePageTitle} />
-        <meta
-          property="og:image"
-          content={URL_CDN + '/lawrencemcdaniel-headshot-square.jpeg'}
-        />
         <meta property="og:image:alt" content="Lawrence McDaniel Banner" />
         <meta property="og:image:width" content="1849" />
         <meta property="og:image:height" content="1848" />
