@@ -187,15 +187,17 @@ const CodeCategories = ({ repo }) => {
     This is the foundation for all icon, url and label logic above.
    */
   return (
-    <div className="mt-2 text-end text-muted mb-3">
-      <div className="d-flex justify-content-end">
-        {(repo.categoryIcons || []).slice(0, 6).map((icon, index) => (
-          <span key={index} className="ms-2">
-            {icon}
-          </span>
-        ))}
+    <React.Fragment>
+      <div className="mt-2 text-end text-muted mb-3">
+        <div className="d-flex justify-content-end">
+          {(repo.categoryIcons || []).slice(0, 6).map((icon, index) => (
+            <span key={index} className="ms-2">
+              {icon}
+            </span>
+          ))}
+        </div>
       </div>
-    </div>
+    </React.Fragment>
   )
 }
 CodeCategories.propTypes = {
@@ -208,24 +210,26 @@ const CodeEngagement = ({ repo }) => {
     Part of repository metadata. Sourced from github.json.
    */
   return (
-    <table className="table-sm m-0 p-0 w-100 text-center small text-muted">
-      <thead>
-        <tr>
-          <th className="w-25 border">⭐</th>
-          <th className="w-25 border">🍴</th>
-          <th className="w-25 border">👁</th>
-          <th className="w-25 border">🐛</th>
-        </tr>
-      </thead>
-      <tbody>
-        <tr className="">
-          <td className="border">{repo.stargazers_count}</td>
-          <td className="border">{repo.forks}</td>
-          <td className="border">{repo.watchers}</td>
-          <td className="border">{repo.open_issues}</td>
-        </tr>
-      </tbody>
-    </table>
+    <React.Fragment>
+      <table className="table-sm m-0 p-0 w-100 text-center small text-muted">
+        <thead>
+          <tr>
+            <th className="w-25 border">⭐</th>
+            <th className="w-25 border">🍴</th>
+            <th className="w-25 border">👁</th>
+            <th className="w-25 border">🐛</th>
+          </tr>
+        </thead>
+        <tbody>
+          <tr className="">
+            <td className="border">{repo.stargazers_count}</td>
+            <td className="border">{repo.forks}</td>
+            <td className="border">{repo.watchers}</td>
+            <td className="border">{repo.open_issues}</td>
+          </tr>
+        </tbody>
+      </table>
+    </React.Fragment>
   )
 }
 CodeEngagement.propTypes = {
@@ -238,18 +242,20 @@ const CodeCommits = ({ repo }) => {
     Part of repository metadata. Sourced from github.json.
    */
   return (
-    <div className="mt-2">
-      <small className="text-muted text-end">
-        <div>
-          Last commit:{' '}
-          {new Date(repo.last_commit_date).toLocaleDateString('en-US', {
-            month: 'short',
-            year: 'numeric',
-          })}
-        </div>
-        <div>Total commits: {repo.total_commits.toLocaleString()}</div>
-      </small>
-    </div>
+    <React.Fragment>
+      <div className="mt-2">
+        <small className="text-muted text-end">
+          <div>
+            Last commit:{' '}
+            {new Date(repo.last_commit_date).toLocaleDateString('en-US', {
+              month: 'short',
+              year: 'numeric',
+            })}
+          </div>
+          <div>Total commits: {repo.total_commits.toLocaleString()}</div>
+        </small>
+      </div>
+    </React.Fragment>
   )
 }
 
@@ -263,17 +269,19 @@ const CodeLanguages = ({ repo }) => {
     Part of repository metadata. Sourced from github.json.
    */
   return (
-    <div className="mt-2">
-      <div className="mb-1 text-end text-muted">
-        {(repo.languages || []).slice(0, 3).map((lang) => (
-          <div key={lang.name} className="mb-1 text-end">
-            <small key={lang.name} className="small">
-              {lang.name} ({lang.percentage}%)
-            </small>
-          </div>
-        ))}
+    <React.Fragment>
+      <div className="mt-2">
+        <div className="mb-1 text-end text-muted">
+          {(repo.languages || []).slice(0, 3).map((lang) => (
+            <div key={lang.name} className="mb-1 text-end">
+              <small key={lang.name} className="small">
+                {lang.name} ({lang.percentage}%)
+              </small>
+            </div>
+          ))}
+        </div>
       </div>
-    </div>
+    </React.Fragment>
   )
 }
 
@@ -287,13 +295,13 @@ const CodeMetadata = ({ repo }) => {
    Only shown on medium and larger screens.
    */
   return (
-    <div>
+    <React.Fragment>
       <CodeCategories repo={repo} />
       <CodeEngagement repo={repo} />
       <CodeCommits repo={repo} />
       <hr />
       <CodeLanguages repo={repo} />
-    </div>
+    </React.Fragment>
   )
 }
 CodeMetadata.propTypes = {
@@ -305,7 +313,7 @@ const CodeRepositoryLink = ({ repo }) => {
    Renders a link to the given repository, with a padlock icon if it's private.
    */
   return (
-    <div>
+    <React.Fragment>
       {repo.private && (
         <img
           src="/assets/images/padlock.png"
@@ -317,7 +325,7 @@ const CodeRepositoryLink = ({ repo }) => {
       <a href={repo.html_url} target="_blank" rel="noopener noreferrer">
         <strong>{repo.name}</strong>
       </a>
-    </div>
+    </React.Fragment>
   )
 }
 CodeRepositoryLink.propTypes = {
@@ -330,17 +338,19 @@ const CodeDescription = ({ repo }) => {
     README filtering logic is handled in shared/githubDownloader.js.
    */
   return (
-    <div
-      className="code-sample-readme align-top text-break"
-      style={{
-        maxHeight: '200px',
-        overflowY: 'auto',
-        overflowX: 'hidden',
-      }}
-      dangerouslySetInnerHTML={{
-        __html: repo.readme?.content || '<em>No description available</em>',
-      }}
-    />
+    <React.Fragment>
+      <div
+        className="code-sample-readme align-top text-break"
+        style={{
+          maxHeight: '200px',
+          overflowY: 'auto',
+          overflowX: 'hidden',
+        }}
+        dangerouslySetInnerHTML={{
+          __html: repo.readme?.content || '<em>No description available</em>',
+        }}
+      />
+    </React.Fragment>
   )
 }
 CodeDescription.propTypes = {
@@ -352,20 +362,22 @@ const CodeRepository = ({ repo }) => {
     Top-level component that renders the repository link and description.
    */
   return (
-    <table className="mb-0">
-      <tbody>
-        <tr>
-          <td>
-            <CodeRepositoryLink repo={repo} />
-          </td>
-        </tr>
-        <tr>
-          <td className="ps-3 pt-3">
-            <CodeDescription repo={repo} />
-          </td>
-        </tr>
-      </tbody>
-    </table>
+    <React.Fragment>
+      <table className="mb-0">
+        <tbody>
+          <tr>
+            <td>
+              <CodeRepositoryLink repo={repo} />
+            </td>
+          </tr>
+          <tr>
+            <td className="ps-3 pt-3">
+              <CodeDescription repo={repo} />
+            </td>
+          </tr>
+        </tbody>
+      </table>
+    </React.Fragment>
   )
 }
 CodeRepository.propTypes = {
@@ -422,29 +434,31 @@ const CodeSamplesTable = ({ category }) => {
       {reduxRepositories.isLoading ? (
         <Loading />
       ) : (
-        <table
-          className="table table-bordered table-striped table-fixed mt-4 w-100"
-          id="code-samples-table"
-        >
-          <thead className="thead-dark">
-            <tr>
-              <th style={{ width: '80%' }}>Repository</th>
-              <th className="hide-medium" style={{ width: '20%' }}></th>
-            </tr>
-          </thead>
-          <tbody>
-            {filteredRepositories.map((repo) => (
-              <tr key={repo.name}>
-                <td className="align-top">
-                  <CodeRepository repo={repo} />
-                </td>
-                <td className="hide-medium">
-                  <CodeMetadata repo={repo} />
-                </td>
+        <React.Fragment>
+          <table
+            className="table table-bordered table-striped table-fixed mt-4 w-100"
+            id="code-samples-table"
+          >
+            <thead className="thead-dark">
+              <tr>
+                <th style={{ width: '80%' }}>Repository</th>
+                <th className="hide-medium" style={{ width: '20%' }}></th>
               </tr>
-            ))}
-          </tbody>
-        </table>
+            </thead>
+            <tbody>
+              {filteredRepositories.map((repo) => (
+                <tr key={repo.name}>
+                  <td className="align-top">
+                    <CodeRepository repo={repo} />
+                  </td>
+                  <td className="hide-medium">
+                    <CodeMetadata repo={repo} />
+                  </td>
+                </tr>
+              ))}
+            </tbody>
+          </table>
+        </React.Fragment>
       )}
     </div>
   )
