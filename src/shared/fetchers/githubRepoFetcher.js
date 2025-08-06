@@ -37,7 +37,7 @@ REST API Rate Limits:
   per hour per repository for GitHub Enterprise Cloud accounts).
 */
 
-import { read, writeFileSync } from 'fs'
+import { writeFileSync } from 'fs'
 import { fileURLToPath } from 'url'
 import { dirname, join } from 'path'
 import { marked } from 'marked'

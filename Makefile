@@ -18,7 +18,7 @@ init:
 	yarn install --force
 	pre-commit install
 
-update:
+upgrade:
 	yarn global add npm-check-updates
 	ncu --upgrade --packageFile ./package.json
 	yarn global upgrade
@@ -33,10 +33,16 @@ github:
 blog:
 	node src/shared/fetchers/blogPostFetcher.js
 
-build: sitemap
+yt:
+	node src/shared/fetchers/youtubeFetcher.js
+
+update:
 	make schema
 	make github
 	make blog
+	make yt
+
+build: sitemap
 	cp package.json public/package.json
 	yarn build
 
