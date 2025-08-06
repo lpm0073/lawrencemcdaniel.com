@@ -1,4 +1,4 @@
-name: Weekly GitHub Update
+name: Weekly Data Update
 
 on:
   schedule:
@@ -28,7 +28,8 @@ jobs:
           aws-secret-access-key: ${{ secrets.AWS_SECRET_ACCESS_KEY }}
           aws-region: us-east-1
 
-      - name: Run make update-github
-        run: make update-github
+      - name: Run make update
+        run: make update
         env:
           PAT: ${{ secrets.PAT }}
+          YT: ${{ secrets.YT }}
