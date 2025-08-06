@@ -90,7 +90,7 @@ export class Header extends Component {
                   Clients
                 </Nav.Link>
                 <NavDropdown title="Skills" className="hide-medium">
-                  <NavDropdown.Item as={NavLink} to="/data-science" className="bg-dark">
+                  <NavDropdown.Item as={NavLink} to="/data-science" style={{ color: 'gray' }}>
                     <img
                       key="menu-ml-image"
                       className="react-logo"
@@ -99,7 +99,7 @@ export class Header extends Component {
                     />
                     Data Science
                   </NavDropdown.Item>
-                  <NavDropdown.Item as={NavLink} to="/full-stack-developer" className="bg-dark">
+                  <NavDropdown.Item as={NavLink} to="/full-stack-developer" style={{ color: 'gray' }}>
                     <img
                       key="menu-ml-image"
                       className="react-logo"
@@ -108,7 +108,7 @@ export class Header extends Component {
                     />
                     Full Stack
                   </NavDropdown.Item>
-                  <NavDropdown.Item as={NavLink} to="/openedx" className="bg-dark">
+                  <NavDropdown.Item as={NavLink} to="/openedx" style={{ color: 'gray' }}>
                     <img
                       key="menu-edx-image"
                       className="react-logo"
@@ -117,7 +117,7 @@ export class Header extends Component {
                     />
                     Open edX
                   </NavDropdown.Item>
-                  <NavDropdown.Item as={NavLink} to="/reactjs" className="bg-dark">
+                  <NavDropdown.Item as={NavLink} to="/reactjs" style={{ color: 'gray' }}>
                     <img
                       key="menu-react-image"
                       className="react-logo"
