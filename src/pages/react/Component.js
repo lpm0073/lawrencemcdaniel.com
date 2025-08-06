@@ -1,6 +1,6 @@
 import React from 'react'
 
-import CodeSamplesTable from '../../components/codeSamples/Component'
+import { Content } from '../../components/content/Component'
 import RenderPageTitle from '../../components/pagetitle/pageTitleComponent'
 import { LinkedinBadge } from '../../components/linkedinBadge/Component'
 import BlankSpace from '../../components/blankSpace/Component'
@@ -342,7 +342,7 @@ const ReactPage = (props) => {
         <div className="row mt-lg-5 pl-2">
           <div className="col-lg-12">
             <h3 className="ml-auto text-center pl-2 mx-5">Code Samples</h3>
-            <CodeSamplesTable category="react" />
+            <Content category="react" />
           </div>
         </div>
       </div>

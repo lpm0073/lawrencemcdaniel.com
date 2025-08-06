@@ -196,7 +196,7 @@ const VideosTable = ({ category, maxrows = 100 }) => {
 
   const unfilteredVideos = [
     ...(category
-      ? (reduxVideos.videos || []).filter((redux) => redux.categories.includes(category))
+      ? (reduxVideos.videos || []).filter((redux) => (redux.categories || []).includes(category))
       : (reduxVideos.videos || [])),
   ]
     .map((video) => {

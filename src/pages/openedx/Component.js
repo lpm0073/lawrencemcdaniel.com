@@ -2,7 +2,7 @@ import React from 'react'
 import PropTypes from 'prop-types'
 import RenderPageTitle from '../../components/pagetitle/pageTitleComponent'
 import { LinkedinBadge } from '../../components/linkedinBadge/Component'
-import CodeSamplesTable from '../../components/codeSamples/Component'
+import { Content } from '../../components/content/Component'
 import ClientGrid from '../../components/clientGrid/Component'
 import BlankSpace from '../../components/blankSpace/Component'
 import { Helmet } from 'react-helmet'
@@ -332,7 +332,7 @@ const Openedx = (props) => {
           </div>
           <div>
             <h3 className="ml-auto text-center pl-2 mx-5">Open edX® Code Samples</h3>
-            <CodeSamplesTable category='openedx' />
+            <Content category='openedx' />
           </div>
           <div className="col-lg-12 col-md-12">
             <div className="text-justify mx-lg-5 mx-2">
