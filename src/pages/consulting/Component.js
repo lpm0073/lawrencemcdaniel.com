@@ -3,8 +3,8 @@ import RenderPageTitle from '../../components/pagetitle/pageTitleComponent'
 import { LinkedinBadge } from '../../components/linkedinBadge/Component'
 import { Helmet } from 'react-helmet'
 import { URL_SITE } from '../../shared/constants'
+import { Content } from '../../components/categories/Component'
 import BlankSpace from '../../components/blankSpace/Component'
-import CodeSamplesTable from '../../components/codeSamples/Component'
 import { gsdServiceConsulting } from '../../shared/seo/gsdServiceConsulting'
 import { gsdGraph } from '../../shared/seo/gsdGraph'
 import { gsdPersonLawrenceMcDaniel } from '../../shared/seo/gsdPersonLawrence'
@@ -13,6 +13,7 @@ import { gsdVideoObjectList } from '../../shared/seo/gsdVideoObject'
 import { hasOccupation } from '../../shared/seo/gsdPersonLawrence'
 
 import './styles.css'
+import 'bootstrap/dist/css/bootstrap.min.css'
 
 const ConsultingServices = () => (
   <div className='consulting-services'>
@@ -73,9 +74,10 @@ const graphExtraData = [
   gsdSoftwareSourceCodeList,
   gsdVideoObjectList,
 ]
+
 const Consulting = () => {
   return (
-    <div>
+    <React.Fragment>
       <Helmet>
         <title>Advisory And Consulting</title>
         <meta name="description" content="Lawrence McDaniel - Advisory and Consulting Services" />
@@ -130,21 +132,12 @@ const Consulting = () => {
           </div>
         </div>
         <div className="row">
-          <div className="col-lg-12 code-samples">
-            <h3 className="">Code Samples</h3>
-            <p>
-              These are a combination of managed GitHub repositories that i use for
-              instructional purposes, combined with repositories belonging to open source
-              organizations to which I am the maintainer. Most of these also demonstrate
-               best practices for software management including
-              pre-commit, linting techniques, and devops methods for automating unit
-              testing, documentation and CI-CD operations for build, deploy and code dependency package updates.
-            </p>
-            <CodeSamplesTable />
+          <div className="col m-3">
+          <Content />
           </div>
         </div>
       </div>
-    </div>
+    </React.Fragment>
   )
 }
 

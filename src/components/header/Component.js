@@ -3,14 +3,9 @@ import { Offline } from 'react-detect-offline'
 import {
   Navbar,
   Nav,
-  NavbarToggler,
-  Collapse,
-  NavItem,
-  UncontrolledDropdown,
-  DropdownMenu,
-  DropdownToggle,
-  DropdownItem,
-} from 'reactstrap'
+  NavDropdown,
+  Container
+} from 'react-bootstrap'
 import { NavLink } from 'react-router-dom'
 
 import './styles.css'
@@ -34,6 +29,7 @@ export class Header extends Component {
       isNavOpen: !this.state.isNavOpen,
     })
   }
+
   getWindowDimensions() {
     const { innerWidth: width, innerHeight: height } = window
     return {
@@ -66,93 +62,77 @@ export class Header extends Component {
             </div>
           </div>
         </Offline>
-        <Navbar className="navbar-dark app-navbar" dark expand="md" fixed="top">
-          <NavbarToggler onClick={this.toggleNav} />
-          <Collapse isOpen={this.state.isNavOpen} navbar>
-            <Nav navbar>
-              <NavItem>
-                <NavLink onClick={this.toggleNavItem} className="nav-link" to="/">
+        <Navbar
+          className="navbar-dark app-navbar"
+          variant="dark"
+          expand="md"
+          fixed="top"
+          expanded={this.state.isNavOpen}
+          onToggle={this.toggleNav}
+        >
+          <Container fluid>
+            <Navbar.Toggle />
+            <Navbar.Collapse>
+              <Nav className="me-auto">
+                <Nav.Link as={NavLink} to="/" onClick={this.toggleNavItem}>
                   Home
-                </NavLink>
-              </NavItem>
-              <NavItem className="hide-medium">
-                <NavLink onClick={this.toggleNavItem} className="nav-link" to="/about">
+                </Nav.Link>
+                <Nav.Link as={NavLink} to="/about" onClick={this.toggleNavItem} className="hide-medium">
                   About
-                </NavLink>
-              </NavItem>
-              <NavItem className="hide-medium">
-                <NavLink onClick={this.toggleNavItem} className="nav-link" to="/education">
+                </Nav.Link>
+                <Nav.Link as={NavLink} to="/education" onClick={this.toggleNavItem} className="hide-medium">
                   Education
-                </NavLink>
-              </NavItem>
-              <NavItem className="hide-medium">
-                <NavLink onClick={this.toggleNavItem} className="nav-link" to="/consulting">
+                </Nav.Link>
+                <Nav.Link as={NavLink} to="/consulting" onClick={this.toggleNavItem} className="hide-medium">
                   Consulting
-                </NavLink>
-              </NavItem>
-              <NavItem className="hide-medium">
-                <NavLink onClick={this.toggleNavItem} className="nav-link" to="/clients">
+                </Nav.Link>
+                <Nav.Link as={NavLink} to="/clients" onClick={this.toggleNavItem} className="hide-medium">
                   Clients
-                </NavLink>
-              </NavItem>
-              <UncontrolledDropdown nav inNavbar className="hide-medium">
-                <DropdownToggle nav caret className="">
-                  Skills
-                </DropdownToggle>
-                <DropdownMenu className="bg-dark">
-                  <DropdownItem>
-                    <NavLink className="nav-link p-0 m-0" to="/data-science">
-                      <img
-                        key="menu-ml-image"
-                        className="react-logo"
-                        src="/assets/images/data-science-icon.png"
-                        alt="ML logo"
-                      />
-                      Data Science
-                    </NavLink>
-                  </DropdownItem>
-                  <DropdownItem>
-                    <NavLink className="nav-link p-0 m-0" to="/full-stack-developer">
-                      <img
-                        key="menu-ml-image"
-                        className="react-logo"
-                        src="/assets/images/pancakes.png"
-                        alt="ML logo"
-                      />
-                      Full Stack
-                    </NavLink>
-                  </DropdownItem>
-                  <DropdownItem>
-                    <NavLink className="nav-link p-0 m-0" to="/openedx">
-                      <img
-                        key="menu-edx-image"
-                        className="react-logo"
-                        src="/assets/images/edx-logo.png"
-                        alt="Open edX logo"
-                      />
-                      Open edX
-                    </NavLink>
-                  </DropdownItem>
-                  <DropdownItem>
-                    <NavLink className="nav-link p-0 m-0" to="/reactjs">
-                      <img
-                        key="menu-react-image"
-                        className="react-logo"
-                        src="/assets/images/react-logo-300x261.png"
-                        alt="ReactJS logo"
-                      />
-                      ReactJS
-                    </NavLink>
-                  </DropdownItem>
-                </DropdownMenu>
-              </UncontrolledDropdown>
-              <NavItem>
-                <NavLink onClick={this.toggleNavItem} className="nav-link" to="/contact">
+                </Nav.Link>
+                <NavDropdown title="Skills" className="hide-medium">
+                  <NavDropdown.Item as={NavLink} to="/data-science" className="bg-dark">
+                    <img
+                      key="menu-ml-image"
+                      className="react-logo"
+                      src="/assets/images/data-science-icon.png"
+                      alt="ML logo"
+                    />
+                    Data Science
+                  </NavDropdown.Item>
+                  <NavDropdown.Item as={NavLink} to="/full-stack-developer" className="bg-dark">
+                    <img
+                      key="menu-ml-image"
+                      className="react-logo"
+                      src="/assets/images/pancakes.png"
+                      alt="ML logo"
+                    />
+                    Full Stack
+                  </NavDropdown.Item>
+                  <NavDropdown.Item as={NavLink} to="/openedx" className="bg-dark">
+                    <img
+                      key="menu-edx-image"
+                      className="react-logo"
+                      src="/assets/images/edx-logo.png"
+                      alt="Open edX logo"
+                    />
+                    Open edX
+                  </NavDropdown.Item>
+                  <NavDropdown.Item as={NavLink} to="/reactjs" className="bg-dark">
+                    <img
+                      key="menu-react-image"
+                      className="react-logo"
+                      src="/assets/images/react-logo-300x261.png"
+                      alt="ReactJS logo"
+                    />
+                    ReactJS
+                  </NavDropdown.Item>
+                </NavDropdown>
+                <Nav.Link as={NavLink} to="/contact" onClick={this.toggleNavItem}>
                   Contact
-                </NavLink>
-              </NavItem>
-            </Nav>
-          </Collapse>
+                </Nav.Link>
+              </Nav>
+            </Navbar.Collapse>
+          </Container>
         </Navbar>
       </header>
     )

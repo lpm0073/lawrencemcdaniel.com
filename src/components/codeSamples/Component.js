@@ -5,10 +5,11 @@
     GitHub Api. It displays repositories with metadata such as
     engagement metrics, last commit date, languages used, and categories.
  */
-import React from 'react'
+import React, { useState } from 'react'
 import PropTypes from 'prop-types'
 import { useSelector } from 'react-redux'
 
+import { categoryIcon, categoryLabel, ContentCategories } from '../../components/categories/Component'
 import Loading from '../../components/Loading'
 
 import './styles.css'
@@ -58,151 +59,8 @@ const repositoriesStateShape = PropTypes.shape({
   repos: PropTypes.arrayOf(repoStateShape.isRequired),
 })
 
-// ---------------------------- Helper Functions ------------------------------
-
-function categoryUrl(categoryCode) {
-  /*
-    anchor links to the specialties page. These are internal page
-    links to follow when an icon is clicked.
-    Part of repository metadata.
-  */
-  switch (categoryCode) {
-    case 'aws':
-      return '/full-stack-developer'
-    case 'data-science':
-      return '/data-science'
-    case 'full-stack':
-      return '/full-stack-developer'
-    case 'openedx':
-      return '/openedx'
-    case 'python':
-      return '/full-stack-developer'
-    case 'react':
-      return '/reactjs'
-    case 'terraform':
-      return '/full-stack-developer'
-    default:
-      console.warn('categoryUrl() categoryCode is not recognized', categoryCode)
-      return null
-  }
-}
-
-function categoryLogoUrl(categoryCode, reduxSpecialties) {
-  /*
-    returns the internal URL of the logo image for a given category code.
-    Part of repository metadata.
-   */
-  switch (categoryCode) {
-    case 'aws':
-      return 'assets/images/aws-logo.png'
-    case 'python':
-      return 'assets/images/python-logo.png'
-    case 'data-science':
-      return 'assets/images/data-science-icon.png'
-    case 'full-stack':
-      return 'assets/images/pancakes.png'
-    case 'react':
-      return 'assets/images/react-logo-300x261.png'
-    case 'openedx':
-      return 'assets/images/edx-logo.png'
-    case 'terraform':
-      return 'assets/images/terraform-logo.png'
-  }
-  console.warn('categoryLogoUrl() categoryCode is not locally served', categoryCode)
-
-  // reduxSpecialties.items[i].slug
-  // reduxSpecialties.items[i]._embedded.wp:featuredmedia[0].source_url
-  const specialty = reduxSpecialties.items.find((item) => item.slug === categoryCode)
-  if (
-    specialty &&
-    specialty._embedded &&
-    specialty._embedded['wp:featuredmedia'] &&
-    specialty._embedded['wp:featuredmedia'][0]
-  ) {
-    return specialty._embedded['wp:featuredmedia'][0].source_url
-  }
-  console.error('categoryLogoUrl() unknown categoryCode', categoryCode)
-
-  return null
-}
-
-function categoryIcon(categoryCode, reduxSpecialties) {
-  /*
-    returns an <img> element for a given category code.
-    Part of repository metadata.
-   */
-  const category_label = categoryLabel(categoryCode)
-  const category_url = categoryUrl(categoryCode)
-  const category_logo_url = categoryLogoUrl(categoryCode, reduxSpecialties)
-    if (!category_label || !category_url || !category_logo_url) {
-        console.warn('categoryIcon() missing data for categoryCode', categoryCode)
-        return null
-    }
-  return (
-    <a href={category_url}>
-      <img
-        src={category_logo_url}
-        alt={category_label}
-        title={`Click to view ${category_label} projects`}
-        height="20"
-        style={{ objectFit: 'contain' }}
-      />
-    </a>
-  )
-}
-
-function categoryLabel(categoryCode) {
-  /*
-    Pretty label for a given category code, to be rendered to the browser
-    as text.
-
-    Part of repository metadata. Not currently used.
-   */
-  switch (categoryCode) {
-    case 'aws':
-      return 'AWS'
-    case 'python':
-      return 'Python'
-    case 'data-science':
-      return 'Data Science'
-    case 'full-stack':
-      return 'Full Stack'
-    case 'react':
-      return 'React'
-    case 'openedx':
-      return 'Open edX'
-    case 'terraform':
-      return 'Terraform'
-    default:
-      return null
-  }
-}
 
 // ---------------------------- Internal Components ------------------------------
-
-const CodeCategories = ({ repo }) => {
-  /*
-    Renders up to six category icons for the given repository.
-    Part of repository metadata. Sourced from github.json.
-    This is the foundation for all icon, url and label logic above.
-   */
-  return (
-    <React.Fragment>
-      <div className="mt-2 text-end text-muted mb-3">
-        <div className="d-flex justify-content-end">
-          {(repo.categoryIcons || []).slice(0, 6).map((icon, index) => (
-            <span key={index} className="ms-2">
-              {icon}
-            </span>
-          ))}
-        </div>
-      </div>
-    </React.Fragment>
-  )
-}
-CodeCategories.propTypes = {
-  repo: repoStateShape.isRequired,
-}
 
 const CodeEngagement = ({ repo }) => {
   /*
@@ -293,10 +151,11 @@ const CodeMetadata = ({ repo }) => {
   /*
    Top-level component that renders metadata information for the given repository.
    Only shown on medium and larger screens.
+   ContentCategories categories={repo.categoryIcons}
    */
   return (
     <React.Fragment>
-      <CodeCategories repo={repo} />
+      <ContentCategories categories={repo.categoryIcons} />
       <CodeEngagement repo={repo} />
       <CodeCommits repo={repo} />
       <hr />
@@ -386,13 +245,16 @@ CodeRepository.propTypes = {
 
 // ------------------------------ Main Component ------------------------------
 
-const CodeSamplesTable = ({ category }) => {
+const CodeSamplesTable = ({ category, maxrows=100 }) => {
   /*
    Renders a table of code samples for the given category.
    */
+  const [currentMaxRows, setCurrentMaxRows] = useState(maxrows)
+
   const reduxRepositories = useSelector((state) => state.repositories)
   const reduxSpecialties = useSelector((state) => state.specialties)    // for future use.
-  const filteredRepositories = [
+
+  const unfilteredRepositories = [
     ...(category
       ? reduxRepositories.repos.filter((redux) => redux.categories.includes(category))
       : reduxRepositories.repos),
@@ -429,6 +291,13 @@ const CodeSamplesTable = ({ category }) => {
       return b.total_commits - a.total_commits
     })
 
+  const unfilteredCount = unfilteredRepositories.length
+  const filteredRepositories = unfilteredRepositories.slice(0, currentMaxRows)
+
+  const handleShowMore = () => {
+    setCurrentMaxRows(1000)
+  }
+
   return (
     <div className="table-responsive">
       {reduxRepositories.isLoading ? (
@@ -458,13 +327,27 @@ const CodeSamplesTable = ({ category }) => {
               ))}
             </tbody>
           </table>
+
+          {unfilteredCount > currentMaxRows && (
+            <div className="text-center mt-3">
+              <button
+                className="btn btn-primary"
+                onClick={handleShowMore}
+              >
+                More ({unfilteredCount - currentMaxRows} remaining)
+              </button>
+            </div>
+          )}
+
         </React.Fragment>
       )}
     </div>
   )
 }
+
 CodeSamplesTable.propTypes = {
   category: PropTypes.string,
+  maxrows: PropTypes.number,
 }
 
 export default CodeSamplesTable

@@ -1,13 +1,12 @@
 /*
-    To do: add modal with title: https://reactstrap.github.io/components/modals/
+    To do: add modal with title
  */
 import React, { Component } from 'react'
-import { Modal, ModalHeader } from 'reactstrap'
+import { Modal } from 'react-bootstrap'
 import PropTypes from 'prop-types'
 
 import { Helmet } from 'react-helmet'
 import Loading from '../../components/Loading'
-//import MatrixRainingLetters from '../../components/matrixRainingLetters/matrixRainingLetters';
 import { MatrixRainingLetters } from 'react-mdr'
 import { URL_SITE } from '../../shared/constants'
 import './styles.css'
@@ -50,14 +49,14 @@ class PageNotFound extends Component {
                   <MatrixRainingLetters key="" custom_class="ml-0 pl-0" />
                   <div>
                     <Modal
-                      isOpen={true}
-                      modalTransition={{ timeout: 2000 }}
-                      backdropTransition={{ timeout: 2000 }}
-                      centered={true}
-                      fade={true}
+                      show={true}
+                      centered
                       size="lg"
+                      backdrop="static"
                     >
-                      <ModalHeader>404 Page Not Found</ModalHeader>
+                      <Modal.Header>
+                        <Modal.Title>404 Page Not Found</Modal.Title>
+                      </Modal.Header>
                     </Modal>
                   </div>
                 </React.Fragment>
