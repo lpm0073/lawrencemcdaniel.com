@@ -13,21 +13,26 @@ export const CORSOrigins = '*.' + domainName
 export const URL_SITE = protocol + '://' + domainName
 export const URL_API = protocol + '://api.' + domainName
 export const URL_CDN = protocol + '://cdn.' + domainName
+export const URL_BLOG = protocol + '://blog.' + domainName
 
 export const resumeUrl = URL_CDN + '/doc/lawrence-mcdaniel-resume-202509.pdf'
-export const backendUrl = URL_API + '/wp-json/wp/v2/'
+export const ApiBackendUrl = URL_API + '/wp-json/wp/v2/'
+export const blogBackendUrl = URL_BLOG + '/wp-json/wp/v2/'
 
-export const URL_API_REPOSITORIES = '/github.json'
+export const URL_API_REPOSITORIES = '/data/github.json'
+export const URL_API_BLOG = '/data/blog.lawrencemcdaniel.com.json'
 
 // Wordpress API Content URL end points
-export const URL_API_SPECIALTIES = backendUrl + 'posts?categories=43&_embed&per_page=100'
-export const URL_API_PORTFOLIO = backendUrl + 'posts?categories=47&_embed&per_page=100'
-export const URL_API_EDUCATION = backendUrl + 'posts?categories=44&_embed&per_page=100'
+export const URL_API_SPECIALTIES = ApiBackendUrl + 'posts?categories=43&_embed&per_page=100'
+export const URL_API_PORTFOLIO = ApiBackendUrl + 'posts?categories=47&_embed&per_page=100'
+export const URL_API_EDUCATION = ApiBackendUrl + 'posts?categories=44&_embed&per_page=100'
 export const URL_API_RECOMMENDATIONS =
-  backendUrl + 'posts?categories=45&_embed&per_page=100'
+  ApiBackendUrl + 'posts?categories=45&_embed&per_page=100'
 export const URL_API_PROJECTS =
-  backendUrl + 'media?include=2324,2320,2319,2300,2295,2296,2297,2298,2299,2301,2302,2303'
-export const URL_API_CLIENTS = backendUrl + 'posts?categories=46&_embed&per_page=100'
+  ApiBackendUrl + 'media?include=2324,2320,2319,2300,2295,2296,2297,2298,2299,2301,2302,2303'
+export const URL_API_CLIENTS = ApiBackendUrl + 'posts?categories=46&_embed&per_page=100'
+export const URL_API_BLOG_POSTS = blogBackendUrl + 'posts?&per_page=100'
+export const URL_API_BLOG_CATEGORIES = blogBackendUrl + 'categories?&per_page=100'
 
 
 export const WIKIDATA_FULLSTACK = 'https://www.wikidata.org/wiki/Q96072517'

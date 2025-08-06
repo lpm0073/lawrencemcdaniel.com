@@ -42,11 +42,11 @@ import { fileURLToPath } from 'url'
 import { dirname, join } from 'path'
 import { marked } from 'marked'
 
-import { loadEnv } from './dotenv.js'
+import { loadEnv } from '../dotenv.js'
 
 const __filename = fileURLToPath(import.meta.url)
 const __dirname = dirname(__filename)
-const outputPath = join(__dirname, '../../public/github.json')
+const outputPath = join(__dirname, '../../../public/data/github.json')
 
 const URL_EXCLUSIONS = [
   'https://github.com/FullStackWithLawrence/.github',
