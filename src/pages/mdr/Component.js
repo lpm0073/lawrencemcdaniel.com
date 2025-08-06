@@ -1,8 +1,8 @@
 /*
-    To do: add modal with title: https://reactstrap.github.io/components/modals/
+    To do: add modal with title
  */
 import React, { Component } from 'react'
-import { Modal, ModalHeader } from 'reactstrap'
+import { Modal } from 'react-bootstrap'
 import PropTypes from 'prop-types'
 
 import { Helmet } from 'react-helmet'
@@ -55,24 +55,26 @@ class MRLPage extends Component {
                   <MatrixRainingLetters key="" custom_class="ml-0 pl-0" />
                   <div>
                     <Modal
-                      isOpen={this.state.isOpen}
-                      modalTransition={{ timeout: 2000 }}
-                      backdropTransition={{ timeout: 2000 }}
-                      centered={true}
-                      fade={true}
+                      show={this.state.isOpen}
+                      centered
                       size="lg"
+                      backdrop="static"
                     >
-                      <ModalHeader>Matrix Digital Rain for React</ModalHeader>
-                      <p>npm i react-mdr</p>
-                      <p>
-                        <a
-                          href="https://www.npmjs.com/package/react-mdr"
-                          target="_blank"
-                          rel="noreferrer"
-                        >
-                          https://www.npmjs.com/package/react-mdr
-                        </a>
-                      </p>
+                      <Modal.Header>
+                        <Modal.Title>Matrix Digital Rain for React</Modal.Title>
+                      </Modal.Header>
+                      <Modal.Body>
+                        <p>npm i react-mdr</p>
+                        <p>
+                          <a
+                            href="https://www.npmjs.com/package/react-mdr"
+                            target="_blank"
+                            rel="noreferrer"
+                          >
+                            https://www.npmjs.com/package/react-mdr
+                          </a>
+                        </p>
+                      </Modal.Body>
                     </Modal>
                   </div>
                 </React.Fragment>

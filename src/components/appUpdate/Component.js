@@ -1,6 +1,6 @@
 import React from 'react'
 import PropTypes from 'prop-types'
-import { Alert } from 'reactstrap'
+import { Alert } from 'react-bootstrap'
 
 import './styles.css'
 
@@ -47,9 +47,9 @@ class AppUpdateAlert extends React.Component {
       <React.Fragment>
         <div className="fixed-top m-0 p-5 text-right">
           <Alert
-            isOpen={this.state.visible}
-            fade={true}
-            className="border border-light alert alert-warning text-center"
+            show={this.state.visible}
+            variant="warning"
+            className="border border-light text-center"
           >
             {this.state.msg}
           </Alert>

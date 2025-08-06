@@ -18,15 +18,15 @@ import { HomePageRedux } from './homePage.js'
 import logger from 'redux-logger'
 
 const rootReducer = combineReducers({
-  articles: ArticlesRedux,
-  videos: VideosRedux,
-  repositories: RepositoriesRedux,
-  specialties: SpecialtiesRedux,
-  portfolio: PortfolioRedux,
-  education: EducationRedux,
-  recommendations: RecommendationsRedux,
-  project: ProjectRedux,
-  clients: ClientsRedux,
+  articles: ArticlesRedux,                // blog posts from blog.lawrencemcdaniel.com
+  videos: VideosRedux,                    // youtube videos
+  repositories: RepositoriesRedux,        // github repositories
+  specialties: SpecialtiesRedux,          // logos from api.lawrencemcdaniel.com
+  portfolio: PortfolioRedux,              // portfolio posts from api.lawrencemcdaniel.com
+  education: EducationRedux,              // education posts from api.lawrencemcdaniel.com
+  recommendations: RecommendationsRedux,  // client recommendations from api.lawrencemcdaniel.com
+  project: ProjectRedux,                  // project details from api.lawrencemcdaniel.com
+  clients: ClientsRedux,                  // client details from api.lawrencemcdaniel.com
   logoCube: LogoCubeRedux,
   aboutPage: AboutPageRedux,
   clientGrid: ClientGridRedux,
