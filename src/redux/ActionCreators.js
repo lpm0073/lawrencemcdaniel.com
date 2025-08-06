@@ -8,6 +8,8 @@ import {
   URL_API_RECOMMENDATIONS,
   URL_API_PROJECTS,
   URL_API_CLIENTS,
+  URL_API_ARTICLES,
+  URL_API_VIDEOS,
   CACHE_NAME_API
 } from '../shared/constants'
 
@@ -46,9 +48,113 @@ export const setLogoState = ({ state }) => {
   }
 }
 
-/*  -----------------------------------
+/*  ---------------------------------------------------------------------------
     methods to fetch data from api / cdn / cache
-    -----------------------------------  */
+    -----------------------------------------------------------------------  */
+
+export const fetchArticles = () => (dispatch) => {
+  dispatch(articlesLoading())
+
+  caches.open(CACHE_NAME_API).then((cache) => {
+    cache.match(URL_API_ARTICLES).then((cachedResponse) => {
+      if (cachedResponse) {
+        cachedResponse.json().then((articles) => {
+          dispatch(addArticles(articles))
+        })
+      } else {
+        fetch(URL_API_ARTICLES)
+          .then(
+            (response) => {
+              if (response.ok) {
+                console.log('fetched articles')
+                cache.put(URL_API_ARTICLES, response.clone())
+                return response
+              } else {
+                var error = new Error('Error ' + response.status + ': ' + response.statusText)
+                error.response = response
+                throw error
+              }
+            },
+            (error) => {
+              var errmess = new Error(error.message)
+              throw errmess
+            }
+          )
+          .then((response) => response.json())
+          .then((articles) => {
+            dispatch(addArticles(articles))
+          })
+          .catch((error) => dispatch(articlesFailed(error.message)))
+      }
+    })
+  })
+}
+
+export const articlesLoading = () => ({
+  type: ActionTypes.ARTICLES_LOADING,
+})
+export const articlesFailed = (errmess) => ({
+  type: ActionTypes.ARTICLES_FAILED,
+  payload: errmess,
+})
+export const addArticles = (articles) => ({
+  type: ActionTypes.ADD_ARTICLES,
+  payload: articles,
+})
+
+/* ----------------------------------- */
+
+export const fetchVideos = () => (dispatch) => {
+  dispatch(videosLoading())
+
+  caches.open(CACHE_NAME_API).then((cache) => {
+    cache.match(URL_API_VIDEOS).then((cachedResponse) => {
+      if (cachedResponse) {
+        cachedResponse.json().then((videos) => {
+          dispatch(addVideos(videos))
+        })
+      } else {
+        fetch(URL_API_VIDEOS)
+          .then(
+            (response) => {
+              if (response.ok) {
+                console.log('fetched videos')
+                cache.put(URL_API_VIDEOS, response.clone())
+                return response
+              } else {
+                var error = new Error('Error ' + response.status + ': ' + response.statusText)
+                error.response = response
+                throw error
+              }
+            },
+            (error) => {
+              var errmess = new Error(error.message)
+              throw errmess
+            }
+          )
+          .then((response) => response.json())
+          .then((videos) => {
+            dispatch(addVideos(videos))
+          })
+          .catch((error) => dispatch(videosFailed(error.message)))
+      }
+    })
+  })
+}
+
+export const videosLoading = () => ({
+  type: ActionTypes.VIDEOS_LOADING,
+})
+export const videosFailed = (errmess) => ({
+  type: ActionTypes.VIDEOS_FAILED,
+  payload: errmess,
+})
+export const addVideos = (videos) => ({
+  type: ActionTypes.ADD_VIDEOS,
+  payload: videos,
+})
+
+/* ----------------------------------- */
 
 export const fetchRepositories = () => (dispatch) => {
   dispatch(repositoriesLoading())

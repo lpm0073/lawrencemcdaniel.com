@@ -1,5 +1,7 @@
 import { configureStore } from '@reduxjs/toolkit'
 import { combineReducers } from 'redux'
+import { ArticlesRedux } from './articles.js'
+import { VideosRedux } from './videos.js'
 import { RepositoriesRedux } from './repositories.js'
 import { SpecialtiesRedux } from './specialties.js'
 import { PortfolioRedux } from './portfolio.js'
@@ -16,11 +18,13 @@ import { HomePageRedux } from './homePage.js'
 import logger from 'redux-logger'
 
 const rootReducer = combineReducers({
+  articles: ArticlesRedux,
+  videos: VideosRedux,
+  repositories: RepositoriesRedux,
   specialties: SpecialtiesRedux,
   portfolio: PortfolioRedux,
   education: EducationRedux,
   recommendations: RecommendationsRedux,
-  repositories: RepositoriesRedux,
   project: ProjectRedux,
   clients: ClientsRedux,
   logoCube: LogoCubeRedux,
