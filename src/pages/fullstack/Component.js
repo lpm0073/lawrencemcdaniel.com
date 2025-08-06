@@ -1,7 +1,7 @@
 import React from 'react'
 import PropTypes from 'prop-types'
 import RenderPageTitle from '../../components/pagetitle/pageTitleComponent'
-import CodeSamplesTable from '../../components/codeSamples/Component'
+import { Content } from '../../components/content/Component'
 import TechnologyCarousel from '../../components/technologyCarousel/Component'
 import SkillColumn from './skillColumn'
 import { Helmet } from 'react-helmet'
@@ -96,7 +96,7 @@ const Fullstack = (props) => {
             <p className="text-center">
               Hire me! I can help you with your next project, more details <a href="/consulting">here</a>.
             </p>
-            <CodeSamplesTable category="full-stack" />
+            <Content category="full-stack" />
           </div>
         </div>
 

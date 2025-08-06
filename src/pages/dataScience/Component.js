@@ -2,6 +2,7 @@ import React from 'react'
 import RenderPageTitle from '../../components/pagetitle/pageTitleComponent'
 import SpecialtiesBanner from './datascienceBanner'
 import WhartonCertificate from './WhartonCertificate'
+import { Content } from '../../components/content/Component'
 import { Helmet } from 'react-helmet'
 import { gsdGraph } from '../../shared/seo/gsdGraph'
 import { gsdPersonLawrenceMcDaniel } from '../../shared/seo/gsdPersonLawrence'
@@ -12,7 +13,6 @@ import { gsdVideoObjectList_FSWL } from '../../shared/seo/gsdVideoObject'
 import { baseTitle } from '../../shared/seo/gsdCommon'
 import { URL_SITE } from '../../shared/constants'
 import BlankSpace from '../../components/blankSpace/Component'
-import CodeSamplesTable from '../../components/codeSamples/Component'
 
 import './styles.css'
 
@@ -260,7 +260,7 @@ const Datascience = (props) => {
         <div className="row mx-5">
           <div className="col">
             <h3 className="ml-auto text-center pl-2 mx-5 mt-5">Code Samples</h3>
-            <CodeSamplesTable category="data-science" />
+            <Content category="data-science" />
           </div>
         </div>
       </div>
