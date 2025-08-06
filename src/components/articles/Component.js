@@ -5,10 +5,10 @@
     GitHub Api. It displays repositories with metadata such as
     engagement metrics, last commit date, languages used, and categories.
  */
-import React from 'react'
+import React, { useState } from 'react'
 import PropTypes from 'prop-types'
 import { useSelector } from 'react-redux'
-import { categoryIcon, categoryLabel } from '../../shared/category'
+import { categoryIcon, categoryLabel, ContentCategories } from '../content/Component'
 import Loading from '../Loading'
 
 import './styles.css'
@@ -57,6 +57,8 @@ const articleStateShape = PropTypes.shape({
       href: PropTypes.string,
     })
   ),
+  categoryLabels: PropTypes.arrayOf(PropTypes.string),
+  categoryIcons: PropTypes.arrayOf(PropTypes.element),
 })
 
 // Used to validate the structure of the articles state in Redux.
@@ -86,10 +88,10 @@ const ArticleEngagement = ({ article }) => {
         </thead>
         <tbody>
           <tr className="">
-            <td className="border">{article.stargazers_count}</td>
-            <td className="border">{article.forks}</td>
-            <td className="border">{article.watchers}</td>
-            <td className="border">{article.open_issues}</td>
+            <td className="border">{article.id}</td>
+            <td className="border">{article.id}</td>
+            <td className="border">{article.id}</td>
+            <td className="border">{article.id}</td>
           </tr>
         </tbody>
       </table>
@@ -107,7 +109,7 @@ const ArticleMetadata = ({ article }) => {
    */
   return (
     <React.Fragment>
-      <ContentCategories article={article} />
+      <ContentCategories categories={article.categoryIcons} />
       <ArticleEngagement article={article} />
     </React.Fragment>
   )
@@ -190,9 +192,11 @@ const ArticlesTable = ({ category, maxrows=100 }) => {
   /*
    Renders a table of blog articles and other publications.
    */
+  const [currentMaxRows, setCurrentMaxRows] = useState(maxrows)
   const reduxArticles = useSelector((state) => state.articles)
   const reduxSpecialties = useSelector((state) => state.specialties)    // for future use.
-  const filteredArticles = [
+
+  const unfilteredArticles = [
     ...(category
       ? reduxArticles.articles.filter((redux) => redux.categories.includes(category))
       : reduxArticles.articles),
@@ -219,10 +223,15 @@ const ArticlesTable = ({ category, maxrows=100 }) => {
         .filter(Boolean),
     }))
     .sort((a, b) => {
-      // to do: design an engagement metric.
-      return 1
+      return new Date(b.modified_gmt) - new Date(a.modified_gmt)
     })
-    .slice(0, maxrows)
+
+  const unfilteredCount = unfilteredArticles.length
+  const filteredArticles = unfilteredArticles.slice(0, currentMaxRows)
+
+  const handleShowMore = () => {
+    setCurrentMaxRows(1000)
+  }
 
   return (
     <div className="table-responsive">
@@ -253,13 +262,27 @@ const ArticlesTable = ({ category, maxrows=100 }) => {
               ))}
             </tbody>
           </table>
+
+          {unfilteredCount > currentMaxRows && (
+            <div className="text-center mt-3">
+              <button
+                className="btn btn-primary"
+                onClick={handleShowMore}
+              >
+                More ({unfilteredCount - currentMaxRows} remaining)
+              </button>
+            </div>
+          )}
+
         </React.Fragment>
       )}
     </div>
   )
 }
+
 ArticlesTable.propTypes = {
   category: PropTypes.string,
+  maxrows: PropTypes.number,
 }
 
 export default ArticlesTable

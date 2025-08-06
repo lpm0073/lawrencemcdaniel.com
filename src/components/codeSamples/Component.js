@@ -9,7 +9,7 @@ import React, { useState } from 'react'
 import PropTypes from 'prop-types'
 import { useSelector } from 'react-redux'
 
-import { categoryIcon, categoryLabel, ContentCategories } from '../../components/categories/Component'
+import { categoryIcon, categoryLabel, ContentCategories } from '../content/Component'
 import Loading from '../../components/Loading'
 
 import './styles.css'

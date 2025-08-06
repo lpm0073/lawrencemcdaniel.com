@@ -2,6 +2,7 @@ import React from 'react'
 import { Tabs, Tab } from 'react-bootstrap'
 import PropTypes from 'prop-types'
 import CodeSamplesTable from '../codeSamples/Component'
+import ArticlesTable from '../articles/Component'
 
 
 export function categoryUrl(categoryCode) {
@@ -179,7 +180,8 @@ export const Content = ({ category }) => {
         <Tab eventKey="articles" title="Articles">
           <div className="p-3">
             <h3>Articles</h3>
-            <p>Articles content will go here</p>
+            <p>These are articles that I&apos;ve published. Usually from my personal blog, but every now and then from other sources.</p>
+            <ArticlesTable category={category} maxrows={10} />
           </div>
         </Tab>
 
