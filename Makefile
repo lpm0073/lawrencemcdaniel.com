@@ -37,19 +37,6 @@ yt:
 	node src/shared/fetchers/youtubeFetcher.js
 
 update:
-	make schema
-	make github
-	make blog
-	make yt
-
-build: sitemap
-	cp package.json public/package.json
-	yarn build
-
-serve:
-	yarn start
-
-update-github:
 	#---------------------------------------------------------
 	# usage:      update the github.json file with the latest
 	#             data from the GitHub API.
@@ -57,9 +44,19 @@ update-github:
 	#             This is used to display the latest GitHub
 	#             activity on the home page.
 	#---------------------------------------------------------
-	node src/shared/githubDownloader.js
-	aws s3 cp public/data/ s3://reactjs.lawrencemcdaniel.com/data/ --cache-control max-age=0,no-cache,no-store,must-revalidate --content-type text/json --acl public-read
+	make schema
+	make github
+	make blog
+	make yt
+	aws s3 sync public/data/ s3://reactjs.lawrencemcdaniel.com/data/ --cache-control max-age=0,no-cache,no-store,must-revalidate --content-type text/json --acl public-read
 	aws cloudfront create-invalidation --distribution-id E2364TSMHRWAWL --paths "/data/"
+
+build: sitemap
+	cp package.json public/package.json
+	yarn build
+
+serve:
+	yarn start
 
 release:
 	#---------------------------------------------------------
