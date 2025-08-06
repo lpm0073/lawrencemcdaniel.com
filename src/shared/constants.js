@@ -54,3 +54,6 @@ export const CACHE_NAME_API = versioned_cached('api-responses')
 export const CACHE_NAME_CDN = versioned_cached('cdn-responses')
 export const CACHE_NAME_STATIC_IMAGE = versioned_cached('static-images')
 
+
+export const YOUTUBE_API_BASE_URL = 'https://www.googleapis.com/youtube/v3';
+export const YOUTUBE_CHANNEL_ID = 'UCzu-gQp7Ca-csmsKGKWOliA';
