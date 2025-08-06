@@ -25,14 +25,18 @@ update:
 	yarn install --force
 
 schema:
-	node src/shared/seo/schemaDownloader.js
+	node src/shared/fetchers/schemaFetcher.js
 
 github:
-	node src/shared/githubDownloader.js
+	node src/shared/fetchers/githubRepoFetcher.js
+
+blog:
+	node src/shared/fetchers/blogPostFetcher.js
 
 build: sitemap
 	make schema
 	make github
+	make blog
 	cp package.json public/package.json
 	yarn build
 
@@ -48,8 +52,8 @@ update-github:
 	#             activity on the home page.
 	#---------------------------------------------------------
 	node src/shared/githubDownloader.js
-	aws s3 cp public/github.json s3://reactjs.lawrencemcdaniel.com/github.json --cache-control max-age=0,no-cache,no-store,must-revalidate --content-type text/json --acl public-read
-	aws cloudfront create-invalidation --distribution-id E2364TSMHRWAWL --paths "/github.json"
+	aws s3 cp public/data/ s3://reactjs.lawrencemcdaniel.com/data/ --cache-control max-age=0,no-cache,no-store,must-revalidate --content-type text/json --acl public-read
+	aws cloudfront create-invalidation --distribution-id E2364TSMHRWAWL --paths "/data/"
 
 release:
 	#---------------------------------------------------------
@@ -63,7 +67,7 @@ release:
 	#             3. Invalidate all items in the AWS Cloudfront CDN.
 	#---------------------------------------------------------
 	export AWS_PROFILE=lawrence
-	yarn build
+	make build
 
 	# ------------------------
 	# add all built files to the S3 bucket.

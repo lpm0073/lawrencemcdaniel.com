@@ -2,12 +2,12 @@ import { writeFileSync } from 'fs'
 import { fileURLToPath } from 'url'
 import { dirname, join } from 'path'
 
-import { gsdGraph } from './gsdGraph.js'
-import { gsdPersonLawrenceMcDaniel } from './gsdPersonLawrence.js'
-import { hasOccupation } from './gsdPersonLawrence.js'
-import { gsdSoftwareSourceCodeList } from './gsdSoftwareSourceCode.js'
-import { gsdVideoObjectList } from './gsdVideoObject.js'
-import { basePageTitle } from './gsdCommon.js'
+import { gsdGraph } from '../seo/gsdGraph.js'
+import { gsdPersonLawrenceMcDaniel } from '../seo/gsdPersonLawrence.js'
+import { hasOccupation } from '../seo/gsdPersonLawrence.js'
+import { gsdSoftwareSourceCodeList } from '../seo/gsdSoftwareSourceCode.js'
+import { gsdVideoObjectList } from '../seo/gsdVideoObject.js'
+import { basePageTitle } from '../seo/gsdCommon.js'
 
 const __filename = fileURLToPath(import.meta.url)
 const __dirname = dirname(__filename)

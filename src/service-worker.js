@@ -125,7 +125,6 @@ self.addEventListener('message', (event) => {
   --------------------------------------------------------------------------------
   McDaniel Oct-2021
   Custom caching behavior.
-  Wait for cache version before registering routes.
   --------------------------------------------------------------------------------
   */
 
