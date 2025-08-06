@@ -19,3 +19,19 @@
   border-bottom: 0.5px solid #222;
   border-right: 0.5px solid #222;
 }
+
+.navbar-dark .dropdown-menu .dropdown-item {
+  color: gray !important;
+}
+
+.navbar-dark .dropdown-menu .dropdown-item:hover,
+.navbar-dark .dropdown-menu .dropdown-item:focus {
+  color: lightgray !important;
+  background-color: rgba(255, 255, 255, 0.1);
+}
+
+.navbar-dark .dropdown-menu .dropdown-item.active,
+.navbar-dark .dropdown-menu .dropdown-item:active {
+  color: #f1f1f1 !important;
+  background-color: #0d6efd;
+}
