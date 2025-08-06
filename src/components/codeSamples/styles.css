@@ -1,17 +1,4 @@
-.code-samples {
-  margin-top: 2rem;
-  padding: 3rem;
 
-}
-
-.code-sample-category {
-  font-size: 1.1em;
-}
-
-.copyright {
-  vertical-align: super;
-  font-size: small;
-}
 .code-sample-readme * {
   word-wrap: break-word !important;
   overflow-wrap: break-word !important;
@@ -25,15 +12,3 @@
   word-break: break-all !important;
   overflow-wrap: break-word !important;
 }
-
-/* .code-sample-readme {
-  max-width: 0;
-  word-wrap: break-word !important;
-  overflow-wrap: break-word !important;
-  word-break: break-all !important;
-  white-space: normal !important;
-  overflow: hidden;
-}
-
-
- */

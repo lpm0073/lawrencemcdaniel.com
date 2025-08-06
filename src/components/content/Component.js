@@ -3,6 +3,7 @@ import { Tabs, Tab } from 'react-bootstrap'
 import PropTypes from 'prop-types'
 import CodeSamplesTable from '../codeSamples/Component'
 import ArticlesTable from '../articles/Component'
+import VideosTable from '../videos/Component'
 
 
 export function categoryUrl(categoryCode) {
@@ -20,11 +21,21 @@ export function categoryUrl(categoryCode) {
       return '/full-stack-developer'
     case 'openedx':
       return '/openedx'
+    case 'open-edx':
+      return '/openedx'
+    case 'wordpress':
+      return '/full-stack-developer'
     case 'python':
       return '/full-stack-developer'
     case 'react':
       return '/reactjs'
+    case 'reactjs':
+      return '/reactjs'
     case 'terraform':
+      return '/full-stack-developer'
+    case 'dev-ops':
+      return '/full-stack-developer'
+    case 'django':
       return '/full-stack-developer'
     default:
       console.warn('categoryUrl() categoryCode is not recognized', categoryCode)
@@ -48,10 +59,22 @@ export function categoryLogoUrl(categoryCode, reduxSpecialties) {
       return 'assets/images/pancakes.png'
     case 'react':
       return 'assets/images/react-logo-300x261.png'
+    case 'reactjs':
+      return 'assets/images/react-logo-300x261.png'
     case 'openedx':
+      return 'assets/images/edx-logo.png'
+    case 'open-edx':
       return 'assets/images/edx-logo.png'
     case 'terraform':
       return 'assets/images/terraform-logo.png'
+    // youtube and wordpress categories are non-standard
+    case 'dev-ops':
+      return 'assets/images/pancakes.png'
+    case 'wordpress':
+      return 'assets/images/pancakes.png'
+    case 'django':
+        return 'assets/images/pancakes.png'
+
   }
   console.warn('categoryLogoUrl() categoryCode is not locally served', categoryCode)
 
@@ -80,7 +103,7 @@ export function categoryIcon(categoryCode, reduxSpecialties) {
   const category_url = categoryUrl(categoryCode)
   const category_logo_url = categoryLogoUrl(categoryCode, reduxSpecialties)
   if (!category_label || !category_url || !category_logo_url) {
-    console.warn('categoryIcon() missing data for categoryCode', categoryCode)
+    console.warn(`categoryIcon() missing data for categoryCode: ${categoryCode} label: ${category_label} url: ${category_url} logo: ${category_logo_url}`)
     return null
   }
   return (
@@ -116,9 +139,20 @@ export function categoryLabel(categoryCode) {
       return 'React'
     case 'openedx':
       return 'Open edX'
+    case 'open-edx':
+      return 'Open edX'
+    case 'reactjs':
+      return 'React'
     case 'terraform':
       return 'Terraform'
+    case 'dev-ops':
+      return 'DevOps'
+    case 'wordpress':
+      return 'Full Stack'
+    case 'django':
+      return 'Full Stack'
     default:
+      console.warn('categoryLabel() categoryCode is not recognized', categoryCode)
       return null
   }
 }
@@ -156,7 +190,7 @@ export const Content = ({ category }) => {
       <Tabs
         defaultActiveKey="code-samples"
         id="content-tabs"
-        className="m-0"
+        className="m-5"
         style={{ backgroundColor: 'white' }}
         >
         <Tab eventKey="code-samples" title="Code Samples">
@@ -189,6 +223,7 @@ export const Content = ({ category }) => {
           <div className="p-3">
             <h3>Videos</h3>
             <p>Videos content will go here</p>
+            <VideosTable category={category} maxrows={10} />
           </div>
         </Tab>
       </Tabs>

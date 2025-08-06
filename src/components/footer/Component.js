@@ -15,7 +15,7 @@ const Footer = (props) => {
       <footer key="app-footer">
         <div className="footer">
           <div className="row mx-0 react-banner hide-small">
-            <div className="col-12">
+            <div className="col">
               <div className="text-center mr-3 mb-0">
                 <Copyright />
                 <BlankSpace />

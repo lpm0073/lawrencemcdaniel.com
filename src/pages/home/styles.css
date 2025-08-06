@@ -77,30 +77,6 @@
   white-space: pre-wrap;
 }
 
-.react-banner {
-  background-color: black;
-  color: white;
-  font-size: x-small;
-  text-align: right;
-}
-
-.react-banner a {
-  color: white;
-}
-.react-logo {
-  width: 15px;
-  margin-right: 5px;
-}
-
-.offline-alert {
-  color: tomato;
-  filter: none !important;
-}
-
-.copyright {
-  vertical-align: super;
-  font-size: small;
-}
 /*-------------- Responsive Styling -----------------------*/
 
 /********** Large devices only **********/
