@@ -1,3 +1,13 @@
+// Videos
+export const ADD_VIDEOS = 'ADD_VIDEOS'
+export const VIDEOS_FAILED = 'VIDEOS_FAILED'
+export const VIDEOS_LOADING = 'VIDEOS_LOADING'
+
+// Articles
+export const ADD_ARTICLES = 'ADD_ARTICLES'
+export const ARTICLES_FAILED = 'ARTICLES_FAILED'
+export const ARTICLES_LOADING = 'ARTICLES_LOADING'
+
 // Github repositories
 export const ADD_REPOS = 'ADD_REPOS'
 export const REPOS_FAILED = 'REPOS_FAILED'
