@@ -1,9 +1,6 @@
 import React from 'react'
 
-/* eslint-disable no-unused-vars */
-import PropTypes from 'prop-types'
 
-import './styles.css'
 import BlankSpace from '../blankSpace/Component'
 import packageJson from '../../../package.json'
 
