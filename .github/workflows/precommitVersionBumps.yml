@@ -40,8 +40,11 @@ jobs:
       - name: Preconfigure the pre-commit hook
         shell: bash
         run: |
-          npx husky install
-          npx husky set .husky/pre-commit "npx prettier --write ."
+          npx husky init
+          echo "npx prettier --write ." > .husky/pre-commit
+          chmod +x .husky/pre-commit
+
+
 
       - name: Install pre-commit
         shell: bash
@@ -57,9 +60,9 @@ jobs:
         shell: bash
         run: |
           if [[ -n "$(git status --porcelain .pre-commit-config.yaml)" ]]; then
-            echo "::set-output name=changes::true"
+            echo "changes=true" >> $GITHUB_OUTPUT
           else
-            echo "::set-output name=changes::false"
+            echo "changes=false" >> $GITHUB_OUTPUT
           fi
 
       - name: Commit and push changes
