@@ -1,6 +1,5 @@
 import React from 'react'
 
-
 import BlankSpace from '../blankSpace/Component'
 import packageJson from '../../../package.json'
 
@@ -40,7 +39,12 @@ const VersionInfo = (props) => {
       />
       Workbox {WORKBOX_CORE}
       <BlankSpace />
-      <a className="mx-1 learn-more-link" href="https://github.com/lpm0073/lawrencemcdaniel.com" target="_blank" rel="noreferrer noopener">
+      <a
+        className="mx-1 learn-more-link"
+        href="https://github.com/lpm0073/lawrencemcdaniel.com"
+        target="_blank"
+        rel="noreferrer noopener"
+      >
         source
       </a>
       <BlankSpace />

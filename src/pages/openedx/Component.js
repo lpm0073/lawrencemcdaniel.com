@@ -45,7 +45,7 @@ const Openedx = (props) => {
     gsdHowToInstallOpenEdx,
     gsdHowToScaleOpenEdx,
     gsdSoftwareRepoList_CookieCutterOpenedx,
-    gsdVideoObjectList_Openedx
+    gsdVideoObjectList_Openedx,
   ]
 
   return (
@@ -166,10 +166,10 @@ const Openedx = (props) => {
                 have been viewed more than fifty thousand times.
               </p>
               <p>
-                I am based in Mexico City. I provide personalized
-                service and fast response to clients located around the world. All of my
-                customers have my personal mobile phone number and can reach me any time
-                by <a href="/contact">voice, whatsapp or email</a>. My
+                I am based in Mexico City. I provide personalized service and fast
+                response to clients located around the world. All of my customers have my
+                personal mobile phone number and can reach me any time by{' '}
+                <a href="/contact">voice, whatsapp or email</a>. My
                 <BlankSpace />
                 <a href="/portfolio">Portfolio</a>,<BlankSpace />
                 <a href="/clients">Client List and Recommendations</a> are all available
@@ -332,7 +332,7 @@ const Openedx = (props) => {
           </div>
           <div>
             <h3 className="ml-auto text-center pl-2 mx-5">Open edX® Code Samples</h3>
-            <Content category='openedx' />
+            <Content category="openedx" />
           </div>
           <div className="col-lg-12 col-md-12">
             <div className="text-justify mx-lg-5 mx-2">

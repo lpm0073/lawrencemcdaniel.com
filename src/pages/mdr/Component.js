@@ -42,8 +42,14 @@ class MRLPage extends Component {
           <React.Fragment>
             <Helmet>
               <link rel="canonical" href={URL_SITE + '/react-mdr'} />
-              <meta name="description" content="Lawrence McDaniel - Matrix digital rain for React" />
-              <meta property="og:description" content="Lawrence McDaniel - Matrix digital rain for React" />
+              <meta
+                name="description"
+                content="Lawrence McDaniel - Matrix digital rain for React"
+              />
+              <meta
+                property="og:description"
+                content="Lawrence McDaniel - Matrix digital rain for React"
+              />
               <meta
                 name="keywords"
                 content="Lawrence McDaniel, Matrix Digital Rain, NPM, React, ReactJS"
@@ -54,12 +60,7 @@ class MRLPage extends Component {
                 <React.Fragment>
                   <MatrixRainingLetters key="" custom_class="ml-0 pl-0" />
                   <div>
-                    <Modal
-                      show={this.state.isOpen}
-                      centered
-                      size="lg"
-                      backdrop="static"
-                    >
+                    <Modal show={this.state.isOpen} centered size="lg" backdrop="static">
                       <Modal.Header>
                         <Modal.Title>Matrix Digital Rain for React</Modal.Title>
                       </Modal.Header>

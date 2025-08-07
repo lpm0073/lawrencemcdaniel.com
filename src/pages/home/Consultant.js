@@ -12,9 +12,7 @@ const Consultant = (props) => {
               ⇥📙📚
               <BlankSpace />
             </span>
-            <span>
-              Consultant
-            </span>
+            <span>Consultant</span>
             <span className="consultant-bookends" role="img" aria-label="Close">
               <BlankSpace />
               📚📘⇤

@@ -1,0 +1,16 @@
+{
+  "extends": ["prettier"],
+  "plugins": ["prettier"],
+  "rules": {
+    "prettier/prettier": "error"
+  },
+  "parserOptions": {
+    "ecmaVersion": 2023,
+    "sourceType": "module"
+  },
+  "env": {
+    "es2023": true,
+    "node": true,
+    "browser": true
+  }
+}

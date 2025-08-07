@@ -18,6 +18,9 @@ init:
 	yarn install --force
 	pre-commit install
 
+lint:
+	npx prettier --write "src/**/*.{js,jsx,ts,tsx,json,css,scss,md}"
+
 upgrade:
 	yarn global add npm-check-updates
 	ncu --upgrade --packageFile ./package.json

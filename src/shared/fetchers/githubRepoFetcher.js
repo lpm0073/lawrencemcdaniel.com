@@ -1,3 +1,4 @@
+/* eslint-disable no-useless-escape, no-unused-vars */
 /*
 GitHub Api downloader utility. Creates a list of json objects of repository metadata by organization.
 
@@ -65,7 +66,7 @@ const INDIVIDUAL_REPOS = [
   { username: 'lpm0073', repoName: 'lawrencemcdaniel.com' },
   { username: 'lpm0073', repoName: 'openedx_devops' },
   { username: 'Turn-The-Bus', repoName: 'turnthebus-edx-plugin' },
-  { username: 'StepwiseMath', repoName: 'stepwise-edx-plugin' }
+  { username: 'StepwiseMath', repoName: 'stepwise-edx-plugin' },
 ]
 
 function githubApiHeaders() {
@@ -272,8 +273,8 @@ function extractMainDescriptionMD(readmeContent) {
     if (trimmed.includes('github.com') && trimmed.includes('/actions')) return false
 
     // Remove lines that are primarily markdown syntax
-    const markdownChars = (trimmed.match(/[\[\]()!]/g) || []).length
-    if (markdownChars > 10 && markdownChars > trimmed.replace(/[\[\]()!\s]/g, '').length)
+    const markdownChars = (trimmed.match(/[[\]()!]/g) || []).length
+    if (markdownChars > 10 && markdownChars > trimmed.replace(/[[\]()!\s]/g, '').length)
       return false
 
     return true

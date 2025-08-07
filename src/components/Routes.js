@@ -13,7 +13,7 @@ import {
   fetchClients,
   fetchRepositories,
   fetchVideos,
-  fetchArticles
+  fetchArticles,
 } from '../redux/ActionCreators'
 
 // Pages
@@ -162,7 +162,11 @@ class SiteRoutes extends Component {
             path="/education"
             element={<Education education={this.props.education} />}
           />
-          <Route exact path="/full-stack-developer" element={<Fullstack specialties={this.props.specialties} />} />
+          <Route
+            exact
+            path="/full-stack-developer"
+            element={<Fullstack specialties={this.props.specialties} />}
+          />
           <Route exact path="/reactjs" element={<ReactPage />} />
           <Route exact path="/react-mdr" element={<MRLPage />} />
           <Route

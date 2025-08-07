@@ -7,7 +7,6 @@ import { getInitialLogos } from '../../shared/getInitialLogos'
 import Loading from '../Loading'
 import './styles.css'
 
-
 const responsive = {
   superLargeDesktop: { breakpoint: { max: 4000, min: 3000 }, items: 4 },
   desktop: { breakpoint: { max: 3000, min: 1024 }, items: 3 },
@@ -58,9 +57,19 @@ class TechnologyCarousel extends Component {
           <Loading />
         ) : (
           <div id="specialties-carousel">
-            <Carousel responsive={responsive} infinite autoPlay autoPlaySpeed={1} transitionDuration={3000}>
+            <Carousel
+              responsive={responsive}
+              infinite
+              autoPlay
+              autoPlaySpeed={1}
+              transitionDuration={3000}
+            >
               {shuffledLogos.map((logoUrl, indx) => (
-                <div className="specialty-item" key={indx} style={{ backgroundImage: `url('${logoUrl}')` }}></div>
+                <div
+                  className="specialty-item"
+                  key={indx}
+                  style={{ backgroundImage: `url('${logoUrl}')` }}
+                ></div>
               ))}
             </Carousel>
           </div>

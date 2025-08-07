@@ -10,7 +10,7 @@ import {
   URL_API_CLIENTS,
   URL_API_ARTICLES,
   URL_API_VIDEOS,
-  CACHE_NAME_API
+  CACHE_NAME_API,
 } from '../shared/constants'
 
 /*  -----------------------------------
@@ -70,7 +70,9 @@ export const fetchArticles = () => (dispatch) => {
                 cache.put(URL_API_ARTICLES, response.clone())
                 return response
               } else {
-                var error = new Error('Error ' + response.status + ': ' + response.statusText)
+                var error = new Error(
+                  'Error ' + response.status + ': ' + response.statusText
+                )
                 error.response = response
                 throw error
               }
@@ -122,7 +124,9 @@ export const fetchVideos = () => (dispatch) => {
                 cache.put(URL_API_VIDEOS, response.clone())
                 return response
               } else {
-                var error = new Error('Error ' + response.status + ': ' + response.statusText)
+                var error = new Error(
+                  'Error ' + response.status + ': ' + response.statusText
+                )
                 error.response = response
                 throw error
               }
@@ -174,7 +178,9 @@ export const fetchRepositories = () => (dispatch) => {
                 cache.put(URL_API_REPOSITORIES, response.clone())
                 return response
               } else {
-                var error = new Error('Error ' + response.status + ': ' + response.statusText)
+                var error = new Error(
+                  'Error ' + response.status + ': ' + response.statusText
+                )
                 error.response = response
                 throw error
               }
@@ -208,7 +214,6 @@ export const addRepositories = (repositories) => ({
 
 /* ----------------------------------- */
 
-
 export const fetchSpecialties = () => (dispatch) => {
   dispatch(specialtiesLoading(true))
 
@@ -235,7 +240,9 @@ export const fetchSpecialties = () => (dispatch) => {
                 cache.put(URL_API_SPECIALTIES, response.clone())
                 return response
               } else {
-                var error = new Error('Error ' + response.status + ': ' + response.statusText)
+                var error = new Error(
+                  'Error ' + response.status + ': ' + response.statusText
+                )
                 error.response = response
                 throw error
               }
@@ -297,7 +304,9 @@ export const fetchPortfolio = () => (dispatch) => {
                 cache.put(URL_API_PORTFOLIO, response.clone())
                 return response
               } else {
-                var error = new Error('Error ' + response.status + ': ' + response.statusText)
+                var error = new Error(
+                  'Error ' + response.status + ': ' + response.statusText
+                )
                 error.response = response
                 throw error
               }
@@ -317,7 +326,6 @@ export const fetchPortfolio = () => (dispatch) => {
     })
   })
 }
-
 
 export const portfolioLoading = () => ({
   type: ActionTypes.PORTFOLIO_LOADING,
@@ -344,15 +352,18 @@ export const fetchEducation = () => (dispatch) => {
           dispatch(addEducation(education))
           imagePreFetcher(education, 10, 'Education')
         })
-        } else {
+      } else {
         fetch(URL_API_EDUCATION)
-          .then((response) => {
+          .then(
+            (response) => {
               if (response.ok) {
                 console.log('fetched education')
                 cache.put(URL_API_EDUCATION, response.clone())
                 return response
               } else {
-                var error = new Error('Error ' + response.status + ': ' + response.statusText)
+                var error = new Error(
+                  'Error ' + response.status + ': ' + response.statusText
+                )
                 error.response = response
                 throw error
               }
@@ -406,7 +417,9 @@ export const fetchRecommendations = () => (dispatch) => {
                 cache.put(URL_API_RECOMMENDATIONS, response.clone())
                 return response
               } else {
-                var error = new Error('Error ' + response.status + ': ' + response.statusText)
+                var error = new Error(
+                  'Error ' + response.status + ': ' + response.statusText
+                )
                 error.response = response
                 throw error
               }
@@ -455,14 +468,16 @@ export const fetchProjectImages = () => (dispatch) => {
         })
       } else {
         fetch(URL_API_PROJECTS)
-        .then(
+          .then(
             (response) => {
               if (response.ok) {
                 console.log('fetched project images')
                 cache.put(URL_API_PROJECTS, response.clone())
                 return response
               } else {
-                var error = new Error('Error ' + response.status + ': ' + response.statusText)
+                var error = new Error(
+                  'Error ' + response.status + ': ' + response.statusText
+                )
                 error.response = response
                 throw error
               }
@@ -476,7 +491,7 @@ export const fetchProjectImages = () => (dispatch) => {
           .then((images) => dispatch(addProjectImages(images)))
           .then((images) => imagePreFetcher(images.payload, 10, 'Projects'))
           .catch((error) => dispatch(projectImagesFailed(error.message)))
-        }
+      }
     })
   })
 }
@@ -500,7 +515,7 @@ export const addProjectImages = (images) => ({
 export const fetchClients = () => (dispatch) => {
   dispatch(clientsLoading(true))
 
-    caches.open(CACHE_NAME_API).then((cache) => {
+  caches.open(CACHE_NAME_API).then((cache) => {
     cache.match(URL_API_CLIENTS).then((cachedResponse) => {
       if (cachedResponse) {
         cachedResponse.json().then((clients) => {
@@ -516,41 +531,42 @@ export const fetchClients = () => (dispatch) => {
         })
       } else {
         fetch(URL_API_CLIENTS)
-        .then(
-          (response) => {
-            if (response.ok) {
-              console.log('fetched clients')
-              cache.put(URL_API_CLIENTS, response.clone())
-              return response
-            } else {
-              var error = new Error('Error ' + response.status + ': ' + response.statusText)
-              error.response = response
-              throw error
+          .then(
+            (response) => {
+              if (response.ok) {
+                console.log('fetched clients')
+                cache.put(URL_API_CLIENTS, response.clone())
+                return response
+              } else {
+                var error = new Error(
+                  'Error ' + response.status + ': ' + response.statusText
+                )
+                error.response = response
+                throw error
+              }
+            },
+            (error) => {
+              var errmess = new Error(error.message)
+              throw errmess
             }
-          },
-          (error) => {
-            var errmess = new Error(error.message)
-            throw errmess
-          }
-        )
-        .then((response) => response.json())
-        .then((clients) => dispatch(addClients(clients)))
-        .then((clients) => {
-          imagePreFetcher(clients.payload, 15, 'Clients')
-          imagePreFetcher(
-            [
-              'https://cdn.lawrencemcdaniel.com/wp-content/uploads/2020/06/05201857/Lawrence6.jpg',
-            ],
-            5,
-            'Site Static'
           )
-        })
-        .catch((error) => dispatch(clientsFailed(error.message)))
-          }
-        })
-      })
+          .then((response) => response.json())
+          .then((clients) => dispatch(addClients(clients)))
+          .then((clients) => {
+            imagePreFetcher(clients.payload, 15, 'Clients')
+            imagePreFetcher(
+              [
+                'https://cdn.lawrencemcdaniel.com/wp-content/uploads/2020/06/05201857/Lawrence6.jpg',
+              ],
+              5,
+              'Site Static'
+            )
+          })
+          .catch((error) => dispatch(clientsFailed(error.message)))
+      }
+    })
+  })
 }
-
 
 export const clientsLoading = () => ({
   type: ActionTypes.CLIENTS_LOADING,

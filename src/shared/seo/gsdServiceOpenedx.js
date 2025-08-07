@@ -26,7 +26,7 @@ const openedxItemOffer = (name, description = '') => {
   return {
     '@type': 'Offer',
     '@id': URL_SITE + '/openedx/#' + convertToSlug(name),
-    price: 90.00,
+    price: 90.0,
     priceCurrency: 'USD',
     priceSpecification: 'HOUR',
     availability: 'InStock',

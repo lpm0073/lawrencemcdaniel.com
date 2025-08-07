@@ -3,8 +3,8 @@ import { SCHEMA_PERSON_ID_ME } from '../constants'
 
 const ensureTrailingSlash = (str) => (str.endsWith('/') ? str : str + '/')
 export const gsdArticle = (slug, headline) => {
-    const baseUrlWithSlash = ensureTrailingSlash(baseUrl)
-    const slugWithSlash = ensureTrailingSlash(slug)
+  const baseUrlWithSlash = ensureTrailingSlash(baseUrl)
+  const slugWithSlash = ensureTrailingSlash(slug)
   return {
     '@type': 'Article',
     '@id': baseUrlWithSlash + slugWithSlash + '#article',

@@ -1,4 +1,9 @@
-import { datePublished, dateModified, baseUrl, nameLawrenceMcDaniel } from './gsdCommon.js'
+import {
+  datePublished,
+  dateModified,
+  baseUrl,
+  nameLawrenceMcDaniel,
+} from './gsdCommon.js'
 import { SCHEMA_PERSON_ID_ME } from '../constants.js'
 
 export const defaultPageDescription = (webpageDescription) => {
@@ -20,8 +25,7 @@ const pageName = (webpageName) => {
 }
 
 const pageImage = (imageUrl) => {
-  if (imageUrl !== '')
-    return imageUrl
+  if (imageUrl !== '') return imageUrl
   return brandLogo
 }
 
@@ -113,7 +117,9 @@ const breadcrumbList = (slug, webpageName, pageType, pageImage) => {
   const validPageType = pageType && pageType !== '' ? pageType : 'WebPage'
   var itemListElement = [listItem(1, '', 'homepage', 'WebSite')]
   if (slug !== '')
-    itemListElement.push(listItem(2, slug, pageName(webpageName), validPageType, pageImage))
+    itemListElement.push(
+      listItem(2, slug, pageName(webpageName), validPageType, pageImage)
+    )
 
   return {
     '@type': 'BreadcrumbList',

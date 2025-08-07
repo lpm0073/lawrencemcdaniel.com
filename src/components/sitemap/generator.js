@@ -1,4 +1,4 @@
-const { SitemapStream, streamToPromise } = require('sitemap')
+const { SitemapStream } = require('sitemap')
 const { createWriteStream } = require('fs')
 
 const routes = [
@@ -44,7 +44,7 @@ const changefreq = 'monthly'
 const sitemap = new SitemapStream({ hostname: 'https://lawrencemcdaniel.com' })
 const writeStream = createWriteStream('./public/sitemap.xml')
 
-routes.forEach(url => {
+routes.forEach((url) => {
   sitemap.write({
     url,
     lastmod,
@@ -55,4 +55,3 @@ routes.forEach(url => {
 
 sitemap.end()
 sitemap.pipe(writeStream)
-

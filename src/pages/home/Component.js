@@ -51,7 +51,10 @@ class Home extends Component {
       <React.Fragment>
         <Helmet>
           <link rel="canonical" href={URL_SITE} />
-          <meta name="description" content="Data scientist, full stack developer, online instructor, Open edX® consultant, amateur photographer" />
+          <meta
+            name="description"
+            content="Data scientist, full stack developer, online instructor, Open edX® consultant, amateur photographer"
+          />
           <script type="application/ld+json">
             {JSON.stringify(
               gsdGraph(
@@ -70,7 +73,11 @@ class Home extends Component {
           <div className="h-100">
             <div className="row pt-1 m-0 mr-0 px-0 jumbotron-spacer">
               <div className="col-lg-6 pt-5 col-md-12 text-center noselect ">
-                <img src={DEFAULT_IMAGE} alt="Lawrence McDaniel headshot" className="head-shot hide-medium img-fluid w-50 rounded mx-auto d-block " />
+                <img
+                  src={DEFAULT_IMAGE}
+                  alt="Lawrence McDaniel headshot"
+                  className="head-shot hide-medium img-fluid w-50 rounded mx-auto d-block "
+                />
                 <h1 className="pt-2 mb-0 lawrence-mcdaniel">
                   <span className="pre-wrap">Lawrence McDaniel</span>
                 </h1>
@@ -81,7 +88,12 @@ class Home extends Component {
               </div>
             </div>
             <div className="row mt-0 mb-0 pt-0 pb-0 text-center justify-content-center hide-medium">
-              <JobTitle idx="1" target="_self" href="/full-stack-developer" title="Full Stack Developer" />
+              <JobTitle
+                idx="1"
+                target="_self"
+                href="/full-stack-developer"
+                title="Full Stack Developer"
+              />
               <Consultant />
               <JobTitle
                 idx="3"

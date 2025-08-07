@@ -1,7 +1,12 @@
 import { convertToSlug } from '../slug'
 import { brandLawrenceMcDaniel } from './gsdCommon'
 import { hourlyRate } from './gsdCommon'
-import { URL_SITE, WIKIDATA_FULLSTACK, WIKIDATA_DATA_SCIENTIST, SCHEMA_PERSON_ID_ME } from '../constants'
+import {
+  URL_SITE,
+  WIKIDATA_FULLSTACK,
+  WIKIDATA_DATA_SCIENTIST,
+  SCHEMA_PERSON_ID_ME,
+} from '../constants'
 
 const slug = 'consulting'
 
@@ -84,9 +89,18 @@ export const gsdServiceConsulting = {
         '@type': 'OfferCatalog',
         name: 'AI/ML Workload Devops and Monitoring',
         itemListElement: [
-          itemOffer('Data Analytics and Visualization', 'I help organizations analyze and visualize their data to gain insights and make informed decisions.'),
-          itemOffer('AI/ML Model Training and Deployment', 'I assist organizations in training and deploying AI/ML models to improve their business processes.'),
-          itemOffer('AI/ML Model Monitoring and Maintenance', 'I provide ongoing monitoring and maintenance for AI/ML models to ensure optimal performance.'),
+          itemOffer(
+            'Data Analytics and Visualization',
+            'I help organizations analyze and visualize their data to gain insights and make informed decisions.'
+          ),
+          itemOffer(
+            'AI/ML Model Training and Deployment',
+            'I assist organizations in training and deploying AI/ML models to improve their business processes.'
+          ),
+          itemOffer(
+            'AI/ML Model Monitoring and Maintenance',
+            'I provide ongoing monitoring and maintenance for AI/ML models to ensure optimal performance.'
+          ),
         ],
       },
       {
@@ -95,32 +109,32 @@ export const gsdServiceConsulting = {
         itemListElement: [
           itemOffer(
             'Proof of Concept',
-            "I help organizations develop proof of concept projects to validate their ideas and test their assumptions."
+            'I help organizations develop proof of concept projects to validate their ideas and test their assumptions.'
           ),
           itemOffer(
             ' Data Science',
             'I help organizations leverage their data to gain insights and make informed decisions.'
           ),
-            itemOffer(
-                'Training',
-                'I provide training to help organizations build their internal capabilities in data science, AI/ML, and cloud computing.'
-            ),
-            itemOffer(
-                'Full Stack Development',
-                'I help organizations build and maintain their web applications, from front-end to back-end development.'
-            ),
-            itemOffer(
-                'Cloud Computing',
-                'I help organizations migrate their infrastructure to the cloud and optimize their cloud operations.'
-            ),
-            itemOffer(
-                'Dev Ops',
-                'I help organizations implement best practices for software development, deployment, and maintenance, including CI/CD pipelines, automated testing, and infrastructure as code.'
-            ),
-            itemOffer(
-                'Open edX Custom Theming',
-                'I help organizations customize the appearance of their Open edX® platform by creating and implementing custom themes.'
-            ),
+          itemOffer(
+            'Training',
+            'I provide training to help organizations build their internal capabilities in data science, AI/ML, and cloud computing.'
+          ),
+          itemOffer(
+            'Full Stack Development',
+            'I help organizations build and maintain their web applications, from front-end to back-end development.'
+          ),
+          itemOffer(
+            'Cloud Computing',
+            'I help organizations migrate their infrastructure to the cloud and optimize their cloud operations.'
+          ),
+          itemOffer(
+            'Dev Ops',
+            'I help organizations implement best practices for software development, deployment, and maintenance, including CI/CD pipelines, automated testing, and infrastructure as code.'
+          ),
+          itemOffer(
+            'Open edX Custom Theming',
+            'I help organizations customize the appearance of their Open edX® platform by creating and implementing custom themes.'
+          ),
         ],
       },
     ],

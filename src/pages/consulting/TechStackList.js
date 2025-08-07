@@ -12,7 +12,7 @@ const techStack = [
 
 const TechStackList = () => (
   <ul>
-    {techStack.map(item => (
+    {techStack.map((item) => (
       <li key={item}>{item}</li>
     ))}
   </ul>

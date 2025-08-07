@@ -425,7 +425,6 @@ class LogoCube extends Component {
         return null
     }
   }
-
 } /* LogoCube component */
 
 CubeSide.propTypes = {

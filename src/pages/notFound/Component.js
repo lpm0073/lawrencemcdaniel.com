@@ -48,12 +48,7 @@ class PageNotFound extends Component {
                 <React.Fragment>
                   <MatrixRainingLetters key="" custom_class="ml-0 pl-0" />
                   <div>
-                    <Modal
-                      show={true}
-                      centered
-                      size="lg"
-                      backdrop="static"
-                    >
+                    <Modal show={true} centered size="lg" backdrop="static">
                       <Modal.Header>
                         <Modal.Title>404 Page Not Found</Modal.Title>
                       </Modal.Header>

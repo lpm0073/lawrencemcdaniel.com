@@ -16,7 +16,9 @@ BlankSpace.propTypes = {
 
 export const CarriageReturnLineFeed = () => {
   return (
-    <React.Fragment><br /></React.Fragment>
+    <React.Fragment>
+      <br />
+    </React.Fragment>
   )
 }
 

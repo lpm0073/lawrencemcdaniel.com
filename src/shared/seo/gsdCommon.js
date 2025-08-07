@@ -44,7 +44,7 @@ export const sameAs = [
   'https://www.codementor.io/@lawrencemcdaniel',
   'http://geek.ly/lmcdaniel',
   'https://twitter.com/lorenzodpolanco',
-  'https://extendedlearning.ubc.ca/about/our-instructors?field_course_program_areas_target_id_verf=All&field_instr_first_name=Lawrence&field_instr_last_name=McDaniel'
+  'https://extendedlearning.ubc.ca/about/our-instructors?field_course_program_areas_target_id_verf=All&field_instr_first_name=Lawrence&field_instr_last_name=McDaniel',
 ]
 
 export const brandLogo = {
@@ -76,7 +76,11 @@ export const imagesLawrenceMcDaniel = [
   brandLogo,
   imageObject('https://cdn.lawrencemcdaniel.com', 512, 512),
   imageObject('https://cdn.lawrencemcdaniel.com/social-1200x675.jpg', 1200, 675),
-  imageObject('https://cdn.lawrencemcdaniel.com/lawrencemcdaniel-headshot-square.jpeg', 1849, 1848),
+  imageObject(
+    'https://cdn.lawrencemcdaniel.com/lawrencemcdaniel-headshot-square.jpeg',
+    1849,
+    1848
+  ),
   imageObject(
     'https://cdn.lawrencemcdaniel.com/wp-content/uploads/2020/06/05201857/Lawrence6.jpg',
     1600,
