@@ -3,12 +3,12 @@ default_language_version:
 
 repos:
   - repo: https://github.com/pre-commit/mirrors-eslint
-    rev: v8.32.0
+    rev: v9.32.0
     hooks:
       - id: eslint
         args: ['--ext', '.js,.jsx,.ts,.tsx']
   - repo: https://github.com/codespell-project/codespell
-    rev: v2.2.6
+    rev: v2.4.1
     hooks:
       - id: codespell
         args: ['--ignore-words=codespell.txt', '--skip=yarn.lock']
@@ -22,12 +22,12 @@ repos:
         types: [javascript]
         files: ^client/
   - repo: https://github.com/pre-commit/mirrors-prettier
-    rev: v3.1.0
+    rev: v4.0.0-alpha.8
     hooks:
       - id: prettier
         args: ['--write', '.']
   - repo: https://github.com/pre-commit/pre-commit-hooks
-    rev: v4.5.0
+    rev: v5.0.0
     hooks:
       # See https://pre-commit.com/hooks.html for more hooks
       #- id: check-added-large-files
@@ -47,7 +47,7 @@ repos:
       - id: check-merge-conflict
       - id: debug-statements
   - repo: https://github.com/alessandrojcm/commitlint-pre-commit-hook
-    rev: v9.10.0
+    rev: v9.22.0
     hooks:
       - id: commitlint
         stages: [commit-msg]
