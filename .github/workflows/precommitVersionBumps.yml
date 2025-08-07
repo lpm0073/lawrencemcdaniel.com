@@ -44,11 +44,14 @@ jobs:
           echo "npx prettier --write ." > .husky/pre-commit
           chmod +x .husky/pre-commit
 
-
+      - name: Setup Python environment
+        uses: actions/setup-python@v5
+        with:
+          python-version: '3.x'
 
       - name: Install pre-commit
         shell: bash
-        run: yarn global add pre-commit
+        run: pip install pre-commit
 
       - name: Update .pre-commit-config.yaml
         shell: bash
