@@ -6,7 +6,10 @@ import TechnologyCarousel from '../../components/technologyCarousel/Component'
 import SkillColumn from './skillColumn'
 import { Helmet } from 'react-helmet'
 import { gsdPersonLawrenceMcDaniel } from '../../shared/seo/gsdPersonLawrence'
-import { gsdSoftwareRepoList_FSWL, gsdSoftwareRepoList_Smarter } from '../../shared/seo/gsdSoftwareSourceCode'
+import {
+  gsdSoftwareRepoList_FSWL,
+  gsdSoftwareRepoList_Smarter,
+} from '../../shared/seo/gsdSoftwareSourceCode'
 import { gsdVideoObjectList_FSWL } from '../../shared/seo/gsdVideoObject'
 import { gsdGraph } from '../../shared/seo/gsdGraph'
 import { URL_SITE } from '../../shared/constants'
@@ -17,11 +20,16 @@ const Fullstack = (props) => {
   /* Google Structured Data */
   const slug = 'full-stack-developer'
   const webpageName = 'Full Stack Developer | Lawrence McDaniel'
-  const webpageDescription = "Full Stack Developer."
+  const webpageDescription = 'Full Stack Developer.'
   const primaryImageUrl = ''
   const pageType = ''
   const relatedLink = ''
-  const graphExtraData = [gsdPersonLawrenceMcDaniel, gsdSoftwareRepoList_FSWL, gsdSoftwareRepoList_Smarter, gsdVideoObjectList_FSWL]
+  const graphExtraData = [
+    gsdPersonLawrenceMcDaniel,
+    gsdSoftwareRepoList_FSWL,
+    gsdSoftwareRepoList_Smarter,
+    gsdVideoObjectList_FSWL,
+  ]
 
   return (
     <React.Fragment>
@@ -43,7 +51,12 @@ const Fullstack = (props) => {
         </script>
       </Helmet>
       <div key="skills-page" className="site-page skills-page">
-        <RenderPageTitle theme="light" icon="fa-book" title="FULL STACK" boxed_title="DEVELOPER" />
+        <RenderPageTitle
+          theme="light"
+          icon="fa-book"
+          title="FULL STACK"
+          boxed_title="DEVELOPER"
+        />
 
         <div className="row mt-5 mb-5 ml-0 mr-0 justify-content-center">
           <SkillColumn
@@ -94,12 +107,12 @@ const Fullstack = (props) => {
           <div className="col">
             <h3 className="ml-auto text-center pl-2 mx-5 mt-5">Code Samples</h3>
             <p className="text-center">
-              Hire me! I can help you with your next project, more details <a href="/consulting">here</a>.
+              Hire me! I can help you with your next project, more details{' '}
+              <a href="/consulting">here</a>.
             </p>
             <Content category="full-stack" />
           </div>
         </div>
-
       </div>
     </React.Fragment>
   )

@@ -13,7 +13,6 @@ const __filename = fileURLToPath(import.meta.url)
 const __dirname = dirname(__filename)
 const outputPath = join(__dirname, '../../../public/schema.json')
 
-
 const person = {
   ...gsdPersonLawrenceMcDaniel,
   ...{ hasOccupation: hasOccupation },
@@ -26,16 +25,16 @@ const primaryImageUrl = ''
 const pageType = ''
 const relatedLink = ''
 const graphExtraData = [person, ...gsdSoftwareSourceCodeList, ...gsdVideoObjectList]
-const schema = JSON.stringify(gsdGraph(
-                slug,
-                webpageName,
-                webpageDescription,
-                primaryImageUrl,
-                pageType,
-                relatedLink,
-                graphExtraData
-              )
-            )
-
+const schema = JSON.stringify(
+  gsdGraph(
+    slug,
+    webpageName,
+    webpageDescription,
+    primaryImageUrl,
+    pageType,
+    relatedLink,
+    graphExtraData
+  )
+)
 
 writeFileSync(outputPath, schema, 'utf8')

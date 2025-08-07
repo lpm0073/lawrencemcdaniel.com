@@ -67,7 +67,7 @@ function blogApiHeaders() {
 }
 
 async function fetchBlogCategories() {
-  const concept = 'Wordpress blog categories';
+  const concept = 'Wordpress blog categories'
   try {
     const response = await fetch(URL_API_BLOG_CATEGORIES, {
       method: 'GET',
@@ -84,9 +84,7 @@ async function fetchBlogCategories() {
         }
       })
     } else {
-      console.error(
-        `Error fetching ${concept}: ${response.statusText}`
-      )
+      console.error(`Error fetching ${concept}: ${response.statusText}`)
     }
   } catch (error) {
     console.error(`Error fetching ${concept}:`, error)
@@ -96,7 +94,7 @@ async function fetchBlogCategories() {
 }
 
 async function fetchBlogPosts(categories) {
-  const concept = 'Wordpress blog posts';
+  const concept = 'Wordpress blog posts'
 
   try {
     const response = await fetch(URL_API_BLOG_POSTS, {

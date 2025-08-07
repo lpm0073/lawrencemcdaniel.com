@@ -7,7 +7,12 @@ import {
 } from './gsdCommon.js'
 import { gsdQualifications } from './gsdQualifications.js'
 import { hourlyRate } from './gsdCommon.js'
-import { URL_SITE, DEFAULT_IMAGE, WIKIDATA_DATA_SCIENTIST, SCHEMA_PERSON_ID_ME } from '../constants.js'
+import {
+  URL_SITE,
+  DEFAULT_IMAGE,
+  WIKIDATA_DATA_SCIENTIST,
+  SCHEMA_PERSON_ID_ME,
+} from '../constants.js'
 
 const aboutMe = `American data scientist, full stack developer, online instructor and digital
 content creator. I work with AWS and Azure cloud infrastructure and I code in Python,
@@ -36,7 +41,7 @@ export const hasOccupation = {
     percentile10: 38.48,
     percentile25: 48.13,
     percentile75: 73.08,
-    percentile90: 90.00,
+    percentile90: 90.0,
     duration: 'PT1H',
   },
   occupationLocation: [
@@ -104,8 +109,9 @@ export const gsdPersonLawrenceMcDaniel = {
     subjectOf('https://opensource.com/article/18/6/getting-started-open-edx'),
     subjectOf('https://open.edx.org/marketplace/lawrence-mcdaniel/'),
     subjectOf('https://openedx2018.sched.com/lpm0073'),
-    subjectOf('https://extendedlearning.ubc.ca/about/our-instructors?field_course_program_areas_target_id_verf=All&field_instr_first_name=Lawrence&field_instr_last_name=McDaniel'),
+    subjectOf(
+      'https://extendedlearning.ubc.ca/about/our-instructors?field_course_program_areas_target_id_verf=All&field_instr_first_name=Lawrence&field_instr_last_name=McDaniel'
+    ),
     subjectOf('http://geek.ly/lmcdaniel'),
   ],
 }
-

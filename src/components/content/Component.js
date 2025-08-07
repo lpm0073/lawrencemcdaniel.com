@@ -5,7 +5,6 @@ import CodeSamplesTable from '../codeSamples/Component'
 import ArticlesTable from '../articles/Component'
 import VideosTable from '../videos/Component'
 
-
 export function categoryUrl(categoryCode) {
   /*
     anchor links to the specialties page. These are internal page
@@ -73,8 +72,7 @@ export function categoryLogoUrl(categoryCode, reduxSpecialties) {
     case 'wordpress':
       return 'assets/images/pancakes.png'
     case 'django':
-        return 'assets/images/pancakes.png'
-
+      return 'assets/images/pancakes.png'
   }
   console.warn('categoryLogoUrl() categoryCode is not locally served', categoryCode)
 
@@ -103,7 +101,9 @@ export function categoryIcon(categoryCode, reduxSpecialties) {
   const category_url = categoryUrl(categoryCode)
   const category_logo_url = categoryLogoUrl(categoryCode, reduxSpecialties)
   if (!category_label || !category_url || !category_logo_url) {
-    console.warn(`categoryIcon() missing data for categoryCode: ${categoryCode} label: ${category_label} url: ${category_url} logo: ${category_logo_url}`)
+    console.warn(
+      `categoryIcon() missing data for categoryCode: ${categoryCode} label: ${category_label} url: ${category_url} logo: ${category_logo_url}`
+    )
     return null
   }
   return (
@@ -192,7 +192,7 @@ export const Content = ({ category }) => {
         id="content-tabs"
         className="m-5"
         style={{ backgroundColor: 'white' }}
-        >
+      >
         <Tab eventKey="code-samples" title="Code Samples">
           <div className="p-3">
             <div className="col-lg-12 code-samples">
@@ -214,7 +214,10 @@ export const Content = ({ category }) => {
         <Tab eventKey="articles" title="Articles">
           <div className="p-3">
             <h3>Articles</h3>
-            <p>These are articles that I&apos;ve published. Usually from my personal blog, but every now and then from other sources.</p>
+            <p>
+              These are articles that I&apos;ve published. Usually from my personal blog,
+              but every now and then from other sources.
+            </p>
             <ArticlesTable category={category} maxrows={10} />
           </div>
         </Tab>

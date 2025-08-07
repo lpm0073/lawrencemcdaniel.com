@@ -145,7 +145,8 @@ const VideoDescription = ({ video }) => {
           maxHeight: '200px',
           overflowY: 'auto',
           overflowX: 'hidden',
-        }}>
+        }}
+      >
         <p>{video.description}</p>
       </div>
     </React.Fragment>
@@ -196,8 +197,10 @@ const VideosTable = ({ category, maxrows = 100 }) => {
 
   const unfilteredVideos = [
     ...(category
-      ? (reduxVideos.videos || []).filter((redux) => (redux.categories || []).includes(category))
-      : (reduxVideos.videos || [])),
+      ? (reduxVideos.videos || []).filter((redux) =>
+          (redux.categories || []).includes(category)
+        )
+      : reduxVideos.videos || []),
   ]
     .map((video) => {
       // If category is specified, remove the corresponding entry so that it doesn't

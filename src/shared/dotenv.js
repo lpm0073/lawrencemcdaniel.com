@@ -18,31 +18,33 @@ const __dirname = dirname(__filename)
 export function loadEnv(envPath = '../../.env') {
   try {
     // Read the .env file
-    const envFile = readFileSync(join(__dirname, envPath), 'utf8');
+    const envFile = readFileSync(join(__dirname, envPath), 'utf8')
 
     // Parse each line
-    envFile.split('\n').forEach(line => {
+    envFile.split('\n').forEach((line) => {
       // Skip empty lines and comments
-      const trimmedLine = line.trim();
-      if (!trimmedLine || trimmedLine.startsWith('#')) return;
+      const trimmedLine = line.trim()
+      if (!trimmedLine || trimmedLine.startsWith('#')) return
 
       // Split on first equals sign
-      const equalsIndex = trimmedLine.indexOf('=');
-      if (equalsIndex === -1) return;
+      const equalsIndex = trimmedLine.indexOf('=')
+      if (equalsIndex === -1) return
 
-      const key = trimmedLine.slice(0, equalsIndex).trim();
-      let value = trimmedLine.slice(equalsIndex + 1).trim();
+      const key = trimmedLine.slice(0, equalsIndex).trim()
+      let value = trimmedLine.slice(equalsIndex + 1).trim()
 
       // Remove surrounding quotes if present
-      if ((value.startsWith('"') && value.endsWith('"')) ||
-          (value.startsWith("'") && value.endsWith("'"))) {
-        value = value.slice(1, -1);
+      if (
+        (value.startsWith('"') && value.endsWith('"')) ||
+        (value.startsWith("'") && value.endsWith("'"))
+      ) {
+        value = value.slice(1, -1)
       }
 
       // Set environment variable
-      process.env[key] = value;
-    });
+      process.env[key] = value
+    })
   } catch (error) {
-    console.error('Error loading .env file:', error.message);
+    console.error('Error loading .env file:', error.message)
   }
 }

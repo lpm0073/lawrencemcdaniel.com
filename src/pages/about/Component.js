@@ -44,7 +44,11 @@ class About extends Component {
     const primaryImageUrl = ''
     const pageType = 'AboutPage'
     const relatedLink = ''
-    const graphExtraData = [{ ...gsdPersonLawrenceMcDaniel }, gsdSoftwareSourceCodeList, gsdVideoObjectList]
+    const graphExtraData = [
+      { ...gsdPersonLawrenceMcDaniel },
+      gsdSoftwareSourceCodeList,
+      gsdVideoObjectList,
+    ]
 
     return (
       <React.Fragment>

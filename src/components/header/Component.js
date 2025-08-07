@@ -1,11 +1,6 @@
 import React, { Component } from 'react'
 import { Offline } from 'react-detect-offline'
-import {
-  Navbar,
-  Nav,
-  NavDropdown,
-  Container
-} from 'react-bootstrap'
+import { Navbar, Nav, NavDropdown, Container } from 'react-bootstrap'
 import { NavLink } from 'react-router-dom'
 
 import './styles.css'
@@ -77,20 +72,44 @@ export class Header extends Component {
                 <Nav.Link as={NavLink} to="/" onClick={this.toggleNavItem}>
                   Home
                 </Nav.Link>
-                <Nav.Link as={NavLink} to="/about" onClick={this.toggleNavItem} className="hide-medium">
+                <Nav.Link
+                  as={NavLink}
+                  to="/about"
+                  onClick={this.toggleNavItem}
+                  className="hide-medium"
+                >
                   About
                 </Nav.Link>
-                <Nav.Link as={NavLink} to="/education" onClick={this.toggleNavItem} className="hide-medium">
+                <Nav.Link
+                  as={NavLink}
+                  to="/education"
+                  onClick={this.toggleNavItem}
+                  className="hide-medium"
+                >
                   Education
                 </Nav.Link>
-                <Nav.Link as={NavLink} to="/consulting" onClick={this.toggleNavItem} className="hide-medium">
+                <Nav.Link
+                  as={NavLink}
+                  to="/consulting"
+                  onClick={this.toggleNavItem}
+                  className="hide-medium"
+                >
                   Consulting
                 </Nav.Link>
-                <Nav.Link as={NavLink} to="/clients" onClick={this.toggleNavItem} className="hide-medium">
+                <Nav.Link
+                  as={NavLink}
+                  to="/clients"
+                  onClick={this.toggleNavItem}
+                  className="hide-medium"
+                >
                   Clients
                 </Nav.Link>
                 <NavDropdown title="Skills" className="hide-medium">
-                  <NavDropdown.Item as={NavLink} to="/data-science" style={{ color: 'gray' }}>
+                  <NavDropdown.Item
+                    as={NavLink}
+                    to="/data-science"
+                    style={{ color: 'gray' }}
+                  >
                     <img
                       key="menu-ml-image"
                       className="react-logo"
@@ -99,7 +118,11 @@ export class Header extends Component {
                     />
                     Data Science
                   </NavDropdown.Item>
-                  <NavDropdown.Item as={NavLink} to="/full-stack-developer" style={{ color: 'gray' }}>
+                  <NavDropdown.Item
+                    as={NavLink}
+                    to="/full-stack-developer"
+                    style={{ color: 'gray' }}
+                  >
                     <img
                       key="menu-ml-image"
                       className="react-logo"

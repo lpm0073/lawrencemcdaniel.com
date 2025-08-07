@@ -6,7 +6,7 @@
 const course = (courseName, description, url, providerName, providerUrl, dateCreated) => {
   return {
     '@type': 'EducationalOccupationalCredential',
-    "credentialCategory": "certificate",
+    credentialCategory: 'certificate',
     name: courseName,
     description: description,
     url: url,
@@ -20,19 +20,20 @@ const course = (courseName, description, url, providerName, providerUrl, dateCre
 }
 
 export const gsdQualifications = [
-    {
-      '@type': 'EducationalOccupationalCredential',
-      name: 'Bachelor of Science in Computer Science and Mathematics',
-      description: 'Bachelor of Science in Computer Science and Mathematics, Minors in Physics and English.',
-      credentialCategory: 'degree',
-      educationalLevel: 'Bachelors or equivalent',
-      url: 'https://www.unt.edu/',
-      recognizedBy: {
-        '@type': 'CollegeOrUniversity',
-        name: 'University of North Texas',
-        sameAs: 'https://www.unt.edu/',
-      },
-      dateCreated: '1992-08-01',
+  {
+    '@type': 'EducationalOccupationalCredential',
+    name: 'Bachelor of Science in Computer Science and Mathematics',
+    description:
+      'Bachelor of Science in Computer Science and Mathematics, Minors in Physics and English.',
+    credentialCategory: 'degree',
+    educationalLevel: 'Bachelors or equivalent',
+    url: 'https://www.unt.edu/',
+    recognizedBy: {
+      '@type': 'CollegeOrUniversity',
+      name: 'University of North Texas',
+      sameAs: 'https://www.unt.edu/',
+    },
+    dateCreated: '1992-08-01',
   },
   course(
     'Data Science & Machine Learning: Making Data-Driven Decisions',

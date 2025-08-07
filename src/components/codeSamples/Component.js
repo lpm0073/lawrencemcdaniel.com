@@ -59,7 +59,6 @@ const repositoriesStateShape = PropTypes.shape({
   repos: PropTypes.arrayOf(repoStateShape.isRequired),
 })
 
-
 // ---------------------------- Internal Components ------------------------------
 
 const CodeEngagement = ({ repo }) => {
@@ -245,14 +244,14 @@ CodeRepository.propTypes = {
 
 // ------------------------------ Main Component ------------------------------
 
-const CodeSamplesTable = ({ category, maxrows=100 }) => {
+const CodeSamplesTable = ({ category, maxrows = 100 }) => {
   /*
    Renders a table of code samples for the given category.
    */
   const [currentMaxRows, setCurrentMaxRows] = useState(maxrows)
 
   const reduxRepositories = useSelector((state) => state.repositories)
-  const reduxSpecialties = useSelector((state) => state.specialties)    // for future use.
+  const reduxSpecialties = useSelector((state) => state.specialties) // for future use.
 
   const unfilteredRepositories = [
     ...(category
@@ -330,15 +329,11 @@ const CodeSamplesTable = ({ category, maxrows=100 }) => {
 
           {unfilteredCount > currentMaxRows && (
             <div className="text-center mt-3">
-              <button
-                className="btn btn-primary"
-                onClick={handleShowMore}
-              >
+              <button className="btn btn-primary" onClick={handleShowMore}>
                 More ({unfilteredCount - currentMaxRows} remaining)
               </button>
             </div>
           )}
-
         </React.Fragment>
       )}
     </div>

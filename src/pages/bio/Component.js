@@ -17,8 +17,7 @@ const Bio = (props) => {
   /* Google Structured Data */
   const slug = 'bio'
   const webpageName = 'Bio'
-  const webpageDescription =
-    `Lawrence McDaniel is a data scientist, full-stack developer and digital content creator. He
+  const webpageDescription = `Lawrence McDaniel is a data scientist, full-stack developer and digital content creator. He
     has a BS in computer science and mathematics with minors in physics and English from
     University of North Texas. He was an early employee at three startups that were later acquired
     by Goldman Sachs, IBM and Deutsche Bank respectively, and has participated in a
@@ -79,16 +78,16 @@ const Bio = (props) => {
               <p>
                 He has expertise in data science, financial modeling and forecasting
                 systems, analytics, machine learning, AI, big data, web, database
-                technology, and Amazon Web Services (AWS) and Microsoft Azure cloud infrastructure. He has 20+
-                years experience designing high performance, always-up transactional
-                database systems using MySQL, MSSQL Server, Aurora and MongoDB. He also
-                has years of expertise designing high availability, horizontally scalable
-                cloud-based infrastructure environments. In fact, Lawrence is an
-                ambassador for the AWS Activate Program in Mexico, helping startups and
-                early-stage ventures get digital products and services to market using
-                AWS. He advises companies on migration plans to AWS as well as works with
-                early-stage ventures creating new highly scalable back-end environments
-                and implementing continuous integration strategies.
+                technology, and Amazon Web Services (AWS) and Microsoft Azure cloud
+                infrastructure. He has 20+ years experience designing high performance,
+                always-up transactional database systems using MySQL, MSSQL Server, Aurora
+                and MongoDB. He also has years of expertise designing high availability,
+                horizontally scalable cloud-based infrastructure environments. In fact,
+                Lawrence is an ambassador for the AWS Activate Program in Mexico, helping
+                startups and early-stage ventures get digital products and services to
+                market using AWS. He advises companies on migration plans to AWS as well
+                as works with early-stage ventures creating new highly scalable back-end
+                environments and implementing continuous integration strategies.
               </p>
               <p>
                 Lawrence is an angel investor, entrepreneur and company mentor with nearly

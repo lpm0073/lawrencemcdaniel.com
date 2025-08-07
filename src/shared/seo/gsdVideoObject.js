@@ -1,4 +1,4 @@
-import { DEFAULT_IMAGE, SCHEMA_PERSON_ID_ME } from "../constants.js"
+import { DEFAULT_IMAGE, SCHEMA_PERSON_ID_ME } from '../constants.js'
 
 const TIMEZONE = 'T00:00:00-06:00'
 

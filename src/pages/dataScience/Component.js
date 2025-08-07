@@ -8,7 +8,10 @@ import { gsdGraph } from '../../shared/seo/gsdGraph'
 import { gsdPersonLawrenceMcDaniel } from '../../shared/seo/gsdPersonLawrence'
 import { hasOccupation } from '../../shared/seo/gsdPersonLawrence'
 import { gsdArticle } from '../../shared/seo/gsdArticle'
-import { gsdSoftwareRepoList_FSWL, gsdSoftwareRepoList_Smarter } from '../../shared/seo/gsdSoftwareSourceCode'
+import {
+  gsdSoftwareRepoList_FSWL,
+  gsdSoftwareRepoList_Smarter,
+} from '../../shared/seo/gsdSoftwareSourceCode'
 import { gsdVideoObjectList_FSWL } from '../../shared/seo/gsdVideoObject'
 import { baseTitle } from '../../shared/seo/gsdCommon'
 import { URL_SITE } from '../../shared/constants'
@@ -31,7 +34,13 @@ const Datascience = (props) => {
     ...gsdPersonLawrenceMcDaniel,
     ...{ hasOccupation: hasOccupation },
   }
-  const graphExtraData = [person, gsdArticle(slug, webpageName), gsdSoftwareRepoList_FSWL, gsdSoftwareRepoList_Smarter, gsdVideoObjectList_FSWL]
+  const graphExtraData = [
+    person,
+    gsdArticle(slug, webpageName),
+    gsdSoftwareRepoList_FSWL,
+    gsdSoftwareRepoList_Smarter,
+    gsdVideoObjectList_FSWL,
+  ]
 
   return (
     <React.Fragment>
@@ -92,13 +101,13 @@ const Datascience = (props) => {
                   </h4>
                   <div className="text-justify">
                     <p>
-                      Hi, I’m Lawrence McDaniel and I am a data scientist and online instructor
-                      at University of British Columbia specializing in Artificial Intelligence and
-                      cloud computing. The rapid
-                      evolution of IT infrastructure cloud services combined with the
-                      sudden and staggering accumulation of electronic data has catalyzed
-                      an explosion of applied science and innovation for many ideas that
-                      only a few years ago were still not much more than theory. The math
+                      Hi, I’m Lawrence McDaniel and I am a data scientist and online
+                      instructor at University of British Columbia specializing in
+                      Artificial Intelligence and cloud computing. The rapid evolution of
+                      IT infrastructure cloud services combined with the sudden and
+                      staggering accumulation of electronic data has catalyzed an
+                      explosion of applied science and innovation for many ideas that only
+                      a few years ago were still not much more than theory. The math
                       hasn’t gotten any easier, and IT infrastructure has actually become
                       a lot more complex, however, If you understand both of these
                       disciplines and you also are a halfway decent software engineer then
