@@ -2,7 +2,6 @@ const { SitemapStream } = require('sitemap')
 const { createWriteStream } = require('fs')
 
 const routes = [
-  'schema.json',
   '/',
   '/contact',
   '/consulting',

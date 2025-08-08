@@ -1,6 +1,6 @@
 import { convertToSlug } from '../slug'
 import { brandLawrenceMcDaniel } from './gsdCommon'
-import { datePublished, hourlyRate, nameLawrenceMcDaniel } from './gsdCommon'
+import { datePublished, hourlyRate } from './gsdCommon'
 import { URL_SITE, WIKIDATA_FULLSTACK, SCHEMA_PERSON_ID_ME } from '../constants'
 
 const fullstackItemOffer = (name, description = '') => {
@@ -83,7 +83,10 @@ export const gsdServiceOpenedX = {
     review: [
       {
         '@type': 'Review',
-        author: nameLawrenceMcDaniel,
+        author: {
+          '@type': 'Person',
+          '@id': SCHEMA_PERSON_ID_ME,
+        },
         datePublished: datePublished,
         name: 'Review by Lawrence',
         reviewBody: 'My self review of this product.',

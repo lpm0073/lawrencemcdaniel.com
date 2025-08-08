@@ -15,6 +15,7 @@ export const gsdVideoObject = (url, name, description, uploadDate = getToday()) 
     thumbnailUrl: DEFAULT_IMAGE,
     contentUrl: url,
     author: {
+      '@type': 'Person',
       '@id': SCHEMA_PERSON_ID_ME,
     },
   }
