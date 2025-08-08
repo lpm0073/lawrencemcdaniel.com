@@ -9,6 +9,15 @@ import { Helmet } from 'react-helmet'
 import Loading from '../../components/Loading'
 //import MatrixRainingLetters from '../../components/matrixRainingLetters/matrixRainingLetters';
 import { MatrixRainingLetters } from 'react-mdr'
+
+import { gsdPersonLawrenceMcDaniel } from '../../shared/seo/gsdPersonLawrence'
+import {
+  gsdSoftwareRepoList_FSWL,
+  gsdSoftwareRepoList_Smarter,
+} from '../../shared/seo/gsdSoftwareSourceCode'
+import { gsdVideoObjectList_FSWL } from '../../shared/seo/gsdVideoObject'
+import { gsdGraph } from '../../shared/seo/gsdGraph'
+
 import { URL_SITE } from '../../shared/constants'
 import './styles.css'
 
@@ -34,6 +43,19 @@ class MRLPage extends Component {
   }
 
   render() {
+    const slug = 'matrix-digital-rain-for-react'
+    const webpageName = 'Matrix Digital Rain Effect for React'
+    const webpageDescription = 'Matrix Digital Rain effect for React.'
+    const primaryImageUrl = ''
+    const pageType = ''
+    const relatedLink = ''
+    const graphExtraData = [
+      gsdPersonLawrenceMcDaniel,
+      gsdSoftwareRepoList_FSWL,
+      gsdSoftwareRepoList_Smarter,
+      gsdVideoObjectList_FSWL,
+    ]
+
     return (
       <React.Fragment>
         {this.props.isLoading ? (
@@ -46,6 +68,19 @@ class MRLPage extends Component {
                 name="description"
                 content="Lawrence McDaniel - Matrix digital rain for React"
               />
+              <script type="application/ld+json">
+                {JSON.stringify(
+                  gsdGraph(
+                    slug,
+                    webpageName,
+                    webpageDescription,
+                    primaryImageUrl,
+                    pageType,
+                    relatedLink,
+                    graphExtraData
+                  )
+                )}
+              </script>
               <meta
                 property="og:description"
                 content="Lawrence McDaniel - Matrix digital rain for React"
