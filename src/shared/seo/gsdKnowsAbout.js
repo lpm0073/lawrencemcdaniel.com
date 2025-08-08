@@ -3,7 +3,8 @@
    Appended to Organization object for Fullstack and Specialties pages.
  */
 import { wpGetFeaturedImage } from '../wpGetFeaturedImage'
-import { datePublished, SCHEMA_PERSON_ID_ME } from './gsdCommon'
+import { datePublished } from './gsdCommon'
+import { SCHEMA_PERSON_ID_ME } from '../constants'
 
 /* eslint-disable no-unused-vars */
 export const gsdKnowsAbout = (props) => {
