@@ -304,7 +304,7 @@ const CodeSamplesTable = ({ category, maxrows = 100 }) => {
       ) : (
         <React.Fragment>
           <table
-            className="table table-bordered table-striped table-fixed mt-4 w-100"
+            className="table table-bordered table-striped table-fixed mt-1 w-100"
             id="code-samples-table"
           >
             <thead className="thead-dark">

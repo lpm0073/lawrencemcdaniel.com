@@ -5,6 +5,7 @@ import CodeSamplesTable from './codeSamples/Component'
 import ArticlesTable from './articles/Component'
 import VideosTable from './videos/Component'
 
+import './styles.css'
 export function categoryUrl(categoryCode) {
   /*
     anchor links to the specialties page. These are internal page
@@ -187,16 +188,19 @@ ContentCategories.propTypes = {
 export const Content = ({ category }) => {
   return (
     <React.Fragment>
-      <Tabs
-        defaultActiveKey="code-samples"
-        id="content-tabs"
-        className="m-5"
-        style={{ backgroundColor: 'white' }}
-      >
-        <Tab eventKey="code-samples" title="Code Samples">
-          <div className="p-3">
-            <div className="col-lg-12 code-samples">
-              <h3>Code Samples</h3>
+      <div className="p-1 bg-secondary border border-dark rounded">
+        <div className="border border-dark bg-white rounded">
+          <Tabs
+            defaultActiveKey="code-samples"
+            id="content-tabs"
+            className="ml-5 mr-5 p-0 bg-white"
+            style={{ backgroundColor: 'white' }}
+          >
+            <Tab
+              eventKey="code-samples"
+              title="Code Samples"
+              className="p-1 m-1 mt-3 code-samples bg-white"
+            >
               <p>
                 These are a combination of managed GitHub repositories that I use for
                 instructional purposes, combined with repositories belonging to open
@@ -207,29 +211,23 @@ export const Content = ({ category }) => {
                 package updates.
               </p>
               <CodeSamplesTable category={category} maxrows={10} />
-            </div>
-          </div>
-        </Tab>
+            </Tab>
 
-        <Tab eventKey="articles" title="Articles">
-          <div className="p-3">
-            <h3>Articles</h3>
-            <p>
-              These are articles that I&apos;ve published. Usually from my personal blog,
-              but every now and then from other sources.
-            </p>
-            <ArticlesTable category={category} maxrows={10} />
-          </div>
-        </Tab>
+            <Tab eventKey="articles" title="Articles" className="p-3">
+              <p>
+                These are articles that I&apos;ve published. Usually from my personal
+                blog, but every now and then from other sources.
+              </p>
+              <ArticlesTable category={category} maxrows={10} />
+            </Tab>
 
-        <Tab eventKey="videos" title="Videos">
-          <div className="p-3">
-            <h3>Videos</h3>
-            <p>Videos content will go here</p>
-            <VideosTable category={category} maxrows={10} />
-          </div>
-        </Tab>
-      </Tabs>
+            <Tab eventKey="videos" title="Videos" className="p-3">
+              <p>Videos from my YouTube Channel, Full Stack With Lawrence</p>
+              <VideosTable category={category} maxrows={10} />
+            </Tab>
+          </Tabs>
+        </div>
+      </div>
     </React.Fragment>
   )
 }

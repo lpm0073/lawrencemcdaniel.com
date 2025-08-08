@@ -215,8 +215,8 @@ const ArticlesTable = ({ category, maxrows = 100 }) => {
       ) : (
         <React.Fragment>
           <table
-            className="table table-bordered table-striped table-fixed mt-4 w-100"
-            id="code-samples-table"
+            className="table table-bordered table-striped table-fixed mt-1 w-100"
+            id="articles-table"
           >
             <thead className="thead-dark">
               <tr>
