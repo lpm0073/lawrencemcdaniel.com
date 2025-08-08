@@ -1,9 +1,9 @@
 import React from 'react'
 import { Tabs, Tab } from 'react-bootstrap'
 import PropTypes from 'prop-types'
-import CodeSamplesTable from '../codeSamples/Component'
-import ArticlesTable from '../articles/Component'
-import VideosTable from '../videos/Component'
+import CodeSamplesTable from './codeSamples/Component'
+import ArticlesTable from './articles/Component'
+import VideosTable from './videos/Component'
 
 export function categoryUrl(categoryCode) {
   /*

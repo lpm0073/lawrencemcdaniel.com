@@ -42,6 +42,7 @@ repos:
       - id: detect-aws-credentials
       - id: detect-private-key
       - id: end-of-file-fixer
+        exclude: ^public/sitemap\.xml$
       - id: forbid-new-submodules
       - id: trailing-whitespace
       - id: check-merge-conflict
