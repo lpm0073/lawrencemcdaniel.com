@@ -1,15 +1,15 @@
-div.col-12.page-title.light {
+div.col.page-title.light {
   color: black;
 }
-div.col-12.page-title.dark {
+div.col.page-title.dark {
   color: white;
 }
 
-div.col-12.page-title.light i.page-title-boxed {
+div.col.page-title.light i.page-title-boxed {
   background-color: rgba(59, 63, 80, 0.6);
 }
 
-div.col-12.page-title.dark i.page-title-boxed {
+div.col.page-title.dark i.page-title-boxed {
   background-color: rgba(239, 239, 239, 0.6);
 }
 
