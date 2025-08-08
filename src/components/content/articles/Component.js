@@ -81,6 +81,10 @@ const ArticleMetadata = ({ article }) => {
         className="img-fluid"
         src={article.yoast_head_json.og_image[0].url}
         alt={article.yoast_head_json.title}
+        title={article.yoast_head_json.title}
+        loading="lazy"
+        width={article.yoast_head_json.og_image[0].width}
+        height={article.yoast_head_json.og_image[0].height}
       />
     </React.Fragment>
   )
