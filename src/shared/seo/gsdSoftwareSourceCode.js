@@ -9,6 +9,7 @@ export const gsdSoftwareSourceCode = (url, programming_language, description) =>
     name: name,
     codeRepository: url,
     author: {
+      '@type': 'Person',
       '@id': SCHEMA_PERSON_ID_ME,
     },
     programmingLanguage: programming_language,

@@ -2,17 +2,15 @@
 import packageJson from '../../package.json' with { type: 'json' }
 
 export const DEBUG = false
-
 export const baseUrl = 'http://localhost:3001/'
-
-export const protocol = 'https'
-export const domainName = 'lawrencemcdaniel.com'
 export const DEFAULT_IMAGE =
   'https://cdn.lawrencemcdaniel.com/lawrencemcdaniel-headshot-square.jpeg'
-export const CORSOrigins = '*.' + domainName
 
-export const YOUTUBE_API_BASE_URL = 'https://www.googleapis.com/youtube/v3'
-export const YOUTUBE_CHANNEL_ID = 'UCzu-gQp7Ca-csmsKGKWOliA'
+// Base domain and subdomains
+// ----------------------------------------------------------------------------
+export const protocol = 'https'
+export const domainName = 'lawrencemcdaniel.com'
+export const CORSOrigins = '*.' + domainName
 
 export const URL_SITE = protocol + '://' + domainName
 export const URL_API = protocol + '://api.' + domainName
@@ -28,6 +26,7 @@ export const URL_API_ARTICLES = '/data/blog.lawrencemcdaniel.com.json'
 export const URL_API_VIDEOS = '/data/youtube.json'
 
 // Wordpress API Content URL end points
+// ----------------------------------------------------------------------------
 export const URL_API_SPECIALTIES =
   ApiBackendUrl + 'posts?categories=43&_embed&per_page=100'
 export const URL_API_PORTFOLIO = ApiBackendUrl + 'posts?categories=47&_embed&per_page=100'
@@ -42,11 +41,19 @@ export const URL_API_CLIENTS = ApiBackendUrl + 'posts?categories=46&_embed&per_p
 export const URL_API_BLOG_POSTS = blogBackendUrl + 'posts?&per_page=100'
 export const URL_API_BLOG_CATEGORIES = blogBackendUrl + 'categories?&per_page=100'
 
+// YouTube API
+// ----------------------------------------------------------------------------
+export const YOUTUBE_API_BASE_URL = 'https://www.googleapis.com/youtube/v3'
+export const YOUTUBE_CHANNEL_ID = 'UCzu-gQp7Ca-csmsKGKWOliA'
+
+// Schema.org
+// ----------------------------------------------------------------------------
+export const SCHEMA_PERSON_ID_ME = URL_SITE + '/#me'
 export const WIKIDATA_FULLSTACK = 'https://www.wikidata.org/wiki/Q96072517'
 export const WIKIDATA_DATA_SCIENTIST = 'https://www.wikidata.org/wiki/Q29169143'
 
-export const SCHEMA_PERSON_ID_ME = URL_SITE + '/#me'
-
+// Cache
+// ----------------------------------------------------------------------------
 export const CACHE_VERSION = packageJson.version
 
 function versioned_cached(name) {

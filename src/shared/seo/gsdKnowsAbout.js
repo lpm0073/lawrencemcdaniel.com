@@ -3,7 +3,7 @@
    Appended to Organization object for Fullstack and Specialties pages.
  */
 import { wpGetFeaturedImage } from '../wpGetFeaturedImage'
-import { datePublished, nameLawrenceMcDaniel } from './gsdCommon'
+import { datePublished, SCHEMA_PERSON_ID_ME } from './gsdCommon'
 
 /* eslint-disable no-unused-vars */
 export const gsdKnowsAbout = (props) => {
@@ -37,7 +37,10 @@ export const gsdKnowsAbout = (props) => {
       review: [
         {
           '@type': 'Review',
-          author: nameLawrenceMcDaniel,
+          author: {
+            '@type': 'Person',
+            '@id': SCHEMA_PERSON_ID_ME,
+          },
           datePublished: datePublished,
           name: 'Review by Lawrence',
           reviewBody: 'My self review of this product.',
