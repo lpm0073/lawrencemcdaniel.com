@@ -1,0 +1,14 @@
+.nav-tabs .nav-link:hover,
+.nav-tabs .nav-link:focus {
+  background-color: #cccccc !important;
+  color: #222 !important;
+}
+
+.nav-link:focus,
+.nav-link:hover,
+.nav-item,
+.dropdown-item,
+.dropdown-menu {
+  background-color: white !important;
+  color: #222 !important;
+}
