@@ -8,7 +8,7 @@
 import React, { useState } from 'react'
 import PropTypes from 'prop-types'
 import { useSelector } from 'react-redux'
-import { categoryIcon, categoryLabel, ContentCategories } from '../Component'
+import { categoryIcon, categoryLabel } from '../Component'
 import Loading from '../../Loading'
 
 import './styles.css'
@@ -68,47 +68,21 @@ const videosStateShape = PropTypes.shape({
 
 // ---------------------------- Internal Components ------------------------------
 
-const VideoEngagement = ({ video }) => {
-  /*
-    Renders a table showing the popularity metrics for the given repository.
-    Part of repository metadata. Sourced from github.json.
-   */
-  return (
-    <React.Fragment>
-      <table className="table-sm m-0 p-0 w-100 text-center small text-muted">
-        <thead>
-          <tr>
-            <th className="w-25 border">⭐</th>
-            <th className="w-25 border">🍴</th>
-            <th className="w-25 border">👁</th>
-            <th className="w-25 border">🐛</th>
-          </tr>
-        </thead>
-        <tbody>
-          <tr className="">
-            <td className="border">{video.id}</td>
-            <td className="border">{video.id}</td>
-            <td className="border">{video.id}</td>
-            <td className="border">{video.id}</td>
-          </tr>
-        </tbody>
-      </table>
-    </React.Fragment>
-  )
-}
-VideoEngagement.propTypes = {
-  video: videoStateShape.isRequired,
-}
-
 const VideoMetadata = ({ video }) => {
   /*
    Top-level component that renders metadata information for the given repository.
    Only shown on medium and larger screens.
    */
+
   return (
     <React.Fragment>
-      <ContentCategories categories={video.categoryIcons} />
-      <VideoEngagement video={video} />
+      <img
+        className="img-fluid"
+        src={video.thumbnails.standard.url}
+        alt={video.title}
+        title={video.title}
+        loading="lazy"
+      />
     </React.Fragment>
   )
 }
@@ -193,8 +167,6 @@ const VideosTable = ({ category, maxrows = 100 }) => {
   const reduxVideos = useSelector((state) => state.videos)
   const reduxSpecialties = useSelector((state) => state.specialties) // for future use.
 
-  console.log('VideosTable reduxVideos:', reduxVideos)
-
   const unfilteredVideos = [
     ...(category
       ? (reduxVideos.videos || []).filter((redux) =>
@@ -202,6 +174,21 @@ const VideosTable = ({ category, maxrows = 100 }) => {
         )
       : reduxVideos.videos || []),
   ]
+    .map((video) => {
+      let prunedDescription = video.description
+      let markerIndex = -1
+      if (video.description) {
+        markerIndex = video.description.indexOf('THIS VIDEO IS NOT SPONSORED')
+        if (markerIndex > 0) {
+          prunedDescription = video.description.substring(0, markerIndex).trim()
+        }
+      }
+
+      return {
+        ...video,
+        description: prunedDescription,
+      }
+    })
     .map((video) => {
       // If category is specified, remove the corresponding entry so that it doesn't
       // redundantly appear in the table.
@@ -224,7 +211,9 @@ const VideosTable = ({ category, maxrows = 100 }) => {
         .filter(Boolean),
     }))
     .sort((a, b) => {
-      return new Date(b.modified_gmt) - new Date(a.modified_gmt)
+      const scoreA = a.viewCount + a.likeCount + 5 + a.commentCount * 10
+      const scoreB = b.viewCount + b.likeCount + 5 + b.commentCount * 10
+      return scoreB - scoreA
     })
 
   const unfilteredCount = unfilteredVideos.length
@@ -256,7 +245,7 @@ const VideosTable = ({ category, maxrows = 100 }) => {
                   <td className="align-top">
                     <Video video={video} />
                   </td>
-                  <td className="hide-medium">
+                  <td className="hide-medium p-0 m-0">
                     <VideoMetadata video={video} />
                   </td>
                 </tr>
