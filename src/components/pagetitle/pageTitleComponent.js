@@ -7,7 +7,7 @@ import './styles.css'
 
 const RenderPageTitle = (props) => {
   const iconClasses = 'fa ' + props.icon + ' fa-2x page-tile-icon'
-  const pageClasses = 'col-12 page-title ' + props.theme
+  const pageClasses = 'col page-title ' + props.theme
   const titleText =
     nameLawrenceMcDaniel +
     ' - ' +
