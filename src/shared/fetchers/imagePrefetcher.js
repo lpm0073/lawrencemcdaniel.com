@@ -1,5 +1,5 @@
-import { wpGetFeaturedImage } from './wpGetFeaturedImage'
-import { CACHE_NAME_CDN } from './constants'
+import { wpGetFeaturedImage } from '../wpGetFeaturedImage'
+import { CACHE_NAME_CDN } from '../constants'
 
 /* eslint-disable no-unused-vars */
 export const imagePreFetcher = (arr, delay, desc) => {
@@ -16,7 +16,6 @@ export const imagePreFetcher = (arr, delay, desc) => {
                   new Image().src = objectURL
                 })
               } else {
-                console.log(`imagePreFetcher() prefetching image: ${desc} - ${url}`)
                 fetch(url)
                   .then((fetchResponse) => {
                     if (fetchResponse.ok) {
