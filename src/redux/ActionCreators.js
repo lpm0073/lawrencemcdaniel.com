@@ -12,6 +12,7 @@ import {
   URL_API_VIDEOS,
   CACHE_NAME_API,
 } from '../shared/constants'
+import { getCategories } from '../shared/categories'
 
 /*  -----------------------------------
     methods to track whether page entry animations
@@ -66,7 +67,7 @@ export const fetchArticles = () => (dispatch) => {
           .then(
             (response) => {
               if (response.ok) {
-                console.log('fetched articles')
+                console.debug('fetched articles')
                 cache.put(URL_API_ARTICLES, response.clone())
                 return response
               } else {
@@ -95,15 +96,32 @@ export const fetchArticles = () => (dispatch) => {
 export const articlesLoading = () => ({
   type: ActionTypes.ARTICLES_LOADING,
 })
+
 export const articlesFailed = (errmess) => ({
   type: ActionTypes.ARTICLES_FAILED,
   payload: errmess,
 })
-export const addArticles = (articles) => ({
-  type: ActionTypes.ADD_ARTICLES,
-  payload: articles,
-})
 
+export const addArticles = (articles) => {
+  console.debug('Adding articles:', articles)
+  let payload
+  if (Array.isArray(articles)) {
+    payload = articles.map((article) => ({
+      ...article,
+      categories: getCategories(article.categories),
+    }))
+  } else {
+    payload = {
+      ...articles,
+      categories: getCategories(articles.categories),
+    }
+  }
+
+  return {
+    type: ActionTypes.ADD_ARTICLES,
+    payload,
+  }
+}
 /* ----------------------------------- */
 
 export const fetchVideos = () => (dispatch) => {
@@ -120,7 +138,6 @@ export const fetchVideos = () => (dispatch) => {
           .then(
             (response) => {
               if (response.ok) {
-                console.log('fetched videos')
                 cache.put(URL_API_VIDEOS, response.clone())
                 return response
               } else {
@@ -153,10 +170,26 @@ export const videosFailed = (errmess) => ({
   type: ActionTypes.VIDEOS_FAILED,
   payload: errmess,
 })
-export const addVideos = (videos) => ({
-  type: ActionTypes.ADD_VIDEOS,
-  payload: videos,
-})
+export const addVideos = (videos) => {
+  let payload
+  if (Array.isArray(videos)) {
+    payload = videos.map((video) => ({
+      ...video,
+      categories: getCategories(video.tags),
+    }))
+  } else {
+    payload = {
+      ...videos,
+      categories: getCategories(videos.tags),
+    }
+  }
+  console.debug('Adding videos:', payload)
+
+  return {
+    type: ActionTypes.ADD_VIDEOS,
+    payload,
+  }
+}
 
 /* ----------------------------------- */
 
@@ -174,7 +207,7 @@ export const fetchRepositories = () => (dispatch) => {
           .then(
             (response) => {
               if (response.ok) {
-                console.log('fetched repositories')
+                console.debug('fetched repositories')
                 cache.put(URL_API_REPOSITORIES, response.clone())
                 return response
               } else {
@@ -236,7 +269,7 @@ export const fetchSpecialties = () => (dispatch) => {
           .then(
             (response) => {
               if (response.ok) {
-                console.log('fetched specialties')
+                console.debug('fetched specialties')
                 cache.put(URL_API_SPECIALTIES, response.clone())
                 return response
               } else {
@@ -300,7 +333,7 @@ export const fetchPortfolio = () => (dispatch) => {
           .then(
             (response) => {
               if (response.ok) {
-                console.log('fetched portfolio')
+                console.debug('fetched portfolio')
                 cache.put(URL_API_PORTFOLIO, response.clone())
                 return response
               } else {
@@ -357,7 +390,7 @@ export const fetchEducation = () => (dispatch) => {
           .then(
             (response) => {
               if (response.ok) {
-                console.log('fetched education')
+                console.debug('fetched education')
                 cache.put(URL_API_EDUCATION, response.clone())
                 return response
               } else {
@@ -413,7 +446,7 @@ export const fetchRecommendations = () => (dispatch) => {
           .then(
             (response) => {
               if (response.ok) {
-                console.log('fetched recommendations')
+                console.debug('fetched recommendations')
                 cache.put(URL_API_RECOMMENDATIONS, response.clone())
                 return response
               } else {
@@ -471,7 +504,7 @@ export const fetchProjectImages = () => (dispatch) => {
           .then(
             (response) => {
               if (response.ok) {
-                console.log('fetched project images')
+                console.debug('fetched project images')
                 cache.put(URL_API_PROJECTS, response.clone())
                 return response
               } else {
@@ -534,7 +567,7 @@ export const fetchClients = () => (dispatch) => {
           .then(
             (response) => {
               if (response.ok) {
-                console.log('fetched clients')
+                console.debug('fetched clients')
                 cache.put(URL_API_CLIENTS, response.clone())
                 return response
               } else {
