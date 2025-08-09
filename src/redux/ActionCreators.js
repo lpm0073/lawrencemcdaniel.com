@@ -1,5 +1,5 @@
 import * as ActionTypes from './ActionTypes'
-import { imagePreFetcher } from '../shared/imagePrefetcher'
+import { imagePreFetcher } from '../shared/fetchers/imagePrefetcher'
 import {
   URL_API_REPOSITORIES,
   URL_API_SPECIALTIES,
