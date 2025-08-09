@@ -268,7 +268,9 @@ const Datascience = (props) => {
         </div>
         <div className="row mx-5">
           <div className="col">
-            <h3 className="ml-auto text-center pl-2 mx-5 mt-5">Code Samples</h3>
+            <h3 className="ml-auto text-center pl-2 mx-5 mt-5">
+              Code Samples & Publications
+            </h3>
             <Content category="data-science" />
           </div>
         </div>
