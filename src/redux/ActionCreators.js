@@ -103,7 +103,6 @@ export const articlesFailed = (errmess) => ({
 })
 
 export const addArticles = (articles) => {
-  console.debug('Adding articles:', articles)
   let payload
   if (Array.isArray(articles)) {
     payload = articles.map((article) => ({
@@ -183,7 +182,6 @@ export const addVideos = (videos) => {
       categories: getCategories(videos.tags),
     }
   }
-  console.debug('Adding videos:', payload)
 
   return {
     type: ActionTypes.ADD_VIDEOS,

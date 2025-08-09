@@ -331,7 +331,9 @@ const Openedx = (props) => {
             <ClientGrid clients={props.clients} filter="edx" />
           </div>
           <div>
-            <h3 className="ml-auto text-center pl-2 mx-5">Open edX® Code Samples</h3>
+            <h3 className="ml-auto text-center pl-2 mx-5">
+              Open edX® Code Samples & Publications
+            </h3>
             <Content category="openedx" />
           </div>
           <div className="col-lg-12 col-md-12">

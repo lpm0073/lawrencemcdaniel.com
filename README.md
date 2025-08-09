@@ -1,6 +1,12 @@
 # lawrencemcdaniel.com
 
-My personal web site, developed with ReactJS/Redux.
+My personal web site. Of note:
+
+- React single page web app
+- Redux state management
+- Progressive web app architecture using workbox
+- Logo cube on home page. see [LogoCube source](https://github.com/lpm0073/lawrencemcdaniel.com/tree/main/src/components/logocube) and my blog post on [Animations in React](https://blog.lawrencemcdaniel.com/animations-in-reactjs/)
+- Content component. An optimized content library sourced by Api's from GitHub, YouTube and Wordpress.
 
 ## Installation
 
