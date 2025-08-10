@@ -54,16 +54,35 @@ export const WIKIDATA_DATA_SCIENTIST = 'https://www.wikidata.org/wiki/Q29169143'
 
 // Cache
 // ----------------------------------------------------------------------------
-export const CACHE_VERSION = packageJson.version
+const CACHE_VERSION = packageJson.version
 
 function versioned_cached(name) {
   return name + '-' + CACHE_VERSION
 }
 
-export const CACHE_EXPIRATION_IMAGES = 24 * 60 * 60 * 30 // 30 days
-export const CACHE_EXPIRATION_API = 1 * 60 * 60 * 1 // 1 hour
-export const CACHE_EXPIRATION_APP = 24 * 60 * 60 * 7 // 7 days
-export const CACHE_NAME_APP = versioned_cached('manifest')
-export const CACHE_NAME_API = versioned_cached('api-responses')
-export const CACHE_NAME_CDN = versioned_cached('cdn-responses')
-export const CACHE_NAME_STATIC_IMAGE = versioned_cached('static-images')
+export const APP_CONFIG = {
+  apis: {
+    specialties: URL_API_SPECIALTIES,
+    portfolio: URL_API_PORTFOLIO,
+    education: URL_API_EDUCATION,
+    recommendations: URL_API_RECOMMENDATIONS,
+    projects: URL_API_PROJECTS,
+    clients: URL_API_CLIENTS,
+    articles: URL_API_ARTICLES,
+    videos: URL_API_VIDEOS,
+  },
+  caching: {
+    names: {
+      staticImages: versioned_cached('static-images'),
+      api: versioned_cached('api-responses'),
+      app: versioned_cached('manifest'),
+      cdn: versioned_cached('cdn-responses'),
+    },
+    expirations: {
+      images: 24 * 60 * 60 * 30, // 30 days
+      api: 1 * 60 * 60, // 1 hour
+      app: 24 * 60 * 60 * 7, // 7 days
+      cdn: 24 * 60 * 60 * 30, // 30 days
+    },
+  },
+}

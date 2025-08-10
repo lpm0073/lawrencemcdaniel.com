@@ -1,17 +1,6 @@
 import * as ActionTypes from './ActionTypes'
 import { imagePreFetcher } from '../shared/fetchers/imagePrefetcher'
-import {
-  URL_API_REPOSITORIES,
-  URL_API_SPECIALTIES,
-  URL_API_PORTFOLIO,
-  URL_API_EDUCATION,
-  URL_API_RECOMMENDATIONS,
-  URL_API_PROJECTS,
-  URL_API_CLIENTS,
-  URL_API_ARTICLES,
-  URL_API_VIDEOS,
-  CACHE_NAME_API,
-} from '../shared/constants'
+import { APP_CONFIG } from '../shared/constants'
 import { getCategories } from '../shared/categories'
 
 /*  -----------------------------------
@@ -56,19 +45,19 @@ export const setLogoState = ({ state }) => {
 export const fetchArticles = () => (dispatch) => {
   dispatch(articlesLoading())
 
-  caches.open(CACHE_NAME_API).then((cache) => {
-    cache.match(URL_API_ARTICLES).then((cachedResponse) => {
+  caches.open(APP_CONFIG.caching.names.api).then((cache) => {
+    cache.match(APP_CONFIG.apis.articles).then((cachedResponse) => {
       if (cachedResponse) {
         cachedResponse.json().then((articles) => {
           dispatch(addArticles(articles))
         })
       } else {
-        fetch(URL_API_ARTICLES)
+        fetch(APP_CONFIG.apis.articles)
           .then(
             (response) => {
               if (response.ok) {
                 console.debug('fetched wordpress blog posts')
-                cache.put(URL_API_ARTICLES, response.clone())
+                cache.put(APP_CONFIG.apis.articles, response.clone())
                 return response
               } else {
                 var error = new Error(
@@ -126,19 +115,19 @@ export const addArticles = (articles) => {
 export const fetchVideos = () => (dispatch) => {
   dispatch(videosLoading())
 
-  caches.open(CACHE_NAME_API).then((cache) => {
-    cache.match(URL_API_VIDEOS).then((cachedResponse) => {
+  caches.open(APP_CONFIG.caching.names.api).then((cache) => {
+    cache.match(APP_CONFIG.apis.videos).then((cachedResponse) => {
       if (cachedResponse) {
         cachedResponse.json().then((videos) => {
           dispatch(addVideos(videos))
         })
       } else {
-        fetch(URL_API_VIDEOS)
+        fetch(APP_CONFIG.apis.videos)
           .then(
             (response) => {
               if (response.ok) {
                 console.debug('fetched youtube videos')
-                cache.put(URL_API_VIDEOS, response.clone())
+                cache.put(APP_CONFIG.apis.videos, response.clone())
                 return response
               } else {
                 var error = new Error(
@@ -195,19 +184,19 @@ export const addVideos = (videos) => {
 export const fetchRepositories = () => (dispatch) => {
   dispatch(repositoriesLoading())
 
-  caches.open(CACHE_NAME_API).then((cache) => {
-    cache.match(URL_API_REPOSITORIES).then((cachedResponse) => {
+  caches.open(APP_CONFIG.caching.names.api).then((cache) => {
+    cache.match(APP_CONFIG.apis.repositories).then((cachedResponse) => {
       if (cachedResponse) {
         cachedResponse.json().then((repositories) => {
           dispatch(addRepositories(repositories))
         })
       } else {
-        fetch(URL_API_REPOSITORIES)
+        fetch(APP_CONFIG.apis.repositories)
           .then(
             (response) => {
               if (response.ok) {
                 console.debug('fetched github repositories')
-                cache.put(URL_API_REPOSITORIES, response.clone())
+                cache.put(APP_CONFIG.apis.repositories, response.clone())
                 return response
               } else {
                 var error = new Error(
@@ -249,8 +238,8 @@ export const addRepositories = (repositories) => ({
 export const fetchSpecialties = () => (dispatch) => {
   dispatch(specialtiesLoading(true))
 
-  caches.open(CACHE_NAME_API).then((cache) => {
-    cache.match(URL_API_SPECIALTIES).then((cachedResponse) => {
+  caches.open(APP_CONFIG.caching.names.api).then((cache) => {
+    cache.match(APP_CONFIG.apis.specialties).then((cachedResponse) => {
       if (cachedResponse) {
         cachedResponse.json().then((specialties) => {
           dispatch(addSpecialties(specialties))
@@ -264,12 +253,12 @@ export const fetchSpecialties = () => (dispatch) => {
           )
         })
       } else {
-        fetch(URL_API_SPECIALTIES)
+        fetch(APP_CONFIG.apis.specialties)
           .then(
             (response) => {
               if (response.ok) {
                 console.debug('fetched specialties')
-                cache.put(URL_API_SPECIALTIES, response.clone())
+                cache.put(APP_CONFIG.apis.specialties, response.clone())
                 return response
               } else {
                 var error = new Error(
@@ -320,20 +309,20 @@ export const addSpecialties = (specialties) => ({
 export const fetchPortfolio = () => (dispatch) => {
   dispatch(portfolioLoading(true))
 
-  caches.open(CACHE_NAME_API).then((cache) => {
-    cache.match(URL_API_PORTFOLIO).then((cachedResponse) => {
+  caches.open(APP_CONFIG.caching.names.api).then((cache) => {
+    cache.match(APP_CONFIG.apis.portfolio).then((cachedResponse) => {
       if (cachedResponse) {
         cachedResponse.json().then((portfolio) => {
           dispatch(addPortfolio(portfolio))
           imagePreFetcher(portfolio, 10, 'Portfolio')
         })
       } else {
-        fetch(URL_API_PORTFOLIO)
+        fetch(APP_CONFIG.apis.portfolio)
           .then(
             (response) => {
               if (response.ok) {
                 console.debug('fetched portfolio')
-                cache.put(URL_API_PORTFOLIO, response.clone())
+                cache.put(APP_CONFIG.apis.portfolio, response.clone())
                 return response
               } else {
                 var error = new Error(
@@ -377,20 +366,20 @@ export const addPortfolio = (portfolio) => ({
 export const fetchEducation = () => (dispatch) => {
   dispatch(educationLoading(true))
 
-  caches.open(CACHE_NAME_API).then((cache) => {
-    cache.match(URL_API_EDUCATION).then((cachedResponse) => {
+  caches.open(APP_CONFIG.caching.names.api).then((cache) => {
+    cache.match(APP_CONFIG.apis.education).then((cachedResponse) => {
       if (cachedResponse) {
         cachedResponse.json().then((education) => {
           dispatch(addEducation(education))
           imagePreFetcher(education, 10, 'Education')
         })
       } else {
-        fetch(URL_API_EDUCATION)
+        fetch(APP_CONFIG.apis.education)
           .then(
             (response) => {
               if (response.ok) {
                 console.debug('fetched education')
-                cache.put(URL_API_EDUCATION, response.clone())
+                cache.put(APP_CONFIG.apis.education, response.clone())
                 return response
               } else {
                 var error = new Error(
@@ -433,20 +422,20 @@ export const addEducation = (education) => ({
 export const fetchRecommendations = () => (dispatch) => {
   dispatch(recommendationsLoading(true))
 
-  caches.open(CACHE_NAME_API).then((cache) => {
-    cache.match(URL_API_RECOMMENDATIONS).then((cachedResponse) => {
+  caches.open(APP_CONFIG.caching.names.api).then((cache) => {
+    cache.match(APP_CONFIG.apis.recommendations).then((cachedResponse) => {
       if (cachedResponse) {
         cachedResponse.json().then((recommendations) => {
           dispatch(addRecommendations(recommendations))
           imagePreFetcher(recommendations, 10, 'Recommendations')
         })
       } else {
-        fetch(URL_API_RECOMMENDATIONS)
+        fetch(APP_CONFIG.apis.recommendations)
           .then(
             (response) => {
               if (response.ok) {
                 console.debug('fetched recommendations')
-                cache.put(URL_API_RECOMMENDATIONS, response.clone())
+                cache.put(APP_CONFIG.apis.recommendations, response.clone())
                 return response
               } else {
                 var error = new Error(
@@ -491,20 +480,20 @@ export const addRecommendations = (recommendations) => ({
 export const fetchProjectImages = () => (dispatch) => {
   dispatch(projectImagesLoading(true))
 
-  caches.open(CACHE_NAME_API).then((cache) => {
-    cache.match(URL_API_PROJECTS).then((cachedResponse) => {
+  caches.open(APP_CONFIG.caching.names.api).then((cache) => {
+    cache.match(APP_CONFIG.apis.projects).then((cachedResponse) => {
       if (cachedResponse) {
         cachedResponse.json().then((images) => {
           dispatch(addProjectImages(images))
           imagePreFetcher(images, 10, 'Projects')
         })
       } else {
-        fetch(URL_API_PROJECTS)
+        fetch(APP_CONFIG.apis.projects)
           .then(
             (response) => {
               if (response.ok) {
                 console.debug('fetched project images')
-                cache.put(URL_API_PROJECTS, response.clone())
+                cache.put(APP_CONFIG.apis.projects, response.clone())
                 return response
               } else {
                 var error = new Error(
@@ -547,8 +536,8 @@ export const addProjectImages = (images) => ({
 export const fetchClients = () => (dispatch) => {
   dispatch(clientsLoading(true))
 
-  caches.open(CACHE_NAME_API).then((cache) => {
-    cache.match(URL_API_CLIENTS).then((cachedResponse) => {
+  caches.open(APP_CONFIG.caching.names.api).then((cache) => {
+    cache.match(APP_CONFIG.apis.clients).then((cachedResponse) => {
       if (cachedResponse) {
         cachedResponse.json().then((clients) => {
           dispatch(addClients(clients))
@@ -562,12 +551,12 @@ export const fetchClients = () => (dispatch) => {
           )
         })
       } else {
-        fetch(URL_API_CLIENTS)
+        fetch(APP_CONFIG.apis.clients)
           .then(
             (response) => {
               if (response.ok) {
                 console.debug('fetched clients')
-                cache.put(URL_API_CLIENTS, response.clone())
+                cache.put(APP_CONFIG.apis.clients, response.clone())
                 return response
               } else {
                 var error = new Error(

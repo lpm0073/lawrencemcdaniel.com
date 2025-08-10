@@ -1,12 +1,12 @@
 import { precacheAndRoute } from 'workbox-precaching'
 import { wpGetFeaturedImage } from '../wpGetFeaturedImage'
-import { CACHE_NAME_API, CACHE_NAME_CDN } from '../constants'
+import { APP_CONFIG } from '../constants'
 
 export const wpPrefetch = async (url) => {
   let response
 
   // 1. Check API response apiCache
-  const apiCache = await caches.open(CACHE_NAME_API)
+  const apiCache = await caches.open(APP_CONFIG.caching.names.api)
   response = await apiCache.match(url)
 
   if (!response) {
@@ -36,7 +36,7 @@ export const wpPrefetch = async (url) => {
   }
 
   // 3. Extract image URLs and prefetch/apiCache them
-  const imageCache = await caches.open(CACHE_NAME_CDN)
+  const imageCache = await caches.open(APP_CONFIG.caching.names.cdn)
   const urls = []
 
   for (const post of arr) {
