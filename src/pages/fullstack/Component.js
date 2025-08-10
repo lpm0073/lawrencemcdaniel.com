@@ -3,7 +3,7 @@ import PropTypes from 'prop-types'
 import RenderPageTitle from '../../components/pagetitle/pageTitleComponent'
 import { Content } from '../../components/content/Component'
 import TechnologyCarousel from '../../components/technologyCarousel/Component'
-import SkillColumn from './skillColumn'
+import SkillColumn from '../../components/skillColumn/Component'
 import { Helmet } from 'react-helmet'
 import { gsdPersonLawrenceMcDaniel } from '../../shared/seo/gsdPersonLawrence'
 import {

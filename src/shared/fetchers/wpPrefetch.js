@@ -1,6 +1,6 @@
 import { precacheAndRoute } from 'workbox-precaching'
-import { wpGetFeaturedImage } from './wpGetFeaturedImage'
-import { CACHE_NAME_API, CACHE_NAME_CDN } from './constants'
+import { wpGetFeaturedImage } from '../wpGetFeaturedImage'
+import { CACHE_NAME_API, CACHE_NAME_CDN } from '../constants'
 
 export const wpPrefetch = async (url) => {
   let response
@@ -11,7 +11,6 @@ export const wpPrefetch = async (url) => {
 
   if (!response) {
     try {
-      console.log('wpPrefetch() prefetching API json object: ', url)
       response = await fetch(url)
       if (response.ok) {
         apiCache.put(url, response.clone())
@@ -54,7 +53,6 @@ export const wpPrefetch = async (url) => {
         try {
           const imageResponse = await fetch(imageUrl)
           if (imageResponse.ok) {
-            console.log('wpPrefetch() caching image: ', imageUrl)
             imageCache.put(imageUrl, imageResponse.clone())
           } else {
             console.error(
