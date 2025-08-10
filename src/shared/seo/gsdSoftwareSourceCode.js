@@ -1,6 +1,6 @@
 import { useSelector } from 'react-redux'
 
-import { SCHEMA_PERSON_ID_ME } from '../constants.js'
+import { APP_CONFIG } from '../constants.js'
 
 export const gsdSoftwareSourceCode = (url, programming_language, description) => {
   // example: https://github.com/FullStackWithLawrence/openai-embeddings
@@ -12,7 +12,7 @@ export const gsdSoftwareSourceCode = (url, programming_language, description) =>
     codeRepository: url,
     author: {
       '@type': 'Person',
-      '@id': SCHEMA_PERSON_ID_ME,
+      '@id': APP_CONFIG.schema.me,
     },
     programmingLanguage: programming_language,
     description: description,
@@ -23,7 +23,9 @@ export const gsdSoftwareRepoList = (category) => {
   const reduxRepositories = useSelector((state) => state.repositories)
 
   const fswlRepositories = [
-    ...reduxRepositories.repos.filter((redux) => redux.categories.includes(category)),
+    ...(category
+      ? reduxRepositories.repos.filter((redux) => redux.categories.includes(category))
+      : reduxRepositories.repos),
   ].map((repo) =>
     gsdSoftwareSourceCode(
       repo.html_url,
@@ -72,9 +74,3 @@ export const gsdSoftwareRepoList_Smarter = [
   ),
 ]
 export const gsdSoftwareRepoList_CookieCutterOpenedx = []
-
-export const gsdSoftwareSourceCodeList = [].concat(
-  gsdSoftwareRepoList,
-  gsdSoftwareRepoList_Smarter,
-  gsdSoftwareRepoList_CookieCutterOpenedx
-)

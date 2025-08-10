@@ -1,12 +1,12 @@
 import { convertToSlug } from '../slug'
 import { brandLawrenceMcDaniel } from './gsdCommon'
 import { datePublished, hourlyRate } from './gsdCommon'
-import { URL_SITE, WIKIDATA_FULLSTACK, SCHEMA_PERSON_ID_ME } from '../constants'
+import { APP_CONFIG } from '../constants'
 
 const fullstackItemOffer = (name, description = '') => {
   return {
     '@type': 'Offer',
-    '@id': URL_SITE + '/full-stack-developer/#' + convertToSlug(name),
+    '@id': APP_CONFIG.urls.site + '/full-stack-developer/#' + convertToSlug(name),
     price: hourlyRate,
     priceCurrency: 'USD',
     priceSpecification: 'HOUR',
@@ -14,18 +14,18 @@ const fullstackItemOffer = (name, description = '') => {
     priceValidUntil: '2050-12-31',
     itemOffered: {
       '@type': 'Service',
-      additionalType: WIKIDATA_FULLSTACK,
+      additionalType: APP_CONFIG.schema.professions.fullStackDeveloper,
       name: name,
       description: description,
     },
-    url: URL_SITE + '/full-stack-developer',
+    url: APP_CONFIG.urls.site + '/full-stack-developer',
   }
 }
 
 const openedxItemOffer = (name, description = '') => {
   return {
     '@type': 'Offer',
-    '@id': URL_SITE + '/openedx/#' + convertToSlug(name),
+    '@id': APP_CONFIG.urls.site + '/openedx/#' + convertToSlug(name),
     price: 90.0,
     priceCurrency: 'USD',
     priceSpecification: 'HOUR',
@@ -33,11 +33,11 @@ const openedxItemOffer = (name, description = '') => {
     priceValidUntil: '2050-12-31',
     itemOffered: {
       '@type': 'Service',
-      additionalType: WIKIDATA_FULLSTACK,
+      additionalType: APP_CONFIG.schema.professions.fullstack,
       name: name,
       description: description,
     },
-    url: URL_SITE + '/openedx',
+    url: APP_CONFIG.urls.site + '/openedx',
   }
 }
 
@@ -52,15 +52,15 @@ const openedxItemOffer = (name, description = '') => {
 
 export const gsdServiceOpenedX = {
   '@type': 'Service',
-  '@id': URL_SITE + '/openedx/#service',
-  identifier: URL_SITE + '/openedx',
+  '@id': APP_CONFIG.urls.site + '/openedx/#service',
+  identifier: APP_CONFIG.urls.site + '/openedx',
   serviceType: 'ProfessionalService',
   additionalType: 'https://en.wikipedia.org/wiki/Consultant',
   category: 'https://open.edx.org/',
-  url: URL_SITE + '/openedx',
+  url: APP_CONFIG.urls.site + '/openedx',
   areaServed: 'https://en.wikipedia.org/wiki/Americas',
   provider: {
-    '@id': SCHEMA_PERSON_ID_ME,
+    '@id': APP_CONFIG.schema.me,
   },
   serviceOutput: {
     '@type': 'Product',
@@ -85,7 +85,7 @@ export const gsdServiceOpenedX = {
         '@type': 'Review',
         author: {
           '@type': 'Person',
-          '@id': SCHEMA_PERSON_ID_ME,
+          '@id': APP_CONFIG.schema.me,
         },
         datePublished: datePublished,
         name: 'Review by Lawrence',
@@ -119,10 +119,10 @@ export const gsdServiceOpenedX = {
     url: 'https://cdn.lawrencemcdaniel.com/wp-content/uploads/2020/05/28144740/open-edx-logo-with-reg.png',
     height: 71,
     width: 365,
-    '@id': URL_SITE + '/#open-edx-logo.png',
+    '@id': APP_CONFIG.urls.site + '/#open-edx-logo.png',
   },
   logo: {
-    '@id': URL_SITE + '/#open-edx-logo.png',
+    '@id': APP_CONFIG.urls.site + '/#open-edx-logo.png',
   },
   // subjectOf: [
   //   subjectOf(

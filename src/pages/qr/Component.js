@@ -3,7 +3,7 @@ import RenderPageTitle from '../../components/pagetitle/pageTitleComponent'
 import { Helmet } from 'react-helmet'
 import { gsdGraph } from '../../shared/seo/gsdGraph'
 import { gsdPersonLawrenceMcDaniel } from '../../shared/seo/gsdPersonLawrence'
-import { URL_SITE } from '../../shared/constants'
+import { APP_CONFIG } from '../../shared/constants'
 import './styles.css'
 
 class QR extends Component {
@@ -21,7 +21,7 @@ class QR extends Component {
     return (
       <React.Fragment>
         <Helmet>
-          <link rel="canonical" href={URL_SITE + '/qr'} />
+          <link rel="canonical" href={APP_CONFIG.urls.site + '/qr'} />
           <meta name="description" content="Lawrence McDaniel - Whatsapp QR Code" />
           <script type="application/ld+json">
             {JSON.stringify(

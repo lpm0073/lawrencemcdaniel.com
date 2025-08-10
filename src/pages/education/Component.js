@@ -6,7 +6,7 @@ import { Helmet } from 'react-helmet'
 import { gsdPersonLawrenceMcDaniel } from '../../shared/seo/gsdPersonLawrence'
 import { hasOccupation } from '../../shared/seo/gsdPersonLawrence'
 import { gsdGraph } from '../../shared/seo/gsdGraph'
-import { URL_SITE } from '../../shared/constants'
+import { APP_CONFIG } from '../../shared/constants'
 import './styles.css'
 
 const Education = (props) => {
@@ -27,7 +27,7 @@ const Education = (props) => {
   return (
     <React.Fragment>
       <Helmet>
-        <link rel="canonical" href={URL_SITE + '/education'} />
+        <link rel="canonical" href={APP_CONFIG.urls.site + '/education'} />
         <meta name="description" content="Lawrence McDaniel - Education" />
         <script type="application/ld+json">
           {JSON.stringify(

@@ -5,10 +5,9 @@ import { LinkedinBadge } from '../../components/linkedinBadge/Component'
 import BlankSpace from '../../components/blankSpace/Component'
 import { Helmet } from 'react-helmet'
 
-import { resumeUrl } from '../../shared/constants'
+import { APP_CONFIG } from '../../shared/constants'
 import { gsdGraph } from '../../shared/seo/gsdGraph'
 import { gsdPersonLawrenceMcDaniel } from '../../shared/seo/gsdPersonLawrence'
-import { URL_SITE, DEFAULT_IMAGE } from '../../shared/constants'
 
 import './styles.css'
 
@@ -26,7 +25,7 @@ const Bio = (props) => {
     at the age of 39. Nowadays he advises clients on cloud computing and
     artificial intelligence projects, and teaches online courses at
     University of British Columbia.`
-  const primaryImageUrl = DEFAULT_IMAGE
+  const primaryImageUrl = APP_CONFIG.static.images.default
   const pageType = ''
   const relatedLink = ''
   const graphExtraData = [{ ...gsdPersonLawrenceMcDaniel }]
@@ -34,7 +33,7 @@ const Bio = (props) => {
   return (
     <React.Fragment>
       <Helmet>
-        <link rel="canonical" href={URL_SITE + '/bio'} />
+        <link rel="canonical" href={APP_CONFIG.urls.site + '/bio'} />
         <meta name="description" content="Lawrence McDaniel - Bio" />
         <script type="application/ld+json">
           {JSON.stringify(
@@ -65,7 +64,7 @@ const Bio = (props) => {
                 className="mt-4 btn btn-danger"
                 role="button"
                 target="_blank"
-                href={resumeUrl}
+                href={APP_CONFIG.urls.resume}
                 rel="noopener noreferrer"
               >
                 <i className="fa fa-download"></i> Download Resume

@@ -1,19 +1,14 @@
 import { convertToSlug } from '../slug'
 import { brandLawrenceMcDaniel } from './gsdCommon'
 import { hourlyRate } from './gsdCommon'
-import {
-  URL_SITE,
-  WIKIDATA_FULLSTACK,
-  WIKIDATA_DATA_SCIENTIST,
-  SCHEMA_PERSON_ID_ME,
-} from '../constants'
+import { APP_CONFIG } from '../constants'
 
 const slug = 'consulting'
 
 const fullstackItemOffer = (name, description = '') => {
   return {
     '@type': 'Offer',
-    '@id': URL_SITE + '/full-stack-developer/#' + convertToSlug(name),
+    '@id': APP_CONFIG.urls.site + '/full-stack-developer/#' + convertToSlug(name),
     price: hourlyRate,
     priceCurrency: 'USD',
     priceSpecification: 'HOUR',
@@ -21,18 +16,18 @@ const fullstackItemOffer = (name, description = '') => {
     priceValidUntil: '2050-12-31',
     itemOffered: {
       '@type': 'Service',
-      additionalType: WIKIDATA_FULLSTACK,
+      additionalType: APP_CONFIG.schema.professions.fullStackDeveloper,
       name: name,
       description: description,
     },
-    url: URL_SITE + '/full-stack-developer',
+    url: APP_CONFIG.urls.site + '/full-stack-developer',
   }
 }
 
 const itemOffer = (name, description = '') => {
   return {
     '@type': 'Offer',
-    '@id': URL_SITE + '/openedx/#' + convertToSlug(name),
+    '@id': APP_CONFIG.urls.site + '/openedx/#' + convertToSlug(name),
     price: hourlyRate,
     priceCurrency: 'USD',
     priceSpecification: 'HOUR',
@@ -40,35 +35,35 @@ const itemOffer = (name, description = '') => {
     priceValidUntil: '2050-12-31',
     itemOffered: {
       '@type': 'Service',
-      additionalType: WIKIDATA_DATA_SCIENTIST,
+      additionalType: APP_CONFIG.schema.professions.dataScientist,
       name: name,
       description: description,
     },
-    url: URL_SITE + '/' + slug,
+    url: APP_CONFIG.urls.site + '/' + slug,
   }
 }
 
 export const gsdServiceConsulting = {
   '@type': 'Service',
-  '@id': URL_SITE + '/' + slug + '/#service',
-  identifier: URL_SITE + '/' + slug,
+  '@id': APP_CONFIG.urls.site + '/' + slug + '/#service',
+  identifier: APP_CONFIG.urls.site + '/' + slug,
   serviceType: 'ProfessionalService',
   additionalType: 'https://en.wikipedia.org/wiki/Consultant',
   category: 'https://open.edx.org/',
-  url: URL_SITE + '/' + slug,
+  url: APP_CONFIG.urls.site + '/' + slug,
   areaServed: 'https://en.wikipedia.org/wiki/Americas',
   provider: {
-    '@id': SCHEMA_PERSON_ID_ME,
+    '@id': APP_CONFIG.schema.me,
   },
   serviceOutput: {
     '@type': 'Product',
     name: 'Data Science, AI/ML, Devops, and Full Stack Development',
     sku: 'data-science-ai-ml-devops-fullstack',
-    '@id': URL_SITE + '/' + slug + '/#service-product',
+    '@id': APP_CONFIG.urls.site + '/' + slug + '/#service-product',
     description:
       'I advise organizations on how to better leverage their existing data, and on migrating technology infrastructure to the cloud. And I’ll even do the work.',
     brand: {
-      '@id': URL_SITE,
+      '@id': APP_CONFIG.urls.site,
     },
     offers: [fullstackItemOffer('Full Stack Development')],
   },

@@ -52,7 +52,7 @@ import { writeFileSync } from 'fs'
 import { fileURLToPath } from 'url'
 import { dirname, join } from 'path'
 
-import { URL_API_BLOG_POSTS, URL_API_BLOG_CATEGORIES } from '../constants.js'
+import { APP_CONFIG } from '../constants.js'
 
 const __filename = fileURLToPath(import.meta.url)
 const __dirname = dirname(__filename)
@@ -69,7 +69,7 @@ function blogApiHeaders() {
 async function fetchBlogCategories() {
   const concept = 'Wordpress blog categories'
   try {
-    const response = await fetch(URL_API_BLOG_CATEGORIES, {
+    const response = await fetch(APP_CONFIG.apis.blog_categories, {
       method: 'GET',
       headers: blogApiHeaders(),
     })
@@ -97,7 +97,7 @@ async function fetchBlogPosts(categories) {
   const concept = 'Wordpress blog posts'
 
   try {
-    const response = await fetch(URL_API_BLOG_POSTS, {
+    const response = await fetch(APP_CONFIG.apis.blog_posts, {
       method: 'GET',
       headers: blogApiHeaders(),
     })

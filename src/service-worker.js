@@ -20,22 +20,8 @@ import { registerRoute } from 'workbox-routing'
 import { StaleWhileRevalidate } from 'workbox-strategies'
 //-----------------------------------------------
 
-import { DEBUG, APP_CONFIG } from './shared/constants'
+import { APP_CONFIG } from './shared/constants'
 import { wpPrefetch } from './shared/fetchers/wpPrefetch'
-import {
-  URL_CDN, // AWS Cloudfront distribution: https://cdn.lawrencemcdaniel.com
-  URL_API, // Wordpress REST apis: https://api.lawrencemcdaniel.com
-  URL_SITE, // This site: https://lawrencemcdaniel.com
-
-  // Wordpress REST apis
-  // -------------------
-  URL_API_SPECIALTIES,
-  URL_API_PORTFOLIO,
-  URL_API_EDUCATION,
-  URL_API_RECOMMENDATIONS,
-  URL_API_PROJECTS,
-  URL_API_CLIENTS,
-} from './shared/constants'
 
 
 function isImageFile(url) {
@@ -116,7 +102,7 @@ registerRoute(
 // registration.waiting.postMessage({type: 'SKIP_WAITING'})
 self.addEventListener('message', (event) => {
   if (event.data && event.data.type === 'SKIP_WAITING') {
-    if (DEBUG) console.log('service-worker.js - SKIP_WAITING message received.')
+    if (APP_CONFIG.debug) console.log('service-worker.js - SKIP_WAITING message received.')
     self.skipWaiting()
   }
 })
@@ -135,7 +121,7 @@ self.addEventListener('message', (event) => {
 
   // Cache the app manifest
   registerRoute(
-    ({ url }) => url.href === `${URL_SITE}/manifest.json`,
+    ({ url }) => url.href === `${APP_CONFIG.urls.site}/manifest.json`,
     new StaleWhileRevalidate({
       cacheName: APP_CONFIG.caching.names.app,
       plugins: [app_cache_expiration],
@@ -144,7 +130,7 @@ self.addEventListener('message', (event) => {
 
   // Cache api responses with a stale-while-revalidate strategy
   registerRoute(
-    ({ url }) => url.origin === URL_API,
+    ({ url }) => url.origin === APP_CONFIG.urls.api,
     new StaleWhileRevalidate({
       cacheName: APP_CONFIG.caching.names.api,
       plugins: [api_cache_expiration],
@@ -153,7 +139,7 @@ self.addEventListener('message', (event) => {
 
   // Cache cdn content with a CacheFirst strategy
   registerRoute(
-    ({ url }) => url.origin === URL_CDN,
+    ({ url }) => url.origin === APP_CONFIG.urls.cdn,
     new CacheFirst({
       cacheName: APP_CONFIG.caching.names.cdn,
       plugins: [
@@ -184,12 +170,12 @@ self.addEventListener('message', (event) => {
   )
 
   // CDN IMAGE PRECACHING
-  wpPrefetch(URL_API_SPECIALTIES) // do me first!!!
-  wpPrefetch(URL_API_CLIENTS)
-  wpPrefetch(URL_API_EDUCATION)
-  wpPrefetch(URL_API_PORTFOLIO)
-  wpPrefetch(URL_API_PROJECTS)
-  wpPrefetch(URL_API_RECOMMENDATIONS)
+  wpPrefetch(APP_CONFIG.apis.specialties) // do me first!!!
+  wpPrefetch(APP_CONFIG.apis.clients)
+  wpPrefetch(APP_CONFIG.apis.education)
+  wpPrefetch(APP_CONFIG.apis.portfolio)
+  wpPrefetch(APP_CONFIG.apis.projects)
+  wpPrefetch(APP_CONFIG.apis.recommendations)
 }
 
 initializeServiceWorker()

@@ -4,7 +4,7 @@
  */
 import { wpGetFeaturedImage } from '../wpGetFeaturedImage'
 import { datePublished } from './gsdCommon'
-import { SCHEMA_PERSON_ID_ME } from '../constants'
+import { APP_CONFIG } from '../constants'
 
 /* eslint-disable no-unused-vars */
 export const gsdKnowsAbout = (props) => {
@@ -40,7 +40,7 @@ export const gsdKnowsAbout = (props) => {
           '@type': 'Review',
           author: {
             '@type': 'Person',
-            '@id': SCHEMA_PERSON_ID_ME,
+            '@id': APP_CONFIG.schema.me,
           },
           datePublished: datePublished,
           name: 'Review by Lawrence',

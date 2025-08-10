@@ -12,7 +12,7 @@ import PropTypes from 'prop-types'
 
 import * as serviceWorkerRegistration from './serviceWorkerRegistration'
 
-import { DEBUG } from './shared/constants'
+import { APP_CONFIG } from './shared/constants'
 
 // the components that draw the app
 import SiteRoutes from './components/Routes'
@@ -69,7 +69,7 @@ class App extends Component {
 
   // Callback for our AppUpdateAlert component.
   resetSWNotificationStates() {
-    if (DEBUG) console.log('App.resetSWNotificationStates()')
+    if (APP_CONFIG.debug) console.log('App.resetSWNotificationStates()')
 
     // this covers the intended use case
     // of allowing a server worker update to proceed
@@ -92,7 +92,7 @@ class App extends Component {
 
   // Workbox callback for "service worker update ready" event
   onSWUpdateAvailable(registration) {
-    if (DEBUG) console.log('App.onSWUpdateAvailable()')
+    if (APP_CONFIG.debug) console.log('App.onSWUpdateAvailable()')
     if (this.state.isSet && registration) {
       this.setState({
         updatedSW: registration.waiting,
@@ -108,7 +108,7 @@ class App extends Component {
 
   // Workbox callback for "service worker installation success" event
   onSWInstallSuccess(registration) {
-    if (DEBUG) console.log('App.onSWInstallSuccess()')
+    if (APP_CONFIG.debug) console.log('App.onSWInstallSuccess()')
     if (this.state.isSet) {
       this.setState({
         updatedSW: registration,
@@ -122,7 +122,7 @@ class App extends Component {
   // ------------ React Component life cycle ------------
   // ----------------------------------------------------
   componentDidMount() {
-    if (DEBUG) console.log('App.componentDidMount()')
+    if (APP_CONFIG.debug) console.log('App.componentDidMount()')
 
     this.resetSWNotificationStates()
     this.setState({
@@ -148,7 +148,7 @@ class App extends Component {
   }
 
   render() {
-    if (DEBUG) console.log('App.render()')
+    if (APP_CONFIG.debug) console.log('App.render()')
 
     // service worker app update alerts.
     function AppUpdateAlerts(props) {

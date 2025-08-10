@@ -17,7 +17,7 @@ import { nameLawrenceMcDaniel } from '../../shared/seo/gsdCommon'
 import { gsdArticle } from '../../shared/seo/gsdArticle'
 import { gsdPersonLawrenceMcDaniel } from '../../shared/seo/gsdPersonLawrence'
 import { hasOccupation } from '../../shared/seo/gsdPersonLawrence'
-import { URL_SITE } from '../../shared/constants'
+import { APP_CONFIG } from '../../shared/constants'
 import './styles.css'
 
 import Accordion from 'react-bootstrap/Accordion'
@@ -52,7 +52,7 @@ const Openedx = (props) => {
     <div>
       <Helmet>
         <title>Open edX Consultant</title>
-        <link rel="canonical" href={URL_SITE + '/openedx'} />
+        <link rel="canonical" href={APP_CONFIG.urls.site + '/openedx'} />
 
         <meta
           name="description"
@@ -69,7 +69,7 @@ const Openedx = (props) => {
         />
         <meta property="og:title" content={nameLawrenceMcDaniel} />
         <meta property="og:site_name" content={nameLawrenceMcDaniel} />
-        <meta property="og:url" content={URL_SITE + '/openedx'} />
+        <meta property="og:url" content={APP_CONFIG.urls.site + '/openedx'} />
 
         <meta name="twitter:title" content={nameLawrenceMcDaniel} />
         <meta name="twitter:description" content={nameLawrenceMcDaniel} />

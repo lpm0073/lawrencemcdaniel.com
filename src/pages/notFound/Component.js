@@ -8,7 +8,7 @@ import PropTypes from 'prop-types'
 import { Helmet } from 'react-helmet'
 import Loading from '../../components/Loading'
 import { MatrixRainingLetters } from 'react-mdr'
-import { URL_SITE } from '../../shared/constants'
+import { APP_CONFIG } from '../../shared/constants'
 import './styles.css'
 
 class PageNotFound extends Component {
@@ -40,7 +40,7 @@ class PageNotFound extends Component {
         ) : (
           <React.Fragment>
             <Helmet>
-              <link rel="canonical" href={URL_SITE + '/matrix'} />
+              <link rel="canonical" href={APP_CONFIG.urls.site + '/matrix'} />
               <meta name="description" content="Lawrence McDaniel - Page Not Found" />
             </Helmet>
             <div className="matrixPage m-0 p-0">

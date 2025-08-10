@@ -4,7 +4,7 @@ import {
   baseUrl,
   nameLawrenceMcDaniel,
 } from './gsdCommon.js'
-import { SCHEMA_PERSON_ID_ME } from '../constants.js'
+import { APP_CONFIG } from '../constants.js'
 
 export const defaultPageDescription = (webpageDescription) => {
   if (webpageDescription !== '') return webpageDescription
@@ -37,7 +37,7 @@ const webSite = () => {
     name: nameLawrenceMcDaniel,
     description: 'Personal Web Site & Portfoio',
     publisher: {
-      '@id': SCHEMA_PERSON_ID_ME,
+      '@id': APP_CONFIG.schema.me,
     },
     inLanguage: 'en-US',
   }

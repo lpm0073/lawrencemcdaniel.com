@@ -5,12 +5,11 @@ import RenderPageTitle from '../../components/pagetitle/pageTitleComponent'
 import { LinkedinBadge } from '../../components/linkedinBadge/Component'
 import BlankSpace from '../../components/blankSpace/Component'
 import { Helmet } from 'react-helmet'
-import { resumeUrl } from '../../shared/constants'
 import { gsdGraph } from '../../shared/seo/gsdGraph'
 import { gsdPersonLawrenceMcDaniel } from '../../shared/seo/gsdPersonLawrence'
 import { hasOccupation } from '../../shared/seo/gsdPersonLawrence'
 import { gsdArticle } from '../../shared/seo/gsdArticle'
-import { URL_SITE } from '../../shared/constants'
+import { APP_CONFIG } from '../../shared/constants'
 import './styles.css'
 
 /* eslint-disable react/no-unescaped-entities */
@@ -33,7 +32,7 @@ const ReactPage = (props) => {
   return (
     <React.Fragment>
       <Helmet>
-        <link rel="canonical" href={URL_SITE + '/reactjs'} />
+        <link rel="canonical" href={APP_CONFIG.urls.site + '/reactjs'} />
         <meta
           name="description"
           content="Full Stack Web Developer with extensive experience using ReactJS and Redux. Follow links to the GitHub repository for this site."
@@ -71,7 +70,7 @@ const ReactPage = (props) => {
                 className="mt-4 btn btn-danger"
                 role="button"
                 target="_blank"
-                href={resumeUrl}
+                href={APP_CONFIG.urls.resume}
                 rel="noopener noreferrer"
               >
                 <i className="fa fa-download"></i> Download Resume

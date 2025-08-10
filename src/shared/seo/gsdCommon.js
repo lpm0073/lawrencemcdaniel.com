@@ -1,7 +1,7 @@
-import { URL_SITE, DEFAULT_IMAGE } from '../constants.js'
+import { APP_CONFIG } from '../constants.js'
 const d = new Date()
 
-export const baseUrl = URL_SITE
+export const baseUrl = APP_CONFIG.urls.site
 export const nameLawrenceMcDaniel = 'Lawrence McDaniel'
 export const baseTitle = 'Data Scientist'
 export const basePageTitle = nameLawrenceMcDaniel + ' - ' + baseTitle
@@ -51,9 +51,9 @@ export const brandLogo = {
   '@type': 'ImageObject',
   inLanguage: 'en-US',
   '@id': baseUrl + '/#logo',
-  url: DEFAULT_IMAGE,
-  contentUrl: DEFAULT_IMAGE,
-  thumbnailUrl: DEFAULT_IMAGE,
+  url: APP_CONFIG.static.images.default,
+  contentUrl: APP_CONFIG.static.images.default,
+  thumbnailUrl: APP_CONFIG.static.images.default,
   width: 1849,
   height: 1848,
   representativeOfPage: true,

@@ -7,7 +7,7 @@ import { LinkedinBadge } from '../../components/linkedinBadge/Component'
 import { gsdGraph } from '../../shared/seo/gsdGraph'
 import { gsdPersonLawrenceMcDaniel } from '../../shared/seo/gsdPersonLawrence'
 import { gsdArticle } from '../../shared/seo/gsdArticle'
-import { URL_SITE } from '../../shared/constants'
+import { APP_CONFIG } from '../../shared/constants'
 import './styles.css'
 
 /* eslint-disable no-unused-vars */
@@ -25,7 +25,7 @@ const ImageTaggerPage = (props) => {
   return (
     <React.Fragment>
       <Helmet>
-        <link rel="canonical" href={URL_SITE + '/image-tagging'} />
+        <link rel="canonical" href={APP_CONFIG.urls.site + '/image-tagging'} />
         <meta
           name="description"
           content="Data Scientist and Full Stack Web Developer with extensive experience using ReactJS and Redux. Follow links to the GitHub repository for this site."

@@ -5,7 +5,7 @@ import { dirname, join } from 'path'
 import { gsdGraph } from '../seo/gsdGraph.js'
 import { gsdPersonLawrenceMcDaniel } from '../seo/gsdPersonLawrence.js'
 import { hasOccupation } from '../seo/gsdPersonLawrence.js'
-import { gsdSoftwareSourceCodeList } from '../seo/gsdSoftwareSourceCode.js'
+import { gsdSoftwareRepoList } from '../seo/gsdSoftwareSourceCode.js'
 import { gsdVideoObjectList } from '../seo/gsdVideoObject.js'
 import { basePageTitle } from '../seo/gsdCommon.js'
 
@@ -24,7 +24,7 @@ const webpageDescription =
 const primaryImageUrl = ''
 const pageType = ''
 const relatedLink = ''
-const graphExtraData = [person, ...gsdSoftwareSourceCodeList, ...gsdVideoObjectList]
+const graphExtraData = [person, ...gsdSoftwareRepoList(), ...gsdVideoObjectList]
 const schema = JSON.stringify(
   gsdGraph(
     slug,
