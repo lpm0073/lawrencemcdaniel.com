@@ -7,8 +7,7 @@ import 'react-tabs/style/react-tabs.css'
 import RenderPageTitle from '../../components/pagetitle/pageTitleComponent'
 import BlankSpace from '../../components/blankSpace/Component'
 
-import { URL_SITE } from '../../shared/constants'
-import { resumeUrl } from '../../shared/constants'
+import { APP_CONFIG } from '../../shared/constants'
 
 // SEO
 import { gsdGraph } from '../../shared/seo/gsdGraph'
@@ -31,7 +30,7 @@ class Contact extends Component {
     return (
       <React.Fragment>
         <Helmet>
-          <link rel="canonical" href={URL_SITE + '/contact'} />
+          <link rel="canonical" href={APP_CONFIG.urls.site + '/contact'} />
           <meta name="description" content="Lawrence McDaniel - Contact Information" />
           <script type="application/ld+json">
             {JSON.stringify(
@@ -118,7 +117,7 @@ class Contact extends Component {
                   className="m-4 btn btn-danger"
                   role="button"
                   target="_blank"
-                  href={resumeUrl}
+                  href={APP_CONFIG.urls.resume}
                   rel="noopener noreferrer"
                 >
                   <i className="fa fa-download"></i> Download Resume

@@ -8,13 +8,10 @@ import { gsdGraph } from '../../shared/seo/gsdGraph'
 import { gsdPersonLawrenceMcDaniel } from '../../shared/seo/gsdPersonLawrence'
 import { hasOccupation } from '../../shared/seo/gsdPersonLawrence'
 import { gsdArticle } from '../../shared/seo/gsdArticle'
-import {
-  gsdSoftwareRepoList,
-  gsdSoftwareRepoList_Smarter,
-} from '../../shared/seo/gsdSoftwareSourceCode'
+import { gsdSoftwareRepoList } from '../../shared/seo/gsdSoftwareSourceCode'
 import { gsdVideoObjectList_FSWL } from '../../shared/seo/gsdVideoObject'
 import { baseTitle } from '../../shared/seo/gsdCommon'
-import { URL_SITE } from '../../shared/constants'
+import { APP_CONFIG } from '../../shared/constants'
 import BlankSpace from '../../components/blankSpace/Component'
 
 import './styles.css'
@@ -38,14 +35,13 @@ const Datascience = (props) => {
     person,
     gsdArticle(slug, webpageName),
     gsdSoftwareRepoList('data-science'),
-    gsdSoftwareRepoList_Smarter,
     gsdVideoObjectList_FSWL,
   ]
 
   return (
     <React.Fragment>
       <Helmet>
-        <link rel="canonical" href={URL_SITE + '/data-science'} />
+        <link rel="canonical" href={APP_CONFIG.urls.site + '/data-science'} />
         <meta
           name="description"
           content="Data Scientist - Machine learning and algorithms expert with experience using regression, neural networks, support vector machines, anomaly detection, recommender systems, and unsupervised learning"

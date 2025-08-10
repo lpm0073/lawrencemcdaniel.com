@@ -11,14 +11,11 @@ import Loading from '../../components/Loading'
 import { MatrixRainingLetters } from 'react-mdr'
 
 import { gsdPersonLawrenceMcDaniel } from '../../shared/seo/gsdPersonLawrence'
-import {
-  gsdSoftwareRepoList,
-  gsdSoftwareRepoList_Smarter,
-} from '../../shared/seo/gsdSoftwareSourceCode'
+import { gsdSoftwareRepoList } from '../../shared/seo/gsdSoftwareSourceCode'
 import { gsdVideoObjectList_FSWL } from '../../shared/seo/gsdVideoObject'
 import { gsdGraph } from '../../shared/seo/gsdGraph'
 
-import { URL_SITE } from '../../shared/constants'
+import { APP_CONFIG } from '../../shared/constants'
 import './styles.css'
 
 class MRLPage extends Component {
@@ -52,7 +49,6 @@ class MRLPage extends Component {
     const graphExtraData = [
       gsdPersonLawrenceMcDaniel,
       gsdSoftwareRepoList('react'),
-      gsdSoftwareRepoList_Smarter,
       gsdVideoObjectList_FSWL,
     ]
 
@@ -63,7 +59,7 @@ class MRLPage extends Component {
         ) : (
           <React.Fragment>
             <Helmet>
-              <link rel="canonical" href={URL_SITE + '/react-mdr'} />
+              <link rel="canonical" href={APP_CONFIG.urls.site + '/react-mdr'} />
               <meta
                 name="description"
                 content="Lawrence McDaniel - Matrix digital rain for React"

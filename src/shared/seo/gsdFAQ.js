@@ -1,5 +1,5 @@
 import { datePublished, dateModified, lastReviewed } from './gsdCommon'
-import { URL_SITE, SCHEMA_PERSON_ID_ME } from '../constants'
+import { APP_CONFIG } from '../constants'
 
 const question = (q, a) => {
   return {
@@ -16,7 +16,7 @@ export const gsdFAQ = {
   '@type': 'FAQPage',
   name: 'FAQ: Open edX',
   alternateName: 'Frequently Asked Questions about Open edX',
-  url: URL_SITE + '/openedx',
+  url: APP_CONFIG.urls.site + '/openedx',
   image: {
     '@type': 'ImageObject',
     url: 'https://cdn-blog.lawrencemcdaniel.com/wp-content/uploads/2017/10/22125438/edx-install-banner.jpg',
@@ -30,18 +30,18 @@ export const gsdFAQ = {
   about: 'Open edX',
   author: {
     '@type': 'Person',
-    '@id': SCHEMA_PERSON_ID_ME,
+    '@id': APP_CONFIG.schema.me,
   },
   editor: {
     '@type': 'Person',
-    '@id': SCHEMA_PERSON_ID_ME,
+    '@id': APP_CONFIG.schema.me,
   },
   publisher: {
-    '@id': SCHEMA_PERSON_ID_ME,
+    '@id': APP_CONFIG.schema.me,
   },
   sdDatePublished: datePublished,
   sdPublisher: {
-    '@id': SCHEMA_PERSON_ID_ME,
+    '@id': APP_CONFIG.schema.me,
   },
   timeRequired: 'PT5M',
   keywords: 'open edx, saas, native build, installation, budget, cost',

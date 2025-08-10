@@ -7,12 +7,7 @@ import {
 } from './gsdCommon.js'
 import { gsdQualifications } from './gsdQualifications.js'
 import { hourlyRate } from './gsdCommon.js'
-import {
-  URL_SITE,
-  DEFAULT_IMAGE,
-  WIKIDATA_DATA_SCIENTIST,
-  SCHEMA_PERSON_ID_ME,
-} from '../constants.js'
+import { APP_CONFIG } from '../constants.js'
 
 const aboutMe = `American data scientist, full stack developer, online instructor and digital
 content creator. I work with AWS and Azure cloud infrastructure and I code in Python,
@@ -25,11 +20,11 @@ data science, machine learning and AI.`
 
 export const hasOccupation = {
   '@type': 'Occupation',
-  additionalType: WIKIDATA_DATA_SCIENTIST,
+  additionalType: APP_CONFIG.schema.professions.dataScientist,
   name: baseTitle,
   mainEntityOfPage: {
     '@type': 'WebPage',
-    '@id': URL_SITE + '/',
+    '@id': APP_CONFIG.urls.site + '/',
     lastReviewed: lastReviewed,
   },
   description: aboutMe,
@@ -67,11 +62,11 @@ const subjectOf = (url) => {
 
 export const gsdPersonLawrenceMcDaniel = {
   '@type': 'Person',
-  '@id': SCHEMA_PERSON_ID_ME,
+  '@id': APP_CONFIG.schema.me,
   name: nameLawrenceMcDaniel,
   description: aboutMe,
   jobTitle: baseTitle,
-  image: DEFAULT_IMAGE,
+  image: APP_CONFIG.static.images.default,
   sameAs: sameAs,
   birthPlace: 'Houston, TX, USA',
   birthDate: '1966-12-31',

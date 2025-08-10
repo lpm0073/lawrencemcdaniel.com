@@ -2,13 +2,13 @@ import React from 'react'
 import RenderPageTitle from '../../components/pagetitle/pageTitleComponent'
 import { LinkedinBadge } from '../../components/linkedinBadge/Component'
 import { Helmet } from 'react-helmet'
-import { URL_SITE } from '../../shared/constants'
+import { APP_CONFIG } from '../../shared/constants'
 import { Content } from '../../components/content/Component'
 import BlankSpace from '../../components/blankSpace/Component'
 import { gsdServiceConsulting } from '../../shared/seo/gsdServiceConsulting'
 import { gsdGraph } from '../../shared/seo/gsdGraph'
 import { gsdPersonLawrenceMcDaniel } from '../../shared/seo/gsdPersonLawrence'
-import { gsdSoftwareSourceCodeList } from '../../shared/seo/gsdSoftwareSourceCode'
+import { gsdSoftwareRepoList } from '../../shared/seo/gsdSoftwareSourceCode'
 import { gsdVideoObjectList } from '../../shared/seo/gsdVideoObject'
 import { hasOccupation } from '../../shared/seo/gsdPersonLawrence'
 
@@ -76,20 +76,20 @@ const slug = 'consulting'
 const webpageDescription = 'Lawrence McDaniel - Advisory and Consulting Services'
 const primaryImageUrl = ''
 const pageType = ''
-const relatedLink = URL_SITE + '/consulting'
+const relatedLink = APP_CONFIG.urls.site + '/consulting'
 const person = {
   ...gsdPersonLawrenceMcDaniel,
   ...{ hasOccupation: hasOccupation },
 }
 
-const graphExtraData = [
-  person,
-  gsdServiceConsulting,
-  gsdSoftwareSourceCodeList,
-  gsdVideoObjectList,
-]
-
 const Consulting = () => {
+  const graphExtraData = [
+    person,
+    gsdServiceConsulting,
+    gsdSoftwareRepoList(),
+    gsdVideoObjectList,
+  ]
+
   return (
     <React.Fragment>
       <Helmet>
@@ -98,7 +98,7 @@ const Consulting = () => {
           name="description"
           content="Lawrence McDaniel - Advisory and Consulting Services"
         />
-        <link rel="canonical" href={URL_SITE + '/consulting'} />
+        <link rel="canonical" href={APP_CONFIG.urls.site + '/consulting'} />
         <meta
           name="description"
           content="Consulting services and technical training in data science, AI/ML, Devops, and modern tech stack expertise."

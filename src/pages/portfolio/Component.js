@@ -5,7 +5,7 @@ import ProjectsGrid from './projectsGrid'
 import { gsdGraph } from '../../shared/seo/gsdGraph'
 import { Helmet } from 'react-helmet'
 import { gsdPersonLawrenceMcDaniel } from '../../shared/seo/gsdPersonLawrence'
-import { URL_SITE } from '../../shared/constants'
+import { APP_CONFIG } from '../../shared/constants'
 import './styles.css'
 
 const Portfolio = (props) => {
@@ -21,7 +21,7 @@ const Portfolio = (props) => {
   return (
     <React.Fragment>
       <Helmet>
-        <link rel="canonical" href={URL_SITE + '/portfolio'} />
+        <link rel="canonical" href={APP_CONFIG.urls.site + '/portfolio'} />
         <meta name="description" content="Lawrence McDaniel - Portfolio" />
         <script type="application/ld+json">
           {JSON.stringify(

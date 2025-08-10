@@ -1,9 +1,8 @@
 # [1.5.0](https://github.com/lpm0073/lawrencemcdaniel.com/compare/v1.4.2...v1.5.0) (2025-08-10)
 
-
 ### Features
 
-* scaffold new Cloud Computing page ([ea34b8a](https://github.com/lpm0073/lawrencemcdaniel.com/commit/ea34b8ac721788393c0077146ad0d631c527f788))
+- scaffold new Cloud Computing page ([ea34b8a](https://github.com/lpm0073/lawrencemcdaniel.com/commit/ea34b8ac721788393c0077146ad0d631c527f788))
 
 ## [1.4.2](https://github.com/lpm0073/lawrencemcdaniel.com/compare/v1.4.1...v1.4.2) (2025-08-04)
 

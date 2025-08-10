@@ -6,13 +6,10 @@ import TechnologyCarousel from '../../components/technologyCarousel/Component'
 import SkillColumn from '../../components/skillColumn/Component'
 import { Helmet } from 'react-helmet'
 import { gsdPersonLawrenceMcDaniel } from '../../shared/seo/gsdPersonLawrence'
-import {
-  gsdSoftwareRepoList,
-  gsdSoftwareRepoList_Smarter,
-} from '../../shared/seo/gsdSoftwareSourceCode'
+import { gsdSoftwareRepoList } from '../../shared/seo/gsdSoftwareSourceCode'
 import { gsdVideoObjectList_FSWL } from '../../shared/seo/gsdVideoObject'
 import { gsdGraph } from '../../shared/seo/gsdGraph'
-import { URL_SITE } from '../../shared/constants'
+import { APP_CONFIG } from '../../shared/constants'
 import './styles.css'
 
 /* eslint-disable no-unused-vars */
@@ -25,16 +22,15 @@ const Fullstack = (props) => {
   const pageType = ''
   const relatedLink = ''
   const graphExtraData = [
-    gsdPersonLawrenceMcDaniel(),
+    gsdPersonLawrenceMcDaniel,
     gsdSoftwareRepoList('full-stack'),
-    gsdSoftwareRepoList_Smarter,
     gsdVideoObjectList_FSWL,
   ]
 
   return (
     <React.Fragment>
       <Helmet>
-        <link rel="canonical" href={URL_SITE + '/full-stack-developer'} />
+        <link rel="canonical" href={APP_CONFIG.urls.site + '/full-stack-developer'} />
         <meta name="description" content="Lawrence McDaniel - Full Stack Developer" />
         <script type="application/ld+json">
           {JSON.stringify(

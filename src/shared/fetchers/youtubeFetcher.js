@@ -3,7 +3,7 @@ import { fileURLToPath } from 'url'
 import { dirname, join } from 'path'
 
 import { loadEnv } from '../dotenv.js'
-import { YOUTUBE_API_BASE_URL, YOUTUBE_CHANNEL_ID } from '../constants.js'
+import { APP_CONFIG } from '../constants.js'
 
 const __filename = fileURLToPath(import.meta.url)
 const __dirname = dirname(__filename)
@@ -19,9 +19,9 @@ const INDIVIDUAL_VIDEOS = []
 export async function fetchChannelVideos() {
   try {
     // First, get the channel's uploads playlist ID
-    const url = new URL(`${YOUTUBE_API_BASE_URL}/channels`)
+    const url = new URL(`${APP_CONFIG.apis.youtube.base_url}/channels`)
     url.searchParams.append('part', 'contentDetails')
-    url.searchParams.append('id', YOUTUBE_CHANNEL_ID)
+    url.searchParams.append('id', APP_CONFIG.apis.youtube.channel_id)
     url.searchParams.append('key', YOUTUBE_API_KEY)
     const headers = new Headers()
     headers.append('Accept', 'application/json')
@@ -48,7 +48,7 @@ export async function fetchChannelVideos() {
 
     do {
       const playlistResponse = await fetch(
-        `${YOUTUBE_API_BASE_URL}/playlistItems?part=snippet&playlistId=${uploadsPlaylistId}&maxResults=50&pageToken=${nextPageToken}&key=${YOUTUBE_API_KEY}`
+        `${APP_CONFIG.apis.youtube.base_url}/playlistItems?part=snippet&playlistId=${uploadsPlaylistId}&maxResults=50&pageToken=${nextPageToken}&key=${YOUTUBE_API_KEY}`
       )
 
       if (!playlistResponse.ok) {
@@ -62,7 +62,9 @@ export async function fetchChannelVideos() {
 
       // Get detailed video information
       const videoResponse = await fetch(
-        `${YOUTUBE_API_BASE_URL}/videos?part=snippet,statistics,contentDetails&id=${videoIds.join(
+        `${
+          APP_CONFIG.apis.youtube.base_url
+        }/videos?part=snippet,statistics,contentDetails&id=${videoIds.join(
           ','
         )}&key=${YOUTUBE_API_KEY}`
       )
@@ -107,7 +109,7 @@ export async function fetchChannelVideos() {
 export async function fetchVideo(videoId) {
   try {
     const response = await fetch(
-      `${YOUTUBE_API_BASE_URL}/videos?part=snippet,statistics,contentDetails&id=${videoId}&key=${YOUTUBE_API_KEY}`
+      `${APP_CONFIG.apis.youtube.base_url}/videos?part=snippet,statistics,contentDetails&id=${videoId}&key=${YOUTUBE_API_KEY}`
     )
 
     if (!response.ok) {

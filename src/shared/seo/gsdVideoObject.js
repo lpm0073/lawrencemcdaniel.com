@@ -1,4 +1,4 @@
-import { DEFAULT_IMAGE, SCHEMA_PERSON_ID_ME } from '../constants.js'
+import { APP_CONFIG } from '../constants.js'
 
 const TIMEZONE = 'T00:00:00-06:00'
 
@@ -12,11 +12,11 @@ export const gsdVideoObject = (url, name, description, uploadDate = getToday()) 
     name: name,
     description: description,
     uploadDate: uploadDate + TIMEZONE,
-    thumbnailUrl: DEFAULT_IMAGE,
+    thumbnailUrl: APP_CONFIG.static.images.default,
     contentUrl: url,
     author: {
       '@type': 'Person',
-      '@id': SCHEMA_PERSON_ID_ME,
+      '@id': APP_CONFIG.schema.me,
     },
   }
 }

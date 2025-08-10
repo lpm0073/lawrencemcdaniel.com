@@ -12,11 +12,9 @@ import JobTitle from './JobTitle'
 import { gsdGraph } from '../../shared/seo/gsdGraph'
 import { gsdPersonLawrenceMcDaniel } from '../../shared/seo/gsdPersonLawrence'
 import { hasOccupation } from '../../shared/seo/gsdPersonLawrence'
-import { gsdSoftwareSourceCodeList } from '../../shared/seo/gsdSoftwareSourceCode'
-import { gsdVideoObjectList } from '../../shared/seo/gsdVideoObject'
 import { basePageTitle } from '../../shared/seo/gsdCommon'
 import { Helmet } from 'react-helmet'
-import { URL_SITE, DEFAULT_IMAGE } from '../../shared/constants'
+import { APP_CONFIG } from '../../shared/constants'
 
 import './styles.css'
 
@@ -45,12 +43,12 @@ class Home extends Component {
     const primaryImageUrl = ''
     const pageType = ''
     const relatedLink = ''
-    const graphExtraData = [person, ...gsdSoftwareSourceCodeList, ...gsdVideoObjectList]
+    const graphExtraData = [person]
 
     return (
       <React.Fragment>
         <Helmet>
-          <link rel="canonical" href={URL_SITE} />
+          <link rel="canonical" href={APP_CONFIG.urls.site} />
           <meta
             name="description"
             content="Data scientist, full stack developer, online instructor, Open edX® consultant, amateur photographer"
@@ -74,7 +72,7 @@ class Home extends Component {
             <div className="row pt-1 m-0 mr-0 px-0 jumbotron-spacer">
               <div className="col-lg-6 pt-5 col-md-12 text-center noselect ">
                 <img
-                  src={DEFAULT_IMAGE}
+                  src={APP_CONFIG.static.images.default}
                   alt="Lawrence McDaniel headshot"
                   className="head-shot hide-medium img-fluid w-50 rounded mx-auto d-block "
                 />

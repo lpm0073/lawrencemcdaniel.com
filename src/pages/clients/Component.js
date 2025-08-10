@@ -8,7 +8,7 @@ import { Helmet } from 'react-helmet'
 import { gsdGraph } from '../../shared/seo/gsdGraph'
 import { gsdPersonLawrenceMcDaniel } from '../../shared/seo/gsdPersonLawrence'
 import { hasOccupation } from '../../shared/seo/gsdPersonLawrence'
-import { URL_SITE } from '../../shared/constants'
+import { APP_CONFIG } from '../../shared/constants'
 
 import './styles.css'
 
@@ -31,7 +31,7 @@ const Clients = (props) => {
   return (
     <React.Fragment>
       <Helmet>
-        <link rel="canonical" href={URL_SITE + '/clients'} />
+        <link rel="canonical" href={APP_CONFIG.urls.site + '/clients'} />
         <meta name="description" content="Lawrence McDaniel - Clients" />
         <script type="application/ld+json">
           {JSON.stringify(
