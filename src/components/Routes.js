@@ -28,6 +28,7 @@ import Portfolio from '../pages/portfolio/Component'
 import PortfolioDetail from '../pages/portfolioDetail/Component'
 import Education from '../pages/education/Component'
 import Fullstack from '../pages/fullstack/Component'
+import CloudComputing from '../pages/cloud/Component'
 import Clients from '../pages/clients/Component'
 import Datascience from '../pages/dataScience/Component'
 import ImageTaggerPage from '../pages/imageTagging/Component'
@@ -166,6 +167,11 @@ class SiteRoutes extends Component {
             exact
             path="/full-stack-developer"
             element={<Fullstack specialties={this.props.specialties} />}
+          />
+          <Route
+            exact
+            path="/cloud"
+            element={<CloudComputing specialties={this.props.specialties} />}
           />
           <Route exact path="/reactjs" element={<ReactPage />} />
           <Route exact path="/react-mdr" element={<MRLPage />} />

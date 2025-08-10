@@ -112,7 +112,7 @@ export class Header extends Component {
                   >
                     <img
                       key="menu-ml-image"
-                      className="react-logo"
+                      className="menu-logo"
                       src="/assets/images/data-science-icon.png"
                       alt="ML logo"
                     />
@@ -125,16 +125,25 @@ export class Header extends Component {
                   >
                     <img
                       key="menu-ml-image"
-                      className="react-logo"
+                      className="menu-logo"
                       src="/assets/images/pancakes.png"
                       alt="ML logo"
                     />
                     Full Stack
                   </NavDropdown.Item>
+                  <NavDropdown.Item as={NavLink} to="/cloud" style={{ color: 'gray' }}>
+                    <img
+                      key="menu-cloud-image"
+                      className="menu-logo"
+                      src="/assets/images/aws-logo.png"
+                      alt="Cloud logo"
+                    />
+                    Cloud
+                  </NavDropdown.Item>
                   <NavDropdown.Item as={NavLink} to="/openedx" style={{ color: 'gray' }}>
                     <img
                       key="menu-edx-image"
-                      className="react-logo"
+                      className="menu-logo"
                       src="/assets/images/edx-logo.png"
                       alt="Open edX logo"
                     />
@@ -143,7 +152,7 @@ export class Header extends Component {
                   <NavDropdown.Item as={NavLink} to="/reactjs" style={{ color: 'gray' }}>
                     <img
                       key="menu-react-image"
-                      className="react-logo"
+                      className="menu-logo"
                       src="/assets/images/react-logo-300x261.png"
                       alt="ReactJS logo"
                     />
