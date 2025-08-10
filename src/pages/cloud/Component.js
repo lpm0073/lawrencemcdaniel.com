@@ -16,11 +16,11 @@ import { URL_SITE } from '../../shared/constants'
 import './styles.css'
 
 /* eslint-disable no-unused-vars */
-const Fullstack = (props) => {
+const CloudComputing = (props) => {
   /* Google Structured Data */
-  const slug = 'full-stack-developer'
-  const webpageName = 'Full Stack Developer | Lawrence McDaniel'
-  const webpageDescription = 'Full Stack Developer.'
+  const slug = 'cloud'
+  const webpageName = 'Cloud | Lawrence McDaniel'
+  const webpageDescription = 'Cloud Computing'
   const primaryImageUrl = ''
   const pageType = ''
   const relatedLink = ''
@@ -34,8 +34,8 @@ const Fullstack = (props) => {
   return (
     <React.Fragment>
       <Helmet>
-        <link rel="canonical" href={URL_SITE + '/full-stack-developer'} />
-        <meta name="description" content="Lawrence McDaniel - Full Stack Developer" />
+        <link rel="canonical" href={URL_SITE + '/cloud'} />
+        <meta name="description" content="Lawrence McDaniel - Cloud Expert" />
         <script type="application/ld+json">
           {JSON.stringify(
             gsdGraph(
@@ -54,8 +54,8 @@ const Fullstack = (props) => {
         <RenderPageTitle
           theme="light"
           icon="fa-book"
-          title="FULL STACK"
-          boxed_title="DEVELOPER"
+          title="CLOUD"
+          boxed_title="COMPUTING"
         />
 
         <div className="row mt-5 mb-5 ml-0 mr-0 justify-content-center">
@@ -120,7 +120,7 @@ const Fullstack = (props) => {
   )
 }
 
-Fullstack.propTypes = {
+CloudComputing.propTypes = {
   specialties: PropTypes.array.isRequired,
 }
-export default Fullstack
+export default CloudComputing

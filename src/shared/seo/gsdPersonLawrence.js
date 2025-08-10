@@ -112,6 +112,6 @@ export const gsdPersonLawrenceMcDaniel = {
     subjectOf(
       'https://extendedlearning.ubc.ca/about/our-instructors?field_course_program_areas_target_id_verf=All&field_instr_first_name=Lawrence&field_instr_last_name=McDaniel'
     ),
-    subjectOf('http://geek.ly/lmcdaniel'),
+    subjectOf('https://geek.ly/lmcdaniel'),
   ],
 }

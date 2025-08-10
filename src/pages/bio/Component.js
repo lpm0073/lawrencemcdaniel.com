@@ -96,12 +96,12 @@ const Bio = (props) => {
                 development and M&amp;A experience with alternative investment and
                 disruptive FinTech, edTech and IoT ventures. He has mentored at
                 <BlankSpace />
-                <a href="http://www.startupmexico.com/">Startup Mexico</a> and
+                <a href="https://www.startupmexico.com/">Startup Mexico</a> and
                 <BlankSpace />
-                <a href="http://angelventures.vc/">Angel Ventures</a> in Mexico City, and
-                sat on the boards of <a href="http://edmex.org/">edMex</a> and
+                <a href="https://angelventures.vc/">Angel Ventures</a> in Mexico City, and
+                sat on the boards of <a href="https://edmex.org/">edMex</a> and
                 <BlankSpace />
-                <a href="http://m-arca.org/">M-Arca</a> Foundation.
+                <a href="https://m-arca.org/">M-Arca</a> Foundation.
               </p>
               <p>
                 <strong>But he’s no stranger to real work either!</strong> his family
@@ -119,7 +119,7 @@ const Bio = (props) => {
                 climbing gyms,
                 <BlankSpace />
                 <a
-                  href="http://www.summitgyms.com/"
+                  href="https://www.summitgyms.com/"
                   target="_blank"
                   rel="noopener noreferrer"
                 >

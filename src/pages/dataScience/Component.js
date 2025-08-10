@@ -150,7 +150,7 @@ const Datascience = (props) => {
                   Fortunately some of the greatest minds on earth, like
                   <BlankSpace />
                   <a
-                    href="http://www.andrewng.org"
+                    href="https://www.andrewng.org"
                     target="_blank"
                     rel="noopener noreferrer"
                   >
