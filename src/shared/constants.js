@@ -31,6 +31,7 @@ export const APP_CONFIG = {
       'media?include=2324,2320,2319,2300,2295,2296,2297,2298,2299,2301,2302,2303',
     repositories: '/data/github.json',
     specialties: ApiBackendUrl + 'posts?categories=43&_embed&per_page=100',
+    tags: ApiBackendUrl + 'tags?&per_page=100',
     recommendations: ApiBackendUrl + 'posts?categories=45&_embed&per_page=100',
     videos: '/data/youtube.json',
     youtube: {
