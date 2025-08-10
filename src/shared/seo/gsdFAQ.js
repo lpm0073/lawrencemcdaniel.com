@@ -1,6 +1,8 @@
 import { datePublished, dateModified, lastReviewed } from './gsdCommon'
 import { APP_CONFIG } from '../constants'
 
+const urlOpenedX = APP_CONFIG.urls.site + '/' + APP_CONFIG.skills.openedX
+
 const question = (q, a) => {
   return {
     '@type': 'Question',
@@ -16,7 +18,7 @@ export const gsdFAQ = {
   '@type': 'FAQPage',
   name: 'FAQ: Open edX',
   alternateName: 'Frequently Asked Questions about Open edX',
-  url: APP_CONFIG.urls.site + '/openedx',
+  url: urlOpenedX,
   image: {
     '@type': 'ImageObject',
     url: 'https://cdn-blog.lawrencemcdaniel.com/wp-content/uploads/2017/10/22125438/edx-install-banner.jpg',

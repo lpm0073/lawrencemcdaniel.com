@@ -15,7 +15,7 @@ import './styles.css'
 /* eslint-disable no-unused-vars */
 const Fullstack = (props) => {
   /* Google Structured Data */
-  const slug = 'full-stack-developer'
+  const slug = APP_CONFIG.skills.fullStack
   const webpageName = 'Full Stack Developer | Lawrence McDaniel'
   const webpageDescription = 'Full Stack Developer.'
   const primaryImageUrl = ''
@@ -23,14 +23,14 @@ const Fullstack = (props) => {
   const relatedLink = ''
   const graphExtraData = [
     gsdPersonLawrenceMcDaniel,
-    gsdSoftwareRepoList('full-stack'),
+    gsdSoftwareRepoList(APP_CONFIG.skills.fullStack),
     gsdVideoObjectList_FSWL,
   ]
 
   return (
     <React.Fragment>
       <Helmet>
-        <link rel="canonical" href={APP_CONFIG.urls.site + '/full-stack-developer'} />
+        <link rel="canonical" href={APP_CONFIG.urls.site + '/' + slug} />
         <meta name="description" content="Lawrence McDaniel - Full Stack Developer" />
         <script type="application/ld+json">
           {JSON.stringify(
@@ -108,7 +108,7 @@ const Fullstack = (props) => {
               Hire me! I can help you with your next project, more details{' '}
               <a href="/consulting">here</a>.
             </p>
-            <Content category="full-stack" />
+            <Content category={APP_CONFIG.skills.fullStack} />
           </div>
         </div>
       </div>

@@ -4,6 +4,7 @@ import PropTypes from 'prop-types'
 import CodeSamplesTable from './codeSamples/Component'
 import ArticlesTable from './articles/Component'
 import VideosTable from './videos/Component'
+import { APP_CONFIG } from '../../shared/constants'
 
 import './styles.css'
 export function categoryUrl(categoryCode) {
@@ -12,31 +13,42 @@ export function categoryUrl(categoryCode) {
     links to follow when an icon is clicked.
     Part of repository metadata.
   */
+
+  const urlCloud = '/' + APP_CONFIG.skills.cloud
+  const urlDataScience = '/' + APP_CONFIG.skills.dataScience
+  const urlFullStack = '/' + APP_CONFIG.skills.fullStack
+  const urlOpenEdx = '/' + APP_CONFIG.skills.openEdx
+  const urlReact = '/' + APP_CONFIG.skills.react
+
   switch (categoryCode) {
+    case 'cloud':
+      return urlCloud
+    case 'azure':
+      return urlCloud
     case 'aws':
-      return '/full-stack-developer'
+      return urlCloud
     case 'data-science':
-      return '/data-science'
+      return urlDataScience
     case 'full-stack':
-      return '/full-stack-developer'
+      return urlFullStack
     case 'openedx':
-      return '/openedx'
+      return urlOpenEdx
     case 'open-edx':
-      return '/openedx'
+      return urlOpenEdx
     case 'wordpress':
-      return '/full-stack-developer'
+      return urlFullStack
     case 'python':
-      return '/full-stack-developer'
+      return urlFullStack
     case 'react':
-      return '/reactjs'
+      return urlReact
     case 'reactjs':
-      return '/reactjs'
+      return urlReact
     case 'terraform':
-      return '/full-stack-developer'
+      return urlCloud
     case 'dev-ops':
-      return '/full-stack-developer'
+      return urlFullStack
     case 'django':
-      return '/full-stack-developer'
+      return urlFullStack
     default:
       console.warn('categoryUrl() categoryCode is not recognized', categoryCode)
       return null
@@ -49,6 +61,8 @@ export function categoryLogoUrl(categoryCode, reduxSpecialties) {
     Part of repository metadata.
    */
   switch (categoryCode) {
+    case 'cloud':
+      return 'assets/images/aws-logo.png'
     case 'aws':
       return 'assets/images/aws-logo.png'
     case 'python':
@@ -128,8 +142,10 @@ export function categoryLabel(categoryCode) {
     Part of repository metadata. Not currently used.
    */
   switch (categoryCode) {
+    case 'cloud':
+      return 'Cloud'
     case 'aws':
-      return 'AWS'
+      return 'cloud'
     case 'python':
       return 'Python'
     case 'data-science':
@@ -145,7 +161,7 @@ export function categoryLabel(categoryCode) {
     case 'reactjs':
       return 'React'
     case 'terraform':
-      return 'Terraform'
+      return 'cloud'
     case 'dev-ops':
       return 'DevOps'
     case 'wordpress':

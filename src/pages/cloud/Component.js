@@ -3,7 +3,6 @@ import PropTypes from 'prop-types'
 import RenderPageTitle from '../../components/pagetitle/pageTitleComponent'
 import { Content } from '../../components/content/Component'
 import TechnologyCarousel from '../../components/technologyCarousel/Component'
-import SkillColumn from '../../components/skillColumn/Component'
 import { Helmet } from 'react-helmet'
 import { gsdPersonLawrenceMcDaniel } from '../../shared/seo/gsdPersonLawrence'
 import { gsdSoftwareRepoList } from '../../shared/seo/gsdSoftwareSourceCode'
@@ -30,7 +29,10 @@ const CloudComputing = (props) => {
   return (
     <React.Fragment>
       <Helmet>
-        <link rel="canonical" href={APP_CONFIG.urls.site + '/cloud'} />
+        <link
+          rel="canonical"
+          href={APP_CONFIG.urls.site + '/' + APP_CONFIG.skills.cloud}
+        />
         <meta name="description" content="Lawrence McDaniel - Cloud Expert" />
         <script type="application/ld+json">
           {JSON.stringify(
@@ -54,49 +56,22 @@ const CloudComputing = (props) => {
           boxed_title="COMPUTING"
         />
 
-        <div className="row mt-5 mb-5 ml-0 mr-0 justify-content-center">
-          <SkillColumn
-            key="3"
-            id="3"
-            pct="100"
-            title="Frontend"
-            icon="fa-html5"
-            description="Proficient in HTML, CSS, and JavaScript frameworks including React and Angular."
-          />
-          <SkillColumn
-            key="4"
-            id="4"
-            pct="100"
-            title="Backend"
-            icon="fa-server"
-            description="Experienced in AWS, Azure, Terraform, Python, Django, Pandas, NumPy, Scikit-learn, and more."
-          />
-          <SkillColumn
-            key="5"
-            id="5"
-            pct="100"
-            title="Database"
-            icon="fa-database"
-            description="MySQL, MongoDB, Redis, Elasticsearch, and wrangling dirty data with Python."
-          />
-          <SkillColumn
-            key="6"
-            id="6"
-            pct="100"
-            title="DevOps"
-            icon="fa-gears"
-            description="Experience with Docker, Kubernetes, CI/CD pipelines, and cloud services."
-          />
-          <SkillColumn
-            key="1"
-            id="1"
-            pct="100"
-            title="APIs"
-            icon="fa-plug"
-            description="Django REST Framework, AWS Api Gateway, GraphQL, and integrating third-party services."
-          />
+        <div className="row mx-5">
+          <div className="col">
+            <p className="text-justified">
+              I help IT teams maximize the value of cloud-native technologies by designing
+              and delivering vendor-agnostic infrastructure that is secure, scalable, and
+              resilient. As an expert Terraform developer, I build complete solutions from
+              the network layer up, leveraging Kubernetes and a broad range of
+              cloud-native tools. My database expertise spans relational, NoSQL, and
+              in-memory systems, ensuring the right fit for any workload. I also design
+              and manage machine learning and AI pipelines on leading cloud platforms,
+              using frameworks like TensorFlow, PyTorch, and Kubeflow, as well as
+              integrated solutions such as SageMaker and Azure ML Studio, to create
+              scalable, efficient, and production-ready ML workflows.
+            </p>
+          </div>
         </div>
-
         <TechnologyCarousel specialties={props.specialties} />
 
         <div className="row mx-5">
@@ -108,7 +83,7 @@ const CloudComputing = (props) => {
               Hire me! I can help you with your next project, more details{' '}
               <a href="/consulting">here</a>.
             </p>
-            <Content category="full-stack" />
+            <Content category={APP_CONFIG.skills.cloud} />
           </div>
         </div>
       </div>

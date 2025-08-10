@@ -92,8 +92,10 @@ function categories(org, topics) {
   if (topics.includes('fullstack')) retval.add('full-stack')
   if (topics.includes('terraform')) retval.add('terraform')
   if (topics.includes('terraform')) retval.add('full-stack')
-  if (topics.includes('terraform')) retval.add('aws')
-  if (topics.includes('aws')) retval.add('aws')
+  if (topics.some((topic) => topic.includes('terraform'))) retval.add('cloud')
+  if (topics.some((topic) => topic.includes('kubernetes'))) retval.add('cloud')
+  if (topics.some((topic) => topic.includes('aws'))) retval.add('cloud')
+  if (topics.some((topic) => topic.includes('azure'))) retval.add('cloud')
   if (org === 'smarter-sh') {
     retval.add('full-stack')
   }

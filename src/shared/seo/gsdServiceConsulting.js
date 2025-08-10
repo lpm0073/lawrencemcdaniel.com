@@ -4,11 +4,17 @@ import { hourlyRate } from './gsdCommon'
 import { APP_CONFIG } from '../constants'
 
 const slug = 'consulting'
+const urlOpenedX = APP_CONFIG.urls.site + '/' + APP_CONFIG.skills.openedX
 
 const fullstackItemOffer = (name, description = '') => {
   return {
     '@type': 'Offer',
-    '@id': APP_CONFIG.urls.site + '/full-stack-developer/#' + convertToSlug(name),
+    '@id':
+      APP_CONFIG.urls.site +
+      '/' +
+      APP_CONFIG.skills.fullStack +
+      '/#' +
+      convertToSlug(name),
     price: hourlyRate,
     priceCurrency: 'USD',
     priceSpecification: 'HOUR',
@@ -20,14 +26,14 @@ const fullstackItemOffer = (name, description = '') => {
       name: name,
       description: description,
     },
-    url: APP_CONFIG.urls.site + '/full-stack-developer',
+    url: APP_CONFIG.urls.site + '/' + APP_CONFIG.skills.fullStack,
   }
 }
 
 const itemOffer = (name, description = '') => {
   return {
     '@type': 'Offer',
-    '@id': APP_CONFIG.urls.site + '/openedx/#' + convertToSlug(name),
+    '@id': urlOpenedX + '/#' + convertToSlug(name),
     price: hourlyRate,
     priceCurrency: 'USD',
     priceSpecification: 'HOUR',

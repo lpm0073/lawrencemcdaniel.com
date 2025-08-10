@@ -15,6 +15,7 @@ import { hasOccupation } from '../../shared/seo/gsdPersonLawrence'
 import './styles.css'
 import 'bootstrap/dist/css/bootstrap.min.css'
 
+const urlFullStack = '/' + APP_CONFIG.skills.fullStack
 const ConsultingServices = () => (
   <div className="consulting-services">
     <p>
@@ -43,21 +44,20 @@ const ConsultingServices = () => (
         <span className="consulting-list-item-title">Full Stack development</span> I build
         complete solutions, from front-end web applications to back-end services,
         command-line interfaces and automated workflows.{' '}
-        <a href="/full-stack-developer">Learn more</a>
+        <a href={urlFullStack}>Learn more</a>
       </li>
       <li>
         <span className="consulting-list-item-title">Cloud Computing</span> I specialize
         in cloud native technologies like Docker, Kubernetes, Terraform and GitHub for
         designing, implementing and managing scalable and secure cloud infrastructure.{' '}
-        <a href="/full-stack-developer">Learn more</a>
+        <a href={urlFullStack}>Learn more</a>
       </li>
       <li>
         <span className="consulting-list-item-title">Dev Ops</span> I help teams work more
         efficiently by implementing best practices for software development, deployment,
         and maintenance, including CI/CD pipelines, automated testing, and infrastructure
         as code. I practice what I preach. I am the principal maintainer of more than 4
-        dozen open source projects (see below).{' '}
-        <a href="/full-stack-developer">Learn more</a>
+        dozen open source projects (see below). <a href={urlFullStack}>Learn more</a>
       </li>
       <li>
         <span className="consulting-list-item-title">

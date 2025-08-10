@@ -1,7 +1,7 @@
 import React, { Component } from 'react'
 import { Routes, Route, Navigate } from 'react-router-dom'
 import PropTypes from 'prop-types'
-
+import { APP_CONFIG } from '../shared/constants'
 // Redux
 import { connect } from 'react-redux'
 import {
@@ -107,7 +107,7 @@ class SiteRoutes extends Component {
       }
       return false
     }
-    if (path === '/full-stack-developer') {
+    if (path === '/' + APP_CONFIG.skills.fullStack) {
       if (!this.props.coursesGrid.isSet) {
         return true
       }
@@ -142,8 +142,12 @@ class SiteRoutes extends Component {
           <Route exact path="/contact" element={<Contact />} />
           <Route exact path="/qr" element={<QR />} />
           <Route exact path="/about" element={<About />} />
-          <Route exact path="/openedx" element={<Openedx />} />
-          <Route exact path="/data-science" element={<Datascience />} />
+          <Route exact path={'/' + APP_CONFIG.skills.openEdx} element={<Openedx />} />
+          <Route
+            exact
+            path={'/' + APP_CONFIG.skills.dataScience}
+            element={<Datascience />}
+          />
           <Route exact path="/image-tagging" element={<ImageTaggerPage />} />
           <Route exact path="/bio" element={<Bio />} />
           <Route exact path="/full-bio" element={<Navigate to="/bio" />} />
@@ -165,15 +169,15 @@ class SiteRoutes extends Component {
           />
           <Route
             exact
-            path="/full-stack-developer"
+            path={'/' + APP_CONFIG.skills.fullStack}
             element={<Fullstack specialties={this.props.specialties} />}
           />
           <Route
             exact
-            path="/cloud"
+            path={'/' + APP_CONFIG.skills.cloud}
             element={<CloudComputing specialties={this.props.specialties} />}
           />
-          <Route exact path="/reactjs" element={<ReactPage />} />
+          <Route exact path={'/' + APP_CONFIG.skills.react} element={<ReactPage />} />
           <Route exact path="/react-mdr" element={<MRLPage />} />
           <Route
             exact

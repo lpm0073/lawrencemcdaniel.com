@@ -13,6 +13,9 @@ export function getCategories(tags) {
   }
 
   tags.forEach((t) => {
+    if (t.includes('full-stack') || t.includes('full stack')) {
+      category.add('full-stack')
+    }
     if (t.includes('wordpress')) {
       category.add('full-stack')
     }
@@ -27,6 +30,7 @@ export function getCategories(tags) {
     }
     if (t.includes('docker')) {
       category.add('full-stack')
+      category.add('cloud')
     }
     if (
       t.includes('ci-cd') ||
@@ -43,19 +47,19 @@ export function getCategories(tags) {
       category.add('react')
     }
     if (t.includes('aws') || t.includes('amazon web services')) {
-      category.add('full-stack')
+      category.add('cloud')
     }
     if (t.includes('kubernetes')) {
-      category.add('full-stack')
+      category.add('cloud')
     }
     if (t.includes('terraform')) {
-      category.add('full-stack')
+      category.add('cloud')
     }
     if (t.includes('serverless')) {
-      category.add('full-stack')
+      category.add('cloud')
     }
     if (t.includes('microservices')) {
-      category.add('full-stack')
+      category.add('cloud')
     }
     if (t.includes('12-factor')) {
       category.add('full-stack')
