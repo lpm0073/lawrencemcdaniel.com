@@ -3,10 +3,17 @@ import { brandLawrenceMcDaniel } from './gsdCommon'
 import { datePublished, hourlyRate } from './gsdCommon'
 import { APP_CONFIG } from '../constants'
 
+const urlOpenedX = APP_CONFIG.urls.site + '/' + APP_CONFIG.skills.openedX
+
 const fullstackItemOffer = (name, description = '') => {
   return {
     '@type': 'Offer',
-    '@id': APP_CONFIG.urls.site + '/full-stack-developer/#' + convertToSlug(name),
+    '@id':
+      APP_CONFIG.urls.site +
+      '/' +
+      APP_CONFIG.skills.fullStack +
+      '/#' +
+      convertToSlug(name),
     price: hourlyRate,
     priceCurrency: 'USD',
     priceSpecification: 'HOUR',
@@ -18,14 +25,14 @@ const fullstackItemOffer = (name, description = '') => {
       name: name,
       description: description,
     },
-    url: APP_CONFIG.urls.site + '/full-stack-developer',
+    url: APP_CONFIG.urls.site + '/' + APP_CONFIG.skills.fullStack,
   }
 }
 
 const openedxItemOffer = (name, description = '') => {
   return {
     '@type': 'Offer',
-    '@id': APP_CONFIG.urls.site + '/openedx/#' + convertToSlug(name),
+    '@id': urlOpenedX + '/#' + convertToSlug(name),
     price: 90.0,
     priceCurrency: 'USD',
     priceSpecification: 'HOUR',
@@ -37,7 +44,7 @@ const openedxItemOffer = (name, description = '') => {
       name: name,
       description: description,
     },
-    url: APP_CONFIG.urls.site + '/openedx',
+    url: urlOpenedX,
   }
 }
 
@@ -52,12 +59,12 @@ const openedxItemOffer = (name, description = '') => {
 
 export const gsdServiceOpenedX = {
   '@type': 'Service',
-  '@id': APP_CONFIG.urls.site + '/openedx/#service',
-  identifier: APP_CONFIG.urls.site + '/openedx',
+  '@id': urlOpenedX + '/#service',
+  identifier: urlOpenedX,
   serviceType: 'ProfessionalService',
   additionalType: 'https://en.wikipedia.org/wiki/Consultant',
   category: 'https://open.edx.org/',
-  url: APP_CONFIG.urls.site + '/openedx',
+  url: urlOpenedX,
   areaServed: 'https://en.wikipedia.org/wiki/Americas',
   provider: {
     '@id': APP_CONFIG.schema.me,

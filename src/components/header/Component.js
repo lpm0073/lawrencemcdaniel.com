@@ -2,6 +2,7 @@ import React, { Component } from 'react'
 import { Offline } from 'react-detect-offline'
 import { Navbar, Nav, NavDropdown, Container } from 'react-bootstrap'
 import { NavLink } from 'react-router-dom'
+import { APP_CONFIG } from '../../shared/constants'
 
 import './styles.css'
 
@@ -107,7 +108,7 @@ export class Header extends Component {
                 <NavDropdown title="Skills" className="hide-medium">
                   <NavDropdown.Item
                     as={NavLink}
-                    to="/data-science"
+                    to={'/' + APP_CONFIG.skills.dataScience}
                     style={{ color: 'gray' }}
                   >
                     <img
@@ -120,7 +121,7 @@ export class Header extends Component {
                   </NavDropdown.Item>
                   <NavDropdown.Item
                     as={NavLink}
-                    to="/full-stack-developer"
+                    to={'/' + APP_CONFIG.skills.fullStack}
                     style={{ color: 'gray' }}
                   >
                     <img
@@ -131,7 +132,11 @@ export class Header extends Component {
                     />
                     Full Stack
                   </NavDropdown.Item>
-                  <NavDropdown.Item as={NavLink} to="/cloud" style={{ color: 'gray' }}>
+                  <NavDropdown.Item
+                    as={NavLink}
+                    to={'/' + APP_CONFIG.skills.cloud}
+                    style={{ color: 'gray' }}
+                  >
                     <img
                       key="menu-cloud-image"
                       className="menu-logo"
@@ -140,7 +145,11 @@ export class Header extends Component {
                     />
                     Cloud
                   </NavDropdown.Item>
-                  <NavDropdown.Item as={NavLink} to="/openedx" style={{ color: 'gray' }}>
+                  <NavDropdown.Item
+                    as={NavLink}
+                    to={'/' + APP_CONFIG.skills.openEdx}
+                    style={{ color: 'gray' }}
+                  >
                     <img
                       key="menu-edx-image"
                       className="menu-logo"
@@ -149,7 +158,11 @@ export class Header extends Component {
                     />
                     Open edX
                   </NavDropdown.Item>
-                  <NavDropdown.Item as={NavLink} to="/reactjs" style={{ color: 'gray' }}>
+                  <NavDropdown.Item
+                    as={NavLink}
+                    to={'/' + APP_CONFIG.skills.react}
+                    style={{ color: 'gray' }}
+                  >
                     <img
                       key="menu-react-image"
                       className="menu-logo"

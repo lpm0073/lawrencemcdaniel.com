@@ -1,5 +1,13 @@
+const { APP_CONFIG } = require('../../shared/constants.js')
+
 const { SitemapStream } = require('sitemap')
 const { createWriteStream } = require('fs')
+
+const urlCloud = '/' + APP_CONFIG.skills.cloud
+const urlDataScience = '/' + APP_CONFIG.skills.dataScience
+const urlFullStack = '/' + APP_CONFIG.skills.fullStack
+const urlOpenEdx = '/' + APP_CONFIG.skills.openEdx
+const urlReact = '/' + APP_CONFIG.skills.react
 
 const routes = [
   '/',
@@ -7,14 +15,15 @@ const routes = [
   '/consulting',
   '/qr',
   '/about',
-  '/openedx',
-  '/data-science',
+  urlCloud,
+  urlDataScience,
+  urlFullStack,
+  urlOpenEdx,
+  urlReact,
   '/bio',
   '/specialties',
   '/portfolio',
   '/education',
-  '/full-stack-developer',
-  '/reactjs',
   '/react-mdr',
   '/clients',
 ]
@@ -22,10 +31,11 @@ const routes = [
 const priorities = {
   '/': 1.0,
   '/consulting': 0.9,
-  '/openedx': 0.8,
-  '/data-science': 0.8,
-  '/full-stack-developer': 0.8,
-  '/reactjs': 0.8,
+  urlCloud: 0.8,
+  urlDataScience: 0.8,
+  urlFullStack: 0.8,
+  urlOpenEdx: 0.8,
+  urlReact: 0.8,
   '/contact': 0.7,
   '/about': 0.6,
   '/bio': 0.6,

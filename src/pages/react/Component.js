@@ -32,7 +32,10 @@ const ReactPage = (props) => {
   return (
     <React.Fragment>
       <Helmet>
-        <link rel="canonical" href={APP_CONFIG.urls.site + '/reactjs'} />
+        <link
+          rel="canonical"
+          href={APP_CONFIG.urls.site + '/' + APP_CONFIG.skills.react}
+        />
         <meta
           name="description"
           content="Full Stack Web Developer with extensive experience using ReactJS and Redux. Follow links to the GitHub repository for this site."
@@ -127,7 +130,7 @@ const ReactPage = (props) => {
                 <span className="react-page-leader">Front End</span>: The front end stack
                 is
                 <BlankSpace />
-                <a href="https://reactjs.org/" target="_blank" rel="noopener noreferrer">
+                <a href="https://react.org/" target="_blank" rel="noopener noreferrer">
                   ReactJS/Redux
                 </a>
                 ,<BlankSpace />
@@ -341,7 +344,7 @@ const ReactPage = (props) => {
         <div className="row mt-lg-5 pl-2">
           <div className="col-lg-12">
             <h3 className="ml-auto text-center pl-2 mx-5">Code Samples & Publications</h3>
-            <Content category="react" />
+            <Content category={APP_CONFIG.skills.react} />
           </div>
         </div>
       </div>

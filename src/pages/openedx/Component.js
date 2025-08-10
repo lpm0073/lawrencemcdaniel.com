@@ -22,6 +22,8 @@ import './styles.css'
 
 import Accordion from 'react-bootstrap/Accordion'
 
+const urlOpenedX = APP_CONFIG.urls.site + '/' + APP_CONFIG.skills.openedX
+
 /* eslint-disable react/no-unescaped-entities */
 const Openedx = (props) => {
   /* Google Structured Data */
@@ -52,7 +54,7 @@ const Openedx = (props) => {
     <div>
       <Helmet>
         <title>Open edX Consultant</title>
-        <link rel="canonical" href={APP_CONFIG.urls.site + '/openedx'} />
+        <link rel="canonical" href={urlOpenedX} />
 
         <meta
           name="description"
@@ -69,7 +71,7 @@ const Openedx = (props) => {
         />
         <meta property="og:title" content={nameLawrenceMcDaniel} />
         <meta property="og:site_name" content={nameLawrenceMcDaniel} />
-        <meta property="og:url" content={APP_CONFIG.urls.site + '/openedx'} />
+        <meta property="og:url" content={urlOpenedX} />
 
         <meta name="twitter:title" content={nameLawrenceMcDaniel} />
         <meta name="twitter:description" content={nameLawrenceMcDaniel} />
@@ -334,7 +336,7 @@ const Openedx = (props) => {
             <h3 className="ml-auto text-center pl-2 mx-5">
               Open edX® Code Samples & Publications
             </h3>
-            <Content category="openedx" />
+            <Content category={APP_CONFIG.skills.openEdx} />
           </div>
           <div className="col-lg-12 col-md-12">
             <div className="text-justify mx-lg-5 mx-2">

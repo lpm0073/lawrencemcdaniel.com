@@ -89,14 +89,14 @@ class Home extends Component {
               <JobTitle
                 idx="1"
                 target="_self"
-                href="/full-stack-developer"
+                href={'/' + APP_CONFIG.skills.fullStack}
                 title="Full Stack Developer"
               />
               <Consultant />
               <JobTitle
                 idx="3"
                 target="_self"
-                href="/data-science"
+                href={'/' + APP_CONFIG.skills.dataScience}
                 title="Data Scientist"
               />
             </div>
@@ -104,7 +104,7 @@ class Home extends Component {
               <JobTitle
                 idx="4"
                 target="_blank"
-                href="https://blog.lawrencemcdaniel.com/"
+                href={APP_CONFIG.urls.blog}
                 title="Blogger"
               />
               <OnlineInstructor />
