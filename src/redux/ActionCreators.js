@@ -67,7 +67,7 @@ export const fetchArticles = () => (dispatch) => {
           .then(
             (response) => {
               if (response.ok) {
-                console.debug('fetched articles')
+                console.debug('fetched wordpress blog posts')
                 cache.put(URL_API_ARTICLES, response.clone())
                 return response
               } else {
@@ -137,6 +137,7 @@ export const fetchVideos = () => (dispatch) => {
           .then(
             (response) => {
               if (response.ok) {
+                console.debug('fetched youtube videos')
                 cache.put(URL_API_VIDEOS, response.clone())
                 return response
               } else {
@@ -205,7 +206,7 @@ export const fetchRepositories = () => (dispatch) => {
           .then(
             (response) => {
               if (response.ok) {
-                console.debug('fetched repositories')
+                console.debug('fetched github repositories')
                 cache.put(URL_API_REPOSITORIES, response.clone())
                 return response
               } else {

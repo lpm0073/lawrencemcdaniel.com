@@ -91,7 +91,7 @@ export const gsdHowToInstallOpenEdx = {
         {
           '@type': 'HowToDirection',
           name: 'Setup SSH Key Pair',
-          text: 'Step 8: Setup an SSH key pair. You’ll use a terminal emulator via SSH to connect to your server. If you’re unfamiliar with how to connect to a linux server then you can start your journey here: http://docs.aws.amazon.com/AWSEC2/latest/UserGuide/putty.html. Note that you will run this script as well as execute nearly all Open edX admin utilities from a linux command line. So, if you’re new to this then you should bite the bullet and do some online self-study on using linux terminal emulators and SSH.',
+          text: 'Step 8: Setup an SSH key pair. You’ll use a terminal emulator via SSH to connect to your server. If you’re unfamiliar with how to connect to a linux server then you can start your journey here: https://docs.aws.amazon.com/AWSEC2/latest/UserGuide/putty.html. Note that you will run this script as well as execute nearly all Open edX admin utilities from a linux command line. So, if you’re new to this then you should bite the bullet and do some online self-study on using linux terminal emulators and SSH.',
         },
         {
           '@type': 'HowToDirection',
@@ -192,7 +192,7 @@ export const gsdHowToInstallOpenEdx = {
         {
           '@type': 'HowToDirection',
           name: 'Create an AMI',
-          text: 'Read more here to learn about what an AMI (Amazon Machine Image) is, and how it is used: http://docs.aws.amazon.com/elasticbeanstalk/latest/dg/using-features.customenv.html. Meanwhile, here’s a screen shot short cut that at least points you in the right direction of where to go and what to do.',
+          text: 'Read more here to learn about what an AMI (Amazon Machine Image) is, and how it is used: https://docs.aws.amazon.com/elasticbeanstalk/latest/dg/using-features.customenv.html. Meanwhile, here’s a screen shot short cut that at least points you in the right direction of where to go and what to do.',
         },
         {
           '@type': 'HowToDirection',

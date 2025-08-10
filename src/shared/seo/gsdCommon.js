@@ -42,7 +42,7 @@ export const sameAs = [
   'https://github.com/smarter-sh/',
   'https://angel.co/p/lpm0073-gmail-com',
   'https://www.codementor.io/@lawrencemcdaniel',
-  'http://geek.ly/lmcdaniel',
+  'https://geek.ly/lmcdaniel',
   'https://twitter.com/lorenzodpolanco',
   'https://extendedlearning.ubc.ca/about/our-instructors?field_course_program_areas_target_id_verf=All&field_instr_first_name=Lawrence&field_instr_last_name=McDaniel',
 ]

@@ -21,7 +21,7 @@ import { StaleWhileRevalidate } from 'workbox-strategies'
 //-----------------------------------------------
 
 import { DEBUG, CACHE_EXPIRATION_IMAGES, CACHE_EXPIRATION_API, CACHE_EXPIRATION_APP, CACHE_NAME_APP, CACHE_NAME_API, CACHE_NAME_CDN, CACHE_NAME_STATIC_IMAGE } from './shared/constants'
-import { wpPrefetch } from './shared/wpPrefetch'
+import { wpPrefetch } from './shared/fetchers/wpPrefetch'
 import {
   URL_CDN, // AWS Cloudfront distribution: https://cdn.lawrencemcdaniel.com
   URL_API, // Wordpress REST apis: https://api.lawrencemcdaniel.com
