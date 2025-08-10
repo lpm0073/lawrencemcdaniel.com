@@ -2,6 +2,7 @@ import * as ActionTypes from './ActionTypes'
 import { imagePreFetcher } from '../shared/fetchers/imagePrefetcher'
 import { APP_CONFIG } from '../shared/constants'
 import { getCategories } from '../shared/categories'
+import { fetchPostTags } from '../shared/fetchers/apiPostTagsFetcher'
 
 /*  -----------------------------------
     methods to track whether page entry animations
@@ -256,24 +257,37 @@ export const fetchSpecialties = () => (dispatch) => {
         fetch(APP_CONFIG.apis.specialties)
           .then(
             (response) => {
-              if (response.ok) {
-                console.debug('fetched specialties')
-                cache.put(APP_CONFIG.apis.specialties, response.clone())
-                return response
-              } else {
+              if (!response.ok) {
                 var error = new Error(
                   'Error ' + response.status + ': ' + response.statusText
                 )
                 error.response = response
                 throw error
               }
+              console.debug('fetched specialties')
+              cache.put(APP_CONFIG.apis.specialties, response.clone())
+              return response.json()
             },
             (error) => {
               var errmess = new Error(error.message)
               throw errmess
             }
           )
-          .then((response) => response.json())
+          .then(async (specialties) => {
+            const tags = await fetchPostTags()
+            specialties = specialties.map((specialty) => ({
+              ...specialty,
+              tags: Array.isArray(specialty.tags)
+                ? specialty.tags
+                    .map((id) => {
+                      const tag = tags.find((tag) => tag.id === id)
+                      return tag ? tag.name : null
+                    })
+                    .filter((name) => name !== null)
+                : [],
+            }))
+            return specialties
+          })
           .then((specialties) => {
             dispatch(addSpecialties(specialties))
             imagePreFetcher(specialties, 0, 'Specialities')
