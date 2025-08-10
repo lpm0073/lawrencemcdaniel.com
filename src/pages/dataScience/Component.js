@@ -9,7 +9,7 @@ import { gsdPersonLawrenceMcDaniel } from '../../shared/seo/gsdPersonLawrence'
 import { hasOccupation } from '../../shared/seo/gsdPersonLawrence'
 import { gsdArticle } from '../../shared/seo/gsdArticle'
 import {
-  gsdSoftwareRepoList_FSWL,
+  gsdSoftwareRepoList,
   gsdSoftwareRepoList_Smarter,
 } from '../../shared/seo/gsdSoftwareSourceCode'
 import { gsdVideoObjectList_FSWL } from '../../shared/seo/gsdVideoObject'
@@ -37,7 +37,7 @@ const Datascience = (props) => {
   const graphExtraData = [
     person,
     gsdArticle(slug, webpageName),
-    gsdSoftwareRepoList_FSWL,
+    gsdSoftwareRepoList('data-science'),
     gsdSoftwareRepoList_Smarter,
     gsdVideoObjectList_FSWL,
   ]

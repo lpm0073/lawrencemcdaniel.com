@@ -7,7 +7,7 @@ import SkillColumn from '../../components/skillColumn/Component'
 import { Helmet } from 'react-helmet'
 import { gsdPersonLawrenceMcDaniel } from '../../shared/seo/gsdPersonLawrence'
 import {
-  gsdSoftwareRepoList_FSWL,
+  gsdSoftwareRepoList,
   gsdSoftwareRepoList_Smarter,
 } from '../../shared/seo/gsdSoftwareSourceCode'
 import { gsdVideoObjectList_FSWL } from '../../shared/seo/gsdVideoObject'
@@ -26,7 +26,7 @@ const CloudComputing = (props) => {
   const relatedLink = ''
   const graphExtraData = [
     gsdPersonLawrenceMcDaniel,
-    gsdSoftwareRepoList_FSWL,
+    gsdSoftwareRepoList('full-stack'),
     gsdSoftwareRepoList_Smarter,
     gsdVideoObjectList_FSWL,
   ]

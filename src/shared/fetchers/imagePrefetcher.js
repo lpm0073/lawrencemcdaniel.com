@@ -1,5 +1,5 @@
 import { wpGetFeaturedImage } from '../wpGetFeaturedImage'
-import { CACHE_NAME_CDN } from '../constants'
+import { APP_CONFIG } from '../constants'
 
 /* eslint-disable no-unused-vars */
 export const imagePreFetcher = (arr, delay, desc) => {
@@ -8,7 +8,7 @@ export const imagePreFetcher = (arr, delay, desc) => {
       arr.forEach((post) => {
         const url = wpGetFeaturedImage(post)
         if (url) {
-          caches.open(CACHE_NAME_CDN).then((cache) => {
+          caches.open(APP_CONFIG.caching.names.cdn).then((cache) => {
             cache.match(url).then((response) => {
               if (response) {
                 response.blob().then((blob) => {

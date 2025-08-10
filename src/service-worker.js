@@ -20,7 +20,7 @@ import { registerRoute } from 'workbox-routing'
 import { StaleWhileRevalidate } from 'workbox-strategies'
 //-----------------------------------------------
 
-import { DEBUG, CACHE_EXPIRATION_IMAGES, CACHE_EXPIRATION_API, CACHE_EXPIRATION_APP, CACHE_NAME_APP, CACHE_NAME_API, CACHE_NAME_CDN, CACHE_NAME_STATIC_IMAGE } from './shared/constants'
+import { DEBUG, APP_CONFIG } from './shared/constants'
 import { wpPrefetch } from './shared/fetchers/wpPrefetch'
 import {
   URL_CDN, // AWS Cloudfront distribution: https://cdn.lawrencemcdaniel.com
@@ -60,19 +60,19 @@ function isImageFile(url) {
 // ------------------------- Cache Expiration Policies ------------------------
 const app_cache_expiration = new ExpirationPlugin({
   maxEntries: 100,           // Maximum number of entries to keep
-  maxAgeSeconds: CACHE_EXPIRATION_APP,
+  maxAgeSeconds: APP_CONFIG.caching.expirations.app,
   purgeOnQuotaError: true,  // Delete cache if storage quota exceeded
 })
 
 const api_cache_expiration = new ExpirationPlugin({
   maxEntries: 100,           // Maximum number of entries to keep
-  maxAgeSeconds: CACHE_EXPIRATION_API,
+  maxAgeSeconds: APP_CONFIG.caching.expirations.api,
   purgeOnQuotaError: true,  // Delete cache if storage quota exceeded
 })
 
 const image_cache_expiration = new ExpirationPlugin({
   maxEntries: 1000,           // Maximum number of entries to keep
-  maxAgeSeconds: CACHE_EXPIRATION_IMAGES,
+  maxAgeSeconds: APP_CONFIG.caching.expirations.images,
   purgeOnQuotaError: true,  // Delete cache if storage quota exceeded
 })
 
@@ -137,7 +137,7 @@ self.addEventListener('message', (event) => {
   registerRoute(
     ({ url }) => url.href === `${URL_SITE}/manifest.json`,
     new StaleWhileRevalidate({
-      cacheName: CACHE_NAME_APP,
+      cacheName: APP_CONFIG.caching.names.app,
       plugins: [app_cache_expiration],
     })
   )
@@ -146,7 +146,7 @@ self.addEventListener('message', (event) => {
   registerRoute(
     ({ url }) => url.origin === URL_API,
     new StaleWhileRevalidate({
-      cacheName: CACHE_NAME_API,
+      cacheName: APP_CONFIG.caching.names.api,
       plugins: [api_cache_expiration],
     })
   )
@@ -155,7 +155,7 @@ self.addEventListener('message', (event) => {
   registerRoute(
     ({ url }) => url.origin === URL_CDN,
     new CacheFirst({
-      cacheName: CACHE_NAME_CDN,
+      cacheName: APP_CONFIG.caching.names.cdn,
       plugins: [
         new CacheableResponsePlugin({ statuses: [0, 200] }),
         image_cache_expiration,
@@ -167,7 +167,7 @@ self.addEventListener('message', (event) => {
   registerRoute(
     ({ url }) => url.origin === self.location.origin && isImageFile(url),
     new StaleWhileRevalidate({
-      cacheName: CACHE_NAME_STATIC_IMAGE,
+      cacheName: APP_CONFIG.caching.names.staticImages,
       plugins: [image_cache_expiration],
     })
   )
@@ -178,7 +178,7 @@ self.addEventListener('message', (event) => {
       url.origin === 'https://fonts.googleapis.com' ||
       url.origin === 'https://fonts.gstatic.com',
     new StaleWhileRevalidate({
-      cacheName: CACHE_NAME_APP,
+      cacheName: APP_CONFIG.caching.names.app,
       plugins: [app_cache_expiration],
     })
   )

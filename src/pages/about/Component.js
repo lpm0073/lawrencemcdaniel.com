@@ -45,9 +45,9 @@ class About extends Component {
     const pageType = 'AboutPage'
     const relatedLink = ''
     const graphExtraData = [
-      { ...gsdPersonLawrenceMcDaniel },
-      gsdSoftwareSourceCodeList,
-      gsdVideoObjectList,
+      { ...gsdPersonLawrenceMcDaniel() },
+      gsdSoftwareSourceCodeList(),
+      gsdVideoObjectList(),
     ]
 
     return (

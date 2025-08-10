@@ -12,7 +12,7 @@ import { MatrixRainingLetters } from 'react-mdr'
 
 import { gsdPersonLawrenceMcDaniel } from '../../shared/seo/gsdPersonLawrence'
 import {
-  gsdSoftwareRepoList_FSWL,
+  gsdSoftwareRepoList,
   gsdSoftwareRepoList_Smarter,
 } from '../../shared/seo/gsdSoftwareSourceCode'
 import { gsdVideoObjectList_FSWL } from '../../shared/seo/gsdVideoObject'
@@ -51,7 +51,7 @@ class MRLPage extends Component {
     const relatedLink = ''
     const graphExtraData = [
       gsdPersonLawrenceMcDaniel,
-      gsdSoftwareRepoList_FSWL,
+      gsdSoftwareRepoList('react'),
       gsdSoftwareRepoList_Smarter,
       gsdVideoObjectList_FSWL,
     ]
