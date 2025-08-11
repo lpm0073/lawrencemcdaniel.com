@@ -55,8 +55,8 @@ const videoStateShape = PropTypes.shape({
   likeCount: PropTypes.number.isRequired,
   commentCount: PropTypes.number.isRequired,
   url: PropTypes.string.isRequired,
-  categoryLabels: PropTypes.arrayOf(PropTypes.string),
-  categoryIcons: PropTypes.arrayOf(PropTypes.element),
+  skillLabels: PropTypes.arrayOf(PropTypes.string),
+  skillIcons: PropTypes.arrayOf(PropTypes.element),
 })
 
 // Used to validate the structure of the videos state in Redux.
@@ -203,14 +203,19 @@ const VideosTable = ({ skill, maxrows = 100 }) => {
     })
     .map((video) => ({
       ...video,
-      categoryLabels: (video.skills || []).map(skillLabel).filter(Boolean),
-      categoryIcons: (video.skills || [])
-        .map((categoryCode) => skillIcon(categoryCode, reduxSpecialties))
+      skillLabels: (video.skills || []).map(skillLabel).filter(Boolean),
+      skillIcons: (video.skills || [])
+        .map((skillCode) => skillIcon(skillCode, reduxSpecialties))
         .filter(Boolean),
     }))
     .sort((a, b) => {
-      const scoreA = a.viewCount + a.likeCount + 5 + a.commentCount * 10
-      const scoreB = b.viewCount + b.likeCount + 5 + b.commentCount * 10
+      // sort by a weighted score that emphasizes engagement via likes and comments
+      const weightComment = 10
+      const weightLikes = 5
+      const scoreA =
+        a.viewCount + a.likeCount * weightLikes + a.commentCount * weightComment
+      const scoreB =
+        b.viewCount + b.likeCount * weightLikes + b.commentCount * weightComment
       return scoreB - scoreA
     })
 

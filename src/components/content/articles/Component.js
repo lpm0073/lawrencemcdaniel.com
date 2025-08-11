@@ -57,8 +57,8 @@ const articleStateShape = PropTypes.shape({
       href: PropTypes.string,
     })
   ),
-  categoryLabels: PropTypes.arrayOf(PropTypes.string),
-  categoryIcons: PropTypes.arrayOf(PropTypes.element),
+  skillLabels: PropTypes.arrayOf(PropTypes.string),
+  skillIcons: PropTypes.arrayOf(PropTypes.element),
 })
 
 // Used to validate the structure of the articles state in Redux.
@@ -180,11 +180,11 @@ const ArticlesTable = ({ skill, maxrows = 100 }) => {
       // If skill is specified, remove the corresponding entry so that it doesn't
       // redundantly appear in the table.
       if (skill && article.skills) {
-        const categoryIndex = article.skills.indexOf(skill)
-        if (categoryIndex !== -1) {
+        const skillIndex = article.skills.indexOf(skill)
+        if (skillIndex !== -1) {
           return {
             ...article,
-            skills: article.skills.filter((_, index) => index !== categoryIndex),
+            skills: article.skills.filter((_, index) => index !== skillIndex),
           }
         }
       }
@@ -192,9 +192,9 @@ const ArticlesTable = ({ skill, maxrows = 100 }) => {
     })
     .map((article) => ({
       ...article,
-      categoryLabels: article.skills.map(skillLabel).filter(Boolean),
-      categoryIcons: article.skills
-        .map((categoryCode) => skillIcon(categoryCode, reduxSpecialties))
+      skillLabels: article.skills.map(skillLabel).filter(Boolean),
+      skillIcons: article.skills
+        .map((skillCode) => skillIcon(skillCode, reduxSpecialties))
         .filter(Boolean),
     }))
     .sort((a, b) => {
