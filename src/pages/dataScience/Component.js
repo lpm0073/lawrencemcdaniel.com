@@ -1,7 +1,9 @@
 import React from 'react'
+import PropTypes from 'prop-types'
 import RenderPageTitle from '../../components/pagetitle/pageTitleComponent'
 import SpecialtiesBanner from './datascienceBanner'
 import WhartonCertificate from './WhartonCertificate'
+import TechnologyCarousel from '../../components/technologyCarousel/Component'
 import { Content } from '../../components/content/Component'
 import { Helmet } from 'react-helmet'
 import { gsdGraph } from '../../shared/seo/gsdGraph'
@@ -262,6 +264,10 @@ const Datascience = (props) => {
             </table>
           </div>
         </div>
+        <TechnologyCarousel
+          specialties={props.specialties}
+          skill={APP_CONFIG.skills.dataScience}
+        />
         <div className="row mx-5">
           <div className="col">
             <h3 className="ml-auto text-center pl-2 mx-5 mt-5">
@@ -273,6 +279,10 @@ const Datascience = (props) => {
       </div>
     </React.Fragment>
   )
+}
+
+Datascience.propTypes = {
+  specialties: PropTypes.array.isRequired,
 }
 
 export default Datascience

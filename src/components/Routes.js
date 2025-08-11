@@ -142,12 +142,6 @@ class SiteRoutes extends Component {
           <Route exact path="/contact" element={<Contact />} />
           <Route exact path="/qr" element={<QR />} />
           <Route exact path="/about" element={<About />} />
-          <Route exact path={'/' + APP_CONFIG.skills.openEdx} element={<Openedx />} />
-          <Route
-            exact
-            path={'/' + APP_CONFIG.skills.dataScience}
-            element={<Datascience />}
-          />
           <Route exact path="/image-tagging" element={<ImageTaggerPage />} />
           <Route exact path="/bio" element={<Bio />} />
           <Route exact path="/full-bio" element={<Navigate to="/bio" />} />
@@ -166,6 +160,12 @@ class SiteRoutes extends Component {
             exact
             path="/education"
             element={<Education education={this.props.education} />}
+          />
+          <Route exact path={'/' + APP_CONFIG.skills.openEdx} element={<Openedx />} />
+          <Route
+            exact
+            path={'/' + APP_CONFIG.skills.dataScience}
+            element={<Datascience specialties={this.props.specialties} />}
           />
           <Route
             exact
