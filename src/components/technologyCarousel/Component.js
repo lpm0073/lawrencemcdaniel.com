@@ -5,6 +5,7 @@ import 'react-multi-carousel/lib/styles.css'
 
 import { getInitialLogos } from '../../shared/getInitialLogos'
 import Loading from '../Loading'
+import { wpGetFeaturedImage } from '../../shared/wpGetFeaturedImage'
 import './styles.css'
 
 const responsive = {
@@ -12,6 +13,25 @@ const responsive = {
   desktop: { breakpoint: { max: 3000, min: 1024 }, items: 3 },
   tablet: { breakpoint: { max: 1024, min: 464 }, items: 3 },
   mobile: { breakpoint: { max: 464, min: 0 }, items: 1 },
+}
+
+const getFilteredLogos = (specialties, skill) => {
+  if (!Array.isArray(specialties.items)) {
+    return []
+  }
+
+  let items = [...specialties.items]
+
+  if (skill) {
+    items = items.filter((item) =>
+      Array.isArray(item.skills) ? item.skills.includes(skill) : item.skill === skill
+    )
+  }
+
+  // Generate logos from filtered items
+  const logos = items.map((item) => wpGetFeaturedImage(item, 'medium'))
+
+  return logos
 }
 
 class TechnologyCarousel extends Component {
@@ -24,23 +44,36 @@ class TechnologyCarousel extends Component {
   }
 
   componentDidMount() {
-    const { specialties } = this.props
-    if (specialties && specialties.logos && specialties.logos.length > 0) {
-      this.setState({
-        shuffledLogos: [...specialties.logos].sort(() => Math.random() - 0.5),
-      })
-    }
+    const { specialties, skill } = this.props
+
+    if (specialties.isLoading) return
+
+    const logos = getFilteredLogos(specialties, skill)
+    console.log('TechnologyCarousel Filtered items:', logos.length)
+
+    this.setState({
+      shuffledLogos: [...logos].sort(() => Math.random() - 0.5),
+    })
   }
 
   componentDidUpdate(prevProps) {
+    if (
+      this.props.isLoading ||
+      this.props.specialties === prevProps.specialties ||
+      this.props.skill === prevProps.skill
+    ) {
+      return
+    }
+
     const prevLogos = prevProps.specialties && prevProps.specialties.logos
-    const currLogos = this.props.specialties && this.props.specialties.logos
+    const currLogos = getFilteredLogos(this.props.specialties, this.props.skill)
 
     if (
       Array.isArray(currLogos) &&
       currLogos.length > 0 &&
-      (prevLogos !== currLogos || JSON.stringify(prevLogos) !== JSON.stringify(currLogos))
+      JSON.stringify(prevLogos) !== JSON.stringify(currLogos)
     ) {
+      console.log('TechnologyCarousel Updated logos:', currLogos.length)
       this.setState({
         shuffledLogos: [...currLogos].sort(() => Math.random() - 0.5),
       })
@@ -82,9 +115,12 @@ class TechnologyCarousel extends Component {
 TechnologyCarousel.propTypes = {
   isLoading: PropTypes.bool.isRequired,
   specialties: PropTypes.shape({
-    logos: PropTypes.array,
-    featured_logos: PropTypes.array,
+    isLoading: PropTypes.bool.isRequired,
+    logos: PropTypes.array.isRequired,
+    items: PropTypes.array.isRequired,
+    featured_logos: PropTypes.array.isRequired,
   }).isRequired,
+  skill: PropTypes.string.isRequired,
 }
 
 export default TechnologyCarousel
