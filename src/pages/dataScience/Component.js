@@ -99,17 +99,82 @@ const Datascience = (props) => {
                   </h4>
                   <div className="text-justify">
                     <p>
-                      Hi, I’m Lawrence McDaniel and I am a data scientist and online
-                      instructor at University of British Columbia specializing in
-                      Artificial Intelligence and cloud computing. The rapid evolution of
-                      IT infrastructure cloud services combined with the sudden and
-                      staggering accumulation of electronic data has catalyzed an
-                      explosion of applied science and innovation for many ideas that only
-                      a few years ago were still not much more than theory. The math
-                      hasn’t gotten any easier, and IT infrastructure has actually become
-                      a lot more complex, however, If you understand both of these
-                      disciplines and you also are a halfway decent software engineer then
-                      the sky is the limit in terms of what you can do.
+                      I advise organizations on how to better leverage their existing data
+                      using commercial tools from AWS and Azure.
+                      <BlankSpace />
+                      Plus, I am the principal engineer of
+                      <BlankSpace />
+                      <a
+                        href="https://smarter.sh"
+                        target="_blank"
+                        rel="noopener noreferrer"
+                      >
+                        Smarter
+                      </a>
+                      <BlankSpace />, an orchestration platform for AI resources.
+                    </p>
+                    <p>
+                      I also teach
+                      <BlankSpace />
+                      <a
+                        href="https://extendedlearning.ubc.ca/courses/ai-cloud-strategy-technology-implementation/0161"
+                        target="_blank"
+                        rel="noopener noreferrer"
+                      >
+                        AI
+                      </a>
+                      <BlankSpace />
+                      and
+                      <BlankSpace />
+                      <a
+                        href="https://extendedlearning.ubc.ca/programs-credentials/cloud-technology-transformation-certificate"
+                        target="_blank"
+                        rel="noopener noreferrer"
+                      >
+                        cloud computing
+                      </a>
+                      <BlankSpace />
+                      at
+                      <BlankSpace />
+                      <a
+                        href="https://www.ubc.ca/"
+                        target="_blank"
+                        rel="noopener noreferrer"
+                      >
+                        University of British Columbia
+                      </a>
+                      .
+                    </p>
+                    <p>
+                      I regularly publish
+                      <BlankSpace />
+                      <a
+                        href="https://github.com/fullstackwithlawrence"
+                        target="_blank"
+                        rel="noopener noreferrer"
+                      >
+                        code samples
+                      </a>
+                      ,<BlankSpace />
+                      <a
+                        href="https://blog.lawrencemcdaniel.com/"
+                        target="_blank"
+                        rel="noopener noreferrer"
+                      >
+                        articles
+                      </a>
+                      , and
+                      <BlankSpace />
+                      <a
+                        href="https://www.youtube.com/@FullStackWithLawrence"
+                        target="_blank"
+                        rel="noopener noreferrer"
+                      >
+                        video content
+                      </a>
+                      <BlankSpace />
+                      on the latest AI and machine learning concepts, all of which are
+                      listed below for your convenience.
                     </p>
                     <a href="https://verify.mygreatlearning.com/OHMJTCTD">
                       <img
@@ -145,7 +210,30 @@ const Datascience = (props) => {
             <div className="row ml-0 mr-0 pr-2">
               <div className="col-12 mt-4">
                 <p className="text-justify pe-3">
-                  Fortunately some of the greatest minds on earth, like
+                  To complement my professional experience, I have completed advanced
+                  training in data science, machine learning, and business analytics from
+                  world-class institutions. This includes four certificates from the
+                  <BlankSpace />
+                  <a
+                    href="https://online-execed.wharton.upenn.edu/business-analytics"
+                    target="_blank"
+                    rel="noopener noreferrer"
+                  >
+                    Wharton Business Data Analytics
+                  </a>
+                  <BlankSpace />
+                  program, focused on applying data insights to strategic decision-making;
+                  Stanford’s renowned
+                  <BlankSpace />
+                  <a
+                    href="https://www.coursera.org/learn/introduction-to-machine-learning-in-production"
+                    target="_blank"
+                    rel="noopener noreferrer"
+                  >
+                    Machine Learning
+                  </a>
+                  <BlankSpace />
+                  course taught by
                   <BlankSpace />
                   <a
                     href="https://www.andrewng.org"
@@ -154,20 +242,24 @@ const Datascience = (props) => {
                   >
                     Dr. Andrew Ng
                   </a>
+                  , covering core algorithms and modeling techniques; and
                   <BlankSpace />
-                  at Stanford University for example, have paved the way for engineers
-                  like me to implement incredible machine learning and artificial
-                  intelligence systems that leverage big data sets to attack problem
-                  spaces like computer vision, pattern recognition in highly dynamic
-                  environments (like&nbsp;debt, equities and commodities secondary markets
-                  for example), big data classification and insight problems, and
-                  robotics.
+                  <a
+                    href="https://idss-gl.mit.edu/mit-idss-data-science-machine-learning-online-program"
+                    target="_blank"
+                    rel="noopener noreferrer"
+                  >
+                    MIT IDSS’s program in Data Science & Machine Learning
+                  </a>
+                  <BlankSpace />, emphasizing statistical methods and practical
+                  applications. These programs strengthen my ability to bridge technical
+                  expertise with real-world business impact.
                 </p>
               </div>
             </div>
           </div>
         </div>
-        <div className="row mx-3 my-0 p-0">
+        <div className="row mt-3 mx-3 my-0 p-0">
           <WhartonCertificate
             idx="1"
             href="https://www.coursera.org/account/accomplishments/certificate/KZN42KMZ4HHJ"
