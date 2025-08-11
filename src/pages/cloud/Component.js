@@ -72,7 +72,10 @@ const CloudComputing = (props) => {
             </p>
           </div>
         </div>
-        <TechnologyCarousel specialties={props.specialties} />
+        <TechnologyCarousel
+          specialties={props.specialties}
+          skill={APP_CONFIG.skills.cloud}
+        />
 
         <div className="row mx-5">
           <div className="col">
