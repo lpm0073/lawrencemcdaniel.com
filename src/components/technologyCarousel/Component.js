@@ -57,11 +57,7 @@ class TechnologyCarousel extends Component {
   }
 
   componentDidUpdate(prevProps) {
-    if (
-      this.props.isLoading ||
-      this.props.specialties === prevProps.specialties ||
-      this.props.skill === prevProps.skill
-    ) {
+    if (this.props.isLoading || this.props.specialties === prevProps.specialties) {
       return
     }
 
