@@ -1,7 +1,7 @@
-import * as ActionTypes from './ActionTypes'
+import * as ActionTypes from './ActionTypes.js'
 
-import { wpGetFeaturedImage } from '../shared/wpGetFeaturedImage'
-import { shuffleArray } from '../shared/shuffle'
+import { wpGetFeaturedImage } from '../shared/wpGetFeaturedImage.js'
+import { shuffleArray } from '../shared/shuffle.js'
 
 /* eslint-disable no-unused-vars */
 export const SpecialtiesRedux = (
