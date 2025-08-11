@@ -2,7 +2,7 @@ import React from 'react'
 import PropTypes from 'prop-types'
 
 const WhartonCertificate = (props) => {
-  const thisClassName = props.cls + ' col-lg-6 col-md-12 mb-1 pe-1'
+  const thisClassName = props.cls + ' col-lg-3 col-md-12 mb-1 pe-1'
   const thisSource = props.src
   const thisHref = props.href
 

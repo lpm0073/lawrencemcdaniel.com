@@ -116,7 +116,7 @@ class About extends Component {
                     I also teach
                     <BlankSpace />
                     <a
-                      href="https://extendedlearning.ubc.ca/courses/cloud-technology-infrastructure-strategy/mg102"
+                      href="https://extendedlearning.ubc.ca/programs-credentials/cloud-technology-transformation-certificate"
                       target="_blank"
                       rel="noopener noreferrer"
                     >
@@ -126,7 +126,7 @@ class About extends Component {
                     and
                     <BlankSpace />
                     <a
-                      href="https://extendedlearning.ubc.ca/courses/artificial-intelligence-cloud-technology-implementation/mg202"
+                      href="https://extendedlearning.ubc.ca/courses/ai-cloud-strategy-technology-implementation/0161"
                       target="_blank"
                       rel="noopener noreferrer"
                     >
@@ -135,7 +135,7 @@ class About extends Component {
                     <BlankSpace />
                     at
                     <BlankSpace />
-                    <a href="https://extendedlearning.ubc.ca/about-us/our-instructors/lawrence-mcdaniel">
+                    <a href="https://extendedlearning.ubc.ca/about/our-instructors?field_course_program_areas_target_id_verf=All&field_instr_first_name=Lawrence&field_instr_last_name=McDaniel">
                       University of British Columbia
                     </a>
                     <BlankSpace />

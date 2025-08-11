@@ -23,7 +23,6 @@ export async function fetchPostTags() {
           name: tag.name,
         }
       })
-      console.debug(`Fetched ${retval.length} post tags`, retval)
       return retval
     } else {
       console.error(`Error fetching ${concept}: ${response.statusText}`)
