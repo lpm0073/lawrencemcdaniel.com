@@ -242,17 +242,34 @@ export const fetchSpecialties = () => (dispatch) => {
   caches.open(APP_CONFIG.caching.names.api).then((cache) => {
     cache.match(APP_CONFIG.apis.specialties).then((cachedResponse) => {
       if (cachedResponse) {
-        cachedResponse.json().then((specialties) => {
-          dispatch(addSpecialties(specialties))
-          imagePreFetcher(specialties, 0, 'Specialities')
-          imagePreFetcher(
-            [
-              'https://cdn.lawrencemcdaniel.com/wp-content/uploads/2020/06/05201305/Lawrence21.jpg',
-            ],
-            5,
-            'Site Static'
-          )
-        })
+        cachedResponse
+          .json()
+          .then(async (specialties) => {
+            const tags = await fetchPostTags()
+            specialties = specialties.map((specialty) => ({
+              ...specialty,
+              skills: Array.isArray(specialty.tags)
+                ? specialty.tags
+                    .map((id) => {
+                      const tag = tags.find((tag) => tag.id === id)
+                      return tag ? tag.name : null
+                    })
+                    .filter((name) => Object.keys(APP_CONFIG.skills).includes(name))
+                : [],
+            }))
+            return specialties
+          })
+          .then((specialties) => {
+            dispatch(addSpecialties(specialties))
+            imagePreFetcher(specialties, 0, 'Specialities')
+            imagePreFetcher(
+              [
+                'https://cdn.lawrencemcdaniel.com/wp-content/uploads/2020/06/05201305/Lawrence21.jpg',
+              ],
+              5,
+              'Site Static'
+            )
+          })
       } else {
         fetch(APP_CONFIG.apis.specialties)
           .then(
@@ -277,13 +294,13 @@ export const fetchSpecialties = () => (dispatch) => {
             const tags = await fetchPostTags()
             specialties = specialties.map((specialty) => ({
               ...specialty,
-              tags: Array.isArray(specialty.tags)
+              skills: Array.isArray(specialty.tags)
                 ? specialty.tags
                     .map((id) => {
                       const tag = tags.find((tag) => tag.id === id)
                       return tag ? tag.name : null
                     })
-                    .filter((name) => name !== null)
+                    .filter((name) => Object.values(APP_CONFIG.skills).includes(name))
                 : [],
             }))
             return specialties
