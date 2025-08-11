@@ -7,7 +7,8 @@ import VideosTable from './videos/Component'
 import { APP_CONFIG } from '../../shared/constants'
 
 import './styles.css'
-export function categoryUrl(categoryCode) {
+
+function skillUrl(categoryCode) {
   /*
     anchor links to the specialties page. These are internal page
     links to follow when an icon is clicked.
@@ -50,14 +51,13 @@ export function categoryUrl(categoryCode) {
     case 'django':
       return urlFullStack
     default:
-      console.warn('categoryUrl() categoryCode is not recognized', categoryCode)
-      return null
+      throw new Error(`skillUrl() categoryCode is not recognized: ${categoryCode}`)
   }
 }
 
-export function categoryLogoUrl(categoryCode, reduxSpecialties) {
+export function skillLogoUrl(categoryCode, reduxSpecialties) {
   /*
-    returns the internal URL of the logo image for a given category code.
+    returns the internal URL of the logo image for a given skill code.
     Part of repository metadata.
    */
   switch (categoryCode) {
@@ -89,7 +89,7 @@ export function categoryLogoUrl(categoryCode, reduxSpecialties) {
     case 'django':
       return 'assets/images/pancakes.png'
   }
-  console.warn('categoryLogoUrl() categoryCode is not locally served', categoryCode)
+  console.warn('skillLogoUrl() categoryCode is not locally served', categoryCode)
 
   // reduxSpecialties.items[i].slug
   // reduxSpecialties.items[i]._embedded.wp:featuredmedia[0].source_url
@@ -102,24 +102,23 @@ export function categoryLogoUrl(categoryCode, reduxSpecialties) {
   ) {
     return specialty._embedded['wp:featuredmedia'][0].source_url
   }
-  console.error('categoryLogoUrl() unknown categoryCode', categoryCode)
+  console.error('skillLogoUrl() unknown categoryCode', categoryCode)
 
   return null
 }
 
-export function categoryIcon(categoryCode, reduxSpecialties) {
+export function skillIcon(categoryCode, reduxSpecialties) {
   /*
-    returns an <img> element for a given category code.
+    returns an <img> element for a given skill code.
     Part of repository metadata.
    */
-  const category_label = categoryLabel(categoryCode)
-  const category_url = categoryUrl(categoryCode)
-  const category_logo_url = categoryLogoUrl(categoryCode, reduxSpecialties)
+  const category_label = skillLabel(categoryCode)
+  const category_url = skillUrl(categoryCode)
+  const category_logo_url = skillLogoUrl(categoryCode, reduxSpecialties)
   if (!category_label || !category_url || !category_logo_url) {
-    console.warn(
-      `categoryIcon() missing data for categoryCode: ${categoryCode} label: ${category_label} url: ${category_url} logo: ${category_logo_url}`
+    throw new Error(
+      `skillIcon() missing data for categoryCode: ${categoryCode} label: ${category_label} url: ${category_url} logo: ${category_logo_url}`
     )
-    return null
   }
   return (
     <a href={category_url}>
@@ -134,9 +133,9 @@ export function categoryIcon(categoryCode, reduxSpecialties) {
   )
 }
 
-export function categoryLabel(categoryCode) {
+export function skillLabel(categoryCode) {
   /*
-    Pretty label for a given category code, to be rendered to the browser
+    Pretty label for a given skill code, to be rendered to the browser
     as text.
 
     Part of repository metadata. Not currently used.
@@ -169,8 +168,7 @@ export function categoryLabel(categoryCode) {
     case 'django':
       return 'Full Stack'
     default:
-      console.warn('categoryLabel() categoryCode is not recognized', categoryCode)
-      return null
+      throw new Error(`skillLabel() categoryCode is not recognized: ${categoryCode}`)
   }
 }
 
@@ -178,7 +176,7 @@ export function categoryLabel(categoryCode) {
 
 export const ContentCategories = ({ categories }) => {
   /*
-    Renders up to six category icons for the given repository.
+    Renders up to six skill icons for the given repository.
     Part of repository metadata. Sourced from github.json.
     This is the foundation for all icon, url and label logic above.
    */
@@ -197,11 +195,11 @@ export const ContentCategories = ({ categories }) => {
   )
 }
 ContentCategories.propTypes = {
-  // categories is an array of category icon url strings
+  // categories is an array of skill icon url strings
   categories: PropTypes.arrayOf(PropTypes.string).isRequired,
 }
 
-export const Content = ({ category }) => {
+export const Content = ({ skill }) => {
   return (
     <React.Fragment>
       <div className="p-1 bg-secondary border border-dark rounded">
@@ -226,7 +224,7 @@ export const Content = ({ category }) => {
                 documentation and CI-CD operations for build, deploy and code dependency
                 package updates.
               </p>
-              <CodeSamplesTable category={category} maxrows={10} />
+              <CodeSamplesTable skill={skill} maxrows={10} />
             </Tab>
 
             <Tab eventKey="articles" title="Articles" className="p-3">
@@ -234,12 +232,12 @@ export const Content = ({ category }) => {
                 These are articles that I&apos;ve published. Usually from my personal
                 blog, but every now and then from other sources.
               </p>
-              <ArticlesTable category={category} maxrows={10} />
+              <ArticlesTable skill={skill} maxrows={10} />
             </Tab>
 
             <Tab eventKey="videos" title="Videos" className="p-3">
               <p>Videos from my YouTube Channel, Full Stack With Lawrence</p>
-              <VideosTable category={category} maxrows={10} />
+              <VideosTable skill={skill} maxrows={10} />
             </Tab>
           </Tabs>
         </div>
@@ -249,5 +247,5 @@ export const Content = ({ category }) => {
 }
 
 Content.propTypes = {
-  category: PropTypes.string.isRequired,
+  skill: PropTypes.string.isRequired,
 }

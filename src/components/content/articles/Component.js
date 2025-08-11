@@ -3,12 +3,12 @@
 
     This is a Redux-managed React component that renders a table of code samples from
     GitHub Api. It displays repositories with metadata such as
-    engagement metrics, last commit date, languages used, and categories.
+    engagement metrics, last commit date, languages used, and skills.
  */
 import React, { useState } from 'react'
 import PropTypes from 'prop-types'
 import { useSelector } from 'react-redux'
-import { categoryIcon, categoryLabel } from '../Component'
+import { skillIcon, skillLabel } from '../Component'
 import Loading from '../../Loading'
 
 import './styles.css'
@@ -30,7 +30,7 @@ const articleStateShape = PropTypes.shape({
   }).isRequired,
   author: PropTypes.number.isRequired,
   featured_media: PropTypes.number.isRequired,
-  categories: PropTypes.arrayOf(PropTypes.string).isRequired,
+  skills: PropTypes.arrayOf(PropTypes.string).isRequired,
   tags: PropTypes.arrayOf(PropTypes.string).isRequired,
   yoast_head_json: PropTypes.shape({
     title: PropTypes.string,
@@ -163,28 +163,28 @@ Article.propTypes = {
 
 // ------------------------------ Main Component ------------------------------
 
-const ArticlesTable = ({ category, maxrows = 100 }) => {
+const ArticlesTable = ({ skill, maxrows = 100 }) => {
   /*
    Renders a table of blog articles and other publications.
    */
   const [currentMaxRows, setCurrentMaxRows] = useState(maxrows)
   const reduxArticles = useSelector((state) => state.articles)
-  const reduxSpecialties = useSelector((state) => state.specialties) // for future use.
+  const reduxSpecialties = useSelector((state) => state.specialties)
 
   const unfilteredArticles = [
-    ...(category
-      ? reduxArticles.articles.filter((redux) => redux.categories.includes(category))
+    ...(skill
+      ? reduxArticles.articles.filter((redux) => redux.skills.includes(skill))
       : reduxArticles.articles),
   ]
     .map((article) => {
-      // If category is specified, remove the corresponding entry so that it doesn't
+      // If skill is specified, remove the corresponding entry so that it doesn't
       // redundantly appear in the table.
-      if (category && article.categories) {
-        const categoryIndex = article.categories.indexOf(category)
+      if (skill && article.skills) {
+        const categoryIndex = article.skills.indexOf(skill)
         if (categoryIndex !== -1) {
           return {
             ...article,
-            categories: article.categories.filter((_, index) => index !== categoryIndex),
+            skills: article.skills.filter((_, index) => index !== categoryIndex),
           }
         }
       }
@@ -192,9 +192,9 @@ const ArticlesTable = ({ category, maxrows = 100 }) => {
     })
     .map((article) => ({
       ...article,
-      categoryLabels: article.categories.map(categoryLabel).filter(Boolean),
-      categoryIcons: article.categories
-        .map((categoryCode) => categoryIcon(categoryCode, reduxSpecialties))
+      categoryLabels: article.skills.map(skillLabel).filter(Boolean),
+      categoryIcons: article.skills
+        .map((categoryCode) => skillIcon(categoryCode, reduxSpecialties))
         .filter(Boolean),
     }))
     .sort((a, b) => {
@@ -252,7 +252,7 @@ const ArticlesTable = ({ category, maxrows = 100 }) => {
 }
 
 ArticlesTable.propTypes = {
-  category: PropTypes.string,
+  skill: PropTypes.string,
   maxrows: PropTypes.number,
 }
 

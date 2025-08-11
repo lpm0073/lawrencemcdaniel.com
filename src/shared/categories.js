@@ -1,6 +1,15 @@
+import { APP_CONFIG } from './constants'
+
 export function getCategories(tags) {
   /*
-   Map tag Array.string to one of 4 categories: full-stack, data-science, react, openedx
+   Maps tag Array.string to one of 5 categories:
+   - cloud
+   - data-science
+   - full-stack
+   - openedx
+   - react
+
+   tags: Array<string> with values like ['full-stack', 'data-science', 'edx', 'openai', 'ci-cd']
    */
   if (!tags || (typeof tags !== 'string' && !Array.isArray(tags))) {
     return []
@@ -14,23 +23,26 @@ export function getCategories(tags) {
 
   tags.forEach((t) => {
     if (t.includes('full-stack') || t.includes('full stack')) {
-      category.add('full-stack')
+      category.add(APP_CONFIG.skills.fullStack)
     }
     if (t.includes('wordpress')) {
-      category.add('full-stack')
+      category.add(APP_CONFIG.skills.fullStack)
+    }
+    if (t.includes('data-science') || t.includes('data science')) {
+      category.add(APP_CONFIG.skills.dataScience)
     }
     if (t.includes('edx') || t.includes('openedx') || t.includes('open edx')) {
-      category.add('openedx')
+      category.add(APP_CONFIG.skills.openEdx)
     }
     if (t.includes('openai') || t.includes('gpt')) {
-      category.add('data-science')
+      category.add(APP_CONFIG.skills.dataScience)
     }
     if (t.includes('python') || t.includes('pypi') || t.includes('django')) {
-      category.add('full-stack')
+      category.add(APP_CONFIG.skills.fullStack)
     }
     if (t.includes('docker')) {
-      category.add('full-stack')
-      category.add('cloud')
+      category.add(APP_CONFIG.skills.fullStack)
+      category.add(APP_CONFIG.skills.cloud)
     }
     if (
       t.includes('ci-cd') ||
@@ -38,31 +50,31 @@ export function getCategories(tags) {
       t.includes('dev-ops') ||
       t.includes('devops')
     ) {
-      category.add('full-stack')
+      category.add(APP_CONFIG.skills.fullStack)
     }
     if (t.includes('chatgpt')) {
-      category.add('data-science')
+      category.add(APP_CONFIG.skills.dataScience)
     }
     if (t.includes('react') || t.includes('reactjs') || t.includes('react.js')) {
-      category.add('react')
+      category.add(APP_CONFIG.skills.react)
     }
     if (t.includes('aws') || t.includes('amazon web services')) {
-      category.add('cloud')
+      category.add(APP_CONFIG.skills.cloud)
     }
     if (t.includes('kubernetes')) {
-      category.add('cloud')
+      category.add(APP_CONFIG.skills.cloud)
     }
     if (t.includes('terraform')) {
-      category.add('cloud')
+      category.add(APP_CONFIG.skills.cloud)
     }
     if (t.includes('serverless')) {
-      category.add('cloud')
+      category.add(APP_CONFIG.skills.cloud)
     }
     if (t.includes('microservices')) {
-      category.add('cloud')
+      category.add(APP_CONFIG.skills.cloud)
     }
     if (t.includes('12-factor')) {
-      category.add('full-stack')
+      category.add(APP_CONFIG.skills.fullStack)
     }
   })
 

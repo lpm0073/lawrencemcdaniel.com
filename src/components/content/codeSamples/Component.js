@@ -3,13 +3,13 @@
 
     This is a Redux-managed React component that renders a table of code samples from
     GitHub Api. It displays repositories with metadata such as
-    engagement metrics, last commit date, languages used, and categories.
+    engagement metrics, last commit date, languages used, and skills.
  */
 import React, { useState } from 'react'
 import PropTypes from 'prop-types'
 import { useSelector } from 'react-redux'
 
-import { categoryIcon, categoryLabel, ContentCategories } from '../Component'
+import { skillIcon, skillLabel, ContentCategories } from '../Component'
 import Loading from '../../../components/Loading'
 
 import './styles.css'
@@ -29,7 +29,7 @@ const repoStateShape = PropTypes.shape({
   watchers: PropTypes.number,
   stargazers_count: PropTypes.number,
   topics: PropTypes.arrayOf(PropTypes.string),
-  categories: PropTypes.arrayOf(PropTypes.string),
+  skills: PropTypes.arrayOf(PropTypes.string),
   last_commit_date: PropTypes.string,
   total_commits: PropTypes.number,
   languages: PropTypes.arrayOf(
@@ -150,11 +150,11 @@ const CodeMetadata = ({ repo }) => {
   /*
    Top-level component that renders metadata information for the given repository.
    Only shown on medium and larger screens.
-   ContentCategories categories={repo.categoryIcons}
+   ContentCategories skills={repo.categoryIcons}
    */
   return (
     <React.Fragment>
-      <ContentCategories categories={repo.categoryIcons} />
+      <ContentCategories skills={repo.categoryIcons} />
       <CodeEngagement repo={repo} />
       <CodeCommits repo={repo} />
       <hr />
@@ -244,29 +244,28 @@ CodeRepository.propTypes = {
 
 // ------------------------------ Main Component ------------------------------
 
-const CodeSamplesTable = ({ category, maxrows = 100 }) => {
+const CodeSamplesTable = ({ skill, maxrows = 100 }) => {
   /*
-   Renders a table of code samples for the given category.
+   Renders a table of code samples for the given skill.
    */
   const [currentMaxRows, setCurrentMaxRows] = useState(maxrows)
 
   const reduxRepositories = useSelector((state) => state.repositories)
-  const reduxSpecialties = useSelector((state) => state.specialties) // for future use.
+  const reduxSpecialties = useSelector((state) => state.specialties)
+  const reposArray = Array.isArray(reduxRepositories.repos) ? reduxRepositories.repos : []
 
   const unfilteredRepositories = [
-    ...(category
-      ? reduxRepositories.repos.filter((redux) => redux.categories.includes(category))
-      : reduxRepositories.repos),
+    ...(skill ? reposArray.filter((redux) => redux.skills.includes(skill)) : reposArray),
   ]
     .map((repo) => {
-      // If category is specified, remove the corresponding entry so that it doesn't
+      // If skill is specified, remove the corresponding entry so that it doesn't
       // redundantly appear in the table.
-      if (category && repo.categories) {
-        const categoryIndex = repo.categories.indexOf(category)
+      if (skill && repo.skills) {
+        const categoryIndex = repo.skills.indexOf(skill)
         if (categoryIndex !== -1) {
           return {
             ...repo,
-            categories: repo.categories.filter((_, index) => index !== categoryIndex),
+            skills: repo.skills.filter((_, index) => index !== categoryIndex),
           }
         }
       }
@@ -274,9 +273,9 @@ const CodeSamplesTable = ({ category, maxrows = 100 }) => {
     })
     .map((repo) => ({
       ...repo,
-      categoryLabels: repo.categories.map(categoryLabel).filter(Boolean),
-      categoryIcons: repo.categories
-        .map((categoryCode) => categoryIcon(categoryCode, reduxSpecialties))
+      categoryLabels: repo.skills.map(skillLabel).filter(Boolean),
+      categoryIcons: repo.skills
+        .map((categoryCode) => skillIcon(categoryCode, reduxSpecialties))
         .filter(Boolean),
     }))
     .sort((a, b) => {
@@ -341,7 +340,7 @@ const CodeSamplesTable = ({ category, maxrows = 100 }) => {
 }
 
 CodeSamplesTable.propTypes = {
-  category: PropTypes.string,
+  skill: PropTypes.string,
   maxrows: PropTypes.number,
 }
 
