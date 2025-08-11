@@ -3,12 +3,12 @@
 
     This is a Redux-managed React component that renders a table of code samples from
     GitHub Api. It displays repositories with metadata such as
-    engagement metrics, last commit date, languages used, and categories.
+    engagement metrics, last commit date, languages used, and skills.
  */
 import React, { useState } from 'react'
 import PropTypes from 'prop-types'
 import { useSelector } from 'react-redux'
-import { categoryIcon, categoryLabel } from '../Component'
+import { skillIcon, skillLabel } from '../Component'
 import Loading from '../../Loading'
 
 import './styles.css'
@@ -159,7 +159,7 @@ Video.propTypes = {
 
 // ------------------------------ Main Component ------------------------------
 
-const VideosTable = ({ category, maxrows = 100 }) => {
+const VideosTable = ({ skill, maxrows = 100 }) => {
   /*
    Renders a table of videos and other publications.
    */
@@ -168,10 +168,8 @@ const VideosTable = ({ category, maxrows = 100 }) => {
   const reduxSpecialties = useSelector((state) => state.specialties) // for future use.
 
   const unfilteredVideos = [
-    ...(category
-      ? (reduxVideos.videos || []).filter((redux) =>
-          (redux.categories || []).includes(category)
-        )
+    ...(skill
+      ? (reduxVideos.videos || []).filter((redux) => (redux.skills || []).includes(skill))
       : reduxVideos.videos || []),
   ]
     .map((video) => {
@@ -190,14 +188,14 @@ const VideosTable = ({ category, maxrows = 100 }) => {
       }
     })
     .map((video) => {
-      // If category is specified, remove the corresponding entry so that it doesn't
+      // If skill is specified, remove the corresponding entry so that it doesn't
       // redundantly appear in the table.
-      if (category && video.categories) {
-        const categoryIndex = video.categories.indexOf(category)
-        if (categoryIndex !== -1) {
+      if (skill && video.skills) {
+        const skillIndex = video.skills.indexOf(skill)
+        if (skillIndex !== -1) {
           return {
             ...video,
-            categories: video.categories.filter((_, index) => index !== categoryIndex),
+            skills: video.skills.filter((_, index) => index !== skillIndex),
           }
         }
       }
@@ -205,9 +203,9 @@ const VideosTable = ({ category, maxrows = 100 }) => {
     })
     .map((video) => ({
       ...video,
-      categoryLabels: (video.categories || []).map(categoryLabel).filter(Boolean),
-      categoryIcons: (video.categories || [])
-        .map((categoryCode) => categoryIcon(categoryCode, reduxSpecialties))
+      categoryLabels: (video.skills || []).map(skillLabel).filter(Boolean),
+      categoryIcons: (video.skills || [])
+        .map((categoryCode) => skillIcon(categoryCode, reduxSpecialties))
         .filter(Boolean),
     }))
     .sort((a, b) => {
@@ -267,7 +265,7 @@ const VideosTable = ({ category, maxrows = 100 }) => {
 }
 
 VideosTable.propTypes = {
-  category: PropTypes.string,
+  skill: PropTypes.string,
   maxrows: PropTypes.number,
 }
 

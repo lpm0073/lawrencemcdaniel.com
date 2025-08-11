@@ -22,7 +22,7 @@ const CloudComputing = (props) => {
   const relatedLink = ''
   const graphExtraData = [
     gsdPersonLawrenceMcDaniel,
-    gsdSoftwareRepoList('full-stack'),
+    gsdSoftwareRepoList(APP_CONFIG.skills.fullStack),
     gsdVideoObjectList_FSWL,
   ]
 

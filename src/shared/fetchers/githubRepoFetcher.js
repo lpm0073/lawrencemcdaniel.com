@@ -43,6 +43,7 @@ import { fileURLToPath } from 'url'
 import { dirname, join } from 'path'
 import { marked } from 'marked'
 
+import { APP_CONFIG } from '../../shared/constants.js'
 import { loadEnv } from '../dotenv.js'
 
 const __filename = fileURLToPath(import.meta.url)
@@ -83,27 +84,29 @@ function githubApiHeaders() {
 // ----------------------------------------------------------------------------
 // Fetchers
 // ----------------------------------------------------------------------------
-function categories(org, topics) {
+function skills(org, topics) {
   const retval = new Set() // Use Set to automatically handle duplicates
   if (!topics || topics.length === 0) return []
-  if (topics.includes('python')) retval.add('python')
-  if (topics.includes('data-science')) retval.add('data-science')
-  if (topics.includes('full-stack')) retval.add('full-stack')
-  if (topics.includes('fullstack')) retval.add('full-stack')
-  if (topics.includes('terraform')) retval.add('terraform')
-  if (topics.includes('terraform')) retval.add('full-stack')
-  if (topics.some((topic) => topic.includes('terraform'))) retval.add('cloud')
-  if (topics.some((topic) => topic.includes('kubernetes'))) retval.add('cloud')
-  if (topics.some((topic) => topic.includes('aws'))) retval.add('cloud')
-  if (topics.some((topic) => topic.includes('azure'))) retval.add('cloud')
+  if (topics.includes('python')) retval.add(APP_CONFIG.skills.fullStack)
+  if (topics.includes('data-science')) retval.add(APP_CONFIG.skills.dataScience)
+  if (topics.includes('full-stack')) retval.add(APP_CONFIG.skills.fullStack)
+  if (topics.includes('fullstack')) retval.add(APP_CONFIG.skills.fullStack)
+  if (topics.includes('terraform')) retval.add(APP_CONFIG.skills.cloud)
+  if (topics.includes('terraform')) retval.add(APP_CONFIG.skills.fullStack)
+  if (topics.some((topic) => topic.includes('terraform')))
+    retval.add(APP_CONFIG.skills.cloud)
+  if (topics.some((topic) => topic.includes('kubernetes')))
+    retval.add(APP_CONFIG.skills.cloud)
+  if (topics.some((topic) => topic.includes('aws'))) retval.add(APP_CONFIG.skills.cloud)
+  if (topics.some((topic) => topic.includes('azure'))) retval.add(APP_CONFIG.skills.cloud)
   if (org === 'smarter-sh') {
-    retval.add('full-stack')
+    retval.add(APP_CONFIG.skills.fullStack)
   }
   if (topics.includes('react') || topics.includes('reactjs')) {
-    retval.add('react')
+    retval.add(APP_CONFIG.skills.react)
   }
   if (topics.includes('openedx')) {
-    retval.add('openedx')
+    retval.add(APP_CONFIG.skills.openEdx)
   }
   return Array.from(retval) // Convert Set back to array
 }
@@ -510,7 +513,7 @@ async function fetchSingleRepo(username, repoName) {
     })
     if (response.ok) {
       const repo = await response.json()
-      const categoriesList = categories(username, repo.topics || [])
+      const skillsList = skills(username, repo.topics || [])
       return {
         name: username + '/' + repo.name,
         html_url: repo.html_url,
@@ -522,7 +525,7 @@ async function fetchSingleRepo(username, repoName) {
         watchers: repo.watchers,
         stargazers_count: repo.stargazers_count,
         topics: repo.topics || [],
-        categories: categoriesList,
+        skills: skillsList,
       }
     } else {
       console.error(`Error fetching repo ${username}/${repoName}: ${response.statusText}`)
@@ -545,7 +548,7 @@ async function fetchGitHubOrg(entity) {
       if (response.ok) {
         const repos = await response.json()
         return repos.map((repo) => {
-          const categoriesList = categories(repo.owner.login, repo.topics || [])
+          const skillsList = skills(repo.owner.login, repo.topics || [])
 
           return {
             name: repo.owner.login + '/' + repo.name,
@@ -558,7 +561,7 @@ async function fetchGitHubOrg(entity) {
             watchers: repo.watchers,
             stargazers_count: repo.stargazers_count,
             topics: repo.topics || [],
-            categories: categoriesList,
+            skills: skillsList,
           }
         })
       } else {

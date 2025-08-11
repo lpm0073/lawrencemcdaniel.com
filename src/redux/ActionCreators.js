@@ -97,13 +97,11 @@ export const addArticles = (articles) => {
   if (Array.isArray(articles)) {
     payload = articles.map((article) => ({
       ...article,
-      categories: getCategories(article.categories),
+      skills: getCategories(article.categories),
     }))
   } else {
-    payload = {
-      ...articles,
-      categories: getCategories(articles.categories),
-    }
+    // not an array, so raise an error
+    throw new Error('Expected articles to be an array')
   }
 
   return {
@@ -165,13 +163,11 @@ export const addVideos = (videos) => {
   if (Array.isArray(videos)) {
     payload = videos.map((video) => ({
       ...video,
-      categories: getCategories(video.tags),
+      skills: getCategories(video.tags),
     }))
   } else {
-    payload = {
-      ...videos,
-      categories: getCategories(videos.tags),
-    }
+    // not an array, so raise an error
+    throw new Error('Expected videos to be an array')
   }
 
   return {
