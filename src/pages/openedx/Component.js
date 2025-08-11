@@ -334,7 +334,7 @@ const Openedx = (props) => {
             <h3 className="ml-auto text-center pl-2 mx-5">
               Open edX® Code Samples & Publications
             </h3>
-            <Content category={APP_CONFIG.skills.openEdx} />
+            <Content skill={APP_CONFIG.skills.openEdx} />
           </div>
           <div className="col-lg-12 col-md-12">
             <div className="text-justify mx-lg-5 mx-2">

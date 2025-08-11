@@ -86,7 +86,7 @@ const CloudComputing = (props) => {
               Hire me! I can help you with your next project, more details{' '}
               <a href="/consulting">here</a>.
             </p>
-            <Content category={APP_CONFIG.skills.cloud} />
+            <Content skill={APP_CONFIG.skills.cloud} />
           </div>
         </div>
       </div>

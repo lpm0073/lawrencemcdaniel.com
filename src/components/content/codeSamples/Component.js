@@ -254,7 +254,7 @@ const CodeSamplesTable = ({ skill, maxrows = 100 }) => {
   const reduxSpecialties = useSelector((state) => state.specialties)
   const reposArray = Array.isArray(reduxRepositories.repos) ? reduxRepositories.repos : []
 
-  const unfilteredRepositories = [
+  const untrimmedRepos = [
     ...(skill ? reposArray.filter((redux) => redux.skills.includes(skill)) : reposArray),
   ]
     .map((repo) => {
@@ -289,8 +289,8 @@ const CodeSamplesTable = ({ skill, maxrows = 100 }) => {
       return b.total_commits - a.total_commits
     })
 
-  const unfilteredCount = unfilteredRepositories.length
-  const filteredRepositories = unfilteredRepositories.slice(0, currentMaxRows)
+  const untrimmedCount = untrimmedRepos.length
+  const trimmedRepos = untrimmedRepos.slice(0, currentMaxRows)
 
   const handleShowMore = () => {
     setCurrentMaxRows(1000)
@@ -313,7 +313,7 @@ const CodeSamplesTable = ({ skill, maxrows = 100 }) => {
               </tr>
             </thead>
             <tbody>
-              {filteredRepositories.map((repo) => (
+              {trimmedRepos.map((repo) => (
                 <tr key={repo.name}>
                   <td className="align-top">
                     <CodeRepository repo={repo} />
@@ -326,10 +326,10 @@ const CodeSamplesTable = ({ skill, maxrows = 100 }) => {
             </tbody>
           </table>
 
-          {unfilteredCount > currentMaxRows && (
+          {untrimmedCount > currentMaxRows && (
             <div className="text-center mt-3">
               <button className="btn btn-primary" onClick={handleShowMore}>
-                More ({unfilteredCount - currentMaxRows} remaining)
+                More ({untrimmedCount - currentMaxRows} remaining)
               </button>
             </div>
           )}

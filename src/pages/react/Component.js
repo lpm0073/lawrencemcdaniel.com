@@ -344,7 +344,7 @@ const ReactPage = (props) => {
         <div className="row mt-lg-5 pl-2">
           <div className="col-lg-12">
             <h3 className="ml-auto text-center pl-2 mx-5">Code Samples & Publications</h3>
-            <Content category={APP_CONFIG.skills.react} />
+            <Content skill={APP_CONFIG.skills.react} />
           </div>
         </div>
       </div>
