@@ -49,7 +49,6 @@ class TechnologyCarousel extends Component {
     if (specialties.isLoading) return
 
     const logos = getFilteredLogos(specialties, skill)
-    console.log('TechnologyCarousel Filtered items:', logos.length)
 
     this.setState({
       shuffledLogos: [...logos].sort(() => Math.random() - 0.5),
@@ -69,7 +68,6 @@ class TechnologyCarousel extends Component {
       currLogos.length > 0 &&
       JSON.stringify(prevLogos) !== JSON.stringify(currLogos)
     ) {
-      console.log('TechnologyCarousel Updated logos:', currLogos.length)
       this.setState({
         shuffledLogos: [...currLogos].sort(() => Math.random() - 0.5),
       })

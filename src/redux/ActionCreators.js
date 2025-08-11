@@ -1,4 +1,4 @@
-import * as ActionTypes from './ActionTypes'
+import * as ActionTypes from './ActionTypes.js'
 import { imagePreFetcher } from '../shared/fetchers/imagePrefetcher'
 import { APP_CONFIG } from '../shared/constants'
 import { getCategories } from '../shared/categories'
