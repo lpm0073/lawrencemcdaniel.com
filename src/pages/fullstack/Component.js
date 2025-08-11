@@ -97,7 +97,10 @@ const Fullstack = (props) => {
           />
         </div>
 
-        <TechnologyCarousel specialties={props.specialties} />
+        <TechnologyCarousel
+          specialties={props.specialties}
+          skill={APP_CONFIG.skills.fullStack}
+        />
 
         <div className="row mx-5">
           <div className="col">

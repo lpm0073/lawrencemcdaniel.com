@@ -249,13 +249,12 @@ export const fetchSpecialties = () => (dispatch) => {
             specialties = specialties.map((specialty) => ({
               ...specialty,
               skills: Array.isArray(specialty.tags)
-                ? specialty.tags
-                    .map((id) => {
-                      const tag = tags.find((tag) => tag.id === id)
-                      return tag ? tag.name : null
-                    })
-                    .filter((name) => Object.keys(APP_CONFIG.skills).includes(name))
-                : [],
+                ? specialty.tags.map((id) => {
+                    const tag = tags.find((tag) => tag.id === id)
+                    return tag ? tag.name : null
+                  })
+                : //.filter((name) => Object.keys(APP_CONFIG.skills).includes(name))
+                  [],
             }))
             return specialties
           })
@@ -295,13 +294,12 @@ export const fetchSpecialties = () => (dispatch) => {
             specialties = specialties.map((specialty) => ({
               ...specialty,
               skills: Array.isArray(specialty.tags)
-                ? specialty.tags
-                    .map((id) => {
-                      const tag = tags.find((tag) => tag.id === id)
-                      return tag ? tag.name : null
-                    })
-                    .filter((name) => Object.values(APP_CONFIG.skills).includes(name))
-                : [],
+                ? specialty.tags.map((id) => {
+                    const tag = tags.find((tag) => tag.id === id)
+                    return tag ? tag.name : null
+                  })
+                : //.filter((name) => Object.values(APP_CONFIG.skills).includes(name))
+                  [],
             }))
             return specialties
           })
