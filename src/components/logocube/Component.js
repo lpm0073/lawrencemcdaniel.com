@@ -134,7 +134,7 @@ import React, { Component } from 'react'
 import PropTypes from 'prop-types'
 import { connect } from 'react-redux'
 import { bindActionCreators } from 'redux'
-import * as Actions from '../../redux/ActionCreators'
+import { setLogoState } from '../../redux/actions/logoActions'
 
 import { getInitialLogos } from '../../shared/getInitialLogos'
 import './styles.css'
@@ -143,7 +143,7 @@ const mapStateToProps = (state) => ({
   ...state,
 })
 const mapDispatchToProps = (dispatch) => ({
-  actions: bindActionCreators(Actions, dispatch),
+  actions: bindActionCreators({ setLogoState }, dispatch),
 })
 
 const CubeSide = (props) => {

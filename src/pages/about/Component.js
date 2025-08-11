@@ -2,7 +2,7 @@ import React, { Component } from 'react'
 import PropTypes from 'prop-types'
 import { connect } from 'react-redux'
 import { bindActionCreators } from 'redux'
-import * as Actions from '../../redux/ActionCreators'
+import { setAboutPage } from '../../redux/actions/aboutActions'
 
 import BlankSpace from '../../components/blankSpace/Component'
 import RenderPageTitle from '../../components/pagetitle/pageTitleComponent'
@@ -21,7 +21,7 @@ const mapStateToProps = (state) => ({
   ...state,
 })
 const mapDispatchToProps = (dispatch) => ({
-  actions: bindActionCreators(Actions, dispatch),
+  actions: bindActionCreators({ setAboutPage }, dispatch),
 })
 
 class About extends Component {
