@@ -2,7 +2,7 @@ import React, { Component } from 'react'
 import PropTypes from 'prop-types'
 import { connect } from 'react-redux'
 import { bindActionCreators } from 'redux'
-import * as Actions from '../../redux/ActionCreators'
+import { setHomePage } from '../../redux/actions/homeActions'
 
 import LogoCube from '../../components/logocube/Component'
 import Consultant from './Consultant'
@@ -22,7 +22,7 @@ const mapStateToProps = (state) => ({
   ...state,
 })
 const mapDispatchToProps = (dispatch) => ({
-  actions: bindActionCreators(Actions, dispatch),
+  actions: bindActionCreators({ setHomePage }, dispatch),
 })
 
 class Home extends Component {

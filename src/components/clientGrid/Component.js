@@ -2,7 +2,7 @@ import React, { Component } from 'react'
 import PropTypes from 'prop-types'
 import { connect } from 'react-redux'
 import { bindActionCreators } from 'redux'
-import * as Actions from '../../redux/ActionCreators'
+import { setClientGrid } from '../../redux/actions/clientActions'
 
 import 'react-multi-carousel/lib/styles.css'
 import Loading from '../Loading'
@@ -13,7 +13,7 @@ const mapStateToProps = (state) => ({
   ...state,
 })
 const mapDispatchToProps = (dispatch) => ({
-  actions: bindActionCreators(Actions, dispatch),
+  actions: bindActionCreators({ setClientGrid }, dispatch),
 })
 
 const ClientCard = (props) => {

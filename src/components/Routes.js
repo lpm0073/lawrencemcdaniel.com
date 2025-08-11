@@ -2,19 +2,17 @@ import React, { Component } from 'react'
 import { Routes, Route, Navigate } from 'react-router-dom'
 import PropTypes from 'prop-types'
 import { APP_CONFIG } from '../shared/constants'
-// Redux
+
 import { connect } from 'react-redux'
-import {
-  fetchSpecialties,
-  fetchPortfolio,
-  fetchEducation,
-  fetchRecommendations,
-  fetchProjectImages,
-  fetchClients,
-  fetchRepositories,
-  fetchVideos,
-  fetchArticles,
-} from '../redux/ActionCreators'
+import { fetchArticles } from '../redux/actions/articlesActions'
+import { fetchVideos } from '../redux/actions/videosActions'
+import { fetchRepositories } from '../redux/actions/repositoriesActions'
+import { fetchSpecialties } from '../redux/actions/specialtiesActions'
+import { fetchPortfolio } from '../redux/actions/portfolioActions'
+import { fetchEducation } from '../redux/actions/educationActions'
+import { fetchRecommendations } from '../redux/actions/recommendationsActions'
+import { fetchProjectImages } from '../redux/actions/projectActions'
+import { fetchClients } from '../redux/actions/clientActions'
 
 // Pages
 import Home from '../pages/home/Component'

@@ -2,7 +2,7 @@ import React, { Component } from 'react'
 import PropTypes from 'prop-types'
 import { connect } from 'react-redux'
 import { bindActionCreators } from 'redux'
-import * as Actions from '../../redux/ActionCreators'
+import { setCoursesGrid } from '../../redux/actions/coursesActions'
 
 import Loading from '../../components/Loading'
 import { wpGetFeaturedImage } from '../../shared/wpGetFeaturedImage'
@@ -12,7 +12,7 @@ const mapStateToProps = (state) => ({
   ...state,
 })
 const mapDispatchToProps = (dispatch) => ({
-  actions: bindActionCreators(Actions, dispatch),
+  actions: bindActionCreators({ setCoursesGrid }, dispatch),
 })
 
 class CoursesGrid extends Component {

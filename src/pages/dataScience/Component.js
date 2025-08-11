@@ -114,7 +114,7 @@ const Datascience = (props) => {
                       <BlankSpace />, an orchestration platform for AI resources.
                     </p>
                     <p>
-                      I also teach
+                      I teach
                       <BlankSpace />
                       <a
                         href="https://extendedlearning.ubc.ca/courses/ai-cloud-strategy-technology-implementation/0161"
@@ -208,7 +208,7 @@ const Datascience = (props) => {
               </div>
             </div>
             <div className="row ml-0 mr-0 pr-2">
-              <div className="col-12 mt-4">
+              <div className="col mt-4">
                 <p className="text-justify pe-3">
                   To complement my professional experience, I have completed advanced
                   training in data science, machine learning, and business analytics from
