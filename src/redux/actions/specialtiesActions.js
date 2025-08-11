@@ -4,6 +4,20 @@ import { imagePreFetcher } from '../../shared/fetchers/imagePrefetcher'
 
 import { APP_CONFIG } from '../../shared/constants.js'
 
+const specialtiesLoading = () => ({
+  type: ActionTypes.SPECIALTIES_LOADING,
+})
+
+const specialtiesFailed = (errmess) => ({
+  type: ActionTypes.SPECIALTIES_FAILED,
+  payload: errmess,
+})
+
+const addSpecialties = (specialties) => ({
+  type: ActionTypes.ADD_SPECIALTIES,
+  payload: specialties,
+})
+
 export const fetchSpecialties = () => (dispatch) => {
   dispatch(specialtiesLoading(true))
 
@@ -21,8 +35,7 @@ export const fetchSpecialties = () => (dispatch) => {
                     const tag = tags.find((tag) => tag.id === id)
                     return tag ? tag.name : null
                   })
-                : //.filter((name) => Object.keys(APP_CONFIG.skills).includes(name))
-                  [],
+                : [],
             }))
             return specialties
           })
@@ -66,8 +79,7 @@ export const fetchSpecialties = () => (dispatch) => {
                     const tag = tags.find((tag) => tag.id === id)
                     return tag ? tag.name : null
                   })
-                : //.filter((name) => Object.values(APP_CONFIG.skills).includes(name))
-                  [],
+                : [],
             }))
             return specialties
           })
@@ -87,17 +99,3 @@ export const fetchSpecialties = () => (dispatch) => {
     })
   })
 }
-
-export const specialtiesLoading = () => ({
-  type: ActionTypes.SPECIALTIES_LOADING,
-})
-
-export const specialtiesFailed = (errmess) => ({
-  type: ActionTypes.SPECIALTIES_FAILED,
-  payload: errmess,
-})
-
-export const addSpecialties = (specialties) => ({
-  type: ActionTypes.ADD_SPECIALTIES,
-  payload: specialties,
-})

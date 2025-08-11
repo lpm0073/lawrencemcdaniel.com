@@ -3,6 +3,20 @@ import { imagePreFetcher } from '../../shared/fetchers/imagePrefetcher'
 
 import { APP_CONFIG } from '../../shared/constants.js'
 
+const portfolioLoading = () => ({
+  type: ActionTypes.PORTFOLIO_LOADING,
+})
+
+const portfolioFailed = (errmess) => ({
+  type: ActionTypes.PORTFOLIO_FAILED,
+  payload: errmess,
+})
+
+const addPortfolio = (portfolio) => ({
+  type: ActionTypes.ADD_PORTFOLIO,
+  payload: portfolio,
+})
+
 export const fetchPortfolio = () => (dispatch) => {
   dispatch(portfolioLoading(true))
 
@@ -44,17 +58,3 @@ export const fetchPortfolio = () => (dispatch) => {
     })
   })
 }
-
-export const portfolioLoading = () => ({
-  type: ActionTypes.PORTFOLIO_LOADING,
-})
-
-export const portfolioFailed = (errmess) => ({
-  type: ActionTypes.PORTFOLIO_FAILED,
-  payload: errmess,
-})
-
-export const addPortfolio = (portfolio) => ({
-  type: ActionTypes.ADD_PORTFOLIO,
-  payload: portfolio,
-})
