@@ -48,8 +48,8 @@ const repoStateShape = PropTypes.shape({
     downloadUrl: PropTypes.string,
     readmeFormat: PropTypes.string,
   }),
-  categoryLabels: PropTypes.arrayOf(PropTypes.string),
-  categoryIcons: PropTypes.arrayOf(PropTypes.element),
+  skillLabels: PropTypes.arrayOf(PropTypes.string),
+  skillIcons: PropTypes.arrayOf(PropTypes.element),
 })
 
 // Used to validate the structure of the repositories state in Redux.
@@ -150,11 +150,11 @@ const CodeMetadata = ({ repo }) => {
   /*
    Top-level component that renders metadata information for the given repository.
    Only shown on medium and larger screens.
-   ContentCategories skills={repo.categoryIcons}
+   ContentCategories skills={repo.skillIcons}
    */
   return (
     <React.Fragment>
-      <ContentCategories skills={repo.categoryIcons} />
+      <ContentCategories skills={repo.skillIcons} />
       <CodeEngagement repo={repo} />
       <CodeCommits repo={repo} />
       <hr />
@@ -261,11 +261,11 @@ const CodeSamplesTable = ({ skill, maxrows = 100 }) => {
       // If skill is specified, remove the corresponding entry so that it doesn't
       // redundantly appear in the table.
       if (skill && repo.skills) {
-        const categoryIndex = repo.skills.indexOf(skill)
-        if (categoryIndex !== -1) {
+        const skillIndex = repo.skills.indexOf(skill)
+        if (skillIndex !== -1) {
           return {
             ...repo,
-            skills: repo.skills.filter((_, index) => index !== categoryIndex),
+            skills: repo.skills.filter((_, index) => index !== skillIndex),
           }
         }
       }
@@ -273,9 +273,9 @@ const CodeSamplesTable = ({ skill, maxrows = 100 }) => {
     })
     .map((repo) => ({
       ...repo,
-      categoryLabels: repo.skills.map(skillLabel).filter(Boolean),
-      categoryIcons: repo.skills
-        .map((categoryCode) => skillIcon(categoryCode, reduxSpecialties))
+      skillLabels: repo.skills.map(skillLabel).filter(Boolean),
+      skillIcons: repo.skills
+        .map((skillCode) => skillIcon(skillCode, reduxSpecialties))
         .filter(Boolean),
     }))
     .sort((a, b) => {
