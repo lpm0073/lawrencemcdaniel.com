@@ -267,7 +267,7 @@ const Datascience = (props) => {
             <h3 className="ml-auto text-center pl-2 mx-5 mt-5">
               Code Samples & Publications
             </h3>
-            <Content category={APP_CONFIG.skills.dataScience} />
+            <Content skill={APP_CONFIG.skills.dataScience} />
           </div>
         </div>
       </div>
