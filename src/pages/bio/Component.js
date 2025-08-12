@@ -16,15 +16,16 @@ const Bio = (props) => {
   /* Google Structured Data */
   const slug = 'bio'
   const webpageName = 'Bio'
-  const webpageDescription = `Lawrence McDaniel is a data scientist, full-stack developer and digital content creator. He
-    has a BS in computer science and mathematics with minors in physics and English from
-    University of North Texas. He was an early employee at three startups that were later acquired
-    by Goldman Sachs, IBM and Deutsche Bank respectively, and has participated in a
-    successful NASDAQ IPO. He developed a successful black box trading system for one of
-    the world's largest hedge funds, and retired from the hedge fund industry in 2005
-    at the age of 39. Nowadays he advises clients on cloud computing and
-    artificial intelligence projects, and teaches online courses at
-    University of British Columbia.`
+  const webpageDescription = `Lawrence McDaniel is a data scientist, full-stack developer, and digital
+  content creator who has lived in Mexico City since 2000. Born in Houston, Texas, and raised in
+  northeast Texas, he graduated from Wills Point High School in 1985 and earned a BS in computer
+  science and mathematics, with minors in physics and English, from the University of
+  North Texas in 1991. Over his career, Lawrence was an early employee at three startups later
+  acquired by Goldman Sachs, IBM, and Deutsche Bank, and he participated in a successful
+  NASDAQ IPO. In 2004, he developed a profitable black-box trading system for one of the
+  world’s largest long-short hedge funds, retiring from the industry in 2005. Today, Lawrence
+  advises organizations on cloud computing, machine learning, and artificial intelligence,
+  and teaches remotely at the University of British Columbia.`
   const primaryImageUrl = APP_CONFIG.static.images.default
   const pageType = ''
   const relatedLink = ''
@@ -75,18 +76,12 @@ const Bio = (props) => {
             <div className="text-justify">
               <p>{webpageDescription}</p>
               <p>
-                He has expertise in data science, financial modeling and forecasting
-                systems, analytics, machine learning, AI, big data, web, database
-                technology, and Amazon Web Services (AWS) and Microsoft Azure cloud
-                infrastructure. He has 20+ years experience designing high performance,
-                always-up transactional database systems using MySQL, MSSQL Server, Aurora
-                and MongoDB. He also has years of expertise designing high availability,
-                horizontally scalable cloud-based infrastructure environments. In fact,
-                Lawrence is an ambassador for the AWS Activate Program in Mexico, helping
-                startups and early-stage ventures get digital products and services to
-                market using AWS. He advises companies on migration plans to AWS as well
-                as works with early-stage ventures creating new highly scalable back-end
-                environments and implementing continuous integration strategies.
+                He specializes in data science, financial modeling, analytics, machine
+                learning, artificial intelligence, database technologies, and
+                containerized workload orchestration on Amazon Web Services (AWS) and
+                Microsoft Azure. His work includes architecting resilient, low-latency
+                database systems for mission-critical workloads and engineering cloud
+                platforms that scale to meet global demand.
               </p>
               <p>
                 Lawrence is an angel investor, entrepreneur and company mentor with nearly
@@ -133,6 +128,19 @@ const Bio = (props) => {
                 throughout all of North America.
               </p>
               <hr />
+            </div>
+            <div className="text-center">
+              <p className="mt-4">
+                If you would like to discuss a project or collaboration, please reach out.
+              </p>
+              <a
+                className="mt-4 btn btn-danger"
+                role="button"
+                target="_self"
+                href="/contact"
+              >
+                <i className="fa fa-phone"></i> Contact Me
+              </a>
             </div>
           </div>
         </div>
