@@ -84,18 +84,16 @@ const Bio = (props) => {
                 platforms that scale to meet global demand.
               </p>
               <p>
-                Lawrence is an angel investor, entrepreneur and company mentor with nearly
-                25 years of international experience with an emphasis on technology and
-                US-Mexico trade. He has extensive startup, fund raising, business
+                Lawrence is an angel investor, entrepreneur and company mentor with more
+                than 25 years of international experience with an emphasis on technology
+                and US-Mexico trade. He has extensive startup, fund raising, business
                 development and M&amp;A experience with alternative investment and
                 disruptive FinTech, edTech and IoT ventures. He has mentored at
                 <BlankSpace />
                 <a href="https://www.startupmexico.com/">Startup Mexico</a> and
                 <BlankSpace />
                 <a href="https://angelventures.vc/">Angel Ventures</a> in Mexico City, and
-                sat on the boards of <a href="https://edmex.org/">edMex</a> and
-                <BlankSpace />
-                <a href="https://m-arca.org/">M-Arca</a> Foundation.
+                sat on the boards of edMex and M-Arca Foundation.
               </p>
               <p>
                 <strong>But he’s no stranger to real work either!</strong> his family

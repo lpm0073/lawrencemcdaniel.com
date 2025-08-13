@@ -53,11 +53,12 @@ const ConsultingServices = () => (
         <a href={urlFullStack}>Learn more</a>
       </li>
       <li>
-        <span className="consulting-list-item-title">Dev Ops</span> I help teams work more
-        efficiently by implementing best practices for software development, deployment,
-        and maintenance, including CI/CD pipelines, automated testing, and infrastructure
-        as code. I practice what I preach. I am the principal maintainer of more than 4
-        dozen open source projects (see below). <a href={urlFullStack}>Learn more</a>
+        <span className="consulting-list-item-title">Dev Ops</span> I help teams leverage
+        12-factor app principles to work more efficiently and more effectively by
+        implementing best practices for software development, deployment, and maintenance,
+        including CI/CD pipelines, automated testing, and infrastructure as code. I
+        practice what I preach. I am the principal maintainer of more than 4 dozen open
+        source projects (see below). <a href={urlFullStack}>Learn more</a>
       </li>
       <li>
         <span className="consulting-list-item-title">

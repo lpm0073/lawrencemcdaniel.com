@@ -80,7 +80,7 @@ export const gsdServiceConsulting = {
     Training: I provide live and studio prerecorded training about hard skills in cloud computing, data science, and advanced programming techniques.
     Full Stack development: I build complete solutions, from front-end web applications to back-end services, command-line interfaces and automated workflows.
     Cloud Computing: I specialize in cloud native technologies like Docker, Kubernetes, Terraform and GitHub for designing, implementing and managing scalable and secure cloud infrastructure.
-    Dev Ops: I help teams work more efficiently by implementing best practices for software development, deployment, and maintenance, including CI/CD pipelines, automated testing, and infrastructure as code. I practice what I preach. I am the principal maintainer of more than 4 dozen open source projects.
+    Dev Ops: I help teams leverage 12-factor app principles to work more efficiently and more effectively by implementing best practices for software development, deployment, and maintenance, including CI/CD pipelines, automated testing, and infrastructure as code. I practice what I preach. I am the principal maintainer of more than 4 dozen open source projects.
     Open edX®: I provide advisory services on installing, configuring and customizing the Open edX® platform.`,
   hasOfferCatalog: {
     '@type': 'OfferCatalog',
