@@ -3,7 +3,7 @@ default_language_version:
 
 repos:
   - repo: https://github.com/pre-commit/mirrors-eslint
-    rev: v9.32.0
+    rev: v9.33.0
     hooks:
       - id: eslint
         args: ['--ext', '.js,.jsx,.ts,.tsx']
@@ -27,7 +27,7 @@ repos:
       - id: prettier
         args: ['--write', '.']
   - repo: https://github.com/pre-commit/pre-commit-hooks
-    rev: v5.0.0
+    rev: v6.0.0
     hooks:
       # See https://pre-commit.com/hooks.html for more hooks
       #- id: check-added-large-files
