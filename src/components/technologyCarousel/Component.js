@@ -15,6 +15,8 @@ const responsive = {
   mobile: { breakpoint: { max: 464, min: 0 }, items: 1 },
 }
 
+const stripHtml = (html) => html.replace(/<[^>]+>/g, '')
+
 const getFilteredLogos = (specialties, skill) => {
   if (!Array.isArray(specialties.items)) {
     return []
@@ -28,8 +30,18 @@ const getFilteredLogos = (specialties, skill) => {
     )
   }
 
-  // Generate logos from filtered items
-  const logos = items.map((item) => wpGetFeaturedImage(item, 'medium'))
+  const logos = items.map((item) => {
+    console.log('getFilteredItems():', item)
+    return {
+      id: item.id,
+      title: stripHtml(item.title.rendered),
+      description:
+        stripHtml(item.excerpt.rendered) ||
+        stripHtml(item.title.rendered) + ', a technology specialty of mine',
+      url: wpGetFeaturedImage(item, 'medium'),
+      site: item.acf?.url,
+    }
+  })
 
   return logos
 }
@@ -91,12 +103,31 @@ class TechnologyCarousel extends Component {
               autoPlaySpeed={1}
               transitionDuration={3000}
             >
-              {shuffledLogos.map((logoUrl, indx) => (
-                <div
-                  className="specialty-item"
-                  key={indx}
-                  style={{ backgroundImage: `url('${logoUrl}')` }}
-                ></div>
+              {shuffledLogos.map((logo, indx) => (
+                <React.Fragment key={indx}>
+                  <a href={logo.site} target="_blank" rel="noopener noreferrer">
+                    <div
+                      className="specialty-item"
+                      style={{ backgroundImage: `url('${logo.url}')` }}
+                    >
+                      <img
+                        src={logo.url}
+                        alt={logo.description}
+                        title={logo.title}
+                        style={{
+                          opacity: 0,
+                          width: '1px',
+                          height: '1px',
+                          position: 'absolute',
+                          pointerEvents: 'none',
+                        }}
+                        aria-hidden="false"
+                        tabIndex={-1}
+                      />
+                      <span className="visually-hidden">{logo.description}</span>
+                    </div>
+                  </a>
+                </React.Fragment>
               ))}
             </Carousel>
           </div>
