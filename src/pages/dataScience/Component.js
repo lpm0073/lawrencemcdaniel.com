@@ -12,6 +12,7 @@ import { hasOccupation } from '../../shared/seo/gsdPersonLawrence'
 import { gsdArticle } from '../../shared/seo/gsdArticle'
 import { gsdSoftwareRepoList } from '../../shared/seo/gsdSoftwareSourceCode'
 import { gsdVideoObjectList_FSWL } from '../../shared/seo/gsdVideoObject'
+import { gsdSkillSchemaList } from '../../shared/seo/gsdSkills'
 import { baseTitle } from '../../shared/seo/gsdCommon'
 import { APP_CONFIG } from '../../shared/constants'
 import BlankSpace from '../../components/blankSpace/Component'
@@ -36,8 +37,9 @@ const Datascience = (props) => {
   const graphExtraData = [
     person,
     gsdArticle(slug, webpageName),
-    gsdSoftwareRepoList('data-science'),
+    gsdSoftwareRepoList(APP_CONFIG.skills.dataScience),
     gsdVideoObjectList_FSWL,
+    gsdSkillSchemaList(APP_CONFIG.skills.dataScience),
   ]
 
   return (

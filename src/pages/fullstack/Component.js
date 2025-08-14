@@ -8,6 +8,7 @@ import { Helmet } from 'react-helmet'
 import { gsdPersonLawrenceMcDaniel } from '../../shared/seo/gsdPersonLawrence'
 import { gsdSoftwareRepoList } from '../../shared/seo/gsdSoftwareSourceCode'
 import { gsdVideoObjectList_FSWL } from '../../shared/seo/gsdVideoObject'
+import { gsdSkillSchemaList } from '../../shared/seo/gsdSkills'
 import { gsdGraph } from '../../shared/seo/gsdGraph'
 import { APP_CONFIG } from '../../shared/constants'
 import './styles.css'
@@ -25,6 +26,7 @@ const Fullstack = (props) => {
     gsdPersonLawrenceMcDaniel,
     gsdSoftwareRepoList(APP_CONFIG.skills.fullStack),
     gsdVideoObjectList_FSWL,
+    gsdSkillSchemaList(APP_CONFIG.skills.fullStack),
   ]
 
   return (
