@@ -31,7 +31,6 @@ const getFilteredLogos = (specialties, skill) => {
   }
 
   const logos = items.map((item) => {
-    console.log('getFilteredItems():', item)
     return {
       id: item.id,
       title: stripHtml(item.title.rendered),
@@ -105,7 +104,12 @@ class TechnologyCarousel extends Component {
             >
               {shuffledLogos.map((logo, indx) => (
                 <React.Fragment key={indx}>
-                  <a href={logo.site} target="_blank" rel="noopener noreferrer">
+                  <a
+                    href={logo.site}
+                    title={logo.title}
+                    target="_blank"
+                    rel="noopener noreferrer"
+                  >
                     <div
                       className="specialty-item"
                       style={{ backgroundImage: `url('${logo.url}')` }}

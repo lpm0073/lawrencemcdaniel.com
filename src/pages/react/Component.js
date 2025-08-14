@@ -7,6 +7,7 @@ import BlankSpace from '../../components/blankSpace/Component'
 import { Helmet } from 'react-helmet'
 import { gsdGraph } from '../../shared/seo/gsdGraph'
 import { gsdPersonLawrenceMcDaniel } from '../../shared/seo/gsdPersonLawrence'
+import { gsdSkillSchemaList } from '../../shared/seo/gsdSkills'
 import { hasOccupation } from '../../shared/seo/gsdPersonLawrence'
 import { gsdArticle } from '../../shared/seo/gsdArticle'
 import { APP_CONFIG } from '../../shared/constants'
@@ -27,7 +28,11 @@ const ReactPage = (props) => {
     ...gsdPersonLawrenceMcDaniel,
     ...{ hasOccupation: hasOccupation },
   }
-  const graphExtraData = [person, gsdArticle(slug, webpageDescription)]
+  const graphExtraData = [
+    person,
+    gsdArticle(slug, webpageDescription),
+    gsdSkillSchemaList(APP_CONFIG.skills.react),
+  ]
 
   return (
     <React.Fragment>

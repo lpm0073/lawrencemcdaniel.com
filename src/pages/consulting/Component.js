@@ -10,6 +10,7 @@ import { gsdGraph } from '../../shared/seo/gsdGraph'
 import { gsdPersonLawrenceMcDaniel } from '../../shared/seo/gsdPersonLawrence'
 import { gsdSoftwareRepoList } from '../../shared/seo/gsdSoftwareSourceCode'
 import { gsdVideoObjectList } from '../../shared/seo/gsdVideoObject'
+import { gsdSkillSchemaList } from '../../shared/seo/gsdSkills'
 import { hasOccupation } from '../../shared/seo/gsdPersonLawrence'
 
 import './styles.css'
@@ -89,6 +90,7 @@ const Consulting = () => {
     gsdServiceConsulting,
     gsdSoftwareRepoList(),
     gsdVideoObjectList,
+    gsdSkillSchemaList(),
   ]
 
   return (
