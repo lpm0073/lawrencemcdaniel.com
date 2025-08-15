@@ -76,7 +76,7 @@ const ArticleMetadata = ({ article }) => {
    Only shown on medium and larger screens.
    */
   return (
-    <React.Fragment>
+    <article>
       <img
         className="img-fluid"
         src={article.yoast_head_json.og_image[0].url}
@@ -86,7 +86,7 @@ const ArticleMetadata = ({ article }) => {
         width={article.yoast_head_json.og_image[0].width}
         height={article.yoast_head_json.og_image[0].height}
       />
-    </React.Fragment>
+    </article>
   )
 }
 ArticleMetadata.propTypes = {
@@ -139,7 +139,7 @@ const Article = ({ article }) => {
     Top-level component that renders the repository link and description.
    */
   return (
-    <React.Fragment>
+    <div>
       <table className="mb-0">
         <tbody>
           <tr>
@@ -154,7 +154,7 @@ const Article = ({ article }) => {
           </tr>
         </tbody>
       </table>
-    </React.Fragment>
+    </div>
   )
 }
 Article.propTypes = {
@@ -209,7 +209,7 @@ const ArticlesTable = ({ skill, maxrows = 100 }) => {
   }
 
   return (
-    <div className="table-responsive">
+    <section className="table-responsive">
       {reduxArticles.isLoading ? (
         <Loading />
       ) : (
@@ -226,14 +226,16 @@ const ArticlesTable = ({ skill, maxrows = 100 }) => {
             </thead>
             <tbody>
               {filteredArticles.map((article) => (
-                <tr key={article.id}>
-                  <td className="align-top">
-                    <Article article={article} />
-                  </td>
-                  <td className="hide-medium p-0">
-                    <ArticleMetadata article={article} />
-                  </td>
-                </tr>
+                <article key={article.id}>
+                  <tr key={article.id}>
+                    <td className="align-top">
+                      <Article article={article} />
+                    </td>
+                    <td className="hide-medium p-0">
+                      <ArticleMetadata article={article} />
+                    </td>
+                  </tr>
+                </article>
               ))}
             </tbody>
           </table>
@@ -247,7 +249,7 @@ const ArticlesTable = ({ skill, maxrows = 100 }) => {
           )}
         </React.Fragment>
       )}
-    </div>
+    </section>
   )
 }
 

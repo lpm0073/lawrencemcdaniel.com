@@ -50,7 +50,7 @@ const Bio = (props) => {
           )}
         </script>
       </Helmet>
-      <div key="bio-page" className="site-page bio-page">
+      <main key="bio-page" className="site-page bio-page">
         <RenderPageTitle
           theme="light"
           icon="fa-align-left"
@@ -59,7 +59,7 @@ const Bio = (props) => {
         />
         <div className="row mt-5">
           <div className="col-lg-3 hide-medium">
-            <div className="ml-auto text-center pl-2">
+            <aside className="ml-auto text-center pl-2">
               <LinkedinBadge />
               <a
                 className="mt-4 btn btn-danger"
@@ -70,9 +70,9 @@ const Bio = (props) => {
               >
                 <i className="fa fa-download"></i> Download Resume
               </a>
-            </div>
+            </aside>
           </div>
-          <div className="col-lg-8 col-md-12 ml-5">
+          <section className="col-lg-8 col-md-12 ml-5">
             <div className="text-justify">
               <p>{webpageDescription}</p>
               <p>
@@ -140,9 +140,9 @@ const Bio = (props) => {
                 <i className="fa fa-phone"></i> Contact Me
               </a>
             </div>
-          </div>
+          </section>
         </div>
-      </div>
+      </main>
     </React.Fragment>
   )
 }

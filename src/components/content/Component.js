@@ -215,29 +215,35 @@ export const Content = ({ skill }) => {
               title="Code Samples"
               className="p-1 m-1 mt-3 code-samples bg-white"
             >
-              <p>
-                These are a combination of managed GitHub repositories that I use for
-                instructional purposes, combined with repositories belonging to open
-                source organizations to which I am the maintainer. Most of these also
-                demonstrate best practices for software management including pre-commit,
-                linting techniques, and devops methods for automating unit testing,
-                documentation and CI-CD operations for build, deploy and code dependency
-                package updates.
-              </p>
-              <CodeSamplesTable skill={skill} maxrows={10} />
+              <section>
+                <p>
+                  These are a combination of managed GitHub repositories that I use for
+                  instructional purposes, combined with repositories belonging to open
+                  source organizations to which I am the maintainer. Most of these also
+                  demonstrate best practices for software management including pre-commit,
+                  linting techniques, and devops methods for automating unit testing,
+                  documentation and CI-CD operations for build, deploy and code dependency
+                  package updates.
+                </p>
+                <CodeSamplesTable skill={skill} maxrows={10} />
+              </section>
             </Tab>
 
             <Tab eventKey="articles" title="Articles" className="p-3">
-              <p>
-                These are articles that I&apos;ve published. Usually from my personal
-                blog, but every now and then from other sources.
-              </p>
-              <ArticlesTable skill={skill} maxrows={10} />
+              <section>
+                <p>
+                  These are articles that I&apos;ve published. Usually from my personal
+                  blog, but every now and then from other sources.
+                </p>
+                <ArticlesTable skill={skill} maxrows={10} />
+              </section>
             </Tab>
 
             <Tab eventKey="videos" title="Videos" className="p-3">
-              <p>Videos from my YouTube Channel, Full Stack With Lawrence</p>
-              <VideosTable skill={skill} maxrows={10} />
+              <section>
+                <p>Videos from my YouTube Channel, Full Stack With Lawrence</p>
+                <VideosTable skill={skill} maxrows={10} />
+              </section>
             </Tab>
           </Tabs>
         </div>

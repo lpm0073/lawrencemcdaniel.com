@@ -94,7 +94,7 @@ class TechnologyCarousel extends Component {
         {isLoading ? (
           <Loading />
         ) : (
-          <div id="specialties-carousel">
+          <section id="specialties-carousel">
             <Carousel
               responsive={responsive}
               infinite
@@ -103,7 +103,7 @@ class TechnologyCarousel extends Component {
               transitionDuration={3000}
             >
               {shuffledLogos.map((logo, indx) => (
-                <React.Fragment key={indx}>
+                <article key={indx}>
                   <a
                     href={logo.site}
                     title={logo.title}
@@ -131,10 +131,10 @@ class TechnologyCarousel extends Component {
                       <span className="visually-hidden">{logo.description}</span>
                     </div>
                   </a>
-                </React.Fragment>
+                </article>
               ))}
             </Carousel>
-          </div>
+          </section>
         )}
       </div>
     )

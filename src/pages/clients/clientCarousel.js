@@ -29,7 +29,7 @@ class ClientCarousel extends Component {
   render() {
     const itemList = shuffleArray(this.props.clients.logos)
     return (
-      <div key="client-carousel">
+      <section key="client-carousel">
         {this.props.isLoading ? (
           <Loading />
         ) : (
@@ -65,12 +65,12 @@ class ClientCarousel extends Component {
                   backgroundImage: background_url,
                 }
 
-                return <div className="client-item" key={indx} style={item_style} />
+                return <article className="client-item" key={indx} style={item_style} />
               })}
             </Carousel>
           </div>
         )}
-      </div>
+      </section>
     )
   }
 }

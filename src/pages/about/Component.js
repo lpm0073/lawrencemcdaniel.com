@@ -63,13 +63,13 @@ class About extends Component {
             )}
           </script>
         </Helmet>
-        <div key="about-page" className="site-page about-page">
+        <main key="about-page" className="site-page about-page">
           <RenderPageTitle theme="light" icon="fa-user" title="ABOUT" boxed_title="ME" />
           <div className="row mt-5 ml-0 mr-0">
-            <div className="col-lg-3 col-md-6 col-sm-12 hide-medium">
+            <aside className="col-lg-3 col-md-6 col-sm-12 hide-medium">
               <LinkedinBadge />
-            </div>
-            <div className="col-lg-5 col-md-6 col-sm-12">
+            </aside>
+            <section className="col-lg-5 col-md-6 col-sm-12">
               <div>
                 <h4 className="mb-3">
                   Great things are done by a series of small things brought together
@@ -200,8 +200,8 @@ class About extends Component {
                   </p>
                 </div>
               </div>
-            </div>
-            <div className="column-3 col-lg-4 col-md-6 col-sm-12 p-3">
+            </section>
+            <section className="column-3 col-lg-4 col-md-6 col-sm-12 p-3">
               {this.props.aboutPage.isSet && <RightColumn />}
               {!this.props.aboutPage.isSet && (
                 //<Fade in delay={0} duration={400}>
@@ -212,9 +212,9 @@ class About extends Component {
                 </React.Fragment>
                 //</Fade>
               )}
-            </div>
+            </section>
           </div>
-        </div>
+        </main>
       </React.Fragment>
     )
   }

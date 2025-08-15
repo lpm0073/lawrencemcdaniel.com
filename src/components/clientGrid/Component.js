@@ -24,7 +24,7 @@ const ClientCard = (props) => {
   }
 
   return (
-    <div className="col-lg-4 col-md-6 col-sm-12" key={props.indx}>
+    <article className="col-lg-4 col-md-6 col-sm-12" key={props.indx}>
       <div className="client-item my-2 px-0 py-1">
         {!props.isSet ? (
           <Animate play start={{ opacity: 0 }} end={{ opacity: 1 }}>
@@ -34,7 +34,7 @@ const ClientCard = (props) => {
           <div className="client-image" style={item_style} />
         )}
       </div>
-    </div>
+    </article>
   )
 }
 class ClientGrid extends Component {
@@ -51,7 +51,7 @@ class ClientGrid extends Component {
     const itemList = this.filterLogos(this.props.clients.logos, this.props.filter)
 
     return (
-      <div key="client-grid">
+      <section key="client-grid">
         {this.props.isLoading ? (
           <Loading />
         ) : (
@@ -70,7 +70,7 @@ class ClientGrid extends Component {
             </div>
           </div>
         )}
-      </div>
+      </section>
     )
   }
 }

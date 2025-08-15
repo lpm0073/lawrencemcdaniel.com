@@ -43,7 +43,7 @@ const Specialties = (props) => {
           )}
         </script>
       </Helmet>
-      <div className="specialties-page">
+      <main className="specialties-page">
         <div className="site-page ">
           <RenderPageTitle
             theme="dark"
@@ -54,7 +54,7 @@ const Specialties = (props) => {
           <SpecialtiesBanner />
           <TechnologyCarousel specialties={props.specialties} />
 
-          <div className="row specialties-code-samples mt-5 p-3 m-3 hide-medium">
+          <section className="row specialties-code-samples mt-5 p-3 m-3 hide-medium">
             <div className="col">
               <div>
                 <h2>Want to see code samples?</h2>
@@ -75,9 +75,9 @@ const Specialties = (props) => {
                 <i className="fa fa-cogs"></i> Code samples
               </a>
             </div>
-          </div>
+          </section>
         </div>
-      </div>
+      </main>
     </React.Fragment>
   )
 }

@@ -135,7 +135,7 @@ const Video = ({ video }) => {
     Top-level component that renders the repository link and description.
    */
   return (
-    <React.Fragment>
+    <article>
       <table className="mb-0">
         <tbody>
           <tr>
@@ -150,7 +150,7 @@ const Video = ({ video }) => {
           </tr>
         </tbody>
       </table>
-    </React.Fragment>
+    </article>
   )
 }
 Video.propTypes = {
@@ -227,7 +227,7 @@ const VideosTable = ({ skill, maxrows = 100 }) => {
   }
 
   return (
-    <div className="table-responsive">
+    <section className="table-responsive">
       {reduxVideos.isLoading ? (
         <Loading />
       ) : (
@@ -265,7 +265,7 @@ const VideosTable = ({ skill, maxrows = 100 }) => {
           )}
         </React.Fragment>
       )}
-    </div>
+    </section>
   )
 }
 

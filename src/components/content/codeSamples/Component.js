@@ -220,7 +220,7 @@ const CodeRepository = ({ repo }) => {
     Top-level component that renders the repository link and description.
    */
   return (
-    <React.Fragment>
+    <article>
       <table className="mb-0">
         <tbody>
           <tr>
@@ -235,7 +235,7 @@ const CodeRepository = ({ repo }) => {
           </tr>
         </tbody>
       </table>
-    </React.Fragment>
+    </article>
   )
 }
 CodeRepository.propTypes = {
@@ -297,7 +297,7 @@ const CodeSamplesTable = ({ skill, maxrows = 100 }) => {
   }
 
   return (
-    <div className="table-responsive">
+    <section className="table-responsive">
       {reduxRepositories.isLoading ? (
         <Loading />
       ) : (
@@ -335,7 +335,7 @@ const CodeSamplesTable = ({ skill, maxrows = 100 }) => {
           )}
         </React.Fragment>
       )}
-    </div>
+    </section>
   )
 }
 
