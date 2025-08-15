@@ -48,7 +48,7 @@ const Fullstack = (props) => {
           )}
         </script>
       </Helmet>
-      <div key="skills-page" className="site-page skills-page">
+      <main key="skills-page" className="site-page skills-page">
         <RenderPageTitle
           theme="light"
           icon="fa-book"
@@ -56,7 +56,7 @@ const Fullstack = (props) => {
           boxed_title="DEVELOPER"
         />
 
-        <div className="row mt-5 mb-5 ml-0 mr-0 justify-content-center">
+        <section className="row mt-5 mb-5 ml-0 mr-0 justify-content-center">
           <SkillColumn
             key="3"
             id="3"
@@ -97,14 +97,14 @@ const Fullstack = (props) => {
             icon="fa-plug"
             description="Django REST Framework, AWS Api Gateway, GraphQL, and integrating third-party services."
           />
-        </div>
+        </section>
 
         <TechnologyCarousel
           specialties={props.specialties}
           skill={APP_CONFIG.skills.fullStack}
         />
 
-        <div className="row mx-5">
+        <section className="row mx-5">
           <div className="col">
             <h3 className="ml-auto text-center pl-2 mx-5 mt-5">
               Code Samples & Publications
@@ -115,8 +115,8 @@ const Fullstack = (props) => {
             </p>
             <Content skill={APP_CONFIG.skills.fullStack} />
           </div>
-        </div>
-      </div>
+        </section>
+      </main>
     </React.Fragment>
   )
 }

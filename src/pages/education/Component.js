@@ -43,7 +43,7 @@ const Education = (props) => {
           )}
         </script>
       </Helmet>
-      <div key="education-page" className="portfolio-page">
+      <main key="education-page" className="portfolio-page">
         <div className="site-page ">
           <RenderPageTitle
             theme="dark"
@@ -53,7 +53,7 @@ const Education = (props) => {
           />
           <CoursesGrid education={props.education} />
         </div>
-      </div>
+      </main>
     </React.Fragment>
   )
 }

@@ -46,7 +46,7 @@ class Contact extends Component {
             )}
           </script>
         </Helmet>
-        <div key="contact-page" className="site-page contact-page">
+        <main key="contact-page" className="site-page contact-page">
           <RenderPageTitle
             theme="light"
             icon="fa-phone"
@@ -56,7 +56,7 @@ class Contact extends Component {
 
           <div className="row text-center ">
             <div className="col-md-1"></div>
-            <div className="col-md-5 contact-data">
+            <section id="contact-data" className="col-md-5 contact-data">
               <div className="row mt-4"></div>
               <div className="">
                 <a
@@ -87,7 +87,7 @@ class Contact extends Component {
                 </p>
                 <p>Skype: mcdaniel0073</p>
 
-                <div className="contact-social-buttons m-4">
+                <section id="social-buttons" className="contact-social-buttons m-4">
                   <a
                     className="m-1"
                     target="_blank"
@@ -112,7 +112,7 @@ class Contact extends Component {
                   >
                     <i className="fa fa-github-square fa-3x"></i>
                   </a>
-                </div>
+                </section>
                 <a
                   className="m-4 btn btn-danger"
                   role="button"
@@ -123,8 +123,8 @@ class Contact extends Component {
                   <i className="fa fa-download"></i> Download Resume
                 </a>
               </div>
-            </div>
-            <div className="col-md-4 m-4">
+            </section>
+            <section id="qr-codes" className="col-md-4 m-4">
               <div className="row qr-code-container m-2 p-2">
                 <div className="col-md-1"></div>
                 <div className="col-md-10">
@@ -166,10 +166,10 @@ class Contact extends Component {
                 </div>
                 <div className="col-md-1"></div>
               </div>
-            </div>
+            </section>
             <div className="col-md-1"></div>
           </div>
-        </div>
+        </main>
       </React.Fragment>
     )
   }

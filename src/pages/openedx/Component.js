@@ -88,7 +88,7 @@ const Openedx = (props) => {
           )}
         </script>
       </Helmet>
-      <div key="openedx-page" className="site-page openedx-page">
+      <main key="openedx-page" className="site-page openedx-page">
         <RenderPageTitle
           theme="light"
           icon="fa-align-left"
@@ -96,7 +96,7 @@ const Openedx = (props) => {
           boxed_title="Consulting"
         />
         <div className="row mt-5">
-          <div className="col-lg-3 hide-medium">
+          <aside className="col-lg-3 hide-medium">
             <div className="pl-3 text-center">
               <LinkedinBadge />
               <a
@@ -108,8 +108,8 @@ const Openedx = (props) => {
                 <i className="fa fa-phone"></i> Contact Me
               </a>
             </div>
-          </div>
-          <div className="col-lg-9 col-md-12">
+          </aside>
+          <section className="col-lg-9 col-md-12">
             <div className="text-justify ml-lg-0 mr-lg-5 mx-2">
               <p>
                 I am a 20-year veteran web developer specializing in the
@@ -188,10 +188,10 @@ const Openedx = (props) => {
                 </li>
               </ul>
             </div>
-          </div>
+          </section>
         </div>
         <div className="row">
-          <div className="col-lg-12 col-md-12">
+          <section className="col-lg-12 col-md-12">
             <div className="text-justify mx-lg-5 mx-2">
               <h3 className="mt-lg-5 mt-1">
                 Services That I Provide to the Open edX® Community
@@ -325,7 +325,7 @@ const Openedx = (props) => {
               </p>
               <hr />
             </div>
-          </div>
+          </section>
           <div className="hide-medium">
             <h3 className="ml-auto text-center pl-2 mx-5">Open edX® Client List</h3>
             <ClientGrid clients={props.clients} filter="edx" />
@@ -336,7 +336,7 @@ const Openedx = (props) => {
             </h3>
             <Content skill={APP_CONFIG.skills.openEdx} />
           </div>
-          <div className="col-lg-12 col-md-12">
+          <section className="col-lg-12 col-md-12">
             <div className="text-justify mx-lg-5 mx-2">
               <h3 className="mt-lg-5 mt-1">FAQ</h3>
               <hr />
@@ -666,9 +666,9 @@ const Openedx = (props) => {
                 </Accordion.Item>
               </Accordion>
             </div>
-          </div>
+          </section>
         </div>
-      </div>
+      </main>
     </div>
   )
 }

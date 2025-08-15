@@ -2,7 +2,7 @@
 # upload to AWS S3
 # https://s3.console.aws.amazon.com/s3/buckets/reactjs.lawrencemcdaniel.com
 # -------------------------------------------------------------------------
-.PHONY: analyze sitemap init update schema build serve release
+.PHONY: analyze sitemap init update build serve release
 
 sitemap:
 	yarn run sitemap
@@ -27,9 +27,6 @@ upgrade:
 	yarn global upgrade
 	yarn install --force
 
-schema:
-	node src/shared/fetchers/schemaFetcher.js
-
 github:
 	node src/shared/fetchers/githubRepoFetcher.js
 
@@ -47,7 +44,6 @@ update:
 	#             This is used to display the latest GitHub
 	#             activity on the home page.
 	#---------------------------------------------------------
-	make schema
 	make github
 	make blog
 	make yt

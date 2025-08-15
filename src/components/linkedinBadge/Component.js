@@ -4,7 +4,7 @@ import BlankSpace from '../blankSpace/Component'
 
 export const LinkedinBadge = () => {
   return (
-    <div key="linkedin-badge" className="LI-badge-container text-center">
+    <article key="linkedin-badge" className="LI-badge-container text-center">
       <div className="">
         <div className="">
           <div className="LI-profile-pic-container pt-4">
@@ -58,6 +58,6 @@ export const LinkedinBadge = () => {
           />
         </div>
       </div>
-    </div>
+    </article>
   )
 }

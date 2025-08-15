@@ -19,7 +19,7 @@ const SkillColumn = (props) => {
 
   return (
     <React.Fragment>
-      <div key={keyName} className="col-lg-2 col-md-4 col-sm-6 px-1 mb-5">
+      <article key={keyName} className="col-lg-2 col-md-4 col-sm-6 px-1 mb-5">
         <div className="skill-column text-center">
           <div className="skill-pct text-center">
             <div className="skill-pct-text">{props.pct}%</div>
@@ -31,7 +31,7 @@ const SkillColumn = (props) => {
             <i className={thisClassName}></i>
           </div>
         </div>
-      </div>
+      </article>
     </React.Fragment>
   )
 }

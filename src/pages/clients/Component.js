@@ -47,7 +47,7 @@ const Clients = (props) => {
           )}
         </script>
       </Helmet>
-      <div key="client-page" className="recommendations-page">
+      <main key="client-page" className="recommendations-page">
         <div className="site-page ">
           <RenderPageTitle
             theme="dark"
@@ -58,7 +58,7 @@ const Clients = (props) => {
           <RecommendationsCarousel recommendations={props.recommendations} />
           <ClientGrid clients={props.clients} />
         </div>
-      </div>
+      </main>
     </React.Fragment>
   )
 }

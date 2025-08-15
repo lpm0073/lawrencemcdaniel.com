@@ -22,7 +22,7 @@ class CoursesGrid extends Component {
 
   render() {
     return (
-      <div className="">
+      <section className="">
         {this.props.isLoading ? (
           <Loading />
         ) : (
@@ -35,7 +35,10 @@ class CoursesGrid extends Component {
                   backgroundImage: background_url,
                 }
                 return (
-                  <div className="col-lg-3 col-md-4 col-sm-6 m-0 px-0 py-1" key={indx}>
+                  <article
+                    className="col-lg-3 col-md-4 col-sm-6 m-0 px-0 py-1"
+                    key={indx}
+                  >
                     {!this.props.coursesGrid.isSet && (
                       //<Fade in delay={0} duration={400}>
                       <React.Fragment>
@@ -52,13 +55,13 @@ class CoursesGrid extends Component {
                         style={item_style}
                       ></div>
                     )}
-                  </div>
+                  </article>
                 )
               })}
             </div>
           </div>
         )}
-      </div>
+      </section>
     )
   }
 }

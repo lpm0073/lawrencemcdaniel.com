@@ -124,7 +124,7 @@ const Consulting = () => {
           )}
         </script>
       </Helmet>
-      <div className="site-page data-science-page">
+      <main className="site-page data-science-page">
         <RenderPageTitle
           theme="light"
           icon="fa-gears"
@@ -133,7 +133,7 @@ const Consulting = () => {
         />
         <div className="row mt-5">
           <div className="col-lg-3 hide-medium">
-            <div className="pl-3 text-center">
+            <aside className="pl-3 text-center">
               <LinkedinBadge />
               <a
                 className="mt-4 btn btn-danger"
@@ -143,20 +143,20 @@ const Consulting = () => {
               >
                 <i className="fa fa-phone"></i> Contact Me
               </a>
-            </div>
+            </aside>
           </div>
-          <div className="col-lg-9 col-md-12">
+          <section className="col-lg-9 col-md-12">
             <div className="text-justify ml-lg-0 mr-lg-5 mx-2">
               <ConsultingServices />
             </div>
-          </div>
+          </section>
         </div>
-        <div className="row">
+        <section className="row">
           <div className="col m-3">
             <Content />
           </div>
-        </div>
-      </div>
+        </section>
+      </main>
     </React.Fragment>
   )
 }

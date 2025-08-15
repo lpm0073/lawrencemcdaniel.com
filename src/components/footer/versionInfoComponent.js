@@ -47,10 +47,6 @@ const VersionInfo = (props) => {
       >
         source
       </a>
-      <BlankSpace />
-      <a className="mx-1 learn-more-link" href="/schema.json" target="_self">
-        schema
-      </a>
     </React.Fragment>
   )
 }

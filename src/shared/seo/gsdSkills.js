@@ -1,5 +1,5 @@
 import { useSelector } from 'react-redux'
-import { wpGetFeaturedImage } from '../wpGetFeaturedImage'
+import { wpGetFeaturedImage } from '../wpGetFeaturedImage.js'
 //import { APP_CONFIG } from '../constants.js'
 
 const stripHtml = (html) => html.replace(/<[^>]+>/g, '')

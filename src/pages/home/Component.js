@@ -67,10 +67,10 @@ class Home extends Component {
             )}
           </script>
         </Helmet>
-        <div key="home-page" className="jumbotron dark-background">
+        <main key="home-page" className="jumbotron dark-background">
           <div className="h-100">
             <div className="row pt-1 m-0 mr-0 px-0 jumbotron-spacer">
-              <div className="col-lg-6 pt-5 col-md-12 text-center noselect ">
+              <section className="col-lg-6 pt-5 col-md-12 text-center noselect ">
                 <img
                   src={APP_CONFIG.static.images.default}
                   alt="Lawrence McDaniel headshot"
@@ -80,38 +80,40 @@ class Home extends Component {
                   <span className="pre-wrap">Lawrence McDaniel</span>
                 </h1>
                 <p className="digital-creator">digital creator</p>
-              </div>
-              <div className="col-lg-6 pt-5 col-md-12">
+              </section>
+              <section className="col-lg-6 pt-5 col-md-12">
                 <LogoCube />
+              </section>
+            </div>
+            <section id="job-titles">
+              <div className="row mt-0 mb-0 pt-0 pb-0 text-center justify-content-center hide-medium">
+                <JobTitle
+                  idx="1"
+                  target="_self"
+                  href={'/' + APP_CONFIG.skills.fullStack}
+                  title="Full Stack Developer"
+                />
+                <Consultant />
+                <JobTitle
+                  idx="3"
+                  target="_self"
+                  href={'/' + APP_CONFIG.skills.dataScience}
+                  title="Data Scientist"
+                />
               </div>
-            </div>
-            <div className="row mt-0 mb-0 pt-0 pb-0 text-center justify-content-center hide-medium">
-              <JobTitle
-                idx="1"
-                target="_self"
-                href={'/' + APP_CONFIG.skills.fullStack}
-                title="Full Stack Developer"
-              />
-              <Consultant />
-              <JobTitle
-                idx="3"
-                target="_self"
-                href={'/' + APP_CONFIG.skills.dataScience}
-                title="Data Scientist"
-              />
-            </div>
-            <div className="row mt-0 mb-0 pt-0 pb-0 text-center justify-content-center hide-medium">
-              <JobTitle
-                idx="4"
-                target="_blank"
-                href={APP_CONFIG.urls.blog}
-                title="Blogger"
-              />
-              <OnlineInstructor />
-              <Photographer />
-            </div>
+              <div className="row mt-0 mb-0 pt-0 pb-0 text-center justify-content-center hide-medium">
+                <JobTitle
+                  idx="4"
+                  target="_blank"
+                  href={APP_CONFIG.urls.blog}
+                  title="Blogger"
+                />
+                <OnlineInstructor />
+                <Photographer />
+              </div>
+            </section>
           </div>
-        </div>
+        </main>
       </React.Fragment>
     )
   }

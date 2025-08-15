@@ -23,15 +23,12 @@ export const gsdSoftwareRepoList = (skill) => {
   const reduxRepositories = useSelector((state) => state.repositories)
   const repos = reduxRepositories.repos ? reduxRepositories.repos : []
 
-  const fswlRepositories = [
-    ...(skill ? repos.filter((redux) => redux.skills.includes(skill)) : repos),
-  ].map((repo) =>
-    gsdSoftwareSourceCode(
-      repo.html_url,
-      repo.languages[0],
-      repo.description + ' ' + repo.topics.join(', ')
-    )
+  return [...(skill ? repos.filter((repo) => repo.skills.includes(skill)) : repos)].map(
+    (repo) =>
+      gsdSoftwareSourceCode(
+        repo.html_url,
+        repo.languages[0],
+        repo.description + ' ' + repo.topics.join(', ')
+      )
   )
-
-  return fswlRepositories
 }

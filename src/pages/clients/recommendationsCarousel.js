@@ -32,7 +32,7 @@ class RecommendationsCarousel extends Component {
     const recommendationsList = shuffleArray(this.props.recommendations.items)
 
     return (
-      <div key="recommendations-carousel" className="hide-small">
+      <section key="recommendations-carousel" className="hide-small">
         {this.props.isLoading ? (
           <Loading />
         ) : (
@@ -79,7 +79,7 @@ class RecommendationsCarousel extends Component {
                 }
 
                 return (
-                  <div className="row m-sm-3" key={indx}>
+                  <article className="row m-sm-3" key={indx}>
                     <div className="col-md-5">
                       <div className="row">
                         <div className="col-md-3 ">
@@ -121,13 +121,13 @@ class RecommendationsCarousel extends Component {
                         )}
                       />
                     </div>
-                  </div>
+                  </article>
                 )
               })}
             </Carousel>
           </div>
         )}
-      </div>
+      </section>
     )
   }
 }

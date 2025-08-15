@@ -72,7 +72,7 @@ const Datascience = (props) => {
           )}
         </script>
       </Helmet>
-      <div key="data-science-page" className="site-page data-science-page">
+      <main key="data-science-page" className="site-page data-science-page">
         <RenderPageTitle
           theme="light"
           icon="fa-magic"
@@ -80,7 +80,7 @@ const Datascience = (props) => {
           boxed_title="SCIENCE"
         />
         <div className="row mt-5 pl-2">
-          <div className="column-left col-lg-4 col-md-6 col-sm-12 hide-medium">
+          <aside className="column-left col-lg-4 col-md-6 col-sm-12 hide-medium">
             <a href="https://www.linkedin.com/in/lawrencemcdaniel/">
               <img
                 src="https://cdn.lawrencemcdaniel.com/wp-content/uploads/2020/06/05220017/lawrence-mcdaniel-portrait.jpg"
@@ -91,8 +91,8 @@ const Datascience = (props) => {
               <h4 className="my-0">Lawrence McDaniel</h4>
               <h5 className="my-0">{baseTitle}</h5>
             </div>
-          </div>
-          <div className="col-lg-8 col-md-12 m-0 p-0">
+          </aside>
+          <section className="col-lg-8 col-md-12 m-0 p-0">
             <div className="row ml-0 mr-0 pr-2">
               <div className="col-lg-6 col-md-12">
                 <div>
@@ -259,9 +259,9 @@ const Datascience = (props) => {
                 </p>
               </div>
             </div>
-          </div>
+          </section>
         </div>
-        <div className="row mt-3 mx-3 my-0 p-0">
+        <section className="row mt-3 mx-3 my-0 p-0">
           <WhartonCertificate
             idx="1"
             href="https://www.coursera.org/account/accomplishments/certificate/KZN42KMZ4HHJ"
@@ -282,9 +282,9 @@ const Datascience = (props) => {
             href="https://www.coursera.org/account/accomplishments/certificate/EB4FBYKJ2956"
             src="https://cdn.lawrencemcdaniel.com/wp-content/uploads/2022/11/18143939/wharton-accounting-analytics-certificate.png"
           />
-        </div>
+        </section>
         <SpecialtiesBanner />
-        <div className="row mx-5">
+        <section className="row mx-5">
           <div className="col">
             <table className="table table-borderless">
               <tbody>
@@ -357,20 +357,20 @@ const Datascience = (props) => {
               </tbody>
             </table>
           </div>
-        </div>
+        </section>
         <TechnologyCarousel
           specialties={props.specialties}
           skill={APP_CONFIG.skills.dataScience}
         />
-        <div className="row mx-5">
+        <section className="row mx-5">
           <div className="col">
             <h3 className="ml-auto text-center pl-2 mx-5 mt-5">
               Code Samples & Publications
             </h3>
             <Content skill={APP_CONFIG.skills.dataScience} />
           </div>
-        </div>
-      </div>
+        </section>
+      </main>
     </React.Fragment>
   )
 }
