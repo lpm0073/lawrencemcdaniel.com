@@ -23,7 +23,13 @@ const RenderPageTitle = (props) => {
         <meta name="twitter:title" content={titleText} />
         <meta name="twitter:description" content={titleText} />
       </Helmet>
-      <div key="page-title" className="row text-center noselect" aria-label="Page Title">
+      <div
+        key="page-title"
+        className="row text-center noselect"
+        aria-label="Page Title"
+        role="heading"
+        aria-level="1"
+      >
         <div className={pageClasses}>
           <span className={iconClasses}></span>
           <h1 className="display-4">

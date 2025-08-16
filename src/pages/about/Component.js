@@ -81,8 +81,8 @@ class About extends Component {
                     >
                       Querium Corporation
                     </a>
-                    , an edtech company specializing in Artificial Intelligence and Cloud
-                    Computing. My work involves consulting to a variety of{' '}
+                    , a VC-funded artificial intelligence company. My work often involves{' '}
+                    <a href="consulting">consulting</a> to a variety of{' '}
                     <a href="/clients">clients</a>.
                   </p>
                   <p>
@@ -98,9 +98,10 @@ class About extends Component {
                     <BlankSpace />
                     , an AI resource orchestration platform. I’m an enthusiastic lifelong
                     <BlankSpace />
-                    <a href="/education">learner</a>, a<BlankSpace />
-                    <a href="data-science">data scientist</a>, a full stack developer and
-                    a<BlankSpace />
+                    <a href="education">learner</a>, a<BlankSpace />
+                    <a href="data-science">data scientist</a>, a{' '}
+                    <a href="cloud">cloud architect</a>, a{' '}
+                    <a href="full-stack">full stack developer</a> and a<BlankSpace />
                     <a
                       href="https://photography.lawrencemcdaniel.com/"
                       target="_blank"
@@ -228,7 +229,7 @@ const RightColumn = () => {
         <AboutTile icon="fa-linux" value={years_opensource} text="Years Open Source" />
         <AboutTile icon="fa-taxi" value={years_biking} text="Years bicycle commuting" />
       </div>
-      <div className="column-3-text text-justify mt-1 pt-1">
+      <div className="column-3-text text-center mt-1 pt-1">
         <p>
           <strong>
             Read my

@@ -1,6 +1,7 @@
 import React from 'react'
 import './styles.css'
 import BlankSpace from '../blankSpace/Component'
+import { APP_CONFIG } from '../../shared/constants'
 
 export const LinkedinBadge = () => {
   return (
@@ -15,7 +16,7 @@ export const LinkedinBadge = () => {
             <div className="LI-img-wrapper">
               <img
                 className="LI-profile-pic"
-                src="https://cdn.lawrencemcdaniel.com/wp-content/uploads/2024/12/16192734/linkedin-profile-pic.jpeg"
+                src={`${APP_CONFIG.static.images.default}`}
                 alt="Lawrence McDaniel"
                 loading="lazy"
               />
@@ -28,17 +29,11 @@ export const LinkedinBadge = () => {
               Lawrence McDaniel
             </a>
           </div>
-          <div className="LI-title">
-            <span role="img" aria-label="Close">
-              📡
-            </span>
-            <BlankSpace />
-            Full Stack Developer
-          </div>
+          <div className="LI-title">Data Scientist</div>
         </div>
       </div>
       <div className="">
-        <div className="">lawrencemcdaniel.com</div>
+        <div className="">{<BlankSpace />}</div>
         <div className="">
           <a href="https://www.linkedin.com/edu/university-of-north-texas-19538?trk=profile-badge-school">
             University of North Texas
