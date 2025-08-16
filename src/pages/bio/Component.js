@@ -74,14 +74,29 @@ const Bio = (props) => {
           </div>
           <section className="col-lg-8 col-md-12 ml-5" aria-label="Bio Content">
             <div className="text-justify">
-              <p>{webpageDescription}</p>
               <p>
-                He specializes in data science, financial modeling, analytics, machine
-                learning, artificial intelligence, database technologies, and
-                containerized workload orchestration on Amazon Web Services (AWS) and
-                Microsoft Azure. His work includes architecting resilient, low-latency
-                database systems for mission-critical workloads and engineering cloud
-                platforms that scale to meet global demand.
+                Lawrence McDaniel is a <a href="/data-science">data scientist</a>,{' '}
+                <a href="/full-stack">full-stack developer</a>,{' '}
+                <a href="/cloud">cloud architect</a>, and digital content creator who has
+                lived in Mexico City since 2000. Born in Houston, Texas, and raised in
+                northeast Texas, he graduated from Wills Point High School in 1985 and
+                earned a BS in computer science and mathematics, with minors in physics
+                and English, from the University of North Texas in 1991. See his
+                additional studies <a href="/education">here</a>. Over his career,
+                Lawrence was an early employee at three startups later acquired by Goldman
+                Sachs, IBM, and Deutsche Bank, and he participated in a successful NASDAQ
+                IPO. In 2004, he developed a profitable black-box trading system for one
+                of the world’s largest long-short hedge funds, retiring from the industry
+                in 2005. Today, Lawrence <a href="/consulting">advises</a> organizations
+                on cloud computing, machine learning, and artificial intelligence, and
+                teaches remotely at the University of British Columbia.
+              </p>
+              <p>
+                He specializes in financial modeling, analytics, machine learning,
+                artificial intelligence, and database technologies. His work includes
+                architecting resilient, low-latency database systems for mission-critical
+                workloads and engineering cloud platforms that scale to meet global
+                demand.
               </p>
               <p>
                 Lawrence is an angel investor, entrepreneur and company mentor with more
