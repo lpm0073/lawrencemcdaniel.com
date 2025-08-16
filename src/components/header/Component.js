@@ -78,7 +78,7 @@ export class Header extends Component {
                     as={NavLink}
                     to="/about"
                     onClick={this.toggleNavItem}
-                    className="hide-medium"
+                    className=""
                   >
                     About
                   </Nav.Link>

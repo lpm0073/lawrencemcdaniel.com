@@ -65,7 +65,7 @@ class About extends Component {
             <aside className="col-lg-3 col-md-6 col-sm-12 hide-medium">
               <LinkedinBadge />
             </aside>
-            <section className="col-lg-5 col-md-6 col-sm-12 mb-0 pb-0">
+            <section className="m-lg-0 col-lg-5 col-md p-2 m-3">
               <div>
                 <h4 className="mb-3">
                   Great things are done by a series of small things brought together
@@ -177,7 +177,7 @@ class About extends Component {
                 </div>
               </div>
             </section>
-            <aside className="column-3 col-lg-4 col-md-6 col-sm-12 pb-0">
+            <aside className="col-lg-4 hide-medium pb-0">
               {this.props.aboutPage.isSet && <RightColumn />}
               {!this.props.aboutPage.isSet && (
                 //<Fade in delay={0} duration={400}>
