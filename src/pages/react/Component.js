@@ -351,7 +351,13 @@ const ReactPage = (props) => {
         </div>
         <div className="row mt-lg-5 pl-2" aria-label="Code Samples & Publications">
           <div className="col-lg-12">
-            <h3 className="ml-auto text-center pl-2 mx-5">Code Samples & Publications</h3>
+            <div className="text-center">
+              <h3 className="ml-auto pl-2 mx-5">Code Samples & Publications</h3>
+              <p>
+                Also checkout out my side project, "Matrix Digital Rain for React",{' '}
+                <a href="/react-mdr">here</a>
+              </p>
+            </div>
             <Content skill={APP_CONFIG.skills.react} />
           </div>
         </div>

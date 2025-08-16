@@ -43,11 +43,11 @@ class PageNotFound extends Component {
               <link rel="canonical" href={APP_CONFIG.urls.site + '/matrix'} />
               <meta name="description" content="Lawrence McDaniel - Page Not Found" />
             </Helmet>
-            <div className="matrixPage m-0 p-0">
+            <main className="matrixPage m-0 p-0" aria-label="404 Page Not Found">
               {this.state.isMounted ? (
                 <React.Fragment>
                   <MatrixRainingLetters key="" custom_class="ml-0 pl-0" />
-                  <div>
+                  <div role="alert">
                     <Modal show={true} centered size="lg" backdrop="static">
                       <Modal.Header>
                         <Modal.Title>404 Page Not Found</Modal.Title>
@@ -58,7 +58,7 @@ class PageNotFound extends Component {
               ) : (
                 <React.Fragment />
               )}
-            </div>
+            </main>
           </React.Fragment>
         )}
       </React.Fragment>
