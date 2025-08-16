@@ -11,7 +11,6 @@ import Loading from '../../components/Loading'
 import { MatrixRainingLetters } from 'react-mdr'
 
 import { gsdPersonLawrenceMcDaniel } from '../../shared/seo/gsdPersonLawrence'
-import { gsdSoftwareRepoList } from '../../shared/seo/gsdSoftwareSourceCode'
 import { gsdVideoObjectList_FSWL } from '../../shared/seo/gsdVideoObject'
 import { gsdGraph } from '../../shared/seo/gsdGraph'
 
@@ -46,11 +45,7 @@ class MRLPage extends Component {
     const primaryImageUrl = ''
     const pageType = ''
     const relatedLink = ''
-    const graphExtraData = [
-      gsdPersonLawrenceMcDaniel,
-      gsdSoftwareRepoList('react'),
-      gsdVideoObjectList_FSWL,
-    ]
+    const graphExtraData = [gsdPersonLawrenceMcDaniel, gsdVideoObjectList_FSWL]
 
     return (
       <React.Fragment>
@@ -86,11 +81,11 @@ class MRLPage extends Component {
                 content="Lawrence McDaniel, Matrix Digital Rain, NPM, React, ReactJS"
               />
             </Helmet>
-            <div className="matrixPage m-0 p-0">
+            <main className="matrixPage m-0 p-0">
               {this.state.isMounted ? (
                 <React.Fragment>
                   <MatrixRainingLetters key="" custom_class="ml-0 pl-0" />
-                  <div>
+                  <div role="alert">
                     <Modal show={this.state.isOpen} centered size="lg" backdrop="static">
                       <Modal.Header>
                         <Modal.Title>Matrix Digital Rain for React</Modal.Title>
@@ -113,7 +108,7 @@ class MRLPage extends Component {
               ) : (
                 <React.Fragment />
               )}
-            </div>
+            </main>
           </React.Fragment>
         )}
       </React.Fragment>
