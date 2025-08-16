@@ -67,10 +67,13 @@ class Home extends Component {
             )}
           </script>
         </Helmet>
-        <main key="home-page" className="jumbotron dark-background">
+        <main key="home-page" className="jumbotron dark-background" role="main">
           <div className="h-100">
             <div className="row pt-1 m-0 mr-0 px-0 jumbotron-spacer">
-              <section className="col-lg-6 pt-5 col-md-12 text-center noselect ">
+              <section
+                className="col-lg-6 pt-5 col-md-12 text-center noselect"
+                aria-label="Profile"
+              >
                 <img
                   src={APP_CONFIG.static.images.default}
                   alt="Lawrence McDaniel headshot"
@@ -81,11 +84,11 @@ class Home extends Component {
                 </h1>
                 <p className="digital-creator">digital creator</p>
               </section>
-              <section className="col-lg-6 pt-5 col-md-12">
+              <section className="col-lg-6 pt-5 col-md-12" aria-label="Logo Cube">
                 <LogoCube />
               </section>
             </div>
-            <section id="job-titles">
+            <section id="job-titles" aria-label="Titles">
               <div className="row mt-0 mb-0 pt-0 pb-0 text-center justify-content-center hide-medium">
                 <JobTitle
                   idx="1"

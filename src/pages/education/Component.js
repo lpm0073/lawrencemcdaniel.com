@@ -43,7 +43,7 @@ const Education = (props) => {
           )}
         </script>
       </Helmet>
-      <main key="education-page" className="portfolio-page">
+      <main key="education-page" className="portfolio-page" aria-label="Education">
         <div className="site-page ">
           <RenderPageTitle
             theme="dark"

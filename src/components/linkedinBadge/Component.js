@@ -4,7 +4,11 @@ import BlankSpace from '../blankSpace/Component'
 
 export const LinkedinBadge = () => {
   return (
-    <article key="linkedin-badge" className="LI-badge-container text-center">
+    <article
+      key="linkedin-badge"
+      className="LI-badge-container text-center"
+      aria-label="LinkedIn Badge"
+    >
       <div className="">
         <div className="">
           <div className="LI-profile-pic-container pt-4">

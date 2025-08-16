@@ -1,3 +1,10 @@
+## [1.5.1](https://github.com/lpm0073/lawrencemcdaniel.com/compare/v1.5.0...v1.5.1) (2025-08-15)
+
+
+### Bug Fixes
+
+* refactor html elements into main, section, article, aside, etc ([808a731](https://github.com/lpm0073/lawrencemcdaniel.com/commit/808a731e3190082b50b89522557812a09121315e))
+
 # [1.5.0](https://github.com/lpm0073/lawrencemcdaniel.com/compare/v1.4.2...v1.5.0) (2025-08-10)
 
 ### Features

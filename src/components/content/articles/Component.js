@@ -24,6 +24,9 @@ const articleStateShape = PropTypes.shape({
   status: PropTypes.string.isRequired,
   type: PropTypes.string.isRequired,
   link: PropTypes.string.isRequired,
+  title: PropTypes.shape({
+    rendered: PropTypes.string.isRequired,
+  }).isRequired,
   excerpt: PropTypes.shape({
     rendered: PropTypes.string.isRequired,
     protected: PropTypes.bool.isRequired,
@@ -140,7 +143,7 @@ const Article = ({ article }) => {
    */
   return (
     <div>
-      <table className="mb-0">
+      <table className="mb-0" aria-label={`Article ${article?.title?.rendered}`}>
         <tbody>
           <tr>
             <td>
@@ -209,7 +212,7 @@ const ArticlesTable = ({ skill, maxrows = 100 }) => {
   }
 
   return (
-    <section className="table-responsive">
+    <section className="table-responsive" aria-label="Articles">
       {reduxArticles.isLoading ? (
         <Loading />
       ) : (

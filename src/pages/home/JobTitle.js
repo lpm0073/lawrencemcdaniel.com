@@ -9,7 +9,7 @@ const JobTitle = (props) => {
 
   return (
     <React.Fragment>
-      <div key={props.idx} className={thisClassName}>
+      <div key={props.idx} className={thisClassName} aria-label={thisTitle}>
         <a href={thisHref} target={thisTarget}>
           <h2>{thisTitle}</h2>
         </a>

@@ -124,7 +124,7 @@ const Consulting = () => {
           )}
         </script>
       </Helmet>
-      <main className="site-page data-science-page">
+      <main className="site-page data-science-page" aria-label="Consulting Services">
         <RenderPageTitle
           theme="light"
           icon="fa-gears"
@@ -145,13 +145,13 @@ const Consulting = () => {
               </a>
             </aside>
           </div>
-          <section className="col-lg-9 col-md-12">
+          <section className="col-lg-9 col-md-12" aria-label="Consulting Services">
             <div className="text-justify ml-lg-0 mr-lg-5 mx-2">
               <ConsultingServices />
             </div>
           </section>
         </div>
-        <section className="row">
+        <section className="row" aria-label="Code Samples & Publications">
           <div className="col m-3">
             <Content />
           </div>

@@ -47,7 +47,7 @@ const Clients = (props) => {
           )}
         </script>
       </Helmet>
-      <main key="client-page" className="recommendations-page">
+      <main key="client-page" className="recommendations-page" aria-label="Clients Page">
         <div className="site-page ">
           <RenderPageTitle
             theme="dark"

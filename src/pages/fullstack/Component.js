@@ -48,7 +48,11 @@ const Fullstack = (props) => {
           )}
         </script>
       </Helmet>
-      <main key="skills-page" className="site-page skills-page">
+      <main
+        key="skills-page"
+        className="site-page skills-page"
+        aria-label="Full Stack Developer"
+      >
         <RenderPageTitle
           theme="light"
           icon="fa-book"
@@ -56,7 +60,10 @@ const Fullstack = (props) => {
           boxed_title="DEVELOPER"
         />
 
-        <section className="row mt-5 mb-5 ml-0 mr-0 justify-content-center">
+        <section
+          className="row mt-5 mb-5 ml-0 mr-0 justify-content-center"
+          aria-label="Skills"
+        >
           <SkillColumn
             key="3"
             id="3"
@@ -104,7 +111,7 @@ const Fullstack = (props) => {
           skill={APP_CONFIG.skills.fullStack}
         />
 
-        <section className="row mx-5">
+        <section className="row mx-5" aria-label="Code Samples & Publications">
           <div className="col">
             <h3 className="ml-auto text-center pl-2 mx-5 mt-5">
               Code Samples & Publications
