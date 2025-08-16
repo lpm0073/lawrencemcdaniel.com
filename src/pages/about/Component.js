@@ -30,10 +30,6 @@ class About extends Component {
   }
 
   render() {
-    var d = new Date()
-    const years_traveling = d.getFullYear() - 1992
-    const years_living_abroad = d.getFullYear() - 1992 - 2 - 2 - 3 - 1
-
     /* Google Structured Data */
     const slug = 'about'
     const webpageName = 'About'
@@ -69,14 +65,14 @@ class About extends Component {
             <aside className="col-lg-3 col-md-6 col-sm-12 hide-medium">
               <LinkedinBadge />
             </aside>
-            <section className="col-lg-5 col-md-6 col-sm-12">
+            <section className="col-lg-5 col-md-6 col-sm-12 mb-0 pb-0">
               <div>
                 <h4 className="mb-3">
                   Great things are done by a series of small things brought together
                 </h4>
                 <div className="text-justify">
                   <p>
-                    I am the Chief Technology Officer of
+                    I’m the Chief Technology Officer of
                     <BlankSpace />
                     <a
                       href="https://www.querium.com/"
@@ -86,8 +82,11 @@ class About extends Component {
                       Querium Corporation
                     </a>
                     , an edtech company specializing in Artificial Intelligence and Cloud
-                    Computing for educational institutions. I am principal author and lead
-                    product engineer of
+                    Computing. My work involves consulting to a variety of{' '}
+                    <a href="/clients">clients</a>.
+                  </p>
+                  <p>
+                    I’m the principal architect of
                     <BlankSpace />
                     <a
                       href="https://smarter.sh"
@@ -97,8 +96,7 @@ class About extends Component {
                       Smarter by Querium™
                     </a>
                     <BlankSpace />
-                    , an AI resource orchestration platform used primarily for teaching
-                    generative AI to non-programmers. I’m an enthusiastic lifelong
+                    , an AI resource orchestration platform. I’m an enthusiastic lifelong
                     <BlankSpace />
                     <a href="/education">learner</a>, a<BlankSpace />
                     <a href="data-science">data scientist</a>, a full stack developer and
@@ -110,10 +108,10 @@ class About extends Component {
                     >
                       photography enthusiast
                     </a>
-                    <BlankSpace />.
+                    .
                   </p>
                   <p>
-                    I also teach
+                    I teach
                     <BlankSpace />
                     <a
                       href="https://extendedlearning.ubc.ca/programs-credentials/cloud-technology-transformation-certificate"
@@ -175,33 +173,10 @@ class About extends Component {
                     </a>
                     .
                   </p>
-                  <p>
-                    I am a veteran of the hedge fund industry and multiple startups and
-                    early-stage ventures with dozens of successful product launches and
-                    one NASDAQ IPO under my belt. I advocate for
-                    <BlankSpace />
-                    <a href="https://en.wikipedia.org/wiki/Open_source">open source</a>,
-                    try to keep things
-                    <BlankSpace />
-                    <a href="https://en.wikipedia.org/wiki/Don%27t_repeat_yourself">
-                      DRY
-                    </a>
-                    <BlankSpace />
-                    and well-documented and when possible I adhere to the principals of
-                    <BlankSpace />
-                    <a href="https://12factor.net/">12-factor</a> development.
-                  </p>
-                  <p>
-                    I&apos;ve lived abroad for {years_living_abroad} of the last
-                    <BlankSpace />
-                    {years_traveling} years in Mexico, Western Europe and SE Asia. Prior
-                    to that I earned a B.S. from University of North Texas with majors in
-                    Computer Science and Mathematics and minors in Physics and English.
-                  </p>
                 </div>
               </div>
             </section>
-            <section className="column-3 col-lg-4 col-md-6 col-sm-12 p-3">
+            <aside className="column-3 col-lg-4 col-md-6 col-sm-12 pb-0">
               {this.props.aboutPage.isSet && <RightColumn />}
               {!this.props.aboutPage.isSet && (
                 //<Fade in delay={0} duration={400}>
@@ -212,6 +187,26 @@ class About extends Component {
                 </React.Fragment>
                 //</Fade>
               )}
+            </aside>
+          </div>
+          <div className="row">
+            <section className="col-lg m-3 mt-1">
+              <p>
+                I advocate for
+                <BlankSpace />
+                <a href="https://en.wikipedia.org/wiki/Open_source">open source</a>, try
+                to keep things
+                <BlankSpace />
+                <a href="https://en.wikipedia.org/wiki/Don%27t_repeat_yourself">DRY</a>
+                <BlankSpace />
+                and well-documented and when possible I adhere to the principals of
+                <BlankSpace />
+                <a href="https://12factor.net/">12-factor</a> development. I earned a B.S.
+                from University of North Texas with majors in Computer Science and
+                Mathematics and minors in Physics and English. But that was a long time
+                ago. See my <a href="/education">Education</a> page for more recent
+                coursework.
+              </p>
             </section>
           </div>
         </main>
@@ -221,7 +216,7 @@ class About extends Component {
 }
 const RightColumn = () => {
   var d = new Date()
-  const years_experience = d.getFullYear() - 1992 - 11 - 1 - 2
+  const years_experience = d.getFullYear() - 1992
   const years_opensource = d.getFullYear() - 2010
   const years_biking = d.getFullYear() - 1990 - 5
 
