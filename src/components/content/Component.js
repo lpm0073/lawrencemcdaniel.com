@@ -215,7 +215,7 @@ export const Content = ({ skill }) => {
               title="Code Samples"
               className="p-1 m-1 mt-3 code-samples bg-white"
             >
-              <section>
+              <section aria-label="Code Samples">
                 <p>
                   These are a combination of managed GitHub repositories that I use for
                   instructional purposes, combined with repositories belonging to open
@@ -230,7 +230,7 @@ export const Content = ({ skill }) => {
             </Tab>
 
             <Tab eventKey="articles" title="Articles" className="p-3">
-              <section>
+              <section aria-label="Articles">
                 <p>
                   These are articles that I&apos;ve published. Usually from my personal
                   blog, but every now and then from other sources.
@@ -240,7 +240,7 @@ export const Content = ({ skill }) => {
             </Tab>
 
             <Tab eventKey="videos" title="Videos" className="p-3">
-              <section>
+              <section aria-label="Videos">
                 <p>Videos from my YouTube Channel, Full Stack With Lawrence</p>
                 <VideosTable skill={skill} maxrows={10} />
               </section>

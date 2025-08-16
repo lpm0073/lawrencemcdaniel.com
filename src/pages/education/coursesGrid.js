@@ -22,7 +22,7 @@ class CoursesGrid extends Component {
 
   render() {
     return (
-      <section className="">
+      <section className="" aria-label="Courses Grid">
         {this.props.isLoading ? (
           <Loading />
         ) : (
@@ -38,6 +38,7 @@ class CoursesGrid extends Component {
                   <article
                     className="col-lg-3 col-md-4 col-sm-6 m-0 px-0 py-1"
                     key={indx}
+                    aria-label={`Education credential ${education_item?.title?.rendered}`}
                   >
                     {!this.props.coursesGrid.isSet && (
                       //<Fade in delay={0} duration={400}>

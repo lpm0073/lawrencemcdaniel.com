@@ -48,7 +48,11 @@ const CloudComputing = (props) => {
           )}
         </script>
       </Helmet>
-      <main key="skills-page" className="site-page skills-page">
+      <main
+        key="skills-page"
+        className="site-page skills-page"
+        aria-label="Cloud Computing"
+      >
         <RenderPageTitle
           theme="light"
           icon="fa-book"
@@ -56,7 +60,7 @@ const CloudComputing = (props) => {
           boxed_title="COMPUTING"
         />
 
-        <section className="row mx-5">
+        <section className="row mx-5" aria-label="Cloud Computing">
           <div className="col">
             <p className="text-justified">
               I help IT teams maximize the value of cloud-native technologies by designing
@@ -77,7 +81,7 @@ const CloudComputing = (props) => {
           skill={APP_CONFIG.skills.cloud}
         />
 
-        <section className="row mx-5">
+        <section className="row mx-5" aria-label="Code Samples & Publications">
           <div className="col">
             <h3 className="ml-auto text-center pl-2 mx-5 mt-5">
               Code Samples & Publications

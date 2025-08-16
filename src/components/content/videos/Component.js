@@ -135,7 +135,7 @@ const Video = ({ video }) => {
     Top-level component that renders the repository link and description.
    */
   return (
-    <article>
+    <article aria-label={video.title}>
       <table className="mb-0">
         <tbody>
           <tr>
@@ -227,7 +227,7 @@ const VideosTable = ({ skill, maxrows = 100 }) => {
   }
 
   return (
-    <section className="table-responsive">
+    <section className="table-responsive" aria-label="Videos">
       {reduxVideos.isLoading ? (
         <Loading />
       ) : (

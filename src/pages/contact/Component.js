@@ -46,7 +46,11 @@ class Contact extends Component {
             )}
           </script>
         </Helmet>
-        <main key="contact-page" className="site-page contact-page">
+        <main
+          key="contact-page"
+          className="site-page contact-page"
+          aria-label="Contact Page"
+        >
           <RenderPageTitle
             theme="light"
             icon="fa-phone"
@@ -56,7 +60,11 @@ class Contact extends Component {
 
           <div className="row text-center ">
             <div className="col-md-1"></div>
-            <section id="contact-data" className="col-md-5 contact-data">
+            <section
+              id="contact-data"
+              className="col-md-5 contact-data"
+              aria-label="Contact Information"
+            >
               <div className="row mt-4"></div>
               <div className="">
                 <a
@@ -124,7 +132,7 @@ class Contact extends Component {
                 </a>
               </div>
             </section>
-            <section id="qr-codes" className="col-md-4 m-4">
+            <section id="qr-codes" className="col-md-4 m-4" aria-label="QR Codes">
               <div className="row qr-code-container m-2 p-2">
                 <div className="col-md-1"></div>
                 <div className="col-md-10">

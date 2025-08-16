@@ -5,7 +5,11 @@ import BlankSpace from '../../components/blankSpace/Component'
 const OnlineInstructor = (props) => {
   return (
     <React.Fragment>
-      <div key="5" className="job-title lead mb-0 mt-4 col-4 ps-4 pe-4">
+      <div
+        key="5"
+        className="job-title lead mb-0 mt-4 col-4 ps-4 pe-4"
+        aria-label="Online Instructor"
+      >
         <a
           target="_blank"
           rel="noreferrer"

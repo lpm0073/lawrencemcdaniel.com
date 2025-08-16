@@ -220,7 +220,7 @@ const CodeRepository = ({ repo }) => {
     Top-level component that renders the repository link and description.
    */
   return (
-    <article>
+    <article aria-label={repo.name}>
       <table className="mb-0">
         <tbody>
           <tr>
@@ -297,7 +297,7 @@ const CodeSamplesTable = ({ skill, maxrows = 100 }) => {
   }
 
   return (
-    <section className="table-responsive">
+    <section className="table-responsive" aria-label="Code Samples">
       {reduxRepositories.isLoading ? (
         <Loading />
       ) : (

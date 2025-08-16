@@ -94,7 +94,7 @@ class TechnologyCarousel extends Component {
         {isLoading ? (
           <Loading />
         ) : (
-          <section id="specialties-carousel">
+          <section id="specialties-carousel" aria-label="Technology Specialties Carousel">
             <Carousel
               responsive={responsive}
               infinite
@@ -103,7 +103,7 @@ class TechnologyCarousel extends Component {
               transitionDuration={3000}
             >
               {shuffledLogos.map((logo, indx) => (
-                <article key={indx}>
+                <article key={indx} aria-label={logo.title}>
                   <a
                     href={logo.site}
                     title={logo.title}

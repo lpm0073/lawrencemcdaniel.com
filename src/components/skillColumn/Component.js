@@ -19,7 +19,11 @@ const SkillColumn = (props) => {
 
   return (
     <React.Fragment>
-      <article key={keyName} className="col-lg-2 col-md-4 col-sm-6 px-1 mb-5">
+      <article
+        key={keyName}
+        className="col-lg-2 col-md-4 col-sm-6 px-1 mb-5"
+        aria-label={props.title}
+      >
         <div className="skill-column text-center">
           <div className="skill-pct text-center">
             <div className="skill-pct-text">{props.pct}%</div>

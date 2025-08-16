@@ -72,7 +72,11 @@ const Datascience = (props) => {
           )}
         </script>
       </Helmet>
-      <main key="data-science-page" className="site-page data-science-page">
+      <main
+        key="data-science-page"
+        className="site-page data-science-page"
+        aria-label="Data Science Page"
+      >
         <RenderPageTitle
           theme="light"
           icon="fa-magic"
@@ -261,7 +265,7 @@ const Datascience = (props) => {
             </div>
           </section>
         </div>
-        <section className="row mt-3 mx-3 my-0 p-0">
+        <section className="row mt-3 mx-3 my-0 p-0" aria-label="Wharton Certificates">
           <WhartonCertificate
             idx="1"
             href="https://www.coursera.org/account/accomplishments/certificate/KZN42KMZ4HHJ"
@@ -284,7 +288,7 @@ const Datascience = (props) => {
           />
         </section>
         <SpecialtiesBanner />
-        <section className="row mx-5">
+        <section className="row mx-5" aria-label="Specialties">
           <div className="col">
             <table className="table table-borderless">
               <tbody>
@@ -362,7 +366,7 @@ const Datascience = (props) => {
           specialties={props.specialties}
           skill={APP_CONFIG.skills.dataScience}
         />
-        <section className="row mx-5">
+        <section className="row mx-5" aria-label="Code Samples & Publications">
           <div className="col">
             <h3 className="ml-auto text-center pl-2 mx-5 mt-5">
               Code Samples & Publications

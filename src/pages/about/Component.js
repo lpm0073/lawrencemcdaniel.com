@@ -97,8 +97,8 @@ class About extends Component {
                       Smarter by Querium™
                     </a>
                     <BlankSpace />
-                    , an instructional web platform for teaching generative AI to
-                    non-programmers. I’m an enthusiastic lifelong
+                    , an AI resource orchestration platform used primarily for teaching
+                    generative AI to non-programmers. I’m an enthusiastic lifelong
                     <BlankSpace />
                     <a href="/education">learner</a>, a<BlankSpace />
                     <a href="data-science">data scientist</a>, a full stack developer and

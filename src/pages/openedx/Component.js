@@ -88,7 +88,11 @@ const Openedx = (props) => {
           )}
         </script>
       </Helmet>
-      <main key="openedx-page" className="site-page openedx-page">
+      <main
+        key="openedx-page"
+        className="site-page openedx-page"
+        aria-label="Open edX Consulting"
+      >
         <RenderPageTitle
           theme="light"
           icon="fa-align-left"
@@ -96,7 +100,7 @@ const Openedx = (props) => {
           boxed_title="Consulting"
         />
         <div className="row mt-5">
-          <aside className="col-lg-3 hide-medium">
+          <aside className="col-lg-3 hide-medium" aria-label="LinkedIn Badge">
             <div className="pl-3 text-center">
               <LinkedinBadge />
               <a
@@ -109,7 +113,7 @@ const Openedx = (props) => {
               </a>
             </div>
           </aside>
-          <section className="col-lg-9 col-md-12">
+          <section className="col-lg-9 col-md-12" aria-label="Open edX Consulting">
             <div className="text-justify ml-lg-0 mr-lg-5 mx-2">
               <p>
                 I am a 20-year veteran web developer specializing in the
@@ -191,7 +195,7 @@ const Openedx = (props) => {
           </section>
         </div>
         <div className="row">
-          <section className="col-lg-12 col-md-12">
+          <section className="col-lg-12 col-md-12" aria-label="Open edX Services">
             <div className="text-justify mx-lg-5 mx-2">
               <h3 className="mt-lg-5 mt-1">
                 Services That I Provide to the Open edX® Community
@@ -336,7 +340,7 @@ const Openedx = (props) => {
             </h3>
             <Content skill={APP_CONFIG.skills.openEdx} />
           </div>
-          <section className="col-lg-12 col-md-12">
+          <section className="col-lg-12 col-md-12" aria-label="Open edX FAQ">
             <div className="text-justify mx-lg-5 mx-2">
               <h3 className="mt-lg-5 mt-1">FAQ</h3>
               <hr />

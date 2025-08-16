@@ -63,7 +63,7 @@ const ReactPage = (props) => {
           )}
         </script>
       </Helmet>
-      <div key="react-page" className="site-page react-page">
+      <main key="react-page" className="site-page react-page" aria-label="ReactJS Page">
         <RenderPageTitle
           theme="light"
           icon="fa-react"
@@ -71,7 +71,7 @@ const ReactPage = (props) => {
           boxed_title="REACTJS"
         />
         <div className="row mt-lg-5 pl-2">
-          <div className="col-lg-3 hide-medium">
+          <aside className="col-lg-3 hide-medium" aria-label="LinkedIn Badge">
             <div className="text-center">
               <LinkedinBadge />
               <a
@@ -84,8 +84,8 @@ const ReactPage = (props) => {
                 <i className="fa fa-download"></i> Download Resume
               </a>
             </div>
-          </div>
-          <div className="col-lg-8 col-md-12">
+          </aside>
+          <section className="col-lg-8 col-md-12" aria-label="ReactJS Page Content">
             <div className="text-justify">
               <p className="">
                 This site uses a<BlankSpace />
@@ -338,21 +338,24 @@ const ReactPage = (props) => {
                 </a>
               </p>
             </div>
-          </div>
+          </section>
         </div>
-        <div className="aws-diagram hide-medium row mt-lg-5 pl-2 ml-0 mr-0">
+        <div
+          className="aws-diagram hide-medium row mt-lg-5 pl-2 ml-0 mr-0"
+          aria-label="AWS React Hosting Architecture"
+        >
           <img
             src="https://cdn.lawrencemcdaniel.com/wp-content/uploads/2020/05/19131001/aws-react-hosting.png"
             alt="AWS React Hosting Architecture"
           />
         </div>
-        <div className="row mt-lg-5 pl-2">
+        <div className="row mt-lg-5 pl-2" aria-label="Code Samples & Publications">
           <div className="col-lg-12">
             <h3 className="ml-auto text-center pl-2 mx-5">Code Samples & Publications</h3>
             <Content skill={APP_CONFIG.skills.react} />
           </div>
         </div>
-      </div>
+      </main>
     </React.Fragment>
   )
 }

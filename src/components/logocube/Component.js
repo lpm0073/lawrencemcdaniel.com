@@ -155,7 +155,7 @@ const CubeSide = (props) => {
 
   return (
     <React.Fragment>
-      <div key={divId} className={clsId}>
+      <div key={divId} className={clsId} aria-label="Cube Side">
         <div>
           <div key={divId + '-logo'} className="logo" style={divStyle}></div>
         </div>
