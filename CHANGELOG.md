@@ -1,12 +1,21 @@
+# Change Log
+
+All notable changes to this project will be documented in this file.
+
+The format is based on [Keep a Changelog](http://keepachangelog.com/) and this project adheres to [Semantic Versioning](http://semver.org/).
+
 ## [1.5.1](https://github.com/lpm0073/lawrencemcdaniel.com/compare/v1.5.0...v1.5.1) (2025-08-15)
 
 ### Bug Fixes
 
 - refactor html elements into main, section, article, aside, etc ([808a731](https://github.com/lpm0073/lawrencemcdaniel.com/commit/808a731e3190082b50b89522557812a09121315e))
 
-# [1.5.0](https://github.com/lpm0073/lawrencemcdaniel.com/compare/v1.4.2...v1.5.0) (2025-08-10)
+## [1.5.0](https://github.com/lpm0073/lawrencemcdaniel.com/compare/v1.4.2...v1.5.0) (2025-08-10)
 
 ### Features
+
+Moderate site upgrade with new static pages for Full Stack, Cloud, Data Science and React. Also added
+a new api-driven component with references to projects in GitHub, YouTube and my personal blog.
 
 - scaffold new Cloud Computing page ([ea34b8a](https://github.com/lpm0073/lawrencemcdaniel.com/commit/ea34b8ac721788393c0077146ad0d631c527f788))
 
