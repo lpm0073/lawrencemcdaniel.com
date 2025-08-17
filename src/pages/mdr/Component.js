@@ -11,7 +11,6 @@ import Loading from '../../components/Loading'
 import { MatrixRainingLetters } from 'react-mdr'
 
 import { gsdPersonLawrenceMcDaniel } from '../../shared/seo/gsdPersonLawrence'
-import { gsdVideoObjectList_FSWL } from '../../shared/seo/gsdVideoObject'
 import { gsdGraph } from '../../shared/seo/gsdGraph'
 
 import { APP_CONFIG } from '../../shared/constants'
@@ -45,7 +44,7 @@ class MRLPage extends Component {
     const primaryImageUrl = ''
     const pageType = ''
     const relatedLink = ''
-    const graphExtraData = [gsdPersonLawrenceMcDaniel, gsdVideoObjectList_FSWL]
+    const graphExtraData = [gsdPersonLawrenceMcDaniel]
 
     return (
       <React.Fragment>
