@@ -4,6 +4,7 @@ import { hourlyRate } from './gsdCommon'
 import { APP_CONFIG } from '../constants'
 
 const urlOpenedX = APP_CONFIG.urls.site + '/' + APP_CONFIG.skills.openedX
+
 function stripHtmlTags(str) {
   if (typeof str !== 'string') return ''
   return str.replace(/<[^>]*>/g, '')
