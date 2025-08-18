@@ -1,5 +1,7 @@
 import React from 'react'
 import RenderPageTitle from '../../components/pagetitle/pageTitleComponent'
+import { useSelector } from 'react-redux'
+
 import { LinkedinBadge } from '../../components/linkedinBadge/Component'
 import { Helmet } from 'react-helmet'
 import { APP_CONFIG } from '../../shared/constants'
@@ -85,13 +87,18 @@ const person = {
 }
 
 const Consulting = () => {
+  const reduxRecommendations = useSelector((state) => state.recommendations)
+  const recommendations = reduxRecommendations.items ? reduxRecommendations.items : []
+
   const graphExtraData = [
     person,
-    gsdServiceConsulting,
+    gsdServiceConsulting(recommendations),
     gsdSoftwareRepoList(),
     gsdVideoObjectList,
     gsdSkillSchemaList(),
   ]
+
+  console.log('Consulting Graph Extra Data:', graphExtraData)
 
   return (
     <React.Fragment>

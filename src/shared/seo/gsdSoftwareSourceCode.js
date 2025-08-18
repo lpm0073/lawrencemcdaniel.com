@@ -20,7 +20,7 @@ export const gsdSoftwareSourceCode = (url, programming_language, description) =>
 }
 
 export const gsdSoftwareRepoList = (skill) => {
-  const reduxRepositories = useSelector((state) => state.recommendations)
+  const reduxRepositories = useSelector((state) => state.repositories)
   const repos = reduxRepositories.items ? reduxRepositories.items : []
 
   return [...(skill ? repos.filter((repo) => repo.skills.includes(skill)) : repos)].map(
