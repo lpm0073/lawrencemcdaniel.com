@@ -1,5 +1,7 @@
 import React from 'react'
 import PropTypes from 'prop-types'
+import { useSelector } from 'react-redux'
+
 import RenderPageTitle from '../../components/pagetitle/pageTitleComponent'
 import { LinkedinBadge } from '../../components/linkedinBadge/Component'
 import { Content } from '../../components/content/Component'
@@ -38,10 +40,13 @@ const Openedx = (props) => {
     ...gsdPersonLawrenceMcDaniel,
     ...{ hasOccupation: hasOccupation },
   }
+  const reduxRecommendations = useSelector((state) => state.recommendations)
+  const recommendations = reduxRecommendations.items ? reduxRecommendations.items : []
+
   const graphExtraData = [
     person,
     gsdArticle(slug, headline),
-    gsdServiceOpenedX,
+    gsdServiceOpenedX(recommendations),
     gsdFAQ,
     gsdHowToInstallOpenEdx,
     gsdHowToScaleOpenEdx,
