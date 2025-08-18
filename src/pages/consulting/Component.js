@@ -98,8 +98,6 @@ const Consulting = () => {
     gsdSkillSchemaList(),
   ]
 
-  console.log('Consulting Graph Extra Data:', graphExtraData)
-
   return (
     <React.Fragment>
       <Helmet>
