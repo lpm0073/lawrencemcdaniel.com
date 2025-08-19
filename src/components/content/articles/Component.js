@@ -142,7 +142,7 @@ const Article = ({ article }) => {
     Top-level component that renders the repository link and description.
    */
   return (
-    <div>
+    <article>
       <table className="mb-0" aria-label={`Article ${article?.title?.rendered}`}>
         <tbody>
           <tr>
@@ -157,7 +157,7 @@ const Article = ({ article }) => {
           </tr>
         </tbody>
       </table>
-    </div>
+    </article>
   )
 }
 Article.propTypes = {
@@ -229,16 +229,14 @@ const ArticlesTable = ({ skill, maxrows = 100 }) => {
             </thead>
             <tbody>
               {filteredArticles.map((article) => (
-                <article key={article.id}>
-                  <tr key={article.id}>
-                    <td className="align-top">
-                      <Article article={article} />
-                    </td>
-                    <td className="hide-medium p-0">
-                      <ArticleMetadata article={article} />
-                    </td>
-                  </tr>
-                </article>
+                <tr key={article.id}>
+                  <td className="align-top">
+                    <Article article={article} />
+                  </td>
+                  <td className="hide-medium p-0">
+                    <ArticleMetadata article={article} />
+                  </td>
+                </tr>
               ))}
             </tbody>
           </table>
