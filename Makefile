@@ -43,6 +43,8 @@ update:
 	#
 	#             This is used to display the latest GitHub
 	#             activity on the home page.
+	#
+	# Note: requires node v24 or later.
 	#---------------------------------------------------------
 	make github
 	make blog
@@ -67,6 +69,8 @@ release:
 	#             1. Build the React application
 	#             2. Upload to AWS S3
 	#             3. Invalidate all items in the AWS Cloudfront CDN.
+	#
+	# Note: requires node v24 or later.
 	#---------------------------------------------------------
 	export AWS_PROFILE=lawrence
 	make build
