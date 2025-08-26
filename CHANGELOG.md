@@ -1,3 +1,10 @@
+## [1.5.2](https://github.com/lpm0073/lawrencemcdaniel.com/compare/v1.5.1...v1.5.2) (2025-08-26)
+
+
+### Bug Fixes
+
+* add author name to reviews ([78995ad](https://github.com/lpm0073/lawrencemcdaniel.com/commit/78995adaa43c9a086bf776b607815be93844ec07))
+
 # Change Log
 
 All notable changes to this project will be documented in this file.
