@@ -16,6 +16,7 @@ const getReview = (recommendation) => {
     author: {
       '@type': 'Person',
       '@id': recommendation?.link,
+      name: stripHtmlTags(recommendation?.title?.rendered) || 'Anonymous',
     },
     datePublished: recommendation?.date_gmt,
     name: 'Review by ' + stripHtmlTags(recommendation?.title?.rendered),
