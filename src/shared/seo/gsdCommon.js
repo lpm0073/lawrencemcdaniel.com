@@ -129,19 +129,19 @@ export const imagesLawrenceMcDaniel = [
 ]
 
 export const shippingDetails = {
-      "@type": "OfferShippingDetails",
-      "shippingRate": {
-        "@type": "MonetaryAmount",
-        "value": 0,
-        "currency": "USD"
-      },
-      "deliveryTime": {
-        "@type": "ShippingDeliveryTime",
-        "businessDays": 0
-      }
-    }
+  '@type': 'OfferShippingDetails',
+  shippingRate: {
+    '@type': 'MonetaryAmount',
+    value: 0,
+    currency: 'USD',
+  },
+  deliveryTime: {
+    '@type': 'ShippingDeliveryTime',
+    businessDays: 0,
+  },
+}
 
 export const hasMerchantReturnPolicy = {
-      "@type": "MerchantReturnPolicy",
-      "returnPolicyCategory": "NoReturns"
-    }
+  '@type': 'MerchantReturnPolicy',
+  returnPolicyCategory: 'NoReturns',
+}
