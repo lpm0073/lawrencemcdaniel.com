@@ -1,6 +1,6 @@
 import { convertToSlug } from '../slug'
 import { brandLawrenceMcDaniel } from './gsdCommon'
-import { hourlyRate } from './gsdCommon'
+import { hourlyRate, shippingDetails, hasMerchantReturnPolicy } from './gsdCommon'
 import { APP_CONFIG } from '../constants'
 
 const slug = 'consulting'
@@ -67,6 +67,8 @@ const fullstackItemOffer = (name, description = '') => {
       description: description,
     },
     url: APP_CONFIG.urls.site + '/' + APP_CONFIG.skills.fullStack,
+    hasMerchantReturnPolicy: hasMerchantReturnPolicy,
+    shippingDetails: shippingDetails
   }
 }
 
@@ -86,6 +88,8 @@ const itemOffer = (name, description = '') => {
       description: description,
     },
     url: APP_CONFIG.urls.site + '/' + slug,
+    hasMerchantReturnPolicy: hasMerchantReturnPolicy,
+    shippingDetails: shippingDetails
   }
 }
 

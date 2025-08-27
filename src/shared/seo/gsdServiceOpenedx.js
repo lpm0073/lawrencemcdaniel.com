@@ -1,6 +1,6 @@
 import { convertToSlug } from '../slug'
 import { brandLawrenceMcDaniel } from './gsdCommon'
-import { hourlyRate } from './gsdCommon'
+import { hourlyRate, shippingDetails, hasMerchantReturnPolicy } from './gsdCommon'
 import { APP_CONFIG } from '../constants'
 
 const urlOpenedX = APP_CONFIG.urls.site + '/' + APP_CONFIG.skills.openedX
@@ -66,6 +66,8 @@ const fullstackItemOffer = (name, description = '') => {
       description: description,
     },
     url: APP_CONFIG.urls.site + '/' + APP_CONFIG.skills.fullStack,
+    hasMerchantReturnPolicy: hasMerchantReturnPolicy,
+    shippingDetails: shippingDetails
   }
 }
 
@@ -85,6 +87,8 @@ const openedxItemOffer = (name, description = '') => {
       description: description,
     },
     url: urlOpenedX,
+    hasMerchantReturnPolicy: hasMerchantReturnPolicy,
+    shippingDetails: shippingDetails
   }
 }
 
@@ -121,6 +125,8 @@ export const gsdServiceOpenedX = (recommendations) => {
       name: 'Open edX Platform',
       sku: 'openedx',
       '@id': 'https://en.wikipedia.org/wiki/EdX#Open_edX_Platform',
+      shippingDetails: shippingDetails,
+      hasMerchantReturnPolicy: hasMerchantReturnPolicy,
       description:
         'Open edX platform is the open-source platform software developed by edX and made freely available to other institutions of higher learning that want to make similar offerings. On June 1, 2013, edX open sourced its entire platform.[20] The source code can be found on GitHub.',
       image: {
@@ -132,6 +138,7 @@ export const gsdServiceOpenedX = (recommendations) => {
           'https://cdn.lawrencemcdaniel.com/wp-content/uploads/2020/05/28144740/open-edx-logo-with-reg.png',
       },
       brand: {
+        'name': 'Open edX',
         '@id': 'https://open.edx.org/',
       },
       review: reviews,
