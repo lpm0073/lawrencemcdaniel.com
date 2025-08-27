@@ -68,7 +68,7 @@ const fullstackItemOffer = (name, description = '') => {
     },
     url: APP_CONFIG.urls.site + '/' + APP_CONFIG.skills.fullStack,
     hasMerchantReturnPolicy: hasMerchantReturnPolicy,
-    shippingDetails: shippingDetails
+    shippingDetails: shippingDetails,
   }
 }
 
@@ -89,7 +89,7 @@ const itemOffer = (name, description = '') => {
     },
     url: APP_CONFIG.urls.site + '/' + slug,
     hasMerchantReturnPolicy: hasMerchantReturnPolicy,
-    shippingDetails: shippingDetails
+    shippingDetails: shippingDetails,
   }
 }
 

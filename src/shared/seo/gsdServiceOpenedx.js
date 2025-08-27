@@ -67,7 +67,7 @@ const fullstackItemOffer = (name, description = '') => {
     },
     url: APP_CONFIG.urls.site + '/' + APP_CONFIG.skills.fullStack,
     hasMerchantReturnPolicy: hasMerchantReturnPolicy,
-    shippingDetails: shippingDetails
+    shippingDetails: shippingDetails,
   }
 }
 
@@ -88,7 +88,7 @@ const openedxItemOffer = (name, description = '') => {
     },
     url: urlOpenedX,
     hasMerchantReturnPolicy: hasMerchantReturnPolicy,
-    shippingDetails: shippingDetails
+    shippingDetails: shippingDetails,
   }
 }
 
@@ -138,7 +138,7 @@ export const gsdServiceOpenedX = (recommendations) => {
           'https://cdn.lawrencemcdaniel.com/wp-content/uploads/2020/05/28144740/open-edx-logo-with-reg.png',
       },
       brand: {
-        'name': 'Open edX',
+        name: 'Open edX',
         '@id': 'https://open.edx.org/',
       },
       review: reviews,
