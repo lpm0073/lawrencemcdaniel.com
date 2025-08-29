@@ -74,7 +74,9 @@ export class Header extends Component {
                     as={NavLink}
                     to="/"
                     onClick={() => this.toggleNavItem('nav-link-home')}
-                    className={this.state.activeNavKey === 'nav-link-home' ? 'active' : ''}
+                    className={
+                      this.state.activeNavKey === 'nav-link-home' ? 'active' : ''
+                    }
                   >
                     Home
                   </Nav.Link>
@@ -83,7 +85,9 @@ export class Header extends Component {
                     as={NavLink}
                     to="/about"
                     onClick={() => this.toggleNavItem('nav-link-about')}
-                    className={this.state.activeNavKey === 'nav-link-about' ? 'active' : ''}
+                    className={
+                      this.state.activeNavKey === 'nav-link-about' ? 'active' : ''
+                    }
                   >
                     About
                   </Nav.Link>
@@ -92,7 +96,11 @@ export class Header extends Component {
                     as={NavLink}
                     to="/education"
                     onClick={() => this.toggleNavItem('nav-link-education')}
-                    className={this.state.activeNavKey === 'nav-link-education' ? 'active hide-medium' : 'hide-medium'}
+                    className={
+                      this.state.activeNavKey === 'nav-link-education'
+                        ? 'active hide-medium'
+                        : 'hide-medium'
+                    }
                   >
                     Education
                   </Nav.Link>
@@ -101,7 +109,11 @@ export class Header extends Component {
                     as={NavLink}
                     to="/consulting"
                     onClick={() => this.toggleNavItem('nav-link-consulting')}
-                    className={this.state.activeNavKey === 'nav-link-consulting' ? 'active hide-medium' : 'hide-medium'}
+                    className={
+                      this.state.activeNavKey === 'nav-link-consulting'
+                        ? 'active hide-medium'
+                        : 'hide-medium'
+                    }
                   >
                     Consulting
                   </Nav.Link>
@@ -110,7 +122,11 @@ export class Header extends Component {
                     as={NavLink}
                     to="/clients"
                     onClick={() => this.toggleNavItem('nav-link-clients')}
-                    className={this.state.activeNavKey === 'nav-link-clients' ? 'active hide-medium' : 'hide-medium'}
+                    className={
+                      this.state.activeNavKey === 'nav-link-clients'
+                        ? 'active hide-medium'
+                        : 'hide-medium'
+                    }
                   >
                     Clients
                   </Nav.Link>
@@ -186,7 +202,9 @@ export class Header extends Component {
                     as={NavLink}
                     to="/contact"
                     onClick={() => this.toggleNavItem('nav-link-contact')}
-                    className={this.state.activeNavKey === 'nav-link-contact' ? 'active' : ''}
+                    className={
+                      this.state.activeNavKey === 'nav-link-contact' ? 'active' : ''
+                    }
                   >
                     Contact
                   </Nav.Link>
