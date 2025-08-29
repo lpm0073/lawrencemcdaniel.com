@@ -17,11 +17,12 @@ const mapDispatchToProps = (dispatch) => ({
 })
 
 const ClientCard = (props) => {
-  var item_url = wpGetFeaturedImage(props.client, null)
-  const background_url = "url('" + item_url + "')"
+  const client_logo = wpGetFeaturedImage(props.client, null)
+  const background_url = "url('" + client_logo + "')"
   const item_style = {
     backgroundImage: background_url,
   }
+  const client_url = props.client.acf.url
 
   return (
     <article
@@ -35,7 +36,21 @@ const ClientCard = (props) => {
             <div className="client-image" style={item_style} />
           </Animate>
         ) : (
-          <div className="client-image" style={item_style} />
+          <React.Fragment>
+            {client_url ? (
+              <a
+                href={client_url}
+                target="_blank"
+                rel="noopener noreferrer"
+                aria-label={props.client?.title?.rendered + ' Website'}
+                title={props.client?.title?.rendered}
+              >
+                <div className="client-image" style={item_style} />
+              </a>
+            ) : (
+              <div className="client-image" style={item_style} />
+            )}
+          </React.Fragment>
         )}
       </div>
     </article>

@@ -17,42 +17,27 @@ const addProjectImages = (images) => ({
   payload: images,
 })
 
-export const fetchProjectImages = () => (dispatch) => {
+export const fetchProjectImages = () => async (dispatch) => {
   dispatch(projectImagesLoading(true))
 
-  caches.open(APP_CONFIG.caching.names.api).then((cache) => {
-    cache.match(APP_CONFIG.apis.projects).then((cachedResponse) => {
-      if (cachedResponse) {
-        cachedResponse.json().then((images) => {
-          dispatch(addProjectImages(images))
-          imagePreFetcher(images, 10, 'Projects')
-        })
-      } else {
-        fetch(APP_CONFIG.apis.projects)
-          .then(
-            (response) => {
-              if (response.ok) {
-                console.debug('fetched project images')
-                cache.put(APP_CONFIG.apis.projects, response.clone())
-                return response
-              } else {
-                var error = new Error(
-                  'Error ' + response.status + ': ' + response.statusText
-                )
-                error.response = response
-                throw error
-              }
-            },
-            (error) => {
-              var errmess = new Error(error.message)
-              throw errmess
-            }
-          )
-          .then((response) => response.json())
-          .then((images) => dispatch(addProjectImages(images)))
-          .then((images) => imagePreFetcher(images.payload, 10, 'Projects'))
-          .catch((error) => dispatch(projectImagesFailed(error.message)))
-      }
-    })
-  })
+  try {
+    const cache = await caches.open(APP_CONFIG.caching.names.api)
+    const cachedResponse = await cache.match(APP_CONFIG.apis.projects)
+
+    let images
+    if (cachedResponse) {
+      images = await cachedResponse.json()
+    } else {
+      const response = await fetch(APP_CONFIG.apis.projects)
+      if (!response.ok)
+        throw new Error(`Error ${response.status}: ${response.statusText}`)
+      await cache.put(APP_CONFIG.apis.projects, response.clone())
+      images = await response.json()
+    }
+
+    dispatch(addProjectImages(images))
+    imagePreFetcher(images, 10, 'Projects')
+  } catch (error) {
+    dispatch(projectImagesFailed(error.message))
+  }
 }

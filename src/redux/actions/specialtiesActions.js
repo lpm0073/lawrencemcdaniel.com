@@ -18,84 +18,45 @@ const addSpecialties = (specialties) => ({
   payload: specialties,
 })
 
-export const fetchSpecialties = () => (dispatch) => {
+export const fetchSpecialties = () => async (dispatch) => {
   dispatch(specialtiesLoading(true))
 
-  caches.open(APP_CONFIG.caching.names.api).then((cache) => {
-    cache.match(APP_CONFIG.apis.specialties).then((cachedResponse) => {
-      if (cachedResponse) {
-        cachedResponse
-          .json()
-          .then(async (specialties) => {
-            const tags = await fetchPostTags()
-            specialties = specialties.map((specialty) => ({
-              ...specialty,
-              skills: Array.isArray(specialty.tags)
-                ? specialty.tags.map((id) => {
-                    const tag = tags.find((tag) => tag.id === id)
-                    return tag ? tag.name : null
-                  })
-                : [],
-            }))
-            return specialties
+  try {
+    const cache = await caches.open(APP_CONFIG.caching.names.api)
+    const cachedResponse = await cache.match(APP_CONFIG.apis.specialties)
+
+    let specialties
+    if (cachedResponse) {
+      specialties = await cachedResponse.json()
+    } else {
+      const response = await fetch(APP_CONFIG.apis.specialties)
+      if (!response.ok)
+        throw new Error(`Error ${response.status}: ${response.statusText}`)
+      await cache.put(APP_CONFIG.apis.specialties, response.clone())
+      specialties = await response.json()
+    }
+
+    const tags = await fetchPostTags()
+    specialties = specialties.map((specialty) => ({
+      ...specialty,
+      skills: Array.isArray(specialty.tags)
+        ? specialty.tags.map((id) => {
+            const tag = tags.find((tag) => tag.id === id)
+            return tag ? tag.name : null
           })
-          .then((specialties) => {
-            dispatch(addSpecialties(specialties))
-            imagePreFetcher(specialties, 0, 'Specialities')
-            imagePreFetcher(
-              [
-                'https://cdn.lawrencemcdaniel.com/wp-content/uploads/2020/06/05201305/Lawrence21.jpg',
-              ],
-              5,
-              'Site Static'
-            )
-          })
-      } else {
-        fetch(APP_CONFIG.apis.specialties)
-          .then(
-            (response) => {
-              if (!response.ok) {
-                var error = new Error(
-                  'Error ' + response.status + ': ' + response.statusText
-                )
-                error.response = response
-                throw error
-              }
-              console.debug('fetched specialties')
-              cache.put(APP_CONFIG.apis.specialties, response.clone())
-              return response.json()
-            },
-            (error) => {
-              var errmess = new Error(error.message)
-              throw errmess
-            }
-          )
-          .then(async (specialties) => {
-            const tags = await fetchPostTags()
-            specialties = specialties.map((specialty) => ({
-              ...specialty,
-              skills: Array.isArray(specialty.tags)
-                ? specialty.tags.map((id) => {
-                    const tag = tags.find((tag) => tag.id === id)
-                    return tag ? tag.name : null
-                  })
-                : [],
-            }))
-            return specialties
-          })
-          .then((specialties) => {
-            dispatch(addSpecialties(specialties))
-            imagePreFetcher(specialties, 0, 'Specialities')
-            imagePreFetcher(
-              [
-                'https://cdn.lawrencemcdaniel.com/wp-content/uploads/2020/06/05201305/Lawrence21.jpg',
-              ],
-              5,
-              'Site Static'
-            )
-          })
-          .catch((error) => dispatch(specialtiesFailed(error.message)))
-      }
-    })
-  })
+        : [],
+    }))
+
+    dispatch(addSpecialties(specialties))
+    imagePreFetcher(specialties, 0, 'Specialities')
+    imagePreFetcher(
+      [
+        'https://cdn.lawrencemcdaniel.com/wp-content/uploads/2020/06/05201305/Lawrence21.jpg',
+      ],
+      5,
+      'Site Static'
+    )
+  } catch (error) {
+    dispatch(specialtiesFailed(error.message))
+  }
 }

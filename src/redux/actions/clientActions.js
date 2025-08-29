@@ -23,58 +23,41 @@ export const setClientGrid = () => {
   }
 }
 
-export const fetchClients = () => (dispatch) => {
+export const fetchClients = () => async (dispatch) => {
   dispatch(clientsLoading(true))
 
-  caches.open(APP_CONFIG.caching.names.api).then((cache) => {
-    cache.match(APP_CONFIG.apis.clients).then((cachedResponse) => {
-      if (cachedResponse) {
-        cachedResponse.json().then((clients) => {
-          dispatch(addClients(clients))
-          imagePreFetcher(clients, 15, 'Clients')
-          imagePreFetcher(
-            [
-              'https://cdn.lawrencemcdaniel.com/wp-content/uploads/2020/06/05201857/Lawrence6.jpg',
-            ],
-            5,
-            'Site Static'
-          )
-        })
-      } else {
-        fetch(APP_CONFIG.apis.clients)
-          .then(
-            (response) => {
-              if (response.ok) {
-                console.debug('fetched clients')
-                cache.put(APP_CONFIG.apis.clients, response.clone())
-                return response
-              } else {
-                var error = new Error(
-                  'Error ' + response.status + ': ' + response.statusText
-                )
-                error.response = response
-                throw error
-              }
-            },
-            (error) => {
-              var errmess = new Error(error.message)
-              throw errmess
-            }
-          )
-          .then((response) => response.json())
-          .then((clients) => dispatch(addClients(clients)))
-          .then((clients) => {
-            imagePreFetcher(clients.payload, 15, 'Clients')
-            imagePreFetcher(
-              [
-                'https://cdn.lawrencemcdaniel.com/wp-content/uploads/2020/06/05201857/Lawrence6.jpg',
-              ],
-              5,
-              'Site Static'
-            )
-          })
-          .catch((error) => dispatch(clientsFailed(error.message)))
-      }
-    })
-  })
+  try {
+    const cache = await caches.open(APP_CONFIG.caching.names.api)
+    const cachedResponse = await cache.match(APP_CONFIG.apis.clients)
+
+    if (cachedResponse) {
+      const clients = await cachedResponse.json()
+      dispatch(addClients(clients))
+      imagePreFetcher(clients, 15, 'Clients')
+      imagePreFetcher(
+        [
+          'https://cdn.lawrencemcdaniel.com/wp-content/uploads/2020/06/05201857/Lawrence6.jpg',
+        ],
+        5,
+        'Site Static'
+      )
+    } else {
+      const response = await fetch(APP_CONFIG.apis.clients)
+      if (!response.ok)
+        throw new Error(`Error ${response.status}: ${response.statusText}`)
+      await cache.put(APP_CONFIG.apis.clients, response.clone())
+      const clients = await response.json()
+      dispatch(addClients(clients))
+      imagePreFetcher(clients, 15, 'Clients')
+      imagePreFetcher(
+        [
+          'https://cdn.lawrencemcdaniel.com/wp-content/uploads/2020/06/05201857/Lawrence6.jpg',
+        ],
+        5,
+        'Site Static'
+      )
+    }
+  } catch (error) {
+    dispatch(clientsFailed(error.message))
+  }
 }

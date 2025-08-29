@@ -30,42 +30,26 @@ const addArticles = (articles) => {
   }
 }
 
-export const fetchArticles = () => (dispatch) => {
+export const fetchArticles = () => async (dispatch) => {
   dispatch(articlesLoading())
 
-  caches.open(APP_CONFIG.caching.names.api).then((cache) => {
-    cache.match(APP_CONFIG.apis.articles).then((cachedResponse) => {
-      if (cachedResponse) {
-        cachedResponse.json().then((articles) => {
-          dispatch(addArticles(articles))
-        })
-      } else {
-        fetch(APP_CONFIG.apis.articles)
-          .then(
-            (response) => {
-              if (response.ok) {
-                console.debug('fetched wordpress blog posts')
-                cache.put(APP_CONFIG.apis.articles, response.clone())
-                return response
-              } else {
-                var error = new Error(
-                  'Error ' + response.status + ': ' + response.statusText
-                )
-                error.response = response
-                throw error
-              }
-            },
-            (error) => {
-              var errmess = new Error(error.message)
-              throw errmess
-            }
-          )
-          .then((response) => response.json())
-          .then((articles) => {
-            dispatch(addArticles(articles))
-          })
-          .catch((error) => dispatch(articlesFailed(error.message)))
-      }
-    })
-  })
+  try {
+    const cache = await caches.open(APP_CONFIG.caching.names.api)
+    const cachedResponse = await cache.match(APP_CONFIG.apis.articles)
+
+    let articles
+    if (cachedResponse) {
+      articles = await cachedResponse.json()
+    } else {
+      const response = await fetch(APP_CONFIG.apis.articles)
+      if (!response.ok)
+        throw new Error(`Error ${response.status}: ${response.statusText}`)
+      await cache.put(APP_CONFIG.apis.articles, response.clone())
+      articles = await response.json()
+    }
+
+    dispatch(addArticles(articles))
+  } catch (error) {
+    dispatch(articlesFailed(error.message))
+  }
 }
