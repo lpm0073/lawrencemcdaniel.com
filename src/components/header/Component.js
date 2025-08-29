@@ -13,6 +13,7 @@ export class Header extends Component {
     this.state = {
       isNavOpen: false,
       isModalOpen: false,
+      activeNavKey: null,
     }
 
     this.toggleNav = this.toggleNav.bind(this)
@@ -34,11 +35,8 @@ export class Header extends Component {
     }
   }
 
-  toggleNavItem() {
-    // only want this to work on medium devices and smaller
-    // for the hamburger menu items.
-    //
-    // md = Medium ≥768px. Max container width 720px.
+  toggleNavItem(keyId) {
+    this.setState({ activeNavKey: keyId })
     const windowSize = this.getWindowDimensions()
     if (windowSize.width < 768) {
       this.setState({
@@ -71,38 +69,64 @@ export class Header extends Component {
               <Navbar.Toggle />
               <Navbar.Collapse>
                 <Nav className="me-auto">
-                  <Nav.Link as={NavLink} to="/" onClick={this.toggleNavItem}>
+                  <Nav.Link
+                    key="nav-link-home"
+                    as={NavLink}
+                    to="/"
+                    onClick={() => this.toggleNavItem('nav-link-home')}
+                    className={
+                      this.state.activeNavKey === 'nav-link-home' ? 'active' : ''
+                    }
+                  >
                     Home
                   </Nav.Link>
                   <Nav.Link
+                    key="nav-link-about"
                     as={NavLink}
                     to="/about"
-                    onClick={this.toggleNavItem}
-                    className=""
+                    onClick={() => this.toggleNavItem('nav-link-about')}
+                    className={
+                      this.state.activeNavKey === 'nav-link-about' ? 'active' : ''
+                    }
                   >
                     About
                   </Nav.Link>
                   <Nav.Link
+                    key="nav-link-education"
                     as={NavLink}
                     to="/education"
-                    onClick={this.toggleNavItem}
-                    className="hide-medium"
+                    onClick={() => this.toggleNavItem('nav-link-education')}
+                    className={
+                      this.state.activeNavKey === 'nav-link-education'
+                        ? 'active hide-medium'
+                        : 'hide-medium'
+                    }
                   >
                     Education
                   </Nav.Link>
                   <Nav.Link
+                    key="nav-link-consulting"
                     as={NavLink}
                     to="/consulting"
-                    onClick={this.toggleNavItem}
-                    className="hide-medium"
+                    onClick={() => this.toggleNavItem('nav-link-consulting')}
+                    className={
+                      this.state.activeNavKey === 'nav-link-consulting'
+                        ? 'active hide-medium'
+                        : 'hide-medium'
+                    }
                   >
                     Consulting
                   </Nav.Link>
                   <Nav.Link
+                    key="nav-link-clients"
                     as={NavLink}
                     to="/clients"
-                    onClick={this.toggleNavItem}
-                    className="hide-medium"
+                    onClick={() => this.toggleNavItem('nav-link-clients')}
+                    className={
+                      this.state.activeNavKey === 'nav-link-clients'
+                        ? 'active hide-medium'
+                        : 'hide-medium'
+                    }
                   >
                     Clients
                   </Nav.Link>
@@ -173,7 +197,15 @@ export class Header extends Component {
                       ReactJS
                     </NavDropdown.Item>
                   </NavDropdown>
-                  <Nav.Link as={NavLink} to="/contact" onClick={this.toggleNavItem}>
+                  <Nav.Link
+                    key="nav-link-contact"
+                    as={NavLink}
+                    to="/contact"
+                    onClick={() => this.toggleNavItem('nav-link-contact')}
+                    className={
+                      this.state.activeNavKey === 'nav-link-contact' ? 'active' : ''
+                    }
+                  >
                     Contact
                   </Nav.Link>
                 </Nav>
