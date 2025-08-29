@@ -17,9 +17,7 @@ function Course({ item_style, course_summary, institution, course_title }) {
         title={course_summary}
       ></div>
       <div style={{ marginTop: '-25px' }}>
-        <h5 className="fw-normal fs-6 text-center w-100 mt-2 text-dark">
-          {institution}
-        </h5>
+        <h5 className="fw-normal fs-6 text-center w-100 mt-2 text-dark">{institution}</h5>
         <h4 className="fw-normal fs-6 text-center w-100 d-flex align-items-center justify-content-center px-3 text-dark">
           {course_title}
         </h4>
@@ -33,7 +31,6 @@ Course.propTypes = {
   institution: PropTypes.string.isRequired,
   course_title: PropTypes.string.isRequired,
 }
-
 
 const mapStateToProps = (state) => ({
   ...state,
@@ -55,10 +52,8 @@ class CoursesGrid extends Component {
         ) : (
           <div className="row my-5 mx-0 py-5 px-0 text-center align-items-stretch">
             {this.props.education.courses.map((course, indx) => {
-              const institution =
-                course?.acf?.institution || 'Unknown Institution'
-              const course_title =
-                course?.acf?.course_title || 'Unknown Course Title'
+              const institution = course?.acf?.institution || 'Unknown Institution'
+              const course_title = course?.acf?.course_title || 'Unknown Course Title'
               const course_summary =
                 course?.acf?.course_summary || 'Unknown Course Summary'
               /*
@@ -89,12 +84,12 @@ class CoursesGrid extends Component {
                           rel="noopener noreferrer"
                           className="text-decoration-none text-reset"
                         >
-                        <Course
-                          item_style={item_style}
-                          course_summary={course_summary}
-                          institution={institution}
-                          course_title={course_title}
-                        />
+                          <Course
+                            item_style={item_style}
+                            course_summary={course_summary}
+                            institution={institution}
+                            course_title={course_title}
+                          />
                         </a>
                       ) : (
                         <Course
