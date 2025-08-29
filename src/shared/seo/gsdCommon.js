@@ -138,10 +138,29 @@ export const shippingDetails = {
   deliveryTime: {
     '@type': 'ShippingDeliveryTime',
     businessDays: 0,
+    transitTime: {
+      '@type': 'QuantitativeValue',
+      value: 1,
+      unitCode: 'DAY',
+    },
+    handlingTime: {
+      '@type': 'QuantitativeValue',
+      value: 1,
+      unitCode: 'DAY',
+    },
+    applicableCountry: 'US',
+  },
+  shippingDestination: {
+    '@type': 'Place',
+    address: {
+      '@type': 'PostalAddress',
+      addressLocality: 'US',
+    },
   },
 }
 
 export const hasMerchantReturnPolicy = {
   '@type': 'MerchantReturnPolicy',
-  returnPolicyCategory: 'NoReturns',
+  returnPolicyCategory: 'MerchantReturnNotPermitted',
+  applicableCountry: 'US',
 }
