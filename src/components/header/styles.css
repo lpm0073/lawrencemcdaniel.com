@@ -40,3 +40,14 @@
   width: 15px;
   margin-right: 5px;
 }
+
+.nav-link.active {
+  color: #f1f1f1 !important;
+}
+
+.nav-link:hover {
+  background-color: #f1f1f1 !important;
+  color: #333333 !important;
+  border-radius: 5px;
+
+}
