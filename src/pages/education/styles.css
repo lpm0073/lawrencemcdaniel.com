@@ -10,3 +10,8 @@
   background-repeat: no-repeat;
   background-color: #555;
 }
+
+
+.h-300 {
+  height: 300px !important;
+}

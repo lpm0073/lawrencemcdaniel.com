@@ -35,41 +35,21 @@ export const wpPrefetch = async (url) => {
     return
   }
 
-  // 3. Extract image URLs and prefetch/apiCache them
-  const imageCache = await caches.open(APP_CONFIG.caching.names.cdn)
-  const urls = []
-
+  // 3. Extract image URLs and deduplicate
+  const urlMap = new Map()
   for (const post of arr) {
     const imageUrl = wpGetFeaturedImage(post)
     if (imageUrl) {
-      urls.push({
+      const baseUrl = imageUrl.split('?__WB_REVISION__=')[0]
+      urlMap.set(baseUrl, {
         url: imageUrl,
         revision: post.modified,
       })
-
-      // Check if image is cached
-      const cachedImage = await imageCache.match(imageUrl)
-      if (!cachedImage) {
-        try {
-          const imageResponse = await fetch(imageUrl)
-          if (imageResponse.ok) {
-            imageCache.put(imageUrl, imageResponse.clone())
-          } else {
-            console.error(
-              'wpPrefetch() Image Error ' +
-                imageResponse.status +
-                ': ' +
-                imageResponse.statusText
-            )
-          }
-        } catch (error) {
-          console.error('wpPrefetch() Image Fetch error:', error)
-        }
-      }
     }
   }
 
-  // 4. Precache with Workbox (optional, if you want Workbox to manage these)
+  // 4. Precache with Workbox (deduplicated, no manual fetch/cache)
+  const urls = Array.from(urlMap.values())
   if (urls.length > 0) {
     precacheAndRoute(urls)
   }
