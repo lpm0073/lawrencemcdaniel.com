@@ -1,9 +1,16 @@
-## [1.5.2](https://github.com/lpm0073/lawrencemcdaniel.com/compare/v1.5.1...v1.5.2) (2025-08-26)
+## [1.5.3](https://github.com/lpm0073/lawrencemcdaniel.com/compare/v1.5.2...v1.5.3) (2025-08-27)
 
 
 ### Bug Fixes
 
-* add author name to reviews ([78995ad](https://github.com/lpm0073/lawrencemcdaniel.com/commit/78995adaa43c9a086bf776b607815be93844ec07))
+* google search structured data issues ([f3621d0](https://github.com/lpm0073/lawrencemcdaniel.com/commit/f3621d0599e17ec06591cf911bc0f9658afd206d))
+* google search structured data issues ([20ed2d5](https://github.com/lpm0073/lawrencemcdaniel.com/commit/20ed2d5048f14727e78dd95caa39018e95f5af0b))
+
+## [1.5.2](https://github.com/lpm0073/lawrencemcdaniel.com/compare/v1.5.1...v1.5.2) (2025-08-26)
+
+### Bug Fixes
+
+- add author name to reviews ([78995ad](https://github.com/lpm0073/lawrencemcdaniel.com/commit/78995adaa43c9a086bf776b607815be93844ec07))
 
 # Change Log
 
