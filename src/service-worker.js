@@ -71,7 +71,22 @@ clientsClaim()
 // Their URLs are injected into the manifest variable below.
 // This variable must be present somewhere in your service worker file,
 // even if you decide not to use precaching. See https://cra.link/PWA
-precacheAndRoute(self.__WB_MANIFEST)
+const allPrecacheEntries = [
+  ...self.__WB_MANIFEST,
+  // ...add any custom assets here if needed...
+];
+
+// Deduplicate by URL (ignoring ?__WB_REVISION__)
+const manifestMap = new Map();
+allPrecacheEntries.forEach(entry => {
+  const url = entry.url.split('?__WB_REVISION__=')[0];
+  manifestMap.set(url, entry); // Keeps the last revision for each URL
+});
+
+const dedupedManifest = Array.from(manifestMap.values());
+
+precacheAndRoute(dedupedManifest);
+
 
 // Set up App Shell-style routing, so that all navigation requests
 // are fulfilled with your index.html shell. Learn more at

@@ -5,16 +5,23 @@ import CoursesGrid from './coursesGrid'
 import { Helmet } from 'react-helmet'
 import { gsdPersonLawrenceMcDaniel } from '../../shared/seo/gsdPersonLawrence'
 import { hasOccupation } from '../../shared/seo/gsdPersonLawrence'
+import { gsdQualifications } from '../../shared/seo/gsdQualifications.js'
+
 import { gsdGraph } from '../../shared/seo/gsdGraph'
 import { APP_CONFIG } from '../../shared/constants'
 import './styles.css'
 
 const Education = (props) => {
   /* Google Structured Data */
-  const person = {
-    ...gsdPersonLawrenceMcDaniel,
-    ...{ hasOccupation: hasOccupation },
-  }
+  const person = !props.education.isLoading
+    ? {
+        ...gsdPersonLawrenceMcDaniel,
+        hasOccupation: {
+          ...hasOccupation,
+          qualifications: gsdQualifications(props.education.courses),
+        },
+      }
+    : null
   const slug = 'education'
   const webpageName = 'Education'
   const webpageDescription =
@@ -22,7 +29,7 @@ const Education = (props) => {
   const primaryImageUrl = ''
   const pageType = ''
   const relatedLink = ''
-  const graphExtraData = [person]
+  const graphExtraData = !props.education.isLoading ? [person] : []
 
   return (
     <React.Fragment>

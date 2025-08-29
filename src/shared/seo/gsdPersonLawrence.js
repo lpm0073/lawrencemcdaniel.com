@@ -5,7 +5,6 @@ import {
   lastReviewed,
   baseTitle,
 } from './gsdCommon.js'
-import { gsdQualifications } from './gsdQualifications.js'
 import { hourlyRate } from './gsdCommon.js'
 import { APP_CONFIG } from '../constants.js'
 
@@ -49,7 +48,6 @@ export const hasOccupation = {
       name: 'Mexico City',
     },
   ],
-  qualifications: gsdQualifications,
 }
 
 const subjectOf = (url) => {
