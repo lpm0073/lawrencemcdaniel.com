@@ -38,7 +38,13 @@ const ClientCard = (props) => {
         ) : (
           <React.Fragment>
             {client_url ? (
-              <a href={client_url} target="_blank" rel="noopener noreferrer" aria-label={props.client?.title?.rendered + ' Website'} title={props.client?.title?.rendered}>
+              <a
+                href={client_url}
+                target="_blank"
+                rel="noopener noreferrer"
+                aria-label={props.client?.title?.rendered + ' Website'}
+                title={props.client?.title?.rendered}
+              >
                 <div className="client-image" style={item_style} />
               </a>
             ) : (

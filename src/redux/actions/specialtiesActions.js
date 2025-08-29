@@ -30,7 +30,8 @@ export const fetchSpecialties = () => async (dispatch) => {
       specialties = await cachedResponse.json()
     } else {
       const response = await fetch(APP_CONFIG.apis.specialties)
-      if (!response.ok) throw new Error(`Error ${response.status}: ${response.statusText}`)
+      if (!response.ok)
+        throw new Error(`Error ${response.status}: ${response.statusText}`)
       await cache.put(APP_CONFIG.apis.specialties, response.clone())
       specialties = await response.json()
     }

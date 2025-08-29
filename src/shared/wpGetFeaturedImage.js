@@ -9,7 +9,8 @@ export const wpGetFeaturedImage = (post, imageSize = 'medium') => {
     // otherwise return the original image
     try {
       //image_url = post._embedded['wp:featuredmedia'][0].source_url
-      image_url = post._embedded['wp:featuredmedia'][0].media_details.sizes.medium.source_url
+      image_url =
+        post._embedded['wp:featuredmedia'][0].media_details.sizes.medium.source_url
     } catch (err) {
       try {
         image_url = post.source_url

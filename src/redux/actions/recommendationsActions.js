@@ -30,7 +30,8 @@ export const fetchRecommendations = () => async (dispatch) => {
       imagePreFetcher(recommendations, 10, 'Recommendations')
     } else {
       const response = await fetch(APP_CONFIG.apis.recommendations)
-      if (!response.ok) throw new Error(`Error ${response.status}: ${response.statusText}`)
+      if (!response.ok)
+        throw new Error(`Error ${response.status}: ${response.statusText}`)
       await cache.put(APP_CONFIG.apis.recommendations, response.clone())
       const recommendations = await response.json()
       dispatch(addRecommendations(recommendations))

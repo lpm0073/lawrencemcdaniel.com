@@ -42,7 +42,8 @@ export const fetchArticles = () => async (dispatch) => {
       articles = await cachedResponse.json()
     } else {
       const response = await fetch(APP_CONFIG.apis.articles)
-      if (!response.ok) throw new Error(`Error ${response.status}: ${response.statusText}`)
+      if (!response.ok)
+        throw new Error(`Error ${response.status}: ${response.statusText}`)
       await cache.put(APP_CONFIG.apis.articles, response.clone())
       articles = await response.json()
     }

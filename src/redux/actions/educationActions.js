@@ -30,7 +30,8 @@ export const fetchEducation = () => async (dispatch) => {
       imagePreFetcher(education, 10, 'Education') // Prefetch in background
     } else {
       const response = await fetch(APP_CONFIG.apis.education)
-      if (!response.ok) throw new Error(`Error ${response.status}: ${response.statusText}`)
+      if (!response.ok)
+        throw new Error(`Error ${response.status}: ${response.statusText}`)
       await cache.put(APP_CONFIG.apis.education, response.clone())
       const education = await response.json()
       dispatch(addEducation(education))
