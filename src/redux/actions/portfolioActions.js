@@ -17,44 +17,26 @@ const addPortfolio = (portfolio) => ({
   payload: portfolio,
 })
 
-export const fetchPortfolio = () => (dispatch) => {
+export const fetchPortfolio = () => async (dispatch) => {
   dispatch(portfolioLoading(true))
 
-  caches.open(APP_CONFIG.caching.names.api).then((cache) => {
-    cache.match(APP_CONFIG.apis.portfolio).then((cachedResponse) => {
-      if (cachedResponse) {
-        cachedResponse.json().then((portfolio) => {
-          dispatch(addPortfolio(portfolio))
-          imagePreFetcher(portfolio, 10, 'Portfolio')
-        })
-      } else {
-        fetch(APP_CONFIG.apis.portfolio)
-          .then(
-            (response) => {
-              if (response.ok) {
-                console.debug('fetched portfolio')
-                cache.put(APP_CONFIG.apis.portfolio, response.clone())
-                return response
-              } else {
-                var error = new Error(
-                  'Error ' + response.status + ': ' + response.statusText
-                )
-                error.response = response
-                throw error
-              }
-            },
-            (error) => {
-              var errmess = new Error(error.message)
-              throw errmess
-            }
-          )
-          .then((response) => response.json())
-          .then((portfolio) => {
-            dispatch(addPortfolio(portfolio))
-            imagePreFetcher(portfolio, 10, 'Portfolio')
-          })
-          .catch((error) => dispatch(portfolioFailed(error.message)))
-      }
-    })
-  })
+  try {
+    const cache = await caches.open(APP_CONFIG.caching.names.api)
+    const cachedResponse = await cache.match(APP_CONFIG.apis.portfolio)
+
+    let portfolio
+    if (cachedResponse) {
+      portfolio = await cachedResponse.json()
+    } else {
+      const response = await fetch(APP_CONFIG.apis.portfolio)
+      if (!response.ok) throw new Error(`Error ${response.status}: ${response.statusText}`)
+      await cache.put(APP_CONFIG.apis.portfolio, response.clone())
+      portfolio = await response.json()
+    }
+
+    dispatch(addPortfolio(portfolio))
+    imagePreFetcher(portfolio, 10, 'Portfolio')
+  } catch (error) {
+    dispatch(portfolioFailed(error.message))
+  }
 }

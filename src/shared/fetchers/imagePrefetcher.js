@@ -3,47 +3,21 @@ import { APP_CONFIG } from '../constants'
 
 /* eslint-disable no-unused-vars */
 export const imagePreFetcher = (arr, delay, desc) => {
-  setTimeout(
-    () => {
-      arr.forEach((post) => {
-        const url = wpGetFeaturedImage(post)
-        if (url) {
-          caches.open(APP_CONFIG.caching.names.cdn).then((cache) => {
-            cache.match(url).then((response) => {
-              if (response) {
-                response.blob().then((blob) => {
-                  const objectURL = URL.createObjectURL(blob)
-                  new Image().src = objectURL
-                })
-              } else {
-                fetch(url)
-                  .then((fetchResponse) => {
-                    if (fetchResponse.ok) {
-                      cache.put(url, fetchResponse.clone())
-                      return fetchResponse.blob()
-                    }
-                    console.error(
-                      `Image fetch failed: ${desc} - ${url}`,
-                      fetchResponse.statusText
-                    )
-                  })
-                  .then((blob) => {
-                    const objectURL = URL.createObjectURL(blob)
-                    new Image().src = objectURL
-                  })
-                  .catch((err) => {
-                    console.error(`Image fetch failed: ${desc} - ${url}`, err)
-                    // fallback: load directly (may trigger another fetch)
-                    new Image().src = url
-                  })
-              }
-            })
-          })
-        }
-      })
-    },
-    delay * 1000 * Math.random()
-  )
+  arr.forEach(async (post) => {
+    const url = wpGetFeaturedImage(post)
+    if (!url) return
 
-  return arr
+    try {
+      const cache = await caches.open(APP_CONFIG.caching.names.cdn)
+      const response = await cache.match(url)
+      if (!response) {
+        const fetchResponse = await fetch(url)
+        if (fetchResponse.ok) {
+          await cache.put(url, fetchResponse.clone())
+        }
+      }
+    } catch (err) {
+      console.error(`Image fetch failed: ${desc} - ${url}`, err)
+    }
+  })
 }

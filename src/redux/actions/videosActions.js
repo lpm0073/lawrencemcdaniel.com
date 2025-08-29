@@ -44,7 +44,7 @@ export const fetchVideos = () => (dispatch) => {
           .then(
             (response) => {
               if (response.ok) {
-                console.debug('fetched youtube videos')
+                console.log('fetched youtube videos')
                 cache.put(APP_CONFIG.apis.videos, response.clone())
                 return response
               } else {
