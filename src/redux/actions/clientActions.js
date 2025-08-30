@@ -38,6 +38,7 @@ export const fetchClients = () => async (dispatch) => {
       const response = await fetch(APP_CONFIG.apis.clients)
       if (!response.ok)
         throw new Error(`Error ${response.status}: ${response.statusText}`)
+      console.log('fetched and cached clients')
       await cache.put(APP_CONFIG.apis.clients, response.clone())
       const clients = await response.json()
       dispatch(addClients(clients))

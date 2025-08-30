@@ -32,6 +32,7 @@ export const fetchRecommendations = () => async (dispatch) => {
       const response = await fetch(APP_CONFIG.apis.recommendations)
       if (!response.ok)
         throw new Error(`Error ${response.status}: ${response.statusText}`)
+      console.log('fetched and cached recommendations')
       await cache.put(APP_CONFIG.apis.recommendations, response.clone())
       const recommendations = await response.json()
       dispatch(addRecommendations(recommendations))
