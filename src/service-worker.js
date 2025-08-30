@@ -121,6 +121,8 @@ self.addEventListener('message', (event) => {
 self.addEventListener('install', (event) => {
   self.skipWaiting()
 })
+
+// Cleanup old caches
 self.addEventListener('activate', (event) => {
   event.waitUntil(
     caches.keys().then(cacheNames => {
