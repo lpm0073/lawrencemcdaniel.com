@@ -37,7 +37,7 @@ export const fetchProjectImages = () => async (dispatch) => {
     }
 
     dispatch(addProjectImages(images))
-    imagePreFetcher(images, 10, 'Projects')
+    imagePreFetcher(images, 'Projects')
   } catch (error) {
     dispatch(projectImagesFailed(error.message))
   }

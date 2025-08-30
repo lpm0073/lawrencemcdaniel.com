@@ -1,7 +1,12 @@
 import { wpGetFeaturedImage } from '../wpGetFeaturedImage'
 import { APP_CONFIG } from '../constants'
 
-export const imagePreFetcher = (arr, delay, desc) => {
+/*
+ Pre-fetch images for a list of posts. If the image
+ exists in the cache then skip it. If not then
+ fetch it asynchronously and put in the cache.
+ */
+export const imagePreFetcher = (arr, desc) => {
   arr.forEach(async (post) => {
     const url = wpGetFeaturedImage(post)
     if (!url) return

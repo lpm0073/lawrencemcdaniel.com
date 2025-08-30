@@ -21,7 +21,6 @@ import { StaleWhileRevalidate } from 'workbox-strategies'
 //-----------------------------------------------
 
 import { APP_CONFIG } from './shared/constants'
-import { wpPrefetch } from './shared/fetchers/wpPrefetch'
 
 
 function isImageFile(url) {
@@ -195,13 +194,6 @@ async function initializeServiceWorker() {
     })
   )
 
-  // CDN IMAGE PRECACHING using our own internal precacher
-  wpPrefetch(APP_CONFIG.apis.specialties) // do me first!!!
-  wpPrefetch(APP_CONFIG.apis.clients)
-  wpPrefetch(APP_CONFIG.apis.education)
-  wpPrefetch(APP_CONFIG.apis.portfolio)
-  wpPrefetch(APP_CONFIG.apis.projects)
-  wpPrefetch(APP_CONFIG.apis.recommendations)
 }
 
 initializeServiceWorker()
