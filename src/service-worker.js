@@ -155,23 +155,11 @@ self.addEventListener('activate', (event) => {
 
 /*
   --------------------------------------------------------------------------------
-  McDaniel Oct-2021
+  McDaniel Aug-2025
   Custom caching behavior.
   --------------------------------------------------------------------------------
 */
 async function initializeServiceWorker() {
-
-  // Now register routes with the correct cache version
-
-  // Cache the app manifest
-  // https://lawrencemcdaniel.com/manifest.json
-  registerRoute(
-    ({ url }) => url.href === `${APP_CONFIG.urls.site}/manifest.json`,
-    new StaleWhileRevalidate({
-      cacheName: APP_CONFIG.caching.names.app,
-      plugins: [app_cache_expiration],
-    })
-  )
 
   // Cache api responses with a stale-while-revalidate strategy
   // example: https://api.lawrencemcdaniel.com/wp-json/wp/v2/posts?categories=43&_embed&per_page=100
@@ -183,28 +171,6 @@ async function initializeServiceWorker() {
     })
   )
 
-  // Cache publicly served site assets
-  // example: https://lawrencemcdaniel.com/assets/images/aws-logo.png
-  registerRoute(
-    ({ url }) =>
-      url.origin === APP_CONFIG.urls.site &&
-      url.pathname.startsWith('/assets/'),
-    new CacheFirst({
-      cacheName: APP_CONFIG.caching.names.app,
-      plugins: [app_cache_expiration],
-    })
-  )
-  // Cache publicly served site assets
-  // example: https://lawrencemcdaniel.com/static/js/main.31a46224.js
-  registerRoute(
-    ({ url }) =>
-      url.origin === APP_CONFIG.urls.site &&
-      url.pathname.startsWith('/static/'),
-    new CacheFirst({
-      cacheName: APP_CONFIG.caching.names.app,
-      plugins: [app_cache_expiration],
-    })
-  )
 
   // Cache cdn content with a CacheFirst strategy
   // example: https://cdn.lawrencemcdaniel.com/wp-content/uploads/2025/08/14160105/bandit-logo-1024x231.png
@@ -216,15 +182,6 @@ async function initializeServiceWorker() {
         new CacheableResponsePlugin({ statuses: [0, 200] }),
         image_cache_expiration,
       ],
-    })
-  )
-
-  // Images that are statically served from the React build itself.
-  registerRoute(
-    ({ url }) => url.origin === self.location.origin && isImageFile(url),
-    new StaleWhileRevalidate({
-      cacheName: APP_CONFIG.caching.names.staticImages,
-      plugins: [image_cache_expiration],
     })
   )
 
