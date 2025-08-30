@@ -49,7 +49,7 @@ export const fetchSpecialties = () => async (dispatch) => {
     }))
 
     dispatch(addSpecialties(specialties))
-    imagePreFetcher(specialties, 0, 'Specialities')
+    imagePreFetcher(specialties, 'Specialities')
   } catch (error) {
     dispatch(specialtiesFailed(error.message))
   }

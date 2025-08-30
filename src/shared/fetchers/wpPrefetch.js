@@ -32,10 +32,17 @@ function extractImageUrls(posts) {
   return Array.from(urlMap.values())
 }
 
+/*
+ Prefetches all 'featured images' for posts originating from a specific
+ Wordpress API endpoint. Note that Wordpress itself uses server-side
+ caching with indefinite expiration, which can affect trouble shooting exercises.
+
+ example url: /wp-json/wp/v2/posts?categories=46&_embed&per_page=100
+ */
 export const wpPrefetch = async (url) => {
   // 1. Check API response apiCache
   let response
-  const apiCache = await caches.open(APP_CONFIG.caching.names.api)
+  const apiCache = await caches.open(APP_CONFIG.caching.names.api) // a 1-hour cache
   response = await apiCache.match(url)
 
   if (!response) {
@@ -61,6 +68,6 @@ export const wpPrefetch = async (url) => {
 
   // 4. Precache with imagePrefetcher
   if (imageUrls.length > 0) {
-    imagePreFetcher(imageUrls, 100, 'wpPrefetch')
+    imagePreFetcher(imageUrls, 'wpPrefetch')
   }
 }

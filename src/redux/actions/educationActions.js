@@ -27,7 +27,7 @@ export const fetchEducation = () => async (dispatch) => {
     if (cachedResponse) {
       const education = await cachedResponse.json()
       dispatch(addEducation(education))
-      imagePreFetcher(education, 10, 'Education') // Prefetch in background
+      imagePreFetcher(education, 'Education') // Prefetch in background
     } else {
       const response = await fetch(APP_CONFIG.apis.education)
       if (!response.ok)
@@ -36,7 +36,7 @@ export const fetchEducation = () => async (dispatch) => {
       await cache.put(APP_CONFIG.apis.education, response.clone())
       const education = await response.json()
       dispatch(addEducation(education))
-      imagePreFetcher(education, 10, 'Education') // Prefetch in background
+      imagePreFetcher(education, 'Education') // Prefetch in background
     }
   } catch (error) {
     dispatch(educationFailed(error.message))

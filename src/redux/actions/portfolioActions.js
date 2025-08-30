@@ -37,7 +37,7 @@ export const fetchPortfolio = () => async (dispatch) => {
     }
 
     dispatch(addPortfolio(portfolio))
-    imagePreFetcher(portfolio, 10, 'Portfolio')
+    imagePreFetcher(portfolio, 'Portfolio')
   } catch (error) {
     dispatch(portfolioFailed(error.message))
   }

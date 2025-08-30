@@ -27,7 +27,7 @@ export const fetchRecommendations = () => async (dispatch) => {
     if (cachedResponse) {
       const recommendations = await cachedResponse.json()
       dispatch(addRecommendations(recommendations))
-      imagePreFetcher(recommendations, 10, 'Recommendations')
+      imagePreFetcher(recommendations, 'Recommendations')
     } else {
       const response = await fetch(APP_CONFIG.apis.recommendations)
       if (!response.ok)
@@ -36,7 +36,7 @@ export const fetchRecommendations = () => async (dispatch) => {
       await cache.put(APP_CONFIG.apis.recommendations, response.clone())
       const recommendations = await response.json()
       dispatch(addRecommendations(recommendations))
-      imagePreFetcher(recommendations, 10, 'Recommendations')
+      imagePreFetcher(recommendations, 'Recommendations')
     }
   } catch (error) {
     dispatch(recommendationsFailed(error.message))
