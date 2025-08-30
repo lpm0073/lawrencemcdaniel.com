@@ -32,6 +32,7 @@ export const fetchEducation = () => async (dispatch) => {
       const response = await fetch(APP_CONFIG.apis.education)
       if (!response.ok)
         throw new Error(`Error ${response.status}: ${response.statusText}`)
+      console.log('fetched and cached education')
       await cache.put(APP_CONFIG.apis.education, response.clone())
       const education = await response.json()
       dispatch(addEducation(education))

@@ -44,6 +44,7 @@ export const fetchArticles = () => async (dispatch) => {
       const response = await fetch(APP_CONFIG.apis.articles)
       if (!response.ok)
         throw new Error(`Error ${response.status}: ${response.statusText}`)
+      console.log('fetched and cached articles')
       await cache.put(APP_CONFIG.apis.articles, response.clone())
       articles = await response.json()
     }

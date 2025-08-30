@@ -30,6 +30,7 @@ export const fetchRepositories = () => async (dispatch) => {
       const response = await fetch(APP_CONFIG.apis.repositories)
       if (!response.ok)
         throw new Error(`Error ${response.status}: ${response.statusText}`)
+      console.log('fetched and cached repositories')
       await cache.put(APP_CONFIG.apis.repositories, response.clone())
       const repositories = await response.json()
       dispatch(addRepositories(repositories))

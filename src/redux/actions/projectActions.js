@@ -31,6 +31,7 @@ export const fetchProjectImages = () => async (dispatch) => {
       const response = await fetch(APP_CONFIG.apis.projects)
       if (!response.ok)
         throw new Error(`Error ${response.status}: ${response.statusText}`)
+      console.log('fetched and cached project images')
       await cache.put(APP_CONFIG.apis.projects, response.clone())
       images = await response.json()
     }
