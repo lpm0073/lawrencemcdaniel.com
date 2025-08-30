@@ -34,13 +34,6 @@ export const fetchClients = () => async (dispatch) => {
       const clients = await cachedResponse.json()
       dispatch(addClients(clients))
       imagePreFetcher(clients, 15, 'Clients')
-      imagePreFetcher(
-        [
-          'https://cdn.lawrencemcdaniel.com/wp-content/uploads/2020/06/05201857/Lawrence6.jpg',
-        ],
-        5,
-        'Site Static'
-      )
     } else {
       const response = await fetch(APP_CONFIG.apis.clients)
       if (!response.ok)
@@ -49,13 +42,6 @@ export const fetchClients = () => async (dispatch) => {
       const clients = await response.json()
       dispatch(addClients(clients))
       imagePreFetcher(clients, 15, 'Clients')
-      imagePreFetcher(
-        [
-          'https://cdn.lawrencemcdaniel.com/wp-content/uploads/2020/06/05201857/Lawrence6.jpg',
-        ],
-        5,
-        'Site Static'
-      )
     }
   } catch (error) {
     dispatch(clientsFailed(error.message))
