@@ -2,42 +2,24 @@ import { wpGetFeaturedImage } from '../wpGetFeaturedImage'
 import { APP_CONFIG } from '../constants'
 import { imagePreFetcher } from './imagePrefetcher'
 
-export const wpPrefetch = async (url) => {
-  let response
-
-  // 1. Check API response apiCache
-  const apiCache = await caches.open(APP_CONFIG.caching.names.api)
-  response = await apiCache.match(url)
-
-  if (!response) {
-    try {
-      response = await fetch(url)
-      if (response.ok) {
-        apiCache.put(url, response.clone())
-      } else {
-        console.error(
-          'wpPrefetch() API Error ' + response.status + ': ' + response.statusText
-        )
-        return
-      }
-    } catch (error) {
-      console.error('wpPrefetch() API Fetch error:', error)
-      return
-    }
-  }
-
-  // 2. Parse API response
-  let arr
+async function fetchAndCache(url, cache) {
   try {
-    arr = await response.json()
+    const response = await fetch(url)
+    if (!response.ok) {
+      console.error(`wpPrefetch() API Error ${response.status}: ${response.statusText}`)
+      return null
+    }
+    await cache.put(url, response.clone())
+    return response
   } catch (error) {
-    console.error('wpPrefetch() JSON parse error:', error)
-    return
+    console.error('wpPrefetch() API Fetch error:', error)
+    return null
   }
+}
 
-  // 3. Extract image URLs and deduplicate
+function extractImageUrls(posts) {
   const urlMap = new Map()
-  for (const post of arr) {
+  for (const post of posts) {
     const imageUrl = wpGetFeaturedImage(post)
     if (imageUrl) {
       const baseUrl = imageUrl.split('?__WB_REVISION__=')[0]
@@ -47,10 +29,38 @@ export const wpPrefetch = async (url) => {
       })
     }
   }
+  return Array.from(urlMap.values())
+}
+
+export const wpPrefetch = async (url) => {
+  // 1. Check API response apiCache
+  let response
+  const apiCache = await caches.open(APP_CONFIG.caching.names.api)
+  response = await apiCache.match(url)
+
+  if (!response) {
+    response = await fetchAndCache(url, apiCache)
+    if (!response) return
+  }
+
+  // 2. Parse API response
+  let posts
+  try {
+    posts = await response.json()
+    if (!Array.isArray(posts)) {
+      console.error('wpPrefetch() Unexpected API response format:', posts)
+      return
+    }
+  } catch (error) {
+    console.error('wpPrefetch() JSON parse error:', error)
+    return
+  }
+
+  // 3. Extract image URLs and deduplicate
+  const imageUrls = extractImageUrls(posts)
 
   // 4. Precache with imagePrefetcher
-  const urls = Array.from(urlMap.values())
-  if (urls.length > 0) {
-    imagePreFetcher(urls, 100, 'wpPrefetch')
+  if (imageUrls.length > 0) {
+    imagePreFetcher(imageUrls, 100, 'wpPrefetch')
   }
 }
