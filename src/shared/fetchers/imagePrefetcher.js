@@ -17,7 +17,7 @@ export const imagePreFetcher = (arr, delay, desc) => {
         }
       }
     } catch (err) {
-      console.error(`Image fetch failed: ${desc} - ${url}`, err)
+      console.debug(`Image fetch failed: ${desc} - ${url}`, err)
     }
   })
 }

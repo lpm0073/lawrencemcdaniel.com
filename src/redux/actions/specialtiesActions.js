@@ -49,13 +49,6 @@ export const fetchSpecialties = () => async (dispatch) => {
 
     dispatch(addSpecialties(specialties))
     imagePreFetcher(specialties, 0, 'Specialities')
-    imagePreFetcher(
-      [
-        'https://cdn.lawrencemcdaniel.com/wp-content/uploads/2020/06/05201305/Lawrence21.jpg',
-      ],
-      5,
-      'Site Static'
-    )
   } catch (error) {
     dispatch(specialtiesFailed(error.message))
   }
