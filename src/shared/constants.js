@@ -41,10 +41,10 @@ export const APP_CONFIG = {
   },
   caching: {
     names: {
-      api: versioned_cached('api-responses'),
-      app: versioned_cached('manifest'),
-      cdn: versioned_cached('cdn-responses'), // TO DO: delete this. everything is routing to workbox-precache-v2 via service-worker.js setup.
-      staticImages: versioned_cached('static-images'),
+      api: versioned_cached('api'),
+      app: versioned_cached('app'),
+      cdn: versioned_cached('cdn'), // TO DO: delete this. everything is routing to workbox-precache-v2 via service-worker.js setup.
+      staticImages: versioned_cached('static'),
       workbox_precache: 'workbox-precache-v2',
     },
     expirations: {
@@ -79,6 +79,8 @@ export const APP_CONFIG = {
     blog: URL_BLOG,
     cdn: URL_CDN,
     resume: URL_CDN + '/doc/lawrence-mcdaniel-resume-202509.pdf',
+    assets: URL_SITE + '/assets/',
+    static: URL_SITE + '/static/',
     site: URL_SITE,
   },
 }
