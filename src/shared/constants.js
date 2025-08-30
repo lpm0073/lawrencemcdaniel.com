@@ -43,7 +43,7 @@ export const APP_CONFIG = {
     names: {
       api: versioned_cached('api-responses'),
       app: versioned_cached('manifest'),
-      cdn: versioned_cached('cdn-responses'),  // TO DO: delete this. everything is routing to workbox-precache-v2 via service-worker.js setup.
+      cdn: versioned_cached('cdn-responses'), // TO DO: delete this. everything is routing to workbox-precache-v2 via service-worker.js setup.
       staticImages: versioned_cached('static-images'),
       workbox_precache: 'workbox-precache-v2',
     },
