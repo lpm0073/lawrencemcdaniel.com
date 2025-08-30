@@ -1,4 +1,5 @@
 import React from 'react'
+import PropTypes from 'prop-types'
 
 import RenderPageTitle from '../../components/pagetitle/pageTitleComponent'
 import { LinkedinBadge } from '../../components/linkedinBadge/Component'
@@ -8,6 +9,8 @@ import { Helmet } from 'react-helmet'
 import { APP_CONFIG } from '../../shared/constants'
 import { gsdGraph } from '../../shared/seo/gsdGraph'
 import { gsdPersonLawrenceMcDaniel } from '../../shared/seo/gsdPersonLawrence'
+import { hasOccupation } from '../../shared/seo/gsdPersonLawrence'
+import { gsdQualifications } from '../../shared/seo/gsdQualifications.js'
 
 import './styles.css'
 
@@ -29,7 +32,17 @@ const Bio = (props) => {
   const primaryImageUrl = APP_CONFIG.static.images.default
   const pageType = ''
   const relatedLink = ''
-  const graphExtraData = [{ ...gsdPersonLawrenceMcDaniel }]
+  const person = !props.education.isLoading
+    ? {
+        ...gsdPersonLawrenceMcDaniel,
+        hasOccupation: {
+          ...hasOccupation,
+          qualifications: gsdQualifications(props.education.courses),
+        },
+      }
+    : null
+
+  const graphExtraData = !props.education.isLoading ? [person] : []
 
   return (
     <React.Fragment>
@@ -160,6 +173,16 @@ const Bio = (props) => {
       </main>
     </React.Fragment>
   )
+}
+
+Bio.propTypes = {
+  education: PropTypes.shape({
+    isLoading: PropTypes.bool.isRequired,
+    courses: PropTypes.array.isRequired,
+  }).isRequired,
+  actions: PropTypes.shape({
+    setBioPage: PropTypes.func.isRequired,
+  }).isRequired,
 }
 
 export default Bio
