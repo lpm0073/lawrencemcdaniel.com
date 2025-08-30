@@ -62,7 +62,8 @@ class CoursesGrid extends Component {
                 ? new Date(course_date).getFullYear()
                 : 'Unknown Year'
               */
-              const certificate_url = course?.acf?.certificate_url || course?.acf?.institution_url || null
+              const certificate_url =
+                course?.acf?.certificate_url || course?.acf?.institution_url || null
               const aria_label = course?.title?.rendered
 
               const item_url = wpGetFeaturedImage(course, null)
