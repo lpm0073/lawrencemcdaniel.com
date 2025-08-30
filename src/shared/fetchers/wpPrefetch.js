@@ -1,6 +1,6 @@
-import { precacheAndRoute } from 'workbox-precaching'
 import { wpGetFeaturedImage } from '../wpGetFeaturedImage'
 import { APP_CONFIG } from '../constants'
+import { imagePreFetcher } from './imagePrefetcher'
 
 export const wpPrefetch = async (url) => {
   let response
@@ -48,9 +48,9 @@ export const wpPrefetch = async (url) => {
     }
   }
 
-  // 4. Precache with Workbox (deduplicated, no manual fetch/cache)
+  // 4. Precache with imagePrefetcher
   const urls = Array.from(urlMap.values())
   if (urls.length > 0) {
-    precacheAndRoute(urls)
+    imagePreFetcher(urls, 100, 'wpPrefetch')
   }
 }

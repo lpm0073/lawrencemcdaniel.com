@@ -22,7 +22,7 @@ const ClientCard = (props) => {
   const item_style = {
     backgroundImage: background_url,
   }
-  const client_url = props.client.acf.url
+  const client_url = props.client?.acf?.url
 
   return (
     <article
