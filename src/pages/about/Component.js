@@ -11,6 +11,9 @@ import AboutTile from './tileComponent'
 import { Helmet } from 'react-helmet'
 import { gsdGraph } from '../../shared/seo/gsdGraph'
 import { gsdPersonLawrenceMcDaniel } from '../../shared/seo/gsdPersonLawrence'
+import { hasOccupation } from '../../shared/seo/gsdPersonLawrence'
+import { gsdQualifications } from '../../shared/seo/gsdQualifications.js'
+
 import { APP_CONFIG } from '../../shared/constants'
 
 import './styles.css'
@@ -38,7 +41,17 @@ class About extends Component {
     const primaryImageUrl = ''
     const pageType = 'AboutPage'
     const relatedLink = ''
-    const graphExtraData = [{ ...gsdPersonLawrenceMcDaniel }]
+    const person = !this.props.education.isLoading
+      ? {
+          ...gsdPersonLawrenceMcDaniel,
+          hasOccupation: {
+            ...hasOccupation,
+            qualifications: gsdQualifications(this.props.education.courses),
+          },
+        }
+      : null
+
+    const graphExtraData = !this.props.education.isLoading ? [person] : []
 
     return (
       <React.Fragment>
@@ -246,6 +259,10 @@ const RightColumn = () => {
 }
 
 About.propTypes = {
+  education: PropTypes.shape({
+    isLoading: PropTypes.bool.isRequired,
+    courses: PropTypes.array.isRequired,
+  }).isRequired,
   actions: PropTypes.shape({
     setAboutPage: PropTypes.func.isRequired,
   }).isRequired,

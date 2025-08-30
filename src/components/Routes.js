@@ -141,7 +141,7 @@ class SiteRoutes extends Component {
           <Route exact path="/qr" element={<QR />} />
           <Route exact path="/about" element={<About />} />
           <Route exact path="/image-tagging" element={<ImageTaggerPage />} />
-          <Route exact path="/bio" element={<Bio />} />
+          <Route exact path="/bio" element={<Bio education={this.props.education} />} />
           <Route exact path="/full-bio" element={<Navigate to="/bio" />} />
           <Route
             exact
