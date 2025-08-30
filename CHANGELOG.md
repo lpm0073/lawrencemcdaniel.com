@@ -1,9 +1,8 @@
 ## [1.5.4](https://github.com/lpm0073/lawrencemcdaniel.com/compare/v1.5.3...v1.5.4) (2025-08-30)
 
-
 ### Bug Fixes
 
-* eliminate duplicate image caching ([8772d66](https://github.com/lpm0073/lawrencemcdaniel.com/commit/8772d66b5b8caedb23d04376e610539a8b0d9942))
+- eliminate duplicate image caching ([8772d66](https://github.com/lpm0073/lawrencemcdaniel.com/commit/8772d66b5b8caedb23d04376e610539a8b0d9942))
 
 ## [1.5.3](https://github.com/lpm0073/lawrencemcdaniel.com/compare/v1.5.2...v1.5.3) (2025-08-27)
 
