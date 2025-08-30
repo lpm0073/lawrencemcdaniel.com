@@ -6,23 +6,22 @@ import { APP_CONFIG } from '../constants'
  exists in the cache then skip it. If not then
  fetch it asynchronously and put in the cache.
  */
-export const imagePreFetcher = (arr, desc) => {
-  arr.forEach(async (post) => {
+export const imagePreFetcher = async (arr, desc) => {
+  const cache = await caches.open(APP_CONFIG.caching.names.cdn)
+  for (const post of arr) {
     const url = wpGetFeaturedImage(post)
-    if (!url) return
+    if (!url) continue
 
     try {
-      const cache = await caches.open(APP_CONFIG.caching.names.cdn)
       const response = await cache.match(url)
       if (!response) {
         const fetchResponse = await fetch(url)
         if (fetchResponse.ok) {
-          let cache = await caches.open(APP_CONFIG.caching.names.cdn)
-          cache.put(url, fetchResponse.clone())
+          await cache.put(url, fetchResponse.clone())
         }
       }
     } catch (err) {
       console.error(`Image prefetch failed: ${desc} - ${url}`, err)
     }
-  })
+  }
 }
