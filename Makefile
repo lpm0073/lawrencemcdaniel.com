@@ -53,6 +53,7 @@ update:
 	aws cloudfront create-invalidation --distribution-id E2364TSMHRWAWL --paths "/data/"
 
 build: sitemap
+	make update
 	cp package.json public/package.json
 	yarn build
 
