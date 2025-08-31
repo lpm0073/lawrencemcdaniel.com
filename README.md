@@ -5,6 +5,7 @@ My personal web site. Of note:
 - React single page web app
 - Redux state management
 - Progressive web app architecture using workbox
+- Static asset precaching using service-worker.js
 - Logo cube on home page. see [LogoCube source](https://github.com/lpm0073/lawrencemcdaniel.com/tree/main/src/components/logocube) and my blog post on [Animations in React](https://blog.lawrencemcdaniel.com/animations-in-reactjs/)
 - Matrix Digital Rain Effect component. Gives you your favorite Matrix movie screen effect in the form of a React component. Implemented as an [npm package](https://www.npmjs.com/package/react-mdr).
 - Content component. An optimized content library sourced by Api's from GitHub, YouTube and Wordpress.

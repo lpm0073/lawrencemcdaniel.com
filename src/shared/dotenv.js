@@ -16,9 +16,15 @@ const __filename = fileURLToPath(import.meta.url)
 const __dirname = dirname(__filename)
 
 export function loadEnv(envPath = '../../.env') {
+  const fullPath = join(__dirname, envPath)
+  if (!existsSync(fullPath)) {
+    // Exit quietly if .env file does not exist
+    return
+  }
+
   try {
     // Read the .env file
-    const envFile = readFileSync(join(__dirname, envPath), 'utf8')
+    const envFile = readFileSync(fullPath, 'utf8')
 
     // Parse each line
     envFile.split('\n').forEach((line) => {
