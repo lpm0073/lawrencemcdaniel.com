@@ -21,7 +21,7 @@ export const imagePreFetcher = async (arr, desc) => {
         }
       }
     } catch (err) {
-      console.error(`Image prefetch failed: ${desc} - ${url}`, err)
+      console.error(`imagePreFetcher() failed: ${desc} - ${url}`, err)
     }
   }
 }
