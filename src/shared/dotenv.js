@@ -8,7 +8,7 @@ Usage:
     console.log("PAT found in .env.Using personal access token for GitHub API requests.");
   }
 */
-import { readFileSync } from 'fs'
+import { readFileSync, existsSync } from 'fs'
 import { fileURLToPath } from 'url'
 import { dirname, join } from 'path'
 
