@@ -1,3 +1,10 @@
+/**
+  Styles for the 3D logo cube component.
+
+  The cube, which is pure CSS and HTML, was scaffolded from a D3 example that I liked, created by Noah Veltman.
+  Noah's original cube: https://bl.ocks.org/veltman/4c989172ac2f820b0b7267c53cb96975
+
+ */
 :root {
   --width: 200px;
   --axis: 100px;

@@ -1,0 +1,15 @@
+/* TEAM */
+Developer: Lawrence McDaniel
+Designer: Lawrence McDaniel
+Content: Lawrence McDaniel
+
+/* SITE */
+Last update: 2025-08-31
+Standards: HTML5, CSS3, JavaScript
+Tools: VS Code, GitHub, ReactJS, Redux, Workbox
+
+/* THANKS */
+Special thanks to Noah Veltman for the original rotating cube design.
+
+/* CONTACT */
+Email: lpm0073@gmail.com
