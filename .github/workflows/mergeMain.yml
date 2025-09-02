@@ -68,7 +68,7 @@ jobs:
       - name: Create GitHub release
         if: env.NEW_RELEASE == 'true'
         id: create_release
-        uses: cycjimmy/semantic-release-action@v4
+        uses: cycjimmy/semantic-release-action@v5
         with:
           branches: main
           extra_plugins: |
