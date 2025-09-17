@@ -589,7 +589,7 @@ async function fetchGitHub() {
 
 loadEnv()
 if (process.env.PAT) {
-  console.log('GitHub Personal Access Token (PAT) found in .env')
+  console.log('GitHub Personal Access Token (PAT) found as environment variable')
 }
 
 async function fetchIndividualRepos() {

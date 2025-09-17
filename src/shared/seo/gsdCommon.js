@@ -140,22 +140,23 @@ export const shippingDetails = {
     businessDays: 0,
     transitTime: {
       '@type': 'QuantitativeValue',
+      minValue: 1,
+      maxValue: 1,
       value: 1,
       unitCode: 'DAY',
     },
     handlingTime: {
       '@type': 'QuantitativeValue',
+      minValue: 1,
+      maxValue: 1,
       value: 1,
       unitCode: 'DAY',
     },
     applicableCountry: 'US',
   },
   shippingDestination: {
-    '@type': 'Place',
-    address: {
-      '@type': 'PostalAddress',
-      addressLocality: 'US',
-    },
+    '@type': 'DefinedRegion',
+    addressCountry: 'US',
   },
 }
 

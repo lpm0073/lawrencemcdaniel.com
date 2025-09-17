@@ -138,6 +138,7 @@ export const gsdServiceOpenedX = (recommendations) => {
           'https://cdn.lawrencemcdaniel.com/wp-content/uploads/2020/05/28144740/open-edx-logo-with-reg.png',
       },
       brand: {
+        "@type": "Brand",
         name: 'Open edX',
         '@id': 'https://open.edx.org/',
       },

@@ -5,7 +5,7 @@ It reads the file, parses each line, and sets the environment variables accordin
 Usage:
   loadEnv();
   if (process.env.PAT) {
-    console.log("PAT found in .env.Using personal access token for GitHub API requests.");
+    console.log("PAT found as environment variable. Using personal access token for GitHub API requests.");
   }
 */
 import { readFileSync, existsSync } from 'fs'

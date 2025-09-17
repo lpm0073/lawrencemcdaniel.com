@@ -147,7 +147,7 @@ export async function fetchVideo(videoId) {
 
 loadEnv()
 if (process.env.YT) {
-  console.log('YouTube API Key found in .env')
+  console.log('YouTube API Key found as environment variable')
 }
 const YOUTUBE_API_KEY = process.env.YT
 

@@ -9,7 +9,10 @@ Standards: HTML5, CSS3, JavaScript
 Tools: VS Code, GitHub, ReactJS, Redux, Workbox
 
 /* THANKS */
-Special thanks to Noah Veltman for the original rotating cube design.
+Special thanks to Noah Veltman for the original
+rotating cube design, and to Adam Nagy for the
+original idea behind the Matrix Raining Letters
+effect on the 404 page.
 
 /* CONTACT */
 Email: lpm0073@gmail.com

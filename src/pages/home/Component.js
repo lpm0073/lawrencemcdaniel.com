@@ -82,7 +82,7 @@ class Home extends Component {
                 <h1 className="pt-2 mb-0 lawrence-mcdaniel">
                   <span className="pre-wrap">Lawrence McDaniel</span>
                 </h1>
-                <p className="digital-creator">digital creator</p>
+                <p className="digital-creator">data scientist</p>
               </section>
               <section className="col-lg-6 pt-5 col-md-12" aria-label="Logo Cube">
                 <LogoCube />

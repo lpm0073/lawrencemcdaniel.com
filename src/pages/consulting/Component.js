@@ -102,10 +102,6 @@ const Consulting = () => {
     <React.Fragment>
       <Helmet>
         <title>Advisory And Consulting</title>
-        <meta
-          name="description"
-          content="Lawrence McDaniel - Advisory and Consulting Services"
-        />
         <link rel="canonical" href={APP_CONFIG.urls.site + '/consulting'} />
         <meta
           name="description"
