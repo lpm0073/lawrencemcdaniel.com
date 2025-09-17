@@ -7,8 +7,13 @@ import {
 import { APP_CONFIG } from '../constants.js'
 
 export const defaultPageDescription = (webpageDescription) => {
-  if (webpageDescription !== '') return webpageDescription
-  return 'Data Scientist, Full Stack Web Developer, Open edX® Consultant, and digital content creator specializing in Python, ReactJS, Kubernetes, Terraform, AWS and Azure.'
+  if (webpageDescription && webpageDescription !== '') return webpageDescription
+  return 'Lawrence McDaniel - Data Scientist, Python Programmer, Open edX Consultant, online instructor and digital content creator.'
+}
+
+export const defaultKeywords = (keywords) => {
+  if (keywords && keywords !== '') return keywords
+  return 'lawrence mcdaniel, data science, Python, AI, machine learning, consulting, ci-cd, react, aws, azure, terraform, django'
 }
 
 const brandLogo = {

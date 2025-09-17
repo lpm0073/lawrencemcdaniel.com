@@ -24,8 +24,7 @@ const Education = (props) => {
     : null
   const slug = 'education'
   const webpageName = 'Education'
-  const webpageDescription =
-    'Lawrence McDaniel educational background and courses completed.'
+  const webpageDescription = null
   const primaryImageUrl = ''
   const pageType = ''
   const relatedLink = ''

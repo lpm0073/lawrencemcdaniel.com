@@ -8,8 +8,8 @@ import {
 import { hourlyRate } from './gsdCommon.js'
 import { APP_CONFIG } from '../constants.js'
 
-const aboutMe = `American data scientist, full stack developer, online instructor and digital
-content creator. I work with AWS and Azure cloud infrastructure and I code in Python,
+const aboutMe = `American data scientist, Python programmer, Open edX consultant,
+and online instructor at University of British Columbia. I work with AWS and Azure cloud infrastructure and I code in Python,
 React and Terraform. I also work with the Open edX® learning management system.
 I am a veteran of multiple startups and early-stage ventures with dozens of successful product
 launches in multiple industries and markets around the world. I advocate for open source,

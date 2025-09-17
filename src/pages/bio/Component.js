@@ -19,16 +19,14 @@ const Bio = (props) => {
   /* Google Structured Data */
   const slug = 'bio'
   const webpageName = 'Bio'
-  const webpageDescription = `Lawrence McDaniel is a data scientist, full-stack developer, and digital
-  content creator who has lived in Mexico City since 2000. Born in Houston, Texas, and raised in
+  const webpageDescription = `Lawrence McDaniel is a data scientist, Python programmer, and online
+  instructor at University of British Columbia who has lived in Mexico City since 2000. Born in Houston, Texas, and raised in
   northeast Texas, he graduated from Wills Point High School in 1985 and earned a BS in computer
   science and mathematics, with minors in physics and English, from the University of
   North Texas in 1991. Over his career, Lawrence was an early employee at three startups later
   acquired by Goldman Sachs, IBM, and Deutsche Bank, and he participated in a successful
   NASDAQ IPO. In 2004, he developed a profitable black-box trading system for one of the
-  world’s largest long-short hedge funds, retiring from the industry in 2005. Today, Lawrence
-  advises organizations on cloud computing, machine learning, and artificial intelligence,
-  and teaches remotely at the University of British Columbia.`
+  world’s largest long-short hedge funds, retiring from the industry in 2005.`
   const primaryImageUrl = APP_CONFIG.static.images.default
   const pageType = ''
   const relatedLink = ''

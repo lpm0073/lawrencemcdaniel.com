@@ -3,7 +3,7 @@ import { Helmet } from 'react-helmet'
 
 import { nameLawrenceMcDaniel, basePageTitle } from '../shared/seo/gsdCommon'
 import { APP_CONFIG } from '../shared/constants'
-import { defaultPageDescription } from '../shared/seo/gsdGraph'
+import { defaultPageDescription, defaultKeywords } from '../shared/seo/gsdGraph'
 
 /* eslint-disable no-unused-vars */
 export default function Head(props) {
@@ -11,21 +11,21 @@ export default function Head(props) {
     <React.Fragment>
       <Helmet>
         <title>{basePageTitle}</title>
-        <meta name="author" content={nameLawrenceMcDaniel} />
-        <link rel="canonical" href={APP_CONFIG.urls.site + '/'} />
-        <meta name="description" content={defaultPageDescription()} />
-        <meta
-          name="keywords"
-          content="Lawrence McDaniel, data scientist, open edx consultant, full stack developer, Cloud computing consultant, Python, ReactJS, Terraform, AWS, Azure, Kubernetes, digital content creator"
-        />
         <link rel="shortcut icon" href="/favicon.jpg" type="image/vnd.microsoft.icon" />
 
         <link rel="apple-touch-icon" href={APP_CONFIG.urls.site + '/logo192.png'} />
         <link rel="manifest" href="/manifest.json" />
 
+        {/* Generic meta tags */}
+        <meta charSet="utf-8" />
+        <meta name="author" content={nameLawrenceMcDaniel} />
+        <link rel="canonical" href={APP_CONFIG.urls.site + '/'} />
+        <meta name="description" content={defaultPageDescription()} />
+        <meta name="keywords" content={defaultKeywords()} />
+
         <meta
           name="viewport"
-          content="width=device-width, initial-scale=1, maximum-scale=1"
+          content="width=device-width, initial-scale=1, maximum-scale=1, shrink-to-fit=no"
         />
         <meta name="theme-color" content="#f1f1f1" />
 
@@ -56,15 +56,14 @@ export default function Head(props) {
         <meta name="apple-mobile-web-app-status-bar-style" content="black-translucent" />
         <meta name="apple-mobile-web-app-title" content={basePageTitle} />
 
-        {/* Microsoft Tiles */}
+        {/* Microsoft Tiles & Legacy browsers */}
         <meta name="msapplication-TileColor" content="#f1f1f1" />
         <meta name="msapplication-config" content="/browserconfig.xml" />
+        <meta httpEquiv="X-UA-Compatible" content="IE=edge" />
 
         {/* Facebook Open Graph Meta Tags */}
-        <meta
-          property="og:description"
-          content="Lawrence McDaniel is a data scientist, full stack developer, digital content creator, and Open edX® Consultant specializing in Python, ReactJS, Terraform, AWS, Azure, and Kubernetes."
-        />
+        <meta property="og:description" content={defaultPageDescription()} />
+        <meta property="og:locale" content="en_US" />
         <meta property="og:title" content={basePageTitle} />
         <meta property="og:image" content={APP_CONFIG.static.images.default} />
         <meta property="og:author" content={nameLawrenceMcDaniel} />
@@ -76,15 +75,16 @@ export default function Head(props) {
         <meta property="og:image:height" content="1848" />
 
         {/* Twitter Card Meta Tags */}
-        <meta name="twitter:card" content="summary_large_image" />
+        <meta name="twitter:creator" content="@LorenzoDPolanco" />
         <meta name="twitter:site" content="@LorenzoDPolanco" />
+        <meta name="twitter:card" content="summary_large_image" />
         <meta name="twitter:domain" content="lawrencemcdaniel.com" />
         <meta name="twitter:title" content={basePageTitle} />
         <meta
           name="twitter:image"
           content={APP_CONFIG.urls.cdn + '/lawrencemcdaniel-headshot-square.jpeg'}
         />
-        <meta name="twitter:description" content={basePageTitle} />
+        <meta name="twitter:description" content={defaultPageDescription()} />
         <meta name="twitter:image:alt" content="Lawrence McDaniel headshot" />
         <meta
           itemProp="image"

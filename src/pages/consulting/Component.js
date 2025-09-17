@@ -105,11 +105,7 @@ const Consulting = () => {
         <link rel="canonical" href={APP_CONFIG.urls.site + '/consulting'} />
         <meta
           name="description"
-          content="Consulting services and technical training in data science, AI/ML, Devops, and modern tech stack expertise."
-        />
-        <meta
-          name="keywords"
-          content="data science, AI, machine learning, consulting, devops, python, react, aws, azure, terraform, django, lawrence mcdaniel"
+          content="Consulting services and technical training in data science, Python, AI/ML, CI/CD, and cloud native technology."
         />
         <script type="application/ld+json">
           {JSON.stringify(
