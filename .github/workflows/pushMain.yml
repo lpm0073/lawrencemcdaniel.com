@@ -41,7 +41,7 @@ jobs:
           persist-credentials: false
 
       - name: Semantic Release
-        uses: cycjimmy/semantic-release-action@v4
+        uses: cycjimmy/semantic-release-action@v5
         id: semantic
         env:
           GIT_COMMITTER_NAME: github-actions[bot]
