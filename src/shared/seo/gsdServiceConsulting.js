@@ -119,6 +119,7 @@ export const gsdServiceConsulting = (recommendations) => {
       '@id': APP_CONFIG.urls.site + '/' + slug + '/#service-product',
       description:
         'I advise organizations on how to better leverage their existing data, and on migrating technology infrastructure to the cloud. And I’ll even do the work.',
+      image: APP_CONFIG.urls.site + '/assets/images/screenshot1.png',
       brand: {
         '@id': APP_CONFIG.urls.site,
       },
