@@ -208,10 +208,10 @@ const Openedx = (props) => {
               <hr />
               <h4>Production Installation & Configuration of Open edX®</h4>
               <p>
-                I have completed more than 50 production installations for clients
-                around the world. I publish technical articles that fully
-                describe all of my methods for preparing your Open edX® platform for
-                production use, including
+                I have completed more than 50 production installations for clients around
+                the world. I publish technical articles that fully describe all of my
+                methods for preparing your Open edX® platform for production use,
+                including
                 <BlankSpace />
                 <a
                   href="https://blog.lawrencemcdaniel.com/open-edx-complete-backup-solution/"
@@ -308,10 +308,10 @@ const Openedx = (props) => {
               </p>
               <h4>Administration & Devops</h4>
               <p>
-                I provide front-line support
-                for all versions of the Open edX® platform to clients around the world.
-                I also provide technical training to organizations' inhouse IT teams in
-                order to help them prepare for common production live support situations.
+                I provide front-line support for all versions of the Open edX® platform
+                to clients around the world. I also provide technical training to
+                organizations' inhouse IT teams in order to help them prepare for common
+                production live support situations.
               </p>
               <h4>Custom Programming</h4>
               <p>

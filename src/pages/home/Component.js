@@ -94,7 +94,7 @@ class Home extends Component {
                   idx="1"
                   target="_self"
                   href={'/' + APP_CONFIG.skills.fullStack}
-                  title="Full Stack Developer"
+                  title="Programmer"
                 />
                 <Consultant />
                 <JobTitle
