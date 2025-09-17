@@ -38,8 +38,7 @@ class Home extends Component {
     }
     const slug = ''
     const webpageName = basePageTitle
-    const webpageDescription =
-      'Data Scientist, Full Stack Developer, online instructor, and Open edX® Consultant specializing in Python, ReactJS, Kubernetes, Terraform, AWS, and Azure.'
+    const webpageDescription = null
     const primaryImageUrl = ''
     const pageType = ''
     const relatedLink = ''
@@ -49,10 +48,6 @@ class Home extends Component {
       <React.Fragment>
         <Helmet>
           <link rel="canonical" href={APP_CONFIG.urls.site} />
-          <meta
-            name="description"
-            content="Data scientist, full stack developer, online instructor, Open edX® consultant, amateur photographer"
-          />
           <script type="application/ld+json">
             {JSON.stringify(
               gsdGraph(

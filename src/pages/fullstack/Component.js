@@ -18,7 +18,7 @@ const Fullstack = (props) => {
   /* Google Structured Data */
   const slug = APP_CONFIG.skills.fullStack
   const webpageName = 'Full Stack Developer | Lawrence McDaniel'
-  const webpageDescription = 'Full Stack Developer.'
+  const webpageDescription = null
   const primaryImageUrl = ''
   const pageType = ''
   const relatedLink = ''
