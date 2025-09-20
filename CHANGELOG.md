@@ -1,9 +1,8 @@
 ## [1.5.5](https://github.com/lpm0073/lawrencemcdaniel.com/compare/v1.5.4...v1.5.5) (2025-09-17)
 
-
 ### Bug Fixes
 
-* head meta and SEO and Google Structure data ([3d95f26](https://github.com/lpm0073/lawrencemcdaniel.com/commit/3d95f269c2fb25abbb7decb87a18d4afc0f5b4ae))
+- head meta and SEO and Google Structure data ([3d95f26](https://github.com/lpm0073/lawrencemcdaniel.com/commit/3d95f269c2fb25abbb7decb87a18d4afc0f5b4ae))
 
 ## [1.5.4](https://github.com/lpm0073/lawrencemcdaniel.com/compare/v1.5.3...v1.5.4) (2025-08-30)
 

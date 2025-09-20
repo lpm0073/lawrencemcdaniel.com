@@ -106,7 +106,8 @@ class About extends Component {
                       rel="noopener noreferrer"
                     >
                       Smarter
-                    </a>, a declarative AI resource management & orchestration platform, and
+                    </a>
+                    , a declarative AI resource management & orchestration platform, and
                     <BlankSpace />
                     <a
                       href="https://github.com/fullStackWithLawrence/"
@@ -114,7 +115,9 @@ class About extends Component {
                       rel="noopener noreferrer"
                     >
                       Full Stack with Lawrence
-                    </a>, a collection of Python tutorials for data science and web. I’m an enthusiastic lifelong
+                    </a>
+                    , a collection of Python tutorials for data science and web. I’m an
+                    enthusiastic lifelong
                     <BlankSpace />
                     <a href="education">learner</a>, a<BlankSpace />
                     <a href="data-science">data scientist</a>, a{' '}
