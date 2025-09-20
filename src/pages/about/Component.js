@@ -98,17 +98,23 @@ class About extends Component {
                     <a href="/clients">clients</a>.
                   </p>
                   <p>
-                    I’m the principal architect of
+                    I’m the maintainer of several open source projects including
                     <BlankSpace />
                     <a
-                      href="https://smarter.sh"
+                      href="https://github.com/smarter-sh/"
                       target="_blank"
                       rel="noopener noreferrer"
                     >
-                      Smarter by Querium™
-                    </a>
+                      Smarter
+                    </a>, a declarative AI resource management & orchestration platform, and
                     <BlankSpace />
-                    , an AI resource orchestration platform. I’m an enthusiastic lifelong
+                    <a
+                      href="https://github.com/fullStackWithLawrence/"
+                      target="_blank"
+                      rel="noopener noreferrer"
+                    >
+                      Full Stack with Lawrence
+                    </a>, a collection of Python tutorials for data science and web. I’m an enthusiastic lifelong
                     <BlankSpace />
                     <a href="education">learner</a>, a<BlankSpace />
                     <a href="data-science">data scientist</a>, a{' '}
