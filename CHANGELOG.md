@@ -1,3 +1,11 @@
+## [1.5.6](https://github.com/lpm0073/lawrencemcdaniel.com/compare/v1.5.5...v1.5.6) (2025-10-06)
+
+
+### Bug Fixes
+
+* canonical indexing error from google search console ([7a61af2](https://github.com/lpm0073/lawrencemcdaniel.com/commit/7a61af2875581e4a8d0fb5ca2cf02b09e32e561c))
+* canonical indexing error from google search console ([bac4b16](https://github.com/lpm0073/lawrencemcdaniel.com/commit/bac4b16637284527e9a5749f2917b174974c1f46))
+
 ## [1.5.5](https://github.com/lpm0073/lawrencemcdaniel.com/compare/v1.5.4...v1.5.5) (2025-09-17)
 
 ### Bug Fixes
