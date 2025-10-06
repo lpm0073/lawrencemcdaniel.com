@@ -148,7 +148,6 @@ class App extends Component {
   }
 
   render() {
-
     // to fix Google Search Console warnings about
     // Alternate page with proper canonical tag
     const TrailingSlashRedirect = () => {
@@ -202,7 +201,7 @@ class App extends Component {
       <React.Fragment>
         <Head />
         <BrowserRouter>
-        <TrailingSlashRedirect />
+          <TrailingSlashRedirect />
           <div className={'container-fluid p-0 ' + this.state.customClass}>
             <Header />
             <AppUpdateAlerts parent={this} />
