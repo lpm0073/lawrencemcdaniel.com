@@ -6,8 +6,8 @@
  Note: "SW" = Service Worker.
 
  */
-import React, { Component } from 'react'
-import { BrowserRouter } from 'react-router-dom'
+import React, { Component, useEffect } from 'react'
+import { BrowserRouter, useLocation, useNavigate } from 'react-router-dom'
 import PropTypes from 'prop-types'
 
 import * as serviceWorkerRegistration from './serviceWorkerRegistration'
@@ -148,6 +148,25 @@ class App extends Component {
   }
 
   render() {
+    // to fix Google Search Console warnings about
+    // Alternate page with proper canonical tag
+    const TrailingSlashRedirect = () => {
+      const location = useLocation()
+      const navigate = useNavigate()
+
+      useEffect(() => {
+        const { pathname, search, hash } = location
+
+        // Remove trailing slash if it exists (except for root)
+        if (pathname !== '/' && pathname.endsWith('/')) {
+          const newPath = pathname.slice(0, -1)
+          navigate(`${newPath}${search}${hash}`, { replace: true })
+        }
+      }, [location, navigate])
+
+      return null
+    }
+
     if (APP_CONFIG.debug) console.log('App.render()')
 
     // service worker app update alerts.
@@ -182,6 +201,7 @@ class App extends Component {
       <React.Fragment>
         <Head />
         <BrowserRouter>
+          <TrailingSlashRedirect />
           <div className={'container-fluid p-0 ' + this.state.customClass}>
             <Header />
             <AppUpdateAlerts parent={this} />
