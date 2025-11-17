@@ -1,10 +1,15 @@
-## [1.5.6](https://github.com/lpm0073/lawrencemcdaniel.com/compare/v1.5.5...v1.5.6) (2025-10-06)
+# Change Log
 
+All notable changes to this project will be documented in this file.
+
+The format is based on [Keep a Changelog](http://keepachangelog.com/) and this project adheres to [Semantic Versioning](http://semver.org/).
+
+## [1.5.6](https://github.com/lpm0073/lawrencemcdaniel.com/compare/v1.5.5...v1.5.6) (2025-10-06)
 
 ### Bug Fixes
 
-* canonical indexing error from google search console ([7a61af2](https://github.com/lpm0073/lawrencemcdaniel.com/commit/7a61af2875581e4a8d0fb5ca2cf02b09e32e561c))
-* canonical indexing error from google search console ([bac4b16](https://github.com/lpm0073/lawrencemcdaniel.com/commit/bac4b16637284527e9a5749f2917b174974c1f46))
+- canonical indexing error from google search console ([7a61af2](https://github.com/lpm0073/lawrencemcdaniel.com/commit/7a61af2875581e4a8d0fb5ca2cf02b09e32e561c))
+- canonical indexing error from google search console ([bac4b16](https://github.com/lpm0073/lawrencemcdaniel.com/commit/bac4b16637284527e9a5749f2917b174974c1f46))
 
 ## [1.5.5](https://github.com/lpm0073/lawrencemcdaniel.com/compare/v1.5.4...v1.5.5) (2025-09-17)
 
@@ -30,12 +35,6 @@
 ### Bug Fixes
 
 - add author name to reviews ([78995ad](https://github.com/lpm0073/lawrencemcdaniel.com/commit/78995adaa43c9a086bf776b607815be93844ec07))
-
-# Change Log
-
-All notable changes to this project will be documented in this file.
-
-The format is based on [Keep a Changelog](http://keepachangelog.com/) and this project adheres to [Semantic Versioning](http://semver.org/).
 
 ## [1.5.1](https://github.com/lpm0073/lawrencemcdaniel.com/compare/v1.5.0...v1.5.1) (2025-08-15)
 

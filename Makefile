@@ -11,12 +11,9 @@ analyze:
 	cloc . --exclude-ext=svg,zip --fullpath --not-match-d=smarter/smarter/static/assets/ --vcs=git
 
 init:
-	rm -rf .git/hooks/pre-commit .git/hooks/pre-commit.legacy
-	yarn remove pre-commit
 	rm -rf node_modules yarn.lock
 	yarn cache clean
 	yarn install --force
-	pre-commit install
 
 lint:
 	npx prettier --write "src/**/*.{js,jsx,ts,tsx,json,css,scss,md}"
