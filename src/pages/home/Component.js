@@ -5,9 +5,13 @@ import { bindActionCreators } from 'redux'
 import { setHomePage } from '../../redux/actions/homeActions'
 
 import LogoCube from '../../components/logocube/Component'
+import Programmer from './Programmer'
+import DataScientist from './DataScientist'
 import Consultant from './Consultant'
 import Photographer from './Photographer'
 import OnlineInstructor from './Instructor'
+import Smarter from './Smarter'
+import FullStackWithLawrence from './FullStackWithLawrence'
 import JobTitle from './JobTitle'
 import { gsdGraph } from '../../shared/seo/gsdGraph'
 import { gsdPersonLawrenceMcDaniel } from '../../shared/seo/gsdPersonLawrence'
@@ -85,29 +89,21 @@ class Home extends Component {
             </div>
             <section id="job-titles" aria-label="Titles">
               <div className="row mt-0 mb-0 pt-0 pb-0 text-center justify-content-center hide-medium">
-                <JobTitle
-                  idx="1"
-                  target="_self"
-                  href={'/' + APP_CONFIG.skills.fullStack}
-                  title="Programmer"
-                />
+                <Programmer />
                 <Consultant />
-                <JobTitle
-                  idx="3"
-                  target="_self"
-                  href={'/' + APP_CONFIG.skills.dataScience}
-                  title="Data Scientist"
-                />
+                <DataScientist />
               </div>
               <div className="row mt-0 mb-0 pt-0 pb-0 text-center justify-content-center hide-medium">
+                <Smarter />
+                <OnlineInstructor />
+                <FullStackWithLawrence />
+                <Photographer />
                 <JobTitle
                   idx="4"
                   target="_blank"
                   href={APP_CONFIG.urls.blog}
                   title="Blogger"
                 />
-                <OnlineInstructor />
-                <Photographer />
               </div>
             </section>
           </div>

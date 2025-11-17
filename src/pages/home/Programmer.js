@@ -1,27 +1,28 @@
 import React from 'react'
 import BlankSpace from '../../components/blankSpace/Component'
+import { APP_CONFIG } from '../../shared/constants'
 
 /* eslint-disable no-unused-vars */
-const Photographer = (props) => {
+const Programmer = (props) => {
   return (
     <React.Fragment>
       <div
         key="5"
         className="job-title lead mb-0 mt-4 col-4 ps-4 pe-4"
-        aria-label="Photographer"
+        aria-label="Programmer"
       >
         <a
-          href="https://photography.lawrencemcdaniel.com/"
-          target="_blank"
+          href={'/' + APP_CONFIG.skills.fullStack}
+          target="_self"
           rel="noopener noreferrer"
-          title="Street, portrait, and beauty photography portfolio"
+          title="Python, React, Golang, Visual Basic programming skills"
         >
           <h2>
             <span className="" role="img" aria-label="Close">
-              📸
+              🤓
               <BlankSpace />
             </span>
-            <span>Photographer</span>
+            <span>Programmer</span>
           </h2>
         </a>
       </div>
@@ -29,4 +30,4 @@ const Photographer = (props) => {
   )
 }
 
-export default Photographer
+export default Programmer

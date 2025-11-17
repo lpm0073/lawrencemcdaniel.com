@@ -14,6 +14,7 @@ const OnlineInstructor = (props) => {
           target="_blank"
           rel="noreferrer"
           href="https://extendedlearning.ubc.ca/about/our-instructors?field_course_program_areas_target_id_verf=All&field_instr_first_name=Lawrence&field_instr_last_name=McDaniel"
+          title="UBC Extended Learning online instructor profile"
         >
           <h2>
             <span className="" role="img" aria-label="Close">
@@ -21,10 +22,6 @@ const OnlineInstructor = (props) => {
               <BlankSpace />
             </span>
             <span>Online Instructor</span>
-            <span className="" role="img" aria-label="Close">
-              <BlankSpace />
-              🎓
-            </span>
           </h2>
         </a>
       </div>
