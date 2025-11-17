@@ -1,3 +1,11 @@
+## [1.5.7](https://github.com/lpm0073/lawrencemcdaniel.com/compare/v1.5.6...v1.5.7) (2025-11-17)
+
+
+### Bug Fixes
+
+* add smarter and fswl to home page ([4efb066](https://github.com/lpm0073/lawrencemcdaniel.com/commit/4efb0663959e9d3f39c3fe0e0e9103ac7fc88d76))
+* add smarter and fswl to home page ([0a306cd](https://github.com/lpm0073/lawrencemcdaniel.com/commit/0a306cde5f3c29637685d3ed8d63e01d4c3188e3))
+
 # Change Log
 
 All notable changes to this project will be documented in this file.
