@@ -5,7 +5,7 @@
   "private": true,
   "proxy": "https://api.linkedin.com",
   "dependencies": {
-    "@reduxjs/toolkit": "^2.8.2",
+    "@reduxjs/toolkit": "^2.11.0",
     "@testing-library/dom": "latest",
     "bootstrap": "^5.3.7",
     "bootstrap-social": "^5.1.1",
