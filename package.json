@@ -25,7 +25,7 @@
     "react-mdr": "^0.1.5",
     "react-multi-carousel": "^2.8.6",
     "react-redux": "^9.2.0",
-    "react-router": "^7.8.1",
+    "react-router": "^7.12.0",
     "react-router-dom": "^7.8.1",
     "react-scripts": "^5.0.1",
     "react-simple-animate": "^3.5.3",
