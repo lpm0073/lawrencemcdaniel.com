@@ -8,7 +8,7 @@ const Smarter = (props) => {
       <div
         key="5"
         className="job-title lead mb-0 mt-4 col-4 ps-4 pe-4"
-        aria-label="Project: smarter"
+        aria-label="The Smarter Project"
       >
         <a
           target="_blank"
@@ -21,7 +21,7 @@ const Smarter = (props) => {
               🤖
               <BlankSpace />
             </span>
-            <span>Project: smarter</span>
+            <span>The Smarter Project</span>
           </h2>
         </a>
       </div>

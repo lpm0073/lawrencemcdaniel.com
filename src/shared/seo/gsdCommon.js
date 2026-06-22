@@ -40,6 +40,8 @@ export const sameAs = [
   'https://github.com/cookiecutter-openedx/',
   'https://github.com/lpm0073',
   'https://github.com/smarter-sh/',
+  'https://smarter.sh/',
+  'https://blog.smarter.sh/',
   'https://angel.co/p/lpm0073-gmail-com',
   'https://www.codementor.io/@lawrencemcdaniel',
   'https://geek.ly/lmcdaniel',
