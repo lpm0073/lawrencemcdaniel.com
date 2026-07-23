@@ -1,3 +1,10 @@
+## [1.5.8](https://github.com/lpm0073/lawrencemcdaniel.com/compare/v1.5.7...v1.5.8) (2026-07-23)
+
+
+### Bug Fixes
+
+* add UBCx group photo to about page ([80a0608](https://github.com/lpm0073/lawrencemcdaniel.com/commit/80a0608a7bf5bec6edf0ccdefb25910491e57ef2))
+
 ## [1.5.7](https://github.com/lpm0073/lawrencemcdaniel.com/compare/v1.5.6...v1.5.7) (2025-11-17)
 
 ### Bug Fixes
