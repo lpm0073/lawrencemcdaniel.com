@@ -21,7 +21,7 @@ const OnlineInstructor = (props) => {
               🎓
               <BlankSpace />
             </span>
-            <span>Online Instructor</span>
+            <span>Educator</span>
           </h2>
         </a>
       </div>
