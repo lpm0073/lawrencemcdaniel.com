@@ -51,6 +51,7 @@ class About extends Component {
       : null
 
     const graphExtraData = !this.props.education.isLoading ? [person] : []
+    const classGroupPhotoUrl = "https://cdn.lawrencemcdaniel.com/images/2026-UBCx-AI-Tools-in-Python-and-Statistics_group-photo.jpg";
 
     return (
       <React.Fragment>
@@ -84,30 +85,16 @@ class About extends Component {
                 </h4>
                 <div className="text-justify">
                   <p>
-                    I’m the Chief Technology Officer of
+                    I maintain
                     <BlankSpace />
                     <a
-                      href="https://www.querium.com/"
+                      href="https://smarter.sh/"
                       target="_blank"
                       rel="noopener noreferrer"
                     >
-                      Querium Corporation
+                      The Smarter Project
                     </a>
-                    , a VC-funded artificial intelligence company. My work often involves{' '}
-                    <a href="consulting">consulting</a> to a variety of{' '}
-                    <a href="/clients">clients</a>.
-                  </p>
-                  <p>
-                    I’m the maintainer of several open source projects including
-                    <BlankSpace />
-                    <a
-                      href="https://github.com/smarter-sh/"
-                      target="_blank"
-                      rel="noopener noreferrer"
-                    >
-                      Smarter
-                    </a>
-                    , a declarative AI resource management & orchestration platform, and
+                    , an open-source declarative framework designed for enterprise artificial intelligence, and also
                     <BlankSpace />
                     <a
                       href="https://github.com/fullStackWithLawrence/"
@@ -140,20 +127,18 @@ class About extends Component {
                       target="_blank"
                       rel="noopener noreferrer"
                     >
-                      cloud computing
+                      cloud computing,
                     </a>
-                    <BlankSpace />
-                    and
                     <BlankSpace />
                     <a
                       href="https://extendedlearning.ubc.ca/courses/ai-cloud-strategy-technology-implementation/0161"
                       target="_blank"
                       rel="noopener noreferrer"
                     >
-                      AI
+                      AI & Machine Learning
                     </a>
                     <BlankSpace />
-                    at
+                    and the UBCx Data Science Summer Program at
                     <BlankSpace />
                     <a href="https://extendedlearning.ubc.ca/about/our-instructors?field_course_program_areas_target_id_verf=All&field_instr_first_name=Lawrence&field_instr_last_name=McDaniel">
                       University of British Columbia
@@ -195,6 +180,9 @@ class About extends Component {
                     </a>
                     .
                   </p>
+                  <div className="row">
+                    <img src={classGroupPhotoUrl} alt="" width="50%" />
+                  </div>
                 </div>
               </div>
             </section>
