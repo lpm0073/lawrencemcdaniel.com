@@ -51,7 +51,8 @@ class About extends Component {
       : null
 
     const graphExtraData = !this.props.education.isLoading ? [person] : []
-    const classGroupPhotoUrl = "https://cdn.lawrencemcdaniel.com/images/2026-UBCx-AI-Tools-in-Python-and-Statistics_group-photo.jpg";
+    const classGroupPhotoUrl =
+      'https://cdn.lawrencemcdaniel.com/images/2026-UBCx-AI-Tools-in-Python-and-Statistics_group-photo.jpg'
 
     return (
       <React.Fragment>
@@ -94,7 +95,8 @@ class About extends Component {
                     >
                       The Smarter Project
                     </a>
-                    , an open-source declarative framework designed for enterprise artificial intelligence, and also
+                    , an open-source declarative framework designed for enterprise
+                    artificial intelligence, and also
                     <BlankSpace />
                     <a
                       href="https://github.com/fullStackWithLawrence/"
