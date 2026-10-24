@@ -7,7 +7,7 @@
  * - The Workbox service worker in src/service-worker.ts, built by
  *   vite-plugin-pwa's injectManifest strategy, which fills in
  *   self.__WB_MANIFEST with the build's precache list. The app registers it
- *   itself (src/serviceWorkerRegistration.ts), and public/manifest.json is the
+ *   itself with workbox-window (src/serviceWorkerRegistration.ts), and public/manifest.json is the
  *   web app manifest, so the plugin injects neither.
  * - `yarn build` then prerenders every page into build/ (src/prerender/), and
  *   `yarn preview` serves those pages as production does (prerenderedPages).

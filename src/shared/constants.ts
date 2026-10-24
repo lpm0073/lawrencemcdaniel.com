@@ -65,7 +65,9 @@ export const APP_CONFIG = {
       app: versioned_cached('app'),
       // the prerendered pages that have been visited, for offline use, see src/service-worker.ts
       pages: versioned_cached('pages'),
-      cdn: versioned_cached('cdn'), // TO DO: delete this. everything is routing to workbox-precache-v2 via service-worker.js setup.
+      // the CDN's images, which the service worker and imagePreFetcher() keep. Not
+      // versioned: a CDN url never changes its content, so a release keeps them.
+      cdn: 'cdn',
       staticImages: versioned_cached('static'),
       workbox_precache: 'workbox-precache-v2',
     },

@@ -74,9 +74,11 @@ yarn test:watch                                 # watch mode: never returns, bac
   `vi.mock('react-mdr', () => ({ MatrixRainingLetters: () => <canvas aria-label="Matrix rain" /> }))`.
 - **Timers** (logo cube, update alerts): `vi.useFakeTimers()`, and advance them
   in small steps, each in its own `act()`; one big `act()` batches every update.
-- **The service worker registration**: `vi.stubEnv('PROD', true)` and a fake
-  `navigator.serviceWorker`; see `src/serviceWorkerRegistration.test.ts`. `App`
-  tests mock `./serviceWorkerRegistration` and call the callbacks it was given.
+- **The service worker registration**: `vi.stubEnv('PROD', true)`, a mocked
+  `workbox-window` whose events the test fires, and `resetForTests()` between
+  tests; see `src/serviceWorkerRegistration.test.ts`. `App` tests mock
+  `./serviceWorkerRegistration` and call the callbacks it was given
+  (`onOfflineReady`, `onUpdateReady`, `onUpdated`).
 - **Debug logging**: set `APP_CONFIG.debug = true` in the test and reset it in
   `afterEach`.
 

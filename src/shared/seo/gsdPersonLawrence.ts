@@ -41,10 +41,6 @@ export const hasOccupation = {
   occupationLocation: [
     {
       '@type': 'City',
-      name: 'Cambridge',
-    },
-    {
-      '@type': 'City',
       name: 'Mexico City',
     },
   ],
@@ -77,10 +73,11 @@ export const gsdPersonLawrenceMcDaniel = {
   telephone: '+1 (617) 834-6172',
   address: {
     '@type': 'PostalAddress',
-    addressLocality: 'Cambridge',
-    addressRegion: 'MA',
-    postalCode: '02139',
-    streetAddress: '210 Broadway Street',
+    addressLocality: 'Colonia Doctores',
+    addressRegion: 'CDMX',
+    postalCode: '06720',
+    streetAddress: 'Doctor Carmona y Valle 122B',
+    addressCountry: 'MX',
   },
   knowsLanguage: [
     { '@type': 'Language', name: 'English' },
@@ -100,7 +97,6 @@ export const gsdPersonLawrenceMcDaniel = {
     ),
     subjectOf('https://opensource.com/user_articles/224351'),
     subjectOf('https://opensource.com/article/18/6/getting-started-open-edx'),
-    subjectOf('https://open.edx.org/marketplace/lawrence-mcdaniel/'),
     subjectOf('https://openedx2018.sched.com/lpm0073'),
     subjectOf(
       'https://extendedlearning.ubc.ca/about/our-instructors?field_course_program_areas_target_id_verf=All&field_instr_first_name=Lawrence&field_instr_last_name=McDaniel'

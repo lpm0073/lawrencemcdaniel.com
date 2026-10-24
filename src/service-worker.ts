@@ -11,15 +11,19 @@
  *    own content, data and head tags. So a navigation is fetched from the
  *    network first, and the cached copy is only for offline use. Serving one
  *    cached app shell for every url, as single-page apps do, would show every
- *    page the home page's html.
+ *    page the home page's html. Navigation preload starts that request while
+ *    the worker itself is starting up, so the network-first fetch costs nothing.
  * 3. WordPress's responses take seconds, and the CDN's images are many. The
  *    worker answers api.lawrencemcdaniel.com and /data/ from its cache, and
  *    refreshes them in the background (stale-while-revalidate), and keeps the
- *    CDN's images (cache-first).
- * 4. A new release must replace the old one without a manual reload. The
- *    worker activates as soon as it installs, the app tells the visitor
- *    (src/components/appUpdate/), and every cache's name includes the site's
- *    version, so the old caches are deleted when the new worker activates.
+ *    CDN's images (cache-first). The images keep the same cache across
+ *    releases, since a CDN url never changes its content.
+ * 4. A new release must replace the old one, but never in the middle of a page
+ *    that the old one loaded. A new worker installs and waits. The app tells
+ *    the visitor (src/components/appUpdate/), then sends SKIP_WAITING, and
+ *    once the new worker controls the page, offers a reload. The data caches'
+ *    names include the site's version, so the new worker deletes the old ones
+ *    when it activates.
  *
  * It is registered only in production builds (src/serviceWorkerRegistration.ts),
  * so check it with `yarn build && yarn preview`.
@@ -170,31 +174,34 @@ registerRoute(
   }
 )
 
-// This allows the web app to trigger skipWaiting via
-// registration.waiting.postMessage({type: 'SKIP_WAITING'})
+// A new release waits until the app sends SKIP_WAITING (workbox-window's
+// messageSkipWaiting(), see src/serviceWorkerRegistration.ts). The very first
+// install has no page to disturb, so it activates at once.
 self.addEventListener('message', (event) => {
   if (event.data && event.data.type === 'SKIP_WAITING') {
     self.skipWaiting()
   }
 })
-self.addEventListener('install', () => {
-  self.skipWaiting()
-})
 
-// Cleanup old caches
+// Turn on navigation preload, and delete the caches of earlier releases.
 self.addEventListener('activate', (event) => {
   event.waitUntil(
-    caches.keys().then((cacheNames) => {
-      return Promise.all(
-        cacheNames
-          .filter(
-            (name) =>
-              !(Object.values(APP_CONFIG.caching.names) as string[]).includes(name) &&
-              !name.startsWith('workbox-precache')
+    Promise.all([
+      self.registration.navigationPreload?.enable(),
+      caches
+        .keys()
+        .then((cacheNames) =>
+          Promise.all(
+            cacheNames
+              .filter(
+                (name) =>
+                  !(Object.values(APP_CONFIG.caching.names) as string[]).includes(name) &&
+                  !name.startsWith('workbox-precache')
+              )
+              .map((name) => caches.delete(name))
           )
-          .map((name) => caches.delete(name))
-      )
-    })
+        ),
+    ])
   )
 })
 

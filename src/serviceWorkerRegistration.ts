@@ -1,162 +1,71 @@
-// This optional code is used to register a service worker.
-// register() is not called by default.
+/**
+ * Registers the service worker (src/service-worker.ts) with workbox-window, and
+ * tells the app about its life cycle, so that it can show the visitor a notice:
+ *
+ * - onOfflineReady: the first install finished, so the site now works offline.
+ * - onUpdateReady: a new release is installed and waiting. The app calls
+ *   activate() to let it take over. Until then the open page keeps the release
+ *   it loaded with, so it never mixes the two.
+ * - onUpdated: the new release has taken over this page. A reload shows it.
+ *
+ * register() may run more than once: main.tsx mounts a new App when the
+ * connection drops or returns. The worker is registered once, and its events go
+ * to the callbacks of the latest call.
+ *
+ * It runs only in production builds; check it with `yarn build && yarn preview`.
+ */
+import { Workbox } from 'workbox-window'
 
-// This lets the app load faster on subsequent visits in production, and gives
-// it offline capabilities. However, it also means that developers (and users)
-// will only see deployed updates on subsequent visits to a page, after all the
-// existing tabs open on the page have been closed, since previously cached
-// resources are updated in the background.
+/** How often an open page asks the server for a new release. */
+export const UPDATE_CHECK_MINUTES = 60
 
-// To learn more about the benefits of this model and instructions on how to
-// opt-in, read https://cra.link/PWA
-import { serviceWorkerRegistrationEnhancements } from './serviceWorkerRegistrationEnhancements'
-import { APP_CONFIG } from './shared/constants'
-
-/** Callbacks for the service worker's life cycle events. */
-export interface ServiceWorkerConfig {
-  onUpdate?: (registration: ServiceWorkerRegistration) => void
-  onSuccess?: (registration: ServiceWorkerRegistration) => void
-  onActivated?: (registration: ServiceWorkerRegistration) => void
+export interface ServiceWorkerCallbacks {
+  onOfflineReady?: () => void
+  onUpdateReady?: (activate: () => void) => void
+  onUpdated?: () => void
 }
 
-/** Whether the page is served from this machine. A function, so that importing this
- * module doesn't need a window (the build renders the app in Node, src/prerender/). */
-const isLocalhost = () =>
-  Boolean(
-    window.location.hostname === 'localhost' ||
-    // [::1] is the IPv6 localhost address.
-    window.location.hostname === '[::1]' ||
-    // 127.0.0.0/8 are considered localhost for IPv4.
-    window.location.hostname.match(
-      /^127(?:\.(?:25[0-5]|2[0-4][0-9]|[01]?[0-9][0-9]?)){3}$/
-    )
+let workbox: Workbox | undefined
+let callbacks: ServiceWorkerCallbacks = {}
+
+export function register(newCallbacks: ServiceWorkerCallbacks = {}): Workbox | undefined {
+  if (!import.meta.env.PROD || !('serviceWorker' in navigator)) return undefined
+  callbacks = newCallbacks
+  if (workbox) return workbox
+
+  const wb = new Workbox(import.meta.env.BASE_URL + 'service-worker.js')
+  workbox = wb
+
+  wb.addEventListener('installed', (event) => {
+    if (!event.isUpdate) callbacks.onOfflineReady?.()
+  })
+  wb.addEventListener('waiting', () => {
+    callbacks.onUpdateReady?.(() => wb.messageSkipWaiting())
+  })
+  wb.addEventListener('controlling', (event) => {
+    if (event.isUpdate) callbacks.onUpdated?.()
+  })
+
+  wb.register().catch((error: unknown) => {
+    console.error('Error during service worker registration:', error)
+  })
+
+  // a visitor can keep the site open for days: look for a new release now and
+  // then, but not from a hidden tab or without a connection.
+  window.setInterval(
+    () => {
+      if (document.visibilityState === 'visible' && navigator.onLine) {
+        wb.update().catch(() => undefined)
+      }
+    },
+    UPDATE_CHECK_MINUTES * 60 * 1000
   )
 
-export function register(config?: ServiceWorkerConfig) {
-  if (import.meta.env.PROD && 'serviceWorker' in navigator) {
-    // The URL constructor is available in all browsers that support SW.
-    const publicUrl = new URL(import.meta.env.BASE_URL, window.location.href)
-    if (publicUrl.origin !== window.location.origin) {
-      // Our service worker won't work if BASE_URL is on a different origin
-      // from what our page is served on. This might happen if a CDN is used to
-      // serve assets; see https://github.com/facebook/create-react-app/issues/2374
-      return
-    }
-
-    window.addEventListener('load', () => {
-      const swUrl = `${import.meta.env.BASE_URL}service-worker.js`
-
-      if (isLocalhost()) {
-        // This is running on localhost. Let's check if a service worker still exists or not.
-        checkValidServiceWorker(swUrl, config)
-
-        // Add some additional logging to localhost, pointing developers to the
-        // service worker/PWA documentation.
-        navigator.serviceWorker.ready.then(() => {
-          if (APP_CONFIG.debug)
-            console.log(
-              'serviceWorkerRegistration.js - This web app is being served cache-first by a service ' +
-                'worker. To learn more, visit https://cra.link/PWA'
-            )
-        })
-      } else {
-        // Is not localhost. Just register service worker
-        registerValidSW(swUrl, config)
-      }
-    })
-  }
+  return wb
 }
 
-function registerValidSW(swUrl: string, config?: ServiceWorkerConfig) {
-  navigator.serviceWorker
-    .register(swUrl)
-    .then((registration) => {
-      // -----------------------------
-      // my additional functionality
-      // -----------------------------
-      serviceWorkerRegistrationEnhancements(config, registration)
-      // -----------------------------
-
-      registration.onupdatefound = () => {
-        const installingWorker = registration.installing
-        if (installingWorker == null) {
-          return
-        }
-        installingWorker.onstatechange = () => {
-          if (installingWorker.state === 'installed') {
-            if (navigator.serviceWorker.controller) {
-              // At this point, the updated precached content has been fetched,
-              // but the previous service worker will still serve the older
-              // content until all client tabs are closed.
-              if (APP_CONFIG.debug)
-                console.log(
-                  'serviceWorkerRegistration.js - New content is available and will be used when all ' +
-                    'tabs for this page are closed. See https://cra.link/PWA.'
-                )
-
-              // Execute callback
-              if (config && config.onUpdate) {
-                config.onUpdate(registration)
-              }
-            } else {
-              // At this point, everything has been precached.
-              // It's the perfect time to display a
-              // "Content is cached for offline use." message.
-              if (APP_CONFIG.debug)
-                console.log(
-                  'serviceWorkerRegistration.js - Content is cached for offline use.'
-                )
-
-              // Execute callback
-              if (config && config.onSuccess) {
-                config.onSuccess(registration)
-              }
-            }
-          }
-        }
-      }
-    })
-    .catch((error) => {
-      console.error('Error during service worker registration:', error)
-    })
-}
-
-function checkValidServiceWorker(swUrl: string, config?: ServiceWorkerConfig) {
-  // Check if the service worker can be found. If it can't reload the page.
-  fetch(swUrl, {
-    headers: { 'Service-Worker': 'script' },
-  })
-    .then((response) => {
-      // Ensure service worker exists, and that we really are getting a JS file.
-      const contentType = response.headers.get('content-type')
-      if (
-        response.status === 404 ||
-        (contentType != null && contentType.indexOf('javascript') === -1)
-      ) {
-        // No service worker found. Probably a different app. Reload the page.
-        navigator.serviceWorker.ready.then((registration) => {
-          registration.unregister().then(() => {
-            window.location.reload()
-          })
-        })
-      } else {
-        // Service worker found. Proceed as normal.
-        registerValidSW(swUrl, config)
-      }
-    })
-    .catch(() => {
-      console.log('No internet connection found. App is running in offline mode.')
-    })
-}
-
-export function unregister() {
-  if ('serviceWorker' in navigator) {
-    navigator.serviceWorker.ready
-      .then((registration) => {
-        registration.unregister()
-      })
-      .catch((error) => {
-        console.error(error.message)
-      })
-  }
+/** Forget the registration, so that tests start from scratch. */
+export function resetForTests() {
+  workbox = undefined
+  callbacks = {}
 }

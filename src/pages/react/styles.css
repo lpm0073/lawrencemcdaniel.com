@@ -5,3 +5,11 @@
 .aws-diagram img {
   width: 100%;
 }
+
+.aws-diagram figcaption {
+  margin-top: 0.5rem;
+  color: var(--lm-text-muted);
+  font-family: var(--lm-mono);
+  font-size: 0.85rem;
+  text-align: center;
+}
