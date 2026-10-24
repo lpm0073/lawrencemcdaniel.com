@@ -1,3 +1,10 @@
+# [1.8.0](https://github.com/lpm0073/lawrencemcdaniel.com/compare/v1.7.0...v1.8.0) (2026-10-24)
+
+
+### Features
+
+* restyle the site and list blog.smarter.sh articles ([5d78c26](https://github.com/lpm0073/lawrencemcdaniel.com/commit/5d78c2681753f7c3c6f76ba31ea5227fb86527e1))
+
 # [1.7.0](https://github.com/lpm0073/lawrencemcdaniel.com/compare/v1.6.0...v1.7.0) (2026-10-24)
 
 
