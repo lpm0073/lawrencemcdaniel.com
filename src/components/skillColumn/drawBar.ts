@@ -18,11 +18,11 @@ const drawBar = (ref: RefObject<HTMLCanvasElement | null>) => {
   canvas.style.height = `${height}px`
 
   context.lineWidth = canvas.height * 2
-  context.strokeStyle = '#666'
+  context.strokeStyle = 'rgba(255, 165, 0, 0.35)'
   context.shadowOffsetX = 0
   context.shadowOffsetY = 0
   context.shadowBlur = 0
-  context.shadowColor = '#656565'
+  context.shadowColor = 'transparent'
 
   const x = canvas.width
   const y = canvas.height

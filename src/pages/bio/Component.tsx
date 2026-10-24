@@ -89,12 +89,12 @@ const Bio = () => {
               <p>
                 Lawrence McDaniel is a <a href="/data-science">data scientist</a>,{' '}
                 <a href="/full-stack">full-stack developer</a>,{' '}
-                <a href="/cloud">cloud architect</a>, and digital content creator who has
-                lived in Mexico City since 2000. Born in Houston, Texas, and raised in
-                northeast Texas, he graduated from Wills Point High School in 1985 and
-                earned a BS in computer science and mathematics, with minors in physics
-                and English, from the University of North Texas in 1991. See his
-                additional studies <a href="/education">here</a>. Over his career,
+                <a href="/cloud">cloud architect</a>, digital content creator, and cancer
+                survivor who has lived in Mexico City since 2000. Born in Houston, Texas,
+                and raised in northeast Texas, he graduated from Wills Point High School
+                in 1985 and earned a BS in computer science and mathematics, with minors
+                in physics and English, from the University of North Texas in 1991. See
+                his additional studies <a href="/education">here</a>. Over his career,
                 Lawrence was an early employee at three startups later acquired by Goldman
                 Sachs, IBM, and Deutsche Bank, and he participated in a successful NASDAQ
                 IPO. In 2004, he developed a profitable black-box trading system for one

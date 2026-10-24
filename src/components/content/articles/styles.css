@@ -1,0 +1,29 @@
+/*
+  Article images sit on a light tile: many are transparent illustrations drawn
+  for a white page (blog.smarter.sh's are), which vanish on the dark panel.
+*/
+.article-image {
+  padding: 8px;
+  background-color: #f4f2ee;
+  border-radius: var(--lm-radius-sm);
+}
+
+.article-image-placeholder {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  aspect-ratio: 1200 / 630;
+  padding: 12px;
+  background-color: var(--lm-accent-soft);
+  border: 1px solid var(--lm-accent-line);
+  color: var(--lm-accent);
+  font-family: var(--lm-mono);
+  font-size: 0.85rem;
+  text-align: center;
+  word-break: break-all;
+}
+
+.article-image-placeholder::before {
+  content: '> ';
+  white-space: pre;
+}

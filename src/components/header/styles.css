@@ -1,52 +1,79 @@
+/* The site's navigation: black, Courier, the accent marks the current page. */
 .app-navbar {
   position: sticky;
   top: 0px;
   z-index: 100;
-  background-color: black;
-  padding-left: 15px;
+  max-width: 1200px;
+  margin-left: auto;
+  margin-right: auto;
+  padding: 0.5rem 15px;
+  background-color: rgba(0, 0, 0, 0.92);
+  -webkit-backdrop-filter: blur(8px);
+  backdrop-filter: blur(8px);
+  border-bottom: var(--lm-dash);
 }
 
-.nav-link:focus,
-.nav-link:hover,
-.nav-item,
-.dropdown-item,
-.dropdown-menu {
-  background-color: black !important;
+.app-navbar .navbar-nav {
+  gap: 0.25rem;
 }
 
-.dropdown-menu {
-  border-left: 0.5px solid #222;
-  border-bottom: 0.5px solid #222;
-  border-right: 0.5px solid #222;
+.app-navbar .navbar-nav .nav-link {
+  font-family: var(--lm-mono);
+  font-size: 1.05rem;
+  color: var(--lm-text-muted);
+  padding: 0.35rem 0.6rem;
+  border-radius: var(--lm-radius-sm);
+  transition:
+    color 0.15s ease,
+    background-color 0.15s ease;
 }
 
-.navbar-dark .dropdown-menu .dropdown-item {
-  color: gray !important;
+.app-navbar .navbar-nav .nav-link:hover,
+.app-navbar .navbar-nav .nav-link:focus,
+.app-navbar .navbar-nav .show > .nav-link {
+  color: var(--lm-text);
+  background-color: var(--lm-surface-hover);
 }
 
-.navbar-dark .dropdown-menu .dropdown-item:hover,
-.navbar-dark .dropdown-menu .dropdown-item:focus {
-  color: lightgray !important;
-  background-color: rgba(255, 255, 255, 0.1);
+.app-navbar .navbar-nav .nav-link.active {
+  color: var(--lm-accent);
 }
 
-.navbar-dark .dropdown-menu .dropdown-item.active,
-.navbar-dark .dropdown-menu .dropdown-item:active {
-  color: #f1f1f1 !important;
-  background-color: #0d6efd;
+.app-navbar .navbar-nav .nav-link.active::before {
+  content: '> ';
+}
+
+.app-navbar .navbar-toggler {
+  border-color: var(--lm-border-strong);
+}
+
+.app-navbar .dropdown-menu {
+  --bs-dropdown-bg: var(--lm-surface-raised);
+  --bs-dropdown-border-color: var(--lm-border);
+  --bs-dropdown-link-color: var(--lm-text-muted);
+  --bs-dropdown-link-hover-color: var(--lm-text);
+  --bs-dropdown-link-hover-bg: var(--lm-surface-hover);
+  --bs-dropdown-link-active-color: var(--lm-accent);
+  --bs-dropdown-link-active-bg: var(--lm-accent-soft);
+  border-radius: var(--lm-radius);
+  padding: 0.4rem;
+  box-shadow: 0 16px 40px rgba(0, 0, 0, 0.6);
+}
+
+.app-navbar .dropdown-item {
+  font-family: var(--lm-mono);
+  border-radius: var(--lm-radius-sm);
+  padding: 0.45rem 0.7rem;
 }
 
 .menu-logo {
-  width: 15px;
-  margin-right: 5px;
+  width: 16px;
+  margin-right: 8px;
+  vertical-align: -2px;
 }
 
-.nav-link.active {
-  color: #f1f1f1 !important;
-}
-
-.nav-link:hover {
-  background-color: #f1f1f1 !important;
-  color: #333333 !important;
-  border-radius: 5px;
+.offline-alert {
+  font-family: var(--lm-mono);
+  color: tomato;
+  filter: none !important;
 }

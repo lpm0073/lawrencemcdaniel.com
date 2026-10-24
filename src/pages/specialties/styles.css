@@ -2,38 +2,49 @@
 }
 
 .specialties-page {
-  background-image: url(https://cdn.lawrencemcdaniel.com/wp-content/uploads/2020/06/05201305/Lawrence21.jpg);
+  background-color: var(--lm-bg);
+  background-image:
+    linear-gradient(rgba(0, 0, 0, 0.5), rgba(0, 0, 0, 0.85)),
+    url(https://cdn.lawrencemcdaniel.com/wp-content/uploads/2020/06/05201305/Lawrence21.jpg);
   background-repeat: repeat;
   background-size: cover;
   background-position: top center;
   background-attachment: fixed;
 }
 
-/* ----------  Banner - Begin  ---------- */
-
+/* ----------  Banner  ---------- */
 .specialties-banner {
-  background-color: rgba(255, 255, 255, 0.8);
+  background-color: rgba(14, 15, 17, 0.85);
+  border: 1px solid var(--lm-border);
+  border-radius: var(--lm-radius);
 }
+
 .specialties-banner h4 {
-  color: black;
-  font-size: initial;
+  font-family: var(--lm-mono);
+  font-size: 0.95rem;
+  font-weight: 700;
+  letter-spacing: 0.02em;
+  color: var(--lm-accent);
 }
+
 .specialties-banner i {
   margin-top: 5px;
   padding: 10px;
-  color: #838590;
+  color: var(--lm-accent);
 }
 
 .specialties-banner-icon {
-  color: #666666;
   height: 80px;
   text-align: center;
-  border: 1px solid #666666;
+  border: 1px solid var(--lm-accent-line);
+  border-radius: var(--lm-radius-sm);
+  background-color: var(--lm-accent-soft);
 }
+
 .specialties-banner-text {
-  font-size: smaller;
+  font-size: 0.9rem;
+  color: var(--lm-text);
 }
-/* ----------  Banner - End  ---------- */
 
 /* ----------  Carousel  ---------- */
 #specialties-carousel {
@@ -49,42 +60,24 @@
   margin-left: auto;
   margin-right: auto;
   text-align: center;
+  filter: grayscale(1) brightness(1.6);
+  opacity: 0.7;
 }
 
 /* ----------  Code Samples CTA  ---------- */
 .specialties-code-samples {
-  background-color: rgba(255, 255, 255, 0.8);
-  border-radius: 5px;
-  color: black;
+  background-color: rgba(14, 15, 17, 0.85);
+  border: 1px solid var(--lm-border);
+  border-radius: var(--lm-radius);
+  color: var(--lm-text);
 }
+
 .specialties-code-samples a {
   margin-top: 18px;
 }
 
-/*-------------- Responsive Styling -----------------------*/
-
-/********** Large devices only **********/
-@media (min-width: 1200px) {
+@media (min-width: 992px) {
   #specialties-carousel {
     visibility: visible !important;
   }
-}
-
-/********** Medium devices only **********/
-@media (min-width: 992px) and (max-width: 1199px) {
-  #specialties-carousel {
-    visibility: visible !important;
-  }
-}
-
-/********** Small devices only **********/
-@media (min-width: 768px) and (max-width: 991px) {
-}
-
-/********** Extra small devices only **********/
-@media (max-width: 767px) {
-}
-
-/********** Super extra small devices Only :-) (e.g., iPhone 4) **********/
-@media (max-width: 479px) {
 }

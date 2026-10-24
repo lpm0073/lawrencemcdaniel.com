@@ -1,4 +1,4 @@
-import { screen } from '@testing-library/react'
+import { screen, within } from '@testing-library/react'
 import { beforeEach, describe, expect, it, vi } from 'vitest'
 
 import { siteHandlers } from '../../../test/handlers'
@@ -30,6 +30,19 @@ describe('Home', () => {
     expect(screen.getByRole('region', { name: 'Logo Cube' })).toBeInTheDocument()
   })
 
+  it('offers contact and the Smarter Project', () => {
+    renderWithProviders(<Home />)
+
+    expect(screen.getByRole('link', { name: 'Work with me' })).toHaveAttribute(
+      'href',
+      '/contact'
+    )
+    expect(screen.getByRole('link', { name: 'The Smarter Project' })).toHaveAttribute(
+      'href',
+      '/smarter'
+    )
+  })
+
   it.each([
     ['Programmer', '/' + APP_CONFIG.skills.fullStack, '_self'],
     ['Consultant', '/consulting', '_self'],
@@ -49,7 +62,8 @@ describe('Home', () => {
     expect(
       screen.getByRole('heading', { level: 2, name: new RegExp(name) })
     ).toBeVisible()
-    const link = screen.getByRole('link', { name: new RegExp(name) })
+    const titles = screen.getByRole('region', { name: 'Titles' })
+    const link = within(titles).getByRole('link', { name: new RegExp(name) })
     expect(link).toHaveAttribute('href', href)
     expect(link).toHaveAttribute('target', target)
   })

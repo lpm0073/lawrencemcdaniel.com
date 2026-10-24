@@ -37,7 +37,8 @@ export default defineConfig({
         'src/service-worker.ts',
         'src/**/*.d.ts',
       ],
-      reporter: ['text-summary', 'html', 'lcov'],
+      // json-summary feeds the coverage table in the CI job summary (test.yml).
+      reporter: ['text-summary', 'html', 'lcov', 'json-summary'],
       reportsDirectory: 'coverage',
     },
   },

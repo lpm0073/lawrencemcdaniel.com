@@ -1,14 +1,35 @@
-.nav-tabs .nav-link:hover,
-.nav-tabs .nav-link:focus {
-  background-color: #cccccc !important;
-  color: #222 !important;
+/* The Code Samples / Articles / Videos block: one dark panel with Courier tabs. */
+.content-panel {
+  overflow: hidden;
 }
 
-.nav-link:focus,
-.nav-link:hover,
-.nav-item,
-.dropdown-item,
-.dropdown-menu {
-  background-color: white !important;
-  color: #222 !important;
+.content-panel .tab-content > .tab-pane > section > p {
+  color: var(--lm-text-muted);
+  max-width: 820px;
+}
+
+/* repository, article and video names */
+.content-panel td > article a strong,
+.content-panel td a strong {
+  font-family: var(--lm-mono);
+  font-weight: 700;
+  color: var(--lm-accent);
+}
+
+.content-panel td a:has(strong) {
+  text-decoration: none;
+}
+
+.content-panel td a:has(strong):hover strong {
+  text-decoration: underline;
+}
+
+/* the numbers column (stars, forks, languages) */
+.content-panel .table-sm {
+  --bs-table-bg: transparent;
+  font-family: var(--lm-mono);
+}
+
+.content-panel img {
+  max-width: 100%;
 }

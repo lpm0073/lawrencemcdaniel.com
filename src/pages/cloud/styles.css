@@ -1,34 +1,36 @@
-.skills-page {
-  background-color: white;
-}
-
 .skill-column {
-  color: #666;
+  color: var(--lm-text-muted);
 }
 
 .skill-column .skill-pct {
+  position: relative;
 }
 
 .skill-column .skill-pct-text {
-  font-size: 1.75em;
+  font-family: var(--lm-mono);
+  font-size: 1.5em;
+  font-weight: 700;
+  color: #fff;
   top: 30px;
   left: 0;
   width: 100%;
   margin-left: auto;
   margin-right: auto;
 }
+
 .skill-column .skill-pct canvas {
   width: 100px;
   height: 100px;
 }
 
 .skill-column .skill-title {
-  font-size: 1.25em;
+  font-size: 1.15em;
+  font-weight: 800;
   height: 50px;
+  color: #fff;
 }
 
 .skill-column .skill-description {
-  font-weight: 300;
   font-size: 0.9em;
   height: 100px;
 }
@@ -37,25 +39,29 @@
   width: 50%;
   margin-left: auto;
   margin-right: auto;
-  border: 2px solid#666;
+  padding: 6px 0;
+  color: var(--lm-accent);
+  border: 1px solid var(--lm-accent-line);
+  border-radius: var(--lm-radius-sm);
+  background-color: var(--lm-accent-soft);
 }
 
 .skill-bar {
-  color: white;
-  font-weight: bold;
+  position: relative;
+  color: #fff;
+  font-family: var(--lm-mono);
+  font-weight: 700;
   height: 35px;
-  background-color: #666;
+  background-color: var(--lm-surface-raised);
+  border: 1px solid var(--lm-border);
 }
 
 .skill-bar canvas {
   width: 100%;
   height: 100%;
 }
-.skill-bar-text {
-}
 
 .right-rounded {
-  border-top-right-radius: 5px;
-  border-bottom-right-radius: 5px;
+  border-radius: var(--lm-radius-sm);
   overflow: hidden;
 }

@@ -1,5 +1,7 @@
 /*
- WordPress Api blog post downloader utility. Creates a list of json objects of blog post metadata by category.
+ WordPress Api blog post downloader utility. Creates a list of json objects of blog post metadata by category,
+ from every blog in BLOG_SOURCES: blog.lawrencemcdaniel.com, and blog.smarter.sh without its release
+ announcements. A post without a Yoast og_image gets its featured image instead.
 
  example output:
    {
@@ -87,6 +89,13 @@ interface WPLink {
   href: string
 }
 
+/** The fields this script reads from a post's embedded wp:featuredmedia item. */
+interface WPEmbeddedMedia {
+  source_url?: string
+  mime_type?: string
+  media_details?: { width?: number; height?: number }
+}
+
 /** The fields this script reads from a /wp-json/wp/v2/posts item. */
 interface WPBlogPost {
   id: number
@@ -102,10 +111,46 @@ interface WPBlogPost {
   tags: number[]
   yoast_head_json?: YoastHeadJson
   _links?: Record<string, WPLink[] | undefined>
+  _embedded?: { 'wp:featuredmedia'?: WPEmbeddedMedia[] }
 }
 
+/** A WordPress blog whose posts are listed as articles on this site. */
+export interface BlogSource {
+  /** for log messages, e.g. 'blog.smarter.sh' */
+  name: string
+  /** the blog's /wp-json/wp/v2/posts url */
+  postsUrl: string
+  /** the blog's /wp-json/wp/v2/categories url */
+  categoriesUrl: string
+  /** slugs of the categories whose posts are left out */
+  excludeCategories: string[]
+  /** category slugs added to every post, which src/shared/categories.ts maps to skills */
+  addCategories: string[]
+}
+
+/** The blogs whose articles the site lists, in order. */
+export const BLOG_SOURCES: BlogSource[] = [
+  {
+    name: 'blog.lawrencemcdaniel.com',
+    postsUrl: APP_CONFIG.apis.blog_posts,
+    categoriesUrl: APP_CONFIG.apis.blog_categories,
+    excludeCategories: [],
+    addCategories: [],
+  },
+  {
+    // The Smarter Project's blog, without its release announcements.
+    name: 'blog.smarter.sh',
+    postsUrl: APP_CONFIG.apis.smarter_blog_posts,
+    categoriesUrl: APP_CONFIG.apis.smarter_blog_categories,
+    excludeCategories: ['announcements'],
+    // Smarter is a Django and React platform, so every article is a full stack one.
+    addCategories: ['smarter'],
+  },
+]
+
 /**
- * One item of public/data/blog.lawrencemcdaniel.com.json. Unlike Article in
+ * One item of public/data/blog.lawrencemcdaniel.com.json, which holds every
+ * blog's articles despite its name. Unlike Article in
  * src/types.ts, tags are still WordPress tag ids, and skills is added later
  * by the browser.
  */
@@ -144,10 +189,12 @@ export function blogApiHeaders(): Record<string, string> {
   return headers
 }
 
-export async function fetchBlogCategories(): Promise<WPBlogCategory[]> {
+export async function fetchBlogCategories(
+  url: string = APP_CONFIG.apis.blog_categories
+): Promise<WPBlogCategory[]> {
   const concept = 'Wordpress blog categories'
   try {
-    const response = await fetch(APP_CONFIG.apis.blog_categories, {
+    const response = await fetch(url, {
       method: 'GET',
       headers: blogApiHeaders(),
     })
@@ -172,52 +219,77 @@ export async function fetchBlogCategories(): Promise<WPBlogCategory[]> {
   return []
 }
 
+/**
+ * The post's Yoast og_image, or else its embedded featured image, so that every
+ * article that has an image shows one.
+ */
+export function ogImage(post: WPBlogPost): YoastImage[] | undefined {
+  if (post.yoast_head_json?.og_image?.length) return post.yoast_head_json.og_image
+  const media = post._embedded?.['wp:featuredmedia']?.[0]
+  if (!media?.source_url) return post.yoast_head_json?.og_image
+  return [
+    {
+      width: media.media_details?.width ?? 0,
+      height: media.media_details?.height ?? 0,
+      url: media.source_url,
+      type: media.mime_type,
+    },
+  ]
+}
+
 export async function fetchBlogPosts(
-  categories: WPBlogCategory[]
+  categories: WPBlogCategory[],
+  url: string = APP_CONFIG.apis.blog_posts,
+  excludeCategories: string[] = []
 ): Promise<BlogPostOutput[]> {
   const concept = 'Wordpress blog posts'
 
   try {
-    const response = await fetch(APP_CONFIG.apis.blog_posts, {
+    const response = await fetch(url, {
       method: 'GET',
       headers: blogApiHeaders(),
     })
     if (response.ok) {
       const repos: unknown = await response.json()
       assertArray<WPBlogPost>(repos, concept)
-      return repos.map((post): BlogPostOutput => {
-        return {
-          id: post.id,
-          modified_gmt: post.modified_gmt,
-          slug: post.slug,
-          status: post.status,
-          type: post.type,
-          link: post.link,
-          excerpt: post.excerpt,
-          author: post.author,
-          featured_media: post.featured_media,
-          categories: post.categories
-            .map((categoryId) => {
-              const category = categories.find((cat) => cat.id === categoryId)
-              return category ? category.slug : null
-            })
-            .filter((slug): slug is string => Boolean(slug)),
-          tags: post.tags,
-          yoast_head_json: {
-            title: post.yoast_head_json?.title,
-            description: post.yoast_head_json?.description,
-            canonical: post.yoast_head_json?.canonical,
-            og_locale: post.yoast_head_json?.og_locale,
-            og_type: post.yoast_head_json?.og_type,
-            og_title: post.yoast_head_json?.og_title,
-            og_description: post.yoast_head_json?.og_description,
-            og_url: post.yoast_head_json?.og_url,
-            article_modified_time: post.yoast_head_json?.article_modified_time,
-            og_image: post.yoast_head_json?.og_image,
-          },
-          _links: post._links?.['wp:featuredmedia'],
-        }
-      })
+      const excludedIds = categories
+        .filter((category) => excludeCategories.includes(category.slug))
+        .map((category) => category.id)
+      return repos
+        .filter((post) => !post.categories.some((id) => excludedIds.includes(id)))
+        .map((post): BlogPostOutput => {
+          return {
+            id: post.id,
+            modified_gmt: post.modified_gmt,
+            slug: post.slug,
+            status: post.status,
+            type: post.type,
+            link: post.link,
+            excerpt: post.excerpt,
+            author: post.author,
+            featured_media: post.featured_media,
+            categories: post.categories
+              .map((categoryId) => {
+                const category = categories.find((cat) => cat.id === categoryId)
+                return category ? category.slug : null
+              })
+              .filter((slug): slug is string => Boolean(slug)),
+            tags: post.tags,
+            yoast_head_json: {
+              title: post.yoast_head_json?.title,
+              description: post.yoast_head_json?.description,
+              canonical: post.yoast_head_json?.canonical,
+              og_locale: post.yoast_head_json?.og_locale,
+              og_type: post.yoast_head_json?.og_type,
+              og_title: post.yoast_head_json?.og_title,
+              og_description: post.yoast_head_json?.og_description,
+              og_url: post.yoast_head_json?.og_url,
+              article_modified_time: post.yoast_head_json?.article_modified_time,
+              og_image: ogImage(post),
+            },
+            _links: post._links?.['wp:featuredmedia'],
+          }
+        })
     } else {
       console.error(`Error fetching ${concept}: ${response.statusText}`)
     }
@@ -228,18 +300,39 @@ export async function fetchBlogPosts(
   return []
 }
 
-/** Fetches every blog post and writes them to outputPath (public/data/blog.lawrencemcdaniel.com.json). */
-export async function main(outputPath: string = OUTPUT_PATH): Promise<void> {
-  const categories = [...(await fetchBlogCategories())]
-  const articles = [...(await fetchBlogPosts(categories))]
-
-  if (articles.length === 0) {
-    console.error('No articles found.')
-    process.exit(1)
+/**
+ * Fetches every post of every blog in sources and writes them to outputPath
+ * (public/data/blog.lawrencemcdaniel.com.json). Exits 1, writing nothing, when a
+ * blog returns no articles, so that a failing blog never empties the site's list.
+ */
+export async function main(
+  outputPath: string = OUTPUT_PATH,
+  sources: BlogSource[] = BLOG_SOURCES
+): Promise<void> {
+  const articles: BlogPostOutput[] = []
+  for (const source of sources) {
+    const categories = await fetchBlogCategories(source.categoriesUrl)
+    const posts = await fetchBlogPosts(
+      categories,
+      source.postsUrl,
+      source.excludeCategories
+    )
+    if (posts.length === 0) {
+      console.error(`No articles found on ${source.name}.`)
+      process.exit(1)
+    }
+    console.log(`Found ${posts.length} articles on ${source.name}.`)
+    articles.push(
+      ...posts.map((post) => ({
+        ...post,
+        categories: [...post.categories, ...source.addCategories],
+      }))
+    )
   }
+
   console.log(`Found ${articles.length} articles.`)
   writeFileSync(outputPath, JSON.stringify(articles), 'utf8')
-  console.log(`Repositories written to ${outputPath}`)
+  console.log(`Articles written to ${outputPath}`)
 }
 
 // Run main() only when Node runs this file directly (node <file>.ts), not when a test imports it.

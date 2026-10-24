@@ -1,6 +1,7 @@
+/* A LinkedIn-style profile card, in the site's panel style. */
 .LI-badge-container,
 .LI-badge-container a {
-  color: white;
+  color: var(--lm-text);
 }
 
 .LI-badge-container ul {
@@ -8,12 +9,16 @@
 }
 
 .LI-badge-container {
-  background-color: #313336;
-  color: white;
+  overflow: hidden;
+  background-color: var(--lm-surface);
+  border: 1px solid var(--lm-border);
+  border-radius: var(--lm-radius);
+  color: var(--lm-text);
 }
 
 .LI-profile-pic-container {
   background-image: url(https://cdn.lawrencemcdaniel.com/wp-content/uploads/2020/06/05215543/linkedin-background.jpg);
+  background-size: cover;
 }
 
 .LI-img-wrapper {
@@ -22,7 +27,7 @@
 }
 
 .LI-img-wrapper img {
-  border: 3px solid #313336;
+  border: 3px solid var(--lm-surface);
   border-radius: 50%;
   width: 45%;
 
@@ -33,11 +38,15 @@
 
 .LI-name {
   font-size: x-large;
+  font-weight: 800;
 }
 
-.btn-primary,
-.btn-primary:hover,
-.btn-primary:active,
-.btn-primary:visited {
-  background-color: #008ad0 !important;
+.LI-name a {
+  text-decoration: none;
+}
+
+.LI-title {
+  font-family: var(--lm-mono);
+  font-size: 0.85rem;
+  color: var(--lm-text-muted);
 }

@@ -10,6 +10,7 @@ import { useArticles, useSpecialties } from '../../../redux/hooks'
 import type { Article as BlogArticle } from '../../../types'
 import { skillIcon, skillLabel } from '../Component'
 import Loading from '../../Loading'
+import { articleHost, articleTitle } from '../../../shared/articleTitle'
 
 import './styles.css'
 
@@ -30,16 +31,25 @@ const ArticleMetadata = ({ article }: ArticleProps) => {
    Top-level component that renders metadata information for the given repository.
    Only shown on medium and larger screens.
    */
+  const image = article.yoast_head_json?.og_image?.[0]
+  if (!image?.url) {
+    // an article without any image gets a tile with its blog's name
+    return (
+      <div className="article-image article-image-placeholder" aria-hidden="true">
+        {articleHost(article)}
+      </div>
+    )
+  }
   return (
     <article>
       <img
-        className="img-fluid"
-        src={article.yoast_head_json?.og_image?.[0]?.url}
-        alt={article.yoast_head_json?.title}
-        title={article.yoast_head_json?.title}
+        className="img-fluid article-image"
+        src={image.url}
+        alt={articleTitle(article)}
+        title={articleTitle(article)}
         loading="lazy"
-        width={article.yoast_head_json?.og_image?.[0]?.width}
-        height={article.yoast_head_json?.og_image?.[0]?.height}
+        width={image.width || undefined}
+        height={image.height || undefined}
       />
     </article>
   )
@@ -52,7 +62,7 @@ const ArticleLink = ({ article }: ArticleProps) => {
   return (
     <React.Fragment>
       <a href={article.link} target="_blank" rel="noopener noreferrer">
-        <strong>{article.yoast_head_json?.title}</strong>
+        <strong>{articleTitle(article)}</strong>
       </a>
     </React.Fragment>
   )
@@ -178,7 +188,7 @@ const ArticlesTable = ({ skill, maxrows = 100 }: ArticlesTableProps) => {
             </thead>
             <tbody>
               {filteredArticles.map((article) => (
-                <tr key={article.id}>
+                <tr key={article.link}>
                   <td className="align-top">
                     <Article article={article} />
                   </td>

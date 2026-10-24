@@ -1,15 +1,11 @@
-.consulting-page {
-  background-color: white;
-}
-
 .code-samples {
-  margin-top: 2rem;
-  padding: 3rem;
+  margin-top: 1rem;
 }
 
 .consulting-list-item-title {
-  color: darkslategray;
-  font-weight: bold;
+  font-family: var(--lm-mono);
+  font-weight: 700;
+  color: var(--lm-accent);
 }
 
 .consulting-services-list {
@@ -18,7 +14,9 @@
 }
 
 .consulting-services-list li {
-  margin-bottom: 1rem;
+  margin-bottom: 1.1rem;
+  padding-left: 1rem;
+  border-left: 1px solid var(--lm-border-strong);
 }
 
 .code-sample-category {
@@ -32,35 +30,4 @@
 
 .consulting-services {
   padding-right: 3rem;
-  text-align: justify;
-}
-
-/* Fix tab styling with more specific selectors */
-ul.nav.nav-tabs {
-  background-color: white !important;
-}
-
-ul.nav.nav-tabs.m-0 {
-  background-color: white !important;
-}
-
-#content-tabs.nav-tabs {
-  background-color: white !important;
-}
-
-.nav-tabs .nav-link {
-  background-color: #f8f9fa !important;
-  color: #495057 !important;
-  border: 1px solid #dee2e6 !important;
-}
-
-.nav-tabs .nav-link.active {
-  background-color: white !important;
-  color: #495057 !important;
-  border-color: #dee2e6 #dee2e6 white !important;
-}
-
-/* Fix the area behind the tabs */
-.col-12 {
-  background-color: white !important;
 }

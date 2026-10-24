@@ -84,6 +84,18 @@ describe('ArticlesTable', () => {
     expect(await screen.findByText('No description available')).toBeInTheDocument()
   })
 
+  it('shows no image for an article without one', async () => {
+    const noImage = { ...ARTICLES[2], yoast_head_json: { title: 'Cloud article' } }
+    server.use(...serveSiteData({ articles: [noImage] }))
+    renderWithProviders(<ArticlesTable />)
+
+    expect(await screen.findByRole('link', { name: 'Cloud article' })).toBeInTheDocument()
+    expect(screen.queryByRole('img')).not.toBeInTheDocument()
+    expect(screen.getByText('blog.lawrencemcdaniel.com')).toHaveClass(
+      'article-image-placeholder'
+    )
+  })
+
   it('shows a spinner while the articles load', () => {
     server.use(
       http.get('*/data/blog.lawrencemcdaniel.com.json', () => new Promise(() => {}))

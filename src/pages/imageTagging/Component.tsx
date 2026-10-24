@@ -45,7 +45,7 @@ const ImageTaggerPage = () => {
       <div key="image-tagging-page" className="site-page image-tagging-page">
         <RenderPageTitle
           theme="light"
-          icon="fa-react"
+          icon="fa-tags"
           title="IMAGE"
           boxed_title="TAGGING"
         />
