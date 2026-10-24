@@ -27,7 +27,7 @@ export default function Head() {
           name="viewport"
           content="width=device-width, initial-scale=1, maximum-scale=1, shrink-to-fit=no"
         />
-        <meta name="theme-color" content="#f1f1f1" />
+        <meta name="theme-color" content="#000000" />
 
         {/* Additional SEO and Technical Meta Tags */}
         <meta name="robots" content="index, follow" />
@@ -57,7 +57,7 @@ export default function Head() {
         <meta name="apple-mobile-web-app-title" content={basePageTitle} />
 
         {/* Microsoft Tiles & Legacy browsers */}
-        <meta name="msapplication-TileColor" content="#f1f1f1" />
+        <meta name="msapplication-TileColor" content="#000000" />
         <meta name="msapplication-config" content="/browserconfig.xml" />
         <meta httpEquiv="X-UA-Compatible" content="IE=edge" />
 

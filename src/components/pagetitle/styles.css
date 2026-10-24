@@ -1,44 +1,71 @@
-div.col.page-title.light {
-  color: black;
-}
-div.col.page-title.dark {
-  color: white;
-}
-
-div.col.page-title.light i.page-title-boxed {
-  background-color: rgba(59, 63, 80, 0.6);
-}
-
-div.col.page-title.dark i.page-title-boxed {
-  background-color: rgba(239, 239, 239, 0.6);
-}
-
+/*
+  Every page's title: an icon in an outlined square, then the title in a heavy
+  sans-serif with its "boxed" word in the accent, followed by a Courier cursor,
+  over the home page's dashed rule. The light and dark themes look the same now
+  that every page is dark; the classes stay so that pages need not change.
+*/
 .page-title {
-  padding-bottom: 25px;
-  padding-top: 30px;
+  padding-top: 48px;
+  padding-bottom: 36px;
+  margin-bottom: 40px;
+  border-bottom: var(--lm-dash);
+  color: #fff;
 }
+
 .page-title .display-4 {
+  margin: 0;
+  font-size: clamp(2.1rem, 5vw, 3.4rem);
   font-weight: 900;
+  line-height: 1.05;
+  letter-spacing: -0.03em;
+  color: #fff;
 }
 
 .page-tile-icon {
-  padding-top: 20px;
-  margin: 0 auto 0 auto;
-  margin-bottom: 15px;
-  background-color: #cccccc;
-  width: 80px;
-  height: 80px;
-  border-radius: 100%;
-  color: white;
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+  width: 52px;
+  height: 52px;
+  margin: 0 auto 18px;
+  border: 1px solid var(--lm-accent-line);
+  border-radius: var(--lm-radius-sm);
+  background-color: var(--lm-accent-soft);
+  color: var(--lm-accent);
+  font-size: 1.35rem !important;
 }
 
 .page-title-boxed {
-  color: white;
-  border-radius: 6px;
-  padding: 0 10px;
+  font-style: normal;
+  color: var(--lm-accent);
 }
 
-.page-title i {
-  margin-top: 27px;
-  margin-bottom: 27px;
+/* a blinking Courier cursor after the title */
+.page-title-boxed::after {
+  content: '';
+  display: inline-block;
+  width: 0.09em;
+  height: 0.78em;
+  margin-left: 0.12em;
+  vertical-align: -0.02em;
+  background-color: var(--lm-accent);
+  animation: page-title-blink 1.1s steps(1) infinite;
+}
+
+@keyframes page-title-blink {
+  50% {
+    opacity: 0;
+  }
+}
+
+@media (prefers-reduced-motion: reduce) {
+  .page-title-boxed::after {
+    animation: none;
+  }
+}
+
+/* the old themes, kept as hooks */
+div.col.page-title.light,
+div.col.page-title.dark {
+  color: #fff;
 }

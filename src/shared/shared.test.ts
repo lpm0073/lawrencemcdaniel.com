@@ -1,6 +1,7 @@
 import { describe, expect, it } from 'vitest'
 
-import { makeMedia, makePost } from '../../test/fixtures'
+import { makeArticle, makeMedia, makePost } from '../../test/fixtures'
+import { articleHost, articleTitle } from './articleTitle'
 import { getCategories } from './categories'
 import { getSemanticVersion } from './getSemanticVersion'
 import { shuffleArray } from './shuffle'
@@ -33,11 +34,39 @@ describe('wpGetFeaturedImage', () => {
   })
 })
 
+describe('articleHost', () => {
+  it("gives the article's blog, or nothing for a bad link", () => {
+    expect(articleHost(makeArticle({ link: 'https://blog.smarter.sh/x/' }))).toBe(
+      'blog.smarter.sh'
+    )
+    expect(articleHost(makeArticle({ link: 'not a url' }))).toBe('')
+  })
+})
+
+describe('articleTitle', () => {
+  it("decodes the title and drops its blog's name", () => {
+    const titled = (title: string) => makeArticle({ yoast_head_json: { title } })
+    expect(articleTitle(titled('MySQL &amp; Nginx - The Smarter Project'))).toBe(
+      'MySQL & Nginx'
+    )
+    expect(articleTitle(titled('ChatGPT Full Stack - Blog'))).toBe('ChatGPT Full Stack')
+    expect(articleTitle(titled('A - B'))).toBe('A - B')
+    expect(articleTitle(makeArticle({ yoast_head_json: undefined }))).toBe('')
+  })
+})
+
 describe('getCategories', () => {
   it('maps tags to the site skill pages', () => {
     expect(getCategories(['docker']).sort()).toEqual(['cloud', 'full-stack'])
     expect(getCategories('openai')).toEqual(['data-science'])
     expect(getCategories(['react', 'reactjs'])).toEqual(['react'])
+  })
+
+  it("maps blog.smarter.sh's categories", () => {
+    expect(getCategories(['artificial-intelligence'])).toEqual(['data-science'])
+    expect(getCategories(['system-management'])).toEqual(['cloud'])
+    expect(getCategories(['how-to'])).toEqual([])
+    expect(getCategories(['smarter'])).toEqual(['full-stack'])
   })
 
   it('returns nothing for missing or unknown tags', () => {

@@ -1,24 +1,24 @@
-.image-tagging-page {
-  background-color: white;
-}
-
 .drag-drop-zone {
-  border: 1px dashed darkgreen;
-  border-radius: 10px;
-  background-color: #f1f1f1;
+  border: 1px dashed var(--lm-accent-line);
+  border-radius: var(--lm-radius);
+  background-color: var(--lm-surface);
+  color: var(--lm-text-muted);
+  font-family: var(--lm-mono);
   height: 375px;
   transition: all 250ms ease-in-out;
 }
 .drag-drop-zone:hover {
-  border-color: #333;
+  border-color: var(--lm-accent);
   border-style: solid;
-  background-color: #e1e1e1;
+  background-color: var(--lm-surface-raised);
 }
 
 .meta-tags {
-  border: 2px solid #333;
-  background-color: #1e1e1e;
-  color: lightgrey;
+  border: 1px solid var(--lm-border);
+  border-radius: var(--lm-radius);
+  background-color: var(--lm-surface);
+  color: var(--lm-text);
+  font-family: var(--lm-mono);
 }
 
 .meta-tags-column {
@@ -26,17 +26,17 @@
 }
 
 .meta-tags-column-objects {
-  border-right: 0.5px solid darkgray;
+  border-right: 1px solid var(--lm-border);
 }
 .meta-tags-column-attributes {
 }
 
 .meta-tags-objects {
-  border-right: 0.5px solid darkgray;
-  border-bottom: 0.5px solid darkgray;
+  border-right: 1px solid var(--lm-border);
+  border-bottom: 1px solid var(--lm-border);
 }
 .meta-tags-attributes {
-  border-bottom: 0.5px solid darkgray;
+  border-bottom: 1px solid var(--lm-border);
 }
 
 .meta-header {

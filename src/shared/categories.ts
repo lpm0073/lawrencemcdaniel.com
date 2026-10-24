@@ -52,6 +52,17 @@ export function getCategories(tags: string | string[] | null | undefined): strin
     if (t.includes('chatgpt')) {
       category.add(APP_CONFIG.skills.dataScience)
     }
+    // blog.smarter.sh's categories
+    if (t.includes('artificial-intelligence') || t.includes('artificial intelligence')) {
+      category.add(APP_CONFIG.skills.dataScience)
+    }
+    if (t.includes('system-management')) {
+      category.add(APP_CONFIG.skills.cloud)
+    }
+    // every blog.smarter.sh post (BLOG_SOURCES in src/shared/fetchers/blogPostFetcher.ts)
+    if (t === 'smarter') {
+      category.add(APP_CONFIG.skills.fullStack)
+    }
     if (t.includes('react') || t.includes('reactjs') || t.includes('react.js')) {
       category.add(APP_CONFIG.skills.react)
     }

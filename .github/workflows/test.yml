@@ -51,6 +51,20 @@ jobs:
       - name: Unit tests (Vitest), with coverage
         run: yarn coverage
 
+      # Vitest's job summary lists only the test results, so add the coverage
+      # totals below it.
+      - name: Coverage summary
+        if: ${{ !cancelled() && hashFiles('coverage/coverage-summary.json') != '' }}
+        run: |
+          node -e '
+            const { total } = require("./coverage/coverage-summary.json")
+            const rows = ["statements", "branches", "functions", "lines"].map((k) => {
+              const { pct, covered, total: n } = total[k]
+              return `| ${k[0].toUpperCase() + k.slice(1)} | ${pct}% | ${covered} / ${n} |`
+            })
+            console.log(["## Coverage", "", "| Metric | Coverage | Covered |", "| --- | ---: | ---: |", ...rows].join("\n"))
+          ' >> "$GITHUB_STEP_SUMMARY"
+
       # Coverage is reported, not enforced, so a Codecov outage (or a missing
       # CODECOV_TOKEN secret) never blocks a deploy.
       - name: Upload coverage to Codecov

@@ -1,10 +1,9 @@
-.red-border {
-  border: 1px solid red;
-}
 .recommendations-page {
-  color: floralwhite;
-  background-image: url(https://cdn.lawrencemcdaniel.com/wp-content/uploads/2020/06/05201857/Lawrence6.jpg);
-  background-color: #333;
+  color: var(--lm-text);
+  background-color: var(--lm-bg);
+  background-image:
+    linear-gradient(rgba(0, 0, 0, 0.5), rgba(0, 0, 0, 0.88)),
+    url(https://cdn.lawrencemcdaniel.com/wp-content/uploads/2020/06/05201857/Lawrence6.jpg);
   background-repeat: repeat;
   background-size: cover;
   background-position: top center;
@@ -12,24 +11,26 @@
 }
 
 #recommendation-carousel {
-  background-color: white;
-  font-weight: bold;
-  border-radius: 5px;
+  background-color: rgba(14, 15, 17, 0.9);
+  border: 1px solid var(--lm-border);
+  border-radius: var(--lm-radius);
 }
 
 .recommendation-pic {
   width: 75px;
   border-radius: 50%;
-  background-color: #555;
+  background-color: var(--lm-surface-raised);
 }
 
 .recommendation-name,
 .recommendation-title {
-  color: rgba(0, 0, 0, 0.9);
+  color: var(--lm-text);
 }
 
 .recommendation-name {
+  font-weight: 800;
 }
+
 .recommendation-title {
   font-weight: normal;
   font-size: smaller;
@@ -37,29 +38,42 @@
 
 .recommendation-date,
 .recommendation-relationship {
-  color: rgba(0, 0, 0, 0.6);
+  color: var(--lm-text-muted);
+  font-family: var(--lm-mono);
   font-weight: normal;
   font-size: x-small;
-  line-height: 1;
+  line-height: 1.3;
 }
 
 .recommendation-description {
-  color: rgba(0, 0, 0, 0.9);
+  color: var(--lm-text);
   font-weight: 400;
-  line-height: 1.5;
+  line-height: 1.6;
   max-height: 150px;
-  overflow: scroll;
+  overflow: auto;
 }
 
 /* ----------  Client Carousel  ---------- */
 #clients-carousel {
-  border-radius: 5px;
+  border-radius: var(--lm-radius);
 }
 
+/* client logos are drawn for a light background */
 #clients-carousel .client-item {
-  background-color: white;
-  border-radius: 3px;
+  background-color: #ebe8e2;
+  border-radius: var(--lm-radius-sm);
+  filter: grayscale(1);
+  opacity: 0.82;
+  transition:
+    filter 0.2s ease,
+    opacity 0.2s ease;
 }
+
+#clients-carousel .client-item:hover {
+  filter: none;
+  opacity: 1;
+}
+
 #clients-carousel .client-image {
   height: 100px;
   width: 250px;

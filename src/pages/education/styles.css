@@ -1,16 +1,61 @@
 .education-page {
-  color: floralwhite;
-  background-color: #474d5d;
+  color: var(--lm-text);
 }
 
+.education-course {
+  background-color: var(--lm-surface);
+  border: 1px solid var(--lm-border);
+  border-radius: var(--lm-radius);
+  overflow: hidden;
+  transition: border-color 0.15s ease;
+}
+
+.education-course:hover {
+  border-color: var(--lm-accent-line);
+}
+
+.education-course h4 {
+  color: var(--lm-text);
+}
+
+.education-course h5 {
+  font-family: var(--lm-mono);
+  font-size: 0.8rem !important;
+  color: var(--lm-text-muted);
+}
+
+/*
+  Each certificate image has the institution's logo in its top part and the
+  course's name burned into its bottom part, which the card already prints
+  below it. The box takes the images' own 7:5 shape (630x450 or 300x214), so
+  the image is never cropped, and a white mask covers the image from 74% of its
+  height down. Every logo ends above 73%, and all of the text starts below 75%.
+*/
 .education-item {
-  height: 190px;
-  background-position: center;
-  background-size: cover;
+  position: relative;
+  aspect-ratio: 630 / 450;
+  background-position: top center;
+  background-size: 100% 100%;
   background-repeat: no-repeat;
-  background-color: #555;
+  background-color: #fff;
 }
 
+.education-item::after {
+  content: '';
+  position: absolute;
+  top: 74%;
+  right: 0;
+  bottom: 0;
+  left: 0;
+  background-color: #fff;
+}
+
+/* cards grow to fit their title, and every card in a row is as tall as the tallest */
 .h-300 {
-  height: 300px !important;
+  min-height: 300px;
+}
+
+.education-course {
+  height: calc(100% - 0.5rem);
+  padding-bottom: 0.75rem;
 }

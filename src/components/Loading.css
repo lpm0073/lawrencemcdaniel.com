@@ -12,7 +12,7 @@
   width: 18px;
   height: 18px;
   border-radius: 50%;
-  background-color: #038fc5;
+  background-color: #ffa500;
   animation: loading-dots-pulse 1.2s infinite ease-in-out both;
 }
 

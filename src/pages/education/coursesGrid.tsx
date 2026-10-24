@@ -19,9 +19,9 @@ function Course({ item_style, course_summary, institution, course_title }: Cours
         style={item_style}
         title={course_summary}
       ></div>
-      <div style={{ marginTop: '-25px' }}>
-        <h5 className="fw-normal fs-6 text-center w-100 mt-2 text-dark">{institution}</h5>
-        <h4 className="fw-normal fs-6 text-center w-100 d-flex align-items-center justify-content-center px-3 text-dark">
+      <div>
+        <h5 className="fw-normal fs-6 text-center w-100 mt-3">{institution}</h5>
+        <h4 className="fw-normal fs-6 text-center w-100 d-flex align-items-center justify-content-center px-3">
           {course_title}
         </h4>
       </div>
@@ -59,7 +59,7 @@ export default function CoursesGrid() {
             <React.Fragment key={indx}>
               <div className="col-lg-3 col-md-4 col-sm-6 px-0">
                 <article
-                  className="m-1 py-1 bg-white border rounded d-flex flex-column h-300"
+                  className="m-1 education-course d-flex flex-column h-300"
                   aria-label={`Education credential ${aria_label}`}
                 >
                   {certificate_url ? (

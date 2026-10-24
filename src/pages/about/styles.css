@@ -1,15 +1,17 @@
-.about-page {
-  background-color: white;
-}
-
 .about-tile {
-  border: 1px solid #999999;
+  background-color: var(--lm-surface);
+  border: 1px solid var(--lm-border);
+  border-radius: var(--lm-radius);
   word-wrap: break-word;
+  transition: border-color 0.15s ease;
+}
+.about-tile:hover {
+  border-color: var(--lm-accent-line);
 }
 .about-tile-icon {
   margin-top: 10px;
   margin-bottom: 15px;
-  color: #666;
+  color: var(--lm-accent);
 }
 
 .about-signature {
@@ -19,12 +21,15 @@
 
 .about-tile-value {
   font-size: 2.5em;
-  color: #666;
+  color: #fff;
   font-weight: 900;
+  letter-spacing: -0.02em;
 }
 
 .about-tile-text {
-  font-size: 0.9em;
+  font-family: var(--lm-mono);
+  font-size: 0.85em;
+  color: var(--lm-text-muted);
   padding: 5px;
   height: 50px;
 }

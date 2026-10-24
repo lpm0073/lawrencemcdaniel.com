@@ -1,49 +1,48 @@
+/* The footer: one Courier line under a dashed rule, as on the home page. */
 footer,
 .footer {
-  background-color: black;
-  color: whitesmoke;
+  max-width: 1200px;
   margin: 0px auto;
   padding: 0;
-  font-family: 'Courier New', Courier, monospace;
+  background-color: var(--lm-bg);
+  color: var(--lm-text-faint);
+  font-family: var(--lm-mono);
+  font-size: 0.72rem;
 }
-footer,
-.footer {
-  font-size: x-small;
+
+.react-banner {
+  padding: 14px 0 18px;
+  border-top: var(--lm-dash);
+  background-color: var(--lm-bg);
+  color: var(--lm-text-faint);
+  text-align: center;
 }
 
 footer a,
-.footer a {
-  color: whitesmoke !important;
+.footer a,
+.react-banner a {
+  color: var(--lm-text-muted) !important;
   font-style: normal !important;
+  text-decoration: none;
 }
 
 footer a:hover,
 .footer a:hover {
-  color: #ffa500; /* orange */
+  color: var(--lm-accent) !important;
   text-decoration: underline;
 }
 
-.react-banner {
-  background-color: black;
-  color: white;
-  font-size: x-small;
-  text-align: right;
-}
-
-.react-banner a {
-  color: white;
-}
 .react-logo {
-  width: 15px;
-  margin-right: 5px;
-}
-
-.offline-alert {
-  color: tomato;
-  filter: none !important;
+  width: 13px;
+  margin-right: 4px;
+  vertical-align: -2px;
 }
 
 .copyright {
   vertical-align: super;
   font-size: small;
+}
+
+.learn-more-link {
+  text-decoration: underline !important;
 }

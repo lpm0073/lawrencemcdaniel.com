@@ -1,7 +1,3 @@
-.data-science-page {
-  background-color: white;
-}
-
 .column-left img {
   width: 100%;
 }
@@ -15,8 +11,9 @@
 }
 
 .column-left .name-block {
-  color: #f1f1f1;
-  background-color: rgba(59, 63, 80, 0.8);
+  color: var(--lm-text);
+  background-color: rgba(0, 0, 0, 0.75);
+  border-top: var(--lm-dash);
 }
 
 .name-block h4 {

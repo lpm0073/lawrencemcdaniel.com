@@ -1,12 +1,8 @@
-.bio-page {
-  background-color: white;
-}
-
 .bio-resume-button {
-  color: #000000;
-  background-color: #ffffff;
-  border: 2px solid #474d5d;
+  color: var(--lm-text);
+  background-color: var(--lm-surface);
+  border: 1px solid var(--lm-border-strong);
 }
 .bio-resume-button a {
-  color: #000000;
+  color: var(--lm-text);
 }
