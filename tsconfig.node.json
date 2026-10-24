@@ -1,0 +1,36 @@
+{
+  // Code that runs in Node: the build configuration, and the scripts that
+  // Node runs directly with type stripping (node <file>.ts), which is why
+  // they import each other with .ts extensions and use only erasable syntax.
+  "compilerOptions": {
+    "tsBuildInfoFile": "./node_modules/.tmp/tsconfig.node.tsbuildinfo",
+    "target": "es2023",
+    "lib": ["ES2023"],
+    "module": "nodenext",
+    "moduleResolution": "nodenext",
+    "types": ["node"],
+    "skipLibCheck": true,
+    "allowImportingTsExtensions": true,
+    "rewriteRelativeImportExtensions": false,
+    "resolveJsonModule": true,
+    "verbatimModuleSyntax": true,
+    "erasableSyntaxOnly": true,
+    "moduleDetection": "force",
+    "noEmit": true,
+    "strict": true,
+    "noUnusedLocals": true,
+    "noUnusedParameters": true,
+    "noFallthroughCasesInSwitch": true
+  },
+  "include": [
+    "vite.config.ts",
+    "vitest.config.ts",
+    "src/components/sitemap/generator.ts",
+    "src/shared/dotenv.ts",
+    "src/shared/updateVersion.ts",
+    "src/shared/fetchers/blogPostFetcher.ts",
+    "src/shared/fetchers/githubRepoFetcher.ts",
+    "src/shared/fetchers/youtubeFetcher.ts",
+    "src/**/*.node.test.ts"
+  ]
+}

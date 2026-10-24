@@ -1,0 +1,119 @@
+import React, { Component } from 'react'
+import { connect, type ConnectedProps } from 'react-redux'
+import { bindActionCreators } from 'redux'
+import { setHomePage } from '../../redux/actions/homeActions'
+import type { AppDispatch, RootState } from '../../redux/configureStore'
+
+import LogoCube from '../../components/logocube/Component'
+import Programmer from './Programmer'
+import DataScientist from './DataScientist'
+import Consultant from './Consultant'
+import Photographer from './Photographer'
+import OnlineInstructor from './Instructor'
+import Smarter from './Smarter'
+import FullStackWithLawrence from './FullStackWithLawrence'
+import JobTitle from './JobTitle'
+import { gsdGraph } from '../../shared/seo/gsdGraph'
+import { gsdPersonLawrenceMcDaniel } from '../../shared/seo/gsdPersonLawrence'
+import { hasOccupation } from '../../shared/seo/gsdPersonLawrence'
+import { basePageTitle } from '../../shared/seo/gsdCommon'
+import { Helmet } from 'react-helmet'
+import { APP_CONFIG } from '../../shared/constants'
+
+import './styles.css'
+
+const mapStateToProps = (state: RootState) => ({
+  ...state,
+})
+const mapDispatchToProps = (dispatch: AppDispatch) => ({
+  actions: bindActionCreators({ setHomePage }, dispatch),
+})
+
+const connector = connect(mapStateToProps, mapDispatchToProps)
+type HomeProps = ConnectedProps<typeof connector>
+
+class Home extends Component<HomeProps> {
+  componentWillUnmount() {
+    this.props.actions.setHomePage()
+  }
+
+  render() {
+    /* Google Structured Data */
+    const person = {
+      ...gsdPersonLawrenceMcDaniel,
+      ...{ hasOccupation: hasOccupation },
+    }
+    const slug = ''
+    const webpageName = basePageTitle
+    const webpageDescription = '' // gsdGraph() uses its default description
+    const primaryImageUrl = ''
+    const pageType = ''
+    const relatedLink = ''
+    const graphExtraData = [person]
+
+    return (
+      <React.Fragment>
+        <Helmet>
+          <link rel="canonical" href={APP_CONFIG.urls.site} />
+          <script type="application/ld+json">
+            {JSON.stringify(
+              gsdGraph(
+                slug,
+                webpageName,
+                webpageDescription,
+                primaryImageUrl,
+                pageType,
+                relatedLink,
+                graphExtraData
+              )
+            )}
+          </script>
+        </Helmet>
+        <main key="home-page" className="jumbotron dark-background" role="main">
+          <div className="h-100">
+            <div className="row pt-1 m-0 mr-0 px-0 jumbotron-spacer">
+              <section
+                className="col-lg-6 pt-5 col-md-12 text-center noselect"
+                aria-label="Profile"
+              >
+                <img
+                  src={APP_CONFIG.static.images.default}
+                  alt="Lawrence McDaniel headshot"
+                  className="head-shot hide-medium img-fluid w-50 rounded mx-auto d-block "
+                />
+                <h1 className="pt-2 mb-0 lawrence-mcdaniel">
+                  <span className="pre-wrap">Lawrence McDaniel</span>
+                </h1>
+                <p className="digital-creator">data scientist</p>
+              </section>
+              <section className="col-lg-6 pt-5 col-md-12" aria-label="Logo Cube">
+                <LogoCube />
+              </section>
+            </div>
+            <section id="job-titles" aria-label="Titles">
+              <div className="row mt-0 mb-0 pt-0 pb-0 text-center justify-content-center hide-medium">
+                <Programmer />
+                <Consultant />
+                <DataScientist />
+              </div>
+              <div className="row mt-0 mb-0 pt-0 pb-0 text-center justify-content-center hide-medium">
+                <Smarter />
+                <OnlineInstructor />
+                <FullStackWithLawrence />
+                <Photographer />
+                <JobTitle
+                  idx="4"
+                  target="_blank"
+                  href={APP_CONFIG.urls.blog}
+                  title="Blogger"
+                />
+              </div>
+            </section>
+          </div>
+        </main>
+      </React.Fragment>
+    )
+  }
+}
+
+export default connector(Home)

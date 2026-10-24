@@ -1,0 +1,33 @@
+import { baseUrl, datePublished, dateModified } from './gsdCommon'
+import { APP_CONFIG } from '../constants'
+
+const ensureTrailingSlash = (str: string): string => (str.endsWith('/') ? str : str + '/')
+export const gsdArticle = (slug: string, headline: string) => {
+  const baseUrlWithSlash = ensureTrailingSlash(baseUrl)
+  const slugWithSlash = ensureTrailingSlash(slug)
+  return {
+    '@type': 'Article',
+    '@id': baseUrlWithSlash + slugWithSlash + '#article',
+    // isPartOf: {
+    //   '@id': baseUrlWithSlash + slugWithSlash + '#webpage',
+    // },
+    author: {
+      '@type': 'Person',
+      '@id': APP_CONFIG.schema.me,
+    },
+    headline: headline,
+    datePublished: datePublished,
+    dateModified: dateModified,
+    mainEntityOfPage: {
+      '@id': baseUrlWithSlash + slugWithSlash + '#webpage',
+    },
+    commentCount: 0,
+    publisher: {
+      '@type': 'Person',
+      '@id': APP_CONFIG.schema.me,
+    },
+    // image: baseUrlWithSlash + '#logo',
+    articleSection: slugWithSlash,
+    inLanguage: 'en-US',
+  }
+}
