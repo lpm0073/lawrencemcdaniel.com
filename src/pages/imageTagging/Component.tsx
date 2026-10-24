@@ -14,19 +14,16 @@ const ImageTaggerPage = () => {
   /* Google Structured Data */
   const slug = 'image-tagging'
   const webpageName = 'ImageTagging'
-  const webpageDescription = ''
-  const primaryImageUrl =
-    'https://cdn.lawrencemcdaniel.com/wp-content/uploads/2020/05/19131001/aws-react-hosting.png'
+  const webpageDescription =
+    'Lawrence McDaniel - Image tagging, an experiment in listing the objects and attributes in a photo.'
+  const primaryImageUrl = ''
   const pageType = ''
   const relatedLink = ''
   const graphExtraData = [gsdPersonLawrenceMcDaniel, gsdArticle(slug, webpageDescription)]
 
   return (
     <React.Fragment>
-      <PageMeta
-        path="/image-tagging"
-        description="Data Scientist and Full Stack Web Developer with extensive experience using ReactJS and Redux. Follow links to the GitHub repository for this site."
-      />
+      <PageMeta path="/image-tagging" description={webpageDescription} />
       <Helmet>
         <script type="application/ld+json">
           {JSON.stringify(

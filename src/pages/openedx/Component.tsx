@@ -224,12 +224,12 @@ const Openedx = () => {
               <p>
                 I am an expert in configuring the Open edX platform for a variety of
                 common use cases including multi-language and e-commerce enabled platforms
-                of widely varying scale. Open edX® is a mature and stable platform that
-                is also highly configurable. Many customization requests can be
-                implemented via the platform's many configuration parameters. However,
-                configuring the Open edX® platform is a knowledge and
-                experience-intensive endeavor. Properly managing your configuration is
-                also something of a trade craft which you can read more about, here,
+                of widely varying scale. Open edX® is a mature and stable platform that is
+                also highly configurable. Many customization requests can be implemented
+                via the platform's many configuration parameters. However, configuring the
+                Open edX® platform is a knowledge and experience-intensive endeavor.
+                Properly managing your configuration is also something of a trade craft
+                which you can read more about, here,
                 <BlankSpace />
                 <a
                   href="https://blog.lawrencemcdaniel.com/open-edx-configuration-management-tutorial/"
@@ -270,10 +270,8 @@ const Openedx = () => {
               <p>
                 I work with clients around the globe to ensure that their users'
                 experiences are performant and reliable. Open edX® is massively scalable,
-                as you can see from the site <a href="https://www.edx.org/">edx.org</a>
-                <BlankSpace />
-                which is one of the largest MOOCs in the world and which runs on exactly
-                the same software and is supported by the same team. The Open edX®
+                as you can see from <a href="https://www.edx.org/">edx.org</a>, one of the
+                largest MOOC sites in the world, which runs on Open edX®. The Open edX®
                 platform leverages considerable open source community know-how and best
                 practices in order to maximize its configurability and scalability. Mind
                 you however, scaling is a highly technical topic, and even more so in the
@@ -289,8 +287,8 @@ const Openedx = () => {
               </p>
               <h4>Administration & Devops</h4>
               <p>
-                I provide front-line support for all versions of the Open edX® platform
-                to clients around the world. I also provide technical training to
+                I provide front-line support for all versions of the Open edX® platform to
+                clients around the world. I also provide technical training to
                 organizations' inhouse IT teams in order to help them prepare for common
                 production live support situations.
               </p>
@@ -333,15 +331,15 @@ const Openedx = () => {
                   <Accordion.Body>
                     <p>
                       The Open edX software, inclusive of all system software and third
-                      party libraries, is free to download and free to use. edX releases a
-                      major update to the software around once per year. The software is
-                      controlled by edX but maintained by a consortium of community users
-                      consisting mostly the engineering team at edX itself along with
-                      contributions from member universities around the world. This group
-                      does not charge fees for access to their regular software updates.
-                      Your only costs will be external consulting costs, if any, for the
-                      installation and configuration, and recurring cloud computing costs.
-                      My blog article, "
+                      party libraries, is free to download and free to use. A new named
+                      release comes out every six months, in June and December. The
+                      project is stewarded by the Axim Collaborative, a non-profit founded
+                      by Harvard and MIT, and maintained by a community of contributors
+                      from edX and from organizations and universities around the world.
+                      The community does not charge fees for access to their regular
+                      software updates. Your only costs will be external consulting costs,
+                      if any, for the installation and configuration, and recurring cloud
+                      computing costs. My blog article, "
                       <a
                         href="https://blog.lawrencemcdaniel.com/how-much-does-open-edx-cost/"
                         target="_blank"
@@ -366,16 +364,16 @@ const Openedx = () => {
                         official
                         <BlankSpace />
                         <a
-                          href="https://open.edx.org/marketplace-category/service-partners/"
+                          href="https://openedx.org/marketplace/"
                           target="_blank"
                           rel="noopener noreferrer"
                         >
                           Open edX Service Providers Marketplace
                         </a>
                         <BlankSpace />
-                        managed by edX, Inc. In addition, I have worked with or
-                        collaborated with several for whom I can vouch, including (in no
-                        particular order)
+                        managed by the Axim Collaborative. In addition, I have worked with
+                        or collaborated with several for whom I can vouch, including (in
+                        no particular order)
                       </p>
                       <ul>
                         <li>
@@ -425,9 +423,7 @@ const Openedx = () => {
                         </li>
                       </ul>
                       <p>
-                        I am also included in the marketplace, however, edX charges me a
-                        fee if you contact from their site, so it'll be cheaper for you
-                        and me if you contact me via email at
+                        You are also welcome to contact me directly, via email at
                         <BlankSpace />
                         <a href="mailto:lpm0073@gmail.com">lpm0073@gmail.com</a>
                       </p>
@@ -453,12 +449,11 @@ const Openedx = () => {
                         own private installation at a later date.
                       </li>
                       <li>
-                        Start with Tutor if you're just evaluating the platform and you're
-                        on a tight budget, as this is the easiest to get up and running
-                        quickly.
-                      </li>
-                      <li>
-                        Consider creating your own native build if
+                        Otherwise, run your own installation with Tutor, the community's
+                        official distribution of Open edX, and the only supported way to
+                        install it since the older native build scripts were retired. It
+                        is also the quickest way to evaluate the platform on a tight
+                        budget. Running your own makes the most sense if
                         <ul>
                           <li>
                             you're a startup and you are actively deciding on the feature
@@ -466,7 +461,7 @@ const Openedx = () => {
                           </li>
                           <li>
                             you have a team in place who is competent in supporting
-                            enterprise Django platforms.
+                            enterprise Django platforms and Docker.
                           </li>
                           <li>you intend to customize the software.</li>
                           <li>
@@ -485,11 +480,11 @@ const Openedx = () => {
                       <strong>(Using AWS EC2 server types as a reference)</strong>
                     </p>
                     <p>
-                      t2.large (2-processor with 8gb of RAM) is the smallest server size
-                      on which Open edX will run reliably. I generally use this server
-                      size during development and for very small implementations intended
-                      for no more than a few dozen users. For any other size rollout I
-                      generally use t2.xlarge servers (4-processor with 16gb of RAM) in
+                      t3.large (2 vCPUs with 8gb of RAM) is the smallest server size on
+                      which Open edX will run reliably. I generally use this server size
+                      during development and for very small implementations intended for
+                      no more than a few dozen users. For any other size rollout I
+                      generally use t3.xlarge servers (4 vCPUs with 16gb of RAM) in
                       conjunction with the platform scaling principals that I outline in
                       my blog article,
                       <BlankSpace />
@@ -502,8 +497,8 @@ const Openedx = () => {
                       </a>
                       <BlankSpace />
                       The Open edX platform is infinitely scalable, as you can plainly see
-                      from the flagship site edx.org. However, scaling is a complex topic
-                      -- you've been warned.
+                      from edx.org. However, scaling is a complex topic -- you've been
+                      warned.
                     </p>
                   </Accordion.Body>
                 </Accordion.Item>
@@ -557,27 +552,25 @@ const Openedx = () => {
                       to host your production platform. I've successfully installed Open
                       edX on all major cloud platforms: AWS, Azure, Google Compute Cloud;
                       as well as at other smaller providers including Digital Ocean and at
-                      some regional cloud providers. I can confidently share with you that
-                      a.) the exact distribution/version of Ubuntu that you choose does
-                      matter (as the authors of the official Open edX documentation
-                      claim), and b) I've always gotten the platform to work eventually,
-                      even in cases where I did not use the suggested distribution.
-                      Net-net, I've found the alternative providers to be good, lower-cost
-                      alternatives to AWS during development activities, and AWS to be
-                      preferable for production.
+                      some regional cloud providers. Tutor runs the platform in Docker
+                      containers, so the server's Linux distribution matters far less than
+                      it did with the older native builds, and I've always gotten the
+                      platform to work eventually. Net-net, I've found the alternative
+                      providers to be good, lower-cost alternatives to AWS during
+                      development activities, and AWS to be preferable for production.
                     </p>
                   </Accordion.Body>
                 </Accordion.Item>
                 <Accordion.Item eventKey="8">
                   <Accordion.Header>
-                    Is it possible to migrate to/from Tutor?
+                    Can we migrate an older native installation to Tutor?
                   </Accordion.Header>
                   <Accordion.Body>
                     <p>
-                      Yes, barring a few rare outlying circumstances. I have more
-                      experience migrating from Tutor to a native build, since this is a
-                      natural trajectory for platform scaling purposes. However, I have
-                      successfully migrated in both directions.
+                      Yes, barring a few rare outlying circumstances. Native installations
+                      no longer receive upgrades, so moving to Tutor is the way forward
+                      for any platform that still runs one. I have successfully migrated
+                      platforms in both directions.
                     </p>
                   </Accordion.Body>
                 </Accordion.Item>
@@ -589,15 +582,15 @@ const Openedx = () => {
                     <p>
                       You should almost always use the most recent named release; the rare
                       exception being that your organization is desperately awaiting the
-                      release of a new feature. edX publishes their "named releases" here,
-                      at
+                      release of a new feature. The Open edX community publishes its named
+                      releases here, at
                       <BlankSpace />
                       <a
-                        href="https://edx.readthedocs.io/projects/edx-developer-docs/en/latest/named_releases.html"
+                        href="https://docs.openedx.org/en/latest/community/release_notes/index.html"
                         target="_blank"
                         rel="noopener noreferrer"
                       >
-                        "Open edX Named Releases"
+                        "Open edX Release Notes"
                       </a>
                       .
                     </p>
@@ -610,12 +603,12 @@ const Openedx = () => {
                   <Accordion.Body>
                     <p>
                       Open edX is a highly stable, well-behaved platform once you've got
-                      it up and running. edX has a world-class engineering team, and they
-                      take testing really seriously. With that in mind, and assuming
-                      minimal or no customizations to the platform, you can reasonably
-                      assume that your platform will essentially be maintenance free other
-                      than activities related to scaling (only if your user base grows)
-                      and occasional software updates of at least once per year.
+                      it up and running. The Open edX community's engineers take testing
+                      really seriously. With that in mind, and assuming minimal or no
+                      customizations to the platform, you can reasonably assume that your
+                      platform will essentially be maintenance free other than activities
+                      related to scaling (only if your user base grows) and upgrading to
+                      each new named release, every six months.
                     </p>
                     <p>
                       If on the other hand, you plan to actively develop new features on
@@ -623,8 +616,8 @@ const Openedx = () => {
                       edX is architected as a traditional enterprise-grade Python-Django
                       web application. It is very large and very complex, and it makes use
                       of the entire family of enterprise scaling technologies that one
-                      could possibly encounter in a Django project. As of the Koa release
-                      the front end is nearly entirely built with ReactJS. There is a
+                      could possibly encounter in a Django project. Its newer user
+                      interfaces, the micro-frontends, are built with ReactJS. There is a
                       substantial learning curve, even if your team are experienced
                       Django/ReactJS folks. The most common technologies that I find
                       myself using are as follows:
@@ -632,6 +625,7 @@ const Openedx = () => {
                     <ul>
                       <li>Ubuntu command line and bash scripting</li>
                       <li>Git / GitHub</li>
+                      <li>Docker, Tutor and Kubernetes</li>
                       <li>basic TCP/IP networking stuff</li>
                       <li>Lots of AWS cloud services stuff</li>
                       <li>

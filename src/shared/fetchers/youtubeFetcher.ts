@@ -123,21 +123,19 @@ export async function fetchChannelVideos(): Promise<VideoOutput[]> {
       assertItems<YouTubeVideoList>(videoData, 'Video')
 
       // Process and add videos to our collection
-      const processedVideos = videoData.items.map(
-        (video): VideoOutput => ({
-          id: video.id,
-          title: video.snippet.title,
-          description: video.snippet.description,
-          publishedAt: video.snippet.publishedAt,
-          thumbnails: video.snippet.thumbnails,
-          tags: video.snippet.tags || [],
-          duration: video.contentDetails.duration,
-          viewCount: parseInt(video.statistics.viewCount || '0'),
-          likeCount: parseInt(video.statistics.likeCount || '0'),
-          commentCount: parseInt(video.statistics.commentCount || '0'),
-          url: `https://www.youtube.com/watch?v=${video.id}`,
-        })
-      )
+      const processedVideos = videoData.items.map((video): VideoOutput => ({
+        id: video.id,
+        title: video.snippet.title,
+        description: video.snippet.description,
+        publishedAt: video.snippet.publishedAt,
+        thumbnails: video.snippet.thumbnails,
+        tags: video.snippet.tags || [],
+        duration: video.contentDetails.duration,
+        viewCount: parseInt(video.statistics.viewCount || '0'),
+        likeCount: parseInt(video.statistics.likeCount || '0'),
+        commentCount: parseInt(video.statistics.commentCount || '0'),
+        url: `https://www.youtube.com/watch?v=${video.id}`,
+      }))
 
       videos.push(...processedVideos)
       nextPageToken = playlistData.nextPageToken || ''

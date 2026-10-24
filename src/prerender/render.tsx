@@ -105,10 +105,16 @@ export const prerenderSite: Prerender = async ({ template, routes, dataOrigin })
   const posts = portfolioPosts(store)
   const paths = [...routes, ...posts.map((post) => post.path)]
 
-  return {
+  const result = {
     pages: paths.map((path) => ({ path, html: renderPage(template, path, store) })),
     posts,
     notFound: renderPage(template, NOT_FOUND_PATH, store),
     errors,
   }
+  // The data was prefetched, so nothing subscribes to it, and RTK Query holds a
+  // timer per endpoint to drop it after keepUnusedDataFor (24 hours). Those
+  // timers keep Node running long after the pages are written; resetting the
+  // api's state clears them.
+  store.dispatch(siteApi.util.resetApiState())
+  return result
 }

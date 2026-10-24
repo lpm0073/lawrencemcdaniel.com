@@ -10,9 +10,9 @@ export default function Head() {
     <React.Fragment>
       <Helmet>
         <title>{basePageTitle}</title>
-        <link rel="shortcut icon" href="/favicon.jpg" type="image/vnd.microsoft.icon" />
+        <link rel="shortcut icon" href="/favicon.jpg" type="image/jpeg" />
 
-        <link rel="apple-touch-icon" href={APP_CONFIG.urls.site + '/logo192.png'} />
+        <link rel="apple-touch-icon" href={APP_CONFIG.urls.site + '/logo192.jpg'} />
         <link rel="manifest" href="/manifest.json" />
 
         {/* Generic meta tags */}
@@ -46,8 +46,8 @@ export default function Head() {
         <link rel="preconnect" href="https://fonts.gstatic.com" crossOrigin="" />
 
         {/* Additional Structured Data */}
-        <meta name="geo.region" content="US" />
-        <meta name="geo.placename" content="United States" />
+        <meta name="geo.region" content="MX-CMX" />
+        <meta name="geo.placename" content="Mexico City" />
 
         {/* Mobile App Tags */}
         <meta name="mobile-web-app-capable" content="yes" />

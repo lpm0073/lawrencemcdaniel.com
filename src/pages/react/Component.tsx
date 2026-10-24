@@ -81,14 +81,14 @@ const ReactPage = () => {
           </aside>
           <section className="col-lg-8 col-md-12" aria-label="ReactJS Page Content">
             <div className="text-justify">
-              <p className="">
-                This site uses a<BlankSpace />
+              <p>
+                This site has a<BlankSpace />
                 <a
                   href="https://github.com/lpm0073/lawrencemcdaniel.com"
                   target="_blank"
                   rel="noopener noreferrer"
                 >
-                  ReactJS/Redux
+                  React
                 </a>
                 <BlankSpace />
                 front end and a backend powered by a<BlankSpace />
@@ -100,9 +100,8 @@ const ReactPage = () => {
                   Wordpress REST api
                 </a>
                 . I originally built this site in 2016 with Wordpress when I was first
-                getting started with web development. I liked the appearance of the
-                original site, so the new React version is nearly identical. I developed
-                the current ReactJS version in mid-2020 immediately after taking an online
+                getting started with web development. In mid-2020, immediately after
+                taking an online
                 <BlankSpace />
                 <a
                   href="https://www.coursera.org/learn/front-end-react/home/welcome"
@@ -112,8 +111,11 @@ const ReactPage = () => {
                   ReactJS course
                 </a>
                 <BlankSpace />
-                on Coursera.com. This site was my first foray into creating a fully-blown
-                ReactJS/Redux web application.
+                on Coursera.com, I rebuilt it as a ReactJS/Redux app that looked nearly
+                identical to the Wordpress original. It was my first foray into creating a
+                fully-blown ReactJS/Redux web application. In 2026 I modernized it, moving
+                it to TypeScript, Vite and Redux Toolkit, adding a test suite and
+                prerendered pages, and giving it a look of its own.
               </p>
               <div className="">
                 <hr />
@@ -126,13 +128,38 @@ const ReactPage = () => {
                 <hr />
               </div>
               <p>
-                <span className="react-page-leader">Front End</span>: The front end stack
-                is
+                <span className="react-page-leader">Front End</span>:
                 <BlankSpace />
-                <a href="https://react.org/" target="_blank" rel="noopener noreferrer">
-                  ReactJS/Redux
+                <a href="https://react.dev/" target="_blank" rel="noopener noreferrer">
+                  React 19
                 </a>
-                ,<BlankSpace />
+                , written in strict
+                <BlankSpace />
+                <a
+                  href="https://www.typescriptlang.org/"
+                  target="_blank"
+                  rel="noopener noreferrer"
+                >
+                  TypeScript
+                </a>
+                <BlankSpace />
+                and built with
+                <BlankSpace />
+                <a href="https://vite.dev/" target="_blank" rel="noopener noreferrer">
+                  Vite
+                </a>
+                , with
+                <BlankSpace />
+                <a
+                  href="https://redux-toolkit.js.org/"
+                  target="_blank"
+                  rel="noopener noreferrer"
+                >
+                  Redux Toolkit
+                </a>
+                <BlankSpace />
+                for state and data,
+                <BlankSpace />
                 <a
                   href="https://getbootstrap.com/"
                   target="_blank"
@@ -140,9 +167,7 @@ const ReactPage = () => {
                 >
                   Bootstrap
                 </a>
-                <BlankSpace />
-                and minimal custom JS and CSS. The graphics all come from the free version
-                of
+                , and icons from the free version of
                 <BlankSpace />
                 <a
                   href="https://fontawesome.com/"
@@ -151,11 +176,12 @@ const ReactPage = () => {
                 >
                   Font Awesome
                 </a>
-                . This was intentional. The original Wordpress version used a
-                professionally-designed third-party theme, and I wanted to see if I could
-                duplicate it using open source tools. I encountered a variety of design
-                and technical challenges with the home page, which you can read more about
-                in this blog post,
+                . The original Wordpress version used a professionally-designed
+                third-party theme, and the first React version duplicated it using open
+                source tools. Today the site has its own design, taken from the home page:
+                black, Courier type and a single amber accent. I encountered a variety of
+                design and technical challenges with the home page, which you can read
+                more about in this blog post,
                 <BlankSpace />
                 <a
                   href="https://blog.lawrencemcdaniel.com/animations-in-reactjs/"
@@ -165,6 +191,25 @@ const ReactPage = () => {
                   Animations in ReactJS
                 </a>
                 .
+              </p>
+              <p>
+                Every page is prerendered to html with its data when the site is built, so
+                search engines and link previews see each page's content without running
+                any JavaScript, and the browser takes over from there. The data from
+                Wordpress, GitHub and YouTube is validated against
+                <BlankSpace />
+                <a href="https://zod.dev/" target="_blank" rel="noopener noreferrer">
+                  zod
+                </a>
+                <BlankSpace />
+                schemas, a
+                <BlankSpace />
+                <a href="https://vitest.dev/" target="_blank" rel="noopener noreferrer">
+                  Vitest
+                </a>
+                <BlankSpace />
+                suite covers more than 95% of the code, and GitHub Actions tests, releases
+                and deploys every change.
               </p>
               <p>
                 Source code:
@@ -204,10 +249,11 @@ const ReactPage = () => {
                 minutia like backups, security, permissions, data backups etcetera that
                 Wordpress takes care of out of the box. I use some premium Wordpress
                 plugins to help with image optimization and CDN synchronization which make
-                adding new images pretty painless. The wordpress site is behind a Varnish
-                cache which means that in practice, everything is served instantaneously
-                by a proxy server, so its really fast. Lastly, the Wordpress REST api is
-                robust (and free).
+                adding new images pretty painless. The Wordpress REST api can take several
+                seconds to respond, so the site never waits on it: each page arrives with
+                its data already in the html, and the browser keeps a copy of every api
+                response and refreshes it in the background. Lastly, the Wordpress REST
+                api is robust (and free).
               </p>
               <p>
                 Backend API URL:
@@ -265,43 +311,54 @@ const ReactPage = () => {
               <ul>
                 <li>
                   <a
-                    href="https://github.com/lpm0073/lawrencemcdaniel.com/blob/master/site/src/index.js"
+                    href="https://github.com/lpm0073/lawrencemcdaniel.com/blob/main/vite.config.ts"
                     target="_blank"
                     rel="noreferrer"
                   >
-                    index.js
+                    vite.config.ts - vite-plugin-pwa builds the service worker and injects
+                    its precache list
                   </a>
                 </li>
                 <li>
                   <a
-                    href="https://github.com/lpm0073/lawrencemcdaniel.com/blob/master/site/src/App.js"
+                    href="https://github.com/lpm0073/lawrencemcdaniel.com/blob/main/src/service-worker.ts"
                     target="_blank"
                     rel="noreferrer"
                   >
-                    App.js
+                    service-worker.ts - Google Workbox precaching and runtime caching
                   </a>
                 </li>
                 <li>
                   <a
-                    href="https://github.com/lpm0073/lawrencemcdaniel.com/blob/master/site/src/service-worker.js"
+                    href="https://github.com/lpm0073/lawrencemcdaniel.com/blob/main/src/serviceWorkerRegistration.ts"
                     target="_blank"
                     rel="noreferrer"
                   >
-                    service-worker.js - scaffolded with create-react-app.
+                    serviceWorkerRegistration.ts - registers the service worker with
+                    workbox-window and reports new releases
                   </a>
                 </li>
                 <li>
                   <a
-                    href="https://github.com/lpm0073/lawrencemcdaniel.com/blob/master/site/src/serviceWorkerRegistration.js"
+                    href="https://github.com/lpm0073/lawrencemcdaniel.com/blob/main/src/main.tsx"
                     target="_blank"
                     rel="noreferrer"
                   >
-                    serviceWorkerRegistration.js - Google Workbox wrapper
+                    main.tsx - online/offline wrapper
                   </a>
                 </li>
                 <li>
                   <a
-                    href="https://github.com/lpm0073/lawrencemcdaniel.com/tree/master/site/src/components/appUpdate"
+                    href="https://github.com/lpm0073/lawrencemcdaniel.com/blob/main/src/App.tsx"
+                    target="_blank"
+                    rel="noreferrer"
+                  >
+                    App.tsx - service worker update alerts
+                  </a>
+                </li>
+                <li>
+                  <a
+                    href="https://github.com/lpm0073/lawrencemcdaniel.com/tree/main/src/components/appUpdate"
                     target="_blank"
                     rel="noreferrer"
                   >
@@ -316,9 +373,9 @@ const ReactPage = () => {
                 that I could leverage for this site (see diagram below). But that aside,
                 there are a couple of things about AWS that are hard to beat for small
                 projects. First, S3/Cloudfront are effectively zero cost, and they are
-                super resilient and performant. And second, AWS offers Lambda as an
-                alternative to a standalone Linux server, which will save you tons of
-                money if you're on a limited budget.
+                super resilient and performant. And second, the site is just files in S3,
+                so there is no web server to manage at all. GitHub Actions builds the
+                site, tests it and uploads it to S3 on every release.
               </p>
               <p>
                 CDN:
@@ -338,10 +395,16 @@ const ReactPage = () => {
           className="aws-diagram hide-medium row mt-lg-5 pl-2 ml-0 mr-0"
           aria-label="AWS React Hosting Architecture"
         >
-          <img
-            src="https://cdn.lawrencemcdaniel.com/wp-content/uploads/2020/05/19131001/aws-react-hosting.png"
-            alt="AWS React Hosting Architecture"
-          />
+          <figure className="m-0 p-0">
+            <img
+              src="https://cdn.lawrencemcdaniel.com/wp-content/uploads/2020/05/19131001/aws-react-hosting.png"
+              alt="AWS React Hosting Architecture"
+            />
+            <figcaption>
+              The hosting architecture as of 2020. The site itself is still served from S3
+              through CloudFront; since then, GitHub Actions builds, tests and deploys it.
+            </figcaption>
+          </figure>
         </div>
         <div className="row mt-lg-5 pl-2" aria-label="Code Samples & Publications">
           <div className="col-lg-12">
