@@ -26,6 +26,7 @@ export const routes: string[] = [
   '/education',
   '/react-mdr',
   '/clients',
+  '/smarter',
 ]
 
 export const priorities: Record<string, number> = {
@@ -36,6 +37,7 @@ export const priorities: Record<string, number> = {
   [urlFullStack]: 0.8,
   [urlOpenEdx]: 0.8,
   [urlReact]: 0.8,
+  '/smarter': 0.8,
   '/contact': 0.7,
   '/about': 0.6,
   '/bio': 0.6,

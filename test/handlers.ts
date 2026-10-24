@@ -1,7 +1,7 @@
 /**
  * MSW handlers that answer every request the site makes: the JSON files in
  * public/data, the WordPress REST API (posts by category, media, tags), and
- * the CDN's images.
+ * the CDN's images, and the Smarter chatbot on the Smarter Project page.
  *
  *   server.use(...siteHandlers)                 // one small record of each kind
  *
@@ -77,6 +77,11 @@ export function serveSiteData(data: SiteData = {}) {
     http.get(`${WP_API}/media`, () => respond(data.projectImages ?? [makeMedia()])),
     http.get(`${WP_API}/tags`, () => respond(data.tags ?? [{ id: 7, name: 'Python' }])),
     http.get('https://cdn.lawrencemcdaniel.com/*', () => new HttpResponse('image')),
+    // a Smarter chatbot that refuses this origin, as on the dev server: the page shows its preview.
+    http.post(
+      'https://*.api.ubc.smarter.sh/config/',
+      () => new HttpResponse(null, { status: 403 })
+    ),
   ]
 }
 

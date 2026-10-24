@@ -25,6 +25,7 @@ import ReactPage from '../pages/react/Component'
 import Openedx from '../pages/openedx/Component'
 import PageNotFound from '../pages/notFound/Component'
 import MRLPage from '../pages/mdr/Component'
+import SmarterPage from '../pages/smarter/Component'
 
 /**
  * Every route of the site. Each page loads the data it shows itself, with the
@@ -61,6 +62,7 @@ export default function SiteRoutes() {
       <Route path={'/' + APP_CONFIG.skills.react} element={<ReactPage />} />
       <Route path="/react-mdr" element={<MRLPage />} />
       <Route path="/clients" element={<Clients />} />
+      <Route path="/smarter" element={<SmarterPage />} />
       <Route path="*" element={<PageNotFound />} />
     </Routes>
   )

@@ -73,14 +73,14 @@ export default function Home() {
           </div>
           <section id="job-titles" aria-label="Titles">
             <div className="row mt-0 mb-0 pt-0 pb-0 text-center justify-content-center hide-medium">
-              <Programmer />
-              <Consultant />
-              <DataScientist />
-            </div>
-            <div className="row mt-0 mb-0 pt-0 pb-0 text-center justify-content-center hide-medium">
               <Smarter />
               <OnlineInstructor />
               <FullStackWithLawrence />
+            </div>
+            <div className="row mt-0 mb-0 pt-0 pb-0 text-center justify-content-center hide-medium">
+              <Programmer />
+              <Consultant />
+              <DataScientist />
               <Photographer />
               <JobTitle
                 idx="4"

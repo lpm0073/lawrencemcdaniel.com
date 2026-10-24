@@ -22,7 +22,7 @@ describe('sitemap generator', () => {
     await main(outputPath)
 
     const xml = readFileSync(outputPath, 'utf8')
-    expect(routes).toHaveLength(16)
+    expect(routes).toHaveLength(17)
     for (const route of routes) {
       expect(xml).toContain(`<loc>https://lawrencemcdaniel.com${route}</loc>`)
     }

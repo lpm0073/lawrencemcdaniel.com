@@ -34,7 +34,7 @@ describe('Home', () => {
     ['Programmer', '/' + APP_CONFIG.skills.fullStack, '_self'],
     ['Consultant', '/consulting', '_self'],
     ['Data Scientist', '/' + APP_CONFIG.skills.dataScience, '_self'],
-    ['The Smarter Project', 'https://smarter.sh/', '_blank'],
+    ['The Smarter Project', '/smarter', '_self'],
     [
       'Educator',
       'https://extendedlearning.ubc.ca/about/our-instructors?field_course_program_areas_target_id_verf=All&field_instr_first_name=Lawrence&field_instr_last_name=McDaniel',

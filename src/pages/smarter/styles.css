@@ -1,0 +1,301 @@
+/* The Smarter Project page. Orange is Smarter's brand color (smarter.sh). */
+.smarter-page {
+  --smarter-orange: #ea580c;
+  --smarter-ink: #1f2430;
+  --smarter-line: #e3e5ea;
+  background-color: white;
+  padding-left: 24px;
+  padding-right: 24px;
+}
+
+.smarter-page h3 {
+  font-weight: 800;
+  margin-bottom: 0.75rem;
+}
+
+.smarter-page p {
+  line-height: 1.65;
+}
+
+.smarter-section-lead {
+  max-width: 720px;
+  color: #555;
+}
+
+/* Introduction */
+.smarter-intro {
+  align-items: center;
+  margin-top: 1rem;
+}
+
+.smarter-hero-figure {
+  margin: 1rem 0 0 0;
+  text-align: center;
+}
+
+.smarter-hero-figure img {
+  border-radius: 8px;
+  box-shadow: 0 12px 32px rgba(31, 36, 48, 0.18);
+}
+
+.smarter-hero-figure figcaption {
+  margin-top: 0.6rem;
+  font-size: 0.85em;
+  color: #777;
+}
+
+/* Numbers */
+.smarter-stats {
+  margin: 2.5rem -24px;
+  background-color: var(--smarter-ink);
+  color: white;
+}
+
+.smarter-stat {
+  padding: 1.4rem 0.75rem;
+  text-align: center;
+  border-right: 1px solid rgba(255, 255, 255, 0.08);
+}
+
+.smarter-stat-value {
+  font-size: 2em;
+  font-weight: 900;
+  color: var(--smarter-orange);
+  line-height: 1.1;
+}
+
+.smarter-stat-text {
+  margin-top: 0.35rem;
+  font-size: 0.85em;
+  color: #c9ccd4;
+}
+
+/* Story */
+.smarter-story {
+  margin-bottom: 2rem;
+}
+
+/* Ideas */
+.smarter-ideas {
+  margin-bottom: 3rem;
+}
+
+.smarter-idea {
+  display: flex;
+  flex-direction: column;
+  border: 1px solid var(--smarter-line);
+  border-radius: 10px;
+  overflow: hidden;
+  background-color: white;
+  transition:
+    box-shadow 0.2s ease,
+    transform 0.2s ease;
+}
+
+.smarter-idea:hover {
+  box-shadow: 0 10px 24px rgba(31, 36, 48, 0.12);
+  transform: translateY(-2px);
+}
+
+.smarter-idea-visual {
+  height: 190px;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  background-color: #f6f7f9;
+  border-bottom: 1px solid var(--smarter-line);
+  padding: 12px;
+}
+
+.smarter-idea-visual img {
+  max-width: 100%;
+  max-height: 100%;
+  object-fit: contain;
+}
+
+.smarter-idea-code {
+  width: 100%;
+  margin: 0;
+  padding: 14px;
+  border-radius: 6px;
+  background-color: var(--smarter-ink);
+  color: #f3c79f;
+  font-size: 0.72em;
+  line-height: 1.5;
+  white-space: pre;
+  overflow-x: auto;
+}
+
+.smarter-idea-body {
+  display: flex;
+  flex-direction: column;
+  flex: 1;
+  padding: 1rem 1.1rem 1.1rem;
+}
+
+.smarter-idea-body h4 {
+  font-size: 1.15em;
+  font-weight: 700;
+}
+
+.smarter-idea-body p {
+  flex: 1;
+  font-size: 0.93em;
+  color: #444;
+}
+
+.smarter-idea-links {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 0.4rem;
+}
+
+.smarter-idea-links a {
+  padding: 0.2rem 0.7rem;
+  border: 1px solid var(--smarter-orange);
+  border-radius: 999px;
+  font-size: 0.82em;
+  color: var(--smarter-orange);
+  text-decoration: none;
+}
+
+.smarter-idea-links a:hover {
+  background-color: var(--smarter-orange);
+  color: white;
+}
+
+/* Chat */
+.smarter-chat-section {
+  margin-bottom: 3rem;
+  padding: 2rem 0;
+  border-top: 1px solid var(--smarter-line);
+  border-bottom: 1px solid var(--smarter-line);
+}
+
+smarter-chat {
+  display: block;
+}
+
+.smarter-chat-preview {
+  border: 1px solid #d1dbe3;
+  border-radius: 12px;
+  overflow: hidden;
+  background-color: white;
+}
+
+.smarter-chat-preview-header {
+  display: flex;
+  align-items: center;
+  gap: 0.75rem;
+  padding: 0.9rem 1.2rem;
+  background-color: #f6fbff;
+  border-bottom: 1px solid #d1dbe3;
+}
+
+.smarter-chat-preview-avatar {
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+  width: 36px;
+  height: 36px;
+  border-radius: 50%;
+  background-color: #fff1e8;
+  color: var(--smarter-orange);
+}
+
+.smarter-chat-preview-title {
+  font-weight: 700;
+}
+
+.smarter-chat-preview-subtitle {
+  font-size: 0.8em;
+  color: #6b7280;
+}
+
+.smarter-chat-preview-body {
+  padding: 1.2rem;
+}
+
+.smarter-chat-preview-bubble {
+  max-width: 85%;
+  padding: 0.7rem 1rem;
+  border-radius: 16px 16px 16px 4px;
+  background-color: #c6e3fa;
+  font-size: 0.92em;
+}
+
+.smarter-chat-preview-label {
+  margin: 1.2rem 0 0.5rem;
+  font-size: 0.75em;
+  font-weight: 700;
+  letter-spacing: 0.05em;
+  text-transform: uppercase;
+  color: #6b7280;
+}
+
+.smarter-chat-preview-example {
+  margin-bottom: 0.5rem;
+  padding: 0.5rem 0.9rem;
+  border: 1px solid #d1dbe3;
+  border-radius: 8px;
+  font-size: 0.9em;
+}
+
+/* Repositories */
+.smarter-repos h5 {
+  font-size: 0.8em;
+  font-weight: 700;
+  letter-spacing: 0.06em;
+  text-transform: uppercase;
+  color: #777;
+}
+
+.smarter-repos li {
+  margin-bottom: 0.25rem;
+}
+
+.smarter-repos li a {
+  color: var(--smarter-ink);
+  font-family: 'Courier New', Courier, monospace;
+  text-decoration: none;
+}
+
+.smarter-repos li a:hover {
+  color: var(--smarter-orange);
+}
+
+.smarter-more {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 1.5rem;
+  margin-top: 1.5rem;
+  padding-top: 1rem;
+  border-top: 1px solid var(--smarter-line);
+}
+
+.smarter-more a {
+  color: var(--smarter-orange);
+  font-weight: 600;
+}
+
+@media (max-width: 991px) {
+  .smarter-stat {
+    border-bottom: 1px solid rgba(255, 255, 255, 0.08);
+  }
+}
+
+@media (max-width: 575px) {
+  .smarter-page {
+    padding-left: 12px;
+    padding-right: 12px;
+  }
+
+  .smarter-stats {
+    margin-left: -12px;
+    margin-right: -12px;
+  }
+
+  .smarter-stat-value {
+    font-size: 1.6em;
+  }
+}

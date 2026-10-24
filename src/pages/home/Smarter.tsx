@@ -10,10 +10,9 @@ const Smarter = () => {
         aria-label="The Smarter Project"
       >
         <a
-          target="_blank"
-          rel="noreferrer"
-          href="https://smarter.sh/"
-          title="An open source AI resource management platform"
+          target="_self"
+          href="/smarter"
+          title="The open source AI platform that I author and maintain"
         >
           <h2>
             <span className="" role="img" aria-label="Close">

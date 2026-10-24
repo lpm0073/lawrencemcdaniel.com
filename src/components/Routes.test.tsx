@@ -52,6 +52,7 @@ describe('SiteRoutes', () => {
     ['/cloud', 'COMPUTING'],
     ['/react', 'REACTJS'],
     ['/clients', 'CLIENTS'],
+    ['/smarter', 'PROJECT'],
   ])('renders the page at %s', async (route, boxedTitle) => {
     await renderRoute(route)
     const titles = await screen.findAllByRole('heading', { level: 1 })
