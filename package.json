@@ -102,7 +102,7 @@
     "husky": "^9.1.7",
     "jsdom": "^30.1.2",
     "lint-staged": "^16.4.0",
-    "marked": "^16.4.2",
+    "marked": "^18.1.1",
     "msw": "^2.15.0",
     "prettier": "^3.9.10",
     "semantic-release": "24.2.7",
