@@ -224,12 +224,12 @@ const Openedx = () => {
               <p>
                 I am an expert in configuring the Open edX platform for a variety of
                 common use cases including multi-language and e-commerce enabled platforms
-                of widely varying scale. Open edX® is a mature and stable platform that
-                is also highly configurable. Many customization requests can be
-                implemented via the platform's many configuration parameters. However,
-                configuring the Open edX® platform is a knowledge and
-                experience-intensive endeavor. Properly managing your configuration is
-                also something of a trade craft which you can read more about, here,
+                of widely varying scale. Open edX® is a mature and stable platform that is
+                also highly configurable. Many customization requests can be implemented
+                via the platform's many configuration parameters. However, configuring the
+                Open edX® platform is a knowledge and experience-intensive endeavor.
+                Properly managing your configuration is also something of a trade craft
+                which you can read more about, here,
                 <BlankSpace />
                 <a
                   href="https://blog.lawrencemcdaniel.com/open-edx-configuration-management-tutorial/"
@@ -289,8 +289,8 @@ const Openedx = () => {
               </p>
               <h4>Administration & Devops</h4>
               <p>
-                I provide front-line support for all versions of the Open edX® platform
-                to clients around the world. I also provide technical training to
+                I provide front-line support for all versions of the Open edX® platform to
+                clients around the world. I also provide technical training to
                 organizations' inhouse IT teams in order to help them prepare for common
                 production live support situations.
               </p>

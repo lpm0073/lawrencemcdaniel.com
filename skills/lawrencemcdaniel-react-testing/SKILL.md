@@ -100,6 +100,6 @@ so the real `.env` is never read, and spy on `process.exit`.
   build and tests fail with "act is not supported". `vitest.config.ts` forces
   `test`; keep it.
 - **Coverage includes `.md` files if you pass `--coverage.include='src/shared/seo/**'`**,
-which breaks the report. Use `seo/\*.ts`.
+  which breaks the report. Use `seo/\*.ts`.
 - **Query data is frozen.** A test (or component) that sorts or modifies it in
   place throws "Cannot assign to read only property": copy it first.

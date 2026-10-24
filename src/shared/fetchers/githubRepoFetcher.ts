@@ -520,13 +520,11 @@ export async function getRepoLanguages(
 
     // Convert to array with percentages, sorted by usage
     const languageArray = Object.entries(languages)
-      .map(
-        ([language, bytes]): LanguageInfo => ({
-          name: language,
-          bytes: bytes,
-          percentage: totalBytes > 0 ? ((bytes / totalBytes) * 100).toFixed(1) : 0,
-        })
-      )
+      .map(([language, bytes]): LanguageInfo => ({
+        name: language,
+        bytes: bytes,
+        percentage: totalBytes > 0 ? ((bytes / totalBytes) * 100).toFixed(1) : 0,
+      }))
       .sort((a, b) => b.bytes - a.bytes)
 
     return {
