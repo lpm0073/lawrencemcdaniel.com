@@ -1,3 +1,10 @@
+# [1.7.0](https://github.com/lpm0073/lawrencemcdaniel.com/compare/v1.6.0...v1.7.0) (2026-10-24)
+
+
+### Features
+
+* **seo:** prerender every page with its own head tags and data ([35d1418](https://github.com/lpm0073/lawrencemcdaniel.com/commit/35d1418b9c5e1e783b64e4cb6396354a020a25de))
+
 # [1.6.0](https://github.com/lpm0073/lawrencemcdaniel.com/compare/v1.5.8...v1.6.0) (2026-10-24)
 
 
