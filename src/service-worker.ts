@@ -72,17 +72,6 @@ const PUBLIC_ASSETS_IMAGES = [
   'kubernetes-logo-513x261.png',
   'react-brands.svg',
 ]
-const ROOT_STATIC = [
-  'favicon.jpg',
-  'favicon-offline.jpg',
-  'logo192.jpg',
-  'logo512.jpg',
-  'manifest.json',
-  'package.json',
-  'robots.txt',
-  'sitemap.xml',
-  'sitemap.xsl',
-]
 
 // ------------------------- Cache Expiration Policies ------------------------
 const app_cache_expiration = new ExpirationPlugin({
@@ -117,7 +106,6 @@ const allPrecacheEntries: PrecacheEntry[] = [
     revision: null,
     url: `/assets/images/${image}`,
   })),
-  ...ROOT_STATIC.map((file) => ({ revision: null, url: `/${file}` })),
   {
     revision: null,
     url: 'https://cdn.lawrencemcdaniel.com/lawrencemcdaniel-headshot-square.jpeg',

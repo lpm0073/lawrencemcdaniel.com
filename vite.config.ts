@@ -61,8 +61,17 @@ export default defineConfig({
         // css's legacy formats (eot, svg, ttf: 775 KB of Font Awesome) never,
         // so precaching them only costs every visitor the download. Fonts with
         // no woff2 (react-multi-carousel's revicons) are fetched when used.
-        // The service worker adds the images in public/ itself.
-        globPatterns: ['*.html', 'static/**/*.{js,css,woff2}'],
+        // The service worker adds the images in public/assets/ itself.
+        // The web app manifest and its icons are listed here, not there, so
+        // that each gets a content hash and updates when it changes; an entry
+        // with no revision is cached once and never fetched again. The sitemap,
+        // robots.txt and package.json aren't precached: crawlers don't run the
+        // service worker, and the app never fetches them.
+        globPatterns: [
+          '*.html',
+          '{manifest.json,favicon.jpg,favicon-offline.jpg,logo192.jpg,logo512.jpg}',
+          'static/**/*.{js,css,woff2}',
+        ],
       },
     }),
   ],

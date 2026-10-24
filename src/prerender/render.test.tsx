@@ -168,6 +168,21 @@ describe('prerenderSite', () => {
     expect(errors).toEqual(['getVideos: Error 503', 'getClients: Error 500'])
   })
 
+  it("leaves no cache timer behind, which would keep the build's Node process running", async () => {
+    const setTimeoutSpy = vi.spyOn(globalThis, 'setTimeout')
+    const clearTimeoutSpy = vi.spyOn(globalThis, 'clearTimeout')
+
+    await prerenderSite({ template: TEMPLATE, routes: ['/'], dataOrigin: ORIGIN })
+
+    // RTK Query's timers that drop unused data, an hour or more.
+    const cacheTimers = setTimeoutSpy.mock.results
+      .filter((_, i) => (setTimeoutSpy.mock.calls[i]?.[1] ?? 0) >= 60 * 60 * 1000)
+      .map((result) => result.value as unknown)
+    expect(cacheTimers.length).toBeGreaterThan(0)
+    const cleared = clearTimeoutSpy.mock.calls.map(([id]) => id as unknown)
+    for (const timer of cacheTimers) expect(cleared).toContain(timer)
+  })
+
   it('refuses a template without its placeholders, e.g. an already prerendered page', async () => {
     await expect(
       prerenderSite({
