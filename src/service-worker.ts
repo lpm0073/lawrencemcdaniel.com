@@ -34,7 +34,7 @@
 //-----------------------------------------------
 import { clientsClaim } from 'workbox-core'
 import { ExpirationPlugin } from 'workbox-expiration'
-import { precacheAndRoute, createHandlerBoundToURL } from 'workbox-precaching'
+import { addRoute, createHandlerBoundToURL, precache } from 'workbox-precaching'
 import { CacheableResponsePlugin } from 'workbox-cacheable-response'
 import { CacheFirst, NetworkFirst } from 'workbox-strategies'
 import { registerRoute } from 'workbox-routing'
@@ -121,7 +121,7 @@ allPrecacheEntries.forEach((entry) => {
 
 const dedupedManifest = Array.from(manifestMap.values())
 
-precacheAndRoute(dedupedManifest)
+precache(dedupedManifest)
 
 // Every page is its own html file, which the build prerenders with the page's
 // content and data (src/prerender/). So a navigation fetches its page from the
@@ -161,6 +161,21 @@ registerRoute(
     }
   }
 )
+
+// The precache's route comes after the pages' route, because it answers / with
+// the precached index.html, which would leave the home page stale until the
+// next release and throw away its navigation preload.
+addRoute()
+
+// Navigation preload fetches every page while the worker starts up. A
+// navigation that no route answers (a /_ path, a file such as /sitemap.xml)
+// never reads it, and the browser then cancels it and logs an error, so wait
+// for it here.
+self.addEventListener('fetch', (event) => {
+  if (event.request.mode === 'navigate') {
+    event.waitUntil(Promise.resolve(event.preloadResponse).catch(() => undefined))
+  }
+})
 
 // A new release waits until the app sends SKIP_WAITING (workbox-window's
 // messageSkipWaiting(), see src/serviceWorkerRegistration.ts). The very first
