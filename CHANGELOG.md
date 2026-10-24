@@ -1,3 +1,10 @@
+## [1.8.3](https://github.com/lpm0073/lawrencemcdaniel.com/compare/v1.8.2...v1.8.3) (2026-10-24)
+
+
+### Bug Fixes
+
+* **sw:** stop cancelling the navigation preload request ([519c8db](https://github.com/lpm0073/lawrencemcdaniel.com/commit/519c8db2f8041092f16e608c32a44ea81d770b50))
+
 ## [1.8.2](https://github.com/lpm0073/lawrencemcdaniel.com/compare/v1.8.1...v1.8.2) (2026-10-24)
 
 
