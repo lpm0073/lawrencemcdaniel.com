@@ -14,7 +14,7 @@ type ImageRef = string | { '@id': string }
 
 export const defaultPageDescription = (webpageDescription?: string): string => {
   if (webpageDescription && webpageDescription !== '') return webpageDescription
-  return 'Lawrence McDaniel - Data Scientist, Python Programmer, Open edX Consultant, online instructor and digital content creator.'
+  return 'Lawrence McDaniel - Data Scientist, Python Programmer, Open edX Consultant, online instructor, digital content creator, and cancer survivor.'
 }
 
 export const defaultKeywords = (keywords?: string): string => {
