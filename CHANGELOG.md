@@ -1,3 +1,11 @@
+## [1.8.2](https://github.com/lpm0073/lawrencemcdaniel.com/compare/v1.8.1...v1.8.2) (2026-10-24)
+
+
+### Bug Fixes
+
+* **build:** let the prerender exit, stop precaching the sitemap ([b5e511c](https://github.com/lpm0073/lawrencemcdaniel.com/commit/b5e511c79c35bd818900c9c259e7110d149e2404))
+* **sw:** restyle update notices, rework updates, correct outdated text ([2139c26](https://github.com/lpm0073/lawrencemcdaniel.com/commit/2139c26a82c0c8914086236283f8826a5d2f5cb0))
+
 ## [1.8.1](https://github.com/lpm0073/lawrencemcdaniel.com/compare/v1.8.0...v1.8.1) (2026-10-24)
 
 
