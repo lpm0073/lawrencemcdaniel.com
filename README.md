@@ -1,6 +1,6 @@
 # lawrencemcdaniel.com
 
-![Test Status](https://github.com/lpm0073/lawrencemcdaniel.com/actions/workflows/test.yml/badge.svg?branch=main)
+![Test Status](https://github.com/lpm0073/lawrencemcdaniel.com/actions/workflows/test.yml/badge.svg?event=pull_request)
 ![Deploy Status](https://github.com/lpm0073/lawrencemcdaniel.com/actions/workflows/deploy.yml/badge.svg?branch=main)
 [![Coverage](https://img.shields.io/codecov/c/github/lpm0073/lawrencemcdaniel.com/main?label=coverage&logo=codecov)](https://codecov.io/gh/lpm0073/lawrencemcdaniel.com)
 [![Latest Release](https://img.shields.io/github/v/release/lpm0073/lawrencemcdaniel.com?label=release)](https://github.com/lpm0073/lawrencemcdaniel.com/releases)
