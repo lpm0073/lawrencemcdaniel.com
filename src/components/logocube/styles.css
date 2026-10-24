@@ -46,7 +46,6 @@
   width: var(--width);
   height: var(--width);
   position: absolute;
-  cursor: pointer;
   /*
     amber glass faces, in the color of the site's buttons and pointers, with a
     light texture: fine film grain (an svg noise filter) over faint diagonal
@@ -203,5 +202,24 @@
   }
   100% {
     opacity: 1;
+  }
+}
+
+/*
+  For visitors who ask for less motion: a still cube, seen corner-on, with no
+  construction animation. The logos still change.
+*/
+@media (prefers-reduced-motion: reduce) {
+  .d3-cube,
+  .d3-side,
+  .grow-side,
+  .fade-in {
+    animation: none;
+    -webkit-animation: none;
+  }
+
+  .d3-cube {
+    transform: rotateY(0deg);
+    -webkit-transform: rotateY(0deg);
   }
 }

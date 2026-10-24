@@ -20,7 +20,7 @@
     This is intended to distract the site visitor for a moment while we pre-fetch the first set
     of logo images (for slow internet connections). We initialize the cube w 6 locally-stored
     and highly-optimized logos (one per cube side) that, incidentally, I most want visitors to see.
-    (React, Redux, Angular, Django, AWS, Wordpress)
+    (Django, Open edX, React, MIT IDSS, Kubernetes, AWS; see src/shared/getInitialLogos.ts)
 
     II. Update infinitely:
     Randomly show lots of other logos. The longer the site visitor stares at this logo cube
@@ -39,7 +39,7 @@
 
     solution: I created a 2nd api feed consisting of six "featured" logos.
     I initialize the cube with the featured logos, and then hold these
-    logos in place for 5 seconds before initiating the random logo replacements.
+    logos in place for 4 seconds before initiating the random logo replacements.
 
     B. Disappointing logo shuffle.
     It bothered me that sometimes all six cube sides would display only
@@ -90,8 +90,8 @@
     resulting in several painter() threads co-existing, which causes
     the cube to update multitudes more frequently than I wanted.
 
-    solution: I fixed the threading issue by keeping track of, and explicitly killing
-    all background threads that I create.
+    solution: I fixed the threading issue by keeping track of the pending repaint timer,
+    and clearing it when the component unmounts.
 
     G. Slow loading logos.
     The cube itself is rendered purely in CSS and so always renders smoothly, but it
@@ -159,9 +159,6 @@ type LogoUrl = string | null | undefined
   Record<string, unknown> that the Redux store keeps (LogoCubeSnapshot).
 */
 type LogoCubeState = {
-  repaintDelay: ReturnType<typeof setTimeout> | null
-  /* never set; componentWillUnmount() clears it anyway. */
-  fetchDelay?: ReturnType<typeof setTimeout>
   cubeTopBackgroundUrl: LogoUrl
   cubeBottomBackgroundUrl: LogoUrl
   cubeLeftBackgroundUrl: LogoUrl
@@ -192,7 +189,7 @@ const CubeSide = (props: CubeSideProps) => {
 
   return (
     <React.Fragment>
-      <div key={divId} className={clsId} aria-label="Cube Side">
+      <div key={divId} className={clsId} data-testid="cube-side">
         <div>
           <div key={divId + '-logo'} className="logo" style={divStyle}></div>
         </div>
@@ -202,6 +199,9 @@ const CubeSide = (props: CubeSideProps) => {
 }
 
 class LogoCube extends Component<LogoCubeProps, LogoCubeState> {
+  /* the pending repaint, so that componentWillUnmount() can stop the repaint loop. */
+  private repaintTimer: ReturnType<typeof setTimeout> | undefined
+
   constructor(props: LogoCubeProps) {
     super(props)
 
@@ -224,9 +224,6 @@ class LogoCube extends Component<LogoCubeProps, LogoCubeState> {
       const initialLogos = getInitialLogos()
 
       this.state = {
-        /* delay threads, to prevent the component from re-rendering if we're in mid-animation */
-        repaintDelay: null,
-
         /* the current logo image URL for each of the 6 logos */
         cubeTopBackgroundUrl: this.getSerializedLogo(initialLogos, 0),
         cubeBottomBackgroundUrl: this.getSerializedLogo(initialLogos, 1),
@@ -253,19 +250,15 @@ class LogoCube extends Component<LogoCubeProps, LogoCubeState> {
             quickly unmounts.
         */
 
-    const myTimeout = setTimeout(() => {
+    this.repaintTimer = setTimeout(() => {
       this.repaint()
     }, 100)
-    this.setState({
-      repaintDelay: myTimeout,
-    })
   }
 
   componentWillUnmount() {
     /* kill any pending background threads that were
         invoked in componentDidMount(). */
-    clearTimeout(this.state.repaintDelay ?? undefined)
-    clearTimeout(this.state.fetchDelay)
+    clearTimeout(this.repaintTimer)
 
     /* send component state to Redux store */
     const state = this.state
@@ -277,7 +270,12 @@ class LogoCube extends Component<LogoCubeProps, LogoCubeState> {
     const capClass = this.props.savedState === null ? 'fade-in' : ''
 
     return (
-      <div key="logo-cube" className="d3-container mt-0">
+      <div
+        key="logo-cube"
+        className="d3-container mt-0"
+        role="img"
+        aria-label="A spinning cube of technology logos"
+      >
         <div className="d3-cube mt-5">
           <CubeSide side="top" url={this.getBackgroundUrl('top')} classes={capClass} />
           <CubeSide
@@ -319,7 +317,7 @@ class LogoCube extends Component<LogoCubeProps, LogoCubeState> {
       }
     }
 
-    setTimeout(() => {
+    this.repaintTimer = setTimeout(() => {
       this.repaint()
     }, 750 * Math.random())
   }

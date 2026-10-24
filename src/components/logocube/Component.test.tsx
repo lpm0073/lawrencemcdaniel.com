@@ -51,7 +51,7 @@ async function loadedStore(specialties: WPPost[] = SPECIALTIES) {
 
 /** The logo image url on each of the six sides; the cube has no other way to show them. */
 function cubeLogos(): string[] {
-  return screen.getAllByLabelText('Cube Side').map((side) => {
+  return screen.getAllByTestId('cube-side').map((side) => {
     // eslint-disable-next-line testing-library/no-node-access -- the logo is a CSS background with no role
     const logo = side.querySelector<HTMLElement>('.logo')
     return logo?.style.backgroundImage.replace(/^url\(["']?|["']?\)$/g, '') ?? ''
@@ -61,7 +61,7 @@ function cubeLogos(): string[] {
 /** Whether the cube plays its construction animation, which it has no accessible sign of. */
 function isConstructing(): boolean {
   return screen
-    .getAllByLabelText('Cube Side')
+    .getAllByTestId('cube-side')
     .some((side) => side.classList.contains('grow-side'))
 }
 
@@ -160,6 +160,30 @@ describe('LogoCube', () => {
     expect(cubeLogos()).toEqual(shown)
     // the cube is already built, so it doesn't build itself again.
     expect(isConstructing()).toBe(false)
+  })
+
+  it('is one image to assistive technology, rather than six unnamed sides', async () => {
+    const store = await loadedStore()
+    startClock()
+    renderWithProviders(<LogoCube />, { store })
+
+    expect(
+      screen.getByRole('img', { name: 'A spinning cube of technology logos' })
+    ).toBeInTheDocument()
+  })
+
+  it('stops repainting when it unmounts', async () => {
+    const store = await loadedStore()
+    startClock()
+    const view = renderWithProviders(<LogoCube />, { store })
+    runFor(5_000)
+
+    view.unmount()
+    // each repaint draws random numbers; none are drawn once the cube is gone.
+    const random = vi.mocked(Math.random)
+    random.mockClear()
+    runFor(10_000)
+    expect(random).not.toHaveBeenCalled()
   })
 
   it('repaints nothing when the random side is not one of the six', async () => {
