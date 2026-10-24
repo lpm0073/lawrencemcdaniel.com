@@ -63,7 +63,7 @@ const Specialties = () => {
               <div>
                 <h2>Want to see code samples?</h2>
                 <h6>
-                  I`&apos;`m constantly experimenting with new GitHub libraries and coding
+                  I&apos;m constantly experimenting with new GitHub libraries and coding
                   techniques. Click here to see some of my all-time favorites.
                 </h6>
               </div>

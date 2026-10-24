@@ -82,8 +82,8 @@ describe('Consulting', () => {
     expect(learnMore.map((link) => link.getAttribute('href'))).toEqual([
       '/data-science',
       '/full-stack',
-      '/full-stack',
-      '/full-stack',
+      '/cloud',
+      '/cloud',
     ])
     await waitForData(store)
   })

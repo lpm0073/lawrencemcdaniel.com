@@ -99,7 +99,7 @@ const Datascience = () => {
               <div className="col-lg-6 col-md-12">
                 <div>
                   <h4 className="mb-3">
-                    You’ll be amazed by what’s become possible in the last three years.
+                    You’ll be amazed by what AI makes possible today.
                   </h4>
                   <div className="text-justify">
                     <p>
@@ -230,7 +230,7 @@ const Datascience = () => {
                   Stanford’s renowned
                   <BlankSpace />
                   <a
-                    href="https://www.coursera.org/learn/introduction-to-machine-learning-in-production"
+                    href="https://www.coursera.org/learn/machine-learning"
                     target="_blank"
                     rel="noopener noreferrer"
                   >

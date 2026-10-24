@@ -20,6 +20,7 @@ import './styles.css'
 import 'bootstrap/dist/css/bootstrap.min.css'
 
 const urlFullStack = '/' + APP_CONFIG.skills.fullStack
+const urlCloud = '/' + APP_CONFIG.skills.cloud
 const ConsultingServices = () => (
   <div className="consulting-services">
     <p>
@@ -54,7 +55,7 @@ const ConsultingServices = () => (
         <span className="consulting-list-item-title">Cloud Computing</span> I specialize
         in cloud native technologies like Docker, Kubernetes, Terraform and GitHub for
         designing, implementing and managing scalable and secure cloud infrastructure.{' '}
-        <a href={urlFullStack}>Learn more</a>
+        <a href={urlCloud}>Learn more</a>
       </li>
       <li>
         <span className="consulting-list-item-title">Dev Ops</span> I help teams leverage
@@ -62,7 +63,7 @@ const ConsultingServices = () => (
         implementing best practices for software development, deployment, and maintenance,
         including CI/CD pipelines, automated testing, and infrastructure as code. I
         practice what I preach. I am the principal maintainer of more than 4 dozen open
-        source projects (see below). <a href={urlFullStack}>Learn more</a>
+        source projects (see below). <a href={urlCloud}>Learn more</a>
       </li>
       <li>
         <span className="consulting-list-item-title">

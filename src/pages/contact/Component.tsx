@@ -86,14 +86,18 @@ class Contact extends Component {
                 <h6 className="mb-4">
                   Email: <a href="mailto:lpm0073@gmail.com">lpm0073@gmail.com</a>
                 </h6>
-                <p className="mb-0">
-                  Phone:
+                <p>
+                  WhatsApp:
                   <BlankSpace />
-                  <a className="mt-4 contact-phone-link" href="tel:+16178346172">
+                  <a
+                    className="mt-4 contact-phone-link"
+                    target="_blank"
+                    href="https://wa.me/16178346172"
+                    rel="noopener noreferrer"
+                  >
                     +1 (617) 834-6172
                   </a>
                 </p>
-                <p>Skype: mcdaniel0073</p>
 
                 <section id="social-buttons" className="contact-social-buttons m-4">
                   <a

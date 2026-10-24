@@ -158,8 +158,44 @@ names under `/static/`. Each page is its own S3 key (`smarter`, uploaded from
 shows whether a page is live. Until the CloudFront error responses of
 `cloudfront/README.md` are set up, unknown paths return the home page with a
 200, so compare bodies, not status codes. If the live files are new,
-the browser is showing the previous service worker's cache; a hard reload, or
-closing every tab of the site, lets the new worker take over.
+the browser is showing the previous release: an open page finds the new service
+worker within an hour (or on its next load), shows "Update available", lets it
+take over, then offers a Reload.
+
+## WordPress admin access
+
+`.env` holds an administrator login for the WordPress site behind
+api.lawrencemcdaniel.com: `WORDPRESS_API_URL`, `WORDPRESS_API_LOGIN` (the
+site's renamed login page), `WORDPRESS_API_USERNAME` and
+`WORDPRESS_API_PASSWORD`. The same rules as the other keys apply: never print,
+copy or commit the values, nor the login page's path, which is kept secret on
+purpose. Tests never use them.
+
+- **Basic auth doesn't work** (the password is a login password, not an
+  Application Password). Log in with a cookie jar in the scratchpad: GET the
+  login page, POST `log`, `pwd`, `wp-submit`, `redirect_to` and `testcookie=1`
+  to it (a 302 to /wp-admin/ means success), then get a REST nonce from
+  `/wp-admin/admin-ajax.php?action=rest-nonce` and send it as `X-WP-Nonce`
+  with the cookies. Load the variables with `set -a; . ./.env; set +a` inside
+  the command, and delete the cookie jar when done.
+- **This is the production CMS.** Reading (`/wp-json/wp/v2/plugins`,
+  `users/me?context=edit`, settings) is fine. Installing, activating or
+  configuring plugins, or editing posts, changes the live site: say what you
+  will change and get the user's go-ahead first.
+- **Setup, as of October 2026:** Apache, with no Varnish or CDN in front of
+  `/wp-json/`. The WP REST Cache plugin caches the API's responses (installed
+  2026-10-24; WP Rocket, which cached only html pages, was removed). A cached
+  response has the header `x-wp-cached-call: served-cache` and takes about
+  0.1 s on the server, against 1 to 3 s uncached; the plugin clears a response
+  when a post changes. Other active plugins: ACF and acf-to-rest-api, WP Offload
+  Media (images to the CDN), Imagify, Wordfence, IP Geo Block, Rename wp-login,
+  UpdraftPlus, Easy Updates Manager, Gmail SMTP.
+- **Deactivate plugins through wp-admin, not the REST API.** Deactivating WP
+  Rocket with `POST /wp-json/wp/v2/plugins/...` crashed WordPress with a
+  critical error (its deactivation rewrites `.htaccess` with admin functions
+  that REST requests don't load), and left it active. The deactivate link on
+  `/wp-admin/plugins.php`, which carries its own `_wpnonce`, worked.
+  Installing, activating and deleting through the REST API work.
 
 ## Skill index
 

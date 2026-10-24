@@ -1,10 +1,6 @@
 /*
-
- see: https://dev.to/daniellycosta/showing-new-version-available-notification-on-create-react-app-pwas-3jc9#snackbar-provider
- see: https://developers.google.com/web/fundamentals/primers/service-workers/lifecycle
-
- Note: "SW" = Service Worker.
-
+ The app's layout, and the notices about the service worker (src/serviceWorkerRegistration.ts):
+ the site now works offline, a new release is installing, or it has taken over.
  */
 import React, { Component, useEffect } from 'react'
 import { BrowserRouter, StaticRouter, useLocation, useNavigate } from 'react-router-dom'
@@ -25,10 +21,17 @@ import AppUpdateAlert from './components/appUpdate/Component'
 
 import './App.css'
 
+const OFFLINE_READY_TITLE = 'Ready offline'
+const OFFLINE_READY_MESSAGE =
+  'This site is saved on your device, so it works without an internet connection.'
+const UPDATE_AVAILABLE_TITLE = 'Update available'
 const UPDATE_AVAILABLE_MESSAGE =
-  'New content is available and will be automatically installed momentarily.'
-const SUCCESSFUL_INSTALL_MESSAGE =
-  'This app has successfully updated itself in the background. Content is cached for offline use.'
+  'A new version of this site has downloaded. Installing it now.'
+const UPDATED_TITLE = 'Site updated'
+const UPDATED_MESSAGE = 'The new version is installed. Reload the page to see it.'
+
+/** Which service worker notice is showing, if any. */
+type SWNotice = 'offline-ready' | 'updating' | 'updated' | null
 
 interface AppProps {
   /** "online" or "offline", from react-detect-offline in main.tsx. */
@@ -43,96 +46,62 @@ interface AppProps {
 interface AppState {
   isSet: boolean
   customClass: string
-  updatedSW: ServiceWorker | null
-  isSWUpdateAvailable: boolean
-  wasSWInstalledSuccessfully: boolean
+  swNotice: SWNotice
 }
 
 class App extends Component<AppProps, AppState> {
+  /** Lets the waiting service worker take over; set while the update notice shows. */
+  activateUpdate?: () => void
+
   constructor(props: AppProps) {
     super(props)
 
     this.state = {
       isSet: false, // True once componentDidMount runs
       customClass: props.cls, // Expects "online" or "offline"
-
-      // service worker state management
-      // -----------------------------------------------------------------------------------------
-      updatedSW: null, // The service worker that is waiting to be updated
-
-      isSWUpdateAvailable: false, // Set to True to trigger a Bootstrap alert.
-      // Set from a Workbox callback
-      // after a new service worker has
-      // downloaded and if ready to install.
-
-      wasSWInstalledSuccessfully: false, // Set to True to trigger a Bootstrap alert.
-      // Set from a Workbox callback after
-      // service worker was successfully installed.
-      // -----------------------------------------------------------------------------------------
+      swNotice: null,
     }
 
-    // Workbox and React component callbacks.
-    // We want these bound to this class so that garbage collection
-    // never eliminates them while a Workbox event handler might
-    // call one of them.
-    this.resetSWNotificationStates = this.resetSWNotificationStates.bind(this)
-    this.onSWUpdateAvailable = this.onSWUpdateAvailable.bind(this)
-    this.onSWInstallSuccess = this.onSWInstallSuccess.bind(this)
+    this.onOfflineReady = this.onOfflineReady.bind(this)
+    this.onUpdateReady = this.onUpdateReady.bind(this)
+    this.onUpdated = this.onUpdated.bind(this)
+    this.onUpdateNoticeClosed = this.onUpdateNoticeClosed.bind(this)
+    this.closeNotice = this.closeNotice.bind(this)
   }
 
   // ---------------------------------------------------------------------------
   // -------- Workbox Service Worker event handlers and state management -------
   // ---------------------------------------------------------------------------
 
-  // Callback for our AppUpdateAlert component.
-  resetSWNotificationStates() {
-    if (APP_CONFIG.debug) console.log('App.resetSWNotificationStates()')
-
-    // this covers the intended use case
-    // of allowing a server worker update to proceed
-    // automatically, once the user has been made aware
-    // that the update exists, was downloaded in the background
-    // and is ready to install.
-    if (this.state.updatedSW && this.state.isSWUpdateAvailable) {
-      this.state.updatedSW.postMessage({
-        type: 'SKIP_WAITING',
-      })
-    }
-
-    // reset the service worker states
-    this.setState({
-      updatedSW: null,
-      isSWUpdateAvailable: false,
-      wasSWInstalledSuccessfully: false,
-    })
+  /** The first install finished: the site works offline from now on. */
+  onOfflineReady() {
+    if (APP_CONFIG.debug) console.log('App.onOfflineReady()')
+    this.setState({ swNotice: 'offline-ready' })
   }
 
-  // Workbox callback for "service worker update ready" event
-  onSWUpdateAvailable(registration: ServiceWorkerRegistration) {
-    if (APP_CONFIG.debug) console.log('App.onSWUpdateAvailable()')
-    if (this.state.isSet && registration) {
-      this.setState({
-        updatedSW: registration.waiting,
-        isSWUpdateAvailable: true,
-        wasSWInstalledSuccessfully: false,
-      })
-    } else {
-      console.log(
-        'Warning: onSWUpdateAvailable() was called without a Workbox registration object, or, component was not yet mounted.'
-      )
-    }
+  /** A new release is waiting. Tell the visitor, then let it take over. */
+  onUpdateReady(activate: () => void) {
+    if (APP_CONFIG.debug) console.log('App.onUpdateReady()')
+    this.activateUpdate = activate
+    this.setState({ swNotice: 'updating' })
   }
 
-  // Workbox callback for "service worker installation success" event
-  onSWInstallSuccess(registration: ServiceWorkerRegistration) {
-    if (APP_CONFIG.debug) console.log('App.onSWInstallSuccess()')
-    if (this.state.isSet) {
-      this.setState({
-        updatedSW: registration.active,
-        isSWUpdateAvailable: false,
-        wasSWInstalledSuccessfully: true,
-      })
-    }
+  /** The new release controls the page; a reload shows it. */
+  onUpdated() {
+    if (APP_CONFIG.debug) console.log('App.onUpdated()')
+    this.setState({ swNotice: 'updated' })
+  }
+
+  /** The update notice closed, by itself or by the visitor: install the update. */
+  onUpdateNoticeClosed() {
+    const activate = this.activateUpdate
+    this.activateUpdate = undefined
+    this.closeNotice()
+    if (activate) activate()
+  }
+
+  closeNotice() {
+    this.setState({ swNotice: null })
   }
 
   // ----------------------------------------------------
@@ -141,7 +110,6 @@ class App extends Component<AppProps, AppState> {
   componentDidMount() {
     if (APP_CONFIG.debug) console.log('App.componentDidMount()')
 
-    this.resetSWNotificationStates()
     this.setState({
       isSet: true,
     })
@@ -149,14 +117,11 @@ class App extends Component<AppProps, AppState> {
     // Ensure all cookies have the SameSite and Secure attributes
     secureExistingCookies()
 
-    // Note: I relocated this snippet from index.js
-    // in order to add Workbox's two event handlers
-    // for onUpdate and onSuccess.
     if (import.meta.env.PROD) {
       serviceWorkerRegistration.register({
-        onUpdate: this.onSWUpdateAvailable,
-        onSuccess: this.onSWInstallSuccess,
-        onActivated: this.onSWInstallSuccess, // an event handler that we'll have to setup manually
+        onOfflineReady: this.onOfflineReady,
+        onUpdateReady: this.onUpdateReady,
+        onUpdated: this.onUpdated,
       })
     }
   }
@@ -183,31 +148,48 @@ class App extends Component<AppProps, AppState> {
 
     if (APP_CONFIG.debug) console.log('App.render()')
 
-    // service worker app update alerts.
+    // service worker notices. Each has its own key, so that a new one starts
+    // its own timer.
     function AppUpdateAlerts(props: { parent: App }) {
       const parent = props.parent
+      if (!parent.state.isSet) return null
 
-      return (
-        <React.Fragment>
-          {parent.state.isSet && (
-            <React.Fragment>
-              {parent.state.isSWUpdateAvailable && (
-                <AppUpdateAlert
-                  msg={UPDATE_AVAILABLE_MESSAGE}
-                  callback={parent.resetSWNotificationStates}
-                />
-              )}
-
-              {parent.state.wasSWInstalledSuccessfully && (
-                <AppUpdateAlert
-                  msg={SUCCESSFUL_INSTALL_MESSAGE}
-                  callback={parent.resetSWNotificationStates}
-                />
-              )}
-            </React.Fragment>
-          )}
-        </React.Fragment>
-      )
+      switch (parent.state.swNotice) {
+        case 'offline-ready':
+          return (
+            <AppUpdateAlert
+              key="offline-ready"
+              variant="updated"
+              title={OFFLINE_READY_TITLE}
+              msg={OFFLINE_READY_MESSAGE}
+              callback={parent.closeNotice}
+            />
+          )
+        case 'updating':
+          return (
+            <AppUpdateAlert
+              key="updating"
+              variant="updating"
+              title={UPDATE_AVAILABLE_TITLE}
+              msg={UPDATE_AVAILABLE_MESSAGE}
+              callback={parent.onUpdateNoticeClosed}
+            />
+          )
+        case 'updated':
+          return (
+            <AppUpdateAlert
+              key="updated"
+              variant="updated"
+              title={UPDATED_TITLE}
+              msg={UPDATED_MESSAGE}
+              seconds={0}
+              action={{ label: 'Reload', onClick: () => window.location.reload() }}
+              callback={parent.closeNotice}
+            />
+          )
+        default:
+          return null
+      }
     }
 
     const layout = (

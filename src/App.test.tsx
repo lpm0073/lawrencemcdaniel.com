@@ -1,4 +1,4 @@
-import { act, render, screen } from '@testing-library/react'
+import { act, fireEvent, render, screen } from '@testing-library/react'
 import { Provider } from 'react-redux'
 import { afterEach, beforeEach, describe, expect, it, vi } from 'vitest'
 
@@ -6,11 +6,11 @@ import { siteHandlers } from '../test/handlers'
 import { server } from '../test/server'
 import App from './App'
 import { ConfigureStore } from './redux/configureStore'
-import type { ServiceWorkerConfig } from './serviceWorkerRegistration'
+import type { ServiceWorkerCallbacks } from './serviceWorkerRegistration'
 import { APP_CONFIG } from './shared/constants'
 
 const registration = vi.hoisted(() => ({
-  register: vi.fn<(config?: ServiceWorkerConfig) => void>(),
+  register: vi.fn<(callbacks?: ServiceWorkerCallbacks) => void>(),
 }))
 vi.mock('./serviceWorkerRegistration', () => registration)
 
@@ -110,63 +110,63 @@ describe('App', () => {
 
 describe('App service worker alerts', () => {
   /** Render a production build, and return the callbacks it gave register(). */
-  function startProductionBuild(): ServiceWorkerConfig {
+  function startProductionBuild(): ServiceWorkerCallbacks {
     vi.stubEnv('PROD', true)
     renderApp('/contact')
     expect(registration.register).toHaveBeenCalledTimes(1)
-    const config = registration.register.mock.calls[0][0]
-    if (!config) throw new Error('register() was called without callbacks')
-    return config
+    const callbacks = registration.register.mock.calls[0][0]
+    if (!callbacks) throw new Error('register() was called without callbacks')
+    return callbacks
   }
 
-  it('announces an update, then tells the waiting worker to take over', () => {
+  it('tells a first-time visitor that the site works offline', () => {
+    const callbacks = startProductionBuild()
+    act(() => callbacks.onOfflineReady?.())
+    expect(screen.getByRole('status')).toHaveTextContent('Ready offline')
+  })
+
+  it('announces an update, then lets the waiting worker take over', () => {
     vi.useFakeTimers()
-    const config = startProductionBuild()
-    const waiting = { postMessage: vi.fn() }
+    const callbacks = startProductionBuild()
+    const activate = vi.fn()
 
-    act(() => config.onUpdate?.({ waiting } as unknown as ServiceWorkerRegistration))
-    expect(
-      screen.getByText(/New content is available and will be automatically installed/)
-    ).toBeInTheDocument()
+    act(() => callbacks.onUpdateReady?.(activate))
+    expect(screen.getByRole('status')).toHaveTextContent('Update available')
+    expect(activate).not.toHaveBeenCalled()
 
-    // the alert closes itself after 5 seconds, and lets the update proceed.
+    // the notice closes itself after 5 seconds, and lets the update proceed.
     act(() => vi.advanceTimersByTime(5000))
-    expect(waiting.postMessage).toHaveBeenCalledWith({ type: 'SKIP_WAITING' })
+    expect(activate).toHaveBeenCalledTimes(1)
     vi.useRealTimers()
   })
 
-  it('announces a successful install', () => {
-    const config = startProductionBuild()
+  it('offers a reload once the new version controls the page', () => {
+    const reload = vi.fn()
+    vi.stubGlobal('location', { ...window.location, reload })
+    const callbacks = startProductionBuild()
 
-    act(() =>
-      config.onSuccess?.({ active: null } as unknown as ServiceWorkerRegistration)
-    )
+    act(() => callbacks.onUpdated?.())
+    const notice = screen.getByRole('status')
+    expect(notice).toHaveTextContent('Site updated')
 
-    expect(screen.getByText(/successfully updated itself/)).toBeInTheDocument()
-  })
-
-  it('warns when an update arrives without a registration', () => {
-    const config = startProductionBuild()
-
-    act(() => config.onUpdate?.(undefined as unknown as ServiceWorkerRegistration))
-
-    expect(console.log).toHaveBeenCalledWith(
-      expect.stringContaining('onSWUpdateAvailable() was called without')
-    )
-    expect(screen.queryByText(/New content is available/)).not.toBeInTheDocument()
+    fireEvent.click(screen.getByRole('button', { name: 'Reload' }))
+    expect(reload).toHaveBeenCalledTimes(1)
+    vi.unstubAllGlobals()
   })
 
   it('logs its life cycle in debug mode', () => {
     APP_CONFIG.debug = true
-    const config = startProductionBuild()
-    act(() =>
-      config.onSuccess?.({ active: null } as unknown as ServiceWorkerRegistration)
-    )
+    const callbacks = startProductionBuild()
+    act(() => callbacks.onOfflineReady?.())
+    act(() => callbacks.onUpdateReady?.(vi.fn()))
+    act(() => callbacks.onUpdated?.())
 
     for (const message of [
       'App.componentDidMount()',
       'App.render()',
-      'App.onSWInstallSuccess()',
+      'App.onOfflineReady()',
+      'App.onUpdateReady()',
+      'App.onUpdated()',
     ]) {
       expect(console.log).toHaveBeenCalledWith(message)
     }
