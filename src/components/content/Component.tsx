@@ -214,18 +214,13 @@ interface ContentProps {
 export const Content = ({ skill }: ContentProps) => {
   return (
     <React.Fragment>
-      <div className="p-1 bg-secondary border border-dark rounded">
-        <div className="border border-dark bg-white rounded">
-          <Tabs
-            defaultActiveKey="code-samples"
-            id="content-tabs"
-            className="ml-5 mr-5 p-0 bg-white"
-            style={{ backgroundColor: 'white' }}
-          >
+      <div className="lm-panel content-panel">
+        <div>
+          <Tabs defaultActiveKey="code-samples" id="content-tabs" className="px-3 pt-2">
             <Tab
               eventKey="code-samples"
               title="Code Samples"
-              className="p-1 m-1 mt-3 code-samples bg-white"
+              className="p-3 code-samples"
             >
               <section aria-label="Code Samples">
                 <p>

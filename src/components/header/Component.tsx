@@ -140,7 +140,6 @@ export class Header extends Component<object, HeaderState> {
                     <NavDropdown.Item
                       as={NavLink}
                       to={'/' + APP_CONFIG.skills.dataScience}
-                      style={{ color: 'gray' }}
                     >
                       <img
                         key="menu-ml-image"
@@ -150,11 +149,7 @@ export class Header extends Component<object, HeaderState> {
                       />
                       Data Science
                     </NavDropdown.Item>
-                    <NavDropdown.Item
-                      as={NavLink}
-                      to={'/' + APP_CONFIG.skills.fullStack}
-                      style={{ color: 'gray' }}
-                    >
+                    <NavDropdown.Item as={NavLink} to={'/' + APP_CONFIG.skills.fullStack}>
                       <img
                         key="menu-ml-image"
                         className="menu-logo"
@@ -163,11 +158,7 @@ export class Header extends Component<object, HeaderState> {
                       />
                       Full Stack
                     </NavDropdown.Item>
-                    <NavDropdown.Item
-                      as={NavLink}
-                      to={'/' + APP_CONFIG.skills.cloud}
-                      style={{ color: 'gray' }}
-                    >
+                    <NavDropdown.Item as={NavLink} to={'/' + APP_CONFIG.skills.cloud}>
                       <img
                         key="menu-cloud-image"
                         className="menu-logo"
@@ -176,11 +167,7 @@ export class Header extends Component<object, HeaderState> {
                       />
                       Cloud
                     </NavDropdown.Item>
-                    <NavDropdown.Item
-                      as={NavLink}
-                      to={'/' + APP_CONFIG.skills.openEdx}
-                      style={{ color: 'gray' }}
-                    >
+                    <NavDropdown.Item as={NavLink} to={'/' + APP_CONFIG.skills.openEdx}>
                       <img
                         key="menu-edx-image"
                         className="menu-logo"
@@ -189,11 +176,7 @@ export class Header extends Component<object, HeaderState> {
                       />
                       Open edX
                     </NavDropdown.Item>
-                    <NavDropdown.Item
-                      as={NavLink}
-                      to={'/' + APP_CONFIG.skills.react}
-                      style={{ color: 'gray' }}
-                    >
+                    <NavDropdown.Item as={NavLink} to={'/' + APP_CONFIG.skills.react}>
                       <img
                         key="menu-react-image"
                         className="menu-logo"

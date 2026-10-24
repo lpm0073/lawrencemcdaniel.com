@@ -1,111 +1,204 @@
-.head-shot {
+/*
+  The home page: an introduction on the left (headshot, name, typed roles, one
+  sentence and two buttons), the logo cube on the right, and the site's main
+  destinations below, as a grid of Courier links between dashed rules.
+*/
+.home-page {
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  min-height: calc(100vh - 58px - 46px); /* the window, less the header and footer */
+  padding: 40px 32px 48px;
+  background-color: var(--lm-bg);
+  color: var(--lm-text);
 }
 
-.lawrence-mcdaniel {
-  font-size: 1.5em;
+/* ----------  Introduction and cube  ---------- */
+.home-hero {
+  display: grid;
+  grid-template-columns: minmax(0, 1.1fr) minmax(0, 0.9fr);
+  align-items: center;
+  gap: 48px;
+}
+
+.home-headshot {
+  display: block;
+  width: 96px;
+  height: 96px;
+  margin-bottom: 24px;
+  object-fit: cover;
+  border-radius: 50%;
+  border: 2px solid var(--lm-accent-line);
+  box-shadow: 0 0 0 6px var(--lm-accent-soft);
+}
+
+.home-name {
+  margin: 0;
+  font-size: clamp(2.4rem, 5.2vw, 4rem);
   font-weight: 900;
+  line-height: 1;
+  letter-spacing: -0.035em;
+  color: #fff;
 }
 
-.digital-creator {
-  font-size: 1.5em;
-  font-weight: 100;
-  color: #999;
-  font-family: 'Courier New', Courier, monospace;
+.home-roles {
+  margin: 14px 0 0;
+  min-height: 1.5em;
+  font-family: var(--lm-mono);
+  font-size: clamp(1.15rem, 2vw, 1.45rem);
+  color: var(--lm-text-muted);
 }
 
-.dark-background {
-  background-color: black;
+.home-roles-prompt {
+  color: var(--lm-accent);
 }
 
-.title-spacer {
-  height: 67px;
+.home-roles-cursor {
+  display: inline-block;
+  width: 0.55em;
+  height: 1.05em;
+  margin-left: 2px;
+  vertical-align: -0.18em;
+  background-color: var(--lm-accent);
+  animation: home-cursor-blink 1.1s steps(1) infinite;
+}
+
+@keyframes home-cursor-blink {
+  50% {
+    opacity: 0;
+  }
+}
+
+.home-lead {
+  max-width: 34rem;
+  margin: 22px 0 0;
+  font-size: 1.1rem;
+  line-height: 1.6;
+  color: var(--lm-text);
+}
+
+.home-actions {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 12px;
+  margin-top: 28px;
+}
+
+/* the main button is filled; the other keeps the site's outline style */
+.home-actions .home-cta {
+  --bs-btn-color: #000;
+  --bs-btn-bg: var(--lm-accent);
+}
+
+.home-actions .home-cta-quiet {
+  --bs-btn-color: var(--lm-text);
+  --bs-btn-border-color: var(--lm-border-strong);
+}
+
+/* the cube, on a soft amber glow */
+.home-cube {
+  position: relative;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  min-height: 340px;
+}
+
+.home-cube::before {
+  content: '';
+  position: absolute;
+  inset: 8% 12%;
+  border-radius: 50%;
+  background: radial-gradient(closest-side, rgba(255, 165, 0, 0.16), transparent);
+  filter: blur(8px);
+  pointer-events: none;
+}
+
+/* ----------  Destinations  ---------- */
+.home-links {
+  display: grid;
+  grid-template-columns: repeat(4, minmax(0, 1fr));
+  margin-top: 56px;
+  border-top: var(--lm-dash);
+}
+
+.home-links > .job-title {
+  width: auto !important;
+  max-width: none;
+  margin: 0 !important;
+  padding: 0 !important;
+  border-bottom: var(--lm-dash);
 }
 
 .job-title a {
+  display: block;
+  height: 100%;
   text-decoration: none;
 }
 
 .job-title h2 {
-  color: #999;
-  height: 50px;
-  vertical-align: text-bottom !important;
-  font-weight: 100 !important;
-  font-family: 'Courier New', Courier, monospace;
-  font-size: large;
-  border-top: dashed 0.25px #999;
-  border-bottom: dashed 0.25px #999;
-  padding-top: 15px;
-  padding-bottom: 15px;
-}
-.job-title h2:hover {
-  color: lightgray !important;
-  border-bottom-color: lightgray;
-}
-
-.learn-more-link {
-  text-decoration: underline;
+  display: flex;
+  align-items: center;
+  gap: 2px;
+  height: 100%;
+  margin: 0;
+  padding: 16px 14px;
+  font-family: var(--lm-mono);
+  font-size: 1rem;
+  font-weight: 400 !important;
+  color: var(--lm-text-muted);
+  transition:
+    color 0.15s ease,
+    background-color 0.15s ease;
 }
 
-.jumbotron {
-  margin: 0px auto;
-  color: floralwhite;
-  height: calc(100vh - 65px - 55px); /* full height less header/footer heights */
-  border-radius: 0 !important;
+.job-title h2::before {
+  content: '>';
+  margin-right: 8px;
+  color: var(--lm-text-faint);
+  transition: color 0.15s ease;
 }
 
-.super-bold {
-  font-size: 67px;
-  letter-spacing: -2px;
-  font-weight: 900;
+.job-title a:hover h2,
+.job-title a:focus-visible h2 {
+  color: var(--lm-accent) !important;
+  background-color: var(--lm-surface);
 }
 
-.jumbotron-spacer {
-  margin-top: 10vh;
+.job-title a:hover h2::before,
+.job-title a:focus-visible h2::before {
+  color: var(--lm-accent);
 }
 
-.jumbotron-subtitle {
-  font-size: 32px;
-  font-weight: 500;
-}
+/* ----------  Smaller screens  ---------- */
+@media (max-width: 991px) {
+  .home-hero {
+    grid-template-columns: 1fr;
+    gap: 8px;
+  }
 
-.width-50 {
-  width: 50% !important;
-}
-
-.pre-wrap {
-  white-space: pre-wrap;
-}
-
-/*-------------- Responsive Styling -----------------------*/
-
-/********** Large devices only **********/
-@media (min-width: 1200px) {
-}
-
-/********** Medium devices only **********/
-@media (min-width: 992px) and (max-width: 1199px) {
-}
-
-/********** Small devices only **********/
-@media (min-width: 768px) and (max-width: 991px) {
-  .jumbotron-spacer {
-    margin-top: 0 !important;
+  .home-links {
+    grid-template-columns: repeat(2, minmax(0, 1fr));
   }
 }
 
-/********** Extra small devices only **********/
-@media (max-width: 767px) {
-  .super-bold,
-  .jumbotron-subtitle {
-    font-size: 24px !important;
-    letter-spacing: initial !important;
-    font-weight: initial !important;
+@media (max-width: 575px) {
+  .home-page {
+    padding: 28px 16px 36px;
   }
 
-  .jumbotron-spacer {
-    margin-top: 0 !important;
+  .home-links {
+    margin-top: 32px;
+  }
+
+  .job-title h2 {
+    padding: 14px 8px;
+    font-size: 0.9rem;
   }
 }
-/********** Super extra small devices Only :-) (e.g., iPhone 4) **********/
-@media (max-width: 479px) {
+
+@media (prefers-reduced-motion: reduce) {
+  .home-roles-cursor {
+    animation: none;
+  }
 }

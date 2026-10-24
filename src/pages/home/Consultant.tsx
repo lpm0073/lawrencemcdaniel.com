@@ -12,15 +12,11 @@ const Consultant = () => {
           title="Consulting services and expertise"
         >
           <h2>
-            <span className="consultant-bookends" role="img" aria-label="Close">
-              ⇥📙📚
+            <span className="" role="img" aria-label="Close">
+              📚
               <BlankSpace />
             </span>
             <span>Consultant</span>
-            <span className="consultant-bookends" role="img" aria-label="Close">
-              <BlankSpace />
-              📚📘⇤
-            </span>
           </h2>
         </a>
       </div>

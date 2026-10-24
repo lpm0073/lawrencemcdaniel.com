@@ -18,11 +18,11 @@ const drawCircle = (ref: RefObject<HTMLCanvasElement | null>) => {
   canvas.style.height = `${height}px`
 
   context.lineWidth = 10
-  context.strokeStyle = '#666'
+  context.strokeStyle = '#ffa500'
   context.shadowOffsetX = 0
   context.shadowOffsetY = 0
   context.shadowBlur = 0
-  context.shadowColor = '#656565'
+  context.shadowColor = 'transparent'
 
   const x = canvas.width / 2
   const y = canvas.height / 2

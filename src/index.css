@@ -1,3 +1,64 @@
+/*
+  The site's theme.
+
+  Every page shares the home page's look: black, Courier New for the site's own
+  voice (navigation, labels, buttons, captions), a plain sans-serif for reading,
+  and one accent color, used sparingly. index.html sets data-bs-theme="dark", so
+  Bootstrap's own components (tabs, tables, cards, dropdowns, forms) start dark,
+  and the variables below tune them.
+
+  Page stylesheets use the --lm-* tokens rather than their own colors.
+*/
+:root,
+[data-bs-theme='dark'] {
+  /* surfaces, from the page down to a raised card */
+  --lm-bg: #000;
+  --lm-surface: #0e0f11;
+  --lm-surface-raised: #16171a;
+  --lm-surface-hover: #1d1f23;
+  --lm-border: #26282d;
+  --lm-border-strong: #3a3d44;
+
+  /* text */
+  --lm-text: #e8e6e1;
+  --lm-text-muted: #9a9a9a;
+  --lm-text-faint: #6b6b6b;
+
+  /* the accent: amber, the footer's old hover color */
+  --lm-accent: #ffa500;
+  --lm-accent-soft: rgba(255, 165, 0, 0.12);
+  --lm-accent-line: rgba(255, 165, 0, 0.45);
+
+  /* type */
+  --lm-mono: 'Courier New', Courier, monospace;
+  --lm-sans:
+    system-ui, -apple-system, 'Segoe UI', Roboto, 'Helvetica Neue', Arial, sans-serif;
+
+  /* shape */
+  --lm-radius: 10px;
+  --lm-radius-sm: 6px;
+  --lm-dash: 1px dashed var(--lm-border-strong);
+
+  /* Bootstrap */
+  --bs-body-bg: var(--lm-bg);
+  --bs-body-color: var(--lm-text);
+  --bs-body-font-family: var(--lm-sans);
+  --bs-secondary-color: var(--lm-text-muted);
+  --bs-tertiary-color: var(--lm-text-faint);
+  --bs-emphasis-color: #fff;
+  --bs-heading-color: #fff;
+  --bs-border-color: var(--lm-border);
+  --bs-secondary-bg: var(--lm-surface-raised);
+  --bs-tertiary-bg: var(--lm-surface);
+  --bs-link-color: var(--lm-accent);
+  --bs-link-color-rgb: 255, 165, 0;
+  --bs-link-hover-color: #ffc04d;
+  --bs-link-hover-color-rgb: 255, 192, 77;
+  --bs-code-color: #f3c79f;
+  --bs-focus-ring-color: var(--lm-accent-line);
+  color-scheme: dark;
+}
+
 html,
 body {
   height: 100%;
@@ -5,10 +66,16 @@ body {
 
 body {
   max-width: 1200px;
-  background-color: #f1f1f1;
   margin-left: auto;
   margin-right: auto;
-  /* padding-top: 59px; */
+  background-color: var(--lm-bg);
+  color: var(--lm-text);
+  -webkit-font-smoothing: antialiased;
+}
+
+::selection {
+  background-color: var(--lm-accent);
+  color: #000;
 }
 
 .online {
@@ -22,69 +89,183 @@ body {
   font-display: swap;
 }
 
+/* ------------------------------------------------------------------------- */
+/* Pages                                                                     */
+/* ------------------------------------------------------------------------- */
 .site-page {
-  padding-bottom: 25px;
+  padding: 0 24px 56px;
+  background-color: var(--lm-bg);
+  color: var(--lm-text);
 }
 
-.navbar-dark .navbar-nav .nav-link {
-  font-family: 'Courier New', Courier, monospace;
-  font-size: large;
+.site-page h1,
+.site-page h2,
+.site-page h3,
+.site-page h4,
+.site-page h5 {
+  color: #fff;
+  letter-spacing: -0.01em;
 }
 
+.site-page p {
+  line-height: 1.65;
+}
+
+/* a short Courier label above a heading or a block, e.g. "// specialties" */
+.lm-eyebrow {
+  font-family: var(--lm-mono);
+  font-size: 0.85rem;
+  letter-spacing: 0.04em;
+  text-transform: lowercase;
+  color: var(--lm-accent);
+}
+
+/* the home page's dashed rule, reused as a section divider */
+.lm-rule {
+  border: 0;
+  border-top: var(--lm-dash);
+  opacity: 1;
+  margin: 2.5rem 0;
+}
+
+/* a panel: the one card style for every page */
+.lm-panel {
+  background-color: var(--lm-surface);
+  border: 1px solid var(--lm-border);
+  border-radius: var(--lm-radius);
+}
+
+/* ------------------------------------------------------------------------- */
+/* Links                                                                     */
+/* ------------------------------------------------------------------------- */
+/* links inside prose read as text, underlined in the accent */
+p a:not(.btn),
+li a:not(.btn):not(.nav-link):not(.dropdown-item),
+td a:not(.btn) {
+  color: var(--lm-text);
+  font-style: normal;
+  text-decoration: underline;
+  text-decoration-color: var(--lm-accent-line);
+  text-decoration-thickness: 1px;
+  text-underline-offset: 3px;
+  transition:
+    color 0.15s ease,
+    text-decoration-color 0.15s ease;
+}
+
+p a:not(.btn):hover,
+li a:not(.btn):not(.nav-link):not(.dropdown-item):hover,
+td a:not(.btn):hover {
+  color: var(--lm-accent);
+  text-decoration-color: var(--lm-accent);
+}
+
+a:focus-visible,
+.btn:focus-visible,
+button:focus-visible {
+  outline: 2px solid var(--lm-accent);
+  outline-offset: 2px;
+  box-shadow: none;
+}
+
+/* ------------------------------------------------------------------------- */
+/* Buttons: one style, in the site's Courier voice                           */
+/* ------------------------------------------------------------------------- */
+.btn-primary,
+.btn-danger,
+.btn-secondary {
+  --bs-btn-color: var(--lm-accent);
+  --bs-btn-bg: transparent;
+  --bs-btn-border-color: var(--lm-accent);
+  --bs-btn-hover-color: #000;
+  --bs-btn-hover-bg: var(--lm-accent);
+  --bs-btn-hover-border-color: var(--lm-accent);
+  --bs-btn-active-color: #000;
+  --bs-btn-active-bg: #ffb733;
+  --bs-btn-active-border-color: #ffb733;
+  --bs-btn-disabled-color: var(--lm-text-faint);
+  --bs-btn-disabled-bg: transparent;
+  --bs-btn-disabled-border-color: var(--lm-border-strong);
+  --bs-btn-focus-shadow-rgb: 255, 165, 0;
+  font-family: var(--lm-mono);
+  font-weight: 700;
+  letter-spacing: 0.02em;
+  white-space: nowrap;
+  border-radius: var(--lm-radius-sm);
+  padding: 0.5rem 1.1rem;
+  transition:
+    background-color 0.15s ease,
+    color 0.15s ease;
+}
+
+.btn .fa {
+  margin-right: 0.35rem;
+}
+
+/* ------------------------------------------------------------------------- */
+/* Tabs and tables (the Code Samples / Articles / Videos block)              */
+/* ------------------------------------------------------------------------- */
+.nav-tabs {
+  --bs-nav-tabs-border-color: var(--lm-border);
+  --bs-nav-tabs-link-hover-border-color: transparent;
+  --bs-nav-tabs-link-active-color: var(--lm-accent);
+  --bs-nav-tabs-link-active-bg: transparent;
+  --bs-nav-tabs-link-active-border-color: transparent;
+  --bs-nav-link-color: var(--lm-text-muted);
+  --bs-nav-link-hover-color: var(--lm-text);
+  gap: 0.25rem;
+}
+
+.nav-tabs .nav-link {
+  font-family: var(--lm-mono);
+  border: 0;
+  border-bottom: 2px solid transparent;
+  background-color: transparent;
+}
+
+.nav-tabs .nav-link.active {
+  border-bottom-color: var(--lm-accent);
+}
+
+.nav-tabs .nav-link:focus {
+  box-shadow: none;
+}
+
+.nav-tabs .nav-link:focus-visible {
+  outline: 2px solid var(--lm-accent-line);
+  outline-offset: -2px;
+  border-radius: var(--lm-radius-sm) var(--lm-radius-sm) 0 0;
+}
+
+.table {
+  --bs-table-bg: transparent;
+  --bs-table-color: var(--lm-text);
+  --bs-table-border-color: var(--lm-border);
+  --bs-table-striped-bg: rgba(255, 255, 255, 0.025);
+  --bs-table-striped-color: var(--lm-text);
+}
+
+.table > thead th {
+  font-family: var(--lm-mono);
+  font-weight: 400;
+  color: var(--lm-text-muted);
+  background-color: transparent;
+  border-bottom: var(--lm-dash);
+}
+
+.text-muted {
+  color: var(--lm-text-muted) !important;
+}
+
+/* ------------------------------------------------------------------------- */
+/* Utilities                                                                 */
+/* ------------------------------------------------------------------------- */
 .noselect {
   -webkit-touch-callout: none; /* iOS Safari */
   -webkit-user-select: none; /* Safari */
-  -khtml-user-select: none; /* Konqueror HTML */
-  -moz-user-select: none; /* Old versions of Firefox */
-  -ms-user-select: none; /* Internet Explorer/Edge */
-  user-select: none; /* Non-prefixed version, currently
-                                    supported by Chrome, Edge, Opera and Firefox */
+  user-select: none;
 }
 
-p a:not(.btn-danger) {
-  color: #333;
-  text-decoration: underline;
-  font-style: italic;
-}
-
-.dropdown-item a {
-  color: #555;
-}
-
-/*-------------- Responsive Styling -----------------------
-
-xs = Extra small <576px. Max container width None (auto)
-sm = Small ≥576px. Max container width 540px.
-md = Medium ≥768px. Max container width 720px.
-lg = Large ≥992px. Max container width 960px.
-xl = Extra large ≥1200px. Max container width 1140px.
-
-*/
-
-/********** Extra large devices only **********/
-@media (min-width: 1200px) {
-}
-
-/********** Large devices only **********/
-@media (min-width: 992px) and (max-width: 1199px) {
-}
-
-/********** Medium devices only **********/
-@media (min-width: 768px) and (max-width: 991px) {
-}
-
-/********** Small devices only **********/
-@media (min-width: 576) and (max-width: 767px) {
-}
-
-/********** Extra small devices only **********/
-@media (min-width: 480px) and (max-width: 575px) {
-}
-/********** Super extra small devices Only :-) (e.g., iPhone 4) **********/
-@media (max-width: 479px) {
-}
-
-/*  ------------ MCDANIEL ------------------ */
 @media (max-width: 991px) {
   .hide-medium {
     display: none;
@@ -98,5 +279,24 @@ xl = Extra large ≥1200px. Max container width 1140px.
     display: none;
     width: 0 !important;
     height: 0 !important;
+  }
+  .site-page {
+    padding-left: 16px;
+    padding-right: 16px;
+    overflow-x: clip;
+  }
+  /* columns that carry their own side margins would overflow a phone screen */
+  .site-page [class*='col'].m-3,
+  .site-page [class*='col'].m-4 {
+    margin-left: 0 !important;
+    margin-right: 0 !important;
+  }
+}
+
+@media (prefers-reduced-motion: reduce) {
+  *,
+  *::before,
+  *::after {
+    transition-duration: 0.01ms !important;
   }
 }

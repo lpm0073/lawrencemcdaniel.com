@@ -20,6 +20,14 @@ const POST_FIELDS =
   'categories,tags,featured_media,acf,_links.wp:featuredmedia,_embedded'
 const blogBackendUrl = URL_BLOG + '/wp-json/wp/v2/'
 
+// The Smarter Project's blog. Its articles are listed with this blog's, except
+// for its release announcements (src/shared/fetchers/blogPostFetcher.ts).
+const URL_SMARTER_BLOG = protocol + '://blog.smarter.sh'
+const smarterBlogBackendUrl = URL_SMARTER_BLOG + '/wp-json/wp/v2/'
+
+// A blog post's featured image, embedded, for a post that has no Yoast og_image.
+const BLOG_POST_FIELDS = '&_embed=wp:featuredmedia'
+
 const CACHE_VERSION = packageJson.version
 
 function versioned_cached(name: string): string {
@@ -29,8 +37,10 @@ function versioned_cached(name: string): string {
 export const APP_CONFIG = {
   apis: {
     articles: '/data/blog.lawrencemcdaniel.com.json',
-    blog_posts: blogBackendUrl + 'posts?&per_page=100',
+    blog_posts: blogBackendUrl + 'posts?&per_page=100' + BLOG_POST_FIELDS,
     blog_categories: blogBackendUrl + 'categories?&per_page=100',
+    smarter_blog_posts: smarterBlogBackendUrl + 'posts?&per_page=100' + BLOG_POST_FIELDS,
+    smarter_blog_categories: smarterBlogBackendUrl + 'categories?&per_page=100',
     clients: ApiBackendUrl + 'posts?categories=46&per_page=100' + POST_FIELDS,
     education: ApiBackendUrl + 'posts?categories=44&per_page=100' + POST_FIELDS,
     portfolio: ApiBackendUrl + 'posts?categories=47&per_page=100' + POST_FIELDS,

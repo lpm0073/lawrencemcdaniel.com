@@ -1,3 +1,8 @@
+.code-sample-readme {
+  color: var(--lm-text);
+  font-size: 0.92rem;
+  line-height: 1.6;
+}
 .code-sample-readme * {
   word-wrap: break-word !important;
   overflow-wrap: break-word !important;
@@ -10,4 +15,7 @@
   white-space: pre-wrap !important;
   word-break: break-all !important;
   overflow-wrap: break-word !important;
+}
+.code-sample-readme code {
+  color: #f3c79f;
 }
