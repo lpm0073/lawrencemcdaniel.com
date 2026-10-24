@@ -12,21 +12,23 @@ four locally. If they pass, the code meets the standard. Never bypass a check
 
 ## Configuration
 
-| Tool       | Configuration                                                                                                                                                                                                                             |
-| ---------- | ----------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------- |
-| Prettier   | `package.json` `"prettier"`: no semicolons, single quotes, printWidth 90, trailingComma es5. `.prettierignore` skips build output, coverage, `public/data`, `public/sitemap.xml` and `CHANGELOG.md`                                       |
-| ESLint 10  | `eslint.config.js` (flat config, modeled on smarter/react's): typescript-eslint, react-hooks, react-refresh (`extraHOCs: ['connector']`), jsx-a11y, and Testing Library, jest-dom and Vitest rules for tests; eslint-config-prettier last |
-| TypeScript | `tsconfig.json` references `tsconfig.app.json` (browser code and tests), `tsconfig.sw.json` (the service worker, WebWorker lib) and `tsconfig.node.json` (configs, and the scripts Node runs)                                             |
+| Tool       | Configuration                                                                                                                                                                                                |
+| ---------- | ------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------ |
+| Prettier   | `package.json` `"prettier"`: no semicolons, single quotes, printWidth 90, trailingComma es5. `.prettierignore` skips build output, coverage, `public/data`, `public/sitemap.xml` and `CHANGELOG.md`          |
+| ESLint 10  | `eslint.config.js` (flat config, modeled on smarter/react's): typescript-eslint, react-hooks, react-refresh, jsx-a11y, and Testing Library, jest-dom and Vitest rules for tests; eslint-config-prettier last |
+| TypeScript | `tsconfig.json` references `tsconfig.app.json` (browser code and tests), `tsconfig.sw.json` (the service worker, WebWorker lib) and `tsconfig.node.json` (configs, and the scripts Node runs)                |
 
 ## TypeScript rules
 
 - `strict` everywhere. No `any`, explicit or implicit; use `unknown` and narrow
   it. No `@ts-ignore` / `@ts-expect-error`. Avoid non-null assertions (`!`);
   guard instead.
-- Domain types live in `src/types.ts`; Redux state types are exported from each
-  reducer (`SpecialtiesState`, ...). `RootState`, `AppDispatch` and `AppThunk`
-  are in `src/redux/configureStore.ts`. Connected components use
-  `ConnectedProps<typeof connector>` (see `src/components/Routes.tsx`).
+- Data types are inferred from the zod schemas in `src/schemas.ts`
+  (`src/types.ts`), so the types and the runtime checks can't drift apart.
+  Change the schema, not the type. `RootState` and `AppDispatch` are in
+  `src/redux/configureStore.ts`.
+- Read data with the hooks in `src/redux/hooks.ts`, and the store with
+  `useAppSelector` / `useAppDispatch`. No `connect()`.
 - Code that Node runs directly (the fetchers, `generator.ts`,
   `updateVersion.ts`, `dotenv.ts`) imports with explicit `.ts` extensions and
   uses only erasable syntax (`erasableSyntaxOnly`): no enums, namespaces or
@@ -70,8 +72,6 @@ reason after `--`. The ones in the code today, and why they're acceptable:
 
 - `react-refresh/only-export-components` on helpers exported beside
   components in `src/components/content/Component.tsx`.
-- `react-hooks/rules-of-hooks` in `gsdSkills.ts` and `gsdSoftwareSourceCode.ts`,
-  whose exported functions call `useAppSelector` but don't have hook names.
 - `jsx-a11y/anchor-is-valid` in `src/pages/imageTagging/Component.tsx`.
 - `testing-library/no-node-access` in tests, where the asserted thing has no
   accessible role.

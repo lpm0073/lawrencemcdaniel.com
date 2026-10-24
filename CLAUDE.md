@@ -48,8 +48,8 @@ only what applies to nearly every task.
    never ask the user to. See `lawrencemcdaniel-code-quality` and
    `lawrencemcdaniel-react-testing`.
 7. **Strict TypeScript.** No `any`, no `@ts-ignore`, no unchecked non-null
-   assertions. Domain types are in `src/types.ts`, Redux state types in each
-   reducer file. Match the existing code: class components stay classes,
+   assertions. Data types are inferred from the zod schemas in
+   `src/schemas.ts`; read data with the hooks in `src/redux/hooks.ts`. Match the existing code: class components stay classes,
    Prettier's settings are in `package.json` (no semicolons, single quotes, 90
    columns). Don't reformat code you weren't asked to change.
 8. **Coverage stays above 95%** (statements and lines). New code comes with
@@ -63,8 +63,8 @@ only what applies to nearly every task.
 | `src/App.tsx`                        | Layout, service worker update alerts, trailing-slash redirect              |
 | `src/components/`                    | Shared components; `Routes.tsx` holds every route and kicks off data loads |
 | `src/pages/<page>/`                  | One folder per page: `Component.tsx`, `styles.css`, `Component.test.tsx`   |
-| `src/redux/`                         | One reducer per data source, `ActionTypes.ts`, `actions/` (thunks)         |
-| `src/types.ts`                       | Types of the WordPress posts and the `public/data/*.json` records          |
+| `src/redux/`                         | `api.ts` (RTK Query, every data source), `hooks.ts`, `uiSlice.ts`, store   |
+| `src/schemas.ts`, `src/types.ts`     | zod schemas of the API's and `public/data/` records, and their types       |
 | `src/shared/constants.ts`            | `APP_CONFIG`: API urls, cache names, skill slugs, site urls                |
 | `src/shared/seo/`                    | Google Structured Data (JSON-LD) builders, `gsd*.ts`                       |
 | `src/shared/fetchers/`               | `cachedFetch.ts` for the thunks; Node scripts that write `public/data/`    |

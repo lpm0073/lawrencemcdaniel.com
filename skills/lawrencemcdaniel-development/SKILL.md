@@ -1,6 +1,6 @@
 ---
 name: lawrencemcdaniel-development
-description: Start here for any change to the lawrencemcdaniel.com React site - a new or changed page, route, header menu item, component, Redux data source, WordPress API call, fetcher, service worker cache, or build setting. Gives the rules, the architecture (Vite, strict TypeScript, Redux thunks with the Cache API, react-router, Workbox via vite-plugin-pwa), the checklists for adding a page and a data source, how to verify a change, and an index of the narrower lawrencemcdaniel-* skills.
+description: Start here for any change to the lawrencemcdaniel.com React site - a new or changed page, route, header menu item, component, Redux data source, WordPress API call, fetcher, service worker cache, or build setting. Gives the rules, the architecture (Vite, strict TypeScript, RTK Query with zod-validated responses, react-router, Workbox via vite-plugin-pwa), the checklists for adding a page and a data source, how to verify a change, and an index of the narrower lawrencemcdaniel-* skills.
 ---
 
 # lawrencemcdaniel.com Development
@@ -15,11 +15,12 @@ description: Start here for any change to the lawrencemcdaniel.com React site - 
    that the site builds.
 2. **Never run git write commands.** See `lawrencemcdaniel-git-commits`.
 3. **Pattern first.** Before writing something new, find the nearest existing
-   example and copy its shape: a page in `src/pages/`, a reducer in
-   `src/redux/`, a thunk in `src/redux/actions/`. Newer code that is
+   example and copy its shape: a page in `src/pages/`, an endpoint in
+   `src/redux/api.ts`. Newer code that is
    consistent with the rest of the codebase wins over this skill.
-4. **Strict TypeScript, current style.** No `any`; types in `src/types.ts`
-   and the reducers (see `lawrencemcdaniel-code-quality`). No new state
+4. **Strict TypeScript, current style.** No `any`; data types come from the
+   schemas in `src/schemas.ts` (see `lawrencemcdaniel-code-quality`). Read data
+   with the hooks in `src/redux/hooks.ts`, never `connect()`. No new state
    library, no CSS framework other than Bootstrap 5 / React Bootstrap. Don't
    refactor class components into hooks unless asked.
 5. **Test and verify before you report.** New code comes with tests, and
@@ -34,21 +35,31 @@ src/main.tsx   Redux <Provider>, <Online>/<Offline> wrappers → <App cls="onlin
 src/App.tsx    <Head/> (site-wide Helmet), <BrowserRouter>, trailing-slash redirect,
                <Header/>, service-worker update alerts, <SiteRoutes/>, <Footer/>
 src/components/Routes.tsx
-               connect()s the whole store, dispatches every fetch* thunk once in
-               componentDidMount, and passes slices to pages as props
+               every route, with no props; dispatches prefetchSiteData() once, so
+               every page's data (and images) load when the app starts
 src/pages/<page>/Component.tsx
+               reads its data with the hooks in src/redux/hooks.ts;
                <Helmet> (canonical, description, JSON-LD) + <main className="site-page ...">
 ```
 
-- **Data flow.** Each data source has a reducer (`src/redux/<name>.ts`, which exports its state type), action
-  types (`src/redux/ActionTypes.ts`, `ADD_X` / `X_LOADING` / `X_FAILED`) and a
-  thunk (`src/redux/actions/<name>Actions.ts`). Thunks call `cachedFetchJson()`
-  (`src/shared/fetchers/cachedFetch.ts`), which reads the browser Cache API
-  first (`APP_CONFIG.caching.names.api`), otherwise fetches and caches the
-  response. The WordPress thunks then cache each post's featured image with
-  `imagePreFetcher()`; that is how the site prefetches the whole API. Reducer state is
-  `{ isLoading, errMess, items, ... }`. Pages render `<Loading/>` while
-  `isLoading`, and handle `errMess`.
+- **Data flow.** All of the site's data comes from one RTK Query API,
+  `src/redux/api.ts` (`siteApi`), with one endpoint per source. Every
+  endpoint fetches with `validatedQuery()`, which validates the response with
+  its zod schema from `src/schemas.ts`; a response that doesn't match fails
+  the query with an error naming the field, instead of reaching the page as
+  blank fields. The WordPress endpoints then prefetch their featured images
+  (`imagePreFetcher()`, CDN images only). Components read data with the hooks
+  in `src/redux/hooks.ts` (`useSpecialties()`, `useClients()`, ...), which
+  return `{ isLoading, errMess, data }`, `data` empty until loaded. Pages
+  render `<Loading/>` while `isLoading`, and show `errMess`.
+- **Types come from the schemas.** `src/types.ts` infers every data type from
+  `src/schemas.ts`. To read a new field, declare it in the schema first:
+  parsing drops undeclared fields.
+- **Query data is frozen.** Never mutate it (in-place `sort`, `push`, property
+  assignment): copy first. Mutating throws at runtime.
+- **UI state** that must outlive a page is the only other Redux state:
+  `src/redux/uiSlice.ts` remembers which entry animations have played (so they
+  play once per session) and the logo cube's faces.
 - **Sources.** WordPress posts by category id, from `APP_CONFIG.apis` in
   `src/shared/constants.ts`, and the static JSON files in `public/data/`
   (`github.json`, `youtube.json`, `blog.lawrencemcdaniel.com.json`).
@@ -63,15 +74,14 @@ src/pages/<page>/Component.tsx
   list; see `vite.config.ts`) and registers runtime routes. The service
   worker is registered only in production builds: check it with
   `yarn build && yarn preview`.
-- **Some components gate re-renders** to protect entry animations
-  (`shouldComponentUpdate` in `Routes.tsx`, `isSet` flags in the
-  `homePage`, `clientGrid`, `coursesGrid`, `aboutPage`, `logoCube` reducers).
-  If a page stops updating, look there first.
+- **Offline.** The service worker caches the API's and `/data/`'s responses
+  (stale-while-revalidate) and the CDN's images (cache-first). The app itself
+  keeps no persistent copy of the data.
 
 ## Adding a page
 
 1. `src/pages/<name>/Component.tsx`, `styles.css` and `Component.test.tsx`, copied from a similar
-   page (e.g. `src/pages/react/`). Wrap content in
+   page (e.g. `src/pages/react/`); read its data with the hooks. Wrap content in
    `<main className="site-page <name>-page" aria-label="...">`, and use
    `RenderPageTitle` for the heading.
 2. A route in `src/components/Routes.tsx`, and a case in `Routes.test.tsx`. If the slug is a skill page, add it to
@@ -86,12 +96,12 @@ src/pages/<page>/Component.tsx
 ## Adding a data source
 
 1. The url in `APP_CONFIG.apis`.
-2. Three action types in `ActionTypes.ts`.
-3. A reducer, registered in `combineReducers` in `src/redux/configureStore.ts`
-   with a comment naming its source.
-4. Its types in `src/types.ts`, and a thunk copied from
-   `src/redux/actions/repositoriesActions.ts` (`cachedFetchJson()`), dispatched from `SiteRoutes.componentDidMount` and
-   added to `mapDispatchToProps` and `propTypes`.
+2. A schema in `src/schemas.ts` with only the fields the site reads, checked
+   against the live response, and its type in `src/types.ts`.
+3. An endpoint in `src/redux/api.ts` using `validatedQuery()` (copy
+   `getRepositories`), added to `prefetchSiteData()`.
+4. A hook in `src/redux/hooks.ts`, and handlers in `test/handlers.ts`
+   (`serveSiteData`).
 5. If the data should work offline, check that `src/service-worker.ts` has a
    runtime route that covers its host.
 
