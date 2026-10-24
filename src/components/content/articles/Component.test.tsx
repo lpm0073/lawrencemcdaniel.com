@@ -1,12 +1,21 @@
-import { screen, within } from '@testing-library/react'
+import { screen, waitFor, within } from '@testing-library/react'
+import { http } from 'msw'
 import { describe, expect, it } from 'vitest'
 
 import { makeArticle } from '../../../../test/fixtures'
+import { serveSiteData } from '../../../../test/handlers'
 import { renderWithProviders } from '../../../../test/render'
+import { server } from '../../../../test/server'
 import type { Article } from '../../../types'
 import ArticlesTable from './Component'
 
-function article(id: number, title: string, modified: string, skills: string[]): Article {
+/** An article; its skills come from its categories, as the api derives them. */
+function article(
+  id: number,
+  title: string,
+  modified: string,
+  categories: string[]
+): Article {
   return makeArticle({
     id,
     slug: `article-${id}`,
@@ -14,7 +23,7 @@ function article(id: number, title: string, modified: string, skills: string[]):
     modified_gmt: modified,
     title: { rendered: title },
     excerpt: { rendered: `<p>About ${title}.</p>` },
-    skills,
+    categories,
     yoast_head_json: {
       title: title,
       og_image: [{ width: 1200, height: 630, url: `https://cdn.example.com/${id}.jpg` }],
@@ -23,25 +32,21 @@ function article(id: number, title: string, modified: string, skills: string[]):
 }
 
 const ARTICLES = [
-  article(1, 'Older React article', '2024-01-01T00:00:00', ['react', 'aws']),
+  article(1, 'Older React article', '2024-01-01T00:00:00', ['reactjs', 'aws']),
   article(2, 'Newer React article', '2025-01-01T00:00:00', ['react']),
-  article(3, 'Cloud article', '2023-01-01T00:00:00', ['cloud']),
+  article(3, 'Cloud article', '2023-01-01T00:00:00', ['aws']),
 ]
 
-function renderTable(
-  props: { skill?: string; maxrows?: number } = {},
-  isLoading = false
-) {
-  return renderWithProviders(<ArticlesTable {...props} />, {
-    preloadedState: { articles: { isLoading, errMess: null, articles: ARTICLES } },
-  })
+function renderTable(props: { skill?: string; maxrows?: number } = {}) {
+  server.use(...serveSiteData({ articles: ARTICLES }))
+  return renderWithProviders(<ArticlesTable {...props} />)
 }
 
 describe('ArticlesTable', () => {
-  it("shows a skill's articles, newest first", () => {
+  it("shows a skill's articles, newest first", async () => {
     renderTable({ skill: 'react' })
 
-    const articles = screen.getAllByRole('table', { name: /^Article / })
+    const articles = await screen.findAllByRole('table', { name: /^Article / })
     expect(articles.map((table) => table.getAttribute('aria-label'))).toEqual([
       'Article Newer React article',
       'Article Older React article',
@@ -63,7 +68,7 @@ describe('ArticlesTable', () => {
   it('shows every article without a skill, and more on request', async () => {
     const { user } = renderTable({ maxrows: 2 })
 
-    expect(screen.getAllByRole('link')).toHaveLength(2)
+    expect(await screen.findAllByRole('link')).toHaveLength(2)
     await user.click(screen.getByRole('button', { name: 'More (1 remaining)' }))
 
     expect(screen.getAllByRole('link')).toHaveLength(3)
@@ -71,22 +76,31 @@ describe('ArticlesTable', () => {
     expect(screen.queryByRole('button', { name: /More/ })).not.toBeInTheDocument()
   })
 
-  it('shows a placeholder for an article without an excerpt', () => {
-    renderWithProviders(<ArticlesTable />, {
-      preloadedState: {
-        articles: {
-          isLoading: false,
-          errMess: null,
-          articles: [{ ...ARTICLES[2], excerpt: { rendered: '' } }],
-        },
-      },
-    })
-    expect(screen.getByText('No description available')).toBeInTheDocument()
+  it('shows a placeholder for an article without an excerpt', async () => {
+    server.use(
+      ...serveSiteData({ articles: [{ ...ARTICLES[2], excerpt: { rendered: '' } }] })
+    )
+    renderWithProviders(<ArticlesTable />)
+    expect(await screen.findByText('No description available')).toBeInTheDocument()
   })
 
   it('shows a spinner while the articles load', () => {
-    renderTable({}, true)
+    server.use(
+      http.get('*/data/blog.lawrencemcdaniel.com.json', () => new Promise(() => {}))
+    )
+    renderWithProviders(<ArticlesTable />)
     expect(screen.getByLabelText('three-dots-loading')).toBeInTheDocument()
     expect(screen.queryByRole('table')).not.toBeInTheDocument()
+  })
+
+  it('shows an empty table when the articles fail to load', async () => {
+    server.use(...serveSiteData({ articles: 503 }))
+    renderWithProviders(<ArticlesTable />)
+
+    await waitFor(() =>
+      expect(screen.queryByLabelText('three-dots-loading')).not.toBeInTheDocument()
+    )
+    expect(screen.getByRole('columnheader', { name: 'Article' })).toBeInTheDocument()
+    expect(screen.queryByRole('link')).not.toBeInTheDocument()
   })
 })

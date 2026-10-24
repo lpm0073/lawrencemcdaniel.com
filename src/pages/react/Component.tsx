@@ -11,9 +11,12 @@ import { gsdSkillSchemaList } from '../../shared/seo/gsdSkills'
 import { hasOccupation } from '../../shared/seo/gsdPersonLawrence'
 import { gsdArticle } from '../../shared/seo/gsdArticle'
 import { APP_CONFIG } from '../../shared/constants'
+import { useSpecialties } from '../../redux/hooks'
 import './styles.css'
 
 const ReactPage = () => {
+  const specialties = useSpecialties().data.items
+
   /* Google Structured Data */
   const slug = 'reactjs'
   const webpageName = 'ReactJS'
@@ -29,7 +32,7 @@ const ReactPage = () => {
   const graphExtraData = [
     person,
     gsdArticle(slug, webpageDescription),
-    ...gsdSkillSchemaList(APP_CONFIG.skills.react),
+    ...gsdSkillSchemaList(specialties, APP_CONFIG.skills.react),
   ]
 
   return (

@@ -18,10 +18,9 @@ describe('ProjectCarousel', () => {
     )
   })
 
-  it('shows a spinner while loading', () => {
-    render(<ProjectCarousel images={['https://cdn.example/one.jpg']} isLoading={true} />)
+  it('shows no images without urls', () => {
+    render(<ProjectCarousel images={[]} />)
 
-    expect(screen.getByLabelText('three-dots-loading')).toBeInTheDocument()
     expect(screen.queryByRole('img', { hidden: true })).not.toBeInTheDocument()
   })
 })

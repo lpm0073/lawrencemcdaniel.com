@@ -8,14 +8,12 @@ import { gsdSoftwareRepoList } from '../../shared/seo/gsdSoftwareSourceCode'
 import { gsdVideoObjectList_FSWL } from '../../shared/seo/gsdVideoObject'
 import { gsdGraph } from '../../shared/seo/gsdGraph'
 import { APP_CONFIG } from '../../shared/constants'
-import type { SpecialtiesState } from '../../redux/specialties'
+import { useRepositories } from '../../redux/hooks'
 import './styles.css'
 
-interface CloudComputingProps {
-  specialties: SpecialtiesState
-}
+const CloudComputing = () => {
+  const repositories = useRepositories().data
 
-const CloudComputing = (props: CloudComputingProps) => {
   /* Google Structured Data */
   const slug = 'cloud'
   const webpageName = 'Cloud | Lawrence McDaniel'
@@ -25,7 +23,7 @@ const CloudComputing = (props: CloudComputingProps) => {
   const relatedLink = ''
   const graphExtraData = [
     gsdPersonLawrenceMcDaniel,
-    ...gsdSoftwareRepoList(APP_CONFIG.skills.fullStack),
+    ...gsdSoftwareRepoList(repositories, APP_CONFIG.skills.cloud),
     ...gsdVideoObjectList_FSWL,
   ]
 
@@ -79,10 +77,7 @@ const CloudComputing = (props: CloudComputingProps) => {
             </p>
           </div>
         </section>
-        <TechnologyCarousel
-          specialties={props.specialties}
-          skill={APP_CONFIG.skills.cloud}
-        />
+        <TechnologyCarousel skill={APP_CONFIG.skills.cloud} />
 
         <section className="row mx-5" aria-label="Code Samples & Publications">
           <div className="col">

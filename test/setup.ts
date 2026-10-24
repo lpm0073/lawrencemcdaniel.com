@@ -3,10 +3,11 @@
  *
  * - Adds jest-dom's matchers, e.g. expect(element).toBeInTheDocument().
  * - Starts the MSW server (test/server.ts), which fails any test that makes an unmocked request.
- * - Resolves relative fetch() URLs against the page, as browsers do. Node's fetch() rejects
- *   them, and the app requests relative URLs, e.g. /data/github.json.
- * - Gives the window an in-memory Cache API (window.caches), which jsdom lacks and every Redux
- *   thunk in src/redux/actions uses.
+ * - Resolves relative fetch() and new Request() URLs against the page, as browsers do. Node
+ *   rejects them, and the app requests relative URLs, e.g. /data/github.json (RTK Query's
+ *   fetchBaseQuery builds a Request itself).
+ * - Gives the window an in-memory Cache API (window.caches), which jsdom lacks and the API's
+ *   data cache (src/redux/cachedBaseQuery.ts) and the image prefetcher use.
  * - Gives waitFor() and findBy*() 5 seconds instead of 1, for slow CI runners.
  *
  * Tests of the Node scripts (*.node.test.ts) run in Vitest's node environment, which has no
@@ -17,11 +18,24 @@ import '@testing-library/jest-dom/vitest'
 import { cleanup, configure } from '@testing-library/react'
 import { afterAll, afterEach, beforeAll } from 'vitest'
 
+import { resetRefreshed } from '../src/redux/cachedBaseQuery'
 import { server } from './server'
 
 configure({ asyncUtilTimeout: 5000 })
 
 const isBrowser = typeof window !== 'undefined'
+
+const NodeRequest = globalThis.Request
+if (isBrowser) {
+  globalThis.Request = class extends NodeRequest {
+    constructor(input: RequestInfo | URL, init?: RequestInit) {
+      super(
+        typeof input === 'string' ? new URL(input, window.location.href) : input,
+        init
+      )
+    }
+  }
+}
 
 const nodeFetch = globalThis.fetch
 if (isBrowser)
@@ -91,6 +105,8 @@ afterEach(() => {
   cleanup()
   server.resetHandlers()
   memoryCaches.clear()
+  // each test starts a new page load, as far as src/redux/cachedBaseQuery.ts knows.
+  resetRefreshed()
   if (isBrowser) {
     window.sessionStorage.clear()
     window.localStorage.clear()

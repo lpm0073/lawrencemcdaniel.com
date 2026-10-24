@@ -1,18 +1,9 @@
-import React, { Component } from 'react'
-import { Routes, Route, Navigate, useParams } from 'react-router-dom'
-import { connect, type ConnectedProps } from 'react-redux'
+import { useEffect } from 'react'
+import { Routes, Route, Navigate } from 'react-router-dom'
 
 import { APP_CONFIG } from '../shared/constants'
-import type { AppDispatch, RootState } from '../redux/configureStore'
-import { fetchArticles } from '../redux/actions/articlesActions'
-import { fetchVideos } from '../redux/actions/videosActions'
-import { fetchRepositories } from '../redux/actions/repositoriesActions'
-import { fetchSpecialties } from '../redux/actions/specialtiesActions'
-import { fetchPortfolio } from '../redux/actions/portfolioActions'
-import { fetchEducation } from '../redux/actions/educationActions'
-import { fetchRecommendations } from '../redux/actions/recommendationsActions'
-import { fetchProjectImages } from '../redux/actions/projectActions'
-import { fetchClients } from '../redux/actions/clientActions'
+import { prefetchSiteData } from '../redux/api'
+import { useAppDispatch } from '../redux/hooks'
 
 // Pages
 import Home from '../pages/home/Component'
@@ -35,155 +26,42 @@ import Openedx from '../pages/openedx/Component'
 import PageNotFound from '../pages/notFound/Component'
 import MRLPage from '../pages/mdr/Component'
 
-const mapStateToProps = (state: RootState) => ({
-  ...state,
-})
+/**
+ * Every route of the site. Each page loads the data it shows itself, with the
+ * hooks in src/redux/hooks.ts; this component only starts loading all of it
+ * when the app starts (prefetchSiteData), so that pages are ready, with their
+ * images, before they are visited. It doesn't read the store, so it never
+ * re-renders a page.
+ */
+export default function SiteRoutes() {
+  const dispatch = useAppDispatch()
 
-const mapDispatchToProps = (dispatch: AppDispatch) => ({
-  fetchArticles: () => {
-    dispatch(fetchArticles())
-  },
-  fetchVideos: () => {
-    dispatch(fetchVideos())
-  },
-  fetchRepositories: () => {
-    dispatch(fetchRepositories())
-  },
-  fetchSpecialties: () => {
-    dispatch(fetchSpecialties())
-  },
-  fetchPortfolio: () => {
-    dispatch(fetchPortfolio())
-  },
-  fetchEducation: () => {
-    dispatch(fetchEducation())
-  },
-  fetchRecommendations: () => {
-    dispatch(fetchRecommendations())
-  },
-  fetchProjectImages: () => {
-    dispatch(fetchProjectImages())
-  },
-  fetchClients: () => {
-    dispatch(fetchClients())
-  },
-})
+  useEffect(() => {
+    dispatch(prefetchSiteData())
+  }, [dispatch])
 
-const connector = connect(mapStateToProps, mapDispatchToProps)
-type SiteRoutesProps = ConnectedProps<typeof connector>
-
-class SiteRoutes extends Component<SiteRoutesProps> {
-  componentDidMount() {
-    this.props.fetchArticles()
-    this.props.fetchVideos()
-    this.props.fetchRepositories()
-    this.props.fetchSpecialties()
-    this.props.fetchPortfolio()
-    this.props.fetchEducation()
-    this.props.fetchRecommendations()
-    this.props.fetchProjectImages()
-    this.props.fetchClients()
-  }
-
-  shouldComponentUpdate() {
-    /* pare down updates on pages with entry animations */
-    const path = window.location.pathname
-    if (path === '/home' || path === '/') {
-      // i'm pretty sure this never gets called.
-      if (!this.props.homePage.isSet) {
-        return true
-      }
-      return false
-    }
-    if (path === '/clients') {
-      if (!this.props.clientGrid.isSet) {
-        return true
-      }
-      return false
-    }
-    if (path === '/education') {
-      if (!this.props.coursesGrid.isSet) {
-        return true
-      }
-      return false
-    }
-    if (path === '/' + APP_CONFIG.skills.fullStack) {
-      if (!this.props.coursesGrid.isSet) {
-        return true
-      }
-      return false
-    }
-    return true
-  }
-
-  render() {
-    const PortfolioWithSlug = () => {
-      const { portfolioId } = useParams()
-      return (
-        <PortfolioDetail
-          post={this.props.portfolio.projects.find((item) => item.slug === portfolioId)}
-          postLoading={this.props.portfolio.isLoading}
-          postErrMess={this.props.portfolio.errMess}
-          images={this.props.project}
-          imagesLoading={this.props.project.isLoading}
-          imagesError={this.props.project.errMess}
-        />
-      )
-    }
-
-    return (
-      <React.Fragment>
-        <Routes>
-          <Route path="/" element={<Home />} />
-          <Route path="/consulting" element={<Consulting />} />
-          <Route path="/contact" element={<Contact />} />
-          <Route path="/qr" element={<QR />} />
-          <Route path="/about" element={<About />} />
-          <Route path="/image-tagging" element={<ImageTaggerPage />} />
-          <Route path="/bio" element={<Bio education={this.props.education} />} />
-          <Route path="/full-bio" element={<Navigate to="/bio" />} />
-          <Route
-            path="/specialties"
-            element={<Specialties specialties={this.props.specialties} />}
-          />
-          <Route
-            path="/portfolio"
-            element={<Portfolio portfolio={this.props.portfolio} />}
-          />
-          <Route path="/portfolio/:portfolioId" element={<PortfolioWithSlug />} />
-          <Route
-            path="/education"
-            element={<Education education={this.props.education} />}
-          />
-          <Route path={'/' + APP_CONFIG.skills.openEdx} element={<Openedx />} />
-          <Route
-            path={'/' + APP_CONFIG.skills.dataScience}
-            element={<Datascience specialties={this.props.specialties} />}
-          />
-          <Route
-            path={'/' + APP_CONFIG.skills.fullStack}
-            element={<Fullstack specialties={this.props.specialties} />}
-          />
-          <Route
-            path={'/' + APP_CONFIG.skills.cloud}
-            element={<CloudComputing specialties={this.props.specialties} />}
-          />
-          <Route path={'/' + APP_CONFIG.skills.react} element={<ReactPage />} />
-          <Route path="/react-mdr" element={<MRLPage />} />
-          <Route
-            path="/clients"
-            element={
-              <Clients
-                recommendations={this.props.recommendations}
-                clients={this.props.clients}
-              />
-            }
-          />
-          <Route path="*" element={<PageNotFound />} />
-        </Routes>
-      </React.Fragment>
-    )
-  }
+  return (
+    <Routes>
+      <Route path="/" element={<Home />} />
+      <Route path="/consulting" element={<Consulting />} />
+      <Route path="/contact" element={<Contact />} />
+      <Route path="/qr" element={<QR />} />
+      <Route path="/about" element={<About />} />
+      <Route path="/image-tagging" element={<ImageTaggerPage />} />
+      <Route path="/bio" element={<Bio />} />
+      <Route path="/full-bio" element={<Navigate to="/bio" />} />
+      <Route path="/specialties" element={<Specialties />} />
+      <Route path="/portfolio" element={<Portfolio />} />
+      <Route path="/portfolio/:portfolioId" element={<PortfolioDetail />} />
+      <Route path="/education" element={<Education />} />
+      <Route path={'/' + APP_CONFIG.skills.openEdx} element={<Openedx />} />
+      <Route path={'/' + APP_CONFIG.skills.dataScience} element={<Datascience />} />
+      <Route path={'/' + APP_CONFIG.skills.fullStack} element={<Fullstack />} />
+      <Route path={'/' + APP_CONFIG.skills.cloud} element={<CloudComputing />} />
+      <Route path={'/' + APP_CONFIG.skills.react} element={<ReactPage />} />
+      <Route path="/react-mdr" element={<MRLPage />} />
+      <Route path="/clients" element={<Clients />} />
+      <Route path="*" element={<PageNotFound />} />
+    </Routes>
+  )
 }
-
-export default connector(SiteRoutes)

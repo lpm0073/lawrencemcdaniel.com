@@ -15,15 +15,14 @@ import { gsdSkillSchemaList } from '../../shared/seo/gsdSkills'
 import { baseTitle } from '../../shared/seo/gsdCommon'
 import { APP_CONFIG } from '../../shared/constants'
 import BlankSpace from '../../components/blankSpace/Component'
-import type { SpecialtiesState } from '../../redux/specialties'
+import { useRepositories, useSpecialties } from '../../redux/hooks'
 
 import './styles.css'
 
-interface DatascienceProps {
-  specialties: SpecialtiesState
-}
+const Datascience = () => {
+  const repositories = useRepositories().data
+  const specialties = useSpecialties().data.items
 
-const Datascience = (props: DatascienceProps) => {
   /* Google Structured Data */
   const slug = 'data-science'
   const webpageName = 'Data Science'
@@ -40,9 +39,9 @@ const Datascience = (props: DatascienceProps) => {
   const graphExtraData = [
     person,
     gsdArticle(slug, webpageName),
-    ...gsdSoftwareRepoList(APP_CONFIG.skills.dataScience),
+    ...gsdSoftwareRepoList(repositories, APP_CONFIG.skills.dataScience),
     ...gsdVideoObjectList_FSWL,
-    ...gsdSkillSchemaList(APP_CONFIG.skills.dataScience),
+    ...gsdSkillSchemaList(specialties, APP_CONFIG.skills.dataScience),
   ]
 
   return (
@@ -365,10 +364,7 @@ const Datascience = (props: DatascienceProps) => {
             </table>
           </div>
         </section>
-        <TechnologyCarousel
-          specialties={props.specialties}
-          skill={APP_CONFIG.skills.dataScience}
-        />
+        <TechnologyCarousel skill={APP_CONFIG.skills.dataScience} />
         <section className="row mx-5" aria-label="Code Samples & Publications">
           <div className="col">
             <h3 className="ml-auto text-center pl-2 mx-5 mt-5">

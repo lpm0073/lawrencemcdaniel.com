@@ -12,11 +12,4 @@ describe('SpecialtiesBanner', () => {
     }
     expect(screen.getByText(/High data throughput/)).toBeInTheDocument()
   })
-
-  it('shows a spinner while loading', () => {
-    render(<SpecialtiesBanner isLoading />)
-
-    expect(screen.getByLabelText('three-dots-loading')).toBeInTheDocument()
-    expect(screen.queryByRole('heading')).not.toBeInTheDocument()
-  })
 })

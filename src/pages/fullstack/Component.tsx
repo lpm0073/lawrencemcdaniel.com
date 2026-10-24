@@ -10,14 +10,13 @@ import { gsdVideoObjectList_FSWL } from '../../shared/seo/gsdVideoObject'
 import { gsdSkillSchemaList } from '../../shared/seo/gsdSkills'
 import { gsdGraph } from '../../shared/seo/gsdGraph'
 import { APP_CONFIG } from '../../shared/constants'
-import type { SpecialtiesState } from '../../redux/specialties'
+import { useRepositories, useSpecialties } from '../../redux/hooks'
 import './styles.css'
 
-interface FullstackProps {
-  specialties: SpecialtiesState
-}
+const Fullstack = () => {
+  const repositories = useRepositories().data
+  const specialties = useSpecialties().data.items
 
-const Fullstack = (props: FullstackProps) => {
   /* Google Structured Data */
   const slug = APP_CONFIG.skills.fullStack
   const webpageName = 'Full Stack Developer | Lawrence McDaniel'
@@ -27,9 +26,9 @@ const Fullstack = (props: FullstackProps) => {
   const relatedLink = ''
   const graphExtraData = [
     gsdPersonLawrenceMcDaniel,
-    ...gsdSoftwareRepoList(APP_CONFIG.skills.fullStack),
+    ...gsdSoftwareRepoList(repositories, APP_CONFIG.skills.fullStack),
     ...gsdVideoObjectList_FSWL,
-    ...gsdSkillSchemaList(APP_CONFIG.skills.fullStack),
+    ...gsdSkillSchemaList(specialties, APP_CONFIG.skills.fullStack),
   ]
 
   return (
@@ -109,10 +108,7 @@ const Fullstack = (props: FullstackProps) => {
           />
         </section>
 
-        <TechnologyCarousel
-          specialties={props.specialties}
-          skill={APP_CONFIG.skills.fullStack}
-        />
+        <TechnologyCarousel skill={APP_CONFIG.skills.fullStack} />
 
         <section className="row mx-5" aria-label="Code Samples & Publications">
           <div className="col">

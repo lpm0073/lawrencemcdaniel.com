@@ -1,15 +1,20 @@
-import { render, screen } from '@testing-library/react'
+import { screen, waitFor } from '@testing-library/react'
+import { Route, Routes } from 'react-router-dom'
 import { beforeEach, describe, expect, it, vi } from 'vitest'
 
 import { makePost } from '../../../test/fixtures'
+import { serveSiteData } from '../../../test/handlers'
 import { metaContent, waitForCanonical } from '../../../test/pageHead'
-import type { ProjectState } from '../../redux/project'
+import { renderWithProviders } from '../../../test/render'
+import { server } from '../../../test/server'
 import { APP_CONFIG } from '../../shared/constants'
+import type { WPPost } from '../../types'
 import PortfolioDetail from './Component'
 
 // The project's description and images are a JSON object in the post's first <p>,
 // written in the WordPress editor: with curly quotes, and <br> line breaks between its fields.
 const POST = makePost({
+  id: 7,
   slug: 'edx-at-scale',
   content: {
     rendered:
@@ -18,7 +23,24 @@ const POST = makePost({
   },
 })
 
-const IMAGES: ProjectState = { isLoading: false, errMess: null, images: [] }
+const OTHER = makePost({
+  id: 8,
+  slug: 'another-project',
+  content: {
+    rendered: '<p>{"description": "Another project.", "images": []}</p>',
+  },
+})
+
+/** The page at /portfolio/<slug>, as Routes renders it, with these portfolio posts. */
+function renderProject(slug: string, portfolio: WPPost[] | number = [OTHER, POST]) {
+  server.use(...serveSiteData({ portfolio }))
+  return renderWithProviders(
+    <Routes>
+      <Route path="/portfolio/:portfolioId" element={<PortfolioDetail />} />
+    </Routes>,
+    { route: `/portfolio/${slug}` }
+  )
+}
 
 describe('PortfolioDetail', () => {
   beforeEach(() => {
@@ -26,24 +48,16 @@ describe('PortfolioDetail', () => {
     vi.spyOn(HTMLElement.prototype, 'offsetWidth', 'get').mockReturnValue(1024)
   })
 
-  it("shows the project's description and images", async () => {
-    render(
-      <PortfolioDetail
-        post={POST}
-        postLoading={false}
-        postErrMess={null}
-        images={IMAGES}
-        imagesLoading={false}
-        imagesError={null}
-      />
-    )
+  it("shows the description and images of the project in the url's slug", async () => {
+    renderProject('edx-at-scale')
 
     expect(
-      screen.getByRole('heading', { level: 1, name: 'PROJECT Detail' })
+      await screen.findByRole('heading', { level: 1, name: 'PROJECT Detail' })
     ).toBeInTheDocument()
     expect(
       screen.getByText('Open edX at scale on Kubernetes.', { exact: false })
     ).toBeInTheDocument()
+    expect(screen.queryByText('Another project.')).not.toBeInTheDocument()
     const sources = screen
       .getAllByRole('img', { name: 'alt text', hidden: true })
       .map((img) => img.getAttribute('src'))
@@ -61,51 +75,53 @@ describe('PortfolioDetail', () => {
     )
   })
 
+  it('finds another project by its slug', async () => {
+    renderProject('another-project')
+
+    expect(
+      await screen.findByText('Another project.', { exact: false })
+    ).toBeInTheDocument()
+    expect(screen.queryByText(/Open edX at scale/)).not.toBeInTheDocument()
+  })
+
   it.each([
     ['invalid JSON', '<p>not JSON</p>'],
     ['no <p>', '<div>nothing here</div>'],
-  ])('shows no description or images for a post with %s', (_, rendered) => {
+  ])('shows no description or images for a post with %s', async (_, rendered) => {
     const log = vi.spyOn(console, 'log').mockImplementation(() => {})
-    render(
-      <PortfolioDetail
-        post={makePost({ content: { rendered } })}
-        postLoading={false}
-        postErrMess={null}
-      />
-    )
+    renderProject('broken', [makePost({ slug: 'broken', content: { rendered } })])
 
     expect(
-      screen.getByRole('heading', { level: 1, name: 'PROJECT Detail' })
+      await screen.findByRole('heading', { level: 1, name: 'PROJECT Detail' })
     ).toBeInTheDocument()
     expect(screen.queryByRole('img', { hidden: true })).not.toBeInTheDocument()
     expect(log).toHaveBeenCalledWith('toJSON() - error:', expect.any(Error))
   })
 
-  it('shows a spinner while loading', () => {
-    render(<PortfolioDetail post={undefined} postLoading={true} postErrMess={null} />)
+  it('shows a spinner while the portfolio loads', async () => {
+    renderProject('edx-at-scale')
 
     expect(screen.getByLabelText('three-dots-loading')).toBeInTheDocument()
+    expect(
+      await screen.findByRole('heading', { level: 1, name: 'PROJECT Detail' })
+    ).toBeInTheDocument()
+    expect(screen.queryByLabelText('three-dots-loading')).not.toBeInTheDocument()
   })
 
-  it('shows the error message', () => {
-    render(
-      <PortfolioDetail
-        post={undefined}
-        postLoading={false}
-        postErrMess="Error 404: Not Found"
-      />
-    )
+  it("shows the error if the portfolio doesn't load", async () => {
+    renderProject('edx-at-scale', 503)
 
     expect(
-      screen.getByRole('heading', { level: 4, name: 'Error 404: Not Found' })
+      await screen.findByRole('heading', { level: 4, name: 'Error 503' })
     ).toBeInTheDocument()
+    expect(screen.queryByRole('heading', { level: 1 })).not.toBeInTheDocument()
   })
 
-  it('shows nothing when there is no such project', () => {
-    const { container } = render(
-      <PortfolioDetail post={undefined} postLoading={false} postErrMess={null} />
-    )
+  it('shows nothing when there is no project with the slug', async () => {
+    const { container } = renderProject('no-such-project')
 
-    expect(container).toBeEmptyDOMElement()
+    // the spinner shows until the portfolio has loaded; then nothing does.
+    expect(screen.getByLabelText('three-dots-loading')).toBeInTheDocument()
+    await waitFor(() => expect(container).toBeEmptyDOMElement())
   })
 })

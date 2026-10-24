@@ -1,10 +1,6 @@
-import type { ReactNode } from 'react'
-import { renderHook } from '@testing-library/react'
-import { Provider } from 'react-redux'
 import { describe, expect, it } from 'vitest'
 
 import { makePost, makeRepository } from '../../../test/fixtures'
-import { ConfigureStore, type RootState } from '../../redux/configureStore'
 import { gsdArticle } from './gsdArticle'
 import { baseUrl, brandLawrenceMcDaniel, imagesLawrenceMcDaniel } from './gsdCommon'
 import { gsdFAQ } from './gsdFAQ'
@@ -29,34 +25,23 @@ import { gsdVideoObject, gsdVideoObjectList } from './gsdVideoObject'
 const SITE = 'https://lawrencemcdaniel.com'
 const ME = SITE + '/#me'
 
-function wrapper(preloadedState: Partial<RootState>) {
-  const store = ConfigureStore(preloadedState)
-  return ({ children }: { children: ReactNode }) => (
-    <Provider store={store}>{children}</Provider>
-  )
-}
-
 const specialty = (title: string, skills: string[]) =>
   makePost({
     title: { rendered: `<b>${title}</b>` },
     excerpt: { rendered: `<p>About ${title}</p>` },
+    // as WordPress sends them: lower case field names.
     acf: {
       url: `https://${title}.org`,
-      applicationCategory: 'Dev',
-      operatingSystem: 'Any',
+      applicationcategory: 'Dev',
+      operatingsystem: 'Any',
     },
     skills,
   })
 
-const specialtiesState = (
-  items = [specialty('python', ['full-stack']), specialty('react', ['react'])]
-) => ({
-  isLoading: false,
-  errMess: null,
-  items,
-  logos: [],
-  featured_logos: [],
-})
+const specialties = () => [
+  specialty('python', ['full-stack']),
+  specialty('react', ['react']),
+]
 
 describe('gsdCommon', () => {
   it('builds the brand and its images', () => {
@@ -179,16 +164,11 @@ describe('gsdHowTo', () => {
 
 describe('gsdKnowsAbout', () => {
   it('returns [] until there are specialties', () => {
-    expect(gsdKnowsAbout(null)).toEqual([])
-    expect(gsdKnowsAbout({ isLoading: true, specialties: specialtiesState() })).toEqual(
-      []
-    )
-    expect(gsdKnowsAbout({ isLoading: false })).toEqual([])
-    expect(gsdKnowsAbout({ specialties: specialtiesState([]) })).toEqual([])
+    expect(gsdKnowsAbout([])).toEqual([])
   })
 
   it('describes each specialty as a SoftwareApplication', () => {
-    const [app] = gsdKnowsAbout({ isLoading: false, specialties: specialtiesState() })
+    const [app] = gsdKnowsAbout(specialties())
 
     expect(app).toMatchObject({
       '@type': 'SoftwareApplication',
@@ -319,16 +299,11 @@ describe('gsdSkills', () => {
     expect(gsdSkillSchema(makePost({ acf: undefined })).url).toBeUndefined()
   })
 
-  it('lists the skills in the store, optionally filtered', () => {
-    const options = { wrapper: wrapper({ specialties: specialtiesState() }) }
-
-    expect(renderHook(() => gsdSkillSchemaList(), options).result.current).toHaveLength(2)
-    const filtered = renderHook(() => gsdSkillSchemaList('react'), options).result.current
+  it('lists the skills, optionally filtered', () => {
+    expect(gsdSkillSchemaList(specialties())).toHaveLength(2)
+    const filtered = gsdSkillSchemaList(specialties(), 'react')
     expect(filtered.map((skill) => skill.name)).toEqual(['react'])
-    const none = renderHook(() => gsdSkillSchemaList('react'), {
-      wrapper: wrapper({ specialties: specialtiesState([makePost()]) }),
-    }).result.current
-    expect(none).toEqual([])
+    expect(gsdSkillSchemaList([makePost()], 'react')).toEqual([])
   })
 })
 
@@ -345,7 +320,7 @@ describe('gsdSoftwareSourceCode', () => {
     })
   })
 
-  it('lists the repositories in the store, optionally filtered by skill', () => {
+  it('lists the repositories, optionally filtered by skill', () => {
     const repos = [
       makeRepository(),
       makeRepository({
@@ -354,19 +329,14 @@ describe('gsdSoftwareSourceCode', () => {
         languages: [],
       }),
     ]
-    const options = {
-      wrapper: wrapper({ repositories: { isLoading: false, errMess: null, repos } }),
-    }
-
-    const all = renderHook(() => gsdSoftwareRepoList(), options).result.current
+    const all = gsdSoftwareRepoList(repos)
     expect(all).toHaveLength(2)
     expect(all[0]).toMatchObject({
       name: 'react-mdr',
       programmingLanguage: 'JavaScript',
       description: 'Matrix digital rain effect for ReactJS react',
     })
-    const filtered = renderHook(() => gsdSoftwareRepoList('full-stack'), options).result
-      .current
+    const filtered = gsdSoftwareRepoList(repos, 'full-stack')
     expect(filtered.map((repo) => repo.name)).toEqual(['py'])
     expect(filtered[0].programmingLanguage).toBeUndefined()
   })

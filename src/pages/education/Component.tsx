@@ -5,24 +5,22 @@ import { Helmet } from 'react-helmet'
 import { gsdPersonLawrenceMcDaniel } from '../../shared/seo/gsdPersonLawrence'
 import { hasOccupation } from '../../shared/seo/gsdPersonLawrence'
 import { gsdQualifications } from '../../shared/seo/gsdQualifications'
-import type { EducationState } from '../../redux/education'
+import { useEducation } from '../../redux/hooks'
 
 import { gsdGraph, type JsonLd } from '../../shared/seo/gsdGraph'
 import { APP_CONFIG } from '../../shared/constants'
 import './styles.css'
 
-interface EducationProps {
-  education: EducationState
-}
+const Education = () => {
+  const education = useEducation()
 
-const Education = (props: EducationProps) => {
   /* Google Structured Data */
-  const person = !props.education.isLoading
+  const person = !education.isLoading
     ? {
         ...gsdPersonLawrenceMcDaniel,
         hasOccupation: {
           ...hasOccupation,
-          qualifications: gsdQualifications(props.education.courses),
+          qualifications: gsdQualifications(education.data),
         },
       }
     : null
@@ -61,7 +59,7 @@ const Education = (props: EducationProps) => {
             title="ADVANCED"
             boxed_title="TRAINING"
           />
-          <CoursesGrid education={props.education} />
+          <CoursesGrid />
         </div>
       </main>
     </React.Fragment>

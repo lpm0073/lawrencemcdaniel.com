@@ -6,14 +6,14 @@
     engagement metrics, last commit date, languages used, and skills.
  */
 import React, { useState, type ReactElement } from 'react'
-import { useAppSelector } from '../../../redux/hooks'
+import { useArticles, useSpecialties } from '../../../redux/hooks'
 import type { Article as BlogArticle } from '../../../types'
 import { skillIcon, skillLabel } from '../Component'
 import Loading from '../../Loading'
 
 import './styles.css'
 
-/** An article from the Redux store, with its skill labels and icons. */
+/** An article from the site's data, with its skill labels and icons. */
 type ArticleRow = BlogArticle & {
   skillLabels: string[]
   skillIcons: ReactElement[]
@@ -117,18 +117,18 @@ const ArticlesTable = ({ skill, maxrows = 100 }: ArticlesTableProps) => {
    Renders a table of blog articles and other publications.
    */
   const [currentMaxRows, setCurrentMaxRows] = useState(maxrows)
-  const reduxArticles = useAppSelector((state) => state.articles)
-  const reduxSpecialties = useAppSelector((state) => state.specialties)
+  const articles = useArticles()
+  const specialties = useSpecialties().data
 
   const unfilteredArticles = [
     ...(skill
-      ? reduxArticles.articles.filter((redux) => redux.skills.includes(skill))
-      : reduxArticles.articles),
+      ? articles.data.filter((article) => article.skills.includes(skill))
+      : articles.data),
   ]
     .map((article) => {
       // If skill is specified, remove the corresponding entry so that it doesn't
       // redundantly appear in the table.
-      if (skill && article.skills) {
+      if (skill) {
         const skillIndex = article.skills.indexOf(skill)
         if (skillIndex !== -1) {
           return {
@@ -143,7 +143,7 @@ const ArticlesTable = ({ skill, maxrows = 100 }: ArticlesTableProps) => {
       ...article,
       skillLabels: article.skills.map(skillLabel).filter(Boolean),
       skillIcons: article.skills
-        .map((skillCode) => skillIcon(skillCode, reduxSpecialties))
+        .map((skillCode) => skillIcon(skillCode, specialties))
         .filter(Boolean),
     }))
     .sort((a, b) => {
@@ -162,7 +162,7 @@ const ArticlesTable = ({ skill, maxrows = 100 }: ArticlesTableProps) => {
 
   return (
     <section className="table-responsive" aria-label="Articles">
-      {reduxArticles.isLoading ? (
+      {articles.isLoading ? (
         <Loading />
       ) : (
         <React.Fragment>

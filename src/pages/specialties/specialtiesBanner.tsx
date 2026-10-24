@@ -1,5 +1,4 @@
 import React from 'react'
-import Loading from '../../components/Loading'
 
 interface SpecialtyColumnProps {
   icon: string
@@ -29,36 +28,28 @@ const SpecialtyColumn = (props: SpecialtyColumnProps) => {
   )
 }
 
-interface SpecialtiesBannerProps {
-  isLoading?: boolean
-}
-
-const SpecialtiesBanner = (props: SpecialtiesBannerProps) => {
+const SpecialtiesBanner = () => {
   return (
     <React.Fragment>
-      {props.isLoading ? (
-        <Loading />
-      ) : (
-        <div className="row specialties-banner mx-3 my-5 p-3">
-          <SpecialtyColumn
-            title="FULL STACK DEVELOPMENT"
-            icon="fa-html5"
-            description="Responsive web apps developed with Django, ReactJS, Redux, Angular, and WordPress, and Hybrid mobile apps with Ionic + Cordova; all following agile methodologies and backed by AWS' infinitely-scalable suite of web services."
-          />
+      <div className="row specialties-banner mx-3 my-5 p-3">
+        <SpecialtyColumn
+          title="FULL STACK DEVELOPMENT"
+          icon="fa-html5"
+          description="Responsive web apps developed with Django, ReactJS, Redux, Angular, and WordPress, and Hybrid mobile apps with Ionic + Cordova; all following agile methodologies and backed by AWS' infinitely-scalable suite of web services."
+        />
 
-          <SpecialtyColumn
-            title="BUSINESS ANALYSIS"
-            icon="fa-database"
-            description="Well-rounded business analyst specializing in predictive analytics, forensics and algorithm analysis using Excel/VBA, Octave and R. Extensive database and data science background."
-          />
+        <SpecialtyColumn
+          title="BUSINESS ANALYSIS"
+          icon="fa-database"
+          description="Well-rounded business analyst specializing in predictive analytics, forensics and algorithm analysis using Excel/VBA, Octave and R. Extensive database and data science background."
+        />
 
-          <SpecialtyColumn
-            title="OPEN EDX® PLATFORM"
-            icon="fa-mortar-board"
-            description="Installation, configuration, customization and training of the Open edX® learning management system and course development studio. Author of one of the industry's most important technical how-to blog sites."
-          />
-        </div>
-      )}
+        <SpecialtyColumn
+          title="OPEN EDX® PLATFORM"
+          icon="fa-mortar-board"
+          description="Installation, configuration, customization and training of the Open edX® learning management system and course development studio. Author of one of the industry's most important technical how-to blog sites."
+        />
+      </div>
     </React.Fragment>
   )
 }

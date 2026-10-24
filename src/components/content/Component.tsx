@@ -4,7 +4,7 @@ import CodeSamplesTable from './codeSamples/Component'
 import ArticlesTable from './articles/Component'
 import VideosTable from './videos/Component'
 import { APP_CONFIG } from '../../shared/constants'
-import type { SpecialtiesState } from '../../redux/specialties'
+import type { Specialties } from '../../redux/api'
 
 import './styles.css'
 
@@ -58,7 +58,7 @@ function skillUrl(categoryCode: string): string {
 // eslint-disable-next-line react-refresh/only-export-components -- a helper shared by the content tables
 export function skillLogoUrl(
   categoryCode: string,
-  reduxSpecialties: SpecialtiesState
+  specialties: Specialties
 ): string | null {
   /*
     returns the internal URL of the logo image for a given skill code.
@@ -95,9 +95,9 @@ export function skillLogoUrl(
   }
   console.warn('skillLogoUrl() categoryCode is not locally served', categoryCode)
 
-  // reduxSpecialties.items[i].slug
-  // reduxSpecialties.items[i]._embedded.wp:featuredmedia[0].source_url
-  const specialty = reduxSpecialties.items.find((item) => item.slug === categoryCode)
+  // specialties.items[i].slug
+  // specialties.items[i]._embedded.wp:featuredmedia[0].source_url
+  const specialty = specialties.items.find((item) => item.slug === categoryCode)
   if (
     specialty &&
     specialty._embedded &&
@@ -112,17 +112,14 @@ export function skillLogoUrl(
 }
 
 // eslint-disable-next-line react-refresh/only-export-components -- a helper shared by the content tables
-export function skillIcon(
-  categoryCode: string,
-  reduxSpecialties: SpecialtiesState
-): ReactElement {
+export function skillIcon(categoryCode: string, specialties: Specialties): ReactElement {
   /*
     returns an <img> element for a given skill code.
     Part of repository metadata.
    */
   const category_label = skillLabel(categoryCode)
   const category_url = skillUrl(categoryCode)
-  const category_logo_url = skillLogoUrl(categoryCode, reduxSpecialties)
+  const category_logo_url = skillLogoUrl(categoryCode, specialties)
   if (!category_label || !category_url || !category_logo_url) {
     throw new Error(
       `skillIcon() missing data for categoryCode: ${categoryCode} label: ${category_label} url: ${category_url} logo: ${category_logo_url}`

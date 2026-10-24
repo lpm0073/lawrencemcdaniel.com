@@ -42,14 +42,27 @@ export default defineConfig([
       js.configs.recommended,
       tseslint.configs.recommended,
       reactHooks.configs.flat.recommended,
-      // connector is react-redux's connect(...) result: connector(Page) is a component.
-      reactRefresh.configs.vite({ extraHOCs: ['connector'] }),
+      reactRefresh.configs.vite(),
       jsxA11y.flatConfigs.recommended,
     ],
     languageOptions: {
       globals: globals.browser,
     },
     rules: {
+      // react-multi-carousel is CommonJS only: Vite's dev server imports its default as
+      // the module object, which crashes rendering. Use the shim instead.
+      'no-restricted-imports': [
+        'error',
+        {
+          paths: [
+            {
+              name: 'react-multi-carousel',
+              importNames: ['default'],
+              message: "Import Carousel from 'src/components/carousel' instead.",
+            },
+          ],
+        },
+      ],
       // unused variables are errors, except those named _, e.g. the ignored half of a [key, value] pair.
       '@typescript-eslint/no-unused-vars': [
         'error',

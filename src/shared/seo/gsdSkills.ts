@@ -1,8 +1,5 @@
-import { useSelector } from 'react-redux'
 import { wpGetFeaturedImage } from '../wpGetFeaturedImage.js'
-import type { RootState } from '../../redux/configureStore'
 import type { WPPost } from '../../types'
-//import { APP_CONFIG } from '../constants.js'
 
 const stripHtml = (html: string): string => html.replace(/<[^>]+>/g, '')
 
@@ -27,18 +24,14 @@ export const gsdSkillSchema = (skill: WPPost) => {
 }
 
 /**
- * Returns a list of schema.org skill objects from Redux state.
- * Optionally filters by skill name.
- * Assumes Redux state shape: { skills: [{ name, description, url }, ...] }
- * @param {string} [skillName] - Optional skill name to filter by.
- * @returns {Array} Array of schema.org DefinedTerm objects.
+ * Returns a list of schema.org skill objects for the specialties, optionally
+ * only those with a skill.
+ * @param specialties - the specialties, e.g. useSpecialties().data.items.
+ * @param skillName - a skill slug to filter by, e.g. APP_CONFIG.skills.react.
+ * @returns Array of schema.org DefinedTerm objects.
  */
-export const gsdSkillSchemaList = (skillName?: string) => {
-  // This is only called while a function component renders, so the hook is safe;
-  // the name cannot change without changing the export.
-  // eslint-disable-next-line react-hooks/rules-of-hooks
-  const reduxSkills = useSelector((state: RootState) => state.specialties)
-  const skills = reduxSkills ? reduxSkills.items : []
+export const gsdSkillSchemaList = (specialties: WPPost[], skillName?: string) => {
+  const skills = specialties
 
   const filteredSkills = skillName
     ? skills.filter((skill) => skill.skills && skill.skills.includes(skillName))

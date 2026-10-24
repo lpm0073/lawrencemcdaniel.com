@@ -182,6 +182,18 @@ async function initializeServiceWorker() {
     })
   )
 
+  // Cache the site's own data files, which the weekly data update rewrites,
+  // with a stale-while-revalidate strategy, so they work offline and are
+  // never more than one visit out of date.
+  // example: https://lawrencemcdaniel.com/data/github.json
+  registerRoute(
+    ({ url }) => url.origin === self.location.origin && url.pathname.startsWith('/data/'),
+    new StaleWhileRevalidate({
+      cacheName: APP_CONFIG.caching.names.api,
+      plugins: [api_cache_expiration],
+    })
+  )
+
   // Cache cdn content with a CacheFirst strategy
   // example: https://cdn.lawrencemcdaniel.com/wp-content/uploads/2025/08/14160105/bandit-logo-1024x231.png
   registerRoute(

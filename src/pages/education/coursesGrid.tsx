@@ -1,11 +1,6 @@
-import React, { Component, type CSSProperties } from 'react'
-import { connect, type ConnectedProps } from 'react-redux'
-import { bindActionCreators } from 'redux'
-import { setCoursesGrid } from '../../redux/actions/coursesActions'
-import type { AppDispatch, RootState } from '../../redux/configureStore'
-import type { EducationState } from '../../redux/education'
+import React, { type CSSProperties } from 'react'
+import { useEducation } from '../../redux/hooks'
 
-import Loading from '../../components/Loading'
 import { wpGetFeaturedImage } from '../../shared/wpGetFeaturedImage'
 //import { Fade } from "react-animation-components";
 
@@ -34,99 +29,67 @@ function Course({ item_style, course_summary, institution, course_title }: Cours
   )
 }
 
-const mapStateToProps = (state: RootState) => ({
-  ...state,
-})
-const mapDispatchToProps = (dispatch: AppDispatch) => ({
-  actions: bindActionCreators({ setCoursesGrid }, dispatch),
-})
+export default function CoursesGrid() {
+  const education = useEducation()
 
-interface CoursesGridOwnProps {
-  /** Accepted from the Education page, but the Redux store's education state takes precedence. */
-  education: EducationState
-  isLoading?: boolean
-}
-
-const connector = connect<
-  ReturnType<typeof mapStateToProps>,
-  ReturnType<typeof mapDispatchToProps>,
-  CoursesGridOwnProps,
-  RootState
->(mapStateToProps, mapDispatchToProps)
-type CoursesGridProps = ConnectedProps<typeof connector> & CoursesGridOwnProps
-
-class CoursesGrid extends Component<CoursesGridProps> {
-  componentWillUnmount() {
-    this.props.actions.setCoursesGrid()
-  }
-
-  render() {
-    return (
-      <section className="" aria-label="Courses Grid">
-        {this.props.isLoading ? (
-          <Loading />
-        ) : (
-          <div className="row my-5 mx-0 py-5 px-0 text-center align-items-stretch">
-            {this.props.education.courses.map((course, indx) => {
-              const institution = course?.acf?.institution || 'Unknown Institution'
-              const course_title = course?.acf?.course_title || 'Unknown Course Title'
-              const course_summary =
-                course?.acf?.course_summary || 'Unknown Course Summary'
-              /*
+  return (
+    <section className="" aria-label="Courses Grid">
+      <div className="row my-5 mx-0 py-5 px-0 text-center align-items-stretch">
+        {education.data.map((course, indx) => {
+          const institution = course?.acf?.institution || 'Unknown Institution'
+          const course_title = course?.acf?.course_title || 'Unknown Course Title'
+          const course_summary = course?.acf?.course_summary || 'Unknown Course Summary'
+          /*
               const course_date = course?.date
               const course_year = course_date
                 ? new Date(course_date).getFullYear()
                 : 'Unknown Year'
               */
-              const certificate_url =
-                course?.acf?.certificate_url || course?.acf?.institution_url || null
-              const aria_label = course?.title?.rendered
+          const certificate_url =
+            course?.acf?.certificate_url || course?.acf?.institution_url || null
+          const aria_label = course?.title?.rendered
 
-              // no size: the 'medium' image, the full image if there is none
-              const item_url = wpGetFeaturedImage(course)
-              const background_url = "url('" + item_url + "')"
-              const item_style = {
-                backgroundImage: background_url,
-              }
-              return (
-                <React.Fragment key={indx}>
-                  <div className="col-lg-3 col-md-4 col-sm-6 px-0">
-                    <article
-                      className="m-1 py-1 bg-white border rounded d-flex flex-column h-300"
-                      aria-label={`Education credential ${aria_label}`}
+          // no size: the 'medium' image, the full image if there is none
+          const item_url = wpGetFeaturedImage(course)
+          const background_url = "url('" + item_url + "')"
+          const item_style = {
+            backgroundImage: background_url,
+          }
+          return (
+            <React.Fragment key={indx}>
+              <div className="col-lg-3 col-md-4 col-sm-6 px-0">
+                <article
+                  className="m-1 py-1 bg-white border rounded d-flex flex-column h-300"
+                  aria-label={`Education credential ${aria_label}`}
+                >
+                  {certificate_url ? (
+                    <a
+                      href={certificate_url}
+                      target="_blank"
+                      rel="noopener noreferrer"
+                      className="text-decoration-none text-reset"
                     >
-                      {certificate_url ? (
-                        <a
-                          href={certificate_url}
-                          target="_blank"
-                          rel="noopener noreferrer"
-                          className="text-decoration-none text-reset"
-                        >
-                          <Course
-                            item_style={item_style}
-                            course_summary={course_summary}
-                            institution={institution}
-                            course_title={course_title}
-                          />
-                        </a>
-                      ) : (
-                        <Course
-                          item_style={item_style}
-                          course_summary={course_summary}
-                          institution={institution}
-                          course_title={course_title}
-                        />
-                      )}
-                    </article>
-                  </div>
-                </React.Fragment>
-              )
-            })}
-          </div>
-        )}
-      </section>
-    )
-  }
+                      <Course
+                        item_style={item_style}
+                        course_summary={course_summary}
+                        institution={institution}
+                        course_title={course_title}
+                      />
+                    </a>
+                  ) : (
+                    <Course
+                      item_style={item_style}
+                      course_summary={course_summary}
+                      institution={institution}
+                      course_title={course_title}
+                    />
+                  )}
+                </article>
+              </div>
+            </React.Fragment>
+          )
+        })}
+      </div>
+    </section>
+  )
 }
-
-export default connector(CoursesGrid)

@@ -1,5 +1,4 @@
-import { useAppSelector } from '../../redux/hooks'
-import type { ClientsState } from '../../redux/clients'
+import { useRecommendations } from '../../redux/hooks'
 
 import RenderPageTitle from '../../components/pagetitle/pageTitleComponent'
 import { LinkedinBadge } from '../../components/linkedinBadge/Component'
@@ -24,12 +23,7 @@ import Accordion from 'react-bootstrap/Accordion'
 
 const urlOpenedX = APP_CONFIG.urls.site + '/' + APP_CONFIG.skills.openEdx
 
-interface OpenedxProps {
-  /** Not passed by Routes.tsx; ClientGrid reads the clients from the Redux store. */
-  clients?: ClientsState
-}
-
-const Openedx = (props: OpenedxProps) => {
+const Openedx = () => {
   /* Google Structured Data */
   const slug = 'openedx'
   const headline = 'Open edX® Consulting'
@@ -42,8 +36,7 @@ const Openedx = (props: OpenedxProps) => {
     ...gsdPersonLawrenceMcDaniel,
     ...{ hasOccupation: hasOccupation },
   }
-  const reduxRecommendations = useAppSelector((state) => state.recommendations)
-  const recommendations = reduxRecommendations.items ? reduxRecommendations.items : []
+  const recommendations = useRecommendations().data
 
   const graphExtraData = [
     person,
@@ -336,7 +329,7 @@ const Openedx = (props: OpenedxProps) => {
           </section>
           <div className="hide-medium">
             <h3 className="ml-auto text-center pl-2 mx-5">Open edX® Client List</h3>
-            <ClientGrid clients={props.clients} filter="edx" />
+            <ClientGrid filter="edx" />
           </div>
           <div>
             <h3 className="ml-auto text-center pl-2 mx-5">

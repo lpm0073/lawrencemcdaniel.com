@@ -131,23 +131,23 @@
 
 */
 import React, { Component } from 'react'
-import { connect, type ConnectedProps } from 'react-redux'
-import { bindActionCreators } from 'redux'
-import { setLogoState } from '../../redux/actions/logoActions'
-import type { AppDispatch, RootState } from '../../redux/configureStore'
+import type { Specialties } from '../../redux/api'
+import { useAppDispatch, useAppSelector, useSpecialties } from '../../redux/hooks'
+import { logoCubeSaved, type LogoCubeSnapshot } from '../../redux/uiSlice'
 
 import { getInitialLogos } from '../../shared/getInitialLogos'
 import './styles.css'
 
-const mapStateToProps = (state: RootState) => ({
-  ...state,
-})
-const mapDispatchToProps = (dispatch: AppDispatch) => ({
-  actions: bindActionCreators({ setLogoState }, dispatch),
-})
-
-const connector = connect(mapStateToProps, mapDispatchToProps)
-type LogoCubeProps = ConnectedProps<typeof connector>
+interface LogoCubeProps {
+  /** the specialties' logos; empty until they have loaded. */
+  specialties: Specialties
+  /** true until the specialties have loaded; the cube keeps its local logos until then. */
+  isLoading: boolean
+  /** the cube's state when it last unmounted, or null on its first visit. */
+  savedState: LogoCubeSnapshot | null
+  /** keeps the cube's state, so that it can be restored when it remounts. */
+  onSave: (snapshot: LogoCubeSnapshot) => void
+}
 
 type CubeSideName = 'top' | 'bottom' | 'left' | 'right' | 'front' | 'back'
 
@@ -156,7 +156,7 @@ type LogoUrl = string | null | undefined
 
 /*
   A type alias rather than an interface, so that it is assignable to the
-  Record<string, unknown> that the Redux store keeps (LogoCubeComponentState).
+  Record<string, unknown> that the Redux store keeps (LogoCubeSnapshot).
 */
 type LogoCubeState = {
   repaintDelay: ReturnType<typeof setTimeout> | null
@@ -215,8 +215,8 @@ class LogoCube extends Component<LogoCubeProps, LogoCubeState> {
     this.repaint = this.repaint.bind(this)
 
     /* check for component state in Redux store */
-    if (this.props.logoCube.isSet) {
-      this.state = this.props.logoCube.state as LogoCubeState
+    if (this.props.savedState !== null) {
+      this.state = this.props.savedState as LogoCubeState
     } else {
       const d = new Date().toISOString()
 
@@ -269,12 +269,12 @@ class LogoCube extends Component<LogoCubeProps, LogoCubeState> {
 
     /* send component state to Redux store */
     const state = this.state
-    this.props.actions.setLogoState({ state })
+    this.props.onSave(state)
   }
 
   render() {
-    const sideClass = !this.props.logoCube.isSet ? 'grow-side' : ''
-    const capClass = !this.props.logoCube.isSet ? 'fade-in' : ''
+    const sideClass = this.props.savedState === null ? 'grow-side' : ''
+    const capClass = this.props.savedState === null ? 'fade-in' : ''
 
     return (
       <div key="logo-cube" className="d3-container mt-0">
@@ -304,7 +304,7 @@ class LogoCube extends Component<LogoCubeProps, LogoCubeState> {
 
   repaint() {
     /* place a random logo on a random side at a random point in time. */
-    if (!this.props.specialties.isLoading) {
+    if (!this.props.isLoading) {
       const side = this.getRandomSide()
       const logos =
         side === 'front'
@@ -404,12 +404,10 @@ class LogoCube extends Component<LogoCubeProps, LogoCubeState> {
     }
   }
 
-  getSerializedLogo(logos: string[] | null, i: number): LogoUrl {
+  getSerializedLogo(logos: string[], i: number): LogoUrl {
     /* this handles the hopefully-rare case
         where I might stupidly neglect to have 6 more
         featured logos in the Wordpress api. */
-
-    if (logos === null) return null
 
     if (i < logos.length) {
       return logos[i]
@@ -430,9 +428,7 @@ class LogoCube extends Component<LogoCubeProps, LogoCubeState> {
     }
   }
 
-  getRandomLogo(logos: LogoUrl[] | null): LogoUrl {
-    if (logos === null) return null
-
+  getRandomLogo(logos: LogoUrl[]): LogoUrl {
     let logo: LogoUrl,
       i = 0
     do {
@@ -463,4 +459,20 @@ class LogoCube extends Component<LogoCubeProps, LogoCubeState> {
   }
 } /* LogoCube component */
 
-export default connector(LogoCube)
+/** The logo cube, with its logos and its saved state from the store. */
+const ConnectedLogoCube = () => {
+  const specialties = useSpecialties()
+  const savedState = useAppSelector((state) => state.ui.logoCube)
+  const dispatch = useAppDispatch()
+
+  return (
+    <LogoCube
+      specialties={specialties.data}
+      isLoading={specialties.isLoading}
+      savedState={savedState}
+      onSave={(snapshot) => dispatch(logoCubeSaved(snapshot))}
+    />
+  )
+}
+
+export default ConnectedLogoCube

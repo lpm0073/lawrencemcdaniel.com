@@ -12,11 +12,4 @@ describe('SpecialtiesBanner', () => {
     ).toEqual(['FULL STACK DEVELOPMENT', 'BUSINESS ANALYSIS', 'OPEN EDX® PLATFORM'])
     expect(screen.getByText(/predictive analytics, forensics/)).toBeInTheDocument()
   })
-
-  it('shows a spinner while loading', () => {
-    render(<SpecialtiesBanner isLoading={true} />)
-
-    expect(screen.getByLabelText('three-dots-loading')).toBeInTheDocument()
-    expect(screen.queryByRole('heading')).not.toBeInTheDocument()
-  })
 })

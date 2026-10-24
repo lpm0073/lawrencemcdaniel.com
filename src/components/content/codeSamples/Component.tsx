@@ -6,7 +6,7 @@
     engagement metrics, last commit date, languages used, and skills.
  */
 import React, { useState, type ReactElement } from 'react'
-import { useAppSelector } from '../../../redux/hooks'
+import { useRepositories, useSpecialties } from '../../../redux/hooks'
 import type { Repository } from '../../../types'
 
 import { skillIcon, skillLabel, ContentCategories } from '../Component'
@@ -14,7 +14,7 @@ import Loading from '../../../components/Loading'
 
 import './styles.css'
 
-/** A repository from the Redux store, with its skill labels and icons. */
+/** A repository from the site's data, with its skill labels and icons. */
 type RepositoryRow = Repository & {
   skillLabels: string[]
   skillIcons: ReactElement[]
@@ -22,6 +22,17 @@ type RepositoryRow = Repository & {
 
 interface RepoProps {
   repo: RepositoryRow
+}
+
+/** Shown for a commit date or count that GitHub didn't report. */
+const UNKNOWN = '—'
+
+/** Sorts commit counts in descending order, with unknown counts last. */
+function compareCommits(a: number | null, b: number | null): number {
+  if (a === b) return 0
+  if (a === null) return 1
+  if (b === null) return -1
+  return b - a
 }
 
 // ---------------------------- Internal Components ------------------------------
@@ -66,12 +77,17 @@ const CodeCommits = ({ repo }: RepoProps) => {
         <small className="text-muted text-end">
           <div>
             Last commit:{' '}
-            {new Date(repo.last_commit_date).toLocaleDateString('en-US', {
-              month: 'short',
-              year: 'numeric',
-            })}
+            {repo.last_commit_date === null
+              ? UNKNOWN
+              : new Date(repo.last_commit_date).toLocaleDateString('en-US', {
+                  month: 'short',
+                  year: 'numeric',
+                })}
           </div>
-          <div>Total commits: {repo.total_commits.toLocaleString()}</div>
+          <div>
+            Total commits:{' '}
+            {repo.total_commits === null ? UNKNOWN : repo.total_commits.toLocaleString()}
+          </div>
         </small>
       </div>
     </React.Fragment>
@@ -198,17 +214,17 @@ const CodeSamplesTable = ({ skill, maxrows = 100 }: CodeSamplesTableProps) => {
    */
   const [currentMaxRows, setCurrentMaxRows] = useState(maxrows)
 
-  const reduxRepositories = useAppSelector((state) => state.repositories)
-  const reduxSpecialties = useAppSelector((state) => state.specialties)
-  const reposArray = Array.isArray(reduxRepositories.repos) ? reduxRepositories.repos : []
+  const repositories = useRepositories()
+  const specialties = useSpecialties().data
+  const reposArray = repositories.data
 
   const untrimmedRepos = [
-    ...(skill ? reposArray.filter((redux) => redux.skills.includes(skill)) : reposArray),
+    ...(skill ? reposArray.filter((repo) => repo.skills.includes(skill)) : reposArray),
   ]
     .map((repo) => {
       // If skill is specified, remove the corresponding entry so that it doesn't
       // redundantly appear in the table.
-      if (skill && repo.skills) {
+      if (skill) {
         const skillIndex = repo.skills.indexOf(skill)
         if (skillIndex !== -1) {
           return {
@@ -223,7 +239,7 @@ const CodeSamplesTable = ({ skill, maxrows = 100 }: CodeSamplesTableProps) => {
       ...repo,
       skillLabels: repo.skills.map(skillLabel).filter(Boolean),
       skillIcons: repo.skills
-        .map((skillCode) => skillIcon(skillCode, reduxSpecialties))
+        .map((skillCode) => skillIcon(skillCode, specialties))
         .filter(Boolean),
     }))
     .sort((a, b) => {
@@ -233,8 +249,8 @@ const CodeSamplesTable = ({ skill, maxrows = 100 }: CodeSamplesTableProps) => {
       if (bEngagement !== aEngagement) {
         return bEngagement - aEngagement
       }
-      // Secondary sort: total_commits (descending)
-      return b.total_commits - a.total_commits
+      // Secondary sort: total_commits (descending), repositories without a count last
+      return compareCommits(a.total_commits, b.total_commits)
     })
 
   const untrimmedCount = untrimmedRepos.length
@@ -246,7 +262,7 @@ const CodeSamplesTable = ({ skill, maxrows = 100 }: CodeSamplesTableProps) => {
 
   return (
     <section className="table-responsive" aria-label="Code Samples">
-      {reduxRepositories.isLoading ? (
+      {repositories.isLoading ? (
         <Loading />
       ) : (
         <React.Fragment>

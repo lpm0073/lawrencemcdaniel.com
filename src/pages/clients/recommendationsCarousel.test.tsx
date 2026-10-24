@@ -2,7 +2,6 @@ import { render, screen, within } from '@testing-library/react'
 import { beforeEach, describe, expect, it, vi } from 'vitest'
 
 import { makeMedia, makePost } from '../../../test/fixtures'
-import type { RecommendationsState } from '../../redux/recommendations'
 import RecommendationsCarousel from './recommendationsCarousel'
 
 const JANE = makePost({
@@ -40,10 +39,6 @@ const NO_DETAILS = makePost({
   _embedded: {},
 })
 
-function recommendations(...items: RecommendationsState['items']): RecommendationsState {
-  return { isLoading: false, errMess: null, items }
-}
-
 describe('RecommendationsCarousel', () => {
   beforeEach(() => {
     // react-multi-carousel renders no slides until its container has a width, which jsdom never gives.
@@ -51,7 +46,7 @@ describe('RecommendationsCarousel', () => {
   })
 
   it("shows each recommendation's author, title, date, relationship and text", () => {
-    render(<RecommendationsCarousel recommendations={recommendations(JANE)} />)
+    render(<RecommendationsCarousel recommendations={[JANE]} />)
 
     expect(
       screen.getByRole('region', { name: 'Recommendations Carousel' })
@@ -77,7 +72,7 @@ describe('RecommendationsCarousel', () => {
   })
 
   it('shows a recommendation without a title, relationship or description', () => {
-    render(<RecommendationsCarousel recommendations={recommendations(NO_DETAILS)} />)
+    render(<RecommendationsCarousel recommendations={[NO_DETAILS]} />)
 
     const slide = screen.getAllByRole('article', {
       name: 'LinkedIn Recommendation John Roe',
@@ -88,12 +83,12 @@ describe('RecommendationsCarousel', () => {
     expect(within(slide).getByRole('img', { hidden: true })).not.toHaveAttribute('src')
   })
 
-  it('shows a spinner while loading', () => {
-    render(
-      <RecommendationsCarousel recommendations={recommendations(JANE)} isLoading={true} />
-    )
+  it('leaves the carousel empty without recommendations', () => {
+    render(<RecommendationsCarousel recommendations={[]} />)
 
-    expect(screen.getByLabelText('three-dots-loading')).toBeInTheDocument()
+    expect(
+      screen.getByRole('region', { name: 'Recommendations Carousel' })
+    ).toBeInTheDocument()
     expect(screen.queryByRole('article', { hidden: true })).not.toBeInTheDocument()
   })
 })

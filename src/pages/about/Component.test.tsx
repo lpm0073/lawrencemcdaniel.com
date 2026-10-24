@@ -1,12 +1,17 @@
 import { screen, waitFor } from '@testing-library/react'
-import { describe, expect, it } from 'vitest'
+import { beforeEach, describe, expect, it } from 'vitest'
+import { http, HttpResponse } from 'msw'
 
 import { makePost } from '../../../test/fixtures'
+import { serveSiteData } from '../../../test/handlers'
 import { jsonLdGraph, waitForCanonical } from '../../../test/pageHead'
 import { renderWithProviders } from '../../../test/render'
-import type { RootState } from '../../redux/configureStore'
+import { server } from '../../../test/server'
+import { ConfigureStore } from '../../redux/configureStore'
 import { APP_CONFIG } from '../../shared/constants'
 import About from './Component'
+
+const WP_API = 'https://api.lawrencemcdaniel.com/wp-json/wp/v2'
 
 const COURSE = makePost({
   id: 3467,
@@ -18,16 +23,16 @@ const COURSE = makePost({
   },
 })
 
-function state(isLoading: boolean, isSet = false): Partial<RootState> {
-  return {
-    education: { isLoading, errMess: null, courses: isLoading ? [] : [COURSE] },
-    aboutPage: { isSet },
-  }
-}
+/** The right column's text: it starts with a blank space while the entry animation plays. */
+const rightColumnText = () => screen.getAllByRole('complementary')[1].textContent
 
 describe('About', () => {
+  beforeEach(() => {
+    server.use(...serveSiteData({ education: [COURSE] }))
+  })
+
   it('tells about Lawrence McDaniel', () => {
-    renderWithProviders(<About />, { preloadedState: state(false) })
+    renderWithProviders(<About />)
 
     expect(
       screen.getByRole('heading', { level: 1, name: 'ABOUT ME' })
@@ -55,8 +60,10 @@ describe('About', () => {
 
   it.each([false, true])(
     'shows the experience tiles (page already shown: %s)',
-    (isSet) => {
-      renderWithProviders(<About />, { preloadedState: state(false, isSet) })
+    (shownBefore) => {
+      const store = ConfigureStore()
+      if (shownBefore) renderWithProviders(<About />, { store }).unmount()
+      renderWithProviders(<About />, { store })
 
       const year = new Date().getFullYear()
       expect(screen.getByText('Countries worked in')).toBeInTheDocument()
@@ -69,22 +76,33 @@ describe('About', () => {
   )
 
   it('adds Lawrence McDaniel and his qualifications to the JSON-LD once the courses load', async () => {
-    renderWithProviders(<About />, { preloadedState: state(false) })
+    renderWithProviders(<About />)
 
-    const graph = await waitForCanonical(APP_CONFIG.urls.site + '/about')
-    expect(graph).toEqual(
+    await waitForCanonical(APP_CONFIG.urls.site + '/about')
+    await waitFor(() =>
+      expect(JSON.stringify(jsonLdGraph())).toContain(
+        'Data Science and Machine Learning: Making Data Driven Decisions'
+      )
+    )
+    expect(jsonLdGraph()).toEqual(
       expect.arrayContaining([
         expect.objectContaining({ '@type': 'Person' }),
         expect.objectContaining({ '@type': 'AboutPage' }),
       ])
     )
-    expect(JSON.stringify(graph)).toContain(
-      'Data Science and Machine Learning: Making Data Driven Decisions'
-    )
   })
 
   it('leaves Lawrence McDaniel out of the JSON-LD while the courses load', async () => {
-    renderWithProviders(<About />, { preloadedState: state(true) })
+    // hold the courses back until the loading state has been checked.
+    let release = () => {}
+    const held = new Promise<void>((resolve) => (release = resolve))
+    server.use(
+      http.get(`${WP_API}/posts`, async () => {
+        await held
+        return HttpResponse.json([COURSE])
+      })
+    )
+    renderWithProviders(<About />)
 
     await waitForCanonical(APP_CONFIG.urls.site + '/about')
     // waitFor(), in case the previous test's head is still there.
@@ -93,15 +111,40 @@ describe('About', () => {
         expect.arrayContaining([expect.objectContaining({ '@type': 'Person' })])
       )
     )
+    release()
+    await waitFor(() => expect(JSON.stringify(jsonLdGraph())).toContain('"Person"'))
   })
 
-  it('remembers that the about page was shown when it unmounts', () => {
-    const { store, unmount } = renderWithProviders(<About />, {
-      preloadedState: state(false),
-    })
+  it('adds Lawrence McDaniel without qualifications from courses if they fail to load', async () => {
+    server.use(...serveSiteData({ education: 503 }))
+    renderWithProviders(<About />)
 
-    expect(store.getState().aboutPage.isSet).toBe(false)
+    await waitFor(() =>
+      expect(jsonLdGraph()).toEqual(
+        expect.arrayContaining([expect.objectContaining({ '@type': 'Person' })])
+      )
+    )
+    expect(JSON.stringify(jsonLdGraph())).not.toContain('Making Data Driven Decisions')
+  })
+
+  it('plays the entry animation only on the first visit of a session', () => {
+    const store = ConfigureStore()
+
+    const { unmount } = renderWithProviders(<About />, { store })
+    expect(rightColumnText()).toMatch(/^ /)
+    // marking it played doesn't change the page that is showing.
+    expect(store.getState().ui.entryAnimationsPlayed.aboutPage).toBe(true)
+    expect(rightColumnText()).toMatch(/^ /)
     unmount()
-    expect(store.getState().aboutPage.isSet).toBe(true)
+
+    renderWithProviders(<About />, { store })
+    expect(rightColumnText()).toMatch(/^13 ?Countries worked in/)
+  })
+
+  it('plays the entry animation again in a new session', () => {
+    renderWithProviders(<About />, { store: ConfigureStore() }).unmount()
+    renderWithProviders(<About />, { store: ConfigureStore() })
+
+    expect(rightColumnText()).toMatch(/^ /)
   })
 })

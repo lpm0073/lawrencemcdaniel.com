@@ -10,15 +10,13 @@ import { gsdGraph, type JsonLd } from '../../shared/seo/gsdGraph'
 import { gsdPersonLawrenceMcDaniel } from '../../shared/seo/gsdPersonLawrence'
 import { hasOccupation } from '../../shared/seo/gsdPersonLawrence'
 import { gsdQualifications } from '../../shared/seo/gsdQualifications'
-import type { EducationState } from '../../redux/education'
+import { useEducation } from '../../redux/hooks'
 
 import './styles.css'
 
-interface BioProps {
-  education: EducationState
-}
+const Bio = () => {
+  const education = useEducation()
 
-const Bio = (props: BioProps) => {
   /* Google Structured Data */
   const slug = 'bio'
   const webpageName = 'Bio'
@@ -33,12 +31,12 @@ const Bio = (props: BioProps) => {
   const primaryImageUrl = APP_CONFIG.static.images.default
   const pageType = ''
   const relatedLink = ''
-  const person = !props.education.isLoading
+  const person = !education.isLoading
     ? {
         ...gsdPersonLawrenceMcDaniel,
         hasOccupation: {
           ...hasOccupation,
-          qualifications: gsdQualifications(props.education.courses),
+          qualifications: gsdQualifications(education.data),
         },
       }
     : null

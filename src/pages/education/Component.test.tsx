@@ -1,10 +1,12 @@
 import { screen, waitFor } from '@testing-library/react'
-import { describe, expect, it } from 'vitest'
+import { http, HttpResponse } from 'msw'
+import { beforeEach, describe, expect, it } from 'vitest'
 
 import { makePost } from '../../../test/fixtures'
 import { jsonLdGraph, metaContent, waitForCanonical } from '../../../test/pageHead'
+import { serveSiteData } from '../../../test/handlers'
 import { renderWithProviders } from '../../../test/render'
-import type { EducationState } from '../../redux/education'
+import { server } from '../../../test/server'
 import { APP_CONFIG } from '../../shared/constants'
 import Education from './Component'
 
@@ -18,40 +20,49 @@ const COURSE = makePost({
   },
 })
 
-function education(isLoading: boolean): EducationState {
-  return { isLoading, errMess: null, courses: isLoading ? [] : [COURSE] }
-}
+const WP_API = 'https://api.lawrencemcdaniel.com/wp-json/wp/v2'
 
 describe('Education', () => {
+  beforeEach(() => {
+    server.use(...serveSiteData({ education: [COURSE] }))
+  })
+
   it('shows the courses, with Lawrence McDaniel and his qualifications in the JSON-LD', async () => {
-    const loaded = education(false)
-    renderWithProviders(<Education education={loaded} />, {
-      preloadedState: { education: loaded },
-    })
+    renderWithProviders(<Education />)
 
     expect(screen.getByRole('main', { name: 'Education' })).toBeInTheDocument()
     expect(
       screen.getByRole('heading', { level: 1, name: 'ADVANCED TRAINING' })
     ).toBeInTheDocument()
     expect(
-      screen.getByRole('article', { name: 'Education credential MIT Data Science' })
+      await screen.findByRole('article', {
+        name: 'Education credential MIT Data Science',
+      })
     ).toBeInTheDocument()
 
-    const graph = await waitForCanonical(APP_CONFIG.urls.site + '/education')
+    await waitForCanonical(APP_CONFIG.urls.site + '/education')
     expect(metaContent('description')).toBe('Lawrence McDaniel - Education')
-    expect(graph).toEqual(
-      expect.arrayContaining([expect.objectContaining({ '@type': 'Person' })])
+    await waitFor(() =>
+      expect(JSON.stringify(jsonLdGraph())).toContain(
+        'Data Science and Machine Learning: Making Data Driven Decisions'
+      )
     )
-    expect(JSON.stringify(graph)).toContain(
-      'Data Science and Machine Learning: Making Data Driven Decisions'
+    expect(jsonLdGraph()).toEqual(
+      expect.arrayContaining([expect.objectContaining({ '@type': 'Person' })])
     )
   })
 
   it('leaves Lawrence McDaniel out of the JSON-LD while the courses load', async () => {
-    const loading = education(true)
-    renderWithProviders(<Education education={loading} />, {
-      preloadedState: { education: loading },
-    })
+    // hold the courses back until the loading state has been checked.
+    let release = () => {}
+    const held = new Promise<void>((resolve) => (release = resolve))
+    server.use(
+      http.get(`${WP_API}/posts`, async () => {
+        await held
+        return HttpResponse.json([COURSE])
+      })
+    )
+    renderWithProviders(<Education />)
 
     await waitForCanonical(APP_CONFIG.urls.site + '/education')
     // waitFor(), in case the previous test's head is still there.
@@ -60,5 +71,21 @@ describe('Education', () => {
         expect.arrayContaining([expect.objectContaining({ '@type': 'Person' })])
       )
     )
+    expect(screen.queryByRole('article')).not.toBeInTheDocument()
+    release()
+    expect(await screen.findByRole('article')).toBeInTheDocument()
+  })
+
+  it('adds Lawrence McDaniel without his courses if they fail to load', async () => {
+    server.use(...serveSiteData({ education: 503 }))
+    renderWithProviders(<Education />)
+
+    await waitFor(() =>
+      expect(jsonLdGraph()).toEqual(
+        expect.arrayContaining([expect.objectContaining({ '@type': 'Person' })])
+      )
+    )
+    expect(JSON.stringify(jsonLdGraph())).not.toContain('Making Data Driven Decisions')
+    expect(screen.queryByRole('article')).not.toBeInTheDocument()
   })
 })

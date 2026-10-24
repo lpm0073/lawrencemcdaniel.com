@@ -1,56 +1,67 @@
-import { render, screen } from '@testing-library/react'
+import { screen, waitFor } from '@testing-library/react'
 import { beforeEach, describe, expect, it, vi } from 'vitest'
 
 import { makePost } from '../../../test/fixtures'
-import type { SpecialtiesState } from '../../redux/specialties'
+import { serveSiteData } from '../../../test/handlers'
+import { renderWithProviders } from '../../../test/render'
+import { server } from '../../../test/server'
 import TechnologyCarousel from './Component'
 
-const SPECIALTIES: SpecialtiesState = {
-  isLoading: false,
-  errMess: null,
-  logos: [],
-  featured_logos: [],
-  items: [
-    makePost({
-      id: 1,
-      title: { rendered: '<b>AWS</b>' },
-      excerpt: { rendered: '<p>Amazon Web Services</p>' },
-      skills: ['cloud'],
-      acf: { url: 'https://aws.amazon.com' },
-    }),
-    makePost({
-      id: 4,
-      title: { rendered: 'Azure' },
-      excerpt: { rendered: 'Microsoft Azure' },
-      skills: ['cloud'],
-    }),
-    makePost({
-      id: 2,
-      title: { rendered: 'Django' },
-      excerpt: { rendered: '' },
-      skills: ['full-stack'],
-    }),
-    makePost({ id: 3, title: { rendered: 'No skills' }, skills: undefined }),
-  ],
-}
+const CLOUD = 1
+const FULL_STACK = 2
 
-const LOADING: SpecialtiesState = { ...SPECIALTIES, isLoading: true, items: [] }
+const SPECIALTIES = [
+  makePost({
+    id: 1,
+    title: { rendered: '<b>AWS</b>' },
+    excerpt: { rendered: '<p>Amazon Web Services</p>' },
+    tags: [CLOUD],
+    acf: { url: 'https://aws.amazon.com' },
+  }),
+  makePost({
+    id: 4,
+    title: { rendered: 'Azure' },
+    excerpt: { rendered: 'Microsoft Azure' },
+    tags: [CLOUD],
+  }),
+  makePost({
+    id: 2,
+    title: { rendered: 'Django' },
+    excerpt: { rendered: '' },
+    tags: [FULL_STACK],
+  }),
+  makePost({ id: 3, title: { rendered: 'No skills' }, tags: [] }),
+]
+
+const TAGS = [
+  { id: CLOUD, name: 'cloud' },
+  { id: FULL_STACK, name: 'full-stack' },
+]
+
+/** Slides scrolled out of view are aria-hidden, so the queries include hidden elements. */
+const slides = (name: string) => screen.queryAllByRole('article', { name, hidden: true })
+
+/** The locally-stored logos that the carousel shows until the specialties load. */
+const localLogos = () =>
+  screen
+    .queryAllByRole('img', { hidden: true })
+    .filter((img) => img.getAttribute('src')?.startsWith('assets/images/'))
 
 describe('TechnologyCarousel', () => {
-  // Slides scrolled out of view are aria-hidden, so the queries include hidden elements.
   beforeEach(() => {
     // react-multi-carousel renders no slides until its container has a width, which jsdom never gives.
     vi.spyOn(HTMLElement.prototype, 'offsetWidth', 'get').mockReturnValue(1024)
   })
 
-  it("shows a skill's specialties", () => {
-    render(<TechnologyCarousel specialties={SPECIALTIES} skill="cloud" />)
+  it("shows a skill's specialties", async () => {
+    server.use(...serveSiteData({ specialties: SPECIALTIES, tags: TAGS }))
+    renderWithProviders(<TechnologyCarousel skill="cloud" />)
 
+    await waitFor(() => expect(slides('AWS').length).toBeGreaterThan(0))
     expect(
       screen.getByRole('region', { name: 'Technology Specialties Carousel' })
     ).toBeInTheDocument()
-    const aws = screen.getAllByRole('article', { name: 'AWS', hidden: true })[0]
-    expect(aws).toBeInTheDocument()
+    expect(slides('Azure').length).toBeGreaterThan(0)
     expect(
       screen.getAllByRole('link', { name: /Amazon Web Services/, hidden: true })[0]
     ).toHaveAttribute('href', 'https://aws.amazon.com')
@@ -60,23 +71,17 @@ describe('TechnologyCarousel', () => {
       'src',
       'https://cdn.lawrencemcdaniel.com/wp-content/uploads/black-logo-300x126.webp'
     )
-    expect(
-      screen.queryAllByRole('article', { name: 'Django', hidden: true })
-    ).toHaveLength(0)
-    expect(
-      screen.queryAllByRole('article', { name: 'No skills', hidden: true })
-    ).toHaveLength(0)
+    expect(slides('Django')).toHaveLength(0)
+    expect(slides('No skills')).toHaveLength(0)
+    expect(localLogos()).toHaveLength(0)
   })
 
-  it('shows every specialty without a skill, with a default description', () => {
-    render(<TechnologyCarousel specialties={SPECIALTIES} />)
+  it('shows every specialty without a skill, with a default description', async () => {
+    server.use(...serveSiteData({ specialties: SPECIALTIES, tags: TAGS }))
+    renderWithProviders(<TechnologyCarousel />)
 
-    expect(
-      screen.getAllByRole('article', { name: 'AWS', hidden: true }).length
-    ).toBeGreaterThan(0)
-    expect(
-      screen.getAllByRole('article', { name: 'No skills', hidden: true }).length
-    ).toBeGreaterThan(0)
+    await waitFor(() => expect(slides('AWS').length).toBeGreaterThan(0))
+    expect(slides('No skills').length).toBeGreaterThan(0)
     expect(
       screen.getAllByRole('img', {
         name: 'Django, a technology specialty of mine',
@@ -85,48 +90,50 @@ describe('TechnologyCarousel', () => {
     ).toBeGreaterThan(0)
   })
 
-  it('shows the local logos until the specialties load', () => {
-    const { rerender } = render(
-      <TechnologyCarousel specialties={LOADING} skill="cloud" />
-    )
+  it('shows the local logos until the specialties load', async () => {
+    server.use(...serveSiteData({ specialties: SPECIALTIES, tags: TAGS }))
+    renderWithProviders(<TechnologyCarousel skill="cloud" />)
 
-    const local = screen.getAllByRole('img', { hidden: true })
-    expect(local.length).toBeGreaterThan(0)
-    expect(local[0]).toHaveAttribute('src', expect.stringMatching(/^assets\/images\//))
+    expect(localLogos().length).toBeGreaterThan(0)
+    expect(slides('AWS')).toHaveLength(0)
 
-    // nothing changes while the parent says it is loading, or with no matching specialties.
-    rerender(<TechnologyCarousel specialties={LOADING} skill="cloud" />)
-    rerender(
-      <TechnologyCarousel specialties={{ ...SPECIALTIES }} skill="cloud" isLoading />
-    )
-    rerender(<TechnologyCarousel specialties={{ ...SPECIALTIES }} skill="python" />)
-    expect(screen.queryAllByRole('article', { name: 'AWS', hidden: true })).toHaveLength(
-      0
-    )
-
-    rerender(<TechnologyCarousel specialties={SPECIALTIES} skill="cloud" />)
-    expect(
-      screen.getAllByRole('article', { name: 'AWS', hidden: true }).length
-    ).toBeGreaterThan(0)
+    await waitFor(() => expect(slides('AWS').length).toBeGreaterThan(0))
+    expect(localLogos()).toHaveLength(0)
   })
 
-  it('shows a spinner while loading', () => {
-    render(<TechnologyCarousel specialties={SPECIALTIES} isLoading />)
-    expect(screen.getByLabelText('three-dots-loading')).toBeInTheDocument()
-    expect(screen.queryByRole('region')).not.toBeInTheDocument()
+  it('shows the specialties at once when they have already loaded', async () => {
+    server.use(...serveSiteData({ specialties: SPECIALTIES, tags: TAGS }))
+    const view = renderWithProviders(<TechnologyCarousel skill="cloud" />)
+    await waitFor(() => expect(slides('AWS').length).toBeGreaterThan(0))
+    view.unmount()
+
+    renderWithProviders(<TechnologyCarousel skill="cloud" />, { store: view.store })
+    expect(slides('AWS').length).toBeGreaterThan(0)
+    expect(localLogos()).toHaveLength(0)
   })
 
-  it('shows the local logos when the specialties are not a list', () => {
-    render(
-      <TechnologyCarousel
-        specialties={{
-          ...SPECIALTIES,
-          items: null as unknown as SpecialtiesState['items'],
-        }}
-      />
+  it('keeps the local logos when no specialty has the skill', async () => {
+    server.use(...serveSiteData({ specialties: SPECIALTIES, tags: TAGS }))
+    const { store } = renderWithProviders(<TechnologyCarousel skill="python" />)
+
+    await waitFor(() =>
+      expect(store.getState().api.queries['getSpecialties(undefined)']?.status).toBe(
+        'fulfilled'
+      )
     )
-    expect(screen.queryAllByRole('article', { name: 'AWS', hidden: true })).toHaveLength(
-      0
+    expect(localLogos().length).toBeGreaterThan(0)
+    expect(slides('AWS')).toHaveLength(0)
+  })
+
+  it('keeps the local logos when the specialties fail to load', async () => {
+    server.use(...serveSiteData({ specialties: 503 }))
+    const { store } = renderWithProviders(<TechnologyCarousel />)
+
+    await waitFor(() =>
+      expect(store.getState().api.queries['getSpecialties(undefined)']?.status).toBe(
+        'rejected'
+      )
     )
+    expect(localLogos().length).toBeGreaterThan(0)
   })
 })

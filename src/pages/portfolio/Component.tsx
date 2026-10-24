@@ -5,14 +5,12 @@ import { gsdGraph } from '../../shared/seo/gsdGraph'
 import { Helmet } from 'react-helmet'
 import { gsdPersonLawrenceMcDaniel } from '../../shared/seo/gsdPersonLawrence'
 import { APP_CONFIG } from '../../shared/constants'
-import type { PortfolioState } from '../../redux/portfolio'
+import { usePortfolio } from '../../redux/hooks'
 import './styles.css'
 
-interface PortfolioProps {
-  portfolio: PortfolioState
-}
+const Portfolio = () => {
+  const portfolio = usePortfolio()
 
-const Portfolio = (props: PortfolioProps) => {
   /* Google Structured Data */
   const slug = 'portfolio'
   const webpageName = 'Portfolio'
@@ -50,7 +48,7 @@ const Portfolio = (props: PortfolioProps) => {
             boxed_title="PORTFOLIO"
           />
           <div className="p-2">
-            <ProjectsGrid portfolio={props.portfolio} />
+            <ProjectsGrid projects={portfolio.data} />
           </div>
         </div>
       </div>

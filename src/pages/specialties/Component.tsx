@@ -7,18 +7,16 @@ import { gsdPersonLawrenceMcDaniel } from '../../shared/seo/gsdPersonLawrence'
 import { gsdKnowsAbout } from '../../shared/seo/gsdKnowsAbout'
 import { gsdGraph } from '../../shared/seo/gsdGraph'
 import { APP_CONFIG } from '../../shared/constants'
-import type { SpecialtiesState } from '../../redux/specialties'
+import { useSpecialties } from '../../redux/hooks'
 import './styles.css'
 
-interface SpecialtiesProps {
-  specialties: SpecialtiesState
-}
+const Specialties = () => {
+  const specialties = useSpecialties()
 
-const Specialties = (props: SpecialtiesProps) => {
   /* Google Structured Data */
   const person = {
     ...gsdPersonLawrenceMcDaniel,
-    ...{ knowsAbout: gsdKnowsAbout(props) },
+    ...{ knowsAbout: gsdKnowsAbout(specialties.data.items) },
   }
   const slug = 'specialties'
   const webpageName = 'Specialties'
@@ -56,7 +54,7 @@ const Specialties = (props: SpecialtiesProps) => {
             boxed_title="SPECIALTIES"
           />
           <SpecialtiesBanner />
-          <TechnologyCarousel specialties={props.specialties} />
+          <TechnologyCarousel />
 
           <section className="row specialties-code-samples mt-5 p-3 m-3 hide-medium">
             <div className="col">

@@ -5,7 +5,6 @@ import React, { Component } from 'react'
 import { Modal } from 'react-bootstrap'
 
 import { Helmet } from 'react-helmet'
-import Loading from '../../components/Loading'
 //import MatrixRainingLetters from '../../components/matrixRainingLetters/matrixRainingLetters';
 import { MatrixRainingLetters } from 'react-mdr'
 
@@ -15,18 +14,13 @@ import { gsdGraph } from '../../shared/seo/gsdGraph'
 import { APP_CONFIG } from '../../shared/constants'
 import './styles.css'
 
-interface MRLPageProps {
-  /** Routes.tsx doesn't pass it, so the page renders. */
-  isLoading?: boolean
-}
-
 interface MRLPageState {
   isMounted: boolean
   isOpen: boolean
 }
 
-class MRLPage extends Component<MRLPageProps, MRLPageState> {
-  constructor(props: MRLPageProps) {
+class MRLPage extends Component<object, MRLPageState> {
+  constructor(props: object) {
     super(props)
 
     this.state = {
@@ -57,68 +51,64 @@ class MRLPage extends Component<MRLPageProps, MRLPageState> {
 
     return (
       <React.Fragment>
-        {this.props.isLoading ? (
-          <Loading />
-        ) : (
-          <React.Fragment>
-            <Helmet>
-              <link rel="canonical" href={APP_CONFIG.urls.site + '/react-mdr'} />
-              <meta
-                name="description"
-                content="Lawrence McDaniel - Matrix digital rain for React"
-              />
-              <script type="application/ld+json">
-                {JSON.stringify(
-                  gsdGraph(
-                    slug,
-                    webpageName,
-                    webpageDescription,
-                    primaryImageUrl,
-                    pageType,
-                    relatedLink,
-                    graphExtraData
-                  )
-                )}
-              </script>
-              <meta
-                property="og:description"
-                content="Lawrence McDaniel - Matrix digital rain for React"
-              />
-              <meta
-                name="keywords"
-                content="Lawrence McDaniel, Matrix Digital Rain, NPM, React, ReactJS"
-              />
-            </Helmet>
-            <main className="matrixPage m-0 p-0">
-              {this.state.isMounted ? (
-                <React.Fragment>
-                  <MatrixRainingLetters key="" custom_class="ml-0 pl-0" />
-                  <div role="alert">
-                    <Modal show={this.state.isOpen} centered size="lg" backdrop="static">
-                      <Modal.Header>
-                        <Modal.Title>Matrix Digital Rain for React</Modal.Title>
-                      </Modal.Header>
-                      <Modal.Body>
-                        <p>npm i react-mdr</p>
-                        <p>
-                          <a
-                            href="https://www.npmjs.com/package/react-mdr"
-                            target="_blank"
-                            rel="noreferrer"
-                          >
-                            https://www.npmjs.com/package/react-mdr
-                          </a>
-                        </p>
-                      </Modal.Body>
-                    </Modal>
-                  </div>
-                </React.Fragment>
-              ) : (
-                <React.Fragment />
+        <React.Fragment>
+          <Helmet>
+            <link rel="canonical" href={APP_CONFIG.urls.site + '/react-mdr'} />
+            <meta
+              name="description"
+              content="Lawrence McDaniel - Matrix digital rain for React"
+            />
+            <script type="application/ld+json">
+              {JSON.stringify(
+                gsdGraph(
+                  slug,
+                  webpageName,
+                  webpageDescription,
+                  primaryImageUrl,
+                  pageType,
+                  relatedLink,
+                  graphExtraData
+                )
               )}
-            </main>
-          </React.Fragment>
-        )}
+            </script>
+            <meta
+              property="og:description"
+              content="Lawrence McDaniel - Matrix digital rain for React"
+            />
+            <meta
+              name="keywords"
+              content="Lawrence McDaniel, Matrix Digital Rain, NPM, React, ReactJS"
+            />
+          </Helmet>
+          <main className="matrixPage m-0 p-0">
+            {this.state.isMounted ? (
+              <React.Fragment>
+                <MatrixRainingLetters key="" custom_class="ml-0 pl-0" />
+                <div role="alert">
+                  <Modal show={this.state.isOpen} centered size="lg" backdrop="static">
+                    <Modal.Header>
+                      <Modal.Title>Matrix Digital Rain for React</Modal.Title>
+                    </Modal.Header>
+                    <Modal.Body>
+                      <p>npm i react-mdr</p>
+                      <p>
+                        <a
+                          href="https://www.npmjs.com/package/react-mdr"
+                          target="_blank"
+                          rel="noreferrer"
+                        >
+                          https://www.npmjs.com/package/react-mdr
+                        </a>
+                      </p>
+                    </Modal.Body>
+                  </Modal>
+                </div>
+              </React.Fragment>
+            ) : (
+              <React.Fragment />
+            )}
+          </main>
+        </React.Fragment>
       </React.Fragment>
     )
   }

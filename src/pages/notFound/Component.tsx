@@ -5,21 +5,16 @@ import React, { Component } from 'react'
 import { Modal } from 'react-bootstrap'
 
 import { Helmet } from 'react-helmet'
-import Loading from '../../components/Loading'
 import { MatrixRainingLetters } from 'react-mdr'
 import { APP_CONFIG } from '../../shared/constants'
 import './styles.css'
-
-interface PageNotFoundProps {
-  isLoading?: boolean
-}
 
 interface PageNotFoundState {
   isMounted: boolean
 }
 
-class PageNotFound extends Component<PageNotFoundProps, PageNotFoundState> {
-  constructor(props: PageNotFoundProps) {
+class PageNotFound extends Component<object, PageNotFoundState> {
+  constructor(props: object) {
     super(props)
 
     this.state = {
@@ -42,32 +37,28 @@ class PageNotFound extends Component<PageNotFoundProps, PageNotFoundState> {
   render() {
     return (
       <React.Fragment>
-        {this.props.isLoading ? (
-          <Loading />
-        ) : (
-          <React.Fragment>
-            <Helmet>
-              <link rel="canonical" href={APP_CONFIG.urls.site + '/matrix'} />
-              <meta name="description" content="Lawrence McDaniel - Page Not Found" />
-            </Helmet>
-            <main className="matrixPage m-0 p-0" aria-label="404 Page Not Found">
-              {this.state.isMounted ? (
-                <React.Fragment>
-                  <MatrixRainingLetters key="" custom_class="ml-0 pl-0" />
-                  <div role="alert">
-                    <Modal show={true} centered size="lg" backdrop="static">
-                      <Modal.Header>
-                        <Modal.Title>404 Page Not Found</Modal.Title>
-                      </Modal.Header>
-                    </Modal>
-                  </div>
-                </React.Fragment>
-              ) : (
-                <React.Fragment />
-              )}
-            </main>
-          </React.Fragment>
-        )}
+        <React.Fragment>
+          <Helmet>
+            <link rel="canonical" href={APP_CONFIG.urls.site + '/matrix'} />
+            <meta name="description" content="Lawrence McDaniel - Page Not Found" />
+          </Helmet>
+          <main className="matrixPage m-0 p-0" aria-label="404 Page Not Found">
+            {this.state.isMounted ? (
+              <React.Fragment>
+                <MatrixRainingLetters key="" custom_class="ml-0 pl-0" />
+                <div role="alert">
+                  <Modal show={true} centered size="lg" backdrop="static">
+                    <Modal.Header>
+                      <Modal.Title>404 Page Not Found</Modal.Title>
+                    </Modal.Header>
+                  </Modal>
+                </div>
+              </React.Fragment>
+            ) : (
+              <React.Fragment />
+            )}
+          </main>
+        </React.Fragment>
       </React.Fragment>
     )
   }

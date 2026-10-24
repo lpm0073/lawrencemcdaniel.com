@@ -1,11 +1,10 @@
 import { act, screen } from '@testing-library/react'
 import { afterEach, beforeEach, describe, expect, it, vi } from 'vitest'
 
-import { makePost } from '../../test/fixtures'
 import { siteHandlers } from '../../test/handlers'
+import { siteApi } from '../redux/api'
 import { renderWithProviders, type RenderWithProvidersOptions } from '../../test/render'
 import { server } from '../../test/server'
-import * as ActionTypes from '../redux/ActionTypes'
 import SiteRoutes from './Routes'
 
 // the Matrix rain on the 404 and react-mdr pages draws on a canvas, which jsdom lacks.
@@ -27,9 +26,9 @@ afterEach(() => {
 async function renderRoute(route: string, options: RenderWithProvidersOptions = {}) {
   const utils = renderWithProviders(<SiteRoutes />, { route, ...options })
   await vi.waitFor(() => {
-    const state = utils.store.getState()
-    expect(state.specialties.isLoading).toBe(false)
-    expect(state.clients.isLoading).toBe(false)
+    const queries = Object.values(utils.store.getState().api.queries)
+    expect(queries).toHaveLength(9)
+    expect(queries.every((query) => query?.status === 'fulfilled')).toBe(true)
   })
   return utils
 }
@@ -77,49 +76,16 @@ describe('SiteRoutes', () => {
   })
 })
 
-describe('SiteRoutes re-rendering', () => {
-  // The home, clients, education and full-stack pages have entry animations, so
-  // SiteRoutes.shouldComponentUpdate() stops re-rendering (on the browser's
-  // current path) once that page has marked itself set.
+describe('SiteRoutes and the store', () => {
+  it('keeps the page mounted when the data changes', async () => {
+    const { store } = await renderRoute('/contact')
+    const page = screen.getAllByRole('main')[0]
 
-  /** Render /portfolio with the browser at path, then add a project to the store. */
-  async function addProjectAt(path: string, setAction?: string) {
-    window.history.pushState({}, '', path)
-    const { store } = await renderRoute('/portfolio')
-    // shouldComponentUpdate() reads the current props, so the update that sets the
-    // page renders, and only the updates after it are skipped.
-    if (setAction) act(() => store.dispatch({ type: setAction }))
-    act(() => {
-      store.dispatch({
-        type: ActionTypes.ADD_PORTFOLIO,
-        payload: [makePost({ title: { rendered: 'Fresh Project' } })],
-      })
+    await act(async () => {
+      await store.dispatch(siteApi.util.resetApiState())
     })
-  }
 
-  const ANIMATED_PAGES = [
-    ['/', ActionTypes.SET_HOMEPAGE_STATE],
-    ['/home', ActionTypes.SET_HOMEPAGE_STATE],
-    ['/clients', ActionTypes.SET_CLIENTGRID_STATE],
-    ['/education', ActionTypes.SET_COURSESGRID_STATE],
-    ['/full-stack', ActionTypes.SET_COURSESGRID_STATE],
-  ]
-
-  it.each(ANIMATED_PAGES)('re-renders at %s until its animation is set', async (path) => {
-    await addProjectAt(path)
-    expect(screen.getAllByText('Fresh Project').length).toBeGreaterThan(0)
-  })
-
-  it.each(ANIMATED_PAGES)(
-    'stops re-rendering at %s once its animation is set',
-    async (path, setAction) => {
-      await addProjectAt(path, setAction)
-      expect(screen.queryByText('Fresh Project')).not.toBeInTheDocument()
-    }
-  )
-
-  it('keeps re-rendering at other paths', async () => {
-    await addProjectAt('/portfolio', ActionTypes.SET_HOMEPAGE_STATE)
-    expect(screen.getAllByText('Fresh Project').length).toBeGreaterThan(0)
+    // the same element: the page was neither remounted nor replaced.
+    expect(screen.getAllByRole('main')[0]).toBe(page)
   })
 })

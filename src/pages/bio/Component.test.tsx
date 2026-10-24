@@ -1,9 +1,12 @@
-import { render, screen, waitFor } from '@testing-library/react'
-import { describe, expect, it } from 'vitest'
+import { screen, waitFor } from '@testing-library/react'
+import { http, HttpResponse } from 'msw'
+import { beforeEach, describe, expect, it } from 'vitest'
 
 import { makePost } from '../../../test/fixtures'
+import { serveSiteData } from '../../../test/handlers'
 import { jsonLdGraph, metaContent, waitForCanonical } from '../../../test/pageHead'
-import type { EducationState } from '../../redux/education'
+import { renderWithProviders } from '../../../test/render'
+import { server } from '../../../test/server'
 import { APP_CONFIG } from '../../shared/constants'
 import Bio from './Component'
 
@@ -16,13 +19,15 @@ const COURSE = makePost({
   },
 })
 
-function education(isLoading: boolean): EducationState {
-  return { isLoading, errMess: null, courses: isLoading ? [] : [COURSE] }
-}
+const WP_API = 'https://api.lawrencemcdaniel.com/wp-json/wp/v2'
 
 describe('Bio', () => {
+  beforeEach(() => {
+    server.use(...serveSiteData({ education: [COURSE] }))
+  })
+
   it("tells Lawrence McDaniel's story", () => {
-    render(<Bio education={education(false)} />)
+    renderWithProviders(<Bio />)
 
     expect(screen.getByRole('main', { name: 'Bio Page' })).toBeInTheDocument()
     expect(
@@ -46,20 +51,31 @@ describe('Bio', () => {
   })
 
   it('adds Lawrence McDaniel and his qualifications to the JSON-LD once the courses load', async () => {
-    render(<Bio education={education(false)} />)
+    renderWithProviders(<Bio />)
 
-    const graph = await waitForCanonical(APP_CONFIG.urls.site + '/bio')
+    await waitForCanonical(APP_CONFIG.urls.site + '/bio')
     expect(metaContent('description')).toBe('Lawrence McDaniel - Bio')
-    expect(graph).toEqual(
-      expect.arrayContaining([expect.objectContaining({ '@type': 'Person' })])
+    await waitFor(() =>
+      expect(JSON.stringify(jsonLdGraph())).toContain(
+        'Data Science and Machine Learning: Making Data Driven Decisions'
+      )
     )
-    expect(JSON.stringify(graph)).toContain(
-      'Data Science and Machine Learning: Making Data Driven Decisions'
+    expect(jsonLdGraph()).toEqual(
+      expect.arrayContaining([expect.objectContaining({ '@type': 'Person' })])
     )
   })
 
   it('leaves Lawrence McDaniel out of the JSON-LD while the courses load', async () => {
-    render(<Bio education={education(true)} />)
+    // hold the courses back until the loading state has been checked.
+    let release = () => {}
+    const held = new Promise<void>((resolve) => (release = resolve))
+    server.use(
+      http.get(`${WP_API}/posts`, async () => {
+        await held
+        return HttpResponse.json([COURSE])
+      })
+    )
+    renderWithProviders(<Bio />)
 
     await waitForCanonical(APP_CONFIG.urls.site + '/bio')
     // waitFor(), in case the previous test's head is still there.
@@ -68,5 +84,19 @@ describe('Bio', () => {
         expect.arrayContaining([expect.objectContaining({ '@type': 'Person' })])
       )
     )
+    release()
+    await waitFor(() => expect(JSON.stringify(jsonLdGraph())).toContain('"Person"'))
+  })
+
+  it('adds Lawrence McDaniel without his courses if they fail to load', async () => {
+    server.use(...serveSiteData({ education: 503 }))
+    renderWithProviders(<Bio />)
+
+    await waitFor(() =>
+      expect(jsonLdGraph()).toEqual(
+        expect.arrayContaining([expect.objectContaining({ '@type': 'Person' })])
+      )
+    )
+    expect(JSON.stringify(jsonLdGraph())).not.toContain('Making Data Driven Decisions')
   })
 })

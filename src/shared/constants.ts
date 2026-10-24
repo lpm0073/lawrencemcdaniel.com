@@ -41,6 +41,8 @@ export const APP_CONFIG = {
   caching: {
     names: {
       api: versioned_cached('api'),
+      // the API layer's own cache of the site's data, see src/redux/cachedBaseQuery.ts
+      data: versioned_cached('data'),
       app: versioned_cached('app'),
       cdn: versioned_cached('cdn'), // TO DO: delete this. everything is routing to workbox-precache-v2 via service-worker.js setup.
       staticImages: versioned_cached('static'),

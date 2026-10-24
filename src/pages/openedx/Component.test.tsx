@@ -1,24 +1,40 @@
-import { screen } from '@testing-library/react'
+import { screen, waitFor } from '@testing-library/react'
 import { describe, expect, it } from 'vitest'
 
 import { makePost } from '../../../test/fixtures'
-import { helmetHead, metaContent, waitForCanonical } from '../../../test/pageHead'
+import { serveSiteData } from '../../../test/handlers'
+import {
+  helmetHead,
+  jsonLdGraph,
+  metaContent,
+  waitForCanonical,
+} from '../../../test/pageHead'
 import { renderWithProviders } from '../../../test/render'
+import { server } from '../../../test/server'
+import type { AppStore } from '../../redux/configureStore'
 import Openedx from './Component'
 
 const OPENEDX_URL = 'https://lawrencemcdaniel.com/openedx'
 
+/** Waits until every request the page made has been answered. */
+async function waitForData(store: AppStore) {
+  await waitFor(() => {
+    const queries = Object.values(store.getState().api.queries)
+    expect(queries.length).toBeGreaterThan(0)
+    expect(queries.every((query) => query?.status !== 'pending')).toBe(true)
+  })
+}
+
 describe('Openedx', () => {
   it('describes the Open edX services, clients and FAQ', async () => {
-    const { user } = renderWithProviders(<Openedx />, {
-      preloadedState: {
-        clients: {
-          isLoading: false,
-          errMess: null,
-          logos: [makePost({ id: 11, title: { rendered: 'edX' }, tags: [55] })],
-        },
-      },
-    })
+    server.use(
+      ...serveSiteData({
+        clients: [
+          makePost({ id: 11, title: { rendered: 'edX' }, categories: [46], tags: [55] }),
+        ],
+      })
+    )
+    const { store, user } = renderWithProviders(<Openedx />)
 
     expect(screen.getByRole('main', { name: 'Open edX Consulting' })).toBeInTheDocument()
     expect(
@@ -29,7 +45,7 @@ describe('Openedx', () => {
     expect(
       screen.getByRole('heading', { name: 'Open edX® Client List' })
     ).toBeInTheDocument()
-    expect(screen.getByRole('article', { name: 'edX' })).toBeInTheDocument()
+    expect(await screen.findByRole('article', { name: 'edX' })).toBeInTheDocument()
     expect(screen.getByRole('button', { name: 'Contact Me' })).toHaveAttribute(
       'href',
       '/contact'
@@ -45,20 +61,20 @@ describe('Openedx', () => {
     await user.click(firms)
     expect(firms).toHaveAttribute('aria-expanded', 'true')
     expect(cost).toHaveAttribute('aria-expanded', 'false')
+    await waitForData(store)
   })
 
   it('adds the canonical link, meta tags and structured data', async () => {
-    renderWithProviders(<Openedx />, {
-      preloadedState: {
-        recommendations: {
-          isLoading: false,
-          errMess: null,
-          items: [makePost({ title: { rendered: 'John Roe' } })],
-        },
-      },
-    })
+    server.use(
+      ...serveSiteData({
+        recommendations: [
+          makePost({ categories: [45], title: { rendered: 'John Roe' } }),
+        ],
+      })
+    )
+    const { store } = renderWithProviders(<Openedx />)
 
-    const graph = await waitForCanonical(OPENEDX_URL)
+    await waitForCanonical(OPENEDX_URL)
     expect(helmetHead().linkTags).toEqual(
       expect.not.arrayContaining([
         expect.objectContaining({ href: expect.stringMatching(/undefined/) }),
@@ -67,7 +83,10 @@ describe('Openedx', () => {
     expect(metaContent('og:url')).toBe(OPENEDX_URL)
     expect(metaContent('og:site_name')).toBe('Lawrence McDaniel')
     expect(metaContent('keywords')).toMatch(/^Lawrence McDaniel, open edx/)
-    expect(graph).toEqual(
+    await waitFor(() =>
+      expect(JSON.stringify(jsonLdGraph())).toContain('Review by John Roe')
+    )
+    expect(jsonLdGraph()).toEqual(
       expect.arrayContaining([
         expect.objectContaining({ '@type': 'Person', hasOccupation: expect.anything() }),
         expect.objectContaining({ '@type': 'Article' }),
@@ -81,6 +100,18 @@ describe('Openedx', () => {
         }),
       ])
     )
-    expect(JSON.stringify(graph)).toContain('Review by John Roe')
+    await waitForData(store)
+  })
+
+  it('still describes the Service when the recommendations fail to load', async () => {
+    server.use(...serveSiteData({ recommendations: 500 }))
+    const { store } = renderWithProviders(<Openedx />)
+
+    await waitForData(store)
+    await waitForCanonical(OPENEDX_URL)
+    expect(screen.getByRole('main', { name: 'Open edX Consulting' })).toBeInTheDocument()
+    const graph = jsonLdGraph()
+    expect(graph.filter((node) => node['@type'] === 'Service')).toHaveLength(1)
+    expect(JSON.stringify(graph)).not.toContain('Review by John Roe')
   })
 })

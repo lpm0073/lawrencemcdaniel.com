@@ -1,7 +1,5 @@
-import { useSelector } from 'react-redux'
-
 import { APP_CONFIG } from '../constants.js'
-import type { RootState } from '../../redux/configureStore'
+import type { Repository } from '../../types'
 
 export const gsdSoftwareSourceCode = (
   url: string,
@@ -24,12 +22,14 @@ export const gsdSoftwareSourceCode = (
   }
 }
 
-export const gsdSoftwareRepoList = (skill?: string) => {
-  // This is only called while a function component renders, so the hook is safe;
-  // the name cannot change without changing the export.
-  // eslint-disable-next-line react-hooks/rules-of-hooks
-  const reduxRepositories = useSelector((state: RootState) => state.repositories)
-  const repos = reduxRepositories.repos ? reduxRepositories.repos : []
+/**
+ * Returns schema.org SoftwareSourceCode objects for the GitHub repositories,
+ * optionally only those with a skill.
+ * @param repositories - e.g. useRepositories().data.
+ * @param skill - a skill slug to filter by, e.g. APP_CONFIG.skills.fullStack.
+ */
+export const gsdSoftwareRepoList = (repositories: Repository[], skill?: string) => {
+  const repos = repositories
 
   return [...(skill ? repos.filter((repo) => repo.skills.includes(skill)) : repos)].map(
     (repo) =>

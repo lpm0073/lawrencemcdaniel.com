@@ -68,16 +68,20 @@ describe('App', () => {
     const { store } = renderApp('/contact')
 
     await vi.waitFor(() => {
-      const state = store.getState()
-      expect(state.repositories.repos).toHaveLength(1)
-      expect(state.videos.videos).toHaveLength(1)
-      expect(state.articles.articles).toHaveLength(1)
-      expect(state.specialties.items).toHaveLength(1)
-      expect(state.portfolio.projects).toHaveLength(1)
-      expect(state.education.courses).toHaveLength(1)
-      expect(state.recommendations.items).toHaveLength(1)
-      expect(state.project.images).toHaveLength(1)
-      expect(state.clients.logos).toHaveLength(1)
+      // every endpoint of src/redux/api.ts, loaded.
+      const queries = Object.values(store.getState().api.queries)
+      expect(queries.map((query) => query?.endpointName).sort()).toEqual([
+        'getArticles',
+        'getClients',
+        'getEducation',
+        'getPortfolio',
+        'getProjectImages',
+        'getRecommendations',
+        'getRepositories',
+        'getSpecialties',
+        'getVideos',
+      ])
+      expect(queries.every((query) => query?.status === 'fulfilled')).toBe(true)
     })
   })
 

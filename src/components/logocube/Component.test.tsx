@@ -1,32 +1,52 @@
 import { act, screen } from '@testing-library/react'
-import { afterEach, beforeEach, describe, expect, it, vi } from 'vitest'
+import { http } from 'msw'
+import { afterEach, describe, expect, it, vi } from 'vitest'
 
+import { makeMedia, makePost } from '../../../test/fixtures'
+import { serveSiteData } from '../../../test/handlers'
 import { renderWithProviders } from '../../../test/render'
-import type { RootState } from '../../redux/configureStore'
+import { server } from '../../../test/server'
+import { siteApi } from '../../redux/api'
+import { ConfigureStore } from '../../redux/configureStore'
+import type { WPPost } from '../../types'
 import LogoCube from './Component'
 
-const LOGOS = [
-  'l1.png',
-  'l2.png',
-  'l3.png',
-  'l4.png',
-  'l5.png',
-  'l6.png',
-  'l7.png',
-  'l8.png',
-]
-const FEATURED = ['f1.png', 'f2.png']
+const FEATURED_TECHNOLOGY = 48
 
-function specialties(isLoading = false): Partial<RootState> {
-  return {
-    specialties: {
-      isLoading,
-      errMess: null,
-      items: [],
-      logos: LOGOS,
-      featured_logos: FEATURED,
+/** A specialty whose medium-sized logo is logo; featured ones show on the front side. */
+function specialty(id: number, logo: string, featured = false): WPPost {
+  const media = makeMedia()
+  return makePost({
+    id,
+    slug: `specialty-${id}`,
+    categories: featured ? [43, FEATURED_TECHNOLOGY] : [43],
+    _embedded: {
+      'wp:featuredmedia': [
+        {
+          ...media,
+          media_details: {
+            ...media.media_details,
+            sizes: { medium: { width: 300, height: 126, source_url: logo } },
+          },
+        },
+      ],
     },
-  }
+  })
+}
+
+const LOGOS = ['l1.png', 'l2.png', 'l3.png', 'l4.png', 'l5.png', 'l6.png', 'l7.png']
+const FEATURED = ['f1.png', 'f2.png']
+const SPECIALTIES = [
+  ...LOGOS.map((logo, i) => specialty(i + 1, logo)),
+  ...FEATURED.map((logo, i) => specialty(100 + i, logo, true)),
+]
+
+/** A store with the specialties loaded from the (mock) api, before the cube mounts. */
+async function loadedStore(specialties: WPPost[] = SPECIALTIES) {
+  server.use(...serveSiteData({ specialties }))
+  const store = ConfigureStore()
+  await store.dispatch(siteApi.endpoints.getSpecialties.initiate())
+  return store
 }
 
 /** The logo image url on each of the six sides; the cube has no other way to show them. */
@@ -38,6 +58,13 @@ function cubeLogos(): string[] {
   })
 }
 
+/** Whether the cube plays its construction animation, which it has no accessible sign of. */
+function isConstructing(): boolean {
+  return screen
+    .getAllByLabelText('Cube Side')
+    .some((side) => side.classList.contains('grow-side'))
+}
+
 /** Lets time pass in small steps, so that React renders between the cube's repaints. */
 function runFor(ms: number) {
   for (let elapsed = 0; elapsed < ms; elapsed += 100) {
@@ -47,78 +74,103 @@ function runFor(ms: number) {
   }
 }
 
+/** Fake timers, and a repeating sequence of "random" numbers, so that every side gets repainted. */
+function startClock() {
+  vi.useFakeTimers()
+  const sequence = [0.05, 0.2, 0.4, 0.55, 0.7, 0.9, 0.3]
+  let call = 0
+  vi.spyOn(Math, 'random').mockImplementation(() => sequence[call++ % sequence.length])
+}
+
 describe('LogoCube', () => {
-  beforeEach(() => {
-    vi.useFakeTimers()
-    // a repeating sequence of "random" numbers, so that every side gets repainted.
-    const sequence = [0.05, 0.2, 0.4, 0.55, 0.7, 0.9, 0.3]
-    let call = 0
-    vi.spyOn(Math, 'random').mockImplementation(() => sequence[call++ % sequence.length])
-  })
   afterEach(() => {
     vi.useRealTimers()
   })
 
-  it('starts with the locally-stored logos', () => {
-    renderWithProviders(<LogoCube />, { preloadedState: specialties() })
+  it('starts with the locally-stored logos, and builds itself', async () => {
+    const store = await loadedStore()
+    startClock()
+    renderWithProviders(<LogoCube />, { store })
 
     const logos = cubeLogos()
     expect(logos).toHaveLength(6)
     for (const logo of logos) {
       expect(logo).toMatch(/^assets\/images\//)
     }
+    expect(isConstructing()).toBe(true)
   })
 
-  it('replaces each logo with a specialty logo, and the front one with a featured logo', () => {
-    renderWithProviders(<LogoCube />, { preloadedState: specialties() })
+  it('replaces each logo with a specialty logo, and the front one with a featured logo', async () => {
+    const store = await loadedStore()
+    startClock()
+    renderWithProviders(<LogoCube />, { store })
 
     runFor(60_000)
 
     const [top, bottom, front, back, right, left] = cubeLogos()
+    const all = [...LOGOS, ...FEATURED]
     for (const logo of [top, bottom, back, right, left]) {
-      expect(LOGOS).toContain(logo)
+      expect(all).toContain(logo)
     }
     expect(FEATURED).toContain(front)
     // no two sides show the same logo.
-    expect(new Set([top, bottom, back, right, left]).size).toBe(5)
+    expect(new Set([top, bottom, front, back, right, left]).size).toBe(6)
   })
 
-  it('shows a logo on only one side, when there are too few to go around', () => {
-    renderWithProviders(<LogoCube />, {
-      preloadedState: {
-        specialties: {
-          isLoading: false,
-          errMess: null,
-          items: [],
-          logos: ['solo.png'],
-          featured_logos: ['featured.png'],
-        },
-      },
-    })
+  it('shows a logo on more than one side, when there are too few to go around', async () => {
+    const store = await loadedStore([specialty(1, 'solo.png', true)])
+    startClock()
+    renderWithProviders(<LogoCube />, { store })
 
     runFor(60_000)
     const logos = cubeLogos()
-    expect(logos.filter((logo) => logo === 'solo.png').length).toBeGreaterThan(0)
-    expect(logos[2]).toBe('featured.png')
+    expect(logos.filter((logo) => logo === 'solo.png').length).toBeGreaterThan(1)
+    expect(logos[2]).toBe('solo.png')
   })
 
   it('keeps the locally-stored logos while the specialties load', () => {
-    renderWithProviders(<LogoCube />, { preloadedState: specialties(true) })
+    startClock()
+    server.use(
+      http.get(
+        'https://api.lawrencemcdaniel.com/wp-json/wp/v2/posts',
+        () => new Promise(() => {})
+      )
+    )
+    renderWithProviders(<LogoCube />)
     const initial = cubeLogos()
 
     runFor(60_000)
     expect(cubeLogos()).toEqual(initial)
   })
 
-  it('remembers its logos in the store, and shows them again when remounted', () => {
-    const view = renderWithProviders(<LogoCube />, { preloadedState: specialties() })
+  it('remembers its logos in the store, and shows them again when remounted', async () => {
+    const store = await loadedStore()
+    startClock()
+    const view = renderWithProviders(<LogoCube />, { store })
     runFor(10_000)
     const shown = cubeLogos()
+    expect(store.getState().ui.logoCube).toBeNull()
 
     view.unmount()
-    expect(view.store.getState().logoCube.isSet).toBe(true)
+    expect(store.getState().ui.logoCube).toMatchObject({
+      cubeFrontBackgroundUrl: shown[2],
+    })
 
-    renderWithProviders(<LogoCube />, { store: view.store })
+    renderWithProviders(<LogoCube />, { store })
     expect(cubeLogos()).toEqual(shown)
+    // the cube is already built, so it doesn't build itself again.
+    expect(isConstructing()).toBe(false)
+  })
+
+  it('repaints nothing when the random side is not one of the six', async () => {
+    const store = await loadedStore()
+    vi.useFakeTimers()
+    // Math.random() is below 1 in practice; the cube guards against it anyway.
+    vi.spyOn(Math, 'random').mockReturnValue(1)
+    renderWithProviders(<LogoCube />, { store })
+    const initial = cubeLogos()
+
+    runFor(10_000)
+    expect(cubeLogos()).toEqual(initial)
   })
 })

@@ -6,8 +6,8 @@ import { Helmet } from 'react-helmet'
 import { gsdGraph } from '../../shared/seo/gsdGraph'
 import { gsdPersonLawrenceMcDaniel } from '../../shared/seo/gsdPersonLawrence'
 import { APP_CONFIG } from '../../shared/constants'
-import type { ProjectState } from '../../redux/project'
-import type { WPPost } from '../../types'
+import { useParams } from 'react-router-dom'
+import { usePortfolio } from '../../redux/hooks'
 import './styles.css'
 
 /** The JSON object in the first <p> of a portfolio post's content. */
@@ -39,18 +39,15 @@ function innerHTML(selector: Element | null) {
   return null
 }
 
-interface PortfolioDetailProps {
-  /** The portfolio post whose slug is in the url; undefined if there is none. */
-  post: WPPost | undefined
-  postLoading: boolean
-  postErrMess: string | null
-  /** Passed by Routes, but not used: the images are in the post's content. */
-  images?: ProjectState
-  imagesLoading?: boolean
-  imagesError?: string | null
-}
+/**
+ * The portfolio project whose slug is in the url (/portfolio/:portfolioId). Its
+ * description and image urls are in the post's content.
+ */
+const PortfolioDetail = () => {
+  const { portfolioId } = useParams()
+  const portfolio = usePortfolio()
+  const post = portfolio.data.find((item) => item.slug === portfolioId)
 
-const PortfolioDetail = (props: PortfolioDetailProps) => {
   /* Google Structured Data */
   const slug = 'portfolio'
   const webpageName = 'Portfolio'
@@ -60,7 +57,7 @@ const PortfolioDetail = (props: PortfolioDetailProps) => {
   const relatedLink = ''
   const graphExtraData = [gsdPersonLawrenceMcDaniel]
 
-  if (props.postLoading) {
+  if (portfolio.isLoading) {
     return (
       <div className="">
         <div className="row">
@@ -68,17 +65,17 @@ const PortfolioDetail = (props: PortfolioDetailProps) => {
         </div>
       </div>
     )
-  } else if (props.postErrMess) {
+  } else if (portfolio.errMess) {
     return (
       <div className="">
         <div className="row">
-          <h4>{props.postErrMess}</h4>
+          <h4>{portfolio.errMess}</h4>
         </div>
       </div>
     )
-  } else if (props.post != null) {
+  } else if (post != null) {
     const parser = new DOMParser()
-    const doc = parser.parseFromString(props.post.content.rendered, 'text/html')
+    const doc = parser.parseFromString(post.content.rendered, 'text/html')
     const raw = innerHTML(doc.querySelector('p'))
 
     const my_json = toJSON(raw)
@@ -126,6 +123,8 @@ const PortfolioDetail = (props: PortfolioDetailProps) => {
       </React.Fragment>
     )
   }
+  // there is no project with this slug.
+  return null
 }
 
 export default PortfolioDetail

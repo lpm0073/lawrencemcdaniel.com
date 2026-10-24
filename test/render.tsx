@@ -2,14 +2,15 @@
  * renderWithProviders(ui, options): Testing Library's render(), inside the
  * providers that the site's components expect: a Redux store and a router.
  *
- *   const { store, user } = renderWithProviders(<ClientGrid />, {
- *     preloadedState: { clients: { isLoading: false, errMess: null, logos: [makePost()] } },
- *     route: '/clients',
- *   })
+ *   server.use(...serveSiteData({ clients: [makePost()] }))   // see test/handlers.ts
+ *   const { store, user } = renderWithProviders(<ClientGrid />, { route: '/clients' })
  *
- * - preloadedState: a Partial<RootState>; slices left out get their reducers' defaults.
- * - store: pass your own ConfigureStore(...) instead of preloadedState, e.g. to rerender
- *   with the same store.
+ * Components load their data themselves, so give them data by serving it
+ * (test/handlers.ts), not by preloading the store.
+ *
+ * - preloadedState: a Partial<RootState>, e.g. { ui: ... }.
+ * - store: pass your own ConfigureStore(...), e.g. to remount with the same store,
+ *   and so the same data and the same ui state.
  * - route: the MemoryRouter's initial location, '/' by default.
  * Returns render()'s result plus the store and a userEvent instance (user).
  */

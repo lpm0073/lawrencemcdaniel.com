@@ -1,9 +1,6 @@
-import React, { Component } from 'react'
-import { connect, type ConnectedProps } from 'react-redux'
-import { bindActionCreators } from 'redux'
-import { setClientGrid } from '../../redux/actions/clientActions'
-import type { AppDispatch, RootState } from '../../redux/configureStore'
-import type { ClientsState } from '../../redux/clients'
+import React, { useEffect } from 'react'
+import { useAppDispatch, useAppSelector, useClients } from '../../redux/hooks'
+import { entryAnimationPlayed } from '../../redux/uiSlice'
 import type { WPPost } from '../../types'
 
 import 'react-multi-carousel/lib/styles.css'
@@ -11,28 +8,10 @@ import Loading from '../Loading'
 import { wpGetFeaturedImage } from '../../shared/wpGetFeaturedImage'
 import { Animate } from 'react-simple-animate'
 
-const mapStateToProps = (state: RootState) => ({
-  ...state,
-})
-const mapDispatchToProps = (dispatch: AppDispatch) => ({
-  actions: bindActionCreators({ setClientGrid }, dispatch),
-})
-
-interface ClientGridOwnProps {
-  /** Accepted for the pages that pass it, but the Redux store's clients state takes precedence. */
-  clients?: ClientsState
+interface ClientGridProps {
   /** 'edx' shows only the Open edX clients; anything else shows all of them. */
   filter?: string
-  isLoading?: boolean
 }
-
-const connector = connect<
-  ReturnType<typeof mapStateToProps>,
-  ReturnType<typeof mapDispatchToProps>,
-  ClientGridOwnProps,
-  RootState
->(mapStateToProps, mapDispatchToProps)
-type ClientGridProps = ConnectedProps<typeof connector> & ClientGridOwnProps
 
 interface ClientCardProps {
   client: WPPost
@@ -80,42 +59,41 @@ const ClientCard = (props: ClientCardProps) => {
     </article>
   )
 }
-class ClientGrid extends Component<ClientGridProps> {
-  componentWillUnmount() {
-    this.props.actions.setClientGrid()
-  }
-
-  filterLogos(logos: WPPost[], filter = 'all') {
-    if (filter === 'edx') return logos.filter((logo) => logo.tags.includes(55))
-    return logos
-  }
-
-  render() {
-    const itemList = this.filterLogos(this.props.clients.logos, this.props.filter)
-
-    return (
-      <section key="client-grid" aria-label="Client Logos">
-        {this.props.isLoading ? (
-          <Loading />
-        ) : (
-          <div id="clients-carousel" className="ml-2 mr-2">
-            <div className="row my-2 mx-0 px-0 text-center">
-              {itemList.map((client, indx) => {
-                return (
-                  <ClientCard
-                    isSet={this.props.clientGrid.isSet}
-                    client={client}
-                    indx={indx}
-                    key={indx}
-                  />
-                )
-              })}
-            </div>
-          </div>
-        )}
-      </section>
-    )
-  }
+function filterLogos(logos: WPPost[], filter = 'all') {
+  if (filter === 'edx') return logos.filter((logo) => logo.tags.includes(55))
+  return logos
 }
 
-export default connector(ClientGrid)
+const ClientGrid = ({ filter }: ClientGridProps) => {
+  const clients = useClients()
+  const isSet = useAppSelector((state) => state.ui.entryAnimationsPlayed.clientGrid)
+  const dispatch = useAppDispatch()
+
+  // the logos fade in only on the grid's first visit: record that it has been
+  // shown when it unmounts, so that it doesn't stop its own animation.
+  useEffect(() => {
+    return () => {
+      dispatch(entryAnimationPlayed('clientGrid'))
+    }
+  }, [dispatch])
+
+  const itemList = filterLogos(clients.data, filter)
+
+  return (
+    <section key="client-grid" aria-label="Client Logos">
+      {clients.isLoading ? (
+        <Loading />
+      ) : (
+        <div id="clients-carousel" className="ml-2 mr-2">
+          <div className="row my-2 mx-0 px-0 text-center">
+            {itemList.map((client, indx) => {
+              return <ClientCard isSet={isSet} client={client} indx={indx} key={indx} />
+            })}
+          </div>
+        </div>
+      )}
+    </section>
+  )
+}
+
+export default ClientGrid

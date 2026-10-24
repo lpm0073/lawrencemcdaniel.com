@@ -1,9 +1,10 @@
-import { screen, within } from '@testing-library/react'
-import { describe, expect, it } from 'vitest'
+import { screen, waitFor, within } from '@testing-library/react'
+import { beforeEach, describe, expect, it } from 'vitest'
 
 import { makePost } from '../../../test/fixtures'
+import { serveSiteData } from '../../../test/handlers'
 import { renderWithProviders } from '../../../test/render'
-import type { EducationState } from '../../redux/education'
+import { server } from '../../../test/server'
 import CoursesGrid from './coursesGrid'
 
 const COURSES = [
@@ -30,17 +31,15 @@ const COURSES = [
   makePost({ id: 3, title: { rendered: 'Unknown' }, acf: undefined }),
 ]
 
-function education(courses = COURSES): EducationState {
-  return { isLoading: false, errMess: null, courses }
-}
-
 describe('CoursesGrid', () => {
-  it('shows each course, linked to its certificate', () => {
-    renderWithProviders(<CoursesGrid education={education()} />, {
-      preloadedState: { education: education() },
-    })
+  beforeEach(() => {
+    server.use(...serveSiteData({ education: COURSES }))
+  })
 
-    const mit = screen.getByRole('article', { name: 'Education credential MIT' })
+  it('shows each course, linked to its certificate', async () => {
+    renderWithProviders(<CoursesGrid />)
+
+    const mit = await screen.findByRole('article', { name: 'Education credential MIT' })
     expect(within(mit).getByRole('link')).toHaveAttribute(
       'href',
       'https://certificates.example/mit'
@@ -54,12 +53,12 @@ describe('CoursesGrid', () => {
     expect(within(mit).getByTitle('A 12-week online program.')).toBeInTheDocument()
   })
 
-  it("links to the institution when there's no certificate", () => {
-    renderWithProviders(<CoursesGrid education={education()} />, {
-      preloadedState: { education: education() },
-    })
+  it("links to the institution when there's no certificate", async () => {
+    renderWithProviders(<CoursesGrid />)
 
-    const wharton = screen.getByRole('article', { name: 'Education credential Wharton' })
+    const wharton = await screen.findByRole('article', {
+      name: 'Education credential Wharton',
+    })
     expect(within(wharton).getByRole('link')).toHaveAttribute(
       'href',
       'https://www.wharton.upenn.edu/'
@@ -67,12 +66,12 @@ describe('CoursesGrid', () => {
     expect(within(wharton).getByTitle('Unknown Course Summary')).toBeInTheDocument()
   })
 
-  it('shows defaults and no link for a course without details', () => {
-    renderWithProviders(<CoursesGrid education={education()} />, {
-      preloadedState: { education: education() },
-    })
+  it('shows defaults and no link for a course without details', async () => {
+    renderWithProviders(<CoursesGrid />)
 
-    const unknown = screen.getByRole('article', { name: 'Education credential Unknown' })
+    const unknown = await screen.findByRole('article', {
+      name: 'Education credential Unknown',
+    })
     expect(within(unknown).queryByRole('link')).not.toBeInTheDocument()
     expect(
       within(unknown).getByRole('heading', { name: 'Unknown Institution' })
@@ -82,31 +81,23 @@ describe('CoursesGrid', () => {
     ).toBeInTheDocument()
   })
 
-  it('uses the Redux store, not the education prop', () => {
-    renderWithProviders(<CoursesGrid education={education([])} />, {
-      preloadedState: { education: education() },
-    })
+  it('shows no courses until they load', async () => {
+    renderWithProviders(<CoursesGrid />)
 
-    expect(screen.getAllByRole('article')).toHaveLength(3)
-  })
-
-  it('shows a spinner while loading', () => {
-    renderWithProviders(<CoursesGrid education={education()} isLoading={true} />, {
-      preloadedState: { education: education() },
-    })
-
-    expect(screen.getByLabelText('three-dots-loading')).toBeInTheDocument()
+    expect(screen.getByRole('region', { name: 'Courses Grid' })).toBeInTheDocument()
     expect(screen.queryByRole('article')).not.toBeInTheDocument()
+    expect(await screen.findAllByRole('article')).toHaveLength(3)
   })
 
-  it('remembers that the grid was shown when it unmounts', () => {
-    const { store, unmount } = renderWithProviders(
-      <CoursesGrid education={education()} />,
-      { preloadedState: { education: education() } }
-    )
+  it('shows no courses if they fail to load', async () => {
+    server.use(...serveSiteData({ education: 503 }))
+    const { store } = renderWithProviders(<CoursesGrid />)
 
-    expect(store.getState().coursesGrid.isSet).toBe(false)
-    unmount()
-    expect(store.getState().coursesGrid.isSet).toBe(true)
+    await waitFor(() =>
+      expect(store.getState().api.queries['getEducation(undefined)']?.status).toBe(
+        'rejected'
+      )
+    )
+    expect(screen.queryByRole('article')).not.toBeInTheDocument()
   })
 })

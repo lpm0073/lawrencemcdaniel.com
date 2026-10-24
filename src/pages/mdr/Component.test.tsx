@@ -50,11 +50,4 @@ describe('MRLPage', () => {
       ])
     )
   })
-
-  it('shows a spinner while loading', () => {
-    render(<MRLPage isLoading />)
-
-    expect(screen.getByLabelText('three-dots-loading')).toBeInTheDocument()
-    expect(screen.queryByLabelText('Matrix digital rain')).not.toBeInTheDocument()
-  })
 })

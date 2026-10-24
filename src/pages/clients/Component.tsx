@@ -8,17 +8,13 @@ import { gsdGraph } from '../../shared/seo/gsdGraph'
 import { gsdPersonLawrenceMcDaniel } from '../../shared/seo/gsdPersonLawrence'
 import { hasOccupation } from '../../shared/seo/gsdPersonLawrence'
 import { APP_CONFIG } from '../../shared/constants'
-import type { ClientsState } from '../../redux/clients'
-import type { RecommendationsState } from '../../redux/recommendations'
+import { useRecommendations } from '../../redux/hooks'
 
 import './styles.css'
 
-interface ClientsProps {
-  recommendations: RecommendationsState
-  clients: ClientsState
-}
+const Clients = () => {
+  const recommendations = useRecommendations()
 
-const Clients = (props: ClientsProps) => {
   /* Google Structured Data */
   const slug = 'clients'
   const webpageName = 'Clients'
@@ -61,8 +57,8 @@ const Clients = (props: ClientsProps) => {
             title="MY"
             boxed_title="CLIENTS"
           />
-          <RecommendationsCarousel recommendations={props.recommendations} />
-          <ClientGrid clients={props.clients} />
+          <RecommendationsCarousel recommendations={recommendations.data} />
+          <ClientGrid />
         </div>
       </main>
     </React.Fragment>

@@ -1,13 +1,17 @@
 import { screen } from '@testing-library/react'
 import { beforeEach, describe, expect, it, vi } from 'vitest'
 
+import { siteHandlers } from '../../../test/handlers'
 import { waitForCanonical } from '../../../test/pageHead'
+import { server } from '../../../test/server'
 import { renderWithProviders } from '../../../test/render'
 import { APP_CONFIG } from '../../shared/constants'
 import Home from './Component'
 
 describe('Home', () => {
   beforeEach(() => {
+    // the logo cube loads the specialties' logos.
+    server.use(...siteHandlers)
     // the logo cube repaints on timers; they never need to run here.
     vi.useFakeTimers({ toFake: ['setTimeout', 'setInterval'] })
     return () => vi.useRealTimers()
@@ -61,13 +65,5 @@ describe('Home', () => {
         expect.objectContaining({ '@type': 'WebSite' }),
       ])
     )
-  })
-
-  it('remembers that the home page was shown when it unmounts', () => {
-    const { store, unmount } = renderWithProviders(<Home />)
-
-    expect(store.getState().homePage.isSet).toBe(false)
-    unmount()
-    expect(store.getState().homePage.isSet).toBe(true)
   })
 })

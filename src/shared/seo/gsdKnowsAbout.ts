@@ -5,27 +5,17 @@
 import { wpGetFeaturedImage } from '../wpGetFeaturedImage'
 import { datePublished } from './gsdCommon'
 import { APP_CONFIG } from '../constants'
-import type { SpecialtiesState } from '../../redux/specialties'
+import type { WPPost } from '../../types'
 
-/** The props of the Specialties page that this reads. */
-interface KnowsAboutProps {
-  isLoading?: boolean
-  specialties?: SpecialtiesState
-}
-
-export const gsdKnowsAbout = (props: KnowsAboutProps | null | undefined) => {
-  if (
-    !props ||
-    props.isLoading ||
-    !props.specialties ||
-    props.specialties.items.length === 0
-  )
-    return []
-
-  const itemList = props.specialties.items
-  const retVal = itemList.map((specialty) => {
-    const applicationCategory = specialty.acf?.applicationCategory
-    const operatingSystem = specialty.acf?.operatingSystem
+/**
+ * The technologies, as schema.org SoftwareApplication objects.
+ * @param specialties - e.g. useSpecialties().data.items; empty while loading.
+ */
+export const gsdKnowsAbout = (specialties: WPPost[]) => {
+  const retVal = specialties.map((specialty) => {
+    // ACF field names are lower case: WordPress sends applicationcategory, not applicationCategory.
+    const applicationCategory = specialty.acf?.applicationcategory
+    const operatingSystem = specialty.acf?.operatingsystem
     const url = specialty.acf?.url
     const appName = specialty.title.rendered
     const about = specialty.title.rendered

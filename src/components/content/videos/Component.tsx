@@ -6,14 +6,14 @@
     engagement metrics, last commit date, languages used, and skills.
  */
 import React, { useState, type ReactElement } from 'react'
-import { useAppSelector } from '../../../redux/hooks'
+import { useVideos, useSpecialties } from '../../../redux/hooks'
 import type { Video as YouTubeVideo } from '../../../types'
 import { skillIcon, skillLabel } from '../Component'
 import Loading from '../../Loading'
 
 import './styles.css'
 
-/** A video from the Redux store, with its skill labels and icons. */
+/** A video from the site's data, with its skill labels and icons. */
 type VideoRow = YouTubeVideo & {
   skillLabels: string[]
   skillIcons: ReactElement[]
@@ -115,13 +115,13 @@ const VideosTable = ({ skill, maxrows = 100 }: VideosTableProps) => {
    Renders a table of videos and other publications.
    */
   const [currentMaxRows, setCurrentMaxRows] = useState(maxrows)
-  const reduxVideos = useAppSelector((state) => state.videos)
-  const reduxSpecialties = useAppSelector((state) => state.specialties) // for future use.
+  const videos = useVideos()
+  const specialties = useSpecialties().data
 
   const unfilteredVideos = [
     ...(skill
-      ? (reduxVideos.videos || []).filter((redux) => (redux.skills || []).includes(skill))
-      : reduxVideos.videos || []),
+      ? videos.data.filter((video) => video.skills.includes(skill))
+      : videos.data),
   ]
     .map((video) => {
       let prunedDescription = video.description
@@ -141,7 +141,7 @@ const VideosTable = ({ skill, maxrows = 100 }: VideosTableProps) => {
     .map((video) => {
       // If skill is specified, remove the corresponding entry so that it doesn't
       // redundantly appear in the table.
-      if (skill && video.skills) {
+      if (skill) {
         const skillIndex = video.skills.indexOf(skill)
         if (skillIndex !== -1) {
           return {
@@ -154,9 +154,9 @@ const VideosTable = ({ skill, maxrows = 100 }: VideosTableProps) => {
     })
     .map((video) => ({
       ...video,
-      skillLabels: (video.skills || []).map(skillLabel).filter(Boolean),
-      skillIcons: (video.skills || [])
-        .map((skillCode) => skillIcon(skillCode, reduxSpecialties))
+      skillLabels: video.skills.map(skillLabel).filter(Boolean),
+      skillIcons: video.skills
+        .map((skillCode) => skillIcon(skillCode, specialties))
         .filter(Boolean),
     }))
     .sort((a, b) => {
@@ -179,7 +179,7 @@ const VideosTable = ({ skill, maxrows = 100 }: VideosTableProps) => {
 
   return (
     <section className="table-responsive" aria-label="Videos">
-      {reduxVideos.isLoading ? (
+      {videos.isLoading ? (
         <Loading />
       ) : (
         <React.Fragment>

@@ -3,21 +3,16 @@ import { describe, expect, it } from 'vitest'
 
 import { makePost } from '../../../test/fixtures'
 import { renderWithProviders } from '../../../test/render'
-import type { PortfolioState } from '../../redux/portfolio'
 import ProjectsGrid from './projectsGrid'
 
-const PORTFOLIO: PortfolioState = {
-  isLoading: false,
-  errMess: null,
-  projects: [
-    makePost({ id: 7, slug: 'edx-at-scale', title: { rendered: 'edX at scale' } }),
-    makePost({ id: 8, slug: 'no-image', title: { rendered: 'No image' }, _embedded: {} }),
-  ],
-}
+const PROJECTS = [
+  makePost({ id: 7, slug: 'edx-at-scale', title: { rendered: 'edX at scale' } }),
+  makePost({ id: 8, slug: 'no-image', title: { rendered: 'No image' }, _embedded: {} }),
+]
 
 describe('ProjectsGrid', () => {
   it('links each project to its detail page', () => {
-    renderWithProviders(<ProjectsGrid portfolio={PORTFOLIO} />)
+    renderWithProviders(<ProjectsGrid projects={PROJECTS} />)
 
     expect(screen.getByRole('link', { name: 'edX at scale' })).toHaveAttribute(
       'href',
@@ -29,10 +24,9 @@ describe('ProjectsGrid', () => {
     )
   })
 
-  it('shows a spinner while loading', () => {
-    renderWithProviders(<ProjectsGrid portfolio={PORTFOLIO} isLoading={true} />)
+  it('shows nothing without projects', () => {
+    renderWithProviders(<ProjectsGrid projects={[]} />)
 
-    expect(screen.getByLabelText('three-dots-loading')).toBeInTheDocument()
     expect(screen.queryByRole('link')).not.toBeInTheDocument()
   })
 })

@@ -1,6 +1,6 @@
 import React from 'react'
 import RenderPageTitle from '../../components/pagetitle/pageTitleComponent'
-import { useAppSelector } from '../../redux/hooks'
+import { useRecommendations, useRepositories, useSpecialties } from '../../redux/hooks'
 
 import { LinkedinBadge } from '../../components/linkedinBadge/Component'
 import { Helmet } from 'react-helmet'
@@ -87,15 +87,16 @@ const person = {
 }
 
 const Consulting = () => {
-  const reduxRecommendations = useAppSelector((state) => state.recommendations)
-  const recommendations = reduxRecommendations.items ? reduxRecommendations.items : []
+  const recommendations = useRecommendations().data
+  const repositories = useRepositories().data
+  const specialties = useSpecialties().data.items
 
   const graphExtraData = [
     person,
     gsdServiceConsulting(recommendations),
-    ...gsdSoftwareRepoList(),
+    ...gsdSoftwareRepoList(repositories),
     ...gsdVideoObjectList,
-    ...gsdSkillSchemaList(),
+    ...gsdSkillSchemaList(specialties),
   ]
 
   return (

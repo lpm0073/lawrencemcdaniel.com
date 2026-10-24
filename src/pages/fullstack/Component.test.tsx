@@ -1,26 +1,43 @@
-import { screen } from '@testing-library/react'
+import { screen, waitFor } from '@testing-library/react'
 import { beforeEach, describe, expect, it, vi } from 'vitest'
 
 import { makePost, makeRepository } from '../../../test/fixtures'
-import { metaContent, waitForCanonical } from '../../../test/pageHead'
+import { serveSiteData } from '../../../test/handlers'
+import { jsonLdGraph, metaContent, waitForCanonical } from '../../../test/pageHead'
 import { renderWithProviders } from '../../../test/render'
-import type { SpecialtiesState } from '../../redux/specialties'
+import { server } from '../../../test/server'
+import type { AppStore } from '../../redux/configureStore'
 import Fullstack from './Component'
 
-const SPECIALTIES: SpecialtiesState = {
-  isLoading: false,
-  errMess: null,
-  logos: [],
-  featured_logos: [],
-  items: [
-    makePost({
-      id: 8,
-      slug: 'django',
-      title: { rendered: 'Django' },
-      skills: ['full-stack'],
-    }),
-  ],
+// the specialties' skills are the names of their WordPress tags.
+const TAGS = [
+  { id: 71, name: 'full-stack' },
+  { id: 70, name: 'cloud' },
+]
+const SPECIALTIES = [
+  makePost({ id: 8, slug: 'django', title: { rendered: 'Django' }, tags: [71] }),
+  makePost({ id: 9, slug: 'terraform', title: { rendered: 'Terraform' }, tags: [70] }),
+]
+const REPOSITORIES = [
+  makeRepository({ skills: ['full-stack'] }),
+  makeRepository({
+    name: 'FullStackWithLawrence/other',
+    html_url: 'https://github.com/FullStackWithLawrence/other',
+    skills: ['cloud'],
+  }),
+]
+
+/** Waits until every request the page made has been answered. */
+async function waitForData(store: AppStore) {
+  await waitFor(() => {
+    const queries = Object.values(store.getState().api.queries)
+    expect(queries.length).toBeGreaterThan(0)
+    expect(queries.every((query) => query?.status !== 'pending')).toBe(true)
+  })
 }
+
+const nodesOfType = (type: string) =>
+  jsonLdGraph().filter((node) => node['@type'] === type)
 
 describe('Fullstack', () => {
   beforeEach(() => {
@@ -28,8 +45,9 @@ describe('Fullstack', () => {
     vi.spyOn(HTMLCanvasElement.prototype, 'getContext').mockReturnValue(null)
   })
 
-  it('shows the full stack skills', () => {
-    renderWithProviders(<Fullstack specialties={SPECIALTIES} />)
+  it('shows the full stack skills', async () => {
+    server.use(...serveSiteData())
+    const { store } = renderWithProviders(<Fullstack />)
 
     expect(screen.getByRole('main', { name: 'Full Stack Developer' })).toBeInTheDocument()
     for (const skill of ['Frontend', 'Backend', 'Database', 'DevOps', 'APIs']) {
@@ -43,33 +61,56 @@ describe('Fullstack', () => {
     expect(
       screen.getByRole('region', { name: 'Technology Specialties Carousel' })
     ).toBeInTheDocument()
+    await waitForData(store)
   })
 
   it('adds the canonical link and structured data', async () => {
-    renderWithProviders(<Fullstack specialties={SPECIALTIES} />, {
-      preloadedState: {
-        repositories: {
-          isLoading: false,
-          errMess: null,
-          repos: [makeRepository({ skills: ['full-stack'] })],
-        },
+    server.use(
+      ...serveSiteData({
         specialties: SPECIALTIES,
-      },
-    })
+        tags: TAGS,
+        repositories: REPOSITORIES,
+      })
+    )
+    const { store } = renderWithProviders(<Fullstack />)
 
-    const graph = await waitForCanonical('https://lawrencemcdaniel.com/full-stack')
+    await waitForCanonical('https://lawrencemcdaniel.com/full-stack')
     expect(metaContent('description')).toBe('Lawrence McDaniel - Full Stack Developer')
-    expect(graph).toEqual(
+    // only the full stack repositories and skills.
+    await waitFor(() =>
+      expect(nodesOfType('SoftwareSourceCode')).toEqual([
+        expect.objectContaining({
+          codeRepository: 'https://github.com/FullStackWithLawrence/react-mdr',
+        }),
+      ])
+    )
+    await waitFor(() =>
+      expect(nodesOfType('DefinedTerm')).toEqual([
+        expect.objectContaining({ name: 'Django' }),
+      ])
+    )
+    expect(jsonLdGraph()).toEqual(
       expect.arrayContaining([
         expect.objectContaining({ '@type': 'Person' }),
-        expect.objectContaining({ '@type': 'SoftwareSourceCode' }),
         expect.objectContaining({ '@type': 'VideoObject' }),
-        expect.objectContaining({ '@type': 'DefinedTerm', name: 'Django' }),
         expect.objectContaining({
           '@type': 'WebPage',
           url: 'https://lawrencemcdaniel.com/full-stack/',
         }),
       ])
     )
+    await waitForData(store)
+  })
+
+  it('leaves out of the structured data what fails to load', async () => {
+    server.use(...serveSiteData({ specialties: 500, repositories: 503 }))
+    const { store } = renderWithProviders(<Fullstack />)
+
+    await waitForData(store)
+    await waitForCanonical('https://lawrencemcdaniel.com/full-stack')
+    expect(screen.getByRole('main', { name: 'Full Stack Developer' })).toBeInTheDocument()
+    expect(nodesOfType('SoftwareSourceCode')).toEqual([])
+    expect(nodesOfType('DefinedTerm')).toEqual([])
+    expect(nodesOfType('Person')).toHaveLength(1)
   })
 })

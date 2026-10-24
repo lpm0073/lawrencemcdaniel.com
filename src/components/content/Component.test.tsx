@@ -3,7 +3,9 @@ import { describe, expect, it, vi } from 'vitest'
 
 import { makeMedia, makePost } from '../../../test/fixtures'
 import { renderWithProviders } from '../../../test/render'
-import type { SpecialtiesState } from '../../redux/specialties'
+import { serveSiteData } from '../../../test/handlers'
+import { server } from '../../../test/server'
+import type { Specialties } from '../../redux/api'
 import {
   Content,
   ContentCategories,
@@ -12,10 +14,8 @@ import {
   skillLogoUrl,
 } from './Component'
 
-function specialtiesState(overrides: Partial<SpecialtiesState> = {}): SpecialtiesState {
+function specialtiesData(overrides: Partial<Specialties> = {}): Specialties {
   return {
-    isLoading: false,
-    errMess: null,
     items: [],
     logos: [],
     featured_logos: [],
@@ -50,9 +50,9 @@ describe('skill helpers', () => {
     '%s is labelled %s, links to %s and shows %s',
     (code, label, href, logo) => {
       expect(skillLabel(code)).toBe(label)
-      expect(skillLogoUrl(code, specialtiesState())).toBe(logo)
+      expect(skillLogoUrl(code, specialtiesData())).toBe(logo)
 
-      render(skillIcon(code, specialtiesState()))
+      render(skillIcon(code, specialtiesData()))
       const link = screen.getByRole('link', { name: label })
       expect(link).toHaveAttribute('href', href)
       expect(screen.getByRole('img', { name: label })).toHaveAttribute('src', logo)
@@ -67,12 +67,12 @@ describe('skill helpers', () => {
   })
 
   it('skillIcon throws for an unknown skill', () => {
-    expect(() => skillIcon('cobol', specialtiesState())).toThrow()
+    expect(() => skillIcon('cobol', specialtiesData())).toThrow()
   })
 
   it("skillLogoUrl falls back to the specialty's featured image", () => {
     const warn = vi.spyOn(console, 'warn').mockImplementation(() => {})
-    const specialties = specialtiesState({
+    const specialties = specialtiesData({
       items: [makePost({ slug: 'kubernetes' })],
     })
 
@@ -86,7 +86,7 @@ describe('skill helpers', () => {
   it('skillLogoUrl returns null for a skill with no logo', () => {
     vi.spyOn(console, 'warn').mockImplementation(() => {})
     const error = vi.spyOn(console, 'error').mockImplementation(() => {})
-    const specialties = specialtiesState({
+    const specialties = specialtiesData({
       items: [makePost({ slug: 'kubernetes', _embedded: {} })],
     })
 
@@ -115,7 +115,13 @@ describe('ContentCategories', () => {
 
 describe('Content', () => {
   it('shows code samples, articles and videos in tabs', async () => {
+    server.use(...serveSiteData())
     const { user } = renderWithProviders(<Content skill="react" />)
+
+    // each tab's table shows its records once they load.
+    expect(
+      await screen.findByRole('link', { name: 'FullStackWithLawrence/react-mdr' })
+    ).toBeInTheDocument()
 
     expect(
       screen.getByRole('tab', { name: 'Code Samples', selected: true })

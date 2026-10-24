@@ -1,11 +1,11 @@
 import { Component } from 'react'
-import Carousel from 'react-multi-carousel'
+import Carousel from '../carousel'
 import 'react-multi-carousel/lib/styles.css'
 
+import type { Specialties } from '../../redux/api'
+import { useSpecialties } from '../../redux/hooks'
 import { getInitialLogos } from '../../shared/getInitialLogos'
-import Loading from '../Loading'
 import { wpGetFeaturedImage } from '../../shared/wpGetFeaturedImage'
-import type { SpecialtiesState } from '../../redux/specialties'
 import './styles.css'
 
 /** One slide. The locally-stored initial logos have only a url. */
@@ -18,11 +18,14 @@ interface CarouselLogo {
 }
 
 interface TechnologyCarouselProps {
-  specialties: SpecialtiesState
   /** A skill slug from APP_CONFIG.skills; shows only the specialties tagged with it. Omit for all. */
   skill?: string
-  /** Shows the loading spinner instead of the carousel. */
-  isLoading?: boolean
+}
+
+interface CarouselProps extends TechnologyCarouselProps {
+  specialties: Specialties
+  /** true until the specialties have loaded; the carousel shows the local logos until then. */
+  isLoading: boolean
 }
 
 interface TechnologyCarouselState {
@@ -39,13 +42,9 @@ const responsive = {
 const stripHtml = (html: string) => html.replace(/<[^>]+>/g, '')
 
 const getFilteredLogos = (
-  specialties: SpecialtiesState,
+  specialties: Specialties,
   skill: string | undefined
 ): CarouselLogo[] => {
-  if (!Array.isArray(specialties.items)) {
-    return []
-  }
-
   let items = [...specialties.items]
 
   if (skill) {
@@ -71,11 +70,8 @@ const getFilteredLogos = (
   return logos
 }
 
-class TechnologyCarousel extends Component<
-  TechnologyCarouselProps,
-  TechnologyCarouselState
-> {
-  constructor(props: TechnologyCarouselProps) {
+class SpecialtiesCarousel extends Component<CarouselProps, TechnologyCarouselState> {
+  constructor(props: CarouselProps) {
     super(props)
     /* grab a locally-stored set of six logos for initializing the cube sides */
     this.state = {
@@ -84,9 +80,9 @@ class TechnologyCarousel extends Component<
   }
 
   componentDidMount() {
-    const { specialties, skill } = this.props
+    const { specialties, skill, isLoading } = this.props
 
-    if (specialties.isLoading) return
+    if (isLoading) return
 
     const logos = getFilteredLogos(specialties, skill)
 
@@ -95,12 +91,12 @@ class TechnologyCarousel extends Component<
     })
   }
 
-  componentDidUpdate(prevProps: TechnologyCarouselProps) {
+  componentDidUpdate(prevProps: CarouselProps) {
     if (this.props.isLoading || this.props.specialties === prevProps.specialties) {
       return
     }
 
-    const prevLogos = prevProps.specialties && prevProps.specialties.logos
+    const prevLogos = prevProps.specialties.logos
     const currLogos = getFilteredLogos(this.props.specialties, this.props.skill)
 
     if (
@@ -115,59 +111,65 @@ class TechnologyCarousel extends Component<
   }
 
   render() {
-    const { isLoading } = this.props
     const { shuffledLogos } = this.state
 
     return (
       <div>
-        {isLoading ? (
-          <Loading />
-        ) : (
-          <section id="specialties-carousel" aria-label="Technology Specialties Carousel">
-            <Carousel
-              responsive={responsive}
-              infinite
-              autoPlay
-              autoPlaySpeed={1}
-              transitionDuration={3000}
-            >
-              {shuffledLogos.map((logo, indx) => (
-                <article key={indx} aria-label={logo.title}>
-                  <a
-                    href={logo.site}
-                    title={logo.title}
-                    target="_blank"
-                    rel="noopener noreferrer"
+        <section id="specialties-carousel" aria-label="Technology Specialties Carousel">
+          <Carousel
+            responsive={responsive}
+            infinite
+            autoPlay
+            autoPlaySpeed={1}
+            transitionDuration={3000}
+          >
+            {shuffledLogos.map((logo, indx) => (
+              <article key={indx} aria-label={logo.title}>
+                <a
+                  href={logo.site}
+                  title={logo.title}
+                  target="_blank"
+                  rel="noopener noreferrer"
+                >
+                  <div
+                    className="specialty-item"
+                    style={{ backgroundImage: `url('${logo.url}')` }}
                   >
-                    <div
-                      className="specialty-item"
-                      style={{ backgroundImage: `url('${logo.url}')` }}
-                    >
-                      <img
-                        src={logo.url ?? undefined}
-                        alt={logo.description}
-                        title={logo.title}
-                        style={{
-                          opacity: 0,
-                          width: '1px',
-                          height: '1px',
-                          position: 'absolute',
-                          pointerEvents: 'none',
-                        }}
-                        aria-hidden="false"
-                        tabIndex={-1}
-                      />
-                      <span className="visually-hidden">{logo.description}</span>
-                    </div>
-                  </a>
-                </article>
-              ))}
-            </Carousel>
-          </section>
-        )}
+                    <img
+                      src={logo.url ?? undefined}
+                      alt={logo.description}
+                      title={logo.title}
+                      style={{
+                        opacity: 0,
+                        width: '1px',
+                        height: '1px',
+                        position: 'absolute',
+                        pointerEvents: 'none',
+                      }}
+                      aria-hidden="false"
+                      tabIndex={-1}
+                    />
+                    <span className="visually-hidden">{logo.description}</span>
+                  </div>
+                </a>
+              </article>
+            ))}
+          </Carousel>
+        </section>
       </div>
     )
   }
+}
+
+const TechnologyCarousel = ({ skill }: TechnologyCarouselProps) => {
+  const specialties = useSpecialties()
+  return (
+    <SpecialtiesCarousel
+      specialties={specialties.data}
+      isLoading={specialties.isLoading}
+      skill={skill}
+    />
+  )
 }
 
 export default TechnologyCarousel

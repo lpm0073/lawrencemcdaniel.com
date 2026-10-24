@@ -45,12 +45,4 @@ describe('PageNotFound', () => {
     )
     expect(metaContent('description')).toBe('Lawrence McDaniel - Page Not Found')
   })
-
-  it('shows a spinner while loading', () => {
-    vi.spyOn(console, 'log').mockImplementation(() => {})
-    render(<PageNotFound isLoading={true} />)
-
-    expect(screen.getByLabelText('three-dots-loading')).toBeInTheDocument()
-    expect(screen.queryByLabelText('Matrix digital rain')).not.toBeInTheDocument()
-  })
 })
