@@ -1,3 +1,10 @@
+## [1.8.1](https://github.com/lpm0073/lawrencemcdaniel.com/compare/v1.8.0...v1.8.1) (2026-10-24)
+
+
+### Bug Fixes
+
+* **home:** stop the logo cube's repaint loop, respect reduced motion ([3228df4](https://github.com/lpm0073/lawrencemcdaniel.com/commit/3228df4d7a4c548ad29b2b9d69d058240c786347))
+
 # [1.8.0](https://github.com/lpm0073/lawrencemcdaniel.com/compare/v1.7.0...v1.8.0) (2026-10-24)
 
 
