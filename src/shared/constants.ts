@@ -9,6 +9,15 @@ const URL_CDN = protocol + '://cdn.' + domainName
 const URL_BLOG = protocol + '://blog.' + domainName
 
 const ApiBackendUrl = URL_API + '/wp-json/wp/v2/'
+
+// The posts' fields that the site reads (WPPostSchema in src/schemas.ts), with
+// only their featured image embedded. A plain _embed also embeds every post's
+// author and terms, which makes WordPress four times slower and the response
+// twice as large. Nothing caches WordPress's REST API responses (WP Rocket
+// caches pages, not /wp-json/), so every byte is computed for every request.
+const POST_FIELDS =
+  '&_embed=wp:featuredmedia&_fields=id,date,modified,slug,link,title,content,excerpt,' +
+  'categories,tags,featured_media,acf,_links.wp:featuredmedia,_embedded'
 const blogBackendUrl = URL_BLOG + '/wp-json/wp/v2/'
 
 const CACHE_VERSION = packageJson.version
@@ -22,16 +31,16 @@ export const APP_CONFIG = {
     articles: '/data/blog.lawrencemcdaniel.com.json',
     blog_posts: blogBackendUrl + 'posts?&per_page=100',
     blog_categories: blogBackendUrl + 'categories?&per_page=100',
-    clients: ApiBackendUrl + 'posts?categories=46&_embed&per_page=100',
-    education: ApiBackendUrl + 'posts?categories=44&_embed&per_page=100',
-    portfolio: ApiBackendUrl + 'posts?categories=47&_embed&per_page=100',
+    clients: ApiBackendUrl + 'posts?categories=46&per_page=100' + POST_FIELDS,
+    education: ApiBackendUrl + 'posts?categories=44&per_page=100' + POST_FIELDS,
+    portfolio: ApiBackendUrl + 'posts?categories=47&per_page=100' + POST_FIELDS,
     projects:
       ApiBackendUrl +
       'media?include=2324,2320,2319,2300,2295,2296,2297,2298,2299,2301,2302,2303',
     repositories: '/data/github.json',
-    specialties: ApiBackendUrl + 'posts?categories=43&_embed&per_page=100',
+    specialties: ApiBackendUrl + 'posts?categories=43&per_page=100' + POST_FIELDS,
     tags: ApiBackendUrl + 'tags?&per_page=100',
-    recommendations: ApiBackendUrl + 'posts?categories=45&_embed&per_page=100',
+    recommendations: ApiBackendUrl + 'posts?categories=45&per_page=100' + POST_FIELDS,
     videos: '/data/youtube.json',
     youtube: {
       base_url: 'https://www.googleapis.com/youtube/v3',
@@ -44,6 +53,8 @@ export const APP_CONFIG = {
       // the API layer's own cache of the site's data, see src/redux/cachedBaseQuery.ts
       data: versioned_cached('data'),
       app: versioned_cached('app'),
+      // the prerendered pages that have been visited, for offline use, see src/service-worker.ts
+      pages: versioned_cached('pages'),
       cdn: versioned_cached('cdn'), // TO DO: delete this. everything is routing to workbox-precache-v2 via service-worker.js setup.
       staticImages: versioned_cached('static'),
       workbox_precache: 'workbox-precache-v2',
@@ -59,6 +70,22 @@ export const APP_CONFIG = {
   static: {
     images: {
       default: 'https://cdn.lawrencemcdaniel.com/lawrencemcdaniel-headshot-square.jpeg',
+      // the link previews' images (og:image, twitter:image), see src/components/PageMeta.tsx.
+      // 1200x630 and well under 300 KB: WhatsApp shows no image larger than that.
+      share: {
+        default: {
+          url: URL_SITE + '/assets/images/share/lawrencemcdaniel.jpg',
+          width: 1200,
+          height: 630,
+          alt: 'Lawrence McDaniel',
+        },
+        smarter: {
+          url: URL_SITE + '/assets/images/share/smarter.jpg',
+          width: 1200,
+          height: 630,
+          alt: 'The Smarter Project prompt engineering workbench',
+        },
+      },
     },
   },
   schema: {

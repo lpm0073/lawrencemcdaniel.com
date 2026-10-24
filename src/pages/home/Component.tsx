@@ -14,6 +14,7 @@ import { gsdPersonLawrenceMcDaniel } from '../../shared/seo/gsdPersonLawrence'
 import { hasOccupation } from '../../shared/seo/gsdPersonLawrence'
 import { basePageTitle } from '../../shared/seo/gsdCommon'
 import { Helmet } from 'react-helmet'
+import PageMeta from '../../components/PageMeta'
 import { APP_CONFIG } from '../../shared/constants'
 
 import './styles.css'
@@ -34,8 +35,8 @@ export default function Home() {
 
   return (
     <React.Fragment>
+      <PageMeta path="/" />
       <Helmet>
-        <link rel="canonical" href={APP_CONFIG.urls.site} />
         <script type="application/ld+json">
           {JSON.stringify(
             gsdGraph(

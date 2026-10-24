@@ -7,7 +7,7 @@
 
  */
 import React, { Component, useEffect } from 'react'
-import { BrowserRouter, useLocation, useNavigate } from 'react-router-dom'
+import { BrowserRouter, StaticRouter, useLocation, useNavigate } from 'react-router-dom'
 
 import * as serviceWorkerRegistration from './serviceWorkerRegistration'
 
@@ -33,6 +33,11 @@ const SUCCESSFUL_INSTALL_MESSAGE =
 interface AppProps {
   /** "online" or "offline", from react-detect-offline in main.tsx. */
   cls: 'online' | 'offline'
+  /**
+   * The url to render, when the app is rendered to html at build time
+   * (src/prerender/render.tsx). The browser's own url otherwise.
+   */
+  location?: string
 }
 
 interface AppState {
@@ -205,19 +210,27 @@ class App extends Component<AppProps, AppState> {
       )
     }
 
+    const layout = (
+      <React.Fragment>
+        <TrailingSlashRedirect />
+        <div className={'container-fluid p-0 ' + this.state.customClass}>
+          <Header />
+          <AppUpdateAlerts parent={this} />
+          <SiteRoutes />
+          <Footer />
+        </div>
+      </React.Fragment>
+    )
+
     // render the app!
     return (
       <React.Fragment>
         <Head />
-        <BrowserRouter>
-          <TrailingSlashRedirect />
-          <div className={'container-fluid p-0 ' + this.state.customClass}>
-            <Header />
-            <AppUpdateAlerts parent={this} />
-            <SiteRoutes />
-            <Footer />
-          </div>
-        </BrowserRouter>
+        {this.props.location === undefined ? (
+          <BrowserRouter>{layout}</BrowserRouter>
+        ) : (
+          <StaticRouter location={this.props.location}>{layout}</StaticRouter>
+        )}
       </React.Fragment>
     )
   }

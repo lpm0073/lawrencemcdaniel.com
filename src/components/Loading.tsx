@@ -1,15 +1,17 @@
-// options:
-// Audio, BallTriangle, Bars, Blocks, Circles, CirclesWithBar, ColorRing, Comment,
-// Discuss, Dna, FallingLines, FidgetSpinner, Grid, Hearts, InfinitySpin, LineWave,
-// MagnifyingGlass, MutatingDots, Oval, ProgressBar, Puff, Radio, RevolvingDot,
-// Rings, RotatingLines, RotatingSquare, RotatingTriangles, TailSpin, ThreeCircles,
-// ThreeDots, Triangle, Vortex, Watch
-import { ThreeDots } from 'react-loader-spinner'
+/**
+ * The spinner that a page shows while its data loads: three pulsing dots,
+ * drawn with CSS (Loading.css), so that it needs no library.
+ */
+import './Loading.css'
 
 const Loading = () => {
   return (
     <div className="col-12 text-center">
-      <ThreeDots color="#038fc5" height={100} width={100} />
+      <div className="loading-dots" role="status" aria-label="three-dots-loading">
+        <span />
+        <span />
+        <span />
+      </div>
     </div>
   )
 }

@@ -3,6 +3,7 @@ import RenderPageTitle from '../../components/pagetitle/pageTitleComponent'
 import { Content } from '../../components/content/Component'
 import TechnologyCarousel from '../../components/technologyCarousel/Component'
 import { Helmet } from 'react-helmet'
+import PageMeta from '../../components/PageMeta'
 import { gsdPersonLawrenceMcDaniel } from '../../shared/seo/gsdPersonLawrence'
 import { gsdSoftwareRepoList } from '../../shared/seo/gsdSoftwareSourceCode'
 import { gsdVideoObjectList_FSWL } from '../../shared/seo/gsdVideoObject'
@@ -29,12 +30,11 @@ const CloudComputing = () => {
 
   return (
     <React.Fragment>
+      <PageMeta
+        path={'/' + APP_CONFIG.skills.cloud}
+        description="Lawrence McDaniel - Cloud Expert"
+      />
       <Helmet>
-        <link
-          rel="canonical"
-          href={APP_CONFIG.urls.site + '/' + APP_CONFIG.skills.cloud}
-        />
-        <meta name="description" content="Lawrence McDaniel - Cloud Expert" />
         <script type="application/ld+json">
           {JSON.stringify(
             gsdGraph(

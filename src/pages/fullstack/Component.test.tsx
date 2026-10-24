@@ -95,7 +95,7 @@ describe('Fullstack', () => {
         expect.objectContaining({ '@type': 'VideoObject' }),
         expect.objectContaining({
           '@type': 'WebPage',
-          url: 'https://lawrencemcdaniel.com/full-stack/',
+          url: 'https://lawrencemcdaniel.com/full-stack',
         }),
       ])
     )

@@ -1,10 +1,29 @@
 /// <reference lib="webworker" />
-// This service worker can be customized!
-// See https://developers.google.com/web/tools/workbox/modules
-// for the list of available Workbox modules, or add any other
-// code you'd like.
-// You can also remove this file if you'd prefer not to use a
-// service worker, and the Workbox build step will be skipped.
+/**
+ * The site's service worker, which makes it an installable progressive web app
+ * that works offline and loads fast on a return visit. It solves four problems:
+ *
+ * 1. Offline, a page would be the browser's error page. The worker precaches
+ *    the build's js, css and woff2 font (the list that vite-plugin-pwa injects
+ *    into self.__WB_MANIFEST) and the images in public/, and keeps a copy of
+ *    each page that has been visited.
+ * 2. Every page is its own prerendered html file (src/prerender/), with its
+ *    own content, data and head tags. So a navigation is fetched from the
+ *    network first, and the cached copy is only for offline use. Serving one
+ *    cached app shell for every url, as single-page apps do, would show every
+ *    page the home page's html.
+ * 3. WordPress's responses take seconds, and the CDN's images are many. The
+ *    worker answers api.lawrencemcdaniel.com and /data/ from its cache, and
+ *    refreshes them in the background (stale-while-revalidate), and keeps the
+ *    CDN's images (cache-first).
+ * 4. A new release must replace the old one without a manual reload. The
+ *    worker activates as soon as it installs, the app tells the visitor
+ *    (src/components/appUpdate/), and every cache's name includes the site's
+ *    version, so the old caches are deleted when the new worker activates.
+ *
+ * It is registered only in production builds (src/serviceWorkerRegistration.ts),
+ * so check it with `yarn build && yarn preview`.
+ */
 
 //-----------------------------------------------
 // Google Workbox
@@ -13,7 +32,7 @@ import { clientsClaim } from 'workbox-core'
 import { ExpirationPlugin } from 'workbox-expiration'
 import { precacheAndRoute, createHandlerBoundToURL } from 'workbox-precaching'
 import { CacheableResponsePlugin } from 'workbox-cacheable-response'
-import { CacheFirst } from 'workbox-strategies'
+import { CacheFirst, NetworkFirst } from 'workbox-strategies'
 import { registerRoute } from 'workbox-routing'
 import { StaleWhileRevalidate } from 'workbox-strategies'
 import type { PrecacheEntry } from 'workbox-precaching'
@@ -112,12 +131,20 @@ const dedupedManifest = Array.from(manifestMap.values())
 
 precacheAndRoute(dedupedManifest)
 
-// Set up App Shell-style routing, so that all navigation requests
-// are fulfilled with the index.html shell. Learn more at
-// https://developers.google.com/web/fundamentals/architecture/app-shell
+// Every page is its own html file, which the build prerenders with the page's
+// content and data (src/prerender/). So a navigation fetches its page from the
+// network, and keeps a copy for offline use. Offline, a page that was never
+// visited gets the home page (index.html, precached), and the app renders the
+// page that was asked for.
+const pages = new NetworkFirst({
+  cacheName: APP_CONFIG.caching.names.pages,
+  networkTimeoutSeconds: 5,
+  plugins: [new CacheableResponsePlugin({ statuses: [200] })],
+})
+const offlineFallback = createHandlerBoundToURL(import.meta.env.BASE_URL + 'index.html')
 const fileExtensionRegexp = new RegExp('/[^/?]+\\.[^/]+$')
 registerRoute(
-  // Return false to exempt requests from being fulfilled by index.html.
+  // Return false to exempt requests that aren't for a page.
   ({ request, url }) => {
     // If this isn't a navigation, skip.
     if (request.mode !== 'navigate') {
@@ -134,7 +161,13 @@ registerRoute(
 
     return true
   },
-  createHandlerBoundToURL(import.meta.env.BASE_URL + 'index.html')
+  async (options) => {
+    try {
+      return await pages.handle(options)
+    } catch {
+      return offlineFallback(options)
+    }
+  }
 )
 
 // This allows the web app to trigger skipWaiting via

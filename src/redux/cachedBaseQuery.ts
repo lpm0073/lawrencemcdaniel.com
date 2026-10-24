@@ -62,6 +62,18 @@ export async function evictCached(url: string): Promise<void> {
   await cache?.delete(url)
 }
 
+/** The origin that relative urls are fetched from, '' to fetch them from the page's own. */
+let dataOrigin = ''
+
+/**
+ * Fetch relative urls, i.e. the site's /data/ files, from origin. For the
+ * build, which renders the pages in Node (src/prerender/), where there is no
+ * page for them to be relative to. Browsers never set it.
+ */
+export function setDataOrigin(origin: string): void {
+  dataOrigin = origin
+}
+
 /** Forget which urls were refreshed: for tests, which simulate many page loads. */
 export function resetRefreshed(): void {
   refreshed.clear()
@@ -75,6 +87,10 @@ export const cachedBaseQuery: BaseQueryFn<
   CachedBaseQueryMeta
 > = async (args, api, extraOptions) => {
   const url = typeof args === 'string' ? args : args.url
+  if (dataOrigin && url.startsWith('/')) {
+    args =
+      typeof args === 'string' ? dataOrigin + url : { ...args, url: dataOrigin + url }
+  }
   const cache = await openCache()
 
   const cached = await cache?.match(url)

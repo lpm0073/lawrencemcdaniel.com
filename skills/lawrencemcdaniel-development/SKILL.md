@@ -1,6 +1,6 @@
 ---
 name: lawrencemcdaniel-development
-description: Start here for any change to the lawrencemcdaniel.com React site - a new or changed page, route, header menu item, component, Redux data source, WordPress API call, fetcher, service worker cache, or build setting. Gives the rules, the architecture (Vite, strict TypeScript, RTK Query with zod-validated responses, react-router, Workbox via vite-plugin-pwa), the checklists for adding a page and a data source, how to verify a change, and an index of the narrower lawrencemcdaniel-* skills.
+description: Start here for any change to the lawrencemcdaniel.com React site - a new or changed page, route, header menu item, component, Redux data source, WordPress API call, fetcher, service worker cache, the build-time prerender, or build setting. Gives the rules, the architecture (Vite, strict TypeScript, RTK Query with zod-validated responses, react-router, every page prerendered to html and hydrated, Workbox via vite-plugin-pwa), the checklists for adding a page and a data source, how to verify a change, and an index of the narrower lawrencemcdaniel-* skills.
 ---
 
 # lawrencemcdaniel.com Development
@@ -31,16 +31,32 @@ description: Start here for any change to the lawrencemcdaniel.com React site - 
 ## Architecture
 
 ```
-src/main.tsx   Redux <Provider>, <Online>/<Offline> wrappers → <App cls="online|offline">
-src/App.tsx    <Head/> (site-wide Helmet), <BrowserRouter>, trailing-slash redirect,
+src/main.tsx   Redux <Provider>, <Online>/<Offline> wrappers → <App cls="online|offline">;
+               hydrates a prerendered page, after seeding the store with its data
+src/App.tsx    <Head/> (site-wide Helmet), <BrowserRouter> (<StaticRouter> in the
+               prerender, App's location prop), trailing-slash redirect,
                <Header/>, service-worker update alerts, <SiteRoutes/>, <Footer/>
 src/components/Routes.tsx
                every route, with no props; dispatches prefetchSiteData() once, so
                every page's data (and images) load when the app starts
 src/pages/<page>/Component.tsx
                reads its data with the hooks in src/redux/hooks.ts;
-               <Helmet> (canonical, description, JSON-LD) + <main className="site-page ...">
+               <PageMeta> (canonical, description, preview image), <Helmet> (JSON-LD)
+               + <main className="site-page ...">
+src/prerender/ the last step of `yarn build`: renders every page to html, with its
+               data, into build/ (see src/prerender/README.md)
 ```
+
+- **Every page is prerendered.** `yarn build` ends with `yarn prerender`, which
+  renders each route, each portfolio project and the 404 page in Node, with the
+  live data, into `build/<path>/index.html`. Crawlers and link previews read
+  that html; the browser hydrates it. So code that runs during render must work
+  in Node (no `window`, `document` or `DOMParser`: use
+  `src/shared/htmlFragments.ts`), and a page's first render must not depend on
+  chance or the clock (shuffle after mounting). A hydration mismatch shows as
+  "Minified React error #418" in the console of `yarn preview`. The build needs
+  the network, and fails if a data source fails. `src/redux/README.md` explains
+  the data side.
 
 - **Data flow.** All of the site's data comes from one RTK Query API,
   `src/redux/api.ts` (`siteApi`), with one endpoint per source. Every
@@ -74,9 +90,10 @@ src/pages/<page>/Component.tsx
   list; see `vite.config.ts`) and registers runtime routes. The service
   worker is registered only in production builds: check it with
   `yarn build && yarn preview`.
-- **Offline.** The service worker caches the API's and `/data/`'s responses
-  (stale-while-revalidate) and the CDN's images (cache-first). The app itself
-  keeps no persistent copy of the data.
+- **Offline.** The service worker fetches pages from the network first and keeps
+  a copy of each one visited, caches the API's and `/data/`'s responses
+  (stale-while-revalidate) and the CDN's images (cache-first). The header of
+  `src/service-worker.ts` says why.
 
 ## Adding a page
 
@@ -90,8 +107,10 @@ src/pages/<page>/Component.tsx
    nav (`Nav.Link as={NavLink}`, matching its neighbours).
 4. The route in `src/components/sitemap/generator.ts` (`routes` and
    `priorities`), then `yarn sitemap`.
-5. SEO: canonical link, description, `og:description` and the JSON-LD graph.
-   Load `lawrencemcdaniel-seo`.
+5. SEO: `<PageMeta>` (canonical link, description, preview image) and the
+   JSON-LD graph. Load `lawrencemcdaniel-seo`.
+6. `yarn build`, `yarn preview` in the background, and check the page's html
+   with `curl localhost:3000/<route>` and its console for React error #418.
 
 ## Adding a data source
 
@@ -109,14 +128,38 @@ src/pages/<page>/Component.tsx
 
 ```console
 make test                                    # Prettier, ESLint, tsc, Vitest with coverage
-yarn build                                   # must end with the PWA precache summary
+yarn build                                   # must end with "prerender: wrote N pages, 404.html and sitemap.xml"
 ```
 
 For a visible change, start `yarn start` with `run_in_background: true`, poll
 `curl -s -o /dev/null -w '%{http_code}' localhost:3000/<route>` for 200, then
 look at the page (a browser tool if one is available). Stop the server when
 you're done. The service worker is off in development, so cache and offline
-behaviour can only be checked in a production build (`npx serve -s build`).
+behaviour, and the prerendered pages, can only be checked in a production build
+(`yarn build`, then `yarn preview` in the background, which serves each page as
+CloudFront does).
+
+## Checking a deploy
+
+The `gh` CLI on the host is often not logged in (`HTTP 401: Bad credentials`).
+Don't ask the user to run `gh auth login`: the git-ignored `.env` holds
+`GH_TOKEN` and `GITHUB_TOKEN`. Load one for the command, and never print it:
+
+```console
+export GH_TOKEN=$(grep -E '^GH_TOKEN=' .env | cut -d= -f2- | tr -d '"')
+gh run list --workflow=deploy.yml -L 3
+```
+
+When a deploy succeeded but "the site is unchanged", check what is live before
+suspecting the pipeline: `curl -sI https://lawrencemcdaniel.com/` (its
+`last-modified` is the upload time), and the hashed bundle that `index.html`
+names under `/static/`. Each page is its own S3 key (`smarter`, uploaded from
+`build/smarter/index.html`), so `curl -s https://lawrencemcdaniel.com/<route> | grep -o '<title[^<]*'`
+shows whether a page is live. Until the CloudFront error responses of
+`cloudfront/README.md` are set up, unknown paths return the home page with a
+200, so compare bodies, not status codes. If the live files are new,
+the browser is showing the previous service worker's cache; a hard reload, or
+closing every tab of the site, lets the new worker take over.
 
 ## Skill index
 

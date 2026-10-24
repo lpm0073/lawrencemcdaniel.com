@@ -4,10 +4,10 @@ import RenderPageTitle from '../../components/pagetitle/pageTitleComponent'
 import RecommendationsCarousel from './recommendationsCarousel'
 import ClientGrid from '../../components/clientGrid/Component'
 import { Helmet } from 'react-helmet'
+import PageMeta from '../../components/PageMeta'
 import { gsdGraph } from '../../shared/seo/gsdGraph'
 import { gsdPersonLawrenceMcDaniel } from '../../shared/seo/gsdPersonLawrence'
 import { hasOccupation } from '../../shared/seo/gsdPersonLawrence'
-import { APP_CONFIG } from '../../shared/constants'
 import { useRecommendations } from '../../redux/hooks'
 
 import './styles.css'
@@ -32,9 +32,8 @@ const Clients = () => {
 
   return (
     <React.Fragment>
+      <PageMeta path="/clients" description="Lawrence McDaniel - Clients" />
       <Helmet>
-        <link rel="canonical" href={APP_CONFIG.urls.site + '/clients'} />
-        <meta name="description" content="Lawrence McDaniel - Clients" />
         <script type="application/ld+json">
           {JSON.stringify(
             gsdGraph(

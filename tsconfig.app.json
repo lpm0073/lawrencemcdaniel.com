@@ -22,6 +22,7 @@
   "exclude": [
     "src/service-worker.ts",
     "src/components/sitemap/generator.ts",
+    "src/prerender/prerender.ts",
     "src/shared/dotenv.ts",
     "src/shared/updateVersion.ts",
     "src/shared/fetchers/blogPostFetcher.ts",

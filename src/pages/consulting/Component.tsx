@@ -4,6 +4,7 @@ import { useRecommendations, useRepositories, useSpecialties } from '../../redux
 
 import { LinkedinBadge } from '../../components/linkedinBadge/Component'
 import { Helmet } from 'react-helmet'
+import PageMeta from '../../components/PageMeta'
 import { APP_CONFIG } from '../../shared/constants'
 import { Content } from '../../components/content/Component'
 import BlankSpace from '../../components/blankSpace/Component'
@@ -101,13 +102,12 @@ const Consulting = () => {
 
   return (
     <React.Fragment>
+      <PageMeta
+        path="/consulting"
+        description="Consulting services and technical training in data science, Python, AI/ML, CI/CD, and cloud native technology."
+      />
       <Helmet>
         <title>Advisory And Consulting</title>
-        <link rel="canonical" href={APP_CONFIG.urls.site + '/consulting'} />
-        <meta
-          name="description"
-          content="Consulting services and technical training in data science, Python, AI/ML, CI/CD, and cloud native technology."
-        />
         <script type="application/ld+json">
           {JSON.stringify(
             gsdGraph(

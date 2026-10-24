@@ -5,9 +5,10 @@
 #
 # Checks formatting (Prettier), lint (ESLint), types (TypeScript), the unit
 # tests (Vitest, with coverage, uploaded to Codecov) and the production build
-# (Vite). Runs on pull requests, by hand, and as the first stage of
-# deploy.yml on every merge to main. Nothing is deployed here: `yarn build`
-# only writes build/.
+# (Vite, then the prerender of every page, which fetches the live data from
+# WordPress and lawrencemcdaniel.com/data/, and fails if a source does). Runs
+# on pull requests, by hand, and as the first stage of deploy.yml on every
+# merge to main. Nothing is deployed here: `yarn build` only writes build/.
 #------------------------------------------------------------------------------
 name: Test
 
@@ -59,5 +60,5 @@ jobs:
           fail_ci_if_error: false
           token: ${{ secrets.CODECOV_TOKEN }}
 
-      - name: Build (Vite)
+      - name: Build (Vite and the prerender)
         run: yarn build

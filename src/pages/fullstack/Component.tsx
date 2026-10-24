@@ -4,6 +4,7 @@ import { Content } from '../../components/content/Component'
 import TechnologyCarousel from '../../components/technologyCarousel/Component'
 import SkillColumn from '../../components/skillColumn/Component'
 import { Helmet } from 'react-helmet'
+import PageMeta from '../../components/PageMeta'
 import { gsdPersonLawrenceMcDaniel } from '../../shared/seo/gsdPersonLawrence'
 import { gsdSoftwareRepoList } from '../../shared/seo/gsdSoftwareSourceCode'
 import { gsdVideoObjectList_FSWL } from '../../shared/seo/gsdVideoObject'
@@ -33,9 +34,11 @@ const Fullstack = () => {
 
   return (
     <React.Fragment>
+      <PageMeta
+        path={'/' + APP_CONFIG.skills.fullStack}
+        description="Lawrence McDaniel - Full Stack Developer"
+      />
       <Helmet>
-        <link rel="canonical" href={APP_CONFIG.urls.site + '/' + slug} />
-        <meta name="description" content="Lawrence McDaniel - Full Stack Developer" />
         <script type="application/ld+json">
           {JSON.stringify(
             gsdGraph(

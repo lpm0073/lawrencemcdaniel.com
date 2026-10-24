@@ -1,13 +1,13 @@
 import React from 'react'
 
 import { Helmet } from 'react-helmet'
+import PageMeta from '../../components/PageMeta'
 
 import RenderPageTitle from '../../components/pagetitle/pageTitleComponent'
 import { LinkedinBadge } from '../../components/linkedinBadge/Component'
 import { gsdGraph } from '../../shared/seo/gsdGraph'
 import { gsdPersonLawrenceMcDaniel } from '../../shared/seo/gsdPersonLawrence'
 import { gsdArticle } from '../../shared/seo/gsdArticle'
-import { APP_CONFIG } from '../../shared/constants'
 import './styles.css'
 
 const ImageTaggerPage = () => {
@@ -23,16 +23,11 @@ const ImageTaggerPage = () => {
 
   return (
     <React.Fragment>
+      <PageMeta
+        path="/image-tagging"
+        description="Data Scientist and Full Stack Web Developer with extensive experience using ReactJS and Redux. Follow links to the GitHub repository for this site."
+      />
       <Helmet>
-        <link rel="canonical" href={APP_CONFIG.urls.site + '/image-tagging'} />
-        <meta
-          name="description"
-          content="Data Scientist and Full Stack Web Developer with extensive experience using ReactJS and Redux. Follow links to the GitHub repository for this site."
-        />
-        <meta
-          property="og:description"
-          content="Full Stack Web Developer with extensive experience using ReactJS and Redux. Follow links to the GitHub repository for this site."
-        />
         <script type="application/ld+json">
           {JSON.stringify(
             gsdGraph(

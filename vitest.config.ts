@@ -2,7 +2,8 @@
  * Vitest configuration, modeled on the Smarter React workspace's
  * vitest.shared.ts (smarter-sh/smarter, smarter/react).
  *
- * - Tests are src/**\/*.test.{ts,tsx}, run in jsdom, a simulated browser.
+ * - Tests are src/**\/*.test.{ts,tsx} and cloudfront/*.test.ts, run in jsdom, a
+ *   simulated browser, or in Node where a test says so (@vitest-environment node).
  * - test/setup.ts adds jest-dom's matchers, stubs the browser Cache API, and
  *   starts MSW, which answers the tests' API requests and fails any test that
  *   makes an unmocked one.
@@ -23,7 +24,7 @@ export default defineConfig({
     environment: 'jsdom',
     environmentOptions: { jsdom: { url: 'http://localhost:3000/' } },
     setupFiles: ['./test/setup.ts'],
-    include: ['src/**/*.test.{ts,tsx}'],
+    include: ['src/**/*.test.{ts,tsx}', 'cloudfront/**/*.test.ts'],
     restoreMocks: true,
     // Above test/setup.ts's 5 second waitFor(), so that a slow CI runner fails on the assertion.
     testTimeout: 15000,
