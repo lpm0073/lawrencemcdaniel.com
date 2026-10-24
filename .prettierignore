@@ -1,1 +1,7 @@
-src/service-worker.js
+build
+coverage
+dev-dist
+public/data
+public/sitemap.xml
+CHANGELOG.md
+yarn.lock

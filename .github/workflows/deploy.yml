@@ -1,0 +1,140 @@
+---
+#------------------------------------------------------------------------------
+# Lawrence McDaniel - https://lawrencemcdaniel.com
+# Deploy Workflow
+#
+# On every merge to main, a fully automated pipeline:
+#
+#   1. test     test.yml: Prettier, ESLint, TypeScript, Vitest, Vite build.
+#   2. release  semantic-release: a GitHub release and CHANGELOG.md from the
+#               conventional-commit messages, when there is something to
+#               release (see release.config.cjs). Then the vN branch.
+#   3. deploy   builds the site from main as released (`make site`), uploads
+#               it to the S3 bucket and invalidates the CloudFront CDN.
+#
+# A failure at any stage stops the stages after it, so a change that fails
+# its tests never reaches production. Deploys never overlap. This is the only
+# way the site is deployed; to redeploy main by hand: gh workflow run deploy.yml
+#
+# Secrets: PAT (semantic-release), AWS_ACCESS_KEY_ID and AWS_SECRET_ACCESS_KEY
+# (the same ones the Weekly Data Update uses), CODECOV_TOKEN (optional).
+#
+# public/data/ is not deployed from here: it isn't in the repository, and the
+# Weekly Data Update (updateDataStores.yml) uploads it.
+#------------------------------------------------------------------------------
+name: Deploy
+
+on:
+  workflow_dispatch:
+  push:
+    branches:
+      - main
+
+concurrency:
+  group: deploy-production
+  cancel-in-progress: false
+
+jobs:
+  test:
+    uses: ./.github/workflows/test.yml
+    secrets:
+      CODECOV_TOKEN: ${{ secrets.CODECOV_TOKEN }}
+
+  release:
+    needs: test
+    runs-on: ubuntu-latest
+    timeout-minutes: 10
+    env:
+      GITHUB_TOKEN: ${{ secrets.PAT }}
+    steps:
+      - uses: actions/checkout@v5
+        with:
+          persist-credentials: false
+
+      - name: Semantic Release
+        id: semantic
+        uses: cycjimmy/semantic-release-action@v5
+        with:
+          branches: main
+          extra_plugins: |
+            @semantic-release/git
+            @semantic-release/changelog
+        env:
+          GIT_COMMITTER_NAME: github-actions[bot]
+          GIT_COMMITTER_EMAIL: github-actions[bot]@users.noreply.github.com
+          GIT_AUTHOR_NAME: github-actions[bot]
+          GIT_AUTHOR_EMAIL: github-actions[bot]@users.noreply.github.com
+
+      - name: Push updates to branch for major version
+        if: steps.semantic.outputs.new_release_published == 'true'
+        run: 'git push https://x-access-token:${{ env.GITHUB_TOKEN }}@github.com/${GITHUB_REPOSITORY}.git HEAD:refs/heads/v${{ steps.semantic.outputs.new_release_major_version }}'
+        shell: bash
+
+  deploy:
+    needs: release
+    runs-on: ubuntu-latest
+    timeout-minutes: 15
+    environment:
+      name: production
+      url: https://lawrencemcdaniel.com
+    env:
+      S3_BUCKET: reactjs.lawrencemcdaniel.com
+      CLOUDFRONT_DISTRIBUTION_ID: E2364TSMHRWAWL
+    steps:
+      # main as it is now, including the release commit that semantic-release
+      # may have just pushed, rather than the commit that started this run.
+      - uses: actions/checkout@v5
+        with:
+          ref: ${{ github.ref_name }}
+          persist-credentials: false
+
+      - name: Setup Node.js environment
+        uses: actions/setup-node@v6
+        with:
+          node-version: '24'
+          cache: 'yarn'
+
+      - name: Install dependencies
+        run: yarn install --frozen-lockfile
+
+      - name: Build (sitemap + Vite)
+        run: make site
+
+      - name: Configure AWS credentials
+        uses: aws-actions/configure-aws-credentials@v5
+        with:
+          aws-access-key-id: ${{ secrets.AWS_ACCESS_KEY_ID }}
+          aws-secret-access-key: ${{ secrets.AWS_SECRET_ACCESS_KEY }}
+          aws-region: us-east-1
+
+      # Everything in build/ except data/, with a one year cache lifetime:
+      # the js and css file names are content hashes. data/ isn't in the
+      # repository; `make update` (the Weekly Data Update) uploads it, with
+      # no-cache headers.
+      - name: Upload to S3
+        run: |
+          aws s3 sync ./build/ "s3://${S3_BUCKET}" \
+            --exclude 'data/*' \
+            --acl public-read \
+            --delete --cache-control max-age=31536000,public \
+            --expires '31 Dec 2050 00:00:01 GMT'
+
+      # The files whose names never change must never be cached, or browsers
+      # keep running the old site.
+      - name: Mark the unhashed files no-cache
+        run: |
+          no_cache() {
+            aws s3 cp "s3://${S3_BUCKET}/$1" "s3://${S3_BUCKET}/$1" \
+              --metadata-directive REPLACE \
+              --cache-control max-age=0,no-cache,no-store,must-revalidate \
+              --content-type "$2" --acl public-read
+          }
+          no_cache service-worker.js application/javascript
+          no_cache index.html text/html
+          no_cache sitemap.xml text/xml
+          no_cache manifest.json text/json
+
+      - name: Invalidate the CloudFront cache
+        run: |
+          aws cloudfront create-invalidation --distribution-id "${CLOUDFRONT_DISTRIBUTION_ID}" \
+            --paths "/*" "/index.html" "/sitemap.xml" "/manifest.json" "/service-worker.js"

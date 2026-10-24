@@ -1,7 +1,9 @@
 ---
 #---------------------------------------------------------
-# - Create a semantical release
-# - Merge main into next, alpha, beta, and next-major
+# - Merge main into next
+#
+# The release itself (semantic-release) runs in deploy.yml,
+# between the tests and the deploy.
 #---------------------------------------------------------
 name: Push to main
 
@@ -27,36 +29,3 @@ jobs:
           github-token: ${{ env.GITHUB_TOKEN }}
           source-branch: main
           target-branch: next
-
-  semantic-release:
-    needs: merge-main-to-dev-branches
-    runs-on: ubuntu-latest
-    env:
-      GITHUB_TOKEN: ${{ secrets.PAT }}
-
-    steps:
-      - uses: actions/checkout@v5
-        id: checkout
-        with:
-          persist-credentials: false
-
-      - name: Semantic Release
-        uses: cycjimmy/semantic-release-action@v5
-        id: semantic
-        env:
-          GIT_COMMITTER_NAME: github-actions[bot]
-          GIT_COMMITTER_EMAIL: github-actions[bot]@users.noreply.github.com
-          GIT_AUTHOR_NAME: github-actions[bot]
-          GIT_AUTHOR_EMAIL: github-actions[bot]@users.noreply.github.com
-
-      - name: Publish To GitHub Package Registry
-        id: publish
-        if: steps.semantic.outputs.new_release_published == 'true'
-        run: echo "new release was published"
-        shell: bash
-
-      - name: Push updates to branch for major version
-        id: push_major
-        if: steps.semantic.outputs.new_release_published == 'true'
-        run: 'git push https://x-access-token:${{ env.GITHUB_TOKEN }}@github.com/${GITHUB_REPOSITORY}.git HEAD:refs/heads/v${{steps.semantic.outputs.new_release_major_version}}'
-        shell: bash
