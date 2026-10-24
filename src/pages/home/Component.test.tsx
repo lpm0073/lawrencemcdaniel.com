@@ -8,6 +8,19 @@ import { renderWithProviders } from '../../../test/render'
 import { APP_CONFIG } from '../../shared/constants'
 import Home from './Component'
 
+// the logo cube's data must finish loading before the test ends: a response that
+// arrives after jsdom is torn down makes RTK's batching timer call a missing
+// cancelAnimationFrame, which fails the run.
+async function renderHome() {
+  const utils = renderWithProviders(<Home />)
+  await vi.waitFor(() => {
+    const queries = Object.values(utils.store.getState().api.queries)
+    expect(queries.length).toBeGreaterThan(0)
+    expect(queries.every((query) => query?.status === 'fulfilled')).toBe(true)
+  })
+  return utils
+}
+
 describe('Home', () => {
   beforeEach(() => {
     // the logo cube loads the specialties' logos.
@@ -17,8 +30,8 @@ describe('Home', () => {
     return () => vi.useRealTimers()
   })
 
-  it('introduces Lawrence McDaniel', () => {
-    renderWithProviders(<Home />)
+  it('introduces Lawrence McDaniel', async () => {
+    await renderHome()
 
     expect(screen.getByRole('main')).toBeInTheDocument()
     expect(
@@ -30,8 +43,8 @@ describe('Home', () => {
     expect(screen.getByRole('region', { name: 'Logo Cube' })).toBeInTheDocument()
   })
 
-  it('offers contact and the Smarter Project', () => {
-    renderWithProviders(<Home />)
+  it('offers contact and the Smarter Project', async () => {
+    await renderHome()
 
     expect(screen.getByRole('link', { name: 'Work with me' })).toHaveAttribute(
       'href',
@@ -56,8 +69,8 @@ describe('Home', () => {
     ['Code Samples', 'https://github.com/fullStackWithLawrence/', '_blank'],
     ['Photographer', 'https://photography.lawrencemcdaniel.com/', '_blank'],
     ['Blogger', APP_CONFIG.urls.blog, '_blank'],
-  ])('links the %s job title', (name, href, target) => {
-    renderWithProviders(<Home />)
+  ])('links the %s job title', async (name, href, target) => {
+    await renderHome()
 
     expect(
       screen.getByRole('heading', { level: 2, name: new RegExp(name) })
@@ -70,7 +83,7 @@ describe('Home', () => {
 
   it('has a canonical link and JSON-LD for Lawrence McDaniel', async () => {
     vi.useRealTimers()
-    renderWithProviders(<Home />)
+    await renderHome()
 
     const graph = await waitForCanonical(APP_CONFIG.urls.site)
     expect(graph).toEqual(
