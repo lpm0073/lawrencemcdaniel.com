@@ -270,7 +270,8 @@ describe('queryErrorMessage', () => {
     const { result } = await query((store) =>
       store.dispatch(siteApi.endpoints.getRepositories.initiate())
     )
-    expect(queryErrorMessage(result.error)).toMatch(/Failed to fetch/)
+    // browsers say "Failed to fetch", Node's fetch says "fetch failed".
+    expect(queryErrorMessage(result.error)).toMatch(/fetch/i)
   })
 })
 
