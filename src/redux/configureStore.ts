@@ -1,6 +1,8 @@
 import { configureStore, type ThunkAction, type UnknownAction } from '@reduxjs/toolkit'
 import { combineReducers } from 'redux'
-import logger from 'redux-logger'
+// redux-logger is a CommonJS bundle. Vite's dev server imports its default export
+// as the whole module object, so import the named createLogger instead.
+import { createLogger } from 'redux-logger'
 
 import { AboutPageRedux } from './aboutPage'
 import { ArticlesRedux } from './articles'
@@ -42,7 +44,7 @@ export const ConfigureStore = (preloadedState?: Partial<RootState>) =>
     preloadedState,
     middleware: (getDefaultMiddleware) =>
       import.meta.env.DEV && import.meta.env.MODE !== 'test'
-        ? getDefaultMiddleware().concat(logger)
+        ? getDefaultMiddleware().concat(createLogger())
         : getDefaultMiddleware(),
   })
 

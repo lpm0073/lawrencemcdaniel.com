@@ -18,7 +18,7 @@ import SiteRoutes from './components/Routes'
 import Head from './components/Head'
 import { Header } from './components/header/Component'
 import Footer from './components/footer/Component'
-import { setCookie } from './components/cookieSetter'
+import { secureExistingCookies } from './components/cookieSetter'
 
 // UI stuff for service worker notifications
 import AppUpdateAlert from './components/appUpdate/Component'
@@ -142,10 +142,7 @@ class App extends Component<AppProps, AppState> {
     })
 
     // Ensure all cookies have the SameSite and Secure attributes
-    document.cookie.split(';').forEach((cookie) => {
-      const [name, value] = cookie.split('=')
-      setCookie(name.trim(), value ?? '', { sameSite: 'None', secure: true })
-    })
+    secureExistingCookies()
 
     // Note: I relocated this snippet from index.js
     // in order to add Workbox's two event handlers

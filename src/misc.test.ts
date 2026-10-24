@@ -1,7 +1,7 @@
 import Cookies from 'js-cookie'
 import { describe, expect, it, vi } from 'vitest'
 
-import { getCookie, setCookie } from './components/cookieSetter'
+import { getCookie, secureExistingCookies, setCookie } from './components/cookieSetter'
 import reportWebVitals from './reportWebVitals'
 import { getInitialLogos } from './shared/getInitialLogos'
 import { getPixelRatio } from './shared/getPixelRatio'
@@ -29,6 +29,20 @@ describe('cookieSetter', () => {
       secure: true,
       expires: 7,
     })
+  })
+
+  it('re-sets existing cookies without changing them, however many times it runs', () => {
+    document.cookie = 'messages="[[\\"__json_message\\",0,25]]"; path=/'
+    document.cookie = 'token=YWJjZA==; path=/'
+    document.cookie = 'flag; path=/'
+    const before = document.cookie
+    const set = vi.spyOn(document, 'cookie', 'set')
+
+    for (let load = 0; load < 5; load++) secureExistingCookies()
+
+    expect(document.cookie).toBe(before)
+    expect(set).toHaveBeenCalledWith('token=YWJjZA==; path=/; SameSite=None; Secure')
+    expect(set).not.toHaveBeenCalledWith(expect.stringContaining('flag'))
   })
 
   it('reads a cookie', () => {

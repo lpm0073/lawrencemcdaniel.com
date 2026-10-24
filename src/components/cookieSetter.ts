@@ -46,3 +46,26 @@ export function setCookie(
 export function getCookie(name: string): string | undefined {
   return Cookies.get(name)
 }
+
+/**
+ * Re-set every cookie that the page can see with SameSite=None and Secure,
+ * keeping its value exactly as the browser stores it.
+ *
+ * It writes document.cookie directly, rather than through setCookie(): the
+ * values in document.cookie are already encoded, and js-cookie would encode
+ * them again (each % becoming %25), so every page load made them longer,
+ * until the requests' Cookie header was too large for the server (HTTP 431).
+ * A value is everything after the first =, because values (base64, for
+ * example) may contain = themselves. Nameless cookies are left alone.
+ */
+export function secureExistingCookies(): void {
+  for (const pair of document.cookie.split(';')) {
+    // a pair without = is a nameless cookie, whose name can't be written back.
+    const separator = pair.indexOf('=')
+    if (separator === -1) continue
+    const name = pair.slice(0, separator).trim()
+    if (!name) continue
+    const value = pair.slice(separator + 1)
+    document.cookie = `${name}=${value}; path=/; SameSite=None; Secure`
+  }
+}

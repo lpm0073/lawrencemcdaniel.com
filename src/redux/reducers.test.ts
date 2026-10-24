@@ -1,8 +1,8 @@
-import { describe, expect, it } from 'vitest'
+import { describe, expect, it, vi } from 'vitest'
 
 import { makePost } from '../../test/fixtures'
 import * as ActionTypes from './ActionTypes'
-import { rootReducer } from './configureStore'
+import { ConfigureStore, rootReducer } from './configureStore'
 import { SpecialtiesRedux } from './specialties'
 import { VideosRedux } from './videos'
 
@@ -118,5 +118,31 @@ describe('every fetch reducer', () => {
 
     state = rootReducer(state, { type: `${name}_LOADING` })
     expect(state[slice]).toMatchObject({ isLoading: true, errMess: null, [field]: [] })
+  })
+})
+
+describe('ConfigureStore', () => {
+  it('logs every action in development', () => {
+    vi.stubEnv('DEV', true)
+    vi.stubEnv('MODE', 'development')
+    const log = vi.spyOn(console, 'log').mockImplementation(() => {})
+    const group = vi.spyOn(console, 'group').mockImplementation(() => {})
+    vi.spyOn(console, 'groupCollapsed').mockImplementation(() => {})
+    vi.spyOn(console, 'groupEnd').mockImplementation(() => {})
+
+    const store = ConfigureStore()
+    store.dispatch({ type: ActionTypes.SET_HOMEPAGE_STATE })
+
+    expect(store.getState().homePage.isSet).toBe(true)
+    expect([...log.mock.calls, ...group.mock.calls].flat().join(' ')).toContain(
+      ActionTypes.SET_HOMEPAGE_STATE
+    )
+    vi.unstubAllEnvs()
+  })
+
+  it("doesn't log in tests", () => {
+    const log = vi.spyOn(console, 'log').mockImplementation(() => {})
+    ConfigureStore().dispatch({ type: ActionTypes.SET_HOMEPAGE_STATE })
+    expect(log).not.toHaveBeenCalled()
   })
 })
