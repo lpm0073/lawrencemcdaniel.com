@@ -1,0 +1,32 @@
+{
+  "compilerOptions": {
+    "tsBuildInfoFile": "./node_modules/.tmp/tsconfig.app.tsbuildinfo",
+    "target": "es2023",
+    "lib": ["ES2023", "DOM", "DOM.Iterable"],
+    "module": "esnext",
+    "types": ["vite/client"],
+    "skipLibCheck": true,
+    "moduleResolution": "bundler",
+    "allowImportingTsExtensions": true,
+    "resolveJsonModule": true,
+    "verbatimModuleSyntax": true,
+    "moduleDetection": "force",
+    "noEmit": true,
+    "jsx": "react-jsx",
+    "strict": true,
+    "noUnusedLocals": true,
+    "noUnusedParameters": true,
+    "noFallthroughCasesInSwitch": true
+  },
+  "include": ["src", "test"],
+  "exclude": [
+    "src/service-worker.ts",
+    "src/components/sitemap/generator.ts",
+    "src/shared/dotenv.ts",
+    "src/shared/updateVersion.ts",
+    "src/shared/fetchers/blogPostFetcher.ts",
+    "src/shared/fetchers/githubRepoFetcher.ts",
+    "src/shared/fetchers/youtubeFetcher.ts",
+    "src/**/*.node.test.ts"
+  ]
+}

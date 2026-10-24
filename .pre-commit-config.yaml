@@ -2,30 +2,27 @@ default_language_version:
   node: 23.3.0
 
 repos:
-  - repo: https://github.com/pre-commit/mirrors-eslint
-    rev: v10.12.0
-    hooks:
-      - id: eslint
-        args: ['--ext', '.js,.jsx,.ts,.tsx']
   - repo: https://github.com/codespell-project/codespell
     rev: v2.4.3
     hooks:
       - id: codespell
         args: ['--ignore-words=codespell.txt', '--skip=yarn.lock']
         exclude: '\.svg$'
+  # The project's own Prettier and ESLint (and their configuration in package.json and
+  # eslint.config.js), so that the hooks and `yarn format` / `yarn lint` always agree.
+  # They need node_modules: run `yarn install` first.
   - repo: local
     hooks:
+      - id: prettier
+        name: prettier
+        entry: npx --no-install prettier --write --ignore-unknown
+        language: system
+        exclude: ^(public/sitemap\.xml|CHANGELOG\.md)$
       - id: eslint
         name: eslint
-        entry: bash -c 'cd client && npx eslint'
-        language: node
-        types: [javascript]
-        files: ^client/
-  - repo: https://github.com/pre-commit/mirrors-prettier
-    rev: v4.0.0-alpha.8
-    hooks:
-      - id: prettier
-        args: ['--write', '.']
+        entry: npx --no-install eslint --max-warnings=0 --no-warn-ignored
+        language: system
+        files: \.(ts|tsx|js|cjs)$
   - repo: https://github.com/pre-commit/pre-commit-hooks
     rev: v6.0.0
     hooks:
@@ -61,5 +58,5 @@ ci:
   autoupdate_branch: ''
   autoupdate_commit_msg: '[pre-commit.ci] pre-commit autoupdate'
   autoupdate_schedule: weekly
-  skip: [shellcheck, markdown-link-check, commitlint]
+  skip: [shellcheck, markdown-link-check, commitlint, prettier, eslint]
   submodules: false

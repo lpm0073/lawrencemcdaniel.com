@@ -1,0 +1,63 @@
+---
+#------------------------------------------------------------------------------
+# Lawrence McDaniel - https://lawrencemcdaniel.com
+# Test Workflow
+#
+# Checks formatting (Prettier), lint (ESLint), types (TypeScript), the unit
+# tests (Vitest, with coverage, uploaded to Codecov) and the production build
+# (Vite). Runs on pull requests, by hand, and as the first stage of
+# deploy.yml on every merge to main. Nothing is deployed here: `yarn build`
+# only writes build/.
+#------------------------------------------------------------------------------
+name: Test
+
+on:
+  workflow_dispatch:
+  pull_request:
+  workflow_call:
+    secrets:
+      CODECOV_TOKEN:
+        required: false
+
+jobs:
+  test:
+    runs-on: ubuntu-latest
+    timeout-minutes: 20
+    steps:
+      - name: Checkout code
+        uses: actions/checkout@v5
+        with:
+          persist-credentials: false
+
+      - name: Setup Node.js environment
+        uses: actions/setup-node@v6
+        with:
+          node-version: '24'
+          cache: 'yarn'
+
+      - name: Install dependencies
+        run: yarn install --frozen-lockfile
+
+      - name: Formatting (Prettier)
+        run: yarn format:check
+
+      - name: Lint (ESLint)
+        run: yarn lint
+
+      - name: Types (TypeScript)
+        run: yarn typecheck
+
+      - name: Unit tests (Vitest), with coverage
+        run: yarn coverage
+
+      # Coverage is reported, not enforced, so a Codecov outage (or a missing
+      # CODECOV_TOKEN secret) never blocks a deploy.
+      - name: Upload coverage to Codecov
+        uses: codecov/codecov-action@v7
+        with:
+          files: ./coverage/lcov.info
+          fail_ci_if_error: false
+          token: ${{ secrets.CODECOV_TOKEN }}
+
+      - name: Build (Vite)
+        run: yarn build
