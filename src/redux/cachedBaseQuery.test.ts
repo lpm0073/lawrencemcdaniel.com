@@ -80,10 +80,19 @@ describe('cachedBaseQuery', () => {
     await vi.waitFor(async () => expect(await cachedNames()).toEqual(['cached']))
 
     // a server that never answers.
-    server.use(http.get(GITHUB, () => new Promise<never>(() => {})))
+    const slow = { received: false }
+    server.use(
+      http.get(GITHUB, () => {
+        slow.received = true
+        return new Promise<never>(() => {})
+      })
+    )
     reload()
 
     expect(names(await visit())).toEqual(['cached'])
+    // the background refresh must reach the slow server before the test ends, or
+    // MSW answers it with the next test's handlers.
+    await vi.waitFor(() => expect(slow.received).toBe(true))
   })
 
   it('refreshes a url only once per page load', async () => {

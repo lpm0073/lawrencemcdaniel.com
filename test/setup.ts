@@ -100,7 +100,7 @@ if (isBrowser) {
   Object.defineProperty(globalThis, 'caches', { value: memoryCaches, configurable: true })
 }
 
-beforeAll(() => server.listen({ onUnhandledRequest: 'error' }))
+beforeAll(() => server.listen({ onUnhandledFrame: 'error' }))
 afterEach(() => {
   cleanup()
   server.resetHandlers()
