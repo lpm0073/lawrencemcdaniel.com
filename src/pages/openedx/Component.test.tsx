@@ -81,7 +81,8 @@ describe('Openedx', () => {
       ])
     )
     expect(metaContent('og:url')).toBe(OPENEDX_URL)
-    expect(metaContent('og:site_name')).toBe('Lawrence McDaniel')
+    expect(metaContent('description')).toMatch(/^Lawrence McDaniel - Open edX consultant/)
+    expect(metaContent('og:description')).toBe(metaContent('description'))
     expect(metaContent('keywords')).toMatch(/^Lawrence McDaniel, open edx/)
     await waitFor(() =>
       expect(JSON.stringify(jsonLdGraph())).toContain('Review by John Roe')
@@ -96,7 +97,7 @@ describe('Openedx', () => {
         expect.objectContaining({ '@type': 'VideoObject' }),
         expect.objectContaining({
           '@type': 'WebPage',
-          url: 'https://lawrencemcdaniel.com/openedx/',
+          url: 'https://lawrencemcdaniel.com/openedx',
         }),
       ])
     )

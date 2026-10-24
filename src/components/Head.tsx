@@ -18,7 +18,8 @@ export default function Head() {
         {/* Generic meta tags */}
         <meta charSet="utf-8" />
         <meta name="author" content={nameLawrenceMcDaniel} />
-        <link rel="canonical" href={APP_CONFIG.urls.site + '/'} />
+        {/* no default canonical link: each page names its own (PageMeta.tsx), and the
+            404 page has none, rather than one that says it is the home page. */}
         <meta name="description" content={defaultPageDescription()} />
         <meta name="keywords" content={defaultKeywords()} />
 
@@ -64,14 +65,23 @@ export default function Head() {
         <meta property="og:description" content={defaultPageDescription()} />
         <meta property="og:locale" content="en_US" />
         <meta property="og:title" content={basePageTitle} />
-        <meta property="og:image" content={APP_CONFIG.static.images.default} />
+        <meta property="og:image" content={APP_CONFIG.static.images.share.default.url} />
         <meta property="og:author" content={nameLawrenceMcDaniel} />
         <meta property="og:type" content="website" />
         <meta property="og:url" content={APP_CONFIG.urls.site} />
         <meta property="og:site_name" content={basePageTitle} />
-        <meta property="og:image:alt" content="Lawrence McDaniel Banner" />
-        <meta property="og:image:width" content="1849" />
-        <meta property="og:image:height" content="1848" />
+        <meta
+          property="og:image:alt"
+          content={APP_CONFIG.static.images.share.default.alt}
+        />
+        <meta
+          property="og:image:width"
+          content={String(APP_CONFIG.static.images.share.default.width)}
+        />
+        <meta
+          property="og:image:height"
+          content={String(APP_CONFIG.static.images.share.default.height)}
+        />
 
         {/* Twitter Card Meta Tags */}
         <meta name="twitter:creator" content="@LorenzoDPolanco" />
@@ -79,12 +89,12 @@ export default function Head() {
         <meta name="twitter:card" content="summary_large_image" />
         <meta name="twitter:domain" content="lawrencemcdaniel.com" />
         <meta name="twitter:title" content={basePageTitle} />
-        <meta
-          name="twitter:image"
-          content={APP_CONFIG.urls.cdn + '/lawrencemcdaniel-headshot-square.jpeg'}
-        />
+        <meta name="twitter:image" content={APP_CONFIG.static.images.share.default.url} />
         <meta name="twitter:description" content={defaultPageDescription()} />
-        <meta name="twitter:image:alt" content="Lawrence McDaniel headshot" />
+        <meta
+          name="twitter:image:alt"
+          content={APP_CONFIG.static.images.share.default.alt}
+        />
         <meta
           itemProp="image"
           content={APP_CONFIG.urls.cdn + '/lawrencemcdaniel-headshot-square.jpeg'}

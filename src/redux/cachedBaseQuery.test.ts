@@ -5,7 +5,7 @@ import { makeRepository } from '../../test/fixtures'
 import { server } from '../../test/server'
 import { APP_CONFIG } from '../shared/constants'
 import { queryErrorMessage, siteApi } from './api'
-import { resetRefreshed } from './cachedBaseQuery'
+import { resetRefreshed, setDataOrigin } from './cachedBaseQuery'
 import { ConfigureStore } from './configureStore'
 
 const GITHUB = '*/data/github.json'
@@ -145,6 +145,23 @@ describe('cachedBaseQuery', () => {
     serveRepositories('fresh')
 
     expect(names(await visit())).toEqual(['fresh'])
+  })
+
+  it('fetches relative urls from the data origin, when one is set', async () => {
+    const urls: string[] = []
+    server.use(
+      http.get(GITHUB, ({ request }) => {
+        urls.push(request.url)
+        return HttpResponse.json([makeRepository({ name: 'from the origin' })])
+      })
+    )
+    setDataOrigin('https://example.test')
+    try {
+      expect(names(await visit())).toEqual(['from the origin'])
+      expect(urls).toEqual(['https://example.test/data/github.json'])
+    } finally {
+      setDataOrigin('')
+    }
   })
 
   it('works without the Cache API', async () => {

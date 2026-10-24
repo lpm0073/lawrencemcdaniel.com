@@ -5,6 +5,7 @@ import RenderPageTitle from '../../components/pagetitle/pageTitleComponent'
 import { LinkedinBadge } from '../../components/linkedinBadge/Component'
 import BlankSpace from '../../components/blankSpace/Component'
 import { Helmet } from 'react-helmet'
+import PageMeta from '../../components/PageMeta'
 import { gsdGraph } from '../../shared/seo/gsdGraph'
 import { gsdPersonLawrenceMcDaniel } from '../../shared/seo/gsdPersonLawrence'
 import { gsdSkillSchemaList } from '../../shared/seo/gsdSkills'
@@ -18,7 +19,7 @@ const ReactPage = () => {
   const specialties = useSpecialties().data.items
 
   /* Google Structured Data */
-  const slug = 'reactjs'
+  const slug = APP_CONFIG.skills.react
   const webpageName = 'ReactJS'
   const webpageDescription = ''
   const primaryImageUrl =
@@ -37,19 +38,11 @@ const ReactPage = () => {
 
   return (
     <React.Fragment>
+      <PageMeta
+        path={'/' + APP_CONFIG.skills.react}
+        description="Full Stack Web Developer with extensive experience using ReactJS and Redux. Follow links to the GitHub repository for this site."
+      />
       <Helmet>
-        <link
-          rel="canonical"
-          href={APP_CONFIG.urls.site + '/' + APP_CONFIG.skills.react}
-        />
-        <meta
-          name="description"
-          content="Full Stack Web Developer with extensive experience using ReactJS and Redux. Follow links to the GitHub repository for this site."
-        />
-        <meta
-          property="og:description"
-          content="Full Stack Web Developer with extensive experience using ReactJS and Redux. Follow links to the GitHub repository for this site."
-        />
         <script type="application/ld+json">
           {JSON.stringify(
             gsdGraph(

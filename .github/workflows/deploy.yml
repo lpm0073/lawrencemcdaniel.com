@@ -9,8 +9,9 @@
 #   2. release  semantic-release: a GitHub release and CHANGELOG.md from the
 #               conventional-commit messages, when there is something to
 #               release (see release.config.cjs). Then the vN branch.
-#   3. deploy   builds the site from main as released (`make site`), uploads
-#               it to the S3 bucket and invalidates the CloudFront CDN.
+#   3. deploy   builds the site from main as released (`make site`), which
+#               prerenders every page with the live data, uploads it to the
+#               S3 bucket and invalidates the CloudFront CDN.
 #
 # A failure at any stage stops the stages after it, so a change that fails
 # its tests never reaches production. Deploys never overlap. This is the only
@@ -97,7 +98,7 @@ jobs:
       - name: Install dependencies
         run: yarn install --frozen-lockfile
 
-      - name: Build (sitemap + Vite)
+      - name: Build (sitemap, Vite and the prerender)
         run: make site
 
       - name: Configure AWS credentials
@@ -107,20 +108,45 @@ jobs:
           aws-secret-access-key: ${{ secrets.AWS_SECRET_ACCESS_KEY }}
           aws-region: us-east-1
 
-      # Everything in build/ except data/, with a one year cache lifetime:
-      # the js and css file names are content hashes. data/ isn't in the
-      # repository; `make update` (the Weekly Data Update) uploads it, with
-      # no-cache headers.
+      # build/ holds a prerendered html file for every page (src/prerender/):
+      # build/index.html, and build/<path>/index.html for the others, e.g.
+      # build/smarter/index.html.
+      #
+      # 1. Everything except data/ and the html, with a one year cache lifetime:
+      #    the js and css file names are content hashes. data/ isn't in the
+      #    repository; `make update` (the Weekly Data Update) uploads it, with
+      #    no-cache headers. The pages' own keys (step 3) are excluded too, so
+      #    that --delete never removes them.
+      # 2. The html, never cached, or browsers keep showing the old site.
+      # 3. Every page again, at its path without /index.html, e.g. the key
+      #    "smarter": CloudFront asks S3 for the key /smarter, and gets the
+      #    page itself, with its own title, description and link preview,
+      #    instead of the error response that serves index.html.
       - name: Upload to S3
         run: |
+          NO_CACHE=max-age=0,no-cache,no-store,must-revalidate
+          pages=$(cd build && find . -name index.html ! -path ./index.html ! -path './data/*' \
+            | sed -e 's#^\./##' -e 's#/index\.html$##' | sort)
+          page_keys=()
+          for page in $pages; do page_keys+=(--exclude "$page"); done
+
           aws s3 sync ./build/ "s3://${S3_BUCKET}" \
-            --exclude 'data/*' \
+            --exclude 'data/*' --exclude '*.html' "${page_keys[@]}" \
             --acl public-read \
             --delete --cache-control max-age=31536000,public \
             --expires '31 Dec 2050 00:00:01 GMT'
 
-      # The files whose names never change must never be cached, or browsers
-      # keep running the old site.
+          aws s3 sync ./build/ "s3://${S3_BUCKET}" \
+            --exclude '*' --include '*.html' --exclude 'data/*' \
+            --acl public-read --delete \
+            --content-type text/html --cache-control "$NO_CACHE"
+
+          for page in $pages; do
+            aws s3 cp "build/${page}/index.html" "s3://${S3_BUCKET}/${page}" \
+              --acl public-read --content-type text/html --cache-control "$NO_CACHE"
+          done
+
+      # The other files whose names never change must never be cached either.
       - name: Mark the unhashed files no-cache
         run: |
           no_cache() {
@@ -130,7 +156,6 @@ jobs:
               --content-type "$2" --acl public-read
           }
           no_cache service-worker.js application/javascript
-          no_cache index.html text/html
           no_cache sitemap.xml text/xml
           no_cache manifest.json text/json
 

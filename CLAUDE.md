@@ -8,9 +8,11 @@ react-router 7, React Bootstrap, and a Workbox service worker (built by
 vite-plugin-pwa) that makes it a progressive web app. Most content comes from
 WordPress REST APIs (api.lawrencemcdaniel.com, blog.lawrencemcdaniel.com) and
 from JSON files in `public/data/` that the Node scripts in
-`src/shared/fetchers/` regenerate. The production build is hosted on AWS S3
-behind CloudFront, and every merge to `main` is tested and deployed by GitHub
-Actions.
+`src/shared/fetchers/` regenerate. The build prerenders every page to html
+with its data (`src/prerender/`), so that search engines and link previews,
+which don't run JavaScript, see each page's content and tags; the browser then
+hydrates it. The production build is hosted on AWS S3 behind CloudFront, and
+every merge to `main` is tested and deployed by GitHub Actions.
 
 The tooling follows the Smarter project's React workspace
 (smarter-sh/smarter, `smarter/react/`): Vite, TypeScript, Vitest with React
@@ -64,14 +66,18 @@ only what applies to nearly every task.
 | `src/components/`                    | Shared components; `Routes.tsx` holds every route and kicks off data loads |
 | `src/pages/<page>/`                  | One folder per page: `Component.tsx`, `styles.css`, `Component.test.tsx`   |
 | `src/redux/`                         | `api.ts` (RTK Query, every data source), `hooks.ts`, `uiSlice.ts`, store   |
+| `src/prerender/`                     | The build's last step: every page rendered to html, with its data          |
 | `src/schemas.ts`, `src/types.ts`     | zod schemas of the API's and `public/data/` records, and their types       |
 | `src/shared/constants.ts`            | `APP_CONFIG`: API urls, cache names, skill slugs, site urls                |
 | `src/shared/seo/`                    | Google Structured Data (JSON-LD) builders, `gsd*.ts`                       |
+| `src/components/PageMeta.tsx`        | A page's canonical link, description and link-preview tags                 |
 | `src/shared/fetchers/`               | `cachedFetch.ts` for the thunks; Node scripts that write `public/data/`    |
 | `src/components/sitemap/`            | `generator.ts`, which writes `public/sitemap.xml` (`yarn sitemap`)         |
 | `src/service-worker.ts`              | Workbox precaching and runtime caching routes                              |
 | `test/`                              | Vitest setup, MSW server and handlers, fixtures, render helpers            |
 | `vite.config.ts`, `vitest.config.ts` | Build (output in `build/`, assets in `build/static/`) and test config      |
+| `vite.prerender.config.ts`           | The prerender's bundle, for Node, in `build-ssr/`                          |
+| `cloudfront/`                        | The CloudFront Function (redirects) and the distribution's one-time setup  |
 | `tsconfig.{app,sw,node}.json`        | Browser code, the service worker, and code that Node runs                  |
 | `skills/`                            | Agent Skills for developing this repository                                |
 | `.github/workflows/`                 | `test.yml` (PRs), `deploy.yml` (main), weekly data update, version bumps   |
@@ -85,8 +91,9 @@ yarn coverage        # Vitest with coverage, report in coverage/
 yarn lint            # ESLint (eslint.config.js)
 yarn typecheck       # tsc -b, all three tsconfig projects
 yarn format          # Prettier
-yarn build           # typecheck, then production build into build/ (no upload)
-yarn preview         # serve build/, with the service worker (background only)
+yarn build           # typecheck, production build into build/, then prerender every
+                     # page (fetches the live data; no upload)
+yarn preview         # serve build/ as CloudFront does, with the service worker (background only)
 yarn sitemap         # regenerate public/sitemap.xml
 make test            # everything CI checks
 ```

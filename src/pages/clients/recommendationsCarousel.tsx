@@ -2,10 +2,11 @@ import { Component } from 'react'
 import BlankSpace from '../../components/blankSpace/Component'
 import Carousel from '../../components/carousel'
 import 'react-multi-carousel/lib/styles.css'
-import Moment from 'moment'
 import { wpGetFeaturedImage } from '../../shared/wpGetFeaturedImage'
 import { shuffleArray } from '../../shared/shuffle'
 import type { WPPost } from '../../types'
+import { paragraphHtml } from '../../shared/htmlFragments'
+import { monthYear } from '../../shared/monthYear'
 
 const responsive = {
   superLargeDesktop: {
@@ -30,9 +31,34 @@ interface RecommendationsCarouselProps {
   recommendations: WPPost[]
 }
 
-class RecommendationsCarousel extends Component<RecommendationsCarouselProps> {
+interface RecommendationsCarouselState {
+  /** the recommendations, shuffled once mounted; in their own order until then. */
+  shuffled: WPPost[] | null
+}
+
+/**
+ * The recommendations in a random order, shuffled after the first render, so
+ * that it matches the page's prerendered html (src/prerender/), and shuffled
+ * again only when the recommendations change.
+ */
+class RecommendationsCarousel extends Component<
+  RecommendationsCarouselProps,
+  RecommendationsCarouselState
+> {
+  state: RecommendationsCarouselState = { shuffled: null }
+
+  componentDidMount() {
+    this.setState({ shuffled: shuffleArray(this.props.recommendations) })
+  }
+
+  componentDidUpdate(prevProps: RecommendationsCarouselProps) {
+    if (prevProps.recommendations !== this.props.recommendations) {
+      this.setState({ shuffled: shuffleArray(this.props.recommendations) })
+    }
+  }
+
   render() {
-    const recommendationsList = shuffleArray(this.props.recommendations)
+    const recommendationsList = this.state.shuffled ?? this.props.recommendations
 
     return (
       <section
@@ -41,7 +67,12 @@ class RecommendationsCarousel extends Component<RecommendationsCarouselProps> {
         aria-label="Recommendations Carousel"
       >
         <div id="recommendation-carousel" className="mt-5 ml-4 mr-4 ">
+          {/* ssr: render the slides before the carousel has measured itself, so that
+              the recommendations are in the page's prerendered html (src/prerender/).
+              One slide at every width, so the device type changes nothing. */}
           <Carousel
+            ssr
+            deviceType="desktop"
             responsive={responsive}
             additionalTransfrom={0}
             arrows
@@ -69,14 +100,9 @@ class RecommendationsCarousel extends Component<RecommendationsCarouselProps> {
             {recommendationsList.map((recommendation, indx) => {
               const rawContent = recommendation.content.rendered
 
-              const parser = new DOMParser()
-              const doc = parser.parseFromString(rawContent, 'text/html')
-
-              const title = doc.querySelector('.title')?.innerHTML ?? ''
-              const relationship = doc.querySelector('.relationship')?.innerHTML ?? ''
-              const description = doc.querySelector('.description')?.innerHTML ?? ''
-
-              Moment.locale('en')
+              const title = paragraphHtml(rawContent, 'title') ?? ''
+              const relationship = paragraphHtml(rawContent, 'relationship') ?? ''
+              const description = paragraphHtml(rawContent, 'description') ?? ''
 
               function unescapedString(str: string) {
                 return { __html: str }
@@ -112,7 +138,7 @@ class RecommendationsCarousel extends Component<RecommendationsCarouselProps> {
                         />
                         <div className="">
                           <span className="recommendation-date">
-                            {Moment(recommendation.date).format('MMM-YYYY')},
+                            {monthYear(recommendation.date)},
                             <BlankSpace />
                           </span>
                           <span

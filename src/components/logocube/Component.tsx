@@ -306,11 +306,13 @@ class LogoCube extends Component<LogoCubeProps, LogoCubeState> {
     /* place a random logo on a random side at a random point in time. */
     if (!this.props.isLoading) {
       const side = this.getRandomSide()
-      const logos =
+      // the front shows the featured logos. The other sides leave them to it, when
+      // there are enough others, so that the front always has one to show.
+      const { logos, featured_logos } = this.props.specialties
+      const logo =
         side === 'front'
-          ? this.props.specialties.featured_logos
-          : this.props.specialties.logos
-      const logo = this.getRandomLogo(logos)
+          ? this.getRandomLogo(featured_logos)
+          : this.getRandomLogo(logos, featured_logos)
       const elapsed = this.getElapsedTime(side)
       if (side != null && elapsed > 4000) {
         this.setBackgroundUrl(side, logo)
@@ -428,14 +430,15 @@ class LogoCube extends Component<LogoCubeProps, LogoCubeState> {
     }
   }
 
-  getRandomLogo(logos: LogoUrl[]): LogoUrl {
-    let logo: LogoUrl,
-      i = 0
-    do {
-      logo = logos[Math.floor(Math.random() * logos.length)]
-      i++
-    } while (this.isLogoCollision(logo) && i <= logos.length)
-    return logo
+  /**
+   * A random logo of logos that no side shows yet, preferring those that aren't
+   * in avoid; any logo when every one is showing (there are too few to go around).
+   */
+  getRandomLogo(logos: LogoUrl[], avoid: LogoUrl[] = []): LogoUrl {
+    const unused = logos.filter((logo) => !this.isLogoCollision(logo))
+    const preferred = unused.filter((logo) => !avoid.includes(logo))
+    const choices = preferred.length > 0 ? preferred : unused.length > 0 ? unused : logos
+    return choices[Math.floor(Math.random() * choices.length)]
   }
 
   getRandomSide(): CubeSideName | null {

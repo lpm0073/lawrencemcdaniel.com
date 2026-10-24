@@ -55,6 +55,14 @@ const webSite = (): JsonLd => {
 }
 
 const ensureTrailingSlash = (str: string): string => (str.endsWith('/') ? str : str + '/')
+
+/**
+ * The page's url, as its canonical link names it (src/components/PageMeta.tsx):
+ * without a trailing slash, except the home page's. The @ids keep theirs: they
+ * name nodes of the graph, and are not urls that anyone visits.
+ */
+const canonicalUrl = (slug: string): string =>
+  slug ? baseUrl + '/' + slug.replace(/\/+$/, '') : baseUrl + '/'
 const webPage = (
   pageType: string,
   slug: string,
@@ -68,7 +76,7 @@ const webPage = (
   const retVal: JsonLd = {
     '@type': pageTypes(pageType),
     '@id': baseUrlWithSlash + slugWithSlash + '#webpage',
-    url: baseUrlWithSlash + slugWithSlash,
+    url: canonicalUrl(slug),
     name: webpageName,
     isPartOf: {
       '@id': baseUrl + '/#website',
@@ -83,7 +91,7 @@ const webPage = (
     potentialAction: [
       {
         '@type': 'ReadAction',
-        target: [baseUrlWithSlash + slugWithSlash],
+        target: [canonicalUrl(slug)],
       },
     ],
   }
@@ -111,7 +119,7 @@ const listItem = (
   const item: JsonLd = {
     '@type': pageType,
     '@id': listItemUrl + '#breadcrumb',
-    url: listItemUrl,
+    url: canonicalUrl(slug),
     name: itemName,
   }
 

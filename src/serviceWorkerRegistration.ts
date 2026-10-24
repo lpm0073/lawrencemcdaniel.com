@@ -19,15 +19,18 @@ export interface ServiceWorkerConfig {
   onActivated?: (registration: ServiceWorkerRegistration) => void
 }
 
-const isLocalhost = Boolean(
-  window.location.hostname === 'localhost' ||
-    // [::1] is the IPv6 localhost address.
-    window.location.hostname === '[::1]' ||
-    // 127.0.0.0/8 are considered localhost for IPv4.
-    window.location.hostname.match(
-      /^127(?:\.(?:25[0-5]|2[0-4][0-9]|[01]?[0-9][0-9]?)){3}$/
-    )
-)
+/** Whether the page is served from this machine. A function, so that importing this
+ * module doesn't need a window (the build renders the app in Node, src/prerender/). */
+const isLocalhost = () =>
+  Boolean(
+    window.location.hostname === 'localhost' ||
+      // [::1] is the IPv6 localhost address.
+      window.location.hostname === '[::1]' ||
+      // 127.0.0.0/8 are considered localhost for IPv4.
+      window.location.hostname.match(
+        /^127(?:\.(?:25[0-5]|2[0-4][0-9]|[01]?[0-9][0-9]?)){3}$/
+      )
+  )
 
 export function register(config?: ServiceWorkerConfig) {
   if (import.meta.env.PROD && 'serviceWorker' in navigator) {
@@ -43,7 +46,7 @@ export function register(config?: ServiceWorkerConfig) {
     window.addEventListener('load', () => {
       const swUrl = `${import.meta.env.BASE_URL}service-worker.js`
 
-      if (isLocalhost) {
+      if (isLocalhost()) {
         // This is running on localhost. Let's check if a service worker still exists or not.
         checkValidServiceWorker(swUrl, config)
 

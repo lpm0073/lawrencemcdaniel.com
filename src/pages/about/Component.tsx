@@ -7,12 +7,11 @@ import RenderPageTitle from '../../components/pagetitle/pageTitleComponent'
 import { LinkedinBadge } from '../../components/linkedinBadge/Component'
 import AboutTile from './tileComponent'
 import { Helmet } from 'react-helmet'
+import PageMeta from '../../components/PageMeta'
 import { gsdGraph, type JsonLd } from '../../shared/seo/gsdGraph'
 import { gsdPersonLawrenceMcDaniel } from '../../shared/seo/gsdPersonLawrence'
 import { hasOccupation } from '../../shared/seo/gsdPersonLawrence'
 import { gsdQualifications } from '../../shared/seo/gsdQualifications'
-
-import { APP_CONFIG } from '../../shared/constants'
 
 import './styles.css'
 
@@ -53,9 +52,8 @@ export default function About() {
 
   return (
     <React.Fragment>
+      <PageMeta path="/about" />
       <Helmet>
-        <link rel="canonical" href={APP_CONFIG.urls.site + '/about'} />
-
         <script type="application/ld+json">
           {JSON.stringify(
             gsdGraph(

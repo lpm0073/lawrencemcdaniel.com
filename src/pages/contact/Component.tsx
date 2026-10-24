@@ -1,6 +1,7 @@
 import React, { Component } from 'react'
 
 import { Helmet } from 'react-helmet'
+import PageMeta from '../../components/PageMeta'
 import { Tab, Tabs, TabList, TabPanel } from 'react-tabs'
 import 'react-tabs/style/react-tabs.css'
 
@@ -29,9 +30,8 @@ class Contact extends Component {
 
     return (
       <React.Fragment>
+        <PageMeta path="/contact" description="Lawrence McDaniel - Contact Information" />
         <Helmet>
-          <link rel="canonical" href={APP_CONFIG.urls.site + '/contact'} />
-          <meta name="description" content="Lawrence McDaniel - Contact Information" />
           <script type="application/ld+json">
             {JSON.stringify(
               gsdGraph(

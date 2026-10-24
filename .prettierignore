@@ -1,4 +1,5 @@
 build
+build-ssr
 coverage
 dev-dist
 public/data

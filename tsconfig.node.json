@@ -25,12 +25,16 @@
   "include": [
     "vite.config.ts",
     "vitest.config.ts",
+    "vite.prerender.config.ts",
     "src/components/sitemap/generator.ts",
+    "src/prerender/prerender.ts",
+    "src/prerender/types.ts",
     "src/shared/dotenv.ts",
     "src/shared/updateVersion.ts",
     "src/shared/fetchers/blogPostFetcher.ts",
     "src/shared/fetchers/githubRepoFetcher.ts",
     "src/shared/fetchers/youtubeFetcher.ts",
-    "src/**/*.node.test.ts"
+    "src/**/*.node.test.ts",
+    "cloudfront/*.test.ts"
   ]
 }

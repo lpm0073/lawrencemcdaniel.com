@@ -3,10 +3,12 @@ import RenderPageTitle from '../../components/pagetitle/pageTitleComponent'
 import Loading from '../../components/Loading'
 import ProjectCarousel from './projectCarousel'
 import { Helmet } from 'react-helmet'
+import PageMeta from '../../components/PageMeta'
 import { gsdGraph } from '../../shared/seo/gsdGraph'
 import { gsdPersonLawrenceMcDaniel } from '../../shared/seo/gsdPersonLawrence'
-import { APP_CONFIG } from '../../shared/constants'
 import { useParams } from 'react-router-dom'
+import { decodeEntities, paragraphHtml } from '../../shared/htmlFragments'
+import { nameLawrenceMcDaniel } from '../../shared/seo/gsdCommon'
 import { usePortfolio } from '../../redux/hooks'
 import './styles.css'
 
@@ -21,8 +23,9 @@ function toJSON(str: string | null): PortfolioDetailJson | null {
     // the post has no <p>: reported and returned as null below, as is invalid JSON
     if (str === null) throw new TypeError('no <p> in the post content')
 
-    // remove curly quotes
-    str = str.replace(/[\u2018\u2019]/g, "'").replace(/[\u201C\u201D]/g, '"')
+    // remove curly quotes, and the primes that WordPress makes of a quote after a
+    // digit, e.g. "Python 3″
+    str = str.replace(/[\u2018\u2019\u2032]/g, "'").replace(/[\u201C\u201D\u2033]/g, '"')
 
     // replace <br> with actual carriage return
     str = str.replace(/<br\s*[/]?>/gi, '\n')
@@ -32,13 +35,6 @@ function toJSON(str: string | null): PortfolioDetailJson | null {
     return null
   }
 }
-function innerHTML(selector: Element | null) {
-  if (selector) {
-    return selector.innerHTML
-  }
-  return null
-}
-
 /**
  * The portfolio project whose slug is in the url (/portfolio/:portfolioId). Its
  * description and image urls are in the post's content.
@@ -49,8 +45,6 @@ const PortfolioDetail = () => {
   const post = portfolio.data.find((item) => item.slug === portfolioId)
 
   /* Google Structured Data */
-  const slug = 'portfolio'
-  const webpageName = 'Portfolio'
   const webpageDescription = "Lawrence McDaniel's portfolio."
   const primaryImageUrl = ''
   const pageType = ''
@@ -74,11 +68,8 @@ const PortfolioDetail = () => {
       </div>
     )
   } else if (post != null) {
-    const parser = new DOMParser()
-    const doc = parser.parseFromString(post.content.rendered, 'text/html')
-    const raw = innerHTML(doc.querySelector('p'))
-
-    const my_json = toJSON(raw)
+    const paragraph = paragraphHtml(post.content.rendered)
+    const my_json = toJSON(paragraph === null ? null : decodeEntities(paragraph))
     let description: string | null = null
     let urls: string[] = []
     if (my_json != null) {
@@ -86,17 +77,20 @@ const PortfolioDetail = () => {
       urls = my_json.images
     }
 
+    const projectTitle = decodeEntities(post.title.rendered)
+    const titleText = nameLawrenceMcDaniel + ' - ' + projectTitle
+    const pageDescription = description ?? webpageDescription
+
     return (
       <React.Fragment>
+        <PageMeta path={'/portfolio/' + post.slug} description={pageDescription} />
         <Helmet>
-          <link rel="canonical" href={APP_CONFIG.urls.site + '/portfolio/'} />
-          <meta name="description" content="Lawrence McDaniel - Portfolio" />
           <script type="application/ld+json">
             {JSON.stringify(
               gsdGraph(
-                slug,
-                webpageName,
-                webpageDescription,
+                'portfolio/' + post.slug,
+                projectTitle,
+                pageDescription,
                 primaryImageUrl,
                 pageType,
                 relatedLink,
@@ -112,8 +106,15 @@ const PortfolioDetail = () => {
             title="PROJECT"
             boxed_title="Detail"
           />
+          {/* after RenderPageTitle, whose title is the same for every project, so that this one wins */}
+          <Helmet>
+            <title>{titleText}</title>
+            <meta property="og:title" content={titleText} />
+            <meta name="twitter:title" content={titleText} />
+          </Helmet>
           <div className="row">
             <div className="col">
+              <h2 className="project-title">{projectTitle}</h2>
               {description}
               <hr />
               <ProjectCarousel images={urls} />

@@ -1,3 +1,15 @@
+# [1.6.0](https://github.com/lpm0073/lawrencemcdaniel.com/compare/v1.5.8...v1.6.0) (2026-10-24)
+
+
+### Bug Fixes
+
+* dev store crash, growing cookies and cors-blocked prefetches ([f55e302](https://github.com/lpm0073/lawrencemcdaniel.com/commit/f55e302e1ab9fcb1b56392edcbb425ca703b275a))
+
+
+### Features
+
+* **smarter:** add a page about building the smarter project ([fefaf66](https://github.com/lpm0073/lawrencemcdaniel.com/commit/fefaf6678294f1930f03439032293aa6ec8a91ca))
+
 ## [1.5.8](https://github.com/lpm0073/lawrencemcdaniel.com/compare/v1.5.7...v1.5.8) (2026-07-23)
 
 

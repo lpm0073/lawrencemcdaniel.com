@@ -6,13 +6,13 @@ import { Content } from '../../components/content/Component'
 import ClientGrid from '../../components/clientGrid/Component'
 import BlankSpace from '../../components/blankSpace/Component'
 import { Helmet } from 'react-helmet'
+import PageMeta from '../../components/PageMeta'
 import { gsdServiceOpenedX } from '../../shared/seo/gsdServiceOpenedx'
 import { gsdHowToInstallOpenEdx } from '../../shared/seo/gsdHowToInstall'
 import { gsdHowToScaleOpenEdx } from '../../shared/seo/gsdHowToScale'
 import { gsdFAQ } from '../../shared/seo/gsdFAQ'
 import { gsdGraph } from '../../shared/seo/gsdGraph'
 import { gsdVideoObjectList_Openedx } from '../../shared/seo/gsdVideoObject'
-import { nameLawrenceMcDaniel } from '../../shared/seo/gsdCommon'
 import { gsdArticle } from '../../shared/seo/gsdArticle'
 import { gsdPersonLawrenceMcDaniel } from '../../shared/seo/gsdPersonLawrence'
 import { hasOccupation } from '../../shared/seo/gsdPersonLawrence'
@@ -20,8 +20,6 @@ import { APP_CONFIG } from '../../shared/constants'
 import './styles.css'
 
 import Accordion from 'react-bootstrap/Accordion'
-
-const urlOpenedX = APP_CONFIG.urls.site + '/' + APP_CONFIG.skills.openEdx
 
 const Openedx = () => {
   /* Google Structured Data */
@@ -50,29 +48,17 @@ const Openedx = () => {
 
   return (
     <div>
+      <PageMeta
+        path={'/' + APP_CONFIG.skills.openEdx}
+        description="Lawrence McDaniel - Open edX consultant. Free initial consultation. Turnkey installation, configuration, theming, customization, systems integration, LTI integration, custom oAuth, and support of the Open edX® Learning Management System."
+      />
       <Helmet>
         <title>Open edX Consultant</title>
-        <link rel="canonical" href={urlOpenedX} />
 
-        <meta
-          name="description"
-          content="Lawrence McDaniel - Open edX consultant. Free initial consultation. Turnkey installation, configuration, theming, customization, systems integration, LTI integration, custom oAuth, and support of the Open edX® Learning Management System."
-        />
         <meta
           name="keywords"
           content="Lawrence McDaniel, open edx, open edx consulting, open edx service providers, open edx installation, open edx configuration, open edx customization, open edx training, open edx support, open edx documentation, consultations, free quotations, free consultations, lti integration. oauth, SAML"
         />
-
-        <meta
-          property="og:description"
-          content="Free initial consultation. Turnkey installation, configuration, theming, customization, systems integration, LTI integration, custom oAuth, and support of the Open edX® Learning Management System."
-        />
-        <meta property="og:title" content={nameLawrenceMcDaniel} />
-        <meta property="og:site_name" content={nameLawrenceMcDaniel} />
-        <meta property="og:url" content={urlOpenedX} />
-
-        <meta name="twitter:title" content={nameLawrenceMcDaniel} />
-        <meta name="twitter:description" content={nameLawrenceMcDaniel} />
 
         <script type="application/ld+json">
           {JSON.stringify(

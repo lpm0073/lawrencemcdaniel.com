@@ -74,7 +74,7 @@ describe('CloudComputing', () => {
         expect.objectContaining({ '@type': 'VideoObject' }),
         expect.objectContaining({
           '@type': 'WebPage',
-          url: 'https://lawrencemcdaniel.com/cloud/',
+          url: 'https://lawrencemcdaniel.com/cloud',
           description: 'Cloud Computing',
         }),
       ])

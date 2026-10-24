@@ -14,7 +14,16 @@ import {
 import { serveSiteData, siteHandlers } from '../../test/handlers'
 import { server } from '../../test/server'
 import { APP_CONFIG } from '../shared/constants'
-import { prefetchSiteData, queryErrorMessage, schemaFailureMessage, siteApi } from './api'
+import {
+  prefetchSiteData,
+  queryErrorMessage,
+  refreshSiteData,
+  schemaFailureMessage,
+  seedSiteData,
+  SITE_ENDPOINTS,
+  siteApi,
+  type SiteEndpoint,
+} from './api'
 import { ConfigureStore } from './configureStore'
 import {
   useArticles,
@@ -27,6 +36,7 @@ import {
   useSpecialties,
   useVideos,
 } from './hooks'
+import { RenderedEndpoints } from './renderedEndpoints'
 import { entryAnimationPlayed, logoCubeSaved } from './uiSlice'
 
 const posts = (url: string) => url.split('?')[0]
@@ -279,7 +289,96 @@ describe('prefetchSiteData', () => {
   })
 })
 
+describe('seedSiteData and refreshSiteData', () => {
+  /** Serve these repositories and specialties, counting the requests for each. */
+  function serveCounted(repositories: string[]) {
+    const requests = { repositories: 0, specialties: 0 }
+    // the first handler that matches answers, so these go before siteHandlers.
+    server.use(
+      http.get('*/data/github.json', () => {
+        requests.repositories += 1
+        return HttpResponse.json(repositories.map((name) => makeRepository({ name })))
+      }),
+      http.get(posts(APP_CONFIG.apis.specialties), () => {
+        requests.specialties += 1
+        return HttpResponse.json([])
+      }),
+      ...siteHandlers
+    )
+    return requests
+  }
+
+  const repositoryNames = (store: ReturnType<typeof ConfigureStore>) =>
+    siteApi.endpoints.getRepositories
+      .select()(store.getState())
+      .data?.map((repository) => repository.name)
+
+  it("puts a prerendered page's data in the store, without fetching it", () => {
+    const requests = serveCounted(['fresh'])
+    const store = ConfigureStore()
+
+    store.dispatch(
+      seedSiteData({ getRepositories: [makeRepository({ name: 'from the build' })] })
+    )
+
+    const entry = siteApi.endpoints.getRepositories.select()(store.getState())
+    expect(entry.status).toBe('fulfilled')
+    expect(repositoryNames(store)).toEqual(['from the build'])
+    expect(siteApi.endpoints.getVideos.select()(store.getState()).status).toBe(
+      'uninitialized'
+    )
+    expect(requests.repositories).toBe(0)
+  })
+
+  it('does nothing with an empty snapshot', () => {
+    const store = ConfigureStore()
+    store.dispatch(seedSiteData({}))
+    expect(store.getState().api.queries).toEqual({})
+  })
+
+  it('then fetches the seeded data again, except the shuffled specialties', async () => {
+    const requests = serveCounted(['fresh'])
+    const store = ConfigureStore()
+    const snapshot = {
+      getRepositories: [makeRepository({ name: 'from the build' })],
+      getSpecialties: { items: [], logos: ['a.png'], featured_logos: [] },
+    }
+    store.dispatch(seedSiteData(snapshot))
+
+    store.dispatch(refreshSiteData(snapshot))
+
+    await waitFor(() => expect(repositoryNames(store)).toEqual(['fresh']))
+    expect(requests.repositories).toBe(1)
+    expect(requests.specialties).toBe(0)
+    expect(
+      siteApi.endpoints.getSpecialties.select()(store.getState()).data?.logos
+    ).toEqual(['a.png'])
+  })
+})
+
 describe('the data hooks', () => {
+  it('record the endpoints that a render reads, in a RenderedEndpoints provider', () => {
+    const store = ConfigureStore()
+    const endpoints = new Set<SiteEndpoint>()
+    const wrapper = ({ children }: { children: ReactNode }) => (
+      <RenderedEndpoints.Provider value={endpoints}>
+        <Provider store={store}>{children}</Provider>
+      </RenderedEndpoints.Provider>
+    )
+    server.use(...siteHandlers)
+
+    renderHook(
+      () => {
+        useArticles()
+        useClients()
+      },
+      { wrapper }
+    )
+
+    expect([...endpoints].sort()).toEqual(['getArticles', 'getClients'])
+    expect(SITE_ENDPOINTS).toEqual(expect.arrayContaining([...endpoints]))
+  })
+
   it('give each page { isLoading, errMess, data }', async () => {
     server.use(...siteHandlers)
     const store = ConfigureStore()

@@ -25,6 +25,7 @@ const TESTS = ['**/*.test.{ts,tsx}', 'test/**/*.{ts,tsx}']
 // the version bump that CI runs.
 const NODE_SCRIPTS = [
   'src/components/sitemap/generator.ts',
+  'src/prerender/prerender.ts',
   'src/shared/dotenv.ts',
   'src/shared/updateVersion.ts',
   'src/shared/fetchers/blogPostFetcher.ts',
@@ -32,10 +33,12 @@ const NODE_SCRIPTS = [
   'src/shared/fetchers/youtubeFetcher.ts',
   // and their tests
   'src/**/*.node.test.ts',
+  // the CloudFront Function's test
+  'cloudfront/*.test.ts',
 ]
 
 export default defineConfig([
-  globalIgnores(['build', 'coverage', 'node_modules', 'public', 'dev-dist']),
+  globalIgnores(['build', 'build-ssr', 'coverage', 'node_modules', 'public', 'dev-dist']),
   {
     files: ['**/*.{ts,tsx}'],
     extends: [
