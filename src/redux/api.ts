@@ -307,23 +307,67 @@ export const {
   useGetProjectImagesQuery,
 } = siteApi
 
+/** Every endpoint of the api. */
+export const SITE_ENDPOINTS = [
+  'getArticles',
+  'getVideos',
+  'getRepositories',
+  'getSpecialties',
+  'getPortfolio',
+  'getEducation',
+  'getRecommendations',
+  'getClients',
+  'getProjectImages',
+] as const
+
+export type SiteEndpoint = (typeof SITE_ENDPOINTS)[number]
+
+/**
+ * Some endpoints' data, as the build loaded it: what a prerendered page shows
+ * (src/prerender/), embedded in the page, so that the app starts with it.
+ */
+export type SiteDataSnapshot = {
+  [E in SiteEndpoint]?: (typeof siteApi.endpoints)[E]['Types']['ResultType']
+}
+
 /** Load every endpoint, as soon as the app starts. */
 export const prefetchSiteData = () => (dispatch: AppDispatch) => {
-  const endpoints = [
-    'getArticles',
-    'getVideos',
-    'getRepositories',
-    'getSpecialties',
-    'getPortfolio',
-    'getEducation',
-    'getRecommendations',
-    'getClients',
-    'getProjectImages',
-  ] as const
-  for (const endpoint of endpoints) {
+  for (const endpoint of SITE_ENDPOINTS) {
     dispatch(siteApi.util.prefetch(endpoint, undefined, {}))
   }
 }
+
+type QueryEntries = Parameters<typeof siteApi.util.upsertQueryEntries>[0]
+
+/**
+ * Put a prerendered page's data in the store, before the app first renders,
+ * so that it renders what the page's html shows, and React can hydrate it.
+ */
+export const seedSiteData = (snapshot: SiteDataSnapshot) => (dispatch: AppDispatch) => {
+  const entries = SITE_ENDPOINTS.flatMap((endpointName) =>
+    snapshot[endpointName] === undefined
+      ? []
+      : [{ endpointName, arg: undefined, value: snapshot[endpointName] }]
+  ) as QueryEntries
+  if (entries.length > 0) dispatch(siteApi.util.upsertQueryEntries(entries))
+}
+
+/**
+ * Fetch the seeded endpoints again (seedSiteData), since the build's copy of
+ * their data may be weeks old: from the browser's data cache when the visitor
+ * has one (cachedBaseQuery), from the network otherwise.
+ *
+ * getSpecialties is not refreshed: its logos are shuffled when it loads, so a
+ * refresh would reorder every logo on the page moments after it appears, and
+ * the logos change only when a technology is added.
+ */
+export const refreshSiteData =
+  (snapshot: SiteDataSnapshot) => (dispatch: AppDispatch) => {
+    for (const endpoint of SITE_ENDPOINTS) {
+      if (endpoint === 'getSpecialties' || snapshot[endpoint] === undefined) continue
+      dispatch(siteApi.util.prefetch(endpoint, undefined, { force: true }))
+    }
+  }
 
 /** A query's error, as a sentence: "Error 503", or a schema failure's message. */
 export function queryErrorMessage(

@@ -29,7 +29,6 @@ const RenderPageTitle = (props: RenderPageTitleProps) => {
         <title>{titleText}</title>
         <meta property="og:title" content={titleText} />
         <meta name="twitter:title" content={titleText} />
-        <meta name="twitter:description" content={titleText} />
       </Helmet>
       <div
         key="page-title"

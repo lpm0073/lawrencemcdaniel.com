@@ -5,6 +5,7 @@ import WhartonCertificate from './WhartonCertificate'
 import TechnologyCarousel from '../../components/technologyCarousel/Component'
 import { Content } from '../../components/content/Component'
 import { Helmet } from 'react-helmet'
+import PageMeta from '../../components/PageMeta'
 import { gsdGraph } from '../../shared/seo/gsdGraph'
 import { gsdPersonLawrenceMcDaniel } from '../../shared/seo/gsdPersonLawrence'
 import { hasOccupation } from '../../shared/seo/gsdPersonLawrence'
@@ -46,16 +47,11 @@ const Datascience = () => {
 
   return (
     <React.Fragment>
+      <PageMeta
+        path={'/' + APP_CONFIG.skills.dataScience}
+        description="Data Scientist - Machine learning and algorithms expert with experience using regression, neural networks, support vector machines, anomaly detection, recommender systems, and unsupervised learning"
+      />
       <Helmet>
-        <link rel="canonical" href={APP_CONFIG.urls.site + '/data-science'} />
-        <meta
-          name="description"
-          content="Data Scientist - Machine learning and algorithms expert with experience using regression, neural networks, support vector machines, anomaly detection, recommender systems, and unsupervised learning"
-        />
-        <meta
-          property="og:description"
-          content="Data Scientist - Machine learning and algorithms expert with experience using regression, neural networks, support vector machines, anomaly detection, recommender systems, and unsupervised learning"
-        />
         <meta
           name="keywords"
           content="Lawrence McDaniel, machine learning, algorithms, regression, neural networks, support vector machines, anomaly detection, recommender systems, unsupervised learning"

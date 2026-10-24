@@ -2,7 +2,6 @@ import { render, screen, waitFor } from '@testing-library/react'
 import { describe, expect, it, vi } from 'vitest'
 
 import { helmetHead, metaContent } from '../../../test/pageHead'
-import { APP_CONFIG } from '../../shared/constants'
 import PageNotFound from './Component'
 
 // react-mdr animates a <canvas> with a 2D context, which jsdom lacks: a stand-in.
@@ -31,18 +30,12 @@ describe('PageNotFound', () => {
     expect(document.body).not.toHaveClass('matrixPage')
   })
 
-  it('has a canonical link and a description', async () => {
+  it('is never indexed, so has no canonical link, and has a description', async () => {
     vi.spyOn(console, 'log').mockImplementation(() => {})
     render(<PageNotFound />)
 
-    await waitFor(() =>
-      expect(helmetHead().linkTags).toEqual([
-        expect.objectContaining({
-          rel: 'canonical',
-          href: APP_CONFIG.urls.site + '/matrix',
-        }),
-      ])
-    )
+    await waitFor(() => expect(metaContent('robots')).toBe('noindex'))
+    expect(helmetHead().linkTags).toEqual([])
     expect(metaContent('description')).toBe('Lawrence McDaniel - Page Not Found')
   })
 })

@@ -2,13 +2,13 @@ import React from 'react'
 import RenderPageTitle from '../../components/pagetitle/pageTitleComponent'
 import CoursesGrid from './coursesGrid'
 import { Helmet } from 'react-helmet'
+import PageMeta from '../../components/PageMeta'
 import { gsdPersonLawrenceMcDaniel } from '../../shared/seo/gsdPersonLawrence'
 import { hasOccupation } from '../../shared/seo/gsdPersonLawrence'
 import { gsdQualifications } from '../../shared/seo/gsdQualifications'
 import { useEducation } from '../../redux/hooks'
 
 import { gsdGraph, type JsonLd } from '../../shared/seo/gsdGraph'
-import { APP_CONFIG } from '../../shared/constants'
 import './styles.css'
 
 const Education = () => {
@@ -34,9 +34,8 @@ const Education = () => {
 
   return (
     <React.Fragment>
+      <PageMeta path="/education" description="Lawrence McDaniel - Education" />
       <Helmet>
-        <link rel="canonical" href={APP_CONFIG.urls.site + '/education'} />
-        <meta name="description" content="Lawrence McDaniel - Education" />
         <script type="application/ld+json">
           {JSON.stringify(
             gsdGraph(

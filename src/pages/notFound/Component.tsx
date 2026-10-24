@@ -6,7 +6,6 @@ import { Modal } from 'react-bootstrap'
 
 import { Helmet } from 'react-helmet'
 import { MatrixRainingLetters } from 'react-mdr'
-import { APP_CONFIG } from '../../shared/constants'
 import './styles.css'
 
 interface PageNotFoundState {
@@ -39,7 +38,8 @@ class PageNotFound extends Component<object, PageNotFoundState> {
       <React.Fragment>
         <React.Fragment>
           <Helmet>
-            <link rel="canonical" href={APP_CONFIG.urls.site + '/matrix'} />
+            {/* a page that matches no url: never indexed, and so without a canonical url */}
+            <meta name="robots" content="noindex" />
             <meta name="description" content="Lawrence McDaniel - Page Not Found" />
           </Helmet>
           <main className="matrixPage m-0 p-0" aria-label="404 Page Not Found">

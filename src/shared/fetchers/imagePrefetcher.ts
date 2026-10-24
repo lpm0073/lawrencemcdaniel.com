@@ -28,6 +28,8 @@ export const imagePreFetcher = async (
   arr: readonly WPImageSource[],
   desc: string
 ): Promise<void> => {
+  // no Cache API, e.g. in Node, when the build renders the pages (src/prerender/).
+  if (typeof caches === 'undefined') return
   const cache = await caches.open(APP_CONFIG.caching.names.cdn)
   for (const post of arr) {
     const url = wpGetFeaturedImage(post)

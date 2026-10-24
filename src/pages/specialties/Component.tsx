@@ -3,10 +3,10 @@ import RenderPageTitle from '../../components/pagetitle/pageTitleComponent'
 import SpecialtiesBanner from './specialtiesBanner'
 import TechnologyCarousel from '../../components/technologyCarousel/Component'
 import { Helmet } from 'react-helmet'
+import PageMeta from '../../components/PageMeta'
 import { gsdPersonLawrenceMcDaniel } from '../../shared/seo/gsdPersonLawrence'
 import { gsdKnowsAbout } from '../../shared/seo/gsdKnowsAbout'
 import { gsdGraph } from '../../shared/seo/gsdGraph'
-import { APP_CONFIG } from '../../shared/constants'
 import { useSpecialties } from '../../redux/hooks'
 import './styles.css'
 
@@ -28,9 +28,11 @@ const Specialties = () => {
 
   return (
     <React.Fragment>
+      <PageMeta
+        path="/specialties"
+        description="Lawrence McDaniel - Professional Specialties"
+      />
       <Helmet>
-        <link rel="canonical" href={APP_CONFIG.urls.site + '/specialties'} />
-        <meta name="description" content="Lawrence McDaniel - Professional Specialties" />
         <script type="application/ld+json">
           {JSON.stringify(
             gsdGraph(

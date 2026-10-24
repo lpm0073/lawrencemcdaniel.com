@@ -4,6 +4,7 @@ import RenderPageTitle from '../../components/pagetitle/pageTitleComponent'
 import { LinkedinBadge } from '../../components/linkedinBadge/Component'
 import BlankSpace from '../../components/blankSpace/Component'
 import { Helmet } from 'react-helmet'
+import PageMeta from '../../components/PageMeta'
 
 import { APP_CONFIG } from '../../shared/constants'
 import { gsdGraph, type JsonLd } from '../../shared/seo/gsdGraph'
@@ -45,9 +46,8 @@ const Bio = () => {
 
   return (
     <React.Fragment>
+      <PageMeta path="/bio" description="Lawrence McDaniel - Bio" />
       <Helmet>
-        <link rel="canonical" href={APP_CONFIG.urls.site + '/bio'} />
-        <meta name="description" content="Lawrence McDaniel - Bio" />
         <script type="application/ld+json">
           {JSON.stringify(
             gsdGraph(

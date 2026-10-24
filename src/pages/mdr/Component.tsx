@@ -5,13 +5,13 @@ import React, { Component } from 'react'
 import { Modal } from 'react-bootstrap'
 
 import { Helmet } from 'react-helmet'
+import PageMeta from '../../components/PageMeta'
 //import MatrixRainingLetters from '../../components/matrixRainingLetters/matrixRainingLetters';
 import { MatrixRainingLetters } from 'react-mdr'
 
 import { gsdPersonLawrenceMcDaniel } from '../../shared/seo/gsdPersonLawrence'
 import { gsdGraph } from '../../shared/seo/gsdGraph'
 
-import { APP_CONFIG } from '../../shared/constants'
 import './styles.css'
 
 interface MRLPageState {
@@ -41,7 +41,7 @@ class MRLPage extends Component<object, MRLPageState> {
   }
 
   render() {
-    const slug = 'matrix-digital-rain-for-react'
+    const slug = 'react-mdr'
     const webpageName = 'Matrix Digital Rain Effect for React'
     const webpageDescription = 'Matrix Digital Rain effect for React.'
     const primaryImageUrl = ''
@@ -52,12 +52,11 @@ class MRLPage extends Component<object, MRLPageState> {
     return (
       <React.Fragment>
         <React.Fragment>
+          <PageMeta
+            path="/react-mdr"
+            description="Lawrence McDaniel - Matrix digital rain for React"
+          />
           <Helmet>
-            <link rel="canonical" href={APP_CONFIG.urls.site + '/react-mdr'} />
-            <meta
-              name="description"
-              content="Lawrence McDaniel - Matrix digital rain for React"
-            />
             <script type="application/ld+json">
               {JSON.stringify(
                 gsdGraph(
@@ -71,10 +70,6 @@ class MRLPage extends Component<object, MRLPageState> {
                 )
               )}
             </script>
-            <meta
-              property="og:description"
-              content="Lawrence McDaniel - Matrix digital rain for React"
-            />
             <meta
               name="keywords"
               content="Lawrence McDaniel, Matrix Digital Rain, NPM, React, ReactJS"

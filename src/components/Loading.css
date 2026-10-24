@@ -1,0 +1,44 @@
+/* three dots that pulse in turn, in the size and colour of react-loader-spinner's ThreeDots. */
+.loading-dots {
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+  gap: 12px;
+  height: 100px;
+  width: 100px;
+}
+
+.loading-dots span {
+  width: 18px;
+  height: 18px;
+  border-radius: 50%;
+  background-color: #038fc5;
+  animation: loading-dots-pulse 1.2s infinite ease-in-out both;
+}
+
+.loading-dots span:nth-child(1) {
+  animation-delay: -0.32s;
+}
+
+.loading-dots span:nth-child(2) {
+  animation-delay: -0.16s;
+}
+
+@keyframes loading-dots-pulse {
+  0%,
+  80%,
+  100% {
+    transform: scale(0.4);
+    opacity: 0.5;
+  }
+  40% {
+    transform: scale(1);
+    opacity: 1;
+  }
+}
+
+@media (prefers-reduced-motion: reduce) {
+  .loading-dots span {
+    animation: none;
+  }
+}

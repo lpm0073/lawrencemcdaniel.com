@@ -22,14 +22,14 @@ describe('ImageTaggerPage', () => {
 
     const graph = await waitForCanonical('https://lawrencemcdaniel.com/image-tagging')
     expect(metaContent('description')).toMatch(/^Data Scientist and Full Stack/)
-    expect(metaContent('og:description')).toMatch(/^Full Stack Web Developer/)
+    expect(metaContent('og:description')).toBe(metaContent('description'))
     expect(graph).toEqual(
       expect.arrayContaining([
         expect.objectContaining({ '@type': 'Person' }),
         expect.objectContaining({ '@type': 'Article' }),
         expect.objectContaining({
           '@type': 'WebPage',
-          url: 'https://lawrencemcdaniel.com/image-tagging/',
+          url: 'https://lawrencemcdaniel.com/image-tagging',
           image:
             'https://cdn.lawrencemcdaniel.com/wp-content/uploads/2020/05/19131001/aws-react-hosting.png',
         }),

@@ -102,7 +102,7 @@ describe('gsdGraph', () => {
     expect(webpage).toMatchObject({
       '@type': 'WebPage',
       '@id': SITE + '/about/#webpage',
-      url: SITE + '/about/',
+      url: SITE + '/about',
       name: 'About',
       image: { '@id': SITE + '/#logo' },
     })
@@ -118,7 +118,7 @@ describe('gsdGraph', () => {
     expect(items[1]).toMatchObject({
       position: 2,
       name: 'Lawrence McDaniel - About',
-      item: { '@type': 'WebPage', url: SITE + '/about/' },
+      item: { '@type': 'WebPage', url: SITE + '/about' },
     })
   })
 

@@ -17,12 +17,18 @@ describe('Head', () => {
         expect.objectContaining({ property: 'og:title', content: basePageTitle }),
       ])
     )
+    // each page names its own canonical url (PageMeta), so there is no default one.
     expect(head.linkTags).toEqual(
+      expect.not.arrayContaining([expect.objectContaining({ rel: 'canonical' })])
+    )
+    expect(head.metaTags).toEqual(
       expect.arrayContaining([
         expect.objectContaining({
-          rel: 'canonical',
-          href: 'https://lawrencemcdaniel.com/',
+          property: 'og:image',
+          content:
+            'https://lawrencemcdaniel.com/assets/images/share/lawrencemcdaniel.jpg',
         }),
+        expect.objectContaining({ property: 'og:image:width', content: '1200' }),
       ])
     )
   })

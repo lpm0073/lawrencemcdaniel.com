@@ -45,7 +45,7 @@ describe('MRLPage', () => {
         expect.objectContaining({ '@type': 'Person' }),
         expect.objectContaining({
           '@type': 'WebPage',
-          url: 'https://lawrencemcdaniel.com/matrix-digital-rain-for-react/',
+          url: 'https://lawrencemcdaniel.com/react-mdr',
         }),
       ])
     )

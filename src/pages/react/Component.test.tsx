@@ -69,7 +69,7 @@ describe('ReactPage', () => {
         expect.objectContaining({ '@type': 'Article' }),
         expect.objectContaining({
           '@type': 'WebPage',
-          url: 'https://lawrencemcdaniel.com/reactjs/',
+          url: 'https://lawrencemcdaniel.com/react',
         }),
       ])
     )

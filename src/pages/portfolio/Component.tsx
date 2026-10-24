@@ -3,8 +3,8 @@ import RenderPageTitle from '../../components/pagetitle/pageTitleComponent'
 import ProjectsGrid from './projectsGrid'
 import { gsdGraph } from '../../shared/seo/gsdGraph'
 import { Helmet } from 'react-helmet'
+import PageMeta from '../../components/PageMeta'
 import { gsdPersonLawrenceMcDaniel } from '../../shared/seo/gsdPersonLawrence'
-import { APP_CONFIG } from '../../shared/constants'
 import { usePortfolio } from '../../redux/hooks'
 import './styles.css'
 
@@ -22,9 +22,8 @@ const Portfolio = () => {
 
   return (
     <React.Fragment>
+      <PageMeta path="/portfolio" description="Lawrence McDaniel - Portfolio" />
       <Helmet>
-        <link rel="canonical" href={APP_CONFIG.urls.site + '/portfolio'} />
-        <meta name="description" content="Lawrence McDaniel - Portfolio" />
         <script type="application/ld+json">
           {JSON.stringify(
             gsdGraph(

@@ -9,11 +9,11 @@ const urlFullStack = '/' + APP_CONFIG.skills.fullStack
 const urlOpenEdx = '/' + APP_CONFIG.skills.openEdx
 const urlReact = '/' + APP_CONFIG.skills.react
 
+/** The site's pages, in the sitemap, and prerendered (src/prerender/). */
 export const routes: string[] = [
   '/',
   '/contact',
   '/consulting',
-  '/qr',
   '/about',
   urlCloud,
   urlDataScience,
@@ -46,12 +46,34 @@ export const priorities: Record<string, number> = {
   '/education': 0.6,
   '/clients': 0.6,
   '/react-mdr': 0.5,
-  '/qr': 0.5,
 }
 
-/** Writes the sitemap to outputPath, by default public/sitemap.xml under the current directory. */
-export function main(outputPath: string = './public/sitemap.xml'): Promise<void> {
-  const lastmod = new Date().toISOString()
+/**
+ * Pages that are prerendered but left out of the sitemap: the WhatsApp QR code
+ * and a demo of image tagging, which aren't meant to be found by search.
+ */
+export const unlistedRoutes: string[] = ['/qr', '/image-tagging']
+
+/** A page of the sitemap that the routes don't list, e.g. a portfolio project. */
+export interface SitemapEntry {
+  url: string
+  /** when its content last changed, if known. */
+  lastmod?: string
+  priority?: number
+}
+
+/**
+ * Writes the sitemap to outputPath, by default public/sitemap.xml under the
+ * current directory: the routes, then entries (the build adds the portfolio's
+ * detail pages, src/prerender/prerender.ts).
+ *
+ * The routes have no lastmod: the date they last changed isn't known, and a
+ * lastmod that is always the build's date teaches search engines to ignore it.
+ */
+export function main(
+  outputPath: string = './public/sitemap.xml',
+  entries: readonly SitemapEntry[] = []
+): Promise<void> {
   const changefreq = 'monthly'
 
   const sitemap = new SitemapStream({ hostname: 'https://lawrencemcdaniel.com' })
@@ -60,9 +82,16 @@ export function main(outputPath: string = './public/sitemap.xml'): Promise<void>
   routes.forEach((url) => {
     sitemap.write({
       url,
-      lastmod,
       changefreq,
       priority: priorities[url] || 0.5,
+    })
+  })
+  entries.forEach(({ url, lastmod, priority }) => {
+    sitemap.write({
+      url,
+      changefreq,
+      priority: priority ?? 0.5,
+      ...(lastmod ? { lastmod } : {}),
     })
   })
 

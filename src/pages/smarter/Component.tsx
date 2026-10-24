@@ -1,5 +1,6 @@
 import React from 'react'
 import { Helmet } from 'react-helmet'
+import PageMeta from '../../components/PageMeta'
 
 import BlankSpace from '../../components/blankSpace/Component'
 import RenderPageTitle from '../../components/pagetitle/pageTitleComponent'
@@ -87,10 +88,12 @@ export default function SmarterPage() {
 
   return (
     <React.Fragment>
+      <PageMeta
+        path="/smarter"
+        description={description}
+        image={APP_CONFIG.static.images.share.smarter}
+      />
       <Helmet>
-        <link rel="canonical" href={APP_CONFIG.urls.site + '/smarter'} />
-        <meta name="description" content={description} />
-        <meta property="og:description" content={description} />
         <meta
           name="keywords"
           content="Lawrence McDaniel, The Smarter Project, Smarter, open source, Django, React, Pydantic, LLM, Claude Code, University of British Columbia"
