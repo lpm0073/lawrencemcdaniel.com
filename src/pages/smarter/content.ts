@@ -113,11 +113,11 @@ export const SMARTER_IDEAS: SmarterIdea[] = [
     summary:
       'I developed a decorator-based caching solution that works by serializing function arguments and caching their results in Django’s cache.',
     image: {
-      src: 'https://cdn.blog.smarter.sh/2026/10/17235531/smarter-hand-rolled-caches.png',
-      alt: 'Chart: files in Smarter that call the cache directly, rising to 9, then falling to 2 after the fix',
+      src: 'https://cdn.blog.smarter.sh/2026/10/25132233/cache-results-featured.png',
+      alt: 'Illustration of Django caching with @cache_results(): a caped courier outruns a stopwatch, delivering a cached result',
     },
     links: [
-      { label: 'Blog post', href: BLOG + '/2026/10/11/blog-prologue-geometric-series/' },
+      { label: 'Blog post', href: BLOG + '/2026/10/25/smarter-cache-results/' },
       {
         label: 'Docs',
         href:
