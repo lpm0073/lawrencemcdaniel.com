@@ -1,3 +1,10 @@
+## [1.8.4](https://github.com/lpm0073/lawrencemcdaniel.com/compare/v1.8.3...v1.8.4) (2026-10-25)
+
+
+### Bug Fixes
+
+* **smarter:** repoint caching blog post ([b2326d5](https://github.com/lpm0073/lawrencemcdaniel.com/commit/b2326d59b8d9033792166a0d6df0b86d118c383f))
+
 ## [1.8.3](https://github.com/lpm0073/lawrencemcdaniel.com/compare/v1.8.2...v1.8.3) (2026-10-24)
 
 
