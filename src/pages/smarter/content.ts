@@ -44,10 +44,9 @@ export const SMARTER_IDEAS: SmarterIdea[] = [
     key: 'django-react',
     title: 'Django-React integration',
     summary:
-      'Django serves every page of the web console and hosts a small React app on it, ' +
-      'handing over the page’s context through a template tag. React becomes part of ' +
-      'Django’s runtime instead of a separate single-page app with its own login, ' +
-      'routing and deployment.',
+      'The web console is served by Django but includes more than 30 React apps. ' +
+      'I developed a way to hand over each page’s React manifest contexts through a custom Django template tag ' +
+      'making React a bound part of Django’s runtime.',
     image: {
       src: 'https://cdn.blog.smarter.sh/2026/05/10014519/django-react.png',
       alt: 'The Django and React logos',
@@ -112,9 +111,7 @@ export const SMARTER_IDEAS: SmarterIdea[] = [
     key: 'cache-results',
     title: 'Object caching with @cache_results()',
     summary:
-      'A decorator caches a function’s results in Django’s cache, keyed by its ' +
-      'arguments, and model signals invalidate them. When hand-rolled caches started ' +
-      'spreading through new apps, one commit moved every copy back onto it.',
+      'I developed a decorator-based caching solution that works by serializing function arguments and caching their results in Django’s cache.',
     image: {
       src: 'https://cdn.blog.smarter.sh/2026/10/17235531/smarter-hand-rolled-caches.png',
       alt: 'Chart: files in Smarter that call the cache directly, rising to 9, then falling to 2 after the fix',
@@ -133,9 +130,8 @@ export const SMARTER_IDEAS: SmarterIdea[] = [
     key: 'agentic',
     title: 'Agentic coding on a large codebase',
     summary:
-      'Claude Code works on Smarter every day. It is guided by CLAUDE.md, agent skills ' +
-      'and decision records, and checked by tests and hooks. The Converge or Diverge ' +
-      'series measures what that does to a large codebase’s quality over time.',
+      'Claude Code works on Smarter every day, continually improving code quality, extensibility, performance and CI-CD automation. ' +
+      'These articles explore how it does that.',
     image: {
       src: 'https://cdn.blog.smarter.sh/2026/10/17235517/smarter-convergence-loop.png',
       alt: 'The convergence loop: guidance, autonomy and feedback',
